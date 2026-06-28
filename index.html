@@ -74,8 +74,63 @@
   @keyframes fade{to{opacity:1}}
   @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-  /* sections placeholder (T4 fills this) */
+  /* ---- content sections ---- */
   #content{position:relative;z-index:2;background:var(--ink)}
+  section.block{padding:clamp(64px,9vw,128px) 0;border-top:1px solid var(--line)}
+  .sec-head{max-width:58ch;margin-bottom:48px}
+  .sec-head h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-.02em;margin:.34em 0 .34em;line-height:1.04}
+  .sec-head h2 em{font-style:normal;color:var(--accent2)}
+  .sec-head p{color:var(--muted)}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card{background:#0b0f18;border:1px solid var(--line);border-radius:16px;padding:30px;transition:.22s}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 26px 50px -30px var(--accent)}
+  .card .ix{font-family:'Space Mono',monospace;font-weight:700;color:var(--accent2);font-size:.9rem;margin-bottom:14px}
+  .card h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.28rem;margin-bottom:7px}
+  .card p{color:var(--muted);font-size:.98rem}
+
+  .process{background:linear-gradient(180deg,#080b14,#0a0e1a)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:34px}
+  .step{border:1px solid var(--line);border-radius:16px;padding:30px 26px;background:#0b0f18}
+  .step .n{font-family:'Space Mono',monospace;font-weight:700;color:var(--accent2);font-size:1.5rem;margin-bottom:14px}
+  .step h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.2rem;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.96rem}
+  .kicker{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.15rem,2.4vw,1.6rem);font-weight:500;color:#dfe3ea;max-width:48ch}
+  .kicker b{color:var(--accent2)}
+
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .why{padding:24px 22px;border-left:2px solid var(--accent);background:#0b0f18;border-radius:0 12px 12px 0}
+  .why h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.06rem;margin-bottom:4px}
+  .why p{color:var(--muted);font-size:.92rem}
+
+  .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+  .about-grid h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.02em}
+  .about-grid p{color:var(--paper-d);font-size:1.06rem;margin-top:1em}
+
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .contact-grid h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-.02em;margin-bottom:.3em}
+  .contact-grid .sub{color:var(--muted);margin-bottom:22px}
+  .contact-grid .alt{margin-top:20px;font-size:.95rem;color:var(--muted)}
+  .contact-grid .alt a{color:var(--accent2);font-weight:600}
+  form{display:flex;flex-direction:column;gap:14px}
+  .field label{display:block;font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .field input,.field textarea{width:100%;font-family:'Inter',sans-serif;font-size:1rem;padding:.8em .9em;border:1.5px solid var(--line);border-radius:9px;background:#0b0f18;color:var(--paper);transition:.18s}
+  .field input:focus,.field textarea:focus{outline:0;border-color:var(--accent)}
+  .field textarea{min-height:120px;resize:vertical}
+
+  footer{position:relative;z-index:2;background:#04050a;border-top:1px solid var(--line);padding:42px 0 34px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+  .foot a{color:var(--paper-d)}.foot .muted{color:var(--muted);font-size:.86rem}
+
+  .js .reveal{opacity:0;transform:translateY(22px);transition:.62s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){ .js .reveal{opacity:1;transform:none;transition:none} }
+
+  @media(max-width:860px){
+    .cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr 1fr}
+    .about-grid{grid-template-columns:1fr;gap:24px}.contact-grid{grid-template-columns:1fr;gap:30px}
+  }
+  @media(max-width:520px){.why-grid{grid-template-columns:1fr}}
 
   @keyframes fadeNow{to{opacity:1;transform:none}}
   @media(prefers-reduced-motion:reduce){
@@ -121,9 +176,101 @@
     <div class="cue" aria-hidden="true"><span class="bar"></span></div>
   </section>
 
-  <!-- T4: content sections injected here -->
-  <div id="content"></div>
+  <div id="content">
+    <!-- SERVICES -->
+    <section class="block" id="services">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="label" data-i18n="services_label">Ce qu'on fait</p>
+          <h2 data-i18n-html="services_h2">Tout ce qu'il faut pour être en ligne — <em>et y rester.</em></h2>
+          <p data-i18n="services_p">Un seul interlocuteur, du design jusqu'à la maintenance.</p>
+        </div>
+        <div class="cards">
+          <div class="card reveal"><div class="ix">01</div><h3 data-i18n="s1_h">Conception &amp; création</h3><p data-i18n="s1_p">Un site sur-mesure, rapide et responsive, qui reflète vraiment votre établissement — jamais un modèle générique.</p></div>
+          <div class="card reveal"><div class="ix">02</div><h3 data-i18n="s2_h">Sites multilingues</h3><p data-i18n="s2_p">FR, DE, EN sur le même site — pour parler à toute la clientèle, locale comme internationale.</p></div>
+          <div class="card reveal"><div class="ix">03</div><h3 data-i18n="s3_h">Hébergement &amp; visibilité</h3><p data-i18n="s3_p">On héberge, on met à jour, et on soigne votre présence sur Google (fiche, référencement local).</p></div>
+          <div class="card reveal"><div class="ix">04</div><h3 data-i18n="s4_h">Clé en main</h3><p data-i18n="s4_p">Vous n'avez rien à gérer. On conçoit, vous validez, on s'occupe de tout le reste.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="block process" id="process">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="label" data-i18n="process_label">La méthode</p>
+          <h2 data-i18n-html="process_h2">On vous montre votre site. <em>Ensuite on en parle.</em></h2>
+          <p data-i18n="process_p">Pas de longues réunions ni de devis dans le vide — d'abord une démo concrète.</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal"><div class="n">01</div><h3 data-i18n="st1_h">On vous conçoit une démo</h3><p data-i18n="st1_p">Gratuitement, à partir de vos infos publiques, on prépare un aperçu réel de votre futur site.</p></div>
+          <div class="step reveal"><div class="n">02</div><h3 data-i18n="st2_h">Vous la regardez</h3><p data-i18n="st2_p">Vous découvrez le résultat et vous nous dites ce qui vous plaît, ce qu'on change.</p></div>
+          <div class="step reveal"><div class="n">03</div><h3 data-i18n="st3_h">On lance &amp; on entretient</h3><p data-i18n="st3_p">On affine, on met le site en ligne, et on s'occupe de l'hébergement et des mises à jour.</p></div>
+        </div>
+        <p class="kicker reveal" data-i18n-html="process_kicker"><b>Pas de catalogue générique :</b> on vous montre <b>votre</b> site, pas celui d'un autre.</p>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="block" id="why">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="label" data-i18n="why_label">Pourquoi Webwerk</p>
+          <h2 data-i18n-html="why_h2">Local, clair, <em>sans surprise.</em></h2>
+        </div>
+        <div class="why-grid">
+          <div class="why reveal"><h3 data-i18n="w1_h">Basé au Luxembourg</h3><p data-i18n="w1_p">Un studio d'ici, qui connaît votre marché et vos langues.</p></div>
+          <div class="why reveal"><h3 data-i18n="w2_h">Multilingue</h3><p data-i18n="w2_p">FR · DE · EN, naturellement — pas une traduction bâclée.</p></div>
+          <div class="why reveal"><h3 data-i18n="w3_h">Vous voyez avant de payer</h3><p data-i18n="w3_p">La démo d'abord. Vous décidez en connaissance de cause.</p></div>
+          <div class="why reveal"><h3 data-i18n="w4_h">Simple &amp; transparent</h3><p data-i18n="w4_p">Un interlocuteur, un site qui marche, aucune complexité inutile.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="block" id="about">
+      <div class="wrap about-grid">
+        <div class="reveal">
+          <p class="label" data-i18n="about_label">À propos</p>
+          <h2 data-i18n-html="about_h2">Un petit studio, <em>beaucoup de soin.</em></h2>
+        </div>
+        <div class="reveal">
+          <p data-i18n="about_p1">Webwerk est un studio web luxembourgeois à taille humaine. On crée des sites clairs, rapides et durables pour les établissements d'ici — des restaurants aux commerces et indépendants.</p>
+          <p data-i18n="about_p2">On préfère le travail bien fait au volume : peu de clients, suivis de près, avec un vrai interlocuteur derrière chaque projet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="block" id="contact">
+      <div class="wrap contact-grid">
+        <div class="reveal">
+          <p class="label" data-i18n="contact_label">Contact</p>
+          <h2 data-i18n-html="contact_h2">Parlons de <em>votre site.</em></h2>
+          <p class="sub" data-i18n="contact_sub">Dites-nous qui vous êtes — on vous prépare une démo gratuite, sans engagement.</p>
+          <p class="alt" data-i18n-html="contact_alt">Ou écrivez-nous directement : <a href="mailto:hello@webwerk.lu">hello@webwerk.lu</a></p>
+          <p class="alt" data-i18n="contact_social">Facebook · Instagram — @webwerk.lu</p>
+        </div>
+        <div class="reveal">
+          <!-- TODO: replace YOUR_FORM_ID with the real Formspree form id -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="field"><label for="cname" data-i18n="f_name">Nom / Établissement</label><input id="cname" type="text" name="name" required /></div>
+            <div class="field"><label for="cemail" data-i18n="f_email">Email</label><input id="cemail" type="email" name="email" required /></div>
+            <div class="field"><label for="cmsg" data-i18n="f_msg">Votre projet</label><textarea id="cmsg" name="message" required></textarea></div>
+            <button type="submit" class="btn btn-accent" data-i18n="f_send">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="brand"><span class="dot"></span>Webwerk</a>
+    <p class="muted">© 2026 Webwerk · <span data-i18n="foot_tag">Studio web · Luxembourg</span> · <a href="mailto:hello@webwerk.lu">hello@webwerk.lu</a></p>
+  </div>
+</footer>
 
 <!-- ===================== WebGL hero engine ===================== -->
 <script type="importmap">
@@ -314,7 +461,33 @@ if(renderer){
   const I18N={ fr:{}, en:{
     nav_services:"Services", nav_process:"How it works", nav_about:"About", nav_contact:"Contact", nav_quote:"Free quote",
     hero_eyebrow:"Web studio · Luxembourg",
-    hero_tagline:"We build websites that look like no one else's."
+    hero_tagline:"We build websites that look like no one else's.",
+    services_label:"What we do", services_h2:"Everything you need to get online — <em>and stay there.</em>",
+    services_p:"One point of contact, from design to maintenance.",
+    s1_h:"Design & build", s1_p:"A custom, fast, responsive site that truly reflects your venue — never a generic template.",
+    s2_h:"Multilingual sites", s2_p:"FR, DE, EN on one site — to reach every customer, local and international.",
+    s3_h:"Hosting & visibility", s3_p:"We host, we update, and we look after your Google presence (listing, local SEO).",
+    s4_h:"Done-for-you", s4_p:"Nothing for you to manage. We design, you approve, we handle the rest.",
+    process_label:"How it works", process_h2:"We show you your site. <em>Then we talk.</em>",
+    process_p:"No long meetings or quotes in the dark — a real demo first.",
+    st1_h:"We build you a demo", st1_p:"Free, from your public info, we prepare a real preview of your future site.",
+    st2_h:"You review it", st2_p:"You see the result and tell us what you love and what to change.",
+    st3_h:"We launch & maintain", st3_p:"We refine it, put it online, and take care of hosting and updates.",
+    process_kicker:"<b>No generic catalogue:</b> we show you <b>your</b> site, not someone else's.",
+    why_label:"Why Webwerk", why_h2:"Local, clear, <em>no surprises.</em>",
+    w1_h:"Luxembourg-based", w1_p:"A studio from here, that knows your market and your languages.",
+    w2_h:"Multilingual", w2_p:"FR · DE · EN, naturally — not a rushed translation.",
+    w3_h:"See it before you pay", w3_p:"The demo comes first. You decide with eyes open.",
+    w4_h:"Simple & transparent", w4_p:"One contact, a site that works, no needless complexity.",
+    about_label:"About", about_h2:"A small studio, <em>a lot of care.</em>",
+    about_p1:"Webwerk is a human-sized Luxembourg web studio. We build clear, fast, lasting websites for local businesses — from restaurants to shops and independents.",
+    about_p2:"We prefer good work over volume: few clients, closely looked after, with a real person behind every project.",
+    contact_label:"Contact", contact_h2:"Let's talk about <em>your site.</em>",
+    contact_sub:"Tell us who you are — we'll prepare a free demo, no obligation.",
+    contact_alt:"Or write to us directly: <a href=\"mailto:hello@webwerk.lu\">hello@webwerk.lu</a>",
+    contact_social:"Facebook · Instagram — @webwerk.lu",
+    f_name:"Name / Business", f_email:"Email", f_msg:"Your project", f_send:"Send",
+    foot_tag:"Web studio · Luxembourg"
   }};
   const FR={};
   document.querySelectorAll('[data-i18n]').forEach(el=>{FR[el.getAttribute('data-i18n')]=el.textContent;});
@@ -331,6 +504,21 @@ if(renderer){
   document.querySelectorAll('.lang-switch button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
   let saved='fr'; try{saved=localStorage.getItem('webwerk_lang')||'fr';}catch(e){}
   if(saved!=='fr') setLang(saved);
+</script>
+
+<!-- ===================== scroll reveals (GSAP) ===================== -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script>
+  (function(){
+    const motion = matchMedia('(prefers-reduced-motion: no-preference)').matches;
+    const reveals = document.querySelectorAll('.reveal');
+    if(!motion || !window.gsap || !window.ScrollTrigger){ reveals.forEach(el=>el.classList.add('in')); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    reveals.forEach(el=>{
+      ScrollTrigger.create({ trigger:el, start:'top 86%', once:true, onEnter:()=>el.classList.add('in') });
+    });
+  })();
 </script>
 </body>
 </html>
