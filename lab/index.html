@@ -1,338 +1,263 @@
 <!DOCTYPE html>
 <!--
-  WEBWERK · LAB — Direction-B hero PROTOTYPE.
-  "Type your business name → watch a site generate." Living WebGL canvas + client-side generative
-  preview (deterministic from the name; production version calls a real LLM via a Cloudflare Worker).
-  Self-contained, static, GitHub-Pages-safe. Reduced-motion + no-WebGL fallbacks included.
+  WEBWERK · LAB v2 — "computational craft" hero PROTOTYPE.
+  GPU particle system (Three.js) forms the wordmark WEBWERK, then dissolves into a flowing
+  abstract field; cursor-reactive; over a living fbm-aurora shader background (single WebGL context,
+  two render passes). Self-playing: assemble → hold → dissolve. Static GitHub-Pages-safe.
+  Fallbacks: no-WebGL → CSS gradient + static wordmark; prefers-reduced-motion → static formed state.
 -->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Webwerk · Lab — votre site, généré en direct</title>
+<title>Webwerk · Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Playfair+Display:wght@600;700&family=Sora:wght@600;700;800&family=Archivo+Black&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
 <style>
-  :root{
-    --ink:#0a0c10; --paper:#f4f3ee; --accent:#3247ff; --accent-2:#7b8cff; --muted:#8b93a4; --line:#23283400;
-  }
+  :root{--ink:#06070b;--paper:#eef1f8;--accent:#5b6cff;--accent2:#9fb0ff;--muted:#7a8298}
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{background:var(--ink);color:var(--paper);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-  #bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
-  .fallback-bg{position:fixed;inset:0;z-index:0;background:
-    radial-gradient(50% 60% at 20% 20%,rgba(50,71,255,.5),transparent 60%),
-    radial-gradient(50% 60% at 85% 70%,rgba(123,140,255,.35),transparent 60%),
-    linear-gradient(160deg,#0a0c10,#0c1430 60%,#0a0c10);background-size:200% 200%;animation:drift 18s ease-in-out infinite}
-  @keyframes drift{0%,100%{background-position:0% 0%}50%{background-position:100% 100%}}
-  @media(prefers-reduced-motion:reduce){.fallback-bg{animation:none}}
+  #gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+  .fallback{position:fixed;inset:0;z-index:0;display:none;align-items:center;justify-content:center;
+    background:radial-gradient(60% 70% at 30% 25%,rgba(91,108,255,.45),transparent 60%),radial-gradient(50% 60% at 80% 75%,rgba(159,176,255,.3),transparent 60%),linear-gradient(160deg,#06070b,#0b1230 60%,#06070b)}
+  .fallback .wm{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.6rem,11vw,8rem);letter-spacing:-.03em}
+  .no-webgl .fallback{display:flex}.no-webgl #gl{display:none}
 
-  .shell{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column}
+  .shell{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;pointer-events:none}
+  .shell a,.shell button{pointer-events:auto}
   .top{display:flex;align-items:center;justify-content:space-between;padding:24px clamp(20px,5vw,52px)}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem}
   .brand .dot{width:11px;height:11px;border-radius:3px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 22px 2px var(--accent)}
   .top .tag{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 
-  .stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px clamp(20px,5vw,52px) 64px;gap:0}
-  .eyebrow{font-family:'Space Mono',monospace;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-2);margin-bottom:22px;opacity:0;animation:fadeUp .8s .15s forwards}
-  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.025em;max-width:18ch;margin-bottom:.5em;opacity:0;animation:fadeUp .8s .28s forwards}
-  h1 .g{background:linear-gradient(90deg,var(--accent-2),#fff,var(--accent-2));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
-  @keyframes shine{to{background-position:200% center}}
-  .sub{color:#c7ccd8;font-size:clamp(1rem,1.7vw,1.18rem);max-width:46ch;margin-bottom:34px;opacity:0;animation:fadeUp .8s .4s forwards}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+  .spacer{height:clamp(140px,30vh,260px)}  /* leaves room where particle wordmark sits */
+  .eyebrow{font-family:'Space Mono',monospace;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent2);opacity:0;animation:fade 1s 3.4s forwards}
+  .tagline{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(1.1rem,2.6vw,1.7rem);letter-spacing:-.01em;color:#d4d9e8;max-width:24ch;margin-top:18px;opacity:0;animation:fade 1.1s 3.7s forwards}
+  .cue{margin-top:40px;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);opacity:0;animation:fade 1s 4.2s forwards}
+  .cue .bar{display:block;width:1px;height:34px;margin:12px auto 0;background:linear-gradient(var(--accent2),transparent);animation:drop 1.8s ease-in-out infinite}
+  @keyframes fade{to{opacity:1}}
+  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+  @media(prefers-reduced-motion:reduce){.eyebrow,.tagline,.cue{animation:none;opacity:1}.cue .bar{animation:none}}
 
-  /* prompt */
-  .prompt{display:flex;gap:10px;width:min(560px,92vw);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
-    backdrop-filter:blur(14px);border-radius:16px;padding:9px 9px 9px 20px;opacity:0;animation:fadeUp .8s .52s forwards;transition:border-color .2s,box-shadow .2s}
-  .prompt:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px rgba(50,71,255,.22)}
-  .prompt .chev{align-self:center;font-family:'Space Mono',monospace;color:var(--accent-2)}
-  .prompt input{flex:1;background:none;border:0;outline:0;color:#fff;font-family:'Inter',sans-serif;font-size:1.06rem;padding:12px 0}
-  .prompt input::placeholder{color:#9aa3b5}
-  .prompt button{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.98rem;border:0;cursor:pointer;border-radius:11px;padding:0 22px;background:var(--accent);color:#fff;transition:.18s;white-space:nowrap}
-  .prompt button:hover{background:#1f31d6;transform:translateY(-1px)}
-  .hint{margin-top:16px;font-size:.84rem;color:var(--muted);opacity:0;animation:fadeUp .8s .62s forwards}
-  .hint b{color:#c7ccd8;cursor:pointer;border-bottom:1px dotted var(--muted)}
-
-  /* generating overlay */
-  .gen{margin-top:30px;font-family:'Space Mono',monospace;font-size:.92rem;color:#c7ccd8;text-align:left;width:min(560px,92vw);min-height:96px}
-  .gen .ln{opacity:0;transform:translateY(6px);transition:.4s}
-  .gen .ln.in{opacity:1;transform:none}
-  .gen .ln .ok{color:#46d39a;margin-right:8px}
-  .gen .ln .run{color:var(--accent-2);margin-right:8px}
-
-  /* preview card */
-  .stageprev{width:min(880px,94vw);margin-top:6px;perspective:1400px}
-  .card{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 50px 120px -40px rgba(0,0,0,.8);
-    transform:rotateX(8deg) translateY(40px) scale(.96);opacity:0;transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity .7s}
-  .card.in{transform:none;opacity:1}
-  .chrome{display:flex;align-items:center;gap:7px;padding:11px 16px;background:#11141c;border-bottom:1px solid rgba(255,255,255,.08)}
-  .chrome i{width:11px;height:11px;border-radius:50%;background:#3a3f4c;display:block}
-  .chrome .url{margin-left:12px;font-family:'Space Mono',monospace;font-size:.74rem;color:#6b7280}
-  .site{position:relative;min-height:340px;padding:clamp(26px,5vw,52px);text-align:left}
-  .site .snav{display:flex;justify-content:space-between;align-items:center;margin-bottom:clamp(28px,7vw,64px);font-size:.84rem;opacity:.9}
-  .site .snav .slogo{font-weight:800;letter-spacing:-.01em}
-  .site .snav .slinks{display:flex;gap:18px;opacity:.8}
-  .site h2{font-size:clamp(2rem,5.5vw,4rem);line-height:1.0;letter-spacing:-.02em;margin-bottom:.32em;max-width:14ch}
-  .site .stag{font-size:clamp(1rem,2vw,1.25rem);max-width:34ch;margin-bottom:1.6em;opacity:.85}
-  .site .sbtn{display:inline-block;font-weight:600;padding:.7em 1.5em;border-radius:8px;font-size:.95rem}
-  .site .pal{position:absolute;right:clamp(20px,5vw,52px);bottom:clamp(20px,5vw,52px);display:flex;gap:8px}
-  .site .pal i{width:30px;height:30px;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.3);display:block}
-  .meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:18px;opacity:0;transition:.6s .2s}
-  .meta.in{opacity:1}
-  .meta .cap{font-family:'Space Mono',monospace;font-size:.78rem;color:var(--muted)}
-  .meta .cap b{color:#c7ccd8}
-  .meta .acts{display:flex;gap:10px}
-  .meta .acts button{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.88rem;cursor:pointer;border-radius:9px;padding:.55em 1.1em;transition:.18s;border:1px solid rgba(255,255,255,.2);background:none;color:#fff}
-  .meta .acts button:hover{border-color:var(--accent);color:var(--accent-2)}
-  .meta .acts .primary{background:var(--accent);border-color:var(--accent)}
-  .meta .acts .primary:hover{background:#1f31d6;color:#fff}
-
-  .foot{position:relative;z-index:2;text-align:center;padding:22px;font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.1em;color:#5b616f}
-  .hidden{display:none!important}
-  @media(max-width:600px){.site .snav .slinks{display:none}.top .tag{display:none}}
+  .replay{position:fixed;right:clamp(16px,4vw,40px);bottom:clamp(16px,4vw,40px);z-index:5;font-family:'Space Mono',monospace;
+    font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:.6em 1em;cursor:pointer;backdrop-filter:blur(8px);transition:.18s}
+  .replay:hover{color:#fff;border-color:var(--accent)}
 </style>
 </head>
 <body>
-<canvas id="bg"></canvas>
-<div class="fallback-bg hidden" id="fallback"></div>
+<canvas id="gl"></canvas>
+<div class="fallback"><div class="wm">WEBWERK</div></div>
 
 <div class="shell">
   <div class="top">
     <div class="brand"><span class="dot"></span>Webwerk</div>
     <div class="tag">Lab · prototype</div>
   </div>
-
   <div class="stage">
-    <div id="intro">
-      <p class="eyebrow">Studio web · propulsé par l'IA</p>
-      <h1>Votre commerce. Son site. <span class="g">Généré sous vos yeux.</span></h1>
-      <p class="sub">Tapez le nom de votre établissement — on en compose un aperçu, en direct.</p>
-      <form class="prompt" id="form" autocomplete="off">
-        <span class="chev">&gt;_</span>
-        <input id="name" type="text" placeholder="ex. Trattoria Bella, Café du Coin, Salon Lumière…" aria-label="Nom de votre commerce" />
-        <button type="submit">Générer&nbsp;→</button>
-      </form>
-      <p class="hint">Pas d'inspiration ? Essayez <b data-ex="Trattoria Bella">Trattoria Bella</b> · <b data-ex="Le Perle Noire">Le Perle Noire</b> · <b data-ex="Boutique Lumière">Boutique Lumière</b></p>
-    </div>
-
-    <div class="gen hidden" id="gen"></div>
-
-    <div class="stageprev hidden" id="prevwrap">
-      <div class="card" id="card">
-        <div class="chrome"><i></i><i></i><i></i><span class="url" id="purl">https://votre-site.lu</span></div>
-        <div class="site" id="site"></div>
-      </div>
-      <div class="meta" id="meta">
-        <div class="cap">Aperçu généré en <b id="gentime">1,8 s</b> · palette &amp; typographie choisies pour vous</div>
-        <div class="acts">
-          <button id="again">Autre version</button>
-          <button class="primary" id="cta">Je veux ce site →</button>
-        </div>
-      </div>
-    </div>
+    <div class="spacer"></div>
+    <p class="eyebrow">Studio web · Luxembourg</p>
+    <p class="tagline">On conçoit des sites qui ne ressemblent à aucun autre.</p>
+    <div class="cue">Bougez la souris<span class="bar"></span></div>
   </div>
-
-  <div class="foot">WEBWERK · LAB — PROTOTYPE</div>
 </div>
+<button class="replay" id="replay">↺ Rejouer</button>
 
-<script id="vert" type="x-shader/x-vertex">
-attribute vec2 p; void main(){ gl_Position = vec4(p,0.,1.); }
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.176.0/build/three.module.js" } }
 </script>
-<script id="frag" type="x-shader/x-fragment">
-precision highp float;
-uniform vec2 u_res; uniform float u_time; uniform vec2 u_mouse; uniform vec3 u_acc;
-// hash + value noise + fbm
-float hash(vec2 p){ p=fract(p*vec2(123.34,456.21)); p+=dot(p,p+45.32); return fract(p.x*p.y); }
-float noise(vec2 p){ vec2 i=floor(p),f=fract(p); vec2 u=f*f*(3.-2.*f);
-  return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y); }
-float fbm(vec2 p){ float v=0.,a=.5; for(int i=0;i<5;i++){ v+=a*noise(p); p*=2.02; a*=.5; } return v; }
-void main(){
-  vec2 uv=gl_FragCoord.xy/u_res.xy; vec2 p=(gl_FragCoord.xy-.5*u_res.xy)/u_res.y;
-  float t=u_time*0.04;
-  vec2 m=(u_mouse-.5)*1.2;
-  // domain warp
-  vec2 q=vec2(fbm(p*1.5+t), fbm(p*1.5+vec2(5.2,1.3)-t));
-  vec2 r=vec2(fbm(p*1.5+2.0*q+m+vec2(1.7,9.2)), fbm(p*1.5+2.0*q+m+vec2(8.3,2.8)));
-  float f=fbm(p*1.5+2.5*r+t);
-  vec3 base=vec3(0.035,0.045,0.07);
-  vec3 deep=vec3(0.04,0.08,0.22);
-  vec3 col=mix(base,deep,clamp(f*1.3,0.,1.));
-  // accent glints following the warp + mouse
-  float glow=smoothstep(0.55,0.95,f+0.25*length(r-0.5));
-  col+=u_acc*glow*0.9;
-  float spot=smoothstep(0.6,0.0,length(p-m*0.6))*0.25;
-  col+=u_acc*spot;
-  // subtle grain
-  col+=(hash(uv*u_time)-0.5)*0.025;
-  // vignette
-  col*=1.0-0.5*dot(p,p);
-  gl_FragColor=vec4(col,1.0);
-}
-</script>
+<script type="module">
+import * as THREE from 'three';
 
-<script>
-(function(){
-  // ---------------- WebGL living background ----------------
-  const cv=document.getElementById('bg'), fb=document.getElementById('fallback');
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let gl=null, raf=0;
-  function initGL(){
-    if(reduce) return false;
-    gl=cv.getContext('webgl')||cv.getContext('experimental-webgl');
-    if(!gl) return false;
-    const vs=compile(gl.VERTEX_SHADER, document.getElementById('vert').textContent);
-    const fs=compile(gl.FRAGMENT_SHADER, document.getElementById('frag').textContent);
-    if(!vs||!fs) return false;
-    const prog=gl.createProgram(); gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
-    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) return false;
-    gl.useProgram(prog);
-    const buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf);
-    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
-    const loc=gl.getAttribLocation(prog,'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-    const uRes=gl.getUniformLocation(prog,'u_res'), uTime=gl.getUniformLocation(prog,'u_time'),
-          uMouse=gl.getUniformLocation(prog,'u_mouse'), uAcc=gl.getUniformLocation(prog,'u_acc');
-    let acc=[0.18,0.26,1.0]; window.__setAcc=(r,g,b)=>{acc=[r,g,b];};
-    let mouse=[.5,.5], tm=[.5,.5];
-    window.addEventListener('pointermove',e=>{mouse=[e.clientX/innerWidth,1-e.clientY/innerHeight];},{passive:true});
-    function resize(){const d=Math.min(devicePixelRatio||1,1.6);cv.width=innerWidth*d;cv.height=innerHeight*d;gl.viewport(0,0,cv.width,cv.height);}
-    resize(); addEventListener('resize',resize,{passive:true});
-    const t0=performance.now();
-    function loop(now){
-      tm[0]+=(mouse[0]-tm[0])*0.05; tm[1]+=(mouse[1]-tm[1])*0.05;
-      gl.uniform2f(uRes,cv.width,cv.height);
-      gl.uniform1f(uTime,(now-t0)/1000);
-      gl.uniform2f(uMouse,tm[0],tm[1]);
-      gl.uniform3f(uAcc,acc[0],acc[1],acc[2]);
-      gl.drawArrays(gl.TRIANGLES,0,3);
-      raf=requestAnimationFrame(loop);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canvas = document.getElementById('gl');
+let renderer;
+try { renderer = new THREE.WebGLRenderer({canvas, antialias:false, alpha:false}); }
+catch(e){ document.documentElement.classList.add('no-webgl'); }
+
+if(renderer){
+  renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.autoClear = false;
+
+  // ---------- background: fbm aurora on a fullscreen ortho quad ----------
+  const bgScene = new THREE.Scene();
+  const bgCam = new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+  const bgMat = new THREE.ShaderMaterial({
+    uniforms:{ u_res:{value:new THREE.Vector2()}, u_time:{value:0}, u_mouse:{value:new THREE.Vector2(.5,.5)}, u_acc:{value:new THREE.Vector3(0.18,0.24,1.0)} },
+    vertexShader:`void main(){ gl_Position=vec4(position.xy,0.,1.); }`,
+    fragmentShader:`precision highp float; uniform vec2 u_res; uniform float u_time; uniform vec2 u_mouse; uniform vec3 u_acc;
+      float h(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+      float n(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);
+        return mix(mix(h(i),h(i+vec2(1,0)),u.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),u.x),u.y);}
+      float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p*=2.02;a*=.5;}return v;}
+      void main(){ vec2 p=(gl_FragCoord.xy-.5*u_res)/u_res.y; float t=u_time*0.035; vec2 m=(u_mouse-.5)*1.1;
+        vec2 q=vec2(fbm(p*1.4+t),fbm(p*1.4+vec2(5.2,1.3)-t));
+        vec2 r=vec2(fbm(p*1.4+2.*q+m+vec2(1.7,9.2)),fbm(p*1.4+2.*q+m+vec2(8.3,2.8)));
+        float f=fbm(p*1.4+2.4*r+t);
+        vec3 col=mix(vec3(0.02,0.025,0.045),vec3(0.03,0.06,0.18),clamp(f*1.3,0.,1.));
+        col+=u_acc*smoothstep(0.55,0.95,f+0.25*length(r-0.5))*0.7;
+        col+=u_acc*smoothstep(0.6,0.0,length(p-m*0.6))*0.18;
+        col*=1.0-0.45*dot(p,p); gl_FragColor=vec4(col,1.); }`,
+    depthTest:false, depthWrite:false
+  });
+  bgScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2), bgMat));
+
+  // ---------- particles ----------
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 100);
+  cam.position.z = 18;
+
+  function visibleWidth(z){ const h=2*Math.tan((cam.fov*Math.PI/180)/2)*(cam.position.z-z); return h*cam.aspect; }
+
+  // sample WEBWERK into points
+  function buildTargets(){
+    const c=document.createElement('canvas'); const cx=c.getContext('2d');
+    const W=1000, H=300; c.width=W; c.height=H;
+    cx.fillStyle='#fff'; cx.textAlign='center'; cx.textBaseline='middle';
+    let fs=210; cx.font=`700 ${fs}px 'Space Grotesk', Arial, sans-serif`;
+    // shrink to fit width
+    while(cx.measureText('WEBWERK').width > W*0.92 && fs>40){ fs-=6; cx.font=`700 ${fs}px 'Space Grotesk', Arial, sans-serif`; }
+    cx.fillText('WEBWERK', W/2, H/2+4);
+    const img=cx.getImageData(0,0,W,H).data;
+    const pts=[]; const step = innerWidth<700 ? 3 : 2;
+    for(let y=0;y<H;y+=step){ for(let x=0;x<W;x+=step){ if(img[(y*W+x)*4+3]>128){ pts.push([x,y]); } } }
+    // shuffle + cap
+    for(let i=pts.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[pts[i],pts[j]]=[pts[j],pts[i]];}
+    const cap = innerWidth<700 ? 12000 : 24000;
+    const used = pts.slice(0, Math.min(cap, pts.length));
+    // map to world
+    const targetW = visibleWidth(0)*0.78; const scale=targetW/W;
+    const N=used.length;
+    const aTarget=new Float32Array(N*3), pos=new Float32Array(N*3), aRand=new Float32Array(N*3);
+    for(let i=0;i<N;i++){
+      const wx=(used[i][0]-W/2)*scale, wy=-(used[i][1]-H/2)*scale;
+      aTarget[i*3]=wx; aTarget[i*3+1]=wy + visibleWidth(0)*0.06; aTarget[i*3+2]=(Math.random()-0.5)*0.4;
+      // scattered start: wide sphere
+      const a=Math.random()*6.283, b=Math.acos(2*Math.random()-1), rr=10+Math.random()*16;
+      pos[i*3]=rr*Math.sin(b)*Math.cos(a); pos[i*3+1]=rr*Math.sin(b)*Math.sin(a); pos[i*3+2]=rr*Math.cos(b)-6;
+      aRand[i*3]=Math.random(); aRand[i*3+1]=Math.random(); aRand[i*3+2]=Math.random();
     }
+    return {aTarget,pos,aRand,N};
+  }
+  let {aTarget,pos,aRand,N}=buildTargets();
+  try{ let xn=1e9,xx=-1e9,yn=1e9,yx=-1e9; for(let i=0;i<N;i++){const x=aTarget[i*3],y=aTarget[i*3+1];if(x<xn)xn=x;if(x>xx)xx=x;if(y<yn)yn=y;if(y>yx)yx=y;}
+    window.__dbg={stage:'initial',N, x:[+xn.toFixed(2),+xx.toFixed(2)], y:[+yn.toFixed(2),+yx.toFixed(2)]}; }catch(e){ window.__err=String(e); }
+
+  const geo=new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+  geo.setAttribute('aTarget', new THREE.BufferAttribute(aTarget,3));
+  geo.setAttribute('aRand', new THREE.BufferAttribute(aRand,3));
+
+  const mat=new THREE.ShaderMaterial({
+    uniforms:{ uTime:{value:0}, uAssemble:{value:0}, uDissolve:{value:0}, uMouse:{value:new THREE.Vector3(999,999,0)},
+               uSize:{value: innerWidth<700?1.3:1.7}, uPix:{value:Math.min(devicePixelRatio,1.6)},
+               uA1:{value:new THREE.Color(0x5b6cff)}, uA2:{value:new THREE.Color(0xa8b6ff)}, uA3:{value:new THREE.Color(0xe9ecff)} },
+    vertexShader:`
+      attribute vec3 aTarget; attribute vec3 aRand;
+      uniform float uTime,uAssemble,uDissolve,uSize,uPix; uniform vec3 uMouse;
+      varying float vMix;
+      void main(){
+        vec3 tp = mix(position, aTarget, uAssemble);
+        // breathing
+        tp += 0.05*sin(uTime*0.8 + aRand.x*6.2831) * vec3(aRand.y-0.5, aRand.z-0.5, aRand.x-0.5);
+        // dissolve into flowing abstract field
+        vec3 fl;
+        fl.x = sin(aTarget.y*0.9 + uTime*0.6 + aRand.x*6.2831);
+        fl.y = cos(aTarget.x*0.9 + uTime*0.5 + aRand.y*6.2831);
+        fl.z = sin((aTarget.x+aTarget.y)*0.7 + uTime*0.4 + aRand.z*6.2831);
+        tp += fl * uDissolve * (0.7 + aRand.z*2.2);
+        tp += normalize(aTarget+0.001) * uDissolve * aRand.x * 2.0;
+        // cursor repulsion (screen-plane)
+        vec2 d = tp.xy - uMouse.xy; float dist=length(d);
+        float force = smoothstep(3.2,0.0,dist);
+        tp.xy += normalize(d+0.0001) * force * 2.4;
+        tp.z += force*1.5;
+        vMix = aRand.y*0.6 + uDissolve*0.4 + force*0.5;
+        vec4 mv = modelViewMatrix * vec4(tp,1.0);
+        gl_Position = projectionMatrix * mv;
+        gl_PointSize = uSize * uPix * (22.0 / -mv.z);
+      }`,
+    fragmentShader:`
+      precision highp float; uniform vec3 uA1,uA2,uA3; uniform float uDissolve; varying float vMix;
+      void main(){
+        float a = smoothstep(0.5,0.2,length(gl_PointCoord-0.5));
+        if(a<=0.001) discard;
+        vec3 col = mix(uA1,uA2,clamp(vMix,0.,1.));
+        col = mix(col,uA3,smoothstep(0.7,1.0,vMix));
+        gl_FragColor = vec4(col, a*(0.95-uDissolve*0.2));
+      }`,
+    transparent:true, depthTest:false, depthWrite:false, blending:THREE.AdditiveBlending
+  });
+  const points=new THREE.Points(geo,mat); scene.add(points);
+
+  // ---------- interaction + timeline ----------
+  const mouse=new THREE.Vector2(.5,.5), mWorld=new THREE.Vector3(999,999,0);
+  addEventListener('pointermove',e=>{
+    mouse.set(e.clientX/innerWidth, 1-e.clientY/innerHeight);
+    const vw=visibleWidth(0), vh=vw/cam.aspect;
+    mWorld.set((mouse.x-0.5)*vw, (mouse.y-0.5)*vh, 0);
+  },{passive:true});
+  addEventListener('pointerleave',()=>mWorld.set(999,999,0));
+
+  let t0=performance.now()/1000, phase=0;
+  function startTimeline(){ t0=performance.now()/1000; }
+  document.getElementById('replay').addEventListener('click', startTimeline);
+
+  // Rebuild targets once the web font is actually loaded (module ran before fonts ready)
+  function rebuild(){
+    const r=buildTargets(); aTarget=r.aTarget; pos=r.pos; aRand=r.aRand; N=r.N;
+    geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+    geo.setAttribute('aTarget', new THREE.BufferAttribute(aTarget,3));
+    geo.setAttribute('aRand', new THREE.BufferAttribute(aRand,3));
+    geo.attributes.position.needsUpdate=geo.attributes.aTarget.needsUpdate=geo.attributes.aRand.needsUpdate=true;
+    // debug: report target bounds so we can confirm the wordmark shape
+    let xn=1e9,xx=-1e9,yn=1e9,yx=-1e9; for(let i=0;i<N;i++){const x=aTarget[i*3],y=aTarget[i*3+1];if(x<xn)xn=x;if(x>xx)xx=x;if(y<yn)yn=y;if(y>yx)yx=y;}
+    window.__dbg={N, x:[+xn.toFixed(2),+xx.toFixed(2)], y:[+yn.toFixed(2),+yx.toFixed(2)], vw:+visibleWidth(0).toFixed(2)};
+    startTimeline();
+  }
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(rebuild); }
+  addEventListener('resize', ()=>{ clearTimeout(window.__rb); window.__rb=setTimeout(rebuild,250); }, {passive:true});
+
+  function ease(x){ return x<0 ? 0 : x>1 ? 1 : x*x*(3-2*x); }
+
+  function resize(){
+    renderer.setSize(innerWidth,innerHeight);
+    cam.aspect=innerWidth/innerHeight; cam.updateProjectionMatrix();
+    bgMat.uniforms.u_res.value.set(canvas.width,canvas.height);
+  }
+  addEventListener('resize',resize,{passive:true}); resize();
+
+  if(reduce){ mat.uniforms.uAssemble.value=1; } // static formed state
+
+  // debug/verification hook: freeze an exact phase
+  let __freeze=false;
+  window.__setPhase=(a,d)=>{ __freeze=true; mat.uniforms.uAssemble.value=a; mat.uniforms.uDissolve.value=d; };
+  window.__unfreeze=()=>{ __freeze=false; startTimeline(); };
+
+  let raf;
+  function loop(){
+    const now=performance.now()/1000, t=now-t0;
+    bgMat.uniforms.u_time.value=now; bgMat.uniforms.u_mouse.value.copy(mouse);
+    mat.uniforms.uTime.value=now; mat.uniforms.uMouse.value.copy(mWorld);
+    if(!reduce && !__freeze){
+      // timeline: assemble 0-2.6s, hold to 4.2s, dissolve 4.2-8s -> rest ~0.55
+      mat.uniforms.uAssemble.value = ease(t/2.6);
+      let diss = t<4.2 ? 0 : ease((t-4.2)/3.8)*0.6;
+      mat.uniforms.uDissolve.value = diss;
+    }
+    renderer.clear();
+    renderer.render(bgScene,bgCam);
+    renderer.render(scene,cam);
     raf=requestAnimationFrame(loop);
-    document.addEventListener('visibilitychange',()=>{ if(document.hidden){cancelAnimationFrame(raf);} else {raf=requestAnimationFrame(loop);} });
-    return true;
   }
-  function compile(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
-    if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){console.warn(gl.getShaderInfoLog(s));return null;}return s;}
-  if(!initGL()){ cv.classList.add('hidden'); fb.classList.remove('hidden'); }
-
-  // ---------------- generative "engine" (client-side, deterministic) ----------------
-  const PALETTES=[
-    {name:'Nuit cobalt', bg:'#0c1330', ink:'#eef1ff', acc:'#5b6cff', acc2:'#aab4ff', glow:[0.18,0.26,1.0]},
-    {name:'Terracotta', bg:'#211511', ink:'#fbeee4', acc:'#e2683f', acc2:'#f0a07e', glow:[0.85,0.32,0.18]},
-    {name:'Forêt', bg:'#0e1c16', ink:'#e8f2ea', acc:'#2f9e6b', acc2:'#7fd3a8', glow:[0.16,0.6,0.38]},
-    {name:'Bordeaux', bg:'#1d0f15', ink:'#f6e9ee', acc:'#a8324c', acc2:'#e08098', glow:[0.66,0.18,0.30]},
-    {name:'Or & encre', bg:'#14130e', ink:'#f5f0e2', acc:'#c79a3e', acc2:'#e6cf8e', glow:[0.78,0.6,0.24]},
-    {name:'Sauge', bg:'#16201f', ink:'#eaf3f1', acc:'#4f8a86', acc2:'#9cc9c5', glow:[0.20,0.5,0.48]},
-    {name:'Prune', bg:'#180f23', ink:'#f1ebf6', acc:'#7b4bd6', acc2:'#b79bf0', glow:[0.42,0.26,0.78]},
-    {name:'Ardoise', bg:'#0f1419', ink:'#eef2f6', acc:'#3a8ad6', acc2:'#8fc2ee', glow:[0.18,0.42,0.78]},
-  ];
-  const FONTS=[
-    {d:"'Fraunces',serif", b:"'Inter',sans-serif", label:'Fraunces · Inter'},
-    {d:"'Playfair Display',serif", b:"'Inter',sans-serif", label:'Playfair · Inter'},
-    {d:"'Space Grotesk',sans-serif", b:"'Inter',sans-serif", label:'Space Grotesk · Inter'},
-    {d:"'Sora',sans-serif", b:"'Inter',sans-serif", label:'Sora · Inter'},
-    {d:"'DM Serif Display',serif", b:"'Inter',sans-serif", label:'DM Serif · Inter'},
-    {d:"'Archivo Black',sans-serif", b:"'Inter',sans-serif", label:'Archivo Black · Inter'},
-  ];
-  const TYPES=[
-    {k:['pizz','tratt','rist','osteria','italien','napoli'], t:'restaurant italien', nav:['Accueil','La Carte','Réserver'], cta:'Réserver une table',
-      tags:["L'Italie, au coin de la rue.","Pâtes & pizzas, faites maison.","La dolce vita, près de chez vous."]},
-    {k:['caf','coffee','kaffi','brunch'], t:'café', nav:['Accueil','Le Café','Nous trouver'], cta:'Voir la carte',
-      tags:["Votre pause, en mieux.","Café de quartier, depuis toujours.","On vous garde une table."]},
-    {k:['bar','cocktail','pub','lounge','wine','vin','perle'], t:'bar', nav:['Accueil','La Carte','Réserver'], cta:'Réserver',
-      tags:["Les nuits commencent ici.","Cocktails & bonne compagnie.","Votre QG du soir."]},
-    {k:['resto','restaur','table','brasserie','bistro','grill','kitchen'], t:'restaurant', nav:['Accueil','La Carte','Réserver'], cta:'Réserver une table',
-      tags:["La table qui vous ressemble.","Cuisine du marché, chaque jour.","Bienvenue à table."]},
-    {k:['boutique','shop','store','concept','mode','atelier'], t:'boutique', nav:['Accueil','La Sélection','Contact'], cta:'Découvrir',
-      tags:["Une sélection, pas un catalogue.","Le bon goût, près de chez vous.","Entrez, on vous attendait."]},
-    {k:['salon','coiff','beaut','spa','nails','barber','lumi'], t:'salon', nav:['Accueil','Prestations','Prendre RDV'], cta:'Prendre rendez-vous',
-      tags:["Votre style, entre de bonnes mains.","Prenez soin de vous.","Le rendez-vous qu'on attend."]},
-  ];
-  function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0);}
-  function pick(arr,seed){return arr[seed%arr.length];}
-  function detect(name){const n=name.toLowerCase();for(const ty of TYPES){if(ty.k.some(k=>n.includes(k)))return ty;}
-    return {t:'commerce', nav:['Accueil','À propos','Contact'], cta:'Nous contacter',
-      tags:["Soigné, simple, en ligne.","Votre établissement mérite mieux qu'une page Facebook.","Du caractère, enfin en ligne."]};}
-  function slug(s){return s.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,28)||'votre-site';}
-
-  function generate(name, variant){
-    const seed=hash(name)+variant*7919;
-    const pal=pick(PALETTES,seed), font=pick(FONTS,(seed>>3)), ty=detect(name);
-    const tag=pick(ty.tags,(seed>>6));
-    return {name, pal, font, ty, tag, seed};
-  }
-
-  // ---------------- interaction ----------------
-  const form=document.getElementById('form'), input=document.getElementById('name'),
-        intro=document.getElementById('intro'), gen=document.getElementById('gen'),
-        prevwrap=document.getElementById('prevwrap'), card=document.getElementById('card'),
-        site=document.getElementById('site'), meta=document.getElementById('meta'),
-        purl=document.getElementById('purl'), gentime=document.getElementById('gentime');
-  let current='', variant=0, busy=false;
-
-  document.querySelectorAll('.hint b').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.ex;run(b.dataset.ex,0);}));
-  form.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();if(v)run(v,0);});
-  document.getElementById('again').addEventListener('click',()=>{variant++;run(current,variant);});
-  document.getElementById('cta').addEventListener('click',function(){this.textContent='✓ On vous recontacte';this.disabled=true;this.style.opacity=.8;});
-
-  const STEPS=[
-    n=>`Analyse de « ${n} »…`,
-    ()=>'Détection du secteur…',
-    ()=>'Choix de la palette & typographie…',
-    ()=>'Composition de la page…',
-  ];
-  function run(name, v){
-    if(busy) return; busy=true; current=name; variant=v;
-    const g=generate(name,v);
-    // reset views
-    intro.classList.add('hidden'); prevwrap.classList.add('hidden'); card.classList.remove('in'); meta.classList.remove('in');
-    gen.classList.remove('hidden'); gen.innerHTML='';
-    const t0=performance.now();
-    const lines=STEPS.map(fn=>fn(name));
-    let i=0;
-    (function step(){
-      if(i<lines.length){
-        const el=document.createElement('div'); el.className='ln';
-        el.innerHTML=`<span class="run">▸</span>${lines[i]}`; gen.appendChild(el);
-        requestAnimationFrame(()=>el.classList.add('in'));
-        const prev=gen.children[i-1]; if(prev) prev.querySelector('.run')?.classList.remove('run'), prev.querySelector('span')&&(prev.querySelector('span').className='ok',prev.querySelector('span').textContent='✓');
-        i++; setTimeout(step, v>0?260:440);
-      } else {
-        // mark last done
-        const last=gen.lastChild?.querySelector('span'); if(last){last.className='ok';last.textContent='✓';}
-        setTimeout(()=>reveal(g, ((performance.now()-t0)/1000)), 300);
-      }
-    })();
-  }
-  function reveal(g, secs){
-    const {pal,font,ty,tag,name}=g;
-    if(window.__setAcc) window.__setAcc(pal.glow[0],pal.glow[1],pal.glow[2]);
-    document.documentElement.style.setProperty('--accent',pal.acc);
-    document.documentElement.style.setProperty('--accent-2',pal.acc2);
-    purl.textContent='https://'+slug(name)+'.lu';
-    gentime.textContent=(Math.max(1.2,Math.min(2.4,secs))).toFixed(1).replace('.',',')+' s';
-    site.style.background=pal.bg; site.style.color=pal.ink; site.style.fontFamily=font.b;
-    site.innerHTML=`
-      <div class="snav" style="font-family:${font.b}">
-        <span class="slogo" style="font-family:${font.d}">${esc(name)}</span>
-        <span class="slinks">${ty.nav.map(x=>`<span>${x}</span>`).join('')}</span>
-      </div>
-      <h2 style="font-family:${font.d}">${esc(name)}</h2>
-      <p class="stag" style="font-family:${font.b}">${tag}</p>
-      <a class="sbtn" style="background:${pal.acc};color:#fff;font-family:${font.b}">${ty.cta}</a>
-      <div class="pal">
-        <i style="background:${pal.bg};border:1px solid rgba(255,255,255,.25)"></i>
-        <i style="background:${pal.acc}"></i>
-        <i style="background:${pal.acc2}"></i>
-        <i style="background:${pal.ink}"></i>
-      </div>`;
-    gen.classList.add('hidden'); prevwrap.classList.remove('hidden');
-    requestAnimationFrame(()=>{ card.classList.add('in'); setTimeout(()=>meta.classList.add('in'),500); });
-    busy=false;
-  }
-  function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
-})();
+  raf=requestAnimationFrame(loop);
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden) cancelAnimationFrame(raf); else { t0+=0; raf=requestAnimationFrame(loop);} });
+}
 </script>
 </body>
 </html>
