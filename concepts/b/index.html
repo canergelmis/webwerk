@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- WEBWERK · CONCEPT B — the terminal. The whole site is an interactive console. -->
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>webwerk ~ %</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --bg:#0c0d10; --bg2:#0f1116; --fg:#d7dbe0; --dim:#6b7280; --amber:#ffb454; --green:#7ee787; --red:#ff5d5d; --cyan:#56b6c2; --line:#1d2027; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--fg);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;background:repeating-linear-gradient(180deg,rgba(255,255,255,.014) 0 1px,transparent 1px 3px);mix-blend-mode:overlay}
+  .win{max-width:980px;margin:0 auto;min-height:100svh;display:flex;flex-direction:column;border-left:1px solid var(--line);border-right:1px solid var(--line);background:linear-gradient(180deg,var(--bg2),var(--bg))}
+  .bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg2);z-index:4}
+  .bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .bar .r{background:#ff5f56}.bar .y{background:#ffbd2e}.bar .g{background:#27c93f}
+  .bar .t{margin-left:10px;color:var(--dim);font-size:.82rem}
+  .bar .lang{margin-left:auto;color:var(--dim);font-size:.8rem}
+  .bar .lang b{cursor:pointer;color:var(--fg)}.bar .lang b.off{color:var(--dim)}
+  .screen{flex:1;padding:22px 18px 8px;overflow-y:auto}
+  .line{white-space:pre-wrap;word-break:break-word}
+  .prompt{color:var(--green)}.path{color:var(--cyan)}.tick{color:var(--amber)}
+  .dim{color:var(--dim)}.amber{color:var(--amber)}.red{color:var(--red)}.green{color:var(--green)}.cyan{color:var(--cyan)}
+  a{color:var(--cyan);text-underline-offset:3px}
+  .hd{color:#fff;font-weight:700}
+  .ascii{color:var(--amber);font-size:clamp(.5rem,1.7vw,.84rem);line-height:1.1;display:block;margin:2px 0 6px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 2px}
+  .chip{font:inherit;font-size:.82rem;color:var(--fg);background:#161922;border:1px solid var(--line);border-radius:6px;padding:5px 11px;cursor:pointer;transition:.14s}
+  .chip:hover{border-color:var(--amber);color:var(--amber)}
+  .chip b{color:var(--amber)}
+  .row{display:grid;grid-template-columns:auto 1fr auto;gap:10px 16px;padding:2px 0}
+  .row .k{color:var(--amber)} .row .v{color:var(--fg)} .row .meta{color:var(--dim)}
+  .inputline{display:flex;align-items:center;gap:8px;padding:6px 18px 22px}
+  .inputline input{flex:1;background:none;border:0;outline:0;color:var(--fg);font:inherit;caret-color:var(--amber)}
+  .cur{display:inline-block;width:9px;height:1.05em;background:var(--amber);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.cur{animation:none}}
+  .screen::-webkit-scrollbar{width:8px}.screen::-webkit-scrollbar-thumb{background:#222732;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="win">
+  <div class="bar">
+    <i class="r"></i><i class="y"></i><i class="g"></i>
+    <span class="t">webwerk — studio web · luxembourg — zsh</span>
+    <span class="lang"><b data-l="fr">fr</b> <span class="dim">/</span> <b data-l="en" class="off">en</b></span>
+  </div>
+  <div class="screen" id="screen"></div>
+  <div class="inputline">
+    <span class="prompt">visiteur@webwerk</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span>
+    <input id="cmd" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="commande" />
+    <span class="cur" id="cur"></span>
+  </div>
+</div>
+
+<script>
+const T = {
+  fr:{
+    boot:["webwerk.os v1.0 — démarrage…","chargement du studio … OK","2 personnes · ∞ café · Luxembourg","",
+      "Bienvenue. Ceci est un vrai terminal — tapez une commande, ou cliquez.","Essayez : help"],
+    help:[["services","ce qu'on fait"],["work","nos réalisations"],["methode","comment on bosse"],["about","qui on est"],["contact","nous écrire"],["clear","effacer l'écran"]],
+    servicesHd:"// ce qu'on fait",
+    services:[["design","Sites sur-mesure, rapides, qui ne ressemblent à aucun autre."],["i18n","Multilingue FR · DE · EN, sur le même site."],["hosting","Hébergement, mises à jour, présence Google."],["care","Clé en main — vous validez, on s'occupe du reste."]],
+    workHd:"// réalisations  ($ open <nom>)",
+    methodeHd:"// la méthode",
+    methode:["1. On vous conçoit une démo — gratuite, avant tout devis.","2. Vous la regardez, vous nous dites quoi changer.","3. On lance, on héberge, on entretient.","","› On vous montre VOTRE site, pas un catalogue générique."],
+    aboutHd:"// qui on est",
+    about:["Webwerk — un studio web luxembourgeois à taille humaine.","Deux personnes, peu de clients, suivis de près.","On préfère le travail bien fait au volume.","Des restaurants aux commerces, en passant par le conseil."],
+    contactHd:"// contact",
+    contact:[["mail","hello@webwerk.lu"],["devis","tapez: devis"],["social","Facebook · Instagram — @webwerk.lu"]],
+    quote:["› Ouverture du formulaire de devis…","  (démo) — écrivez-nous : hello@webwerk.lu"],
+    unknown:(c)=>`zsh: commande introuvable: ${c}  —  tapez 'help'`,
+    opening:(u)=>`› ouverture de ${u} …`,
+  },
+  en:{
+    boot:["webwerk.os v1.0 — booting…","loading studio … OK","2 people · ∞ coffee · Luxembourg","",
+      "Welcome. This is a real terminal — type a command, or click.","Try: help"],
+    help:[["services","what we do"],["work","our work"],["methode","how we work"],["about","who we are"],["contact","reach us"],["clear","clear the screen"]],
+    servicesHd:"// what we do",
+    services:[["design","Custom, fast sites that look like no one else's."],["i18n","Multilingual FR · DE · EN, on one site."],["hosting","Hosting, updates, Google presence."],["care","Done-for-you — you approve, we handle the rest."]],
+    workHd:"// work  ($ open <name>)",
+    methodeHd:"// the method",
+    methode:["1. We build you a demo — free, before any quote.","2. You review it, tell us what to change.","3. We launch, host, maintain.","","› We show you YOUR site, not a generic catalogue."],
+    aboutHd:"// who we are",
+    about:["Webwerk — a human-sized Luxembourg web studio.","Two people, few clients, closely looked after.","We prefer good work over volume.","From restaurants to shops to consulting."],
+    contactHd:"// contact",
+    contact:[["mail","hello@webwerk.lu"],["quote","type: devis"],["social","Facebook · Instagram — @webwerk.lu"]],
+    quote:["› Opening the quote form…","  (demo) — write to us: hello@webwerk.lu"],
+    unknown:(c)=>`zsh: command not found: ${c}  —  type 'help'`,
+    opening:(u)=>`› opening ${u} …`,
+  }
+};
+const WORK = [
+  ["lux-lucis","luxlucisconsulting.com","conseil · private capital","https://www.luxlucisconsulting.com"],
+  ["pasharo","pasharo","site vitrine","#"],
+  ["books-worth-reading","books-worth-reading.com","1 337 livres · full-stack","https://www.books-worth-reading.com"],
+  ["lounbreck","lounbreck.com","SaaS · conformité LU","https://lounbreck.com"],
+  ["resto-demos","20 sites restaurants","démos trilingues","https://canergelmis.github.io/lux-resto-demos/"],
+];
+const ASCII = ` _ _ _ ___ ___ _ _ _ ___ ___ _  _\n| | | | __| _ ) | | | | __| _ \\ |/ /\n| | | | _|| _ \\ V  V | | _||   / ' < \n|__/_|___|___/\\_/\\_/|_|___|_|_\\_|\\_\\`;
+
+let lang='fr';
+const screen=document.getElementById('screen'), input=document.getElementById('cmd');
+function el(html,cls){ const d=document.createElement('div'); d.className='line '+(cls||''); d.innerHTML=html; screen.appendChild(d); return d; }
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+function scroll(){ screen.scrollTop=screen.scrollHeight; }
+
+function printPromptEcho(c){ el(`<span class="prompt">visiteur@webwerk</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> ${esc(c)}`); }
+function chips(list){
+  const wrap=document.createElement('div'); wrap.className='chips';
+  list.forEach(([cmd,desc])=>{ const b=document.createElement('button'); b.className='chip'; b.innerHTML=`<b>${cmd}</b> <span class="dim">— ${desc}</span>`; b.onclick=()=>run(cmd); wrap.appendChild(b); });
+  screen.appendChild(wrap); scroll();
+}
+function typeLines(lines, done){
+  let i=0;
+  (function next(){
+    if(i>=lines.length){ done&&done(); scroll(); return; }
+    el(lines[i]); i++; scroll();
+    setTimeout(next, 90);
+  })();
+}
+
+function run(raw){
+  const c=(raw||'').trim(); if(c!=='') printPromptEcho(c);
+  const t=T[lang]; const parts=c.split(/\s+/); const cmd=parts[0].toLowerCase();
+  if(cmd==='') { scroll(); return; }
+  if(cmd==='clear'){ screen.innerHTML=''; return; }
+  if(cmd==='help'){ el(`<span class="dim">commandes disponibles :</span>`); chips(t.help); return; }
+  if(cmd==='lang'){ setLang(parts[1]==='en'?'en':'fr'); return; }
+  if(cmd==='services'){ el(`<span class="hd">${t.servicesHd}</span>`); t.services.forEach(([k,v])=>el(`<div class="row"><span class="k">${k}</span><span class="v">${v}</span><span></span></div>`)); scroll(); return; }
+  if(cmd==='methode'||cmd==='méthode'||cmd==='method'){ el(`<span class="hd">${t.methodeHd}</span>`); t.methode.forEach(l=>el(l.startsWith('›')?`<span class="amber">${l}</span>`:l)); scroll(); return; }
+  if(cmd==='about'){ el(`<span class="hd">${t.aboutHd}</span>`); t.about.forEach(l=>el(l)); scroll(); return; }
+  if(cmd==='work'||cmd==='ls'){ el(`<span class="hd">${t.workHd}</span>`); WORK.forEach(([id,name,desc])=>el(`<div class="row"><span class="k">${id}</span><span class="v">${name}</span><span class="meta">${desc}</span></div>`)); scroll(); return; }
+  if(cmd==='open'){ const w=WORK.find(x=>x[0]===parts[1]); if(w&&w[3]!=='#'){ el(`<span class="amber">${t.opening(w[3])}</span>`); window.open(w[3],'_blank','noopener'); } else el(`<span class="red">${lang==='fr'?'projet inconnu — tapez: work':'unknown project — type: work'}</span>`); scroll(); return; }
+  if(cmd==='contact'){ el(`<span class="hd">${t.contactHd}</span>`); t.contact.forEach(([k,v])=>el(`<div class="row"><span class="k">${k}</span><span class="v">${k==='mail'?`<a href="mailto:${v}">${v}</a>`:v}</span><span></span></div>`)); scroll(); return; }
+  if(cmd==='devis'||cmd==='quote'){ el(`<span class="green">${t.quote[0]}</span>`); el(`<span class="dim">${t.quote[1]}</span>`); scroll(); return; }
+  el(`<span class="red">${t.unknown(c)}</span>`); scroll();
+}
+
+function boot(){
+  screen.innerHTML='';
+  el(`<span class="ascii">${ASCII}</span>`);
+  typeLines(T[lang].boot.map(l=>l===''?'':`<span class="dim">${l}</span>`), ()=>{ el(''); chips(T[lang].help); });
+}
+function setLang(l){ if(l===lang) return; lang=l; document.documentElement.lang=l;
+  document.querySelectorAll('.bar .lang b').forEach(b=>b.classList.toggle('off', b.dataset.l!==l));
+  boot();
+}
+document.querySelectorAll('.bar .lang b').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+input.addEventListener('keydown',e=>{ if(e.key==='Enter'){ const v=input.value; input.value=''; run(v); } });
+document.addEventListener('click',e=>{ if(!e.target.closest('a,button,input')) input.focus(); });
+input.focus();
+boot();
+</script>
+</body>
+</html>

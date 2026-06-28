@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!-- WEBWERK · CONCEPT D — blueprint. The site as a live technical drawing of itself. -->
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Webwerk · Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --blue:#0b2c52; --blue2:#0e3360; --ink-cyan:#bcd7f2; --wht:#eaf3ff; --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--blue);color:var(--ink-cyan);font-family:'Space Mono',monospace;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background-image:linear-gradient(var(--faint2) 1px,transparent 1px),linear-gradient(90deg,var(--faint2) 1px,transparent 1px);background-size:34px 34px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 30px;position:relative}
+  a{color:var(--amber)}
+  .arch{font-family:'Archivo',sans-serif}
+  .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+  .dim{color:rgba(188,215,242,.55)}
+
+  /* header / title bar */
+  header{position:fixed;top:0;left:0;right:0;z-index:30;border-bottom:1px solid var(--faint);background:rgba(11,44,82,.82);backdrop-filter:blur(4px)}
+  .nav{max-width:1180px;margin:0 auto;padding:0 30px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:.02em;color:var(--wht);display:flex;align-items:center;gap:9px}
+  .brand .x{color:var(--red)}
+  .nav-links{display:flex;gap:22px;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+  .nav-links a{color:var(--ink-cyan)}.nav-links a:hover{color:var(--wht)}
+  .lang b{cursor:pointer;color:var(--wht)}.lang b.off{color:rgba(188,215,242,.45)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero plate */
+  .hero{padding:140px 0 70px;border-bottom:1px solid var(--faint);position:relative}
+  .plate{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.5);margin-bottom:26px}
+  .draw{position:relative;display:inline-block;padding:10px 0 30px}
+  .hero h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(3rem,12vw,9.5rem);line-height:.9;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px var(--wht);text-stroke:1.5px var(--wht);text-transform:uppercase}
+  .hero h1 em{font-style:normal;-webkit-text-stroke:1.5px var(--red);color:transparent}
+  /* dimension line under headline */
+  .dimline{display:flex;align-items:center;gap:8px;margin-top:6px;color:var(--red);font-size:.72rem}
+  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative}
+  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
+  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
+  .hero .sub{max-width:46ch;margin-top:30px;color:var(--ink-cyan);font-size:.95rem}
+  /* corner ticks */
+  .tick{position:absolute;width:14px;height:14px;border:1px solid var(--red)}
+  .tick.tl{top:96px;left:0;border-right:0;border-bottom:0}
+  .tick.tr{top:96px;right:0;border-left:0;border-bottom:0}
+  .callout{position:absolute;font-size:.68rem;color:var(--amber);letter-spacing:.04em}
+  .callout.c1{top:120px;right:8%}
+  @media(max-width:760px){.callout{display:none}.tick{display:none}}
+
+  /* sheets */
+  section.sheet{padding:64px 0;border-bottom:1px solid var(--faint);position:relative}
+  .sheet .fig{position:absolute;top:64px;left:30px;font-size:.72rem;color:var(--red);letter-spacing:.1em}
+  .sheet .wrap{padding-top:8px}
+  .sheet h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.6rem,4vw,2.8rem);color:var(--wht);text-transform:uppercase;letter-spacing:-.01em;margin:30px 0 6px}
+  .sheet .lead{color:rgba(188,215,242,.7);max-width:46ch;margin-bottom:30px}
+
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr)}
+  .cell{border:1px solid var(--faint);border-right:0;padding:22px 18px;position:relative}
+  .grid4 .cell:last-child{border-right:1px solid var(--faint)}
+  .cell .no{color:var(--red);font-size:.74rem;margin-bottom:12px}
+  .cell h3{font-family:'Archivo',sans-serif;font-weight:600;color:var(--wht);font-size:1.04rem;margin-bottom:6px}
+  .cell p{color:rgba(188,215,242,.7);font-size:.82rem;line-height:1.55}
+  @media(max-width:760px){.grid4{grid-template-columns:1fr}.cell{border-right:1px solid var(--faint)!important;border-bottom:0}.grid4 .cell:last-child{border-bottom:1px solid var(--faint)}}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .stp{border:1px dashed var(--faint);padding:22px}
+  .stp .n{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.8rem;color:var(--red);margin-bottom:12px}
+  .stp h3{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;margin-bottom:6px}
+  .stp p{color:rgba(188,215,242,.7);font-size:.84rem}
+  .kick{margin-top:30px;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.3rem,3vw,2rem);color:var(--wht);text-transform:uppercase;line-height:1.05;max-width:22ch}
+  .kick em{font-style:normal;color:var(--red)}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+
+  .specs{border-top:1px solid var(--faint)}
+  .spec{display:grid;grid-template-columns:60px 1fr 1.4fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--faint);align-items:baseline}
+  .spec .id{color:var(--red);font-size:.78rem}
+  .spec a,.spec b{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:1.05rem}
+  .spec .d{color:rgba(188,215,242,.6);font-size:.82rem}
+
+  /* title block (real drawing corner) */
+  .titleblock{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--faint);margin:40px 0}
+  .titleblock div{border-right:1px solid var(--faint);padding:12px 14px}
+  .titleblock div:last-child{border-right:0}
+  .titleblock .k{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(188,215,242,.5);display:block;margin-bottom:3px}
+  .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600}
+
+  .contactrow{display:flex;flex-wrap:wrap;gap:30px;align-items:flex-end;justify-content:space-between}
+  .contactrow a.big{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.6rem,5vw,3.4rem);color:transparent;-webkit-text-stroke:1.2px var(--amber);text-transform:lowercase}
+  .contactrow a.big:hover{color:var(--amber)}
+
+  footer{padding:26px 0;color:rgba(188,215,242,.5);font-size:.74rem}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  @media(prefers-reduced-motion:no-preference){ .reveal{opacity:0;transform:translateY(16px);transition:.6s} .reveal.in{opacity:1;transform:none} }
+</style>
+</head>
+<body id="top">
+<header>
+  <div class="nav">
+    <div class="brand">WEB<span class="x">/</span>WERK</div>
+    <nav class="nav-links">
+      <a href="#fig1" data-i="n1">Services</a><a href="#fig2" data-i="n2">Méthode</a><a href="#fig3" data-i="n3">Réalisations</a><a href="#fig4" data-i="n4">Contact</a>
+    </nav>
+    <div class="lang"><b data-l="fr">FR</b> <span class="dim">/</span> <b data-l="en" class="off">EN</b></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tick tl"></span><span class="tick tr"></span>
+    <span class="callout c1" data-i="co1">échelle 1:1 — fait main</span>
+    <div class="plate" data-i="plate">Plan d'exécution № WW-2026 · Studio web · Luxembourg</div>
+    <div class="draw">
+      <h1 data-i="h1">On dessine<br>le <em>web.</em></h1>
+      <div class="dimline"><span data-i="dimA">concept</span><span class="bar"></span><span data-i="dimB">mise en ligne</span></div>
+    </div>
+    <p class="sub" data-i="sub">Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg — et vous le voyez avant de payer.</p>
+  </div>
+</section>
+
+<section class="sheet" id="fig1">
+  <span class="fig">FIG. 01</span>
+  <div class="wrap reveal">
+    <span class="lbl" data-i="s_lbl">Nomenclature — services</span>
+    <h2 data-i="s_h">Ce qu'on construit</h2>
+    <p class="lead" data-i="s_lead">Un seul interlocuteur, du relevé jusqu'à l'entretien.</p>
+    <div class="grid4">
+      <div class="cell"><div class="no">01</div><h3 data-i="s1">Conception</h3><p data-i="s1p">Sur-mesure, rapide, responsive — jamais un modèle générique.</p></div>
+      <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingue</h3><p data-i="s2p">FR · DE · EN sur le même site.</p></div>
+      <div class="cell"><div class="no">03</div><h3 data-i="s3">Hébergement</h3><p data-i="s3p">Mises à jour, présence Google, SEO local.</p></div>
+      <div class="cell"><div class="no">04</div><h3 data-i="s4">Clé en main</h3><p data-i="s4p">Vous validez, on s'occupe de tout le reste.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="fig2">
+  <span class="fig">FIG. 02</span>
+  <div class="wrap reveal">
+    <span class="lbl" data-i="m_lbl">Séquence — méthode</span>
+    <h2 data-i="m_h">Le mode opératoire</h2>
+    <p class="lead" data-i="m_lead">Pas de devis dans le vide — d'abord une démo réelle de votre site.</p>
+    <div class="steps">
+      <div class="stp"><div class="n">01</div><h3 data-i="m1">La démo</h3><p data-i="m1p">Gratuite, à partir de vos infos publiques.</p></div>
+      <div class="stp"><div class="n">02</div><h3 data-i="m2">Vos retours</h3><p data-i="m2p">Vous nous dites ce qu'on ajuste.</p></div>
+      <div class="stp"><div class="n">03</div><h3 data-i="m3">Lancement</h3><p data-i="m3p">On met en ligne, on héberge, on entretient.</p></div>
+    </div>
+    <p class="kick" data-i="kick">Pas de catalogue. <em>Votre</em> plan, pas celui d'un autre.</p>
+  </div>
+</section>
+
+<section class="sheet" id="fig3">
+  <span class="fig">FIG. 03</span>
+  <div class="wrap reveal">
+    <span class="lbl" data-i="w_lbl">Ouvrages réalisés</span>
+    <h2 data-i="w_h">Déjà construits</h2>
+    <div class="specs">
+      <div class="spec"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="d" data-i="w1">conseil · private capital</span></div>
+      <div class="spec"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="d" data-i="w2">1 337 livres · full-stack</span></div>
+      <div class="spec"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="d" data-i="w3">SaaS · conformité LU</span></div>
+      <div class="spec"><span class="id">A-04</span><a href="https://canergelmis.github.io/lux-resto-demos/" target="_blank" rel="noopener">20 sites restaurants</a><span class="d" data-i="w4">démos trilingues</span></div>
+      <div class="spec"><span class="id">A-05</span><b>Pasharo</b><span class="d" data-i="w5">site vitrine</span></div>
+    </div>
+    <div class="titleblock">
+      <div><span class="k" data-i="tb1">Dessiné par</span><span class="v">Webwerk</span></div>
+      <div><span class="k" data-i="tb2">Échelle</span><span class="v">1:1 — fait main</span></div>
+      <div><span class="k" data-i="tb3">Feuille</span><span class="v">01 / 01</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="fig4" style="border-bottom:0">
+  <span class="fig">FIG. 04</span>
+  <div class="wrap reveal">
+    <span class="lbl" data-i="c_lbl">Mise en service — contact</span>
+    <h2 data-i="c_h">Construisons le vôtre</h2>
+    <p class="lead" data-i="c_lead">Dites-nous qui vous êtes — on vous prépare une démo gratuite, sans engagement.</p>
+    <div class="contactrow">
+      <a class="big" href="mailto:hello@webwerk.lu">hello@webwerk.lu</a>
+      <span class="dim">Facebook · Instagram — @webwerk.lu</span>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap foot"><span>© 2026 WEBWERK · <span data-i="ftag">Studio web · Luxembourg</span></span><span>WW-2026 · SHEET 01/01</span></div></footer>
+
+<script>
+const I={ en:{
+  n1:"Services",n2:"Method",n3:"Work",n4:"Contact",
+  co1:"scale 1:1 — by hand", plate:"Working drawing № WW-2026 · Web studio · Luxembourg",
+  h1:"We draught<br>the <em>web.</em>", dimA:"concept", dimB:"go-live",
+  sub:"Every site is a working drawing: measured, draughted, built. Custom, multilingual, made in Luxembourg — and you see it before you pay.",
+  s_lbl:"Schedule — services", s_h:"What we build", s_lead:"One point of contact, from survey to upkeep.",
+  s1:"Design", s1p:"Custom, fast, responsive — never a generic template.", s2:"Multilingual", s2p:"FR · DE · EN on one site.", s3:"Hosting", s3p:"Updates, Google presence, local SEO.", s4:"Done-for-you", s4p:"You approve, we handle all the rest.",
+  m_lbl:"Sequence — method", m_h:"The procedure", m_lead:"No quotes in the dark — a real demo of your site first.",
+  m1:"The demo", m1p:"Free, from your public info.", m2:"Your feedback", m2p:"You tell us what to adjust.", m3:"Launch", m3p:"We go live, host, and maintain.",
+  kick:"No catalogue. <em>Your</em> drawing, not someone else's.",
+  w_lbl:"Built works", w_h:"Already built", w1:"consulting · private capital", w2:"1,337 books · full-stack", w3:"SaaS · LU compliance", w4:"trilingual demos", w5:"showcase site",
+  tb1:"Drawn by", tb2:"Scale", tb3:"Sheet",
+  c_lbl:"Commissioning — contact", c_h:"Let's build yours", c_lead:"Tell us who you are — we'll prepare a free demo, no obligation.",
+  ftag:"Web studio · Luxembourg"
+}};
+let lang='fr';
+document.querySelectorAll('[data-i]').forEach(el=>el.dataset.fr=el.innerHTML);
+function setLang(l){ lang=l; document.documentElement.lang=l;
+  document.querySelectorAll('.lang b').forEach(b=>b.classList.toggle('off',b.dataset.l!==l));
+  document.querySelectorAll('[data-i]').forEach(el=>{ const k=el.getAttribute('data-i'); el.innerHTML = l==='fr'? el.dataset.fr : (I.en[k]!=null?I.en[k]:el.dataset.fr); });
+}
+document.querySelectorAll('.lang b').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+
+if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+} else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+</script>
+</body>
+</html>
