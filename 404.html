@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — Webwerk</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Space+Mono:wght@400;700&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+<style>
+  :root{--blue:#0b2c52;--cy:#bcd7f2;--wht:#eaf3ff;--faint:rgba(188,215,242,.10);--red:#ff5b51;--amber:#ffcf6b}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{min-height:100svh;background:var(--blue);color:var(--cy);font-family:'Space Mono',monospace;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;
+    background-image:linear-gradient(var(--faint) 1px,transparent 1px),linear-gradient(90deg,var(--faint) 1px,transparent 1px);background-size:36px 36px}
+  .plate{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+  h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(5rem,22vw,13rem);line-height:.9;letter-spacing:-.03em;
+    color:transparent;-webkit-text-stroke:2px var(--wht)}
+  h1 em{font-style:normal;-webkit-text-stroke:2px var(--red)}
+  .dimline{display:flex;align-items:center;gap:10px;margin:14px auto 0;max-width:360px;color:var(--red);font-size:.72rem}
+  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative}
+  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
+  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
+  p{margin-top:26px;color:var(--cy);max-width:42ch;font-size:.95rem}
+  .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;display:block;margin-top:10px;transform:rotate(-2deg)}
+  a.home{display:inline-block;margin-top:30px;font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+    font-size:.82rem;color:var(--blue);background:var(--amber);padding:.85em 1.6em;text-decoration:none;transition:.18s}
+  a.home:hover{background:var(--wht)}
+  footer{position:fixed;bottom:20px;left:0;right:0;font-size:.72rem;color:rgba(188,215,242,.45);letter-spacing:.1em}
+</style>
+</head>
+<body>
+  <div class="plate">FIG. 404 · sheet not found</div>
+  <h1>4<em>0</em>4</h1>
+  <div class="dimline"><span>here</span><span class="bar"></span><span>nowhere</span></div>
+  <p>This drawing doesn't exist — the page was moved, renamed, or never drafted.
+    <span class="note">let's get you back ✦</span>
+  </p>
+  <a class="home" href="/">← Back to webwerk.lu</a>
+  <footer>WEBWERK · WEB STUDIO · LUXEMBOURG</footer>
+</body>
+</html>
