@@ -68,6 +68,12 @@
   .plate-note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.15rem;margin-left:10px;transform:rotate(-2deg);display:inline-block}
   .hero-pin{z-index:3;width:240px;display:block;margin:34px 0 4px}
   .fig-note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.3rem;margin-left:16px;transform:rotate(-3deg);display:inline-block;vertical-align:middle;white-space:nowrap}
+  .anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.22rem;line-height:1.05;display:block;margin-top:10px;transform:rotate(-1.6deg)}
+  .anno.r{transform:rotate(2.2deg)}
+  .lead-anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;display:inline-block;margin-left:14px;transform:rotate(-2deg);vertical-align:middle}
+  .kick-anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.6rem;display:block;margin-top:14px;transform:rotate(-1.5deg)}
+  .dwrap{display:block}
+  .dwrap .anno{display:block;margin-top:3px}
   @media(min-width:1120px){ .hero-pin{position:absolute;margin:0;right:4px;top:52%} .hero-note{display:block;right:150px;top:118px} }
   @media(max-width:1119px){ .hero-note{display:none} }
 
@@ -239,6 +245,7 @@
     <h1 data-i="h1">On dessine<br>le <em>web.</em></h1>
     <div class="dimline"><span data-i="dimA">concept</span><span class="bar"></span><span data-i="dimB">mise en ligne</span></div>
     <p class="sub" data-i="sub">Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg — et vous le voyez avant de payer.</p>
+    <span class="anno" style="font-size:1.4rem;margin-top:14px" data-i="an_hero">↑ fait avec soin, à Luxembourg ✦</span>
 
     <div class="hero-note">
       <span class="note rot1" data-i="hnote">fait main —<br>jamais un template</span>
@@ -276,10 +283,10 @@
     <h2 data-i="s_h">Ce qu'on construit</h2>
     <p class="lead" data-i="s_lead">Un seul interlocuteur, du relevé jusqu'à l'entretien.</p>
     <div class="grid4">
-      <div class="cell"><div class="no">01</div><h3 data-i="s1">Conception</h3><p data-i="s1p">Sur-mesure, rapide, responsive — jamais un modèle générique.</p></div>
-      <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingue</h3><p data-i="s2p">FR · DE · EN sur le même site.</p></div>
-      <div class="cell"><div class="no">03</div><h3 data-i="s3">Hébergement</h3><p data-i="s3p">Mises à jour, présence Google, SEO local.</p></div>
-      <div class="cell"><div class="no">04</div><h3 data-i="s4">Clé en main</h3><p data-i="s4p">Vous validez, on s'occupe de tout le reste.</p></div>
+      <div class="cell"><div class="no">01</div><h3 data-i="s1">Conception</h3><p data-i="s1p">Sur-mesure, rapide, responsive — jamais un modèle générique.</p><span class="anno" data-i="an_s1">★ le cœur du métier</span></div>
+      <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingue</h3><p data-i="s2p">FR · DE · EN sur le même site.</p><span class="anno r" data-i="an_s2">pas Google Translate !</span></div>
+      <div class="cell"><div class="no">03</div><h3 data-i="s3">Hébergement</h3><p data-i="s3p">Mises à jour, présence Google, SEO local.</p><span class="anno" data-i="an_s3">on gère tout ✓</span></div>
+      <div class="cell"><div class="no">04</div><h3 data-i="s4">Clé en main</h3><p data-i="s4p">Vous validez, on s'occupe de tout le reste.</p><span class="anno r" data-i="an_s4">zéro prise de tête</span></div>
     </div>
   </div>
 </section>
@@ -291,13 +298,14 @@
     <h2 data-i="m_h">Le mode opératoire</h2>
     <p class="lead" data-i="m_lead">Pas de devis dans le vide — d'abord une démo réelle de votre site.</p>
     <div class="steps">
-      <div class="stp"><div class="n">01</div><h3 data-i="m1">La démo</h3><p data-i="m1p">Gratuite, à partir de vos infos publiques.</p></div>
-      <div class="stp"><div class="n">02</div><h3 data-i="m2">Vos retours</h3><p data-i="m2p">Vous nous dites ce qu'on ajuste.</p></div>
-      <div class="stp"><div class="n">03</div><h3 data-i="m3">Lancement</h3><p data-i="m3p">On met en ligne, on héberge, on entretient.</p></div>
+      <div class="stp"><div class="n">01</div><h3 data-i="m1">La démo</h3><p data-i="m1p">Gratuite, à partir de vos infos publiques.</p><span class="anno" data-i="an_m1">gratuit, promis !</span></div>
+      <div class="stp"><div class="n">02</div><h3 data-i="m2">Vos retours</h3><p data-i="m2p">Vous nous dites ce qu'on ajuste.</p><span class="anno r" data-i="an_m2">à vous de jouer</span></div>
+      <div class="stp"><div class="n">03</div><h3 data-i="m3">Lancement</h3><p data-i="m3p">On met en ligne, on héberge, on entretient.</p><span class="anno" data-i="an_m3">✓ en ligne !</span></div>
       <svg id="r-step1" class="rj-mark step-arrow sa1" viewBox="0 0 60 30" aria-hidden="true"></svg>
       <svg id="r-step2" class="rj-mark step-arrow sa2" viewBox="0 0 60 30" aria-hidden="true"></svg>
     </div>
     <p class="kick" data-i="kick">Pas de catalogue. <em>Votre</em> plan, pas celui d'un autre.</p>
+    <span class="kick-anno" data-i="an_kick">← on insiste vraiment là-dessus</span>
   </div>
 </section>
 
@@ -307,11 +315,11 @@
     <span class="lbl" data-i="w_lbl">Ouvrages réalisés</span>
     <h2 data-i="w_h">Déjà construits</h2>
     <div class="specs">
-      <div class="spec"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="d" data-i="w1">conseil · private capital</span></div>
-      <div class="spec"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="d" data-i="w2">1 337 livres · full-stack</span></div>
-      <div class="spec"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="d" data-i="w3">SaaS · conformité LU</span></div>
-      <div class="spec"><span class="id">A-04</span><a href="https://canergelmis.github.io/lux-resto-demos/" target="_blank" rel="noopener">20 sites restaurants</a><span class="d" data-i="w4">démos trilingues</span></div>
-      <div class="spec"><span class="id">A-05</span><b>Pasharo</b><span class="d" data-i="w5">site vitrine</span></div>
+      <div class="spec"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="dwrap"><span class="d" data-i="w1">conseil · private capital</span><span class="anno r" data-i="an_w1">notre fierté ★</span></span></div>
+      <div class="spec"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="d" data-i="w2">1 337 livres · full-stack</span><span class="anno" data-i="an_w2">1 337 livres !</span></span></div>
+      <div class="spec"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="d" data-i="w3">SaaS · conformité LU</span><span class="anno r" data-i="an_w3">notre propre SaaS</span></span></div>
+      <div class="spec"><span class="id">A-04</span><a href="https://canergelmis.github.io/lux-resto-demos/" target="_blank" rel="noopener">20 sites restaurants</a><span class="dwrap"><span class="d" data-i="w4">démos trilingues</span><span class="anno" data-i="an_w4">× 20 !</span></span></div>
+      <div class="spec"><span class="id">A-05</span><b>Pasharo</b><span class="dwrap"><span class="d" data-i="w5">site vitrine</span><span class="anno r" data-i="an_w5">et le vôtre ici ? →</span></span></div>
     </div>
     <div class="titleblock">
       <div><span class="k" data-i="tb1">Dessiné par</span><span class="v">Webwerk</span></div>
@@ -396,7 +404,10 @@ const I={ en:{
   plate:"Working drawing № WW-2026 · Web studio · Luxembourg", platenote:"draft v.1",
   h1:"We draught<br>the <em>web.</em>",
   dimA:"concept", dimB:"go-live", hnote:"by hand —<br>never a template", pincap:"your site, sketched", pincap2:"→ delivered ✓",
-  fn1:"sketch", fn3:"→ and yours?",
+  fn1:"sketch", fn3:"→ and yours?", an_hero:"↑ made with care, in Luxembourg ✦",
+  an_s1:"★ the heart of it", an_s2:"not Google Translate!", an_s3:"we handle it all ✓", an_s4:"zero hassle",
+  an_m1:"free, promise!", an_m2:"your turn", an_m3:"✓ live!", an_kick:"← we really mean this",
+  an_w1:"our pride ★", an_w2:"1,337 books!", an_w3:"our own SaaS", an_w4:"× 20 !", an_w5:"yours here? →",
   sub:"Every site is a working drawing: measured, draughted, built. Custom, multilingual, made in Luxembourg — and you see it before you pay.",
   s_lbl:"Schedule — services", s_h:"What we build", s_lead:"One point of contact, from survey to upkeep.",
   s1:"Design", s1p:"Custom, fast, responsive — never a generic template.", s2:"Multilingual", s2p:"FR · DE · EN on one site.", s3:"Hosting", s3p:"Updates, Google presence, local SEO.", s4:"Done-for-you", s4p:"You approve, we handle all the rest.",
