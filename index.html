@@ -4,20 +4,21 @@
   of itself (FIG. plates, dimension lines, drafting title-block). FR default · EN. INDEXABLE.
   Polish: CAD coordinate readout tracking the cursor, animated dimension lines, crosshair hero,
   reveal-on-scroll. Hidden easter egg: the terminal at /console/ (footer link + type "term" or press `).
-  Single self-contained file; GitHub-Pages-safe. Point webwerk.lu when registered.
+  Single self-contained file; GitHub-Pages-safe. Live at webwerk.lu. EN default · FR toggle.
 -->
-<html lang="fr">
+<html lang="en">
 <head>
 <script>document.documentElement.classList.add('js');</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Webwerk — Studio web au Luxembourg · sites sur-mesure</title>
-<meta name="description" content="Webwerk est un studio web luxembourgeois. Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue (FR/DE/EN), pour les restaurants, commerces, indépendants & entreprises. Vous voyez votre site avant de payer." />
+<title>Webwerk — Web studio in Luxembourg · custom websites</title>
+<meta name="description" content="Webwerk is a Luxembourg web studio. Every site is a working drawing: measured, draughted, built. Custom, multilingual (FR/DE/EN) websites for restaurants, shops, independents & companies. You see your site before you pay." />
 <link rel="canonical" href="https://webwerk.lu/" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Webwerk — Studio web au Luxembourg" />
-<meta property="og:description" content="On dessine le web. Chaque site, un plan d'exécution — mesuré, dessiné, construit à Luxembourg." />
-<meta property="og:locale" content="fr_LU" />
+<meta property="og:title" content="Webwerk — Web studio in Luxembourg" />
+<meta property="og:description" content="We draught the web. Every site, a working drawing — measured, draughted, built in Luxembourg." />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:locale:alternate" content="fr_LU" />
 <meta name="theme-color" content="#0b2c52" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -228,11 +229,11 @@
   <div class="nav">
     <a href="#top" class="brand" aria-label="Webwerk">WEB<span class="x">/</span>WERK</a>
     <nav class="nav-links">
-      <a href="#fig1" data-i="n1">Services</a><a href="#fig2" data-i="n2">Méthode</a><a href="#fig3" data-i="n3">Réalisations</a><a href="#fig4" data-i="n4">Contact</a>
+      <a href="#fig1" data-i="n1">Services</a><a href="#fig2" data-i="n2">Method</a><a href="#fig3" data-i="n3">Work</a><a href="#fig4" data-i="n4">Contact</a>
     </nav>
     <div class="nav-cta">
-      <span class="lang"><b data-l="fr">FR</b> <span class="dim">/</span> <b data-l="en" class="off">EN</b></span>
-      <a href="#fig4" class="devis" data-i="devis">Devis</a>
+      <span class="lang"><b data-l="en">EN</b> <span class="dim">/</span> <b data-l="fr" class="off">FR</b></span>
+      <a href="#fig4" class="devis" data-i="devis">Quote</a>
       <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -241,19 +242,19 @@
 <section class="hero" id="hero">
   <div class="wrap">
     <span class="tick tl"></span><span class="tick tr"></span>
-    <div class="plate"><span data-i="plate">Plan d'exécution № WW-2026 · Studio web · Luxembourg</span><span class="plate-note" data-i="platenote">esquisse v.1</span></div>
-    <h1 data-i="h1">On dessine<br>le <em>web.</em></h1>
-    <div class="dimline"><span data-i="dimA">concept</span><span class="bar"></span><span data-i="dimB">mise en ligne</span></div>
-    <p class="sub" data-i="sub">Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg — et vous le voyez avant de payer.</p>
-    <span class="anno" style="font-size:1.4rem;margin-top:14px" data-i="an_hero">↑ fait avec soin, à Luxembourg ✦</span>
+    <div class="plate"><span data-i="plate">Working drawing № WW-2026 · Web studio · Luxembourg</span><span class="plate-note" data-i="platenote">draft v.1</span></div>
+    <h1 data-i="h1">We draught<br>the <em>web.</em></h1>
+    <div class="dimline"><span data-i="dimA">concept</span><span class="bar"></span><span data-i="dimB">go-live</span></div>
+    <p class="sub" data-i="sub">Every site is a working drawing: measured, draughted, built. Custom, multilingual, made in Luxembourg — and you see it before you pay.</p>
+    <span class="anno" style="font-size:1.4rem;margin-top:14px" data-i="an_hero">↑ made with care, in Luxembourg ✦</span>
 
     <div class="hero-note">
-      <span class="note rot1" data-i="hnote">fait main —<br>jamais un template</span>
+      <span class="note rot1" data-i="hnote">by hand —<br>never a template</span>
       <svg id="r-heronote" class="rj-mark" viewBox="0 0 80 46" aria-hidden="true"></svg>
     </div>
 
     <div class="hero-pin">
-      <div class="pin rot2" id="pin" title="survolez">
+      <div class="pin rot2" id="pin" title="hover">
         <div class="stack">
           <div class="face sketch"><svg id="roughwire" viewBox="0 0 200 130" aria-hidden="true"></svg></div>
           <div class="face real">
@@ -268,7 +269,7 @@
             </div>
           </div>
         </div>
-        <div class="cap"><span class="c1" data-i="pincap">votre site, esquissé</span><span class="c2" data-i="pincap2">→ livré ✓</span></div>
+        <div class="cap"><span class="c1" data-i="pincap">your site, sketched</span><span class="c2" data-i="pincap2">→ delivered ✓</span></div>
       </div>
     </div>
   </div>
@@ -277,16 +278,16 @@
 </section>
 
 <section class="sheet" id="fig1">
-  <span class="fig">FIG. 01</span><span class="fig-note" data-i="fn1">croquis</span>
+  <span class="fig">FIG. 01</span><span class="fig-note" data-i="fn1">sketch</span>
   <div class="wrap reveal">
-    <span class="lbl" data-i="s_lbl">Nomenclature — services</span>
-    <h2 data-i="s_h">Ce qu'on construit</h2>
-    <p class="lead" data-i="s_lead">Un seul interlocuteur, du relevé jusqu'à l'entretien.</p>
+    <span class="lbl" data-i="s_lbl">Schedule — services</span>
+    <h2 data-i="s_h">What we build</h2>
+    <p class="lead" data-i="s_lead">One point of contact, from survey to upkeep.</p>
     <div class="grid4">
-      <div class="cell"><div class="no">01</div><h3 data-i="s1">Conception</h3><p data-i="s1p">Sur-mesure, rapide, responsive — jamais un modèle générique.</p><span class="anno" data-i="an_s1">★ le cœur du métier</span></div>
-      <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingue</h3><p data-i="s2p">FR · DE · EN sur le même site.</p><span class="anno r" data-i="an_s2">pas Google Translate !</span></div>
-      <div class="cell"><div class="no">03</div><h3 data-i="s3">Hébergement</h3><p data-i="s3p">Mises à jour, présence Google, SEO local.</p><span class="anno" data-i="an_s3">on gère tout ✓</span></div>
-      <div class="cell"><div class="no">04</div><h3 data-i="s4">Clé en main</h3><p data-i="s4p">Vous validez, on s'occupe de tout le reste.</p><span class="anno r" data-i="an_s4">zéro prise de tête</span></div>
+      <div class="cell"><div class="no">01</div><h3 data-i="s1">Design</h3><p data-i="s1p">Custom, fast, responsive — never a generic template.</p><span class="anno" data-i="an_s1">★ the heart of it</span></div>
+      <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingual</h3><p data-i="s2p">FR · DE · EN on one site.</p><span class="anno r" data-i="an_s2">not Google Translate!</span></div>
+      <div class="cell"><div class="no">03</div><h3 data-i="s3">Hosting</h3><p data-i="s3p">Updates, Google presence, local SEO.</p><span class="anno" data-i="an_s3">we handle it all ✓</span></div>
+      <div class="cell"><div class="no">04</div><h3 data-i="s4">Done-for-you</h3><p data-i="s4p">You approve, we handle all the rest.</p><span class="anno r" data-i="an_s4">zero hassle</span></div>
     </div>
   </div>
 </section>
@@ -294,37 +295,37 @@
 <section class="sheet" id="fig2">
   <span class="fig">FIG. 02</span>
   <div class="wrap reveal">
-    <span class="lbl" data-i="m_lbl">Séquence — méthode</span>
-    <h2 data-i="m_h">Le mode opératoire</h2>
-    <p class="lead" data-i="m_lead">Pas de devis dans le vide — d'abord une démo réelle de votre site.</p>
+    <span class="lbl" data-i="m_lbl">Sequence — method</span>
+    <h2 data-i="m_h">The procedure</h2>
+    <p class="lead" data-i="m_lead">No quotes in the dark — a real demo of your site first.</p>
     <div class="steps">
-      <div class="stp"><div class="n">01</div><h3 data-i="m1">La démo</h3><p data-i="m1p">Gratuite, à partir de vos infos publiques.</p><span class="anno" data-i="an_m1">gratuit, promis !</span></div>
-      <div class="stp"><div class="n">02</div><h3 data-i="m2">Vos retours</h3><p data-i="m2p">Vous nous dites ce qu'on ajuste.</p><span class="anno r" data-i="an_m2">à vous de jouer</span></div>
-      <div class="stp"><div class="n">03</div><h3 data-i="m3">Lancement</h3><p data-i="m3p">On met en ligne, on héberge, on entretient.</p><span class="anno" data-i="an_m3">✓ en ligne !</span></div>
+      <div class="stp"><div class="n">01</div><h3 data-i="m1">The demo</h3><p data-i="m1p">Free, from your public info.</p><span class="anno" data-i="an_m1">free, promise!</span></div>
+      <div class="stp"><div class="n">02</div><h3 data-i="m2">Your feedback</h3><p data-i="m2p">You tell us what to adjust.</p><span class="anno r" data-i="an_m2">your turn</span></div>
+      <div class="stp"><div class="n">03</div><h3 data-i="m3">Launch</h3><p data-i="m3p">We go live, host, and maintain.</p><span class="anno" data-i="an_m3">✓ live!</span></div>
       <svg id="r-step1" class="rj-mark step-arrow sa1" viewBox="0 0 60 30" aria-hidden="true"></svg>
       <svg id="r-step2" class="rj-mark step-arrow sa2" viewBox="0 0 60 30" aria-hidden="true"></svg>
     </div>
-    <p class="kick" data-i="kick">Pas de catalogue. <em>Votre</em> plan, pas celui d'un autre.</p>
-    <span class="kick-anno" data-i="an_kick">← on insiste vraiment là-dessus</span>
+    <p class="kick" data-i="kick">No catalogue. <em>Your</em> drawing, not someone else's.</p>
+    <span class="kick-anno" data-i="an_kick">← we really mean this</span>
   </div>
 </section>
 
 <section class="sheet" id="fig3">
-  <span class="fig">FIG. 03</span><span class="fig-note" data-i="fn3">→ et le vôtre ?</span>
+  <span class="fig">FIG. 03</span><span class="fig-note" data-i="fn3">→ and yours?</span>
   <div class="wrap reveal">
-    <span class="lbl" data-i="w_lbl">Ouvrages réalisés</span>
-    <h2 data-i="w_h">Déjà construits</h2>
+    <span class="lbl" data-i="w_lbl">Built works</span>
+    <h2 data-i="w_h">Already built</h2>
     <div class="specs">
-      <div class="spec"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="dwrap"><span class="d" data-i="w1">conseil · private capital</span><span class="anno r" data-i="an_w1">notre fierté ★</span></span></div>
-      <div class="spec"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="d" data-i="w2">1 337 livres · full-stack</span><span class="anno" data-i="an_w2">1 337 livres !</span></span></div>
-      <div class="spec"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="d" data-i="w3">SaaS · conformité LU</span><span class="anno r" data-i="an_w3">notre propre SaaS</span></span></div>
-      <div class="spec"><span class="id">A-04</span><a href="https://canergelmis.github.io/lux-resto-demos/" target="_blank" rel="noopener">20 sites restaurants</a><span class="dwrap"><span class="d" data-i="w4">démos trilingues</span><span class="anno" data-i="an_w4">× 20 !</span></span></div>
-      <div class="spec"><span class="id">A-05</span><b>Pasharo</b><span class="dwrap"><span class="d" data-i="w5">site vitrine</span><span class="anno r" data-i="an_w5">et le vôtre ici ? →</span></span></div>
+      <div class="spec"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="dwrap"><span class="d" data-i="w1">consulting · private capital</span><span class="anno r" data-i="an_w1">our pride ★</span></span></div>
+      <div class="spec"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="d" data-i="w2">1,337 books · full-stack</span><span class="anno" data-i="an_w2">1,337 books!</span></span></div>
+      <div class="spec"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="d" data-i="w3">SaaS · LU compliance</span><span class="anno r" data-i="an_w3">our own SaaS</span></span></div>
+      <div class="spec"><span class="id">A-04</span><a href="https://canergelmis.github.io/lux-resto-demos/" target="_blank" rel="noopener">20 restaurant sites</a><span class="dwrap"><span class="d" data-i="w4">trilingual demos</span><span class="anno" data-i="an_w4">× 20 !</span></span></div>
+      <div class="spec"><span class="id">A-05</span><b>Pasharo</b><span class="dwrap"><span class="d" data-i="w5">showcase site</span><span class="anno r" data-i="an_w5">yours here? →</span></span></div>
     </div>
     <div class="titleblock">
-      <div><span class="k" data-i="tb1">Dessiné par</span><span class="v">Webwerk</span></div>
-      <div><span class="k" data-i="tb2">Échelle</span><span class="v" data-i="tb2v">1:1 — fait main</span></div>
-      <div><span class="k" data-i="tb3">Feuille</span><span class="v">01 / 01</span></div>
+      <div><span class="k" data-i="tb1">Drawn by</span><span class="v">Webwerk</span></div>
+      <div><span class="k" data-i="tb2">Scale</span><span class="v" data-i="tb2v">1:1 — by hand</span></div>
+      <div><span class="k" data-i="tb3">Sheet</span><span class="v">01 / 01</span></div>
     </div>
   </div>
 </section>
@@ -332,21 +333,21 @@
 <section class="sheet" id="fig4" style="border-bottom:0">
   <span class="fig">FIG. 04</span>
   <div class="wrap reveal">
-    <span class="lbl" data-i="c_lbl">Mise en service — contact</span>
-    <h2 data-i="c_h">Construisons le vôtre</h2>
+    <span class="lbl" data-i="c_lbl">Commissioning — contact</span>
+    <h2 data-i="c_h">Let's build yours</h2>
     <div class="form-grid" style="margin-top:24px">
       <div class="intro">
-        <p data-i="c_lead">Dites-nous qui vous êtes — on vous prépare une démo gratuite, sans engagement.</p>
-        <p class="alt">→ <a href="mailto:hello@webwerk.lu">hello@webwerk.lu</a></p>
+        <p data-i="c_lead">Tell us who you are — we'll prepare a free demo, no obligation.</p>
+        <p class="alt">→ <a href="mailto:jean@webwerk.lu">jean@webwerk.lu</a></p>
         <p class="alt" data-i="c_soc">→ Facebook · Instagram — @webwerk.lu</p>
-        <div class="cnote"><span class="note rot3" data-i="cnote">on répond vite !</span><svg id="r-contact" class="rj-mark" viewBox="0 0 90 44" aria-hidden="true"></svg></div>
+        <div class="cnote"><span class="note rot3" data-i="cnote">we reply fast !</span><svg id="r-contact" class="rj-mark" viewBox="0 0 90 44" aria-hidden="true"></svg></div>
       </div>
       <!-- TODO: replace YOUR_FORM_ID with the real Formspree form id -->
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="field"><label data-i="f_name">Nom / Établissement</label><input type="text" name="name" required /></div>
+        <div class="field"><label data-i="f_name">Name / Business</label><input type="text" name="name" required /></div>
         <div class="field"><label data-i="f_email">Email</label><input type="email" name="email" required /></div>
-        <div class="field"><label data-i="f_msg">Votre projet</label><textarea name="message" required></textarea></div>
-        <button type="submit" data-i="f_send">Envoyer →</button>
+        <div class="field"><label data-i="f_msg">Your project</label><textarea name="message" required></textarea></div>
+        <button type="submit" data-i="f_send">Send →</button>
       </form>
     </div>
   </div>
@@ -354,7 +355,7 @@
 
 <footer>
   <div class="wrap foot">
-    <span>© 2026 WEBWERK · <span data-i="ftag">Studio web · Luxembourg</span></span>
+    <span>© 2026 WEBWERK · <span data-i="ftag">Web studio · Luxembourg</span></span>
     <span class="egg" id="egg" title="?">~$ console</span>
     <span>WW-2026 · SHEET 01/01</span>
   </div>
@@ -399,38 +400,38 @@ function drawSketches(){
 if(window.rough) drawSketches();
 addEventListener('load',drawSketches);
 
-const I={ en:{
-  n1:"Services",n2:"Method",n3:"Work",n4:"Contact", devis:"Quote",
-  plate:"Working drawing № WW-2026 · Web studio · Luxembourg", platenote:"draft v.1",
-  h1:"We draught<br>the <em>web.</em>",
-  dimA:"concept", dimB:"go-live", hnote:"by hand —<br>never a template", pincap:"your site, sketched", pincap2:"→ delivered ✓",
-  fn1:"sketch", fn3:"→ and yours?", an_hero:"↑ made with care, in Luxembourg ✦",
-  an_s1:"★ the heart of it", an_s2:"not Google Translate!", an_s3:"we handle it all ✓", an_s4:"zero hassle",
-  an_m1:"free, promise!", an_m2:"your turn", an_m3:"✓ live!", an_kick:"← we really mean this",
-  an_w1:"our pride ★", an_w2:"1,337 books!", an_w3:"our own SaaS", an_w4:"× 20 !", an_w5:"yours here? →",
-  sub:"Every site is a working drawing: measured, draughted, built. Custom, multilingual, made in Luxembourg — and you see it before you pay.",
-  s_lbl:"Schedule — services", s_h:"What we build", s_lead:"One point of contact, from survey to upkeep.",
-  s1:"Design", s1p:"Custom, fast, responsive — never a generic template.", s2:"Multilingual", s2p:"FR · DE · EN on one site.", s3:"Hosting", s3p:"Updates, Google presence, local SEO.", s4:"Done-for-you", s4p:"You approve, we handle all the rest.",
-  m_lbl:"Sequence — method", m_h:"The procedure", m_lead:"No quotes in the dark — a real demo of your site first.",
-  m1:"The demo", m1p:"Free, from your public info.", m2:"Your feedback", m2p:"You tell us what to adjust.", m3:"Launch", m3p:"We go live, host, and maintain.",
-  kick:"No catalogue. <em>Your</em> drawing, not someone else's.",
-  w_lbl:"Built works", w_h:"Already built", w1:"consulting · private capital", w2:"1,337 books · full-stack", w3:"SaaS · LU compliance", w4:"trilingual demos", w5:"showcase site",
-  tb1:"Drawn by", tb2:"Scale", tb2v:"1:1 — by hand", tb3:"Sheet",
-  c_lbl:"Commissioning — contact", c_h:"Let's build yours", c_lead:"Tell us who you are — we'll prepare a free demo, no obligation.",
-  c_soc:"→ Facebook · Instagram — @webwerk.lu", cnote:"we reply fast !",
-  f_name:"Name / Business", f_email:"Email", f_msg:"Your project", f_send:"Send →", ftag:"Web studio · Luxembourg"
+const I={ fr:{
+  n1:"Services",n2:"Méthode",n3:"Réalisations",n4:"Contact", devis:"Devis",
+  plate:"Plan d'exécution № WW-2026 · Studio web · Luxembourg", platenote:"esquisse v.1",
+  h1:"On dessine<br>le <em>web.</em>",
+  dimA:"concept", dimB:"mise en ligne", hnote:"fait main —<br>jamais un template", pincap:"votre site, esquissé", pincap2:"→ livré ✓",
+  fn1:"croquis", fn3:"→ et le vôtre ?", an_hero:"↑ fait avec soin, à Luxembourg ✦",
+  an_s1:"★ le cœur du métier", an_s2:"pas Google Translate !", an_s3:"on gère tout ✓", an_s4:"zéro prise de tête",
+  an_m1:"gratuit, promis !", an_m2:"à vous de jouer", an_m3:"✓ en ligne !", an_kick:"← on insiste vraiment là-dessus",
+  an_w1:"notre fierté ★", an_w2:"1 337 livres !", an_w3:"notre propre SaaS", an_w4:"× 20 !", an_w5:"et le vôtre ici ? →",
+  sub:"Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg — et vous le voyez avant de payer.",
+  s_lbl:"Nomenclature — services", s_h:"Ce qu'on construit", s_lead:"Un seul interlocuteur, du relevé jusqu'à l'entretien.",
+  s1:"Conception", s1p:"Sur-mesure, rapide, responsive — jamais un modèle générique.", s2:"Multilingue", s2p:"FR · DE · EN sur le même site.", s3:"Hébergement", s3p:"Mises à jour, présence Google, SEO local.", s4:"Clé en main", s4p:"Vous validez, on s'occupe de tout le reste.",
+  m_lbl:"Séquence — méthode", m_h:"Le mode opératoire", m_lead:"Pas de devis dans le vide — d'abord une démo réelle de votre site.",
+  m1:"La démo", m1p:"Gratuite, à partir de vos infos publiques.", m2:"Vos retours", m2p:"Vous nous dites ce qu'on ajuste.", m3:"Lancement", m3p:"On met en ligne, on héberge, on entretient.",
+  kick:"Pas de catalogue. <em>Votre</em> plan, pas celui d'un autre.",
+  w_lbl:"Ouvrages réalisés", w_h:"Déjà construits", w1:"conseil · private capital", w2:"1 337 livres · full-stack", w3:"SaaS · conformité LU", w4:"démos trilingues", w5:"site vitrine",
+  tb1:"Dessiné par", tb2:"Échelle", tb2v:"1:1 — fait main", tb3:"Feuille",
+  c_lbl:"Mise en service — contact", c_h:"Construisons le vôtre", c_lead:"Dites-nous qui vous êtes — on vous prépare une démo gratuite, sans engagement.",
+  c_soc:"→ Facebook · Instagram — @webwerk.lu", cnote:"on répond vite !",
+  f_name:"Nom / Établissement", f_email:"Email", f_msg:"Votre projet", f_send:"Envoyer →", ftag:"Studio web · Luxembourg"
 }};
-let lang='fr';
-document.querySelectorAll('[data-i]').forEach(el=>el.dataset.fr=el.innerHTML);
+let lang='en';
+document.querySelectorAll('[data-i]').forEach(el=>el.dataset.en=el.innerHTML);
 function setLang(l){ lang=l; document.documentElement.lang=l;
   document.querySelectorAll('.lang b').forEach(b=>b.classList.toggle('off',b.dataset.l!==l));
-  document.querySelectorAll('[data-i]').forEach(el=>{ const k=el.getAttribute('data-i'); el.innerHTML = l==='fr'? el.dataset.fr : (I.en[k]!=null?I.en[k]:el.dataset.fr); });
+  document.querySelectorAll('[data-i]').forEach(el=>{ const k=el.getAttribute('data-i'); el.innerHTML = l==='en'? el.dataset.en : (I.fr[k]!=null?I.fr[k]:el.dataset.en); });
   try{localStorage.setItem('webwerk_lang',l);}catch(e){}
 }
 document.querySelectorAll('.lang b').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
-let sv='fr'; try{sv=localStorage.getItem('webwerk_lang')||'fr';}catch(e){}
-if(sv!=='fr') setLang(sv);
+let sv='en'; try{sv=localStorage.getItem('webwerk_lang')||'en';}catch(e){}
+if(sv!=='en') setLang(sv);
 
 // header subtle on scroll already fixed; reveal-on-scroll
 if(matchMedia('(prefers-reduced-motion: no-preference)').matches){

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- WEBWERK · CONCEPT B — the terminal. The whole site is an interactive console. -->
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,7 +48,7 @@
   <div class="bar">
     <i class="r"></i><i class="y"></i><i class="g"></i>
     <span class="t">webwerk — studio web · luxembourg — zsh</span>
-    <span class="lang"><b data-l="fr">fr</b> <span class="dim">/</span> <b data-l="en" class="off">en</b></span>
+    <span class="lang"><b data-l="en">en</b> <span class="dim">/</span> <b data-l="fr" class="off">fr</b></span>
   </div>
   <div class="screen" id="screen"></div>
   <div class="inputline">
@@ -72,8 +72,8 @@ const T = {
     aboutHd:"// qui on est",
     about:["Webwerk — un studio web luxembourgeois à taille humaine.","Deux personnes, peu de clients, suivis de près.","On préfère le travail bien fait au volume.","Des restaurants aux commerces, en passant par le conseil."],
     contactHd:"// contact",
-    contact:[["mail","hello@webwerk.lu"],["devis","tapez: devis"],["social","Facebook · Instagram — @webwerk.lu"]],
-    quote:["› Ouverture du formulaire de devis…","  (démo) — écrivez-nous : hello@webwerk.lu"],
+    contact:[["mail","jean@webwerk.lu"],["devis","tapez: devis"],["social","Facebook · Instagram — @webwerk.lu"]],
+    quote:["› Ouverture du formulaire de devis…","  (démo) — écrivez-nous : jean@webwerk.lu"],
     unknown:(c)=>`zsh: commande introuvable: ${c}  —  tapez 'help'`,
     opening:(u)=>`› ouverture de ${u} …`,
   },
@@ -89,8 +89,8 @@ const T = {
     aboutHd:"// who we are",
     about:["Webwerk — a human-sized Luxembourg web studio.","Two people, few clients, closely looked after.","We prefer good work over volume.","From restaurants to shops to consulting."],
     contactHd:"// contact",
-    contact:[["mail","hello@webwerk.lu"],["quote","type: devis"],["social","Facebook · Instagram — @webwerk.lu"]],
-    quote:["› Opening the quote form…","  (demo) — write to us: hello@webwerk.lu"],
+    contact:[["mail","jean@webwerk.lu"],["quote","type: devis"],["social","Facebook · Instagram — @webwerk.lu"]],
+    quote:["› Opening the quote form…","  (demo) — write to us: jean@webwerk.lu"],
     unknown:(c)=>`zsh: command not found: ${c}  —  type 'help'`,
     opening:(u)=>`› opening ${u} …`,
   }
@@ -104,7 +104,7 @@ const WORK = [
 ];
 const ASCII = ` _ _ _ ___ ___ _ _ _ ___ ___ _  _\n| | | | __| _ ) | | | | __| _ \\ |/ /\n| | | | _|| _ \\ V  V | | _||   / ' < \n|__/_|___|___/\\_/\\_/|_|___|_|_\\_|\\_\\`;
 
-let lang='fr';
+let lang='en';
 const screen=document.getElementById('screen'), input=document.getElementById('cmd');
 function el(html,cls){ const d=document.createElement('div'); d.className='line '+(cls||''); d.innerHTML=html; screen.appendChild(d); return d; }
 function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
