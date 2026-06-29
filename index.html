@@ -86,6 +86,7 @@
   .lead-anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;display:inline-block;margin-left:14px;transform:rotate(-2deg);vertical-align:middle}
   .kick-anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.6rem;display:block;margin-top:14px;transform:rotate(-1.5deg)}
   .dwrap{display:block}
+  .dwrap .url{display:block;font-family:'Space Mono',monospace;font-size:.72rem;color:rgba(188,215,242,.5);letter-spacing:.01em;margin-bottom:3px}
   .dwrap .anno{display:block;margin-top:3px}
   @media(min-width:1120px){ .hero-pin{position:absolute;margin:0;right:4px;top:52%} .hero-note{display:block;right:150px;top:118px} }
   @media(max-width:1119px){ .hero-note{display:none} }
@@ -161,7 +162,7 @@
   .crosshair .h,.crosshair .v{position:absolute;background:rgba(255,207,107,.35)}
   @media(max-width:780px){.tick,.coord,.crosshair{display:none}.hero{cursor:auto}}
 
-  section.sheet{padding:62px 0;border-bottom:1px solid var(--faint);position:relative}
+  section.sheet{padding:62px 0;border-bottom:1px solid var(--faint);position:relative;scroll-margin-top:72px}
   .sheet .fig{position:absolute;top:62px;left:30px;font-size:.72rem;color:var(--red);letter-spacing:.1em}
   @media(max-width:900px){ .sheet .fig{position:static;display:block;padding:0 30px;margin-bottom:10px} }
   .sheet h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.6rem,4vw,2.8rem);color:var(--wht);text-transform:uppercase;letter-spacing:-.01em;margin:30px 0 6px}
@@ -297,7 +298,7 @@
     <p class="lead" data-i="s_lead">One point of contact, from survey to upkeep.</p>
     <div class="grid4">
       <div class="cell"><div class="no">01</div><h3 data-i="s1">Design</h3><p data-i="s1p">Custom, fast, responsive — never a generic template.</p><span class="anno" data-i="an_s1">★ the heart of it</span></div>
-      <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingual</h3><p data-i="s2p">FR · DE · EN on one site.</p><span class="anno r" data-i="an_s2">not Google Translate!</span></div>
+      <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingual</h3><p data-i="s2p">FR · DE · EN on one site.</p><span class="anno r" data-i="an_s2">reach everyone ✦</span></div>
       <div class="cell"><div class="no">03</div><h3 data-i="s3">Hosting</h3><p data-i="s3p">Updates, Google presence, local SEO.</p><span class="anno" data-i="an_s3">we handle it all ✓</span></div>
       <div class="cell"><div class="no">04</div><h3 data-i="s4">Done-for-you</h3><p data-i="s4p">You approve, we handle all the rest.</p><span class="anno r" data-i="an_s4">zero hassle</span></div>
     </div>
@@ -328,9 +329,9 @@
     <span class="lbl" data-i="w_lbl">Built works</span>
     <h2 data-i="w_h">Already built</h2>
     <div class="specs">
-      <div class="spec"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="dwrap"><span class="d" data-i="w1">consulting · private capital</span><span class="anno r" data-i="an_w1">our pride ★</span></span></div>
-      <div class="spec"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="d" data-i="w2">1,337 books · full-stack</span><span class="anno" data-i="an_w2">1,337 books!</span></span></div>
-      <div class="spec"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="d" data-i="w3">SaaS · LU compliance</span><span class="anno r" data-i="an_w3">our own SaaS</span></span></div>
+      <div class="spec"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="dwrap"><span class="url">luxlucisconsulting.com ↗</span><span class="d" data-i="w1">consulting · private capital</span><span class="anno r" data-i="an_w1">our pride ★</span></span></div>
+      <div class="spec"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="url">books-worth-reading.com ↗</span><span class="d" data-i="w2">1,337 books · full-stack</span><span class="anno" data-i="an_w2">1,337 books!</span></span></div>
+      <div class="spec"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="url">lounbreck.com ↗</span><span class="d" data-i="w3">SaaS · LU compliance</span><span class="anno r" data-i="an_w3">our own SaaS</span></span></div>
       <div class="spec"><span class="id">A-04</span><b>Pasharo</b><span class="dwrap"><span class="d" data-i="w5">showcase site</span><span class="anno r" data-i="an_w5">yours here? →</span></span></div>
     </div>
     <div class="titleblock">
@@ -417,7 +418,7 @@ const I={ fr:{
   h1:"On dessine<br>le <em>web.</em>",
   dimA:"concept", dimB:"mise en ligne", hnote:"fait main —<br>jamais un template", pincap:"votre site, esquissé", pincap2:"→ livré ✓",
   fn1:"croquis", fn3:"→ et le vôtre ?", an_hero:"↑ fait avec soin, à Luxembourg ✦",
-  an_s1:"★ le cœur du métier", an_s2:"pas Google Translate !", an_s3:"on gère tout ✓", an_s4:"zéro prise de tête",
+  an_s1:"★ le cœur du métier", an_s2:"toute la clientèle ✦", an_s3:"on gère tout ✓", an_s4:"zéro prise de tête",
   an_m1:"gratuit, promis !", an_m2:"à vous de jouer", an_m3:"✓ en ligne !", an_kick:"← on insiste vraiment là-dessus",
   an_w1:"notre fierté ★", an_w2:"1 337 livres !", an_w3:"notre propre SaaS", an_w4:"× 20 !", an_w5:"et le vôtre ici ? →",
   sub:"Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg — et vous le voyez avant de payer.",
