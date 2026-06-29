@@ -205,8 +205,10 @@
   @media(max-width:560px){.spec{grid-template-columns:50px 1fr}.spec .d{grid-column:2}}
 
   .titleblock{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--faint);margin:40px 0 0}
-  .titleblock div{border-right:1px solid var(--faint);padding:12px 14px}
-  .titleblock div:last-child{border-right:0}
+  .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:12px 14px}
+  .titleblock div:nth-child(3n){border-right:0}
+  .titleblock div:nth-last-child(-n+3){border-bottom:0}
+  @media(max-width:560px){ .titleblock{grid-template-columns:1fr 1fr} .titleblock div:nth-child(3n){border-right:1px solid var(--faint)} .titleblock div:nth-child(2n){border-right:0} .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)} .titleblock div:nth-last-child(-n+2){border-bottom:0} }
   .titleblock .k{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(188,215,242,.5);display:block;margin-bottom:3px}
   .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600}
 
@@ -266,7 +268,7 @@
     <h1 data-i="h1">We draft<br>the <em>web.</em></h1>
     <div class="dimline"><span data-i="dimA">concept</span><span class="bar"></span><span data-i="dimB">go-live</span></div>
     <p class="sub" data-i="sub">Every site is a working drawing: measured, drafted, built. Custom, multilingual, made in Luxembourg — and you see it before you pay.</p>
-    <span class="lead-anno" data-i="an_sub">↑ a real demo, before you pay ✦</span>
+    <span class="lead-anno" data-i="an_sub">drawn, not dragged</span>
 
     <div class="hero-pin">
       <div class="pin rot2" id="pin" title="hover">
@@ -284,7 +286,7 @@
             </div>
           </div>
         </div>
-        <div class="cap"><span class="c1" data-i="pincap">your site, sketched</span><span class="c2" data-i="pincap2">→ delivered ✓</span></div>
+        <div class="cap"><span class="c1" data-i="pincap">your site — sketched</span><span class="c2" data-i="pincap2">→ inked ✓</span></div>
       </div>
     </div>
   </div>
@@ -299,10 +301,10 @@
     <h2 data-i="s_h">What we build</h2>
     <p class="lead" data-i="s_lead">One point of contact, from survey to upkeep.</p>
     <div class="grid4">
-      <div class="cell"><div class="no">01</div><h3 data-i="s1">Design</h3><p data-i="s1p">Custom, fast, responsive — never a generic template.</p><span class="anno" data-i="an_s1">never a template ✦</span></div>
-      <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingual</h3><p data-i="s2p">FR · DE · EN on one site.</p><span class="anno r" data-i="an_s2">all three — one site ✓</span></div>
-      <div class="cell"><div class="no">03</div><h3 data-i="s3">Hosting</h3><p data-i="s3p">Updates, Google presence, local SEO.</p></div>
-      <div class="cell"><div class="no">04</div><h3 data-i="s4">Done-for-you</h3><p data-i="s4p">You approve, we handle all the rest.</p><span class="anno" data-i="an_s4">you just approve ✓</span></div>
+      <div class="cell"><div class="no">01</div><h3 data-i="s1">Design</h3><p data-i="s1p">Custom, fast, responsive — never a generic template.</p><span class="anno" data-i="an_s1">every pixel placed</span></div>
+      <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingual</h3><p data-i="s2p">FR · DE · EN on one site.</p><span class="anno r" data-i="an_s2">one sheet, three tongues</span></div>
+      <div class="cell"><div class="no">03</div><h3 data-i="s3">Hosting</h3><p data-i="s3p">Updates, Google presence, local SEO.</p><span class="anno" data-i="an_s3a">we keep the lights on</span></div>
+      <div class="cell"><div class="no">04</div><h3 data-i="s4">Done-for-you</h3><p data-i="s4p">You approve, we handle all the rest.</p></div>
     </div>
   </div>
 </section>
@@ -312,11 +314,11 @@
   <div class="wrap reveal">
     <span class="lbl" data-i="m_lbl">Sequence — method</span>
     <h2 data-i="m_h">The procedure</h2>
-    <p class="lead" data-i="m_lead">No quotes in the dark — a real demo of your site first.</p><span class="lead-anno" data-i="an_mlead">see it first ✦</span>
+    <p class="lead" data-i="m_lead">No quotes in the dark — a real demo of your site first.</p>
     <div class="steps">
-      <div class="stp"><div class="n">01</div><h3 data-i="m1">The demo</h3><p data-i="m1p">A real preview of your site — free, no obligation.</p><span class="anno" data-i="an_m1">free — no catch !</span></div>
-      <div class="stp"><div class="n">02</div><h3 data-i="m2">Your feedback</h3><p data-i="m2p">You tell us what to adjust.</p></div>
-      <div class="stp"><div class="n">03</div><h3 data-i="m3">Launch</h3><p data-i="m3p">We go live, host, and maintain.</p><span class="anno r" data-i="an_m3">live ✓</span></div>
+      <div class="stp"><div class="n">01</div><h3 data-i="m1">The demo</h3><p data-i="m1p">A real preview of your site — free, no obligation.</p><span class="anno" data-i="an_m1">sketched first</span></div>
+      <div class="stp"><div class="n">02</div><h3 data-i="m2">Your feedback</h3><p data-i="m2p">You tell us what to adjust.</p><span class="anno r" data-i="an_m2">you redline it</span></div>
+      <div class="stp"><div class="n">03</div><h3 data-i="m3">Launch</h3><p data-i="m3p">We go live, host, and maintain.</p><span class="anno" data-i="an_m3">inked ✓</span></div>
       <svg id="r-step1" class="rj-mark step-arrow sa1" viewBox="0 0 60 30" aria-hidden="true"></svg>
       <svg id="r-step2" class="rj-mark step-arrow sa2" viewBox="0 0 60 30" aria-hidden="true"></svg>
     </div>
@@ -324,7 +326,7 @@
 </section>
 
 <section class="sheet" id="fig3">
-  <span class="fig">FIG. 03</span><span class="fig-note" data-i="fn3">every one — live ✦</span>
+  <span class="fig">FIG. 03</span><span class="fig-note" data-i="fn3">from our table</span>
   <div class="wrap reveal">
     <span class="lbl" data-i="w_lbl">Built works</span>
     <h2 data-i="w_h">Already built</h2>
@@ -336,8 +338,11 @@
     </div>
     <div class="titleblock">
       <div><span class="k" data-i="tb1">Drawn by</span><span class="v">Webwerk</span></div>
+      <div><span class="k" data-i="tb_med">Medium</span><span class="v">HTML · CSS</span></div>
       <div><span class="k" data-i="tb2">Scale</span><span class="v" data-i="tb2v">1:1</span></div>
+      <div><span class="k" data-i="tb_loc">Location</span><span class="v">Luxembourg</span></div>
       <div><span class="k" data-i="tb3">Sheet</span><span class="v">01 / 01</span></div>
+      <div><span class="k" data-i="tb_rev">Rev.</span><span class="v" data-i="tb_revv">ongoing</span></div>
     </div>
   </div>
 </section>
@@ -351,7 +356,7 @@
       <div class="intro">
         <p data-i="c_lead">Tell us who you are — we'll prepare a free demo, no obligation.</p>
         <p class="alt">→ <a href="mailto:jean@webwerk.lu">jean@webwerk.lu</a></p>
-        <div class="cnote"><span class="note rot3" data-i="cnote">let's build yours ✦</span></div>
+        <div class="cnote"><span class="note rot3" data-i="cnote">let's draw yours</span></div>
       </div>
       <!-- TODO: replace YOUR_FORM_ID with the real Formspree form id -->
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -415,20 +420,19 @@ const I={ fr:{
   n1:"Services",n2:"Méthode",n3:"Réalisations",n4:"Contact", devis:"Devis",
   plate:"Plan d'exécution № WW-2026 · Studio web · Luxembourg",
   h1:"On dessine<br>le <em>web.</em>",
-  dimA:"concept", dimB:"mise en ligne", pincap:"votre site, esquissé", pincap2:"→ livré ✓",
+  dimA:"concept", dimB:"mise en ligne", pincap:"votre site — esquissé", pincap2:"→ à l'encre ✓",
   sub:"Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg — et vous le voyez avant de payer.",
-  an_sub:"↑ une vraie démo, avant de payer ✦",
+  an_sub:"dessiné, pas glissé",
   s_lbl:"Nomenclature — services", s_h:"Ce qu'on construit", s_lead:"Un seul interlocuteur, du relevé jusqu'à l'entretien.",
   s1:"Conception", s1p:"Sur-mesure, rapide, responsive — jamais un modèle générique.", s2:"Multilingue", s2p:"FR · DE · EN sur le même site.", s3:"Hébergement", s3p:"Mises à jour, présence Google, SEO local.", s4:"Clé en main", s4p:"Vous validez, on s'occupe de tout le reste.",
-  an_s1:"jamais un template ✦", an_s2:"trois langues — un site ✓", an_s4:"vous validez, c'est tout ✓",
+  an_s1:"chaque pixel posé", an_s2:"une feuille, trois langues", an_s3a:"on garde la lumière",
   m_lbl:"Séquence — méthode", m_h:"Le mode opératoire", m_lead:"Pas de devis dans le vide — d'abord une démo réelle de votre site.",
-  an_mlead:"on vous montre d'abord ✦",
   m1:"La démo", m1p:"Un vrai aperçu de votre site — gratuit, sans engagement.", m2:"Vos retours", m2p:"Vous nous dites ce qu'on ajuste.", m3:"Lancement", m3p:"On met en ligne, on héberge, on entretient.",
-  an_m1:"gratuit — sans piège !", an_m3:"en ligne ✓",
-  w_lbl:"Ouvrages réalisés", w_h:"Déjà construits", fn3:"tous en ligne ✦", w1:"conseil · private capital", w2:"1 337 livres · full-stack", w3:"SaaS · conformité LU", w5:"corporate finance · conseil",
-  tb1:"Dessiné par", tb2:"Échelle", tb2v:"1:1", tb3:"Feuille",
+  an_m1:"esquissé d'abord", an_m2:"au crayon rouge", an_m3:"à l'encre ✓",
+  w_lbl:"Ouvrages réalisés", w_h:"Déjà construits", fn3:"de notre table", w1:"conseil · private capital", w2:"1 337 livres · full-stack", w3:"SaaS · conformité LU", w5:"corporate finance · conseil",
+  tb1:"Dessiné par", tb_med:"Support", tb2:"Échelle", tb2v:"1:1", tb_loc:"Lieu", tb3:"Feuille", tb_rev:"Rév.", tb_revv:"en cours",
   c_lbl:"Mise en service — contact", c_h:"Construisons le vôtre", c_lead:"Dites-nous qui vous êtes — on vous prépare une démo gratuite, sans engagement.",
-  cnote:"construisons le vôtre ✦",
+  cnote:"dessinons le vôtre",
   f_name:"Nom / Établissement", f_email:"Email", f_msg:"Votre projet", f_send:"Envoyer →", ftag:"Studio web · Luxembourg"
 }};
 let lang='en';
