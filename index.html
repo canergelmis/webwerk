@@ -87,6 +87,11 @@
   .kick-anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.6rem;display:block;margin-top:14px;transform:rotate(-1.5deg)}
   .dwrap{display:block}
   .dwrap .url{display:block;font-family:'Space Mono',monospace;font-size:.72rem;color:rgba(188,215,242,.5);letter-spacing:.01em;margin-bottom:3px}
+  .spec[data-thumb]{cursor:pointer}
+  .thumb-preview{position:fixed;z-index:60;width:308px;pointer-events:none;opacity:0;transform:translateY(10px) rotate(-1.6deg);transition:opacity .22s,transform .22s;background:#0b2c52;border:1px solid var(--amber);padding:6px;box-shadow:0 26px 54px -22px #000}
+  .thumb-preview.show{opacity:1;transform:rotate(-1.6deg)}
+  .thumb-preview img{display:block;width:100%;height:auto;border:1px solid var(--faint)}
+  .thumb-preview .cap{font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.1em;color:var(--amber);text-align:center;padding:6px 0 2px}
   .dwrap .anno{display:block;margin-top:3px}
   @media(min-width:1120px){ .hero-pin{position:absolute;margin:0;right:4px;top:52%} .hero-note{display:block;right:150px;top:118px} }
   @media(max-width:1119px){ .hero-note{display:none} }
@@ -329,9 +334,9 @@
     <span class="lbl" data-i="w_lbl">Built works</span>
     <h2 data-i="w_h">Already built</h2>
     <div class="specs">
-      <div class="spec"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="dwrap"><span class="url">luxlucisconsulting.com ↗</span><span class="d" data-i="w1">consulting · private capital</span><span class="anno r" data-i="an_w1">our pride ★</span></span></div>
-      <div class="spec"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="url">books-worth-reading.com ↗</span><span class="d" data-i="w2">1,337 books · full-stack</span><span class="anno" data-i="an_w2">1,337 books!</span></span></div>
-      <div class="spec"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="url">lounbreck.com ↗</span><span class="d" data-i="w3">SaaS · LU compliance</span><span class="anno r" data-i="an_w3">our own SaaS</span></span></div>
+      <div class="spec" data-thumb="thumbs/luxlucis.jpeg"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="dwrap"><span class="url">luxlucisconsulting.com ↗</span><span class="d" data-i="w1">consulting · private capital</span><span class="anno r" data-i="an_w1">our pride ★</span></span></div>
+      <div class="spec" data-thumb="thumbs/bwr.jpeg"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="url">books-worth-reading.com ↗</span><span class="d" data-i="w2">1,337 books · full-stack</span><span class="anno" data-i="an_w2">1,337 books!</span></span></div>
+      <div class="spec" data-thumb="thumbs/lounbreck.jpeg"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="url">lounbreck.com ↗</span><span class="d" data-i="w3">SaaS · LU compliance</span><span class="anno r" data-i="an_w3">our own SaaS</span></span></div>
       <div class="spec"><span class="id">A-04</span><b>Pasharo</b><span class="dwrap"><span class="d" data-i="w5">showcase site</span><span class="anno r" data-i="an_w5">yours here? →</span></span></div>
     </div>
     <div class="titleblock">
@@ -364,6 +369,8 @@
     </div>
   </div>
 </section>
+
+<div class="thumb-preview" id="thumbprev" aria-hidden="true"><img alt="" /><div class="cap">REF · LIVE SITE ↗</div></div>
 
 <footer>
   <div class="wrap foot">
@@ -464,6 +471,18 @@ if(!matchMedia('(hover: none)').matches && !matchMedia('(prefers-reduced-motion:
   });
   hero.addEventListener('pointerleave',()=>{coord.style.opacity=cross.style.opacity=0;});
 }
+
+// Already-Built: framed thumbnail preview follows the cursor on hover (desktop only)
+(function(){
+  const tp=document.getElementById('thumbprev'); if(!tp) return;
+  const img=tp.querySelector('img');
+  if(matchMedia('(hover: none)').matches) return;
+  document.querySelectorAll('.spec[data-thumb]').forEach(row=>{
+    row.addEventListener('pointerenter',()=>{ img.src=row.getAttribute('data-thumb'); tp.classList.add('show'); });
+    row.addEventListener('pointermove',e=>{ tp.style.left=Math.min(innerWidth-326,e.clientX+26)+'px'; tp.style.top=Math.max(12,Math.min(innerHeight-230,e.clientY-90))+'px'; });
+    row.addEventListener('pointerleave',()=>tp.classList.remove('show'));
+  });
+})();
 
 // pinned sketch → finished-site: auto-flip once when scrolled into view (discoverable on touch; hover takes over on desktop)
 const pin=document.getElementById('pin');
