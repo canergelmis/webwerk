@@ -36,6 +36,13 @@
 
   /* --- designer's-workshop layer: hand marks, margin notes, drafts --- */
   .hand{font-family:'Caveat',cursive;color:var(--amber);line-height:1}
+  /* roughen: warp smooth strokes into hand-drawn pen lines */
+  .circle-w svg{filter:url(#roughcircle)}
+  .draw-u{filter:url(#rough2)}
+  .arrow{filter:url(#roughfine)}
+  .sketchwin svg{filter:url(#rough)}
+  .circle-w svg path{stroke-width:2.6}
+  .circle-w svg path.c2{opacity:.55;stroke-width:2}
   .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.45rem;line-height:1.05;display:inline-block}
   .note.sm{font-size:1.15rem}
   .draw-u{display:block;color:var(--amber);height:12px;margin-top:-4px;overflow:visible}
@@ -200,6 +207,13 @@
 </style>
 </head>
 <body id="top">
+<!-- hand-drawn roughen filters: warp smooth vector strokes into wobbly pen lines -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+  <filter id="rough" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5.5"/></filter>
+  <filter id="rough2" x="-25%" y="-25%" width="150%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="19" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter>
+  <filter id="roughfine" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/></filter>
+  <filter id="roughcircle" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="8.5"/></filter>
+</defs></svg>
 <header id="hdr">
   <div class="nav">
     <a href="#top" class="brand" aria-label="Webwerk">WEB<span class="x">/</span>WERK</a>
@@ -218,7 +232,7 @@
   <div class="wrap">
     <span class="tick tl"></span><span class="tick tr"></span>
     <div class="plate"><span data-i="plate">Plan d'exécution № WW-2026 · Studio web · Luxembourg</span><span class="plate-note" data-i="platenote">esquisse v.1</span></div>
-    <h1 data-i="h1">On dessine<br>le <span class="circle-w"><em>web.</em><svg viewBox="0 0 320 130" preserveAspectRatio="none" aria-hidden="true"><path d="M250,18 C150,2 36,8 22,52 C10,92 110,120 196,118 C286,116 322,86 300,50 C286,26 250,16 214,14"/></svg></span></h1>
+    <h1 data-i="h1">On dessine<br>le <span class="circle-w"><em>web.</em><svg viewBox="0 0 320 130" preserveAspectRatio="none" aria-hidden="true"><path d="M244,14 C150,0 58,2 28,42 C6,72 16,100 78,116 C150,134 252,124 296,92 C322,72 318,44 282,30 C250,18 214,14 188,16 C214,9 252,16 290,33"/><path class="c2" d="M250,21 C150,6 60,8 32,47 C12,74 22,102 82,116 C150,132 250,121 292,92 C316,73 312,49 280,35 C250,23 216,19 192,21"/></svg></span></h1>
     <div class="dimline"><span data-i="dimA">concept</span><span class="bar"></span><span data-i="dimB">mise en ligne</span></div>
     <p class="sub" data-i="sub">Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg — et vous le voyez avant de payer.</p>
 
@@ -343,7 +357,7 @@
 const I={ en:{
   n1:"Services",n2:"Method",n3:"Work",n4:"Contact", devis:"Quote",
   plate:"Working drawing № WW-2026 · Web studio · Luxembourg", platenote:"draft v.1",
-  h1:"We draught<br>the <span class=\"circle-w\"><em>web.</em><svg viewBox=\"0 0 320 130\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M250,18 C150,2 36,8 22,52 C10,92 110,120 196,118 C286,116 322,86 300,50 C286,26 250,16 214,14\"/></svg></span>",
+  h1:"We draught<br>the <span class=\"circle-w\"><em>web.</em><svg viewBox=\"0 0 320 130\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M244,14 C150,0 58,2 28,42 C6,72 16,100 78,116 C150,134 252,124 296,92 C322,72 318,44 282,30 C250,18 214,14 188,16 C214,9 252,16 290,33\"/><path class=\"c2\" d=\"M250,21 C150,6 60,8 32,47 C12,74 22,102 82,116 C150,132 250,121 292,92 C316,73 312,49 280,35 C250,23 216,19 192,21\"/></svg></span>",
   dimA:"concept", dimB:"go-live", hnote:"by hand —<br>never a template", pincap:"your site, sketched", pincap2:"→ delivered ✓",
   fn1:"sketch", fn3:"→ and yours?",
   sub:"Every site is a working drawing: measured, draughted, built. Custom, multilingual, made in Luxembourg — and you see it before you pay.",
