@@ -358,8 +358,9 @@
         <p class="alt">→ <a href="mailto:jean@webwerk.lu">jean@webwerk.lu</a></p>
         <div class="cnote"><span class="note rot3" data-i="cnote">let's draw yours</span></div>
       </div>
-      <!-- TODO: replace YOUR_FORM_ID with the real Formspree form id -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <!-- Interim: no form backend yet — submit composes an email to jean@webwerk.lu.
+           To switch to a hosted backend later, set data-endpoint to the POST URL. -->
+      <form id="contactForm" data-endpoint="">
         <div class="field"><label data-i="f_name">Name / Business</label><input type="text" name="name" required /></div>
         <div class="field"><label data-i="f_email">Email</label><input type="email" name="email" required /></div>
         <div class="field"><label data-i="f_msg">Your project</label><textarea name="message" required></textarea></div>
@@ -446,6 +447,35 @@ document.querySelectorAll('.lang b').forEach(b=>{ b.addEventListener('click',()=
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
 let sv='en'; try{sv=localStorage.getItem('webwerk_lang')||'en';}catch(e){}
 if(sv!=='en') setLang(sv);
+
+// Contact form: POST to data-endpoint if set; otherwise compose an email (no backend yet)
+(function(){
+  const f=document.getElementById('contactForm'); if(!f) return;
+  f.addEventListener('submit',async e=>{
+    e.preventDefault();
+    if(!f.reportValidity()) return;
+    const d=new FormData(f), name=(d.get('name')||'').toString().trim(),
+          email=(d.get('email')||'').toString().trim(), msg=(d.get('message')||'').toString().trim();
+    const endpoint=f.getAttribute('data-endpoint');
+    const btn=f.querySelector('button[type=submit]'), label=btn.innerHTML;
+    if(endpoint){
+      try{
+        btn.disabled=true; btn.innerHTML = lang==='fr'?'Envoi…':'Sending…';
+        const r=await fetch(endpoint,{method:'POST',headers:{'Accept':'application/json'},body:d});
+        if(r.ok){ f.reset(); btn.innerHTML = lang==='fr'?'Envoyé ✓':'Sent ✓'; }
+        else throw new Error('bad status');
+      }catch(err){ btn.disabled=false; btn.innerHTML=label; location.href=mailtoLink(); }
+      return;
+    }
+    // No backend: open the visitor's mail client, prefilled
+    location.href=mailtoLink();
+    function mailtoLink(){
+      const subj=`Webwerk — ${name||'new enquiry'}`;
+      const body=`Name / Business: ${name}\nEmail: ${email}\n\n${msg}\n`;
+      return `mailto:jean@webwerk.lu?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+    }
+  });
+})();
 
 // header subtle on scroll already fixed; reveal-on-scroll
 if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
