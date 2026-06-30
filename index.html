@@ -8,7 +8,8 @@
 -->
 <html lang="en">
 <head>
-<script>document.documentElement.classList.add('js');</script>
+<script>document.documentElement.classList.add('js');
+try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('wj'); }catch(e){}</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Webwerk — Web studio in Luxembourg · custom websites</title>
@@ -199,6 +200,9 @@
   .inknote{position:absolute;pointer-events:none;z-index:4;font-family:'Caveat',cursive;color:var(--amber);
     font-size:1.22rem;line-height:1.12;white-space:nowrap;transform:rotate(var(--r,-2deg))}
   .inknote.cy{color:var(--cy)} .inknote.rd{color:var(--red)}
+  /* yellow handwriting writes itself in (left-to-right) when its section reveals — gated on .wj (desktop, motion ok) */
+  .wj .reveal .inknote,.wj .reveal .anno,.wj .reveal .note,.wj .hero .inknote,.wj .hero .lead-anno{opacity:0;clip-path:inset(-30% 100% -30% -8%);transition:clip-path .9s ease,opacity .35s ease}
+  .wj .reveal.in .inknote,.wj .reveal.in .anno,.wj .reveal.in .note,.wj .hero.seen .inknote,.wj .hero.seen .lead-anno{opacity:1;clip-path:inset(-30% -8% -30% -8%)}
   .grid4,.specs,.form-grid{position:relative}
   .grid4 .cell{position:relative}
   @media(max-width:900px){ .ink,.inknote{display:none} }
@@ -525,6 +529,8 @@ if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 } else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+// hero handwriting writes itself in shortly after load (hero is above the fold, no scroll needed)
+(function(){ var h=document.getElementById('hero'); if(h) setTimeout(function(){ h.classList.add('seen'); }, 500); })();
 
 // CAD crosshair + coordinate readout in hero (desktop, motion-on)
 const hero=document.getElementById('hero'), coord=document.getElementById('coord'), cross=document.getElementById('cross');
@@ -617,7 +623,7 @@ addEventListener('keydown',e=>{
     if(FILL[el.dataset.draw]){ el.style.opacity='0'; el.style.transition='opacity .6s ease'; el.getBoundingClientRect(); el.style.opacity='1'; }
     else animate(el);
   }); }, {threshold:.2, rootMargin:'0px 0px -16% 0px'});
-  document.querySelectorAll('.ink[data-draw], .inknote').forEach(el=>io.observe(el));
+  document.querySelectorAll('.ink[data-draw]').forEach(el=>io.observe(el));
 })();
 </script>
 <!-- privacy-friendly, cookieless analytics (no consent banner needed) -->
