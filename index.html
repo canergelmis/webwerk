@@ -81,7 +81,8 @@
   #r-contact{width:86px;height:42px;flex:none}
   .plate-note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.15rem;margin-left:10px;transform:rotate(-2deg);display:inline-block}
   .hero-pin{z-index:3;width:240px;display:block;margin:34px 0 4px}
-  .fig-note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.3rem;margin-left:16px;transform:rotate(-3deg);display:inline-block;vertical-align:middle;white-space:nowrap}
+  .fig-note{position:absolute;top:58px;left:96px;font-family:'Caveat',cursive;color:var(--amber);font-size:1.3rem;transform:rotate(-3deg);white-space:nowrap;z-index:4}
+  @media(max-width:900px){ .fig-note{position:static;display:block;margin:4px 0 0 30px} }
   .anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.22rem;line-height:1.05;display:block;margin-top:10px;transform:rotate(-1.6deg)}
   .anno.r{transform:rotate(2.2deg)}
   .lead-anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;display:inline-block;margin-left:14px;transform:rotate(-2deg);vertical-align:middle}
@@ -323,7 +324,7 @@
       <div class="cell"><div class="no">01</div><h3 data-i="s1">Design</h3><p data-i="s1p">Custom, fast, responsive — never a generic template.</p><span class="anno" data-i="an_s1">every pixel placed</span></div>
       <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingual</h3><p data-i="s2p">FR · DE · EN on one site.</p><span class="anno r" data-i="an_s2">one sheet, three languages</span></div>
       <div class="cell"><div class="no">03</div><h3 data-i="s3">Hosting</h3><p data-i="s3p">Updates, Google presence, local SEO.</p><span class="anno" data-i="an_s3a">we keep the lights on</span></div>
-      <div class="cell"><div class="no">04</div><h3 data-i="s4">Done-for-you</h3><p data-i="s4p">You approve, we handle all the rest.</p><svg class="ink" data-draw="cloud" viewBox="0 0 250 150" width="100%" height="100%" preserveAspectRatio="none" style="left:-8px;top:-8px;width:calc(100% + 16px);height:calc(100% + 16px)" aria-hidden="true"></svg><span class="inknote rd" style="right:2px;top:-22px;--r:3deg">rev. 02</span></div>
+      <div class="cell"><div class="no">04</div><h3 data-i="s4">Done-for-you</h3><p data-i="s4p">You approve, we handle all the rest.</p></div>
       <svg class="ink" data-draw="bracket" viewBox="0 0 1000 32" width="100%" height="32" preserveAspectRatio="none" style="left:0;right:0;bottom:-48px" aria-hidden="true"></svg>
       <span class="inknote" style="left:41%;bottom:-82px;--r:-1.5deg">one contact, one quote</span>
     </div>
@@ -349,8 +350,6 @@
       <svg id="r-step2" class="rj-mark step-arrow sa2" viewBox="0 0 60 30" aria-hidden="true"></svg>
       <span class="inknote" style="left:2px;top:-34px;--r:-2deg"><s>quote first</s> → demo first</span>
     </div>
-    <svg class="ink" data-draw="zflow" viewBox="0 0 70 50" width="70" height="50" style="right:8px;top:74px" aria-hidden="true"></svg>
-    <span class="inknote cy" style="right:0;top:126px;--r:-2deg">the eye reads in Z</span>
   </div>
 </section>
 
