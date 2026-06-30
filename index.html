@@ -187,7 +187,17 @@
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
   .step-arrow{position:absolute;top:30px;width:56px;height:28px;display:none;z-index:2}
   @media(min-width:781px){ .step-arrow{display:block} .sa1{left:33.33%;transform:translateX(-50%)} .sa2{left:66.66%;transform:translateX(-50%)} }
-  .stp{border:1px dashed var(--faint);padding:22px}
+  .stp{border:1px dashed var(--faint);padding:22px;position:relative}
+  /* ---- hand-drawn annotation layer (draw-on-scroll) ---- */
+  .ink{position:absolute;pointer-events:none;overflow:visible;z-index:4}
+  .inknote{position:absolute;pointer-events:none;z-index:4;font-family:'Caveat',cursive;color:var(--amber);
+    font-size:1.22rem;line-height:1.12;white-space:nowrap;opacity:0;transform:translateY(8px) rotate(var(--r,-2deg));
+    transition:opacity .6s ease,transform .6s ease}
+  .inknote.in{opacity:1;transform:translateY(0) rotate(var(--r,-2deg))}
+  .inknote.cy{color:var(--cy)} .inknote.rd{color:var(--red)}
+  .grid4,.specs,.form-grid{position:relative}
+  @media(max-width:900px){ .ink,.inknote{display:none} }
+  @media(prefers-reduced-motion:reduce){ .inknote{transition:none} }
   .stp .n{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.8rem;color:var(--red);margin-bottom:12px}
   .stp h3{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;margin-bottom:6px}
   .stp p{color:rgba(188,215,242,.7);font-size:.84rem}
@@ -292,6 +302,8 @@
       </div>
     </div>
   </div>
+  <svg class="ink" data-draw="arrow" data-d="M22,4 C8,26 10,50 20,66" data-h='[[20,66,9,55],[20,66,28,57]]' viewBox="0 0 44 72" width="44" height="72" style="left:30px;bottom:20px" aria-hidden="true"></svg>
+  <span class="inknote" style="left:76px;bottom:30px;--r:-3deg">the thinking starts here ↓</span>
   <div class="coord" id="coord">x:000 y:000</div>
   <div class="crosshair" id="cross"><div class="h"></div><div class="v"></div></div>
 </section>
@@ -307,7 +319,11 @@
       <div class="cell"><div class="no">02</div><h3 data-i="s2">Multilingual</h3><p data-i="s2p">FR · DE · EN on one site.</p><span class="anno r" data-i="an_s2">one sheet, three tongues</span></div>
       <div class="cell"><div class="no">03</div><h3 data-i="s3">Hosting</h3><p data-i="s3p">Updates, Google presence, local SEO.</p><span class="anno" data-i="an_s3a">we keep the lights on</span></div>
       <div class="cell"><div class="no">04</div><h3 data-i="s4">Done-for-you</h3><p data-i="s4p">You approve, we handle all the rest.</p></div>
+      <svg class="ink" data-draw="bracket" viewBox="0 0 1000 32" width="100%" height="32" preserveAspectRatio="none" style="left:0;right:0;bottom:-48px" aria-hidden="true"></svg>
+      <span class="inknote" style="left:41%;bottom:-82px;--r:-1.5deg">one contact, one quote</span>
     </div>
+    <svg class="ink" data-draw="swatches" viewBox="0 0 70 26" width="70" height="26" style="right:6px;top:78px" aria-hidden="true"></svg>
+    <span class="inknote cy" style="right:0;top:110px;--r:2.5deg">your palette</span>
   </div>
 </section>
 
@@ -324,6 +340,8 @@
       <svg id="r-step1" class="rj-mark step-arrow sa1" viewBox="0 0 60 30" aria-hidden="true"></svg>
       <svg id="r-step2" class="rj-mark step-arrow sa2" viewBox="0 0 60 30" aria-hidden="true"></svg>
     </div>
+    <svg class="ink" data-draw="zflow" viewBox="0 0 70 50" width="70" height="50" style="right:8px;top:74px" aria-hidden="true"></svg>
+    <span class="inknote cy" style="right:0;top:126px;--r:-2deg">the eye reads in Z</span>
   </div>
 </section>
 
@@ -337,6 +355,8 @@
       <div class="spec" data-thumb="thumbs/bwr.jpeg"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="url">books-worth-reading.com ↗</span><span class="d" data-i="w2">1,337 books · full-stack</span></span></div>
       <div class="spec" data-thumb="thumbs/lounbreck.jpeg"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="url">lounbreck.com ↗</span><span class="d" data-i="w3">SaaS · LU compliance</span></span></div>
       <div class="spec" data-thumb="thumbs/pasharo.jpeg"><span class="id">A-04</span><a href="https://www.pasharo.com" target="_blank" rel="noopener">Pasharo</a><span class="dwrap"><span class="url">pasharo.com ↗</span><span class="d" data-i="w5">corporate finance · advisory</span></span></div>
+      <svg class="ink" data-draw="dimline" viewBox="0 0 16 400" width="16" height="100%" preserveAspectRatio="none" style="left:-34px;top:6px;bottom:6px" aria-hidden="true"></svg>
+      <span class="inknote cy" style="left:-44px;top:-30px;--r:-2deg">×4 — all live ✓</span>
     </div>
     <div class="titleblock">
       <div><span class="k" data-i="tb1">Drawn by</span><span class="v">Webwerk</span></div>
@@ -359,6 +379,8 @@
         <p data-i="c_lead">Tell us who you are — we'll prepare a free demo, no obligation.</p>
         <p class="alt">→ <a href="mailto:jean@webwerk.lu">jean@webwerk.lu</a></p>
         <div class="cnote"><span class="note rot3" data-i="cnote">let's draw yours</span></div>
+        <svg class="ink" data-draw="phone" viewBox="0 0 60 90" width="60" height="90" style="left:2px;bottom:-104px" aria-hidden="true"></svg>
+        <span class="inknote cy" style="left:74px;bottom:-66px;--r:2deg">looks right on mobile, too</span>
       </div>
       <!-- Interim: no form backend yet — submit composes an email to jean@webwerk.lu.
            To switch to a hosted backend later, set data-endpoint to the POST URL. -->
@@ -368,6 +390,8 @@
         <div class="field"><label data-i="f_msg">Your project</label><textarea name="message" required></textarea></div>
         <button type="submit" data-i="f_send">Send →</button>
       </form>
+      <svg class="ink" data-draw="arrow" data-d="M4,30 C30,8 74,10 104,24" data-h='[[104,24,89,16],[104,24,95,34]]' viewBox="0 0 110 44" width="110" height="44" style="left:36%;top:-30px" aria-hidden="true"></svg>
+      <span class="inknote" style="left:34%;top:-58px;--r:-3deg">← drop us a line</span>
     </div>
   </div>
 </section>
@@ -523,6 +547,47 @@ addEventListener('keydown',e=>{
   if(e.key==='`'||e.key==='~'){ openConsole(); return; }
   if(/^[a-zA-Z]$/.test(e.key)){ buf=(buf+e.key.toLowerCase()).slice(-4); if(buf==='term'){ openConsole(); } }
 });
+
+// ---- hand-drawn annotation layer: marks ink themselves as they scroll into view ----
+(function(){
+  if(!window.rough) return;
+  if(matchMedia('(max-width:900px)').matches) return;
+  const INK='#ffcf6b', CYAN='#bcd7f2', RED='#ff5b51';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pen=(c,w,r,b)=>({stroke:c,strokeWidth:w==null?1.4:w,roughness:r==null?1.6:r,bowing:b==null?1.4:b});
+  const dim=svg=>{const v=svg.viewBox.baseVal;return [v.width,v.height];};
+  const DRAW={
+    arrow(rc,svg){ const o=pen(INK,1.6,1.5,1.9);
+      const d=svg.dataset.d, heads=JSON.parse(svg.dataset.h||'[]');
+      svg.appendChild(rc.path(d,o)); heads.forEach(a=>svg.appendChild(rc.line(a[0],a[1],a[2],a[3],{...o,strokeWidth:1.4}))); },
+    bracket(rc,svg){ const o=pen(INK,1.6,1,.8); const [W]=dim(svg);
+      svg.appendChild(rc.path(`M5,4 L5,15 L${W-5},15 L${W-5},4`,o)); svg.appendChild(rc.line(W/2,15,W/2,30,o)); },
+    dimline(rc,svg){ const o=pen(CYAN,1.3,1,.5); const [W,H]=dim(svg);
+      svg.appendChild(rc.line(W/2,3,W/2,H-3,o)); svg.appendChild(rc.line(2,3,W-2,3,o)); svg.appendChild(rc.line(2,H-3,W-2,H-3,o)); },
+    zflow(rc,svg){ const o=pen(CYAN,1.4,1.5,1.5);
+      svg.appendChild(rc.path('M6,8 L62,8',o)); svg.appendChild(rc.path('M62,8 L6,42',o)); svg.appendChild(rc.path('M6,42 L62,42',o));
+      svg.appendChild(rc.line(62,42,51,36,o)); svg.appendChild(rc.line(62,42,53,49,o)); },
+    phone(rc,svg){ const o=pen(INK,1.3,1.5,1.3);
+      svg.appendChild(rc.rectangle(8,4,44,82,{...o,strokeWidth:1.6})); svg.appendChild(rc.line(24,11,36,11,o));
+      svg.appendChild(rc.rectangle(14,20,32,22,{...o,fill:INK,fillStyle:'hachure',hachureGap:5,fillWeight:.6}));
+      svg.appendChild(rc.line(14,50,46,50,o)); svg.appendChild(rc.line(14,58,40,58,o)); svg.appendChild(rc.rectangle(14,66,22,9,o)); },
+    swatches(rc,svg){ [RED,INK,CYAN].forEach((c,i)=>svg.appendChild(rc.rectangle(4+i*22,4,18,18,{stroke:c,strokeWidth:1.4,roughness:1.4,fill:c,fillStyle:'hachure',hachureGap:4,fillWeight:.7}))); },
+  };
+  const FILL={phone:1,swatches:1};
+  function animate(svg){
+    [...svg.querySelectorAll('path')].forEach((p,i)=>{ let len=0; try{len=p.getTotalLength();}catch(e){} if(!len) return;
+      p.style.strokeDasharray=len+' '+len; p.style.strokeDashoffset=len; p.getBoundingClientRect();
+      p.style.transition=`stroke-dashoffset ${Math.min(680,170+len)}ms ease ${i*65}ms`; p.style.strokeDashoffset='0'; });
+  }
+  const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(!e.isIntersecting) return; const el=e.target; io.unobserve(el);
+    if(el.classList.contains('inknote')){ el.classList.add('in'); return; }
+    const fn=DRAW[el.dataset.draw]; if(!fn) return; const rc=rough.svg(el); el.innerHTML=''; fn(rc,el);
+    if(reduce) return;
+    if(FILL[el.dataset.draw]){ el.style.opacity='0'; el.style.transition='opacity .6s ease'; el.getBoundingClientRect(); el.style.opacity='1'; }
+    else animate(el);
+  }); }, {threshold:.2, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.ink[data-draw], .inknote').forEach(el=>io.observe(el));
+})();
 </script>
 <!-- privacy-friendly, cookieless analytics (no consent banner needed) -->
 <script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
