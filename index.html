@@ -8,7 +8,8 @@
 -->
 <html lang="en">
 <head>
-<script>document.documentElement.classList.add('js');</script>
+<script>document.documentElement.classList.add('js');
+try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('inkjs'); }catch(e){}
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Webwerk — Web studio in Luxembourg · custom websites</title>
@@ -192,14 +193,14 @@
   /* ---- hand-drawn annotation layer (draw-on-scroll) ---- */
   .ink{position:absolute;pointer-events:none;overflow:visible;z-index:4}
   .inknote{position:absolute;pointer-events:none;z-index:4;font-family:'Caveat',cursive;color:var(--amber);
-    font-size:1.22rem;line-height:1.12;white-space:nowrap;opacity:0;transform:translateY(8px) rotate(var(--r,-2deg));
-    transition:opacity .6s ease,transform .6s ease}
-  .inknote.in{opacity:1;transform:translateY(0) rotate(var(--r,-2deg))}
+    font-size:1.22rem;line-height:1.12;white-space:nowrap;transform:rotate(var(--r,-2deg))}
   .inknote.cy{color:var(--cy)} .inknote.rd{color:var(--red)}
+  /* yellow handwriting writes itself in (left-to-right) on scroll — only when inkjs is on (desktop, motion ok) */
+  .inkjs .inknote,.inkjs .anno,.inkjs .fig-note,.inkjs .note{opacity:0;clip-path:inset(-22% 100% -22% -7%)}
+  .inkjs .inknote.in,.inkjs .anno.in,.inkjs .fig-note.in,.inkjs .note.in{opacity:1;clip-path:inset(-22% -7% -22% -7%);transition:clip-path .85s ease,opacity .3s ease}
   .grid4,.specs,.form-grid{position:relative}
   .grid4 .cell{position:relative}
   @media(max-width:900px){ .ink,.inknote{display:none} }
-  @media(prefers-reduced-motion:reduce){ .inknote{transition:none} }
   .stp .n{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.8rem;color:var(--red);margin-bottom:12px}
   .stp h3{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;margin-bottom:6px}
   .stp p{color:rgba(188,215,242,.7);font-size:.84rem}
@@ -606,13 +607,13 @@ addEventListener('keydown',e=>{
       p.style.transition=`stroke-dashoffset ${Math.min(1100,320+len*1.5)}ms ease ${i*95}ms`; p.style.strokeDashoffset='0'; });
   }
   const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(!e.isIntersecting) return; const el=e.target; io.unobserve(el);
-    if(el.classList.contains('inknote')){ el.classList.add('in'); return; }
+    if(!el.dataset.draw){ el.classList.add('in'); return; }
     const fn=DRAW[el.dataset.draw]; if(!fn) return; const rc=rough.svg(el); el.innerHTML=''; fn(rc,el);
     if(reduce) return;
     if(FILL[el.dataset.draw]){ el.style.opacity='0'; el.style.transition='opacity .6s ease'; el.getBoundingClientRect(); el.style.opacity='1'; }
     else animate(el);
   }); }, {threshold:.2, rootMargin:'0px 0px -16% 0px'});
-  document.querySelectorAll('.ink[data-draw], .inknote').forEach(el=>io.observe(el));
+  document.querySelectorAll('.ink[data-draw], .inknote, .anno, .fig-note, .note').forEach(el=>io.observe(el));
 })();
 </script>
 <!-- privacy-friendly, cookieless analytics (no consent banner needed) -->
