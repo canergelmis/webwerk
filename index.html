@@ -192,11 +192,8 @@
   /* ---- hand-drawn annotation layer (draw-on-scroll) ---- */
   .ink{position:absolute;pointer-events:none;overflow:visible;z-index:4}
   .inknote{position:absolute;pointer-events:none;z-index:4;font-family:'Caveat',cursive;color:var(--amber);
-    font-size:1.22rem;line-height:1.12;white-space:nowrap;
-    opacity:0;transform:translateX(-16px) rotate(var(--r,-2deg));transition:opacity .5s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
-  .js .inknote.in,.js .reveal.in .inknote{opacity:1;transform:translateX(0) rotate(var(--r,-2deg))}
+    font-size:1.22rem;line-height:1.12;white-space:nowrap;transform:rotate(var(--r,-2deg))}
   .inknote.cy{color:var(--cy)} .inknote.rd{color:var(--red)}
-  @media(prefers-reduced-motion:reduce){ .inknote{opacity:1;transform:rotate(var(--r,-2deg));transition:none} }
   .grid4,.specs,.form-grid{position:relative}
   .grid4 .cell{position:relative}
   @media(max-width:900px){ .ink,.inknote{display:none} }
