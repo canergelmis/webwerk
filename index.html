@@ -162,12 +162,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   @keyframes draw{to{transform:scaleX(1)}}
   .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
   .dimline .bar::before{left:0}.dimline .bar::after{right:0}
-  .hero .sub{max-width:48ch;margin-top:24px;color:rgba(188,215,242,.78);font-size:.92rem}
-  .hero .promise{max-width:24ch;margin-top:26px;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(1.2rem,2.5vw,1.85rem);line-height:1.12;color:var(--wht)}
-  .hero .promise em{font-style:normal;color:var(--amber)}
-  .hero .cta{display:inline-block;margin-top:22px;font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.9rem;color:var(--blue);background:var(--amber);padding:.95em 1.7em;text-decoration:none;border:1px solid var(--amber);transition:.18s}
-  .hero .cta:hover{background:var(--wht);border-color:var(--wht);transform:translateY(-1px)}
-  .hero .cta:focus-visible{outline:2px solid var(--wht);outline-offset:3px}
+  .hero .sub{max-width:48ch;margin-top:30px;color:var(--cy);font-size:.96rem}
   .tick{position:absolute;width:14px;height:14px;border:1px solid var(--red)}
   .tick.tl{top:90px;left:0;border-right:0;border-bottom:0}.tick.tr{top:90px;right:0;border-left:0;border-bottom:0}
   .coord{position:absolute;font-size:.66rem;color:var(--amber);letter-spacing:.05em;pointer-events:none;opacity:0;transition:opacity .2s;z-index:2}
@@ -287,9 +282,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
     <div class="plate"><span data-i="plate">Working drawing № WW-2026 · Web studio · Luxembourg</span></div>
     <h1 data-i="h1">We draft<br>the <em>web.</em></h1>
     <div class="dimline"><span data-i="dimA">concept</span><span class="bar"></span><span data-i="dimB">go-live</span></div>
-    <p class="promise" data-i="promise">A real demo of your site — <em>free, before you pay.</em></p>
-    <a href="#fig4" class="cta" data-i="cta">Get your free demo →</a>
-    <p class="sub" data-i="sub">Every site is a working drawing: measured, drafted, built. Custom, multilingual, made in Luxembourg.</p>
+    <p class="sub" data-i="sub">Every site is a working drawing: measured, drafted, built. Custom, multilingual, made in Luxembourg — and you see it before you pay.</p>
     <span class="lead-anno" data-i="an_sub">drawn, not dragged</span>
 
     <div class="hero-pin">
@@ -404,7 +397,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
       </div>
       <!-- Interim: no form backend yet — submit composes an email to jean@webwerk.lu.
            To switch to a hosted backend later, set data-endpoint to the POST URL. -->
-      <form id="contactForm" data-endpoint="">
+      <form id="contactForm" data-endpoint="https://formspree.io/f/mnjkbdbq">
         <div class="field"><label data-i="f_name">Name / Business</label><input type="text" name="name" required /></div>
         <div class="field"><label data-i="f_email">Email</label><input type="email" name="email" required /></div>
         <div class="field"><label data-i="f_msg">Your project</label><textarea name="message" required></textarea></div>
@@ -468,8 +461,7 @@ const I={ fr:{
   plate:"Plan d'exécution № WW-2026 · Studio web · Luxembourg",
   h1:"On dessine<br>le <em>web.</em>",
   dimA:"concept", dimB:"mise en ligne", pincap:"votre site — esquissé", pincap2:"→ à l'encre ✓",
-  sub:"Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg.",
-  promise:"Une vraie démo de votre site — <em>gratuite, avant de payer.</em>", cta:"Votre démo gratuite →",
+  sub:"Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg — et vous le voyez avant de payer.",
   an_sub:"dessiné, pas glissé",
   s_lbl:"Nomenclature — services", s_h:"Ce qu'on construit", s_lead:"Un seul interlocuteur, du relevé jusqu'à l'entretien.",
   s1:"Conception", s1p:"Sur-mesure, rapide, responsive — jamais un modèle générique.", s2:"Multilingue", s2p:"FR · DE · EN sur le même site.", s3:"Hébergement", s3p:"Mises à jour, présence Google, SEO local.", s4:"Clé en main", s4p:"Vous validez, on s'occupe de tout le reste.",
