@@ -269,7 +269,7 @@
     </nav>
     <div class="nav-cta">
       <span class="lang" role="group" aria-label="Language"><b data-l="en" role="button" tabindex="0" aria-label="English">EN</b> <span class="dim">/</span> <b data-l="fr" role="button" tabindex="0" aria-label="Français" class="off">FR</b></span>
-      <a href="#fig4" class="devis" data-i="devis">Quote</a>
+      <a href="#fig4" class="devis" data-i="devis">Free demo</a>
       <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -456,7 +456,7 @@ if(window.rough) drawSketches();
 addEventListener('load',drawSketches);
 
 const I={ fr:{
-  n1:"Services",n2:"Méthode",n3:"Réalisations",n4:"Contact", devis:"Devis",
+  n1:"Services",n2:"Méthode",n3:"Réalisations",n4:"Contact", devis:"Démo gratuite",
   plate:"Plan d'exécution № WW-2026 · Studio web · Luxembourg",
   h1:"On dessine<br>le <em>web.</em>",
   dimA:"concept", dimB:"mise en ligne", pincap:"votre site — esquissé", pincap2:"→ à l'encre ✓",
@@ -603,7 +603,7 @@ addEventListener('keydown',e=>{
   function animate(svg){
     [...svg.querySelectorAll('path')].forEach((p,i)=>{ let len=0; try{len=p.getTotalLength();}catch(e){} if(!len) return;
       p.style.strokeDasharray=len+' '+len; p.style.strokeDashoffset=len; p.getBoundingClientRect();
-      p.style.transition=`stroke-dashoffset ${Math.min(680,170+len)}ms ease ${i*65}ms`; p.style.strokeDashoffset='0'; });
+      p.style.transition=`stroke-dashoffset ${Math.min(1100,320+len*1.5)}ms ease ${i*95}ms`; p.style.strokeDashoffset='0'; });
   }
   const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(!e.isIntersecting) return; const el=e.target; io.unobserve(el);
     if(el.classList.contains('inknote')){ el.classList.add('in'); return; }
@@ -611,7 +611,7 @@ addEventListener('keydown',e=>{
     if(reduce) return;
     if(FILL[el.dataset.draw]){ el.style.opacity='0'; el.style.transition='opacity .6s ease'; el.getBoundingClientRect(); el.style.opacity='1'; }
     else animate(el);
-  }); }, {threshold:.2, rootMargin:'0px 0px -6% 0px'});
+  }); }, {threshold:.2, rootMargin:'0px 0px -16% 0px'});
   document.querySelectorAll('.ink[data-draw], .inknote').forEach(el=>io.observe(el));
 })();
 </script>
