@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!--
   WEBWERK — Luxembourg web studio. Concept: BLUEPRINT — the site is a live technical execution drawing
-  of itself (FIG. plates, dimension lines, drafting title-block). FR default · EN. INDEXABLE.
+  of itself (FIG. plates, dimension lines, drafting title-block). EN default · FR toggle. INDEXABLE.
   Polish: CAD coordinate readout tracking the cursor, animated dimension lines, crosshair hero,
-  reveal-on-scroll. Hidden easter egg: the terminal at /console/ (footer link + type "term" or press `).
-  Single self-contained file; GitHub-Pages-safe. Live at webwerk.lu. EN default · FR toggle.
+  reveal-on-scroll, hand-drawn (rough.js) annotation layer that draws/writes itself in on scroll.
+  Hidden easter egg: the terminal at /console/ (footer link + type "term" or press `).
+  Single self-contained file; GitHub-Pages-safe. Live at webwerk.lu.
 -->
 <html lang="en">
 <head>
@@ -29,6 +30,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
 <meta name="twitter:description" content="We draft the web. Custom, multilingual websites — measured, drafted, built in Luxembourg." />
 <meta name="twitter:image" content="https://webwerk.lu/og.png" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="theme-color" content="#0b2c52" />
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Webwerk","description":"Web studio in Luxembourg — custom, multilingual (FR/DE/EN) websites for restaurants, shops, independents and companies. You see your site before you pay.","url":"https://webwerk.lu/","email":"jean@webwerk.lu","areaServed":"LU","address":{"@type":"PostalAddress","addressCountry":"LU","addressLocality":"Luxembourg"},"knowsLanguage":["en","fr","de"],"slogan":"We draft the web."}
@@ -89,7 +91,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   .lead-anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;display:inline-block;margin-left:14px;transform:rotate(-2deg);vertical-align:middle}
   .kick-anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.6rem;display:block;margin-top:14px;transform:rotate(-1.5deg)}
   .dwrap{display:block}
-  .dwrap .url{display:block;font-family:'Space Mono',monospace;font-size:.72rem;color:rgba(188,215,242,.5);letter-spacing:.01em;margin-bottom:3px}
+  .dwrap .url{display:block;font-family:'Space Mono',monospace;font-size:.72rem;color:rgba(188,215,242,.72);letter-spacing:.01em;margin-bottom:3px}
   .spec[data-thumb]{cursor:pointer}
   .thumb-preview{position:fixed;z-index:60;width:308px;pointer-events:none;opacity:0;transform:translateY(10px) rotate(-1.6deg);transition:opacity .22s,transform .22s;background:#0b2c52;border:1px solid var(--amber);padding:6px;box-shadow:0 26px 54px -22px #000}
   .thumb-preview.show{opacity:1;transform:rotate(-1.6deg)}
@@ -151,7 +153,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
 
   /* hero */
   .hero{padding:130px 0 70px;border-bottom:1px solid var(--faint);position:relative;cursor:crosshair}
-  .plate{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.55);margin-bottom:26px}
+  .plate{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.72);margin-bottom:26px}
   .hero h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(2.8rem,12vw,9.5rem);line-height:.9;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1.5px var(--wht);text-stroke:1.5px var(--wht);text-transform:uppercase}
   .hero h1 em{font-style:normal;-webkit-text-stroke:1.5px var(--red);color:transparent}
   .js .hero h1{opacity:0;transform:translateY(14px);animation:up .8s .1s forwards}
@@ -214,7 +216,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   .spec .id{color:var(--red);font-size:.78rem}
   .spec a,.spec b{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:1.05rem}
   .spec a:hover{color:var(--amber)}
-  .spec .d{color:rgba(188,215,242,.6);font-size:.82rem}
+  .spec .d{color:rgba(188,215,242,.72);font-size:.82rem}
   @media(max-width:560px){.spec{grid-template-columns:50px 1fr}.spec .d{grid-column:2}}
 
   .titleblock{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--faint);margin:40px 0 0}
@@ -222,23 +224,23 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   .titleblock div:nth-child(3n){border-right:0}
   .titleblock div:nth-last-child(-n+3){border-bottom:0}
   @media(max-width:560px){ .titleblock{grid-template-columns:1fr 1fr} .titleblock div:nth-child(3n){border-right:1px solid var(--faint)} .titleblock div:nth-child(2n){border-right:0} .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)} .titleblock div:nth-last-child(-n+2){border-bottom:0} }
-  .titleblock .k{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(188,215,242,.5);display:block;margin-bottom:3px}
+  .titleblock .k{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(188,215,242,.72);display:block;margin-bottom:3px}
   .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600}
 
   /* contact form as a spec sheet */
   .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
   .form-grid .intro p{color:rgba(188,215,242,.72);max-width:34ch;margin:10px 0 18px}
-  .form-grid .intro .alt{color:rgba(188,215,242,.6);font-size:.82rem;margin-top:14px}
+  .form-grid .intro .alt{color:rgba(188,215,242,.74);font-size:.82rem;margin-top:14px}
   form{border-top:1px solid var(--faint)}
   .field{border-bottom:1px solid var(--faint);padding:12px 0}
-  .field label{display:block;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(188,215,242,.55);margin-bottom:4px}
+  .field label{display:block;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(188,215,242,.74);margin-bottom:4px}
   .field input,.field textarea{width:100%;background:none;border:0;outline:0;color:var(--wht);font-family:'Space Mono',monospace;font-size:1rem;resize:vertical}
   .field textarea{min-height:84px}
   form button{margin-top:20px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;color:var(--blue);background:var(--amber);border:0;padding:.8em 1.5em;cursor:pointer;transition:.16s}
   form button:hover{background:var(--wht)}
   @media(max-width:780px){.form-grid{grid-template-columns:1fr;gap:28px}}
 
-  footer{padding:24px 0;color:rgba(188,215,242,.5);font-size:.74rem}
+  footer{padding:24px 0;color:rgba(188,215,242,.72);font-size:.74rem}
   .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
   .foot .egg{color:rgba(188,215,242,.4);cursor:pointer;font-size:.72rem}
   .foot .egg:hover{color:var(--amber)}
@@ -269,9 +271,9 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
       <a href="#fig1" data-i="n1">Services</a><a href="#fig2" data-i="n2">Method</a><a href="#fig3" data-i="n3">Work</a><a href="#fig4" data-i="n4">Contact</a>
     </nav>
     <div class="nav-cta">
-      <span class="lang" role="group" aria-label="Language"><b data-l="en" role="button" tabindex="0" aria-label="English">EN</b> <span class="dim">/</span> <b data-l="fr" role="button" tabindex="0" aria-label="Français" class="off">FR</b></span>
+      <span class="lang" role="group" aria-label="Language"><b data-l="en" role="button" tabindex="0" aria-label="English" aria-pressed="true">EN</b> <span class="dim">/</span> <b data-l="fr" role="button" tabindex="0" aria-label="Français" aria-pressed="false" class="off">FR</b></span>
       <a href="#fig4" class="devis" data-i="devis">Free demo</a>
-      <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+      <button class="burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -306,10 +308,10 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
     </div>
   </div>
   <svg class="ink" data-draw="arrow" data-d="M22,4 C8,26 10,50 20,66" data-h='[[20,66,9,55],[20,66,28,57]]' viewBox="0 0 44 72" width="44" height="72" style="left:30px;bottom:20px" aria-hidden="true"></svg>
-  <span class="inknote" style="left:76px;bottom:30px;--r:-3deg">the thinking starts here ↓</span>
-  <span class="inknote" style="left:600px;top:132px;--r:-2deg">we <s>build</s> <s>make</s> draft</span>
+  <span class="inknote" data-i="ik_think" style="left:76px;bottom:30px;--r:-3deg">the thinking starts here ↓</span>
+  <span class="inknote" data-i="ik_draft" style="left:600px;top:132px;--r:-2deg">we <s>build</s> <s>make</s> draft</span>
   <svg class="ink" data-draw="arrow" data-d="M104,30 C70,12 30,14 6,24" data-h='[[6,24,20,16],[6,24,16,33]]' viewBox="0 0 110 40" width="110" height="40" style="right:330px;bottom:120px" aria-hidden="true"></svg>
-  <span class="inknote cy" style="right:300px;bottom:150px;--r:2deg">↘ the CTA</span>
+  <span class="inknote cy" data-i="ik_cta" style="right:300px;bottom:150px;--r:2deg">↘ the CTA</span>
   <div class="coord" id="coord">x:000 y:000</div>
   <div class="crosshair" id="cross"><div class="h"></div><div class="v"></div></div>
 </section>
@@ -327,12 +329,12 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
       <div class="cell"><div class="no">03</div><h3 data-i="s3">Hosting</h3><p data-i="s3p">Updates, Google presence, local SEO.</p><span class="anno" data-i="an_s3a">we keep the lights on</span></div>
       <div class="cell"><div class="no">04</div><h3 data-i="s4">Done-for-you</h3><p data-i="s4p">You approve, we handle all the rest.</p></div>
       <svg class="ink" data-draw="bracket" viewBox="0 0 1000 32" width="100%" height="32" preserveAspectRatio="none" style="left:0;right:0;bottom:-48px" aria-hidden="true"></svg>
-      <span class="inknote" style="left:41%;bottom:-82px;--r:-1.5deg">one contact, one quote</span>
+      <span class="inknote" data-i="ik_contact" style="left:41%;bottom:-82px;--r:-1.5deg">one contact, one quote</span>
     </div>
     <svg class="ink" data-draw="swatches" viewBox="0 0 70 26" width="70" height="26" style="right:6px;top:78px" aria-hidden="true"></svg>
-    <span class="inknote cy" style="right:0;top:110px;--r:2.5deg">your palette</span>
+    <span class="inknote cy" data-i="ik_palette" style="right:0;top:110px;--r:2.5deg">your palette</span>
     <svg class="ink" data-draw="grid" viewBox="0 0 72 60" width="72" height="60" style="left:560px;top:6px" aria-hidden="true"></svg>
-    <span class="inknote cy" style="left:548px;top:62px;--r:-2deg">on a 12-col grid</span>
+    <span class="inknote cy" data-i="ik_grid" style="left:548px;top:62px;--r:-2deg">on a 12-col grid</span>
   </div>
 </section>
 
@@ -349,7 +351,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
       <div class="stp"><div class="n">03</div><svg class="ink" data-draw="ring" viewBox="0 0 58 46" width="58" height="46" style="left:11px;top:13px" aria-hidden="true"></svg><h3 data-i="m3">Launch</h3><p data-i="m3p">We go live, host, and maintain.</p><span class="anno" data-i="an_m3">inked ✓</span></div>
       <svg id="r-step1" class="rj-mark step-arrow sa1" viewBox="0 0 60 30" aria-hidden="true"></svg>
       <svg id="r-step2" class="rj-mark step-arrow sa2" viewBox="0 0 60 30" aria-hidden="true"></svg>
-      <span class="inknote" style="left:2px;top:-34px;--r:-2deg"><s>quote first</s> → demo first</span>
+      <span class="inknote" data-i="ik_quote" style="left:2px;top:-34px;--r:-2deg"><s>quote first</s> → demo first</span>
     </div>
   </div>
 </section>
@@ -366,9 +368,9 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
       <div class="spec" data-thumb="thumbs/lounbreck.jpeg"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="url">lounbreck.com ↗</span><span class="d" data-i="w3">SaaS · LU compliance</span></span></div>
       <div class="spec" data-thumb="thumbs/pasharo.jpeg"><span class="id">A-04</span><a href="https://www.pasharo.com" target="_blank" rel="noopener">Pasharo</a><span class="dwrap"><span class="url">pasharo.com ↗</span><span class="d" data-i="w5">corporate finance · advisory</span></span></div>
       <svg class="ink" data-draw="dimline" viewBox="0 0 16 400" width="16" height="100%" preserveAspectRatio="none" style="left:-34px;top:6px;bottom:6px" aria-hidden="true"></svg>
-      <span class="inknote cy" style="left:-44px;top:-30px;--r:-2deg">×4 — all live ✓</span>
+      <span class="inknote cy" data-i="ik_live" style="left:-44px;top:-30px;--r:-2deg">×4 — all live ✓</span>
       <svg class="ink" data-draw="cursor" viewBox="0 0 28 34" width="28" height="34" style="left:404px;top:30px" aria-hidden="true"></svg>
-      <span class="inknote" style="left:392px;top:64px;--r:3deg">real, clickable ↗</span>
+      <span class="inknote" data-i="ik_click" style="left:392px;top:64px;--r:3deg">real, clickable ↗</span>
     </div>
     <div class="titleblock">
       <div><span class="k" data-i="tb1">Drawn by</span><span class="v">Webwerk</span></div>
@@ -393,18 +395,17 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
         <p class="alt">→ <a href="mailto:jean@webwerk.lu">jean@webwerk.lu</a></p>
         <div class="cnote"><span class="note rot3" data-i="cnote">let's build yours</span></div>
         <svg class="ink" data-draw="phone" viewBox="0 0 60 90" width="60" height="90" style="left:2px;bottom:-104px" aria-hidden="true"></svg>
-        <span class="inknote cy" style="left:74px;bottom:-66px;--r:2deg">looks right on mobile, too</span>
+        <span class="inknote cy" data-i="ik_mobile" style="left:74px;bottom:-66px;--r:2deg">looks right on mobile, too</span>
       </div>
-      <!-- Interim: no form backend yet — submit composes an email to jean@webwerk.lu.
-           To switch to a hosted backend later, set data-endpoint to the POST URL. -->
+      <!-- Posts to Formspree; falls back to a prefilled mailto if the request fails. -->
       <form id="contactForm" data-endpoint="https://formspree.io/f/mnjkbdbq">
-        <div class="field"><label data-i="f_name">Name / Business</label><input type="text" name="name" required /></div>
-        <div class="field"><label data-i="f_email">Email</label><input type="email" name="email" required /></div>
-        <div class="field"><label data-i="f_msg">Your project</label><textarea name="message" required></textarea></div>
+        <div class="field"><label for="f-name" data-i="f_name">Name / Business</label><input id="f-name" type="text" name="name" required /></div>
+        <div class="field"><label for="f-email" data-i="f_email">Email</label><input id="f-email" type="email" name="email" required /></div>
+        <div class="field"><label for="f-msg" data-i="f_msg">Your project</label><textarea id="f-msg" name="message" required></textarea></div>
         <button type="submit" data-i="f_send">Send →</button>
       </form>
       <svg class="ink" data-draw="arrow" data-d="M4,30 C30,8 74,10 104,24" data-h='[[104,24,89,16],[104,24,95,34]]' viewBox="0 0 110 44" width="110" height="44" style="left:36%;top:16px" aria-hidden="true"></svg>
-      <span class="inknote" style="left:34%;top:-12px;--r:-3deg">← drop us a line</span>
+      <span class="inknote" data-i="ik_drop" style="left:34%;top:-12px;--r:-3deg">← drop us a line</span>
     </div>
   </div>
 </section>
@@ -419,7 +420,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js" integrity="sha384-1NLkwxMO2sOqcq7rQkFBhIAUJtbt8ziLxhVKVgKfFGMEU8pF+GEq5LVogviveup6" crossorigin="anonymous"></script>
 <script>
 // rough.js hand-sketched wireframe (the pinned "esquisse")
 function drawWire(){
@@ -463,6 +464,10 @@ const I={ fr:{
   dimA:"concept", dimB:"mise en ligne", pincap:"votre site — esquissé", pincap2:"→ à l'encre ✓",
   sub:"Chaque site est un plan d'exécution : mesuré, dessiné, construit. Sur-mesure, multilingue, fait à Luxembourg — et vous le voyez avant de payer.",
   an_sub:"dessiné, pas glissé",
+  ik_think:"le travail commence ici ↓", ik_draft:"on <s>construit</s> <s>fabrique</s> dessine", ik_cta:"↘ le CTA",
+  ik_contact:"un contact, un devis", ik_palette:"votre palette", ik_grid:"sur une grille 12 colonnes",
+  ik_quote:"<s>devis d'abord</s> → démo d'abord", ik_live:"×4 — tous en ligne ✓", ik_click:"réel, cliquable ↗",
+  ik_mobile:"nickel sur mobile aussi", ik_drop:"← écrivez-nous",
   s_lbl:"Nomenclature — services", s_h:"Ce qu'on construit", s_lead:"Un seul interlocuteur, du relevé jusqu'à l'entretien.",
   s1:"Conception", s1p:"Sur-mesure, rapide, responsive — jamais un modèle générique.", s2:"Multilingue", s2p:"FR · DE · EN sur le même site.", s3:"Hébergement", s3p:"Mises à jour, présence Google, SEO local.", s4:"Clé en main", s4p:"Vous validez, on s'occupe de tout le reste.",
   an_s1:"chaque pixel posé", an_s2:"une feuille, trois langues", an_s3a:"on garde la lumière",
@@ -478,7 +483,7 @@ const I={ fr:{
 let lang='en';
 document.querySelectorAll('[data-i]').forEach(el=>el.dataset.en=el.innerHTML);
 function setLang(l){ lang=l; document.documentElement.lang=l;
-  document.querySelectorAll('.lang b').forEach(b=>b.classList.toggle('off',b.dataset.l!==l));
+  document.querySelectorAll('.lang b').forEach(b=>{b.classList.toggle('off',b.dataset.l!==l);b.setAttribute('aria-pressed',b.dataset.l===l);});
   document.querySelectorAll('[data-i]').forEach(el=>{ const k=el.getAttribute('data-i'); el.innerHTML = l==='en'? el.dataset.en : (I.fr[k]!=null?I.fr[k]:el.dataset.en); });
   try{localStorage.setItem('webwerk_lang',l);}catch(e){}
 }

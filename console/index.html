@@ -139,7 +139,7 @@ function run(raw){
   if(cmd==='open'){ const w=WORK.find(x=>x[0]===parts[1]); if(w&&w[3]!=='#'){ el(`<span class="amber">${t.opening(w[3])}</span>`); window.open(w[3],'_blank','noopener'); } else el(`<span class="red">${lang==='fr'?'projet inconnu — tapez: work':'unknown project — type: work'}</span>`); scroll(); return; }
   if(cmd==='contact'){ el(`<span class="hd">${t.contactHd}</span>`); t.contact.forEach(([k,v])=>el(`<div class="row"><span class="k">${k}</span><span class="v">${k==='mail'?`<a href="mailto:${v}">${v}</a>`:v}</span><span></span></div>`)); scroll(); return; }
   if(cmd==='devis'||cmd==='quote'){ el(`<span class="green">${t.quote[0]}</span>`); el(`<span class="dim">${t.quote[1]}</span>`); scroll(); return; }
-  el(`<span class="red">${t.unknown(c)}</span>`); scroll();
+  el(`<span class="red">${t.unknown(esc(c))}</span>`); scroll();
 }
 
 function boot(){
