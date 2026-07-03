@@ -5,7 +5,7 @@
   Polish: CAD coordinate readout tracking the cursor, animated dimension lines, crosshair hero,
   reveal-on-scroll, hand-drawn (rough.js) annotation layer that draws/writes itself in on scroll.
   Hidden easter egg: the terminal at /console/ (footer link + type "term" or press `).
-  Single self-contained file; GitHub-Pages-safe. Live at webwerk.lu.
+  Self-contained; rough.js self-hosted at /vendor/rough.js (no CDN dependency); GitHub-Pages-safe. Live at webwerk.lu.
 -->
 <html lang="en">
 <head>
@@ -84,7 +84,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   #r-contact{width:86px;height:42px;flex:none}
   .plate-note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.15rem;margin-left:10px;transform:rotate(-2deg);display:inline-block}
   .hero-pin{z-index:3;width:240px;display:block;margin:34px 0 4px}
-  .fig-note{position:absolute;top:58px;left:96px;font-family:'Caveat',cursive;color:var(--amber);font-size:1.3rem;transform:rotate(-3deg);white-space:nowrap;z-index:4}
+  .fig-note{position:absolute;top:44px;left:112px;font-family:'Caveat',cursive;color:var(--amber);font-size:1.3rem;transform:rotate(-3deg);white-space:nowrap;z-index:4}
   @media(max-width:900px){ .fig-note{position:static;display:block;margin:4px 0 0 30px} }
   .anno{font-family:'Caveat',cursive;color:var(--amber);font-size:1.22rem;line-height:1.05;display:block;margin-top:10px;transform:rotate(-1.6deg)}
   .anno.r{transform:rotate(2.2deg)}
@@ -143,7 +143,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   .nav-links a{color:var(--cy)}.nav-links a:hover{color:var(--wht)}
   .nav-cta{display:flex;align-items:center;gap:18px}
   .lang{white-space:nowrap}
-  .lang b{cursor:pointer;color:var(--wht);padding:10px 5px;margin:-10px -5px}.lang b.off{color:rgba(188,215,242,.45)}
+  .lang b{cursor:pointer;color:var(--wht);padding:10px 5px;margin:-10px -5px}.lang b.off{color:rgba(188,215,242,.62)}
   .devis{font-family:'Archivo',sans-serif;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--blue);background:var(--amber);padding:.6em 1.1em;border:0;cursor:pointer;transition:.16s}
   .devis:hover{background:var(--wht)}
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer}
@@ -179,9 +179,9 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   .crosshair .h,.crosshair .v{position:absolute;background:rgba(255,207,107,.35)}
   @media(max-width:780px){.tick,.coord,.crosshair{display:none}.hero{cursor:auto}}
 
-  section.sheet{padding:62px 0;border-bottom:1px solid var(--faint);position:relative;scroll-margin-top:72px}
-  .sheet .fig{position:absolute;top:62px;left:30px;font-size:.72rem;color:var(--red);letter-spacing:.1em}
-  .sheet .wrap{padding-top:26px}
+  section.sheet{padding:50px 0 44px;border-bottom:1px solid var(--faint);position:relative;scroll-margin-top:72px}
+  .sheet .fig{position:absolute;top:50px;left:30px;font-size:.72rem;color:var(--red);letter-spacing:.1em}
+  .sheet .wrap{padding-top:18px}
   @media(max-width:900px){ .sheet .fig{position:static;display:block;padding:0 30px;margin-bottom:10px} .sheet .wrap{padding-top:0} }
   .sheet h2{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(1.6rem,4vw,2.8rem);color:var(--wht);text-transform:uppercase;letter-spacing:-.01em;margin:30px 0 6px}
   .sheet .lead{color:rgba(188,215,242,.72);max-width:48ch;margin-bottom:30px}
@@ -224,7 +224,15 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   .spec a,.spec b{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:1.05rem}
   .spec a:hover{color:var(--amber)}
   .spec .d{color:rgba(188,215,242,.72);font-size:.82rem}
-  @media(max-width:560px){.spec{grid-template-columns:50px 1fr}.spec .d{grid-column:2}}
+  .mlink{display:none}
+  @media(max-width:640px){
+    .spec{display:block;padding:16px 0}
+    .spec:hover{padding-left:0}
+    .spec .id{margin-right:10px}
+    .dwrap{margin-top:4px}
+    .mlink{display:block;margin-top:12px}
+    .mthumb{display:block;width:100%;border:1px solid var(--faint);border-radius:2px}
+  }
 
   .titleblock{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--faint);margin:40px 0 0}
   .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:12px 14px}
@@ -238,18 +246,19 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
   .form-grid .intro p{color:rgba(188,215,242,.72);max-width:34ch;margin:10px 0 18px}
   .form-grid .intro .alt{color:rgba(188,215,242,.74);font-size:.82rem;margin-top:14px}
-  form{border-top:1px solid var(--faint)}
-  .field{border-bottom:1px solid var(--faint);padding:12px 0}
-  .field label{display:block;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(188,215,242,.74);margin-bottom:4px}
-  .field input,.field textarea{width:100%;background:none;border:0;outline:0;color:var(--wht);font-family:'Space Mono',monospace;font-size:1rem;resize:vertical}
-  .field textarea{min-height:84px}
-  form button{margin-top:20px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;color:var(--blue);background:var(--amber);border:0;padding:.8em 1.5em;cursor:pointer;transition:.16s}
+  form{margin-top:2px}
+  .field{border:1px solid var(--faint);background:rgba(234,243,255,.035);padding:9px 12px 10px;margin-bottom:12px;transition:border-color .16s,background .16s}
+  .field:focus-within{border-color:var(--amber);background:rgba(255,207,107,.06)}
+  .field label{display:block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(188,215,242,.82);margin-bottom:5px}
+  .field input,.field textarea{width:100%;background:none;border:0;outline:0;color:var(--wht);font-family:'Space Mono',monospace;font-size:1rem;line-height:1.5;resize:vertical}
+  .field textarea{min-height:96px}
+  form button{margin-top:8px;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.9rem;color:var(--blue);background:var(--amber);border:0;padding:.95em 2em;cursor:pointer;transition:.16s}
   form button:hover{background:var(--wht)}
-  @media(max-width:780px){.form-grid{grid-template-columns:1fr;gap:28px}}
+  @media(max-width:780px){.form-grid{grid-template-columns:1fr;gap:28px} form button{width:100%}}
 
   footer{padding:24px 0;color:rgba(188,215,242,.72);font-size:.74rem}
   .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
-  .foot .egg{color:rgba(188,215,242,.4);cursor:pointer;font-size:.72rem}
+  .foot .egg{color:rgba(188,215,242,.62);cursor:pointer;font-size:.72rem}
   .foot .egg:hover{color:var(--amber)}
   .foot a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(188,215,242,.25)}
   .foot a:hover{color:var(--amber);border-color:var(--amber)}
@@ -370,10 +379,10 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
     <span class="lbl" data-i="w_lbl">Built works</span>
     <h2 data-i="w_h">Already built</h2>
     <div class="specs">
-      <div class="spec" data-thumb="thumbs/luxlucis.jpeg"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="dwrap"><span class="url">luxlucisconsulting.com ↗</span><span class="d" data-i="w1">consulting · private capital</span></span></div>
-      <div class="spec" data-thumb="thumbs/bwr.jpeg"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="url">books-worth-reading.com ↗</span><span class="d" data-i="w2">books · full-stack</span></span></div>
-      <div class="spec" data-thumb="thumbs/lounbreck.jpeg"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="url">lounbreck.com ↗</span><span class="d" data-i="w3">SaaS · LU compliance</span></span></div>
-      <div class="spec" data-thumb="thumbs/pasharo.jpeg"><span class="id">A-04</span><a href="https://www.pasharo.com" target="_blank" rel="noopener">Pasharo</a><span class="dwrap"><span class="url">pasharo.com ↗</span><span class="d" data-i="w5">corporate finance · advisory</span></span></div>
+      <div class="spec" data-thumb="thumbs/luxlucis.jpeg"><span class="id">A-01</span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener">Lux Lucis Consulting</a><span class="dwrap"><span class="url">luxlucisconsulting.com ↗</span><span class="d" data-i="w1">consulting · private capital</span></span><a href="https://www.luxlucisconsulting.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" class="mlink"><img class="mthumb" loading="lazy" alt="Lux Lucis Consulting — live site" src="thumbs/luxlucis.jpeg" /></a></div>
+      <div class="spec" data-thumb="thumbs/bwr.jpeg"><span class="id">A-02</span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener">Books Worth Reading</a><span class="dwrap"><span class="url">books-worth-reading.com ↗</span><span class="d" data-i="w2">books · full-stack</span></span><a href="https://www.books-worth-reading.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" class="mlink"><img class="mthumb" loading="lazy" alt="Books Worth Reading — live site" src="thumbs/bwr.jpeg" /></a></div>
+      <div class="spec" data-thumb="thumbs/lounbreck.jpeg"><span class="id">A-03</span><a href="https://lounbreck.com" target="_blank" rel="noopener">Lounbrëck</a><span class="dwrap"><span class="url">lounbreck.com ↗</span><span class="d" data-i="w3">SaaS · LU compliance</span></span><a href="https://lounbreck.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" class="mlink"><img class="mthumb" loading="lazy" alt="Lounbrëck — live site" src="thumbs/lounbreck.jpeg" /></a></div>
+      <div class="spec" data-thumb="thumbs/pasharo.jpeg"><span class="id">A-04</span><a href="https://www.pasharo.com" target="_blank" rel="noopener">Pasharo</a><span class="dwrap"><span class="url">pasharo.com ↗</span><span class="d" data-i="w5">corporate finance · advisory</span></span><a href="https://www.pasharo.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" class="mlink"><img class="mthumb" loading="lazy" alt="Pasharo — live site" src="thumbs/pasharo.jpeg" /></a></div>
       <svg class="ink" data-draw="dimline" viewBox="0 0 16 400" width="16" height="100%" preserveAspectRatio="none" style="left:-34px;top:6px;bottom:6px" aria-hidden="true"></svg>
       <span class="inknote cy" data-i="ik_live" style="left:-44px;top:-30px;--r:-2deg">×4 — all live ✓</span>
       <svg class="ink" data-draw="cursor" viewBox="0 0 28 34" width="28" height="34" style="left:404px;top:30px" aria-hidden="true"></svg>
@@ -427,7 +436,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js" integrity="sha384-1NLkwxMO2sOqcq7rQkFBhIAUJtbt8ziLxhVKVgKfFGMEU8pF+GEq5LVogviveup6" crossorigin="anonymous"></script>
+<script src="/vendor/rough.js"></script>
 <script>
 // rough.js hand-sketched wireframe (the pinned "esquisse")
 function drawWire(){
@@ -533,6 +542,10 @@ if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 } else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+// safety net: never leave a reveal permanently hidden if an observer misfires or a script errors before scroll
+addEventListener('load',()=>setTimeout(()=>{
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>{ if(el.getBoundingClientRect().top < innerHeight*1.1) el.classList.add('in'); });
+},1400));
 // hero handwriting writes itself in shortly after load (hero is above the fold, no scroll needed)
 (function(){ var h=document.getElementById('hero'); if(h) setTimeout(function(){ h.classList.add('seen'); }, 500); })();
 
