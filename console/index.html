@@ -51,7 +51,7 @@
   </div>
   <div class="screen" id="screen"></div>
   <div class="inputline">
-    <span class="prompt">visiteur@webwerk</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span>
+    <span class="prompt" id="ps1user">visitor@webwerk</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span>
     <input id="cmd" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="commande" />
     <span class="cur" id="cur"></span>
   </div>
@@ -60,7 +60,7 @@
 <script>
 const T = {
   fr:{
-    boot:["webwerk.os v1.0 — démarrage…","chargement du studio … OK","2 personnes · ∞ café · Luxembourg","",
+    boot:["webwerk.os v1.0 — démarrage…","chargement du studio … OK","∞ café · Luxembourg","",
       "Bienvenue. Ceci est un vrai terminal — tapez une commande, ou cliquez.","Essayez : help"],
     help:[["services","ce qu'on fait"],["work","nos réalisations"],["methode","comment on bosse"],["about","qui on est"],["contact","nous écrire"],["clear","effacer l'écran"],["exit","retour au site"]],
     servicesHd:"// ce qu'on fait",
@@ -69,7 +69,7 @@ const T = {
     methodeHd:"// la méthode",
     methode:["1. On vous conçoit une démo — gratuite, avant tout devis.","2. Vous la regardez, vous nous dites quoi changer.","3. On lance, on héberge, on entretient.","","› On vous montre VOTRE site, pas un catalogue générique."],
     aboutHd:"// qui on est",
-    about:["Webwerk — un studio web luxembourgeois à taille humaine.","Deux personnes, peu de clients, suivis de près.","On préfère le travail bien fait au volume.","Des restaurants aux commerces, en passant par le conseil."],
+    about:["Webwerk — un studio web luxembourgeois à taille humaine.","Peu de clients, suivis de près.","On préfère le travail bien fait au volume.","Des restaurants aux commerces, en passant par le conseil."],
     contactHd:"// contact",
     contact:[["mail","jean@webwerk.lu"],["devis","tapez: devis"]],
     quote:["› Ouverture du formulaire de devis…","  (démo) — écrivez-nous : jean@webwerk.lu"],
@@ -77,16 +77,16 @@ const T = {
     opening:(u)=>`› ouverture de ${u} …`,
   },
   en:{
-    boot:["webwerk.os v1.0 — booting…","loading studio … OK","2 people · ∞ coffee · Luxembourg","",
+    boot:["webwerk.os v1.0 — booting…","loading studio … OK","∞ coffee · Luxembourg","",
       "Welcome. This is a real terminal — type a command, or click.","Try: help"],
-    help:[["services","what we do"],["work","our work"],["methode","how we work"],["about","who we are"],["contact","reach us"],["clear","clear the screen"],["exit","back to site"]],
+    help:[["services","what we do"],["work","our work"],["method","how we work"],["about","who we are"],["contact","reach us"],["clear","clear the screen"],["exit","back to site"]],
     servicesHd:"// what we do",
     services:[["design","Custom, fast sites that look like no one else's."],["i18n","Multilingual FR · DE · EN, on one site."],["hosting","Hosting, updates, Google presence."],["care","Done-for-you — you approve, we handle the rest."]],
     workHd:"// work  ($ open <name>)",
     methodeHd:"// the method",
     methode:["1. We build you a demo — free, before any quote.","2. You review it, tell us what to change.","3. We launch, host, maintain.","","› We show you YOUR site, not a generic catalogue."],
     aboutHd:"// who we are",
-    about:["Webwerk — a human-sized Luxembourg web studio.","Two people, few clients, closely looked after.","We prefer good work over volume.","From restaurants to shops to consulting."],
+    about:["Webwerk — a human-sized Luxembourg web studio.","Few clients, closely looked after.","We prefer good work over volume.","From restaurants to shops to consulting."],
     contactHd:"// contact",
     contact:[["mail","jean@webwerk.lu"],["quote","type: devis"]],
     quote:["› Opening the quote form…","  (demo) — write to us: jean@webwerk.lu"],
@@ -108,7 +108,8 @@ function el(html,cls){ const d=document.createElement('div'); d.className='line 
 function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
 function scroll(){ screen.scrollTop=screen.scrollHeight; }
 
-function printPromptEcho(c){ el(`<span class="prompt">visiteur@webwerk</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> ${esc(c)}`); }
+function userName(){ return lang==='fr'?'visiteur':'visitor'; }
+function printPromptEcho(c){ el(`<span class="prompt">${userName()}@webwerk</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> ${esc(c)}`); }
 function chips(list){
   const wrap=document.createElement('div'); wrap.className='chips';
   list.forEach(([cmd,desc])=>{ const b=document.createElement('button'); b.className='chip'; b.innerHTML=`<b>${cmd}</b> <span class="dim">— ${desc}</span>`; b.onclick=()=>run(cmd); wrap.appendChild(b); });
@@ -148,6 +149,7 @@ function boot(){
 }
 function setLang(l){ if(l===lang) return; lang=l; document.documentElement.lang=l;
   document.querySelectorAll('.bar .lang b').forEach(b=>b.classList.toggle('off', b.dataset.l!==l));
+  var ps1=document.getElementById('ps1user'); if(ps1) ps1.textContent=userName()+'@webwerk';
   boot();
 }
 document.querySelectorAll('.bar .lang b').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
