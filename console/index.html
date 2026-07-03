@@ -47,7 +47,7 @@
   <div class="bar">
     <i class="r"></i><i class="y"></i><i class="g"></i>
     <span class="t">webwerk — studio web · luxembourg — zsh</span>
-    <span class="lang"><b data-l="en">en</b> <span class="dim">/</span> <b data-l="fr" class="off">fr</b></span>
+    <span class="lang"><b data-l="en">en</b> <span class="dim">/</span> <b data-l="fr" class="off">fr</b> <span class="dim">/</span> <b data-l="de" class="off">de</b></span>
   </div>
   <div class="screen" id="screen"></div>
   <div class="inputline">
@@ -92,6 +92,23 @@ const T = {
     quote:["› Opening the quote form…","  (demo) — write to us: jean@webwerk.lu"],
     unknown:(c)=>`zsh: command not found: ${c}  —  type 'help'`,
     opening:(u)=>`› opening ${u} …`,
+  },
+  de:{
+    boot:["webwerk.os v1.0 — startet…","Studio wird geladen … OK","∞ Kaffee · Luxemburg","",
+      "Willkommen. Das ist ein echtes Terminal — Befehl eingeben oder klicken.","Versuchen Sie: help"],
+    help:[["services","was wir tun"],["work","unsere Arbeiten"],["method","wie wir arbeiten"],["about","wer wir sind"],["contact","Kontakt"],["clear","Bildschirm leeren"],["exit","zurück zur Seite"]],
+    servicesHd:"// was wir tun",
+    services:[["design","Maßgeschneiderte, schnelle Websites, die wie keine anderen aussehen."],["i18n","Mehrsprachig FR · DE · EN, auf einer Website."],["hosting","Hosting, Updates, Google-Präsenz."],["care","Schlüsselfertig — Sie geben frei, wir machen den Rest."]],
+    workHd:"// Arbeiten  ($ open <name>)",
+    methodeHd:"// das Vorgehen",
+    methode:["1. Wir bauen Ihnen eine Demo — kostenlos, vor jedem Angebot.","2. Sie schauen sie an und sagen uns, was zu ändern ist.","3. Wir gehen live, hosten, pflegen.","","› Wir zeigen Ihnen IHRE Website, keinen Standardkatalog."],
+    aboutHd:"// wer wir sind",
+    about:["Webwerk — ein Luxemburger Webstudio in menschlichem Maßstab.","Wenige Kunden, eng betreut.","Uns ist gute Arbeit lieber als Masse.","Von Restaurants über Läden bis zur Beratung."],
+    contactHd:"// Kontakt",
+    contact:[["mail","jean@webwerk.lu"],["quote","tippen: devis"]],
+    quote:["› Angebotsformular wird geöffnet…","  (Demo) — schreiben Sie uns: jean@webwerk.lu"],
+    unknown:(c)=>`zsh: Befehl nicht gefunden: ${c}  —  'help' eingeben`,
+    opening:(u)=>`› öffne ${u} …`,
   }
 };
 const WORK = [
@@ -108,7 +125,7 @@ function el(html,cls){ const d=document.createElement('div'); d.className='line 
 function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
 function scroll(){ screen.scrollTop=screen.scrollHeight; }
 
-function userName(){ return lang==='fr'?'visiteur':'visitor'; }
+function userName(){ return lang==='de'?'besucher':lang==='fr'?'visiteur':'visitor'; }
 function printPromptEcho(c){ el(`<span class="prompt">${userName()}@webwerk</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> ${esc(c)}`); }
 function chips(list){
   const wrap=document.createElement('div'); wrap.className='chips';
@@ -129,14 +146,14 @@ function run(raw){
   const t=T[lang]; const parts=c.split(/\s+/); const cmd=parts[0].toLowerCase();
   if(cmd==='') { scroll(); return; }
   if(cmd==='clear'){ screen.innerHTML=''; return; }
-  if(cmd==='exit'||cmd==='back'||cmd==='quit'){ el(`<span class="amber">${lang==='fr'?'› retour au site…':'› back to site…'}</span>`); setTimeout(()=>location.href='../',450); return; }
-  if(cmd==='help'){ el(`<span class="dim">commandes disponibles :</span>`); chips(t.help); return; }
-  if(cmd==='lang'){ setLang(parts[1]==='en'?'en':'fr'); return; }
+  if(cmd==='exit'||cmd==='back'||cmd==='quit'){ el(`<span class="amber">${lang==='de'?'› zurück zur Seite…':lang==='fr'?'› retour au site…':'› back to site…'}</span>`); setTimeout(()=>location.href='../',450); return; }
+  if(cmd==='help'){ el(`<span class="dim">${lang==='de'?'verfügbare Befehle:':lang==='fr'?'commandes disponibles :':'available commands:'}</span>`); chips(t.help); return; }
+  if(cmd==='lang'){ setLang(parts[1]==='en'?'en':parts[1]==='de'?'de':'fr'); return; }
   if(cmd==='services'){ el(`<span class="hd">${t.servicesHd}</span>`); t.services.forEach(([k,v])=>el(`<div class="row"><span class="k">${k}</span><span class="v">${v}</span><span></span></div>`)); scroll(); return; }
   if(cmd==='methode'||cmd==='méthode'||cmd==='method'){ el(`<span class="hd">${t.methodeHd}</span>`); t.methode.forEach(l=>el(l.startsWith('›')?`<span class="amber">${l}</span>`:l)); scroll(); return; }
   if(cmd==='about'){ el(`<span class="hd">${t.aboutHd}</span>`); t.about.forEach(l=>el(l)); scroll(); return; }
   if(cmd==='work'||cmd==='ls'){ el(`<span class="hd">${t.workHd}</span>`); WORK.forEach(([id,name,desc])=>el(`<div class="row"><span class="k">${id}</span><span class="v">${name}</span><span class="meta">${desc}</span></div>`)); scroll(); return; }
-  if(cmd==='open'){ const w=WORK.find(x=>x[0]===parts[1]); if(w&&w[3]!=='#'){ el(`<span class="amber">${t.opening(w[3])}</span>`); window.open(w[3],'_blank','noopener'); } else el(`<span class="red">${lang==='fr'?'projet inconnu — tapez: work':'unknown project — type: work'}</span>`); scroll(); return; }
+  if(cmd==='open'){ const w=WORK.find(x=>x[0]===parts[1]); if(w&&w[3]!=='#'){ el(`<span class="amber">${t.opening(w[3])}</span>`); window.open(w[3],'_blank','noopener'); } else el(`<span class="red">${lang==='de'?'unbekanntes Projekt — tippen: work':lang==='fr'?'projet inconnu — tapez: work':'unknown project — type: work'}</span>`); scroll(); return; }
   if(cmd==='contact'){ el(`<span class="hd">${t.contactHd}</span>`); t.contact.forEach(([k,v])=>el(`<div class="row"><span class="k">${k}</span><span class="v">${k==='mail'?`<a href="mailto:${v}">${v}</a>`:v}</span><span></span></div>`)); scroll(); return; }
   if(cmd==='devis'||cmd==='quote'){ el(`<span class="green">${t.quote[0]}</span>`); el(`<span class="dim">${t.quote[1]}</span>`); scroll(); return; }
   el(`<span class="red">${t.unknown(esc(c))}</span>`); scroll();

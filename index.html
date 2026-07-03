@@ -21,6 +21,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
 <meta property="og:description" content="We draft the web. Every site, a working drawing — measured, drafted, built in Luxembourg." />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:locale:alternate" content="fr_LU" />
+<meta property="og:locale:alternate" content="de_LU" />
 <meta property="og:url" content="https://webwerk.lu/" />
 <meta property="og:image" content="https://webwerk.lu/og.png" />
 <meta property="og:image:width" content="1200" />
@@ -287,7 +288,7 @@ try{ if(matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced
       <a href="#fig1" data-i="n1">Services</a><a href="#fig2" data-i="n2">Method</a><a href="#fig3" data-i="n3">Work</a><a href="#fig4" data-i="n4">Contact</a>
     </nav>
     <div class="nav-cta">
-      <span class="lang" role="group" aria-label="Language"><b data-l="en" role="button" tabindex="0" aria-label="English" aria-pressed="true">EN</b> <span class="dim">/</span> <b data-l="fr" role="button" tabindex="0" aria-label="Français" aria-pressed="false" class="off">FR</b></span>
+      <span class="lang" role="group" aria-label="Language"><b data-l="en" role="button" tabindex="0" aria-label="English" aria-pressed="true">EN</b> <span class="dim">/</span> <b data-l="fr" role="button" tabindex="0" aria-label="Français" aria-pressed="false" class="off">FR</b> <span class="dim">/</span> <b data-l="de" role="button" tabindex="0" aria-label="Deutsch" aria-pressed="false" class="off">DE</b></span>
       <a href="#fig4" class="devis" data-i="devis">Free demo</a>
       <button class="burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
     </div>
@@ -495,12 +496,34 @@ const I={ fr:{
   c_lbl:"Mise en service — contact", c_h:"Construisons le vôtre", c_lead:"Dites-nous qui vous êtes — on vous prépare une démo gratuite, sans engagement.",
   cnote:"votre nom dans le cartouche",
   f_name:"Nom / Établissement", f_email:"Email", f_msg:"Votre projet", f_send:"Envoyer →", ftag:"Studio web · Luxembourg", f_legal:"Mentions · Confidentialité"
+}, de:{
+  n1:"Leistungen",n2:"Ablauf",n3:"Arbeiten",n4:"Kontakt", devis:"Gratis-Demo",
+  plate:"Werkzeichnung № WW-2026 · Webstudio · Luxemburg",
+  h1:"Wir zeichnen<br>das <em>Web.</em>",
+  dimA:"Konzept", dimB:"Go-Live", pincap:"Ihre Seite — skizziert", pincap2:"→ getuscht ✓",
+  sub:"Jede Website ist eine Werkzeichnung: vermessen, gezeichnet, gebaut. Maßgeschneidert, mehrsprachig, in Luxemburg gemacht — und Sie sehen sie, bevor Sie zahlen.",
+  an_sub:"gezeichnet, nicht gezogen",
+  ik_think:"hier beginnt die Arbeit ↓", ik_draft:"wir <s>bauen</s> <s>machen</s> zeichnen", ik_cta:"↘ der CTA",
+  ik_contact:"ein Ansprechpartner, ein Angebot", ik_palette:"Ihre Palette", ik_grid:"auf einem 12-Spalten-Raster",
+  ik_quote:"<s>erst das Angebot</s> → erst die Demo", ik_live:"×4 — alle live ✓", ik_click:"echt, anklickbar ↗",
+  ik_mobile:"sieht auch mobil top aus", ik_drop:"← schreiben Sie uns",
+  s_lbl:"Verzeichnis — Leistungen", s_h:"Was wir bauen", s_lead:"Ein Ansprechpartner, vom Aufmaß bis zur Pflege.",
+  s1:"Gestaltung", s1p:"Maßgeschneidert, schnell, responsive — nie eine Vorlage von der Stange.", s2:"Mehrsprachig", s2p:"FR · DE · EN auf einer Website.", s3:"Hosting", s3p:"Updates, Google-Präsenz, lokales SEO.", s4:"Schlüsselfertig", s4p:"Sie geben frei, wir kümmern uns um den Rest.",
+  an_s1:"jedes Pixel gesetzt", an_s2:"ein Blatt, drei Sprachen", an_s3a:"wir halten alles am Laufen",
+  m_lbl:"Sequenz — Methode", m_h:"Das Vorgehen", m_lead:"Kein Angebot ins Blaue — zuerst eine echte Demo Ihrer Website.",
+  m1:"Die Demo", m1p:"Eine echte Vorschau Ihrer Website — kostenlos, unverbindlich.", m2:"Ihr Feedback", m2p:"Sie sagen uns, was wir anpassen sollen.", m3:"Launch", m3p:"Wir gehen online, hosten und pflegen.",
+  an_m1:"zuerst skizziert", an_m2:"mit dem Rotstift", an_m3:"getuscht ✓",
+  w_lbl:"Ausgeführte Arbeiten", w_h:"Bereits gebaut", fn3:"vom Zeichentisch", w1:"Beratung · Private Capital", w2:"Bücher · Full-Stack", w3:"SaaS · LU-Compliance", w5:"Corporate Finance · Beratung",
+  tb1:"Gezeichnet von", tb_med:"Medium", tb2:"Maßstab", tb2v:"1:1", tb_loc:"Ort", tb3:"Blatt", tb_rev:"Rev.", tb_revv:"laufend",
+  c_lbl:"Inbetriebnahme — Kontakt", c_h:"Bauen wir Ihre Seite", c_lead:"Sagen Sie uns, wer Sie sind — wir erstellen eine kostenlose Demo, unverbindlich.",
+  cnote:"Ihr Name im Schriftfeld",
+  f_name:"Name / Firma", f_email:"E-Mail", f_msg:"Ihr Projekt", f_send:"Senden →", ftag:"Webstudio · Luxemburg", f_legal:"Impressum · Datenschutz"
 }};
 let lang='en';
 document.querySelectorAll('[data-i]').forEach(el=>el.dataset.en=el.innerHTML);
 function setLang(l){ lang=l; document.documentElement.lang=l;
   document.querySelectorAll('.lang b').forEach(b=>{b.classList.toggle('off',b.dataset.l!==l);b.setAttribute('aria-pressed',b.dataset.l===l);});
-  document.querySelectorAll('[data-i]').forEach(el=>{ const k=el.getAttribute('data-i'); el.innerHTML = l==='en'? el.dataset.en : (I.fr[k]!=null?I.fr[k]:el.dataset.en); });
+  document.querySelectorAll('[data-i]').forEach(el=>{ const k=el.getAttribute('data-i'); el.innerHTML = l==='en'? el.dataset.en : ((I[l]&&I[l][k]!=null)?I[l][k]:el.dataset.en); });
   try{localStorage.setItem('webwerk_lang',l);}catch(e){}
 }
 document.querySelectorAll('.lang b').forEach(b=>{ b.addEventListener('click',()=>setLang(b.dataset.l)); b.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); setLang(b.dataset.l);} }); });
@@ -520,9 +543,9 @@ if(sv!=='en') setLang(sv);
     const btn=f.querySelector('button[type=submit]'), label=btn.innerHTML;
     if(endpoint){
       try{
-        btn.disabled=true; btn.innerHTML = lang==='fr'?'Envoi…':'Sending…';
+        btn.disabled=true; btn.innerHTML = lang==='fr'?'Envoi…':lang==='de'?'Senden…':'Sending…';
         const r=await fetch(endpoint,{method:'POST',headers:{'Accept':'application/json'},body:d});
-        if(r.ok){ f.reset(); btn.innerHTML = lang==='fr'?'Envoyé ✓':'Sent ✓'; }
+        if(r.ok){ f.reset(); btn.innerHTML = lang==='fr'?'Envoyé ✓':lang==='de'?'Gesendet ✓':'Sent ✓'; }
         else throw new Error('bad status');
       }catch(err){ btn.disabled=false; btn.innerHTML=label; location.href=mailtoLink(); }
       return;
