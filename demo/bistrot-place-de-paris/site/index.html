@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<!--
+  Le Bistrot de la Place de Paris — Webwerk bespoke build (2026-07-24), ROOTED IN THEIR REAL BRAND.
+  Brand read off their own storefront (RestaurantGuru/Facebook/Google): deep BURGUNDY/maroon awning with
+  GOLD lettering, warm brasserie-RED accent (brasserie convention + oxblood banquettes; NB the facade's
+  blue "Bières Diekirch" enamel is the beer SUPPLIER's sign — the venue's own gilding is burgundy+gold, so
+  the blue is deliberately NOT adopted), warm wood /
+  oxblood leather / ornate stained-glass-ceiling interior. Their "logo" is the painted awning WORDMARK —
+  gold script "Le Bistrot" over a bold "Place de Paris" — recreated typographically (Pinyon Script + a heavy
+  gilded GOLD serif, Cormorant Garamond title-case (matches their real painted sign), over Zilla Slab
+  headings). Heritage: "1970s / one of the oldest" per LU directories → "depuis les années 1970 / un demi-
+  siècle" (see 2026-08-12 note). Bespoke layout (NOT the acacia skeleton): signage marquee, demi-siècle
+  heritage plaque, terrace band. Real venue photos (facade→hero bg, ornate interior→plaque, dish+bar→gallery)
+  pulled from RestaurantGuru as in-palette placeholders (public sources; owner replaces with hi-res).
+  Honesty (venue OPEN-verified 2026; own domain bistrotdeparis.lu dead): real facts only; carte = REAL dishes
+  transcribed from their published menu.lu "La Carte" PDF (dated 2014) — 2014 prices omitted as stale, "tarifs
+  actuels communiqués par l'établissement"; hours conflict → flagged; email unverified → omitted
+  (Facebook is the live channel); no reviews/ratings shown (per Can). Photos = public-source placeholders,
+  flagged in the disclaimer. Demo disclaimer; noindex.
+  ⚠️ DE/EN drafts — native review before send. PRE-DEPLOY: self-host fonts, drop the CDN.
+
+  ── VERIFIED + REVISED 2026-08-12 (web pass; Can review) ──────────────────────────────────────────────
+  CONFIRMED via LU directories + RestaurantGuru: address 31 rue du Fort Élisabeth L-1463 · phone +352 49 61 39
+  · all four cocktails (Aperol Spritz / Tequila Sunrise / Lemon + Strawberry Margarita, verbatim) · pasta/
+  spaghetti dishes · OPEN 7 days (Sun hours exist → "ouvert tous les jours" holds) · venue still OPEN
+  (RestaurantGuru "open now"; rankeat updated Feb 2026). bistrotdeparis.lu = NXDOMAIN (dead, nslookup).
+  SOFTENED (unverifiable): "1972" → "depuis les années 1970 / un demi-siècle" everywhere (only "1970s"/"one
+  of the oldest" are sourced) — the big plaque numeral is gone, replaced by the demi-siècle framing.
+  REMOVED (no source, was invented colour): 60/100 seat counts · "plein sud" · "parasols rouges".
+  TYPE: wordmark "Place de Paris" moved Alfa Slab One → Cormorant Garamond in GOLD, title-case, for closer
+  fidelity to the real painted gilded serif. Accent stays RED (see palette note). Menu = 2014 carte staples + 2026 current
+  signatures (Steak-frites, Saucisses & frites, Pâtes aux scampis) per rankeat.fr (updated Aug 2026); NOT on
+  Wolt/Wedely and no full current menu online → prices still OFF; owner supplies the current carte at engagement.
+-->
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<script>try{if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){document.documentElement.className+='anim';}}catch(e){}</script>
+<title>Le Bistrot de la Place de Paris — brasserie française, Luxembourg-Gare · depuis les années 1970</title>
+<link rel="stylesheet" href="fonts/fonts.css" />
+<style>
+  :root{
+    /* palette traced to their real awning: deep burgundy/maroon + gold lettering + Diekirch red.
+       (var names kept as --green/--mustard for brevity; values are wine + gold.) */
+    --green:#5c2231; --green-d:#3c1620; --green-l:#743041;
+    --red:#c0392b; --red-2:#d5493a;
+    --mustard:#c8a24e; --gold:#ddbd7a;
+    --cream:#f5ecd6; --cream-2:#ece0c2; --paper:#f8f2e2;
+    --ink:#241d14; --ink-2:#5e5340; --line:rgba(36,29,20,.14);
+    --disp:'Zilla Slab',Georgia,serif;
+    --sign:'Cormorant Garamond','Zilla Slab',Georgia,serif;
+    --script:'Pinyon Script',cursive;
+    --sans:'Figtree',system-ui,-apple-system,sans-serif;
+    --pad:clamp(20px,5.5vw,40px); --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+  .eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.26em;font-size:.66rem;font-weight:700}
+
+  /* ---------- the WORDMARK (their awning: script "Le Bistrot" over serif "Place de Paris") ---------- */
+  .mark{display:inline-flex;flex-direction:column;line-height:.9;text-align:center}
+  .mark .m-le{font-family:var(--script);font-weight:400;color:var(--mustard);font-size:1.5em;transform:rotate(-3deg);margin-bottom:-.12em;align-self:center}
+  .mark .m-place{font-family:var(--sign);font-weight:700;letter-spacing:.01em;color:var(--gold);font-size:1.15em;line-height:.98}
+  .mark .m-sub{font-family:var(--sans);font-weight:700;font-size:.26em;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);margin-top:.5em}
+
+  /* ---------- top bar ---------- */
+  .top{position:relative;z-index:60;background:var(--green)}
+  .top .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;height:72px}
+  .top .mark{font-size:15px}
+  .top .mark .m-sub{display:none}
+  .top .r{display:flex;align-items:center;gap:14px}
+  .lang{display:flex;gap:1px}
+  .lang button{background:none;border:0;color:rgba(245,236,214,.5);font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.06em;padding:5px 6px;cursor:pointer;transition:color .15s}
+  .lang button.on,.lang button:hover{color:var(--cream)}
+  .resv{font-family:var(--sans);font-weight:700;font-size:.82rem;background:var(--red);color:#fff;padding:9px 17px;border-radius:3px;transition:.2s;white-space:nowrap}
+  .resv:hover{background:var(--red-2)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;color:var(--cream);background-color:var(--green);
+    border-bottom:5px solid var(--red);text-align:center;padding:clamp(48px,9vw,96px) 0 clamp(40px,7vw,74px)}
+  /* living hero: a Remotion 2.5D-parallax clip of their own facade */
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(rgba(60,22,32,.56),rgba(42,16,23,.86)),linear-gradient(90deg,rgba(60,22,32,.4),rgba(60,22,32,0) 62%)}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;
+    background-image:radial-gradient(rgba(255,255,255,.9) .5px,transparent .5px);background-size:5px 5px}
+  .hero .wrap{position:relative;z-index:2}
+  .hero .eyebrow{color:var(--mustard);display:inline-flex;align-items:center;gap:14px;margin-bottom:22px}
+  .hero .eyebrow::before,.hero .eyebrow::after{content:"";width:26px;height:1px;background:var(--mustard);opacity:.7}
+  .hero .mark{font-size:clamp(25px,8.2vw,68px)}
+  .hero .mark .m-le{color:var(--mustard)}
+  .hero .mark .m-place{color:var(--gold);text-shadow:0 3px 30px rgba(0,0,0,.34)}
+  .hero-tag{font-size:clamp(1rem,4.2vw,1.2rem);color:rgba(245,236,214,.9);max-width:46ch;margin:26px auto 0;line-height:1.5}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:30px 0 0}
+  .btn{font-family:var(--sans);font-weight:700;font-size:.92rem;padding:14px 26px;border-radius:3px;transition:.2s;display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:0}
+  .btn.solid{background:var(--red);color:#fff}
+  .btn.solid:hover{background:var(--red-2);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--cream);border:1px solid rgba(245,236,214,.34)}
+  .btn.ghost:hover{border-color:var(--cream)}
+
+  /* ---------- signage marquee (their awning flank words) ---------- */
+  .marquee{background:var(--cream);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap}
+  .marquee .run{display:inline-block;padding:13px 0;font-family:var(--sans);font-weight:700;font-size:.74rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--green);animation:slide 32s linear infinite}
+  .marquee .run span{color:var(--red);margin:0 12px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){ .marquee .run{animation:none} }
+
+  /* ---------- section frame ---------- */
+  section{padding:clamp(56px,11vw,102px) 0}
+  .sec-label{font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;font-size:.68rem;font-weight:700;color:var(--red)}
+  .sec-h{font-family:var(--disp);font-weight:600;font-size:clamp(2rem,7.5vw,3.1rem);line-height:1.04;margin:12px 0 0;letter-spacing:-.005em}
+
+  /* ---------- heritage / 1972 ---------- */
+  .story{background:var(--cream)}
+  .story .grid{display:grid;gap:clamp(28px,5vw,54px);margin-top:clamp(28px,5vw,46px);align-items:center}
+  .story p{font-size:clamp(1rem,4.2vw,1.12rem);color:var(--ink-2);margin-top:16px;max-width:58ch}
+  .story .sign{display:flex;align-items:center;gap:12px;margin-top:24px}
+  .story .sign .rule{width:32px;height:1px;background:var(--red)}
+  .story .sign b{font-weight:700;font-size:.86rem}
+  .story .sign span{color:var(--ink-2);font-size:.8rem}
+  /* the "1972" heritage plaque (enamel-sign nod to "Bières Diekirch") */
+  .plaque{position:relative;color:var(--cream);border-radius:6px;overflow:hidden;background-color:var(--green);
+    padding:clamp(30px,5vw,44px);text-align:center;box-shadow:0 30px 60px -34px rgba(60,22,32,.6);border:1px solid var(--green-l)}
+  .plaque .plaque-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .plaque::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(60,22,32,.74),rgba(48,18,26,.9))}
+  .plaque::after{content:"";position:absolute;inset:9px;z-index:2;border:1px solid rgba(216,166,58,.4);border-radius:3px;pointer-events:none}
+  .plaque .est,.plaque .yr,.plaque .cap,.plaque .m-le{position:relative;z-index:2}
+  .plaque .est{font-family:var(--sans);font-weight:700;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mustard)}
+  .plaque .yr{font-family:var(--disp);font-weight:600;font-size:clamp(1.7rem,6vw,2.7rem);line-height:1.05;color:var(--cream);margin:8px 0}
+  .plaque .cap{font-size:.92rem;color:rgba(245,236,214,.82);max-width:26ch;margin:6px auto 0}
+  .plaque .m-le{font-family:var(--script);color:var(--red-2);font-size:2rem;display:block;margin-top:14px}
+
+  /* ---------- carte (brasserie card, red heads) ---------- */
+  .carte{background:var(--paper)}
+  .menu{margin-top:clamp(30px,6vw,52px);display:grid;gap:clamp(30px,5vw,52px)}
+  .course h3{font-family:var(--disp);font-weight:600;font-size:1.6rem;color:var(--green);display:flex;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:2px solid var(--red)}
+  .course h3 .sub{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+  .course ul{list-style:none;margin:8px 0 0}
+  .dish{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px dotted var(--line)}
+  .dish .n{font-weight:600;font-size:1.02rem;color:var(--ink);flex:1}
+  .dish .n em{display:block;font-weight:400;font-style:normal;font-size:.84rem;color:var(--ink-2);margin-top:3px;letter-spacing:.01em;line-height:1.4}
+  .note{margin-top:clamp(26px,5vw,40px);font-size:.82rem;color:var(--ink-2);font-style:italic;padding:16px 18px;background:var(--cream);border-left:3px solid var(--mustard);border-radius:0 4px 4px 0;max-width:66ch}
+
+  /* ---------- photo gallery (real venue shots, in-palette placeholders) ---------- */
+  .gallery{background:var(--paper);padding:0 0 clamp(44px,8vw,66px)}
+  .gallery .imgs{display:grid;gap:14px;grid-template-columns:1fr}
+  .gallery figure{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/10}
+  .gallery img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.03)}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px;color:var(--cream);
+    font-family:var(--sans);font-weight:700;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+    background:linear-gradient(0deg,rgba(60,22,32,.86),transparent)}
+  @media(min-width:760px){ .gallery .imgs{grid-template-columns:1fr 1fr} }
+
+  /* ---------- terrasse (red-parasol band) ---------- */
+  .terr{background:var(--red);color:#fff}
+  .terr .sec-label{color:#ffe1b0}
+  .terr .sec-h{color:#fff}
+  .terr .terr-cols{margin-top:clamp(26px,5vw,42px);display:grid;gap:clamp(18px,4vw,46px)}
+  .terr .terr-lead{font-family:var(--disp);font-weight:500;font-size:clamp(1.4rem,5.2vw,2.05rem);line-height:1.3;color:#fff}
+  .terr .terr-p{font-size:clamp(1rem,4vw,1.12rem);color:rgba(255,255,255,.92);line-height:1.66}
+  .terr .fnote{margin-top:28px;font-size:.82rem;color:rgba(255,255,255,.82);font-style:italic;max-width:64ch}
+
+  /* ---------- visit ---------- */
+  .visit{background:var(--cream)}
+  .visit-info{max-width:640px;margin-top:clamp(28px,5vw,44px)}
+  .info-row{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+  .info-row:first-child{border-top:0}
+  .info-row .k{font-family:var(--sans);font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);width:110px;flex-shrink:0;padding-top:3px}
+  .info-row .v{font-size:1rem}
+  .info-row .v a{color:var(--green);font-weight:600;border-bottom:1px solid rgba(92,34,49,.3)}
+  .info-row .v .conf{display:block;font-size:.8rem;color:var(--ink-2);font-style:italic;margin-top:3px}
+  .hours-warn{margin-top:14px;font-size:.8rem;color:var(--ink-2);font-style:italic;display:flex;gap:8px;max-width:640px}
+  .hours-warn::before{content:"⚠";color:var(--red);font-style:normal}
+  .map{margin-top:clamp(28px,5vw,44px);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-columns:1fr;background:var(--paper);box-shadow:0 20px 44px -32px rgba(92,34,49,.4)}
+  .map .plot{position:relative;min-height:172px;background:#e7ddc4}
+  .map .plot svg{position:absolute;inset:0;width:100%;height:100%}
+  .map .plot .tag{position:absolute;left:14px;bottom:12px;font-family:var(--sans);font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);opacity:.66}
+  .map .meta{padding:20px 22px;display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between}
+  .map .meta .addr b{font-weight:700;font-size:.94rem}
+  .map .meta .addr span{display:block;color:var(--ink-2);font-size:.82rem;margin-top:3px}
+  @media(min-width:760px){ .map{grid-template-columns:1.5fr 1fr} .map .plot{min-height:100%} }
+
+  /* ---------- footer ---------- */
+  footer{background:var(--green-d);color:rgba(245,236,214,.76);padding:clamp(48px,8vw,72px) 0 100px;text-align:center}
+  footer .mark{font-size:26px;margin-bottom:16px}
+  footer .f-links{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;font-size:.86rem;margin-top:6px}
+  footer .f-links a:hover{color:var(--cream)}
+  footer .disc{margin-top:30px;padding-top:20px;border-top:1px solid rgba(245,236,214,.14);font-size:.72rem;color:rgba(245,236,214,.5);line-height:1.6;max-width:80ch;margin-left:auto;margin-right:auto}
+
+  /* ---------- reveal ---------- */
+  .rv{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  html.anim .rv{opacity:0;transform:translateY(18px)}
+  html.anim .rv.in{opacity:1;transform:none}
+
+  /* ---------- sticky mobile bar ---------- */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;gap:9px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));
+    background:rgba(60,22,32,.96);backdrop-filter:blur(10px);border-top:1px solid rgba(245,236,214,.12);
+    transform:translateY(125%);transition:transform .38s cubic-bezier(.2,.7,.2,1)}
+  .sticky.show{transform:none}
+  .sticky a{font-family:var(--sans);font-weight:700;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .sticky .call{flex:0 0 auto;padding:12px 17px;font-size:.86rem;color:var(--cream);border:1px solid rgba(245,236,214,.26)}
+  .sticky .call svg{width:16px;height:16px}
+  .sticky .book{flex:1;padding:13px;font-size:.92rem;background:var(--red);color:#fff}
+  @media(max-width:759.98px){ .top .resv{display:none} }
+
+  @media(min-width:760px){
+    .story .grid{grid-template-columns:1.1fr .9fr}
+    .menu{grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,64px)}
+    .terr .terr-cols{grid-template-columns:1fr 1fr;align-items:start}
+    .sticky{display:none}
+    .info-row .k{width:120px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= TOP ================= -->
+<div class="top" id="top">
+  <div class="wrap bar">
+    <a href="#top" class="mark" aria-label="Le Bistrot de la Place de Paris">
+      <span class="m-le">Le Bistrot</span><span class="m-place">Place de Paris</span>
+    </a>
+    <div class="r">
+      <div class="lang" role="group" aria-label="Langue / Sprache / Language">
+        <button type="button" data-lang="fr" class="on">FR</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a href="#trouver" class="resv" data-i18n="resv">Réserver</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <video class="hero-vid" autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+      <source src="assets/hero.mp4" type="video/mp4" />
+      <img src="assets/hero-poster.jpg" alt="" />
+    </video>
+  </div>
+  <div class="wrap">
+    <span class="eyebrow rv" data-i18n="hero_eyebrow">Brasserie · Restaurant · Bar</span>
+    <div class="mark rv"><span class="m-le">Le Bistrot</span><span class="m-place">de la Place de Paris</span><span class="m-sub" data-i18n="hero_sub">Luxembourg-Gare · depuis les années 1970</span></div>
+    <p class="hero-tag rv" data-i18n="hero_tag">La brasserie de la place de Paris depuis les années 1970 — sa terrasse au soleil, son comptoir à cocktails et une cuisine française et luxembourgeoise, au cœur de la Gare.</p>
+    <div class="hero-cta rv">
+      <a href="tel:+352496139" class="btn solid" data-i18n="cta_reserve">Réserver une table</a>
+      <a href="#carte" class="btn ghost" data-i18n="cta_menu">Voir la carte</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= SIGNAGE MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="run">Brasserie<span>◆</span>Restaurant<span>◆</span>Bar à cocktails<span>◆</span>Terrasse<span>◆</span>Place de Paris<span>◆</span>Quartier de la Gare<span>◆</span>Depuis les années 1970<span>◆</span>Brasserie<span>◆</span>Restaurant<span>◆</span>Bar à cocktails<span>◆</span>Terrasse<span>◆</span>Place de Paris<span>◆</span>Quartier de la Gare<span>◆</span>Depuis les années 1970<span>◆</span></div>
+</div>
+
+<!-- ================= HERITAGE / 1972 ================= -->
+<section class="story" id="maison">
+  <div class="wrap">
+    <span class="sec-label rv" data-i18n="story_label">La maison</span>
+    <h2 class="sec-h rv" data-i18n="story_h">Sur la place depuis un demi-siècle.</h2>
+    <div class="grid">
+      <div>
+        <p class="rv" data-i18n="story_p1">Le Bistrot de la Place de Paris tient le coin de la place depuis les années 1970 — l'une des plus anciennes brasseries du quartier de la Gare. Une brasserie au bois patiné, aux banquettes de cuir et aux nappes claires, où l'on vient pour la terrasse, le comptoir et l'agitation douce d'un quartier qui ne s'arrête jamais tout à fait.</p>
+        <p class="rv" data-i18n="story_p2">Une cuisine de brasserie française et luxembourgeoise, des cocktails qu'on ne présente plus, et un service qui parle toutes les langues de la place. Un déjeuner rapide, un verre au soleil, un dîner qui s'attarde — la maison n'a pas changé.</p>
+        <div class="sign rv"><span class="rule"></span><b>Place de Paris</b><span data-i18n="story_sign">au cœur du quartier de la Gare, Luxembourg</span></div>
+      </div>
+      <aside class="plaque rv">
+        <video class="plaque-vid" autoplay muted loop playsinline poster="assets/plaque-poster.jpg" aria-hidden="true">
+          <source src="assets/plaque.mp4" type="video/mp4" />
+          <img src="assets/plaque-poster.jpg" alt="" />
+        </video>
+        <div class="est" data-i18n="plaque_est">Depuis les années 1970</div>
+        <div class="yr" data-i18n="plaque_yr">un demi-siècle</div>
+        <div class="cap" data-i18n="plaque_cap">Sur la place de Paris — l'une des plus anciennes brasseries du quartier de la Gare.</div>
+        <span class="m-le">Le Bistrot</span>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CARTE ================= -->
+<section class="carte" id="carte">
+  <div class="wrap">
+    <span class="sec-label rv" data-i18n="carte_label">La carte</span>
+    <h2 class="sec-h rv" data-i18n="carte_h">Brasserie le jour, cocktails le soir.</h2>
+    <div class="menu">
+      <div class="course rv">
+        <h3><span data-i18n="cat_viandes">Viandes &amp; brasserie</span></h3>
+        <ul>
+          <li class="dish"><span class="n">Steak-frites<em>pommes frites maison, salade</em></span></li>
+          <li class="dish"><span class="n">Saucisses &amp; frites<em>pommes frites, salade</em></span></li>
+          <li class="dish"><span class="n">Entrecôte de bœuf « Angus irlandais »<em>beurre maître d'hôtel, poivre vert ou crème de champignons frais</em></span></li>
+          <li class="dish"><span class="n">Cordon bleu de veau<em>crème de champignons frais, pommes frites, légumes</em></span></li>
+          <li class="dish"><span class="n">Escalope viennoise de veau<em>pommes frites, légumes, salade mixte</em></span></li>
+          <li class="dish"><span class="n">Bouchée à la Reine<em>pommes frites, salade mixte</em></span></li>
+        </ul>
+      </div>
+      <div class="course rv">
+        <h3><span data-i18n="cat_pates">Pâtes</span></h3>
+        <ul>
+          <li class="dish"><span class="n">Pâtes aux scampis<em>poêlée de scampis</em></span></li>
+          <li class="dish"><span class="n">Spaghetti carbonara<em>lardons, œufs, crème fraîche</em></span></li>
+          <li class="dish"><span class="n">Penne grand-mère<em>petits pois, poulet, lardons, champignons frais, crème</em></span></li>
+          <li class="dish"><span class="n">Penne all'arrabbiata<em>sauce tomate piquante</em></span></li>
+        </ul>
+      </div>
+      <div class="course rv">
+        <h3><span data-i18n="cat_salades">Salades</span></h3>
+        <ul>
+          <li class="dish"><span class="n">Salade bergère<em>chèvre, olives noires, pommes de terre, champignons, noix</em></span></li>
+          <li class="dish"><span class="n">Salade campagnarde<em>lardons, jambon cuit, fromage, croûtons, œuf</em></span></li>
+          <li class="dish"><span class="n">Salade niçoise<em>thon, poivrons, anchois, haricots verts</em></span></li>
+          <li class="dish"><span class="n">Salade caprese<em>tomates, mozzarella, basilic frais</em></span></li>
+        </ul>
+      </div>
+      <div class="course rv">
+        <h3><span data-i18n="cat_snacks">Omelettes &amp; snacks</span></h3>
+        <ul>
+          <li class="dish"><span class="n">Omelette au choix<em>nature, jambon, champignons ou fromage</em></span></li>
+          <li class="dish"><span class="n">Croque-monsieur maison<em>salade mixte</em></span></li>
+          <li class="dish"><span class="n">Quiche lorraine maison<em>salade mixte</em></span></li>
+          <li class="dish"><span class="n">Tarte aux pommes maison<em>glace vanille, chantilly</em></span></li>
+        </ul>
+      </div>
+      <div class="course rv">
+        <h3><span data-i18n="cat_bar">Au comptoir</span> <span class="sub" data-i18n="cat_bar_sub">cocktails, vins &amp; bières</span></h3>
+        <ul>
+          <li class="dish"><span class="n">Aperol Spritz</span></li>
+          <li class="dish"><span class="n">Tequila Sunrise</span></li>
+          <li class="dish"><span class="n">Lemon Margarita</span></li>
+          <li class="dish"><span class="n">Strawberry Margarita</span></li>
+          <li class="dish"><span class="n">Vins &amp; bières pression</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note rv" data-i18n="carte_note">Une sélection de la carte de la maison — brasserie française et luxembourgeoise. Les plats du jour et les tarifs actuels sont communiqués par l'établissement.</p>
+  </div>
+</section>
+
+<!-- ================= GALLERY (real venue photos, in-palette placeholders) ================= -->
+<section class="gallery" aria-label="Photos">
+  <div class="wrap">
+    <div class="imgs">
+      <figure class="rv"><img src="assets/dish.jpg" alt="Un plat gratiné et un spritz sur la banquette de cuir du Bistrot" loading="lazy" /><figcaption data-i18n="g_dish">À table</figcaption></figure>
+      <figure class="rv"><img src="assets/bar.jpg" alt="Le comptoir du Bistrot, ses verres et ses tirages pression" loading="lazy" /><figcaption data-i18n="g_bar">Au comptoir</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TERRASSE ================= -->
+<section class="terr" id="terrasse">
+  <div class="wrap">
+    <span class="sec-label rv" data-i18n="terr_label">La terrasse</span>
+    <h2 class="sec-h rv" data-i18n="terr_h">Une terrasse au soleil, au cœur de la place.</h2>
+    <div class="terr-cols">
+      <p class="terr-lead rv" data-i18n="terr_lead">Aux beaux jours, la terrasse déborde sur la place de Paris — le rendez-vous de l'apéro du quartier de la Gare.</p>
+      <p class="terr-p rv" data-i18n="terr_p">Dedans, le comptoir sert cocktails, vins et bières pression jusque tard ; dehors, on s'attarde au soleil. Un déjeuner rapide en semaine, un dîner qui traîne le soir — la place pour décor.</p>
+    </div>
+    <p class="fnote rv" data-i18n="terr_note">Terrasse, comptoir et horaires précisés par l'établissement.</p>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section class="visit" id="trouver">
+  <div class="wrap">
+    <span class="sec-label rv" data-i18n="visit_label">Nous trouver</span>
+    <h2 class="sec-h rv" data-i18n="visit_h">Sur la place de Paris, quartier de la Gare.</h2>
+    <div class="visit-info rv">
+      <div class="info-row"><div class="k" data-i18n="info_k_service">Le service</div><div class="v"><span data-i18n="visit_hours">Ouvert tous les jours — en journée et en soirée</span><span class="conf" data-i18n="visit_hours_conf">Horaires exacts à confirmer avec l'établissement.</span></div></div>
+      <div class="info-row"><div class="k" data-i18n="info_k_address">Adresse</div><div class="v">31, rue du Fort Élisabeth<br>L-1463 Luxembourg (Gare)<span class="conf" data-i18n="visit_addr_conf">À l'angle de la place de Paris.</span></div></div>
+      <div class="info-row"><div class="k" data-i18n="info_k_phone">Téléphone</div><div class="v"><a href="tel:+352496139">+352 49 61 39</a></div></div>
+      <div class="info-row"><div class="k" data-i18n="info_k_online">En ligne</div><div class="v"><a href="https://www.facebook.com/LeBistrotDeLaPlaceDeParis/" target="_blank" rel="noopener" data-i18n="online_v">Page Facebook</a></div></div>
+    </div>
+    <div class="hours-warn rv" data-i18n="hours_warn">Les horaires varient selon les sources en ligne — merci d'appeler avant de vous déplacer.</div>
+    <div class="hero-cta rv" style="justify-content:flex-start;margin-top:24px">
+      <a href="tel:+352496139" class="btn solid" data-i18n="cta_call">Appeler pour réserver</a>
+      <a href="https://www.facebook.com/LeBistrotDeLaPlaceDeParis/" target="_blank" rel="noopener" class="btn ghost" style="color:var(--green);border-color:rgba(92,34,49,.3)" data-i18n="cta_fb">Page Facebook ↗</a>
+    </div>
+    <div class="map rv" role="group" aria-label="Plan d'accès">
+      <div class="plot">
+        <svg viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Plan stylisé — place de Paris, quartier de la Gare, Luxembourg">
+          <rect width="400" height="210" fill="#e7ddc4"/>
+          <g fill="#dccfae">
+            <rect x="18" y="16" width="72" height="34" rx="3"/><rect x="150" y="12" width="96" height="40" rx="3"/>
+            <rect x="300" y="20" width="82" height="30" rx="3"/><rect x="20" y="150" width="80" height="44" rx="3"/>
+            <rect x="286" y="150" width="96" height="46" rx="3"/><rect x="150" y="168" width="86" height="30" rx="3"/>
+          </g>
+          <g stroke="#f5ecd6" stroke-width="13" stroke-linecap="square">
+            <path d="M0 68 H400"/><path d="M0 148 H400"/><path d="M110 0 V210"/><path d="M272 0 V210"/>
+          </g>
+          <path d="M36 198 L364 40" stroke="#cdbf9a" stroke-width="14"/>
+          <path d="M36 198 L364 40" stroke="#5c2231" stroke-width="6" opacity=".9"/>
+          <g transform="translate(200,112)">
+            <ellipse cx="0" cy="9" rx="10" ry="3.2" fill="rgba(92,34,49,.22)"/>
+            <circle cx="0" cy="-12" r="9.5" fill="#c0392b"/>
+            <path d="M-6.4 -6 L0 9 L6.4 -6 Z" fill="#c0392b"/>
+            <circle cx="0" cy="-12" r="3.7" fill="#fff"/>
+          </g>
+        </svg>
+        <span class="tag" data-i18n="map_tag">Plan indicatif</span>
+      </div>
+      <div class="meta">
+        <div class="addr"><b>Le Bistrot de la Place de Paris</b><span>31, rue du Fort Élisabeth · Place de Paris, L-1463 Luxembourg</span></div>
+        <a class="btn solid" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&amp;query=Le%20Bistrot%20de%20la%20Place%20de%20Paris%2C%20Place%20de%20Paris%2C%20Luxembourg"
+           data-i18n="cta_directions">Itinéraire ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <a href="#top" class="mark" aria-label="Le Bistrot de la Place de Paris"><span class="m-le">Le Bistrot</span><span class="m-place">de la Place de Paris</span><span class="m-sub" data-i18n="foot_sub">Brasserie · depuis les années 1970</span></a>
+    <div class="f-links">
+      <a href="tel:+352496139">+352 49 61 39</a>
+      <span>·</span>
+      <a>31, rue du Fort Élisabeth · L-1463 Luxembourg</a>
+      <span>·</span>
+      <a href="https://www.facebook.com/LeBistrotDeLaPlaceDeParis/" target="_blank" rel="noopener" data-i18n="foot_fb">Page Facebook</a>
+    </div>
+    <p class="disc" data-i18n="disc">Site de démonstration réalisé à titre de proposition par Webwerk — non affilié officiellement à l'établissement à ce stade. Identité reprise de l'enseigne de la brasserie ; informations issues de sources publiques, données à titre indicatif ; carte, horaires et tarifs à confirmer. Logo, identité et photographies repris de sources publiques à titre de démonstration — à remplacer par les visuels définitifs fournis par l'établissement. Aucune donnée n'est collectée sur cette page.</p>
+  </div>
+</footer>
+
+<!-- sticky mobile bar -->
+<nav class="sticky" id="stickybar" aria-label="Contact">
+  <a href="tel:+352496139" class="call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4.5 5.5c0 7.7 6.3 14 14 14 .8 0 1.5-.3 2-.9l-2.7-2.7c-.5-.5-1.3-.6-1.9-.2l-1.3.9c-2.1-1-3.8-2.7-4.8-4.8l.9-1.3c.4-.6.3-1.4-.2-1.9L7.9 3.9c-.6-.6-1.6-.5-2.1.2z"/></svg><span data-i18n="sticky_call">Appeler</span></a>
+  <a href="#trouver" class="book" data-i18n="cta_reserve">Réserver une table</a>
+</nav>
+
+<script>
+  // reduced-motion: pause the living videos (hero + plaque) and show their poster stills
+  try{ if(matchMedia('(prefers-reduced-motion:reduce)').matches){ [].forEach.call(document.querySelectorAll('.hero-vid,.plaque-vid'),function(v){ v.removeAttribute('autoplay'); v.pause(); }); } }catch(e){}
+  var bar=document.getElementById('stickybar');
+  if(bar){ var showBar=function(){ bar.classList.toggle('show', window.scrollY > window.innerHeight*0.55); }; addEventListener('scroll',showBar,{passive:true}); addEventListener('resize',showBar); showBar(); }
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  function reveal(el){ el.classList.add('in'); }
+  if(document.documentElement.classList.contains('anim')){
+    var hero=[].slice.call(document.querySelectorAll('.hero .rv'));
+    hero.forEach(function(el,i){ setTimeout(function(){reveal(el);}, 90*i+80); });
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); } }); },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(el){ if(hero.indexOf(el)===-1) io.observe(el); });
+    setTimeout(function(){ rv.forEach(reveal); }, 1600);
+  } else { rv.forEach(reveal); }
+
+  // ---- language toggle — FR inline default; DE/EN from dict. Dish names/cocktails/proper nouns stay French.
+  // ⚠️ DE/EN are drafts — native review before any real send.
+  var I18N = {
+    de: {
+      resv:"Reservieren",
+      hero_eyebrow:"Brasserie · Restaurant · Bar",
+      hero_sub:"Luxemburg-Bahnhof · seit den 1970er-Jahren",
+      hero_tag:"Die Brasserie an der Place de Paris seit den 1970er-Jahren — Terrasse in der Sonne, Cocktailbar und französisch-luxemburgische Küche, im Herzen des Bahnhofsviertels.",
+      cta_reserve:"Tisch reservieren", cta_menu:"Zur Karte",
+      story_label:"Das Haus",
+      story_h:"An der Place, seit einem halben Jahrhundert.",
+      story_p1:"Le Bistrot de la Place de Paris hält die Ecke des Platzes seit den 1970er-Jahren — eine der ältesten Brasserien im Bahnhofsviertel. Eine Brasserie aus patiniertem Holz, mit Lederbänken und hellen Tischtüchern, wohin man für die Terrasse kommt, für den Tresen und für den ruhigen Trubel eines Viertels, das nie ganz stillsteht.",
+      story_p2:"Französisch-luxemburgische Brasseriküche, Cocktails, die man nicht mehr vorstellen muss, und ein Service, der alle Sprachen des Platzes spricht. Ein schnelles Mittagessen, ein Glas in der Sonne, ein Abendessen ohne Eile — das Haus hat sich nicht verändert.",
+      story_sign:"im Herzen des Bahnhofsviertels, Luxemburg",
+      plaque_est:"Seit den 1970er-Jahren", plaque_yr:"ein halbes Jahrhundert", plaque_cap:"An der Place de Paris — eine der ältesten Brasserien des Bahnhofsviertels.",
+      carte_label:"Die Karte",
+      carte_h:"Tagsüber Brasserie, abends Cocktails.",
+      cat_viandes:"Fleisch & Brasserie", cat_pates:"Pasta", cat_salades:"Salate", cat_snacks:"Omeletts & Snacks",
+      cat_bar:"An der Bar", cat_bar_sub:"Cocktails, Weine & Biere",
+      carte_note:"Eine Auswahl aus der Karte des Hauses — französisch-luxemburgische Brasserie. Tagesgerichte und aktuelle Preise erhalten Sie im Restaurant.",
+      terr_label:"Die Terrasse",
+      terr_h:"Eine Terrasse in der Sonne, mitten auf dem Platz.",
+      terr_lead:"An schönen Tagen quillt die Terrasse über die Place de Paris — der Aperitif-Treffpunkt des Bahnhofsviertels.",
+      terr_p:"Drinnen serviert der Tresen Cocktails, Weine und Biere vom Fass bis spät; draußen lässt man sich in der Sonne Zeit. Mittags schnell unter der Woche, abends ein Dinner ohne Eile — mit dem Platz als Kulisse.",
+      terr_note:"Terrasse, Tresen und Öffnungszeiten werden vom Haus mitgeteilt.",
+      g_dish:"Zu Tisch", g_bar:"An der Bar",
+      visit_label:"So finden Sie uns",
+      visit_h:"An der Place de Paris, im Bahnhofsviertel.",
+      info_k_service:"Öffnungszeiten",
+      visit_hours:"Täglich geöffnet — tagsüber und abends",
+      visit_hours_conf:"Genaue Zeiten mit dem Haus zu bestätigen.",
+      info_k_address:"Adresse", visit_addr_conf:"An der Ecke der Place de Paris.",
+      info_k_phone:"Telefon", info_k_online:"Online", online_v:"Facebook-Seite",
+      hours_warn:"Die Öffnungszeiten variieren je nach Onlinequelle — bitte rufen Sie vor Ihrem Besuch an.",
+      cta_call:"Zum Reservieren anrufen", cta_fb:"Facebook-Seite ↗",
+      map_tag:"Orientierungsplan", cta_directions:"Route ↗",
+      foot_sub:"Brasserie · seit den 1970er-Jahren", foot_fb:"Facebook-Seite",
+      disc:"Demonstrationswebseite als Vorschlag von Webwerk — derzeit nicht offiziell mit dem Betrieb verbunden. Identität von der Enseigne der Brasserie übernommen; Informationen aus öffentlichen Quellen, ohne Gewähr; Karte, Öffnungszeiten und Preise sind zu bestätigen. Logo, Identität und Fotos aus öffentlichen Quellen, zu Demonstrationszwecken — durch die endgültigen Visuals des Betriebs zu ersetzen. Auf dieser Seite werden keine Daten erfasst.",
+      sticky_call:"Anrufen"
+    },
+    en: {
+      resv:"Book",
+      hero_eyebrow:"Brasserie · Restaurant · Bar",
+      hero_sub:"Luxembourg-Gare · since the 1970s",
+      hero_tag:"The brasserie on Place de Paris since the 1970s — its terrace in the sun, its cocktail bar and French-Luxembourgish cooking, in the heart of the Gare quarter.",
+      cta_reserve:"Book a table", cta_menu:"See the menu",
+      story_label:"The house",
+      story_h:"On the square for half a century.",
+      story_p1:"Le Bistrot de la Place de Paris has held the corner of the square since the 1970s — one of the oldest brasseries in the Gare quarter. A brasserie of worn wood, leather banquettes and pale linen, where people come for the terrace, the bar, and the quiet bustle of a quarter that never quite stops.",
+      story_p2:"French-Luxembourgish brasserie cooking, cocktails that need no introduction, and a staff that speaks every language of the square. A quick lunch, a glass in the sun, a dinner that lingers — the house hasn't changed.",
+      story_sign:"in the heart of the Gare quarter, Luxembourg",
+      plaque_est:"Since the 1970s", plaque_yr:"half a century", plaque_cap:"On Place de Paris — one of the oldest brasseries in the Gare quarter.",
+      carte_label:"The menu",
+      carte_h:"Brasserie by day, cocktails by night.",
+      cat_viandes:"Meat & brasserie", cat_pates:"Pasta", cat_salades:"Salads", cat_snacks:"Omelettes & snacks",
+      cat_bar:"At the bar", cat_bar_sub:"cocktails, wines & beers",
+      carte_note:"A selection from the house menu — French-Luxembourgish brasserie. Daily specials and current prices are given by the venue.",
+      terr_label:"The terrace",
+      terr_h:"A sunny terrace, in the heart of the square.",
+      terr_lead:"On fine days the terrace spills onto Place de Paris — the Gare quarter's spot for an aperitif.",
+      terr_p:"Inside, the bar pours cocktails, wines and draught beers until late; outside, you linger in the sun. A quick weekday lunch, a dinner that drifts into the evening — the square for a backdrop.",
+      terr_note:"Terrace, bar and hours confirmed by the venue.",
+      g_dish:"At the table", g_bar:"At the bar",
+      visit_label:"Find us",
+      visit_h:"On Place de Paris, in the Gare quarter.",
+      info_k_service:"Hours",
+      visit_hours:"Open daily — day and evening",
+      visit_hours_conf:"Exact hours to confirm with the venue.",
+      info_k_address:"Address", visit_addr_conf:"On the corner of Place de Paris.",
+      info_k_phone:"Phone", info_k_online:"Online", online_v:"Facebook page",
+      hours_warn:"Hours vary across online sources — please call before coming.",
+      cta_call:"Call to book", cta_fb:"Facebook page ↗",
+      map_tag:"Indicative map", cta_directions:"Directions ↗",
+      foot_sub:"Brasserie · since the 1970s", foot_fb:"Facebook page",
+      disc:"Demonstration site offered as a proposal by Webwerk — not officially affiliated with the venue at this stage. Identity taken from the brasserie's own signage; information from public sources, indicative only; menu, hours and prices to be confirmed. Logo, identity and photographs taken from public sources for demonstration — to be replaced by the venue's final visuals. No data is collected on this page.",
+      sticky_call:"Call"
+    }
+  };
+  var FR={}, i18nEls=[].slice.call(document.querySelectorAll('[data-i18n]'));
+  i18nEls.forEach(function(el){ FR[el.getAttribute('data-i18n')]=el.textContent; });
+  function setLang(lang){
+    var d=I18N[lang]; document.documentElement.lang=lang;
+    i18nEls.forEach(function(el){ var k=el.getAttribute('data-i18n'); var v=(lang==='fr')?FR[k]:(d&&d[k]!==undefined?d[k]:FR[k]); if(v!==undefined) el.textContent=v; });
+    [].forEach.call(document.querySelectorAll('.lang button'),function(b){ b.classList.toggle('on',b.getAttribute('data-lang')===lang); });
+  }
+  [].forEach.call(document.querySelectorAll('.lang button'),function(b){ b.addEventListener('click',function(){ setLang(b.getAttribute('data-lang')); }); });
+</script>
+</body>
+</html>
