@@ -125,7 +125,7 @@
         <span class="url"><span class="lock">🔒</span> <b>bistrotdeparis.lu</b> · aperçu</span>
       </div>
       <div class="screen">
-        <iframe title="Aperçu du site Le Bistrot de la Place de Paris" src="./site/index.html" loading="lazy" scrolling="no"></iframe>
+        <iframe title="Aperçu du site Le Bistrot de la Place de Paris" src="./site/index.html?embed=1" loading="lazy" scrolling="no"></iframe>
         <a class="veil" href="./site/index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
       </div>
     </div>
@@ -146,7 +146,7 @@
 
   <footer>
     <a class="home" href="https://webwerk.lu/">WEBWER<span class="k">K</span> — nous dessinons le web.</a>
-    <span class="note">Aperçu réalisé à titre indicatif à partir de sources publiques. Identité reprise de l'enseigne de la brasserie. Textes, plats et prix à confirmer avec l'établissement. Aucune donnée n'est collectée sur cette page.</span>
+    <span class="note">Aperçu réalisé à titre indicatif à partir de sources publiques. Identité reprise de l'enseigne de la brasserie. Textes, plats et prix à confirmer avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
   </footer>
 </main>
 
@@ -158,5 +158,7 @@
     fit(); window.addEventListener('resize',fit); frame.addEventListener('load',fit);
   })();
 </script>
+<!-- cookieless, GDPR-clean analytics (same as webwerk.lu) — tells us if/when the reveal is opened + visitor country (e.g. Luxembourg) -->
+<script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

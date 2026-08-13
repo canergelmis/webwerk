@@ -215,6 +215,25 @@
   .sticky .book{flex:1;padding:13px;font-size:.92rem;background:var(--red);color:#fff}
   @media(max-width:759.98px){ .top .resv{display:none} }
 
+  /* ---------- first-load cinematic intro (top-level only; skipped inside the reveal frame) ---------- */
+  #intro{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:radial-gradient(120% 100% at 50% 38%, #4a1b28, #2a1017 68%, #1c0a11);
+    animation:introOut .8s ease 2.0s forwards}
+  #intro .im{position:relative;opacity:0;transform:translateY(10px) scale(.99);
+    animation:introIn 1.15s cubic-bezier(.2,.7,.2,1) .2s forwards;padding:0 24px}
+  #intro .im-le{display:block;font-family:var(--script);color:var(--mustard);font-size:clamp(38px,11vw,96px);line-height:.8}
+  #intro .im-place{display:block;font-family:var(--sign);font-weight:700;color:var(--gold);
+    font-size:clamp(20px,5.4vw,46px);letter-spacing:.02em;margin-top:.06em}
+  #intro .im-sub{display:block;font-family:var(--sans);font-weight:700;font-size:.6rem;letter-spacing:.34em;
+    text-transform:uppercase;color:rgba(245,236,214,.62);margin-top:1.5em}
+  #intro .im::after{content:"";position:absolute;inset:-6% -10%;pointer-events:none;mix-blend-mode:screen;
+    background:linear-gradient(100deg,transparent 38%,rgba(255,246,222,.5) 50%,transparent 60%);
+    background-size:260% 100%;background-position:170% 0;animation:introShine 1.4s ease .95s forwards}
+  @keyframes introIn{to{opacity:1;transform:none}}
+  @keyframes introShine{to{background-position:-70% 0}}
+  @keyframes introOut{to{opacity:0;visibility:hidden}}
+  @media(prefers-reduced-motion:reduce){ #intro{display:none} }
+
   @media(min-width:760px){
     .story .grid{grid-template-columns:1.1fr .9fr}
     .menu{grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,64px)}
@@ -225,6 +244,8 @@
 </style>
 </head>
 <body>
+
+<div id="intro" aria-hidden="true"><div class="im"><span class="im-le">Le Bistrot</span><span class="im-place">de la Place de Paris</span><span class="im-sub">Luxembourg-Gare · depuis les années 1970</span></div></div>
 
 <!-- ================= TOP ================= -->
 <div class="top" id="top">
@@ -355,8 +376,8 @@
 <section class="gallery" aria-label="Photos">
   <div class="wrap">
     <div class="imgs">
-      <figure class="rv"><img src="assets/dish.jpg" alt="Un plat gratiné et un spritz sur la banquette de cuir du Bistrot" loading="lazy" /><figcaption data-i18n="g_dish">À table</figcaption></figure>
-      <figure class="rv"><img src="assets/bar.jpg" alt="Le comptoir du Bistrot, ses verres et ses tirages pression" loading="lazy" /><figcaption data-i18n="g_bar">Au comptoir</figcaption></figure>
+      <figure class="rv"><img src="assets/salle.jpg" alt="La salle du Bistrot — bois patiné, banquettes de cuir et plafond à verrière" loading="lazy" /><figcaption data-i18n="g_dish">La salle</figcaption></figure>
+      <figure class="rv"><img src="assets/terrasse.jpg" alt="La terrasse du Bistrot sur la place de Paris, ses parasols et ses tables" loading="lazy" /><figcaption data-i18n="g_bar">La terrasse</figcaption></figure>
     </div>
   </div>
 </section>
@@ -445,6 +466,11 @@
 </nav>
 
 <script>
+  // first-load intro: play only at top level (skip inside the reveal iframe); auto-remove so it never blocks
+  (function(){ var i=document.getElementById('intro'); if(!i) return;
+    var framed=/[?&]embed=1/.test(location.search); try{ framed = framed || window.self!==window.top; }catch(e){ framed=true; }
+    if(framed){ if(i.parentNode) i.parentNode.removeChild(i); return; }
+    setTimeout(function(){ if(i.parentNode) i.parentNode.removeChild(i); }, 2900); })();
   // reduced-motion: pause the living videos (hero + plaque) and show their poster stills
   try{ if(matchMedia('(prefers-reduced-motion:reduce)').matches){ [].forEach.call(document.querySelectorAll('.hero-vid,.plaque-vid'),function(v){ v.removeAttribute('autoplay'); v.pause(); }); } }catch(e){}
   var bar=document.getElementById('stickybar');
@@ -484,7 +510,7 @@
       terr_lead:"An schönen Tagen quillt die Terrasse über die Place de Paris — der Aperitif-Treffpunkt des Bahnhofsviertels.",
       terr_p:"Drinnen serviert der Tresen Cocktails, Weine und Biere vom Fass bis spät; draußen lässt man sich in der Sonne Zeit. Mittags schnell unter der Woche, abends ein Dinner ohne Eile — mit dem Platz als Kulisse.",
       terr_note:"Terrasse, Tresen und Öffnungszeiten werden vom Haus mitgeteilt.",
-      g_dish:"Zu Tisch", g_bar:"An der Bar",
+      g_dish:"Der Saal", g_bar:"Die Terrasse",
       visit_label:"So finden Sie uns",
       visit_h:"An der Place de Paris, im Bahnhofsviertel.",
       info_k_service:"Öffnungszeiten",
@@ -521,7 +547,7 @@
       terr_lead:"On fine days the terrace spills onto Place de Paris — the Gare quarter's spot for an aperitif.",
       terr_p:"Inside, the bar pours cocktails, wines and draught beers until late; outside, you linger in the sun. A quick weekday lunch, a dinner that drifts into the evening — the square for a backdrop.",
       terr_note:"Terrace, bar and hours confirmed by the venue.",
-      g_dish:"At the table", g_bar:"At the bar",
+      g_dish:"The dining room", g_bar:"The terrace",
       visit_label:"Find us",
       visit_h:"On Place de Paris, in the Gare quarter.",
       info_k_service:"Hours",
