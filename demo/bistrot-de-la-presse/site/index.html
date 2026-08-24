@@ -668,9 +668,9 @@
       </div>
       <div class="ear-right">
         <div class="stamp" id="stamp" role="status" aria-live="polite">
-          <span class="s-top" data-i18n="stamp_top">Bistrot</span>
-          <span class="s-status" id="stampStatus">—</span>
-          <span class="s-bot" id="stampBot">—</span>
+          <span class="s-top">Beim</span>
+          <span class="s-status" id="stampStatus">Heidi</span>
+          <span class="s-bot" id="stampBot">Ville-Haute</span>
         </div>
         <div class="stamp-flag" data-i18n="stamp_flag">horaires à confirmer</div>
       </div>
@@ -1243,17 +1243,11 @@
     var statusEl = document.getElementById("stampStatus");
     var botEl = document.getElementById("stampBot");
 
-    statusEl.textContent = open ? t("st_open") : t("st_closed");
-    botEl.textContent = open ? t("st_bot_open") : t("st_bot_closed");
-    stamp.classList.toggle("is-open", open);
-    stamp.setAttribute("aria-label",
-      (open ? t("st_open") : t("st_closed")) + " — " + t("stamp_flag"));
-
-    // running head status
-    var rh = document.getElementById("rhStatus");
-    var rhTxt = document.getElementById("rhStatusTxt");
-    rh.classList.toggle("is-open", open);
-    rhTxt.textContent = open ? t("st_open") : t("st_closed");
+    // static brand seal — no live open/closed pill (hours are only indicative)
+    statusEl.textContent = "Heidi";
+    botEl.textContent = "Ville-Haute";
+    stamp.setAttribute("aria-label", "Beim Heidi — " + t("stamp_flag"));
+    var rh = document.getElementById("rhStatus"); if(rh) rh.style.display = "none";
 
     // highlight today's row
     var today = luParts().day;
