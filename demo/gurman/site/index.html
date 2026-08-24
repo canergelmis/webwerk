@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!--
+  GURMAN — Webwerk demo site (venue #3). Concept "Od žara / Ember & stone": fire-forward Croatian
+  grill house. Bespoke build — NOT cloned from any other demo. Palette read from the venue's real
+  RestaurantGuru photos (warm char/wood + ember-terracotta + stone-cream/ochre + Adriatic blue).
+  Fonts self-hosted in assets/fonts/ (CSP blocks Google Fonts). Photos are enhanced public-source
+  crops (mascot/watermark removed), flagged for replacement by the venue's own hi-res images.
+  Honest labels throughout: proposed slogan, prices + hours to confirm, no online booking system.
+  First-load "coals catch" intro is skipped inside the reveal iframe (?embed=1) and on reduced-motion.
+-->
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Gurman — Grillades croates à Belvaux</title>
+<meta name="theme-color" content="#1a1310" />
+<meta name="description" content="Gurman — spécialités croates à la braise à Belvaux. Ćevapčići, pljeskavica, plateau royal. Une proposition de site par Webwerk." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><pattern id='s' width='8' height='8' patternUnits='userSpaceOnUse'><rect width='8' height='8' fill='%23f6ece0'/><rect width='4' height='4' fill='%23d0261c'/><rect x='4' y='4' width='4' height='4' fill='%23d0261c'/></pattern></defs><circle cx='16' cy='16' r='15' fill='url(%23s)'/><circle cx='16' cy='16' r='15' fill='none' stroke='%23181109' stroke-width='2'/></svg>" />
+
+<style>
+  /* ---------- self-hosted fonts (latin + latin-ext for ć/č/ž/š; 0 external requests) ---------- */
+  @font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage-600-latin-ext.woff2') format('woff2');font-weight:600;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage-600-latin.woff2') format('woff2');font-weight:600;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage-800-latin-ext.woff2') format('woff2');font-weight:800;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage-800-latin.woff2') format('woff2');font-weight:800;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-400-latin-ext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-400-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-500-latin-ext.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-500-latin.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-700-latin-ext.woff2') format('woff2');font-weight:700;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-700-latin.woff2') format('woff2');font-weight:700;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'SplineMono';src:url('assets/fonts/spline-mono-500-latin-ext.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'SplineMono';src:url('assets/fonts/spline-mono-500-latin.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+  :root{
+    --char:#181109;        /* warm near-black */
+    --char2:#241811;       /* raised dark */
+    --ink:#2a1d12;
+    --cream:#f6ece0;       /* stone / paper */
+    --cream2:#efe1d0;
+    --ochre:#d9a441;       /* wall yellow */
+    --ember:#cf4a1e;       /* terracotta-ember (primary accent) */
+    --ember2:#ef8b3b;      /* flame highlight */
+    --adriatic:#2f7690;    /* mural blue (restrained accent) */
+    --muted:#8c7a67;
+    --line:rgba(246,236,224,.14);
+    --maxw:1160px;
+    --disp:'Bricolage',Georgia,serif;
+    --body:'Schibsted','Segoe UI',system-ui,sans-serif;
+    --mono:'SplineMono',ui-monospace,'Cascadia Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .disp{font-family:var(--disp);font-weight:800;line-height:.95;letter-spacing:-.01em}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase}
+  .skip{position:absolute;left:-9999px;top:auto}
+  .skip:focus{left:16px;top:12px;z-index:99;background:var(--ember);color:#fff;padding:8px 14px;border-radius:4px}
+  ::selection{background:var(--ember);color:#fff}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--ember2);outline-offset:3px}
+
+  /* ---------- header ---------- */
+  header{position:absolute;top:0;left:0;right:0;z-index:20}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{font-family:var(--disp);font-weight:800;font-size:1.35rem;letter-spacing:.02em;color:var(--cream);display:inline-flex;align-items:center;gap:9px}
+  .brand .fl{color:var(--ember2)}
+  .brand img{height:38px;width:auto;flex:none;display:block}
+  footer .brand img{height:56px}
+  @media(max-width:640px){ .brand img{height:32px} footer .brand img{height:46px} }
+  .nav{display:flex;align-items:center;gap:26px}
+  .nav a{font-size:.82rem;color:rgba(246,236,224,.82);letter-spacing:.02em}
+  .nav a:hover{color:var(--cream)}
+  .langs{display:flex;gap:2px;border:1px solid rgba(246,236,224,.28);border-radius:20px;padding:3px}
+  .langs button{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;background:none;border:0;color:rgba(246,236,224,.7);
+    padding:4px 9px;border-radius:16px;cursor:pointer}
+  .langs button[aria-pressed=true]{background:var(--ember);color:#fff}
+  @media(max-width:760px){ .nav .navlink{display:none} }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);
+    background:#0d0906;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;z-index:0;background-image:url('assets/grill.jpg');background-size:cover;
+    background-position:center 28%;transform:scale(1.05);filter:saturate(.92) brightness(.42)}
+  .hero .grad{position:absolute;inset:0;z-index:1;background:
+    linear-gradient(180deg, rgba(8,5,3,.9) 0%, rgba(8,5,3,.5) 30%, rgba(8,5,3,.42) 55%, rgba(8,5,3,.7) 80%, rgba(8,5,3,.96) 100%)}
+  /* ---- live charcoal grill ---- */
+  .hero .firewrap{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+  .hero #fire{position:absolute;inset:0;width:100%;height:100%}
+  .hero .emberglow{position:absolute;left:-10%;right:-10%;bottom:-14%;height:50%;
+    background:radial-gradient(58% 100% at 50% 100%, rgba(255,150,54,.6), rgba(207,74,30,.24) 45%, transparent 72%);
+    mix-blend-mode:screen;animation:emberPulse 4.5s ease-in-out infinite}
+  @keyframes emberPulse{0%,100%{opacity:.72;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.05)}}
+  .hero .emberline{position:absolute;left:0;right:0;bottom:0;z-index:3;height:5px;
+    background:linear-gradient(90deg,transparent,var(--ember) 18%,var(--ember2) 50%,var(--ember) 82%,transparent);
+    filter:blur(.4px);opacity:.95;box-shadow:0 0 30px 4px rgba(239,139,59,.7)}
+  .hero .wrap{position:relative;z-index:3;padding-bottom:64px;padding-top:100px;width:100%}
+  .hero .eyebrow{color:var(--ember2);margin-bottom:20px;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+  .hero .eyebrow .dot{color:var(--cream);opacity:.5}
+  .hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(4.6rem,20vw,15rem);line-height:.82;
+    letter-spacing:-.02em;text-transform:uppercase;
+    background:linear-gradient(174deg,#fff 8%,#ffe6c9 38%,var(--ember2) 78%,var(--ember) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 2px 40px rgba(239,139,59,.25);animation:heat 5s ease-in-out infinite}
+  @keyframes heat{0%,100%{filter:drop-shadow(0 0 22px rgba(239,139,59,.2))}50%{filter:drop-shadow(0 0 46px rgba(239,139,59,.5))}}
+  @media(prefers-reduced-motion:reduce){ .hero .emberglow,.hero h1,.hero .herologo img{animation:none} }
+  .hero h1.herologo{line-height:0;margin:8px 0 4px;animation:none;text-shadow:none;background:none}
+  .hero .herologo img{width:min(560px,86vw);height:auto;display:block;animation:heatlogo 5s ease-in-out infinite}
+  @keyframes heatlogo{0%,100%{filter:drop-shadow(0 8px 24px rgba(0,0,0,.5)) drop-shadow(0 0 20px rgba(239,139,59,.18))}50%{filter:drop-shadow(0 8px 24px rgba(0,0,0,.5)) drop-shadow(0 0 42px rgba(239,139,59,.42))}}
+  .hero .lead{max-width:44ch;margin:26px 0 4px;font-size:1.06rem;color:rgba(246,236,224,.9)}
+  .hero .propose{display:inline-block;margin-top:20px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;color:rgba(246,236,224,.55);border:1px solid var(--line);border-radius:20px;padding:5px 12px}
+  .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .btn{font-family:var(--body);font-weight:700;font-size:.94rem;padding:14px 26px;border-radius:3px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:9px;border:1px solid transparent;transition:.18s}
+  .btn-fire{background:var(--ember);color:#fff;box-shadow:0 10px 34px -12px rgba(207,74,30,.9)}
+  .btn-fire:hover{background:var(--ember2);transform:translateY(-1px)}
+  .btn-ghost{border-color:rgba(246,236,224,.4);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--cream);background:rgba(246,236,224,.06)}
+  .scrollcue{position:absolute;right:26px;bottom:26px;z-index:4;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;
+    color:rgba(246,236,224,.6);writing-mode:vertical-rl;transform:rotate(180deg)}
+  @media(max-width:760px){ .hero h1{font-size:clamp(3.2rem,17vw,6rem)} .scrollcue{display:none} }
+
+  /* ---------- section frame ---------- */
+  section{position:relative}
+  .lead-in{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+  .lead-in .no{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--ember)}
+  .lead-in .rule{flex:1;height:1px;background:currentColor;opacity:.18}
+  h2.head{font-family:var(--disp);font-weight:800;font-size:clamp(2.1rem,5.4vw,3.5rem);line-height:1;letter-spacing:-.015em}
+
+  /* story (light) */
+  .story{background:var(--cream);padding:clamp(64px,10vw,120px) 0;
+    background-image:radial-gradient(rgba(42,29,18,.045) 1px,transparent 1px);background-size:22px 22px}
+  .story .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,72px);align-items:center}
+  .story h2{margin-bottom:22px;color:var(--ink)}
+  .story p{margin-bottom:16px;color:#4a3a2b;font-size:1.05rem;max-width:52ch}
+  .story .fig{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 40px 80px -50px rgba(24,17,9,.7)}
+  .story .fig img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+  .story .fig .stat{position:absolute;left:0;bottom:0;background:var(--char);color:var(--cream);padding:18px 22px;
+    border-top-right-radius:6px}
+  .story .fig .stat b{font-family:var(--disp);font-weight:800;font-size:2rem;display:block;color:var(--ember2);line-height:1}
+  .story .fig .stat span{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,236,224,.7)}
+  @media(max-width:820px){ .story .grid{grid-template-columns:1fr} .story .fig{order:-1} .story .fig img{aspect-ratio:16/11} }
+
+  /* menu / grill card */
+  .carte{background:var(--char);color:var(--cream);padding:clamp(64px,10vw,120px) 0;position:relative}
+  .carte::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,transparent,var(--ember) 30%,var(--ember2) 50%,var(--ember) 70%,transparent);opacity:.85}
+  .carte .lead-in{color:var(--cream)}
+  .carte h2{color:var(--cream)}
+  .carte .note{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:rgba(246,236,224,.5);margin-top:10px}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);margin-top:48px}
+  @media(max-width:760px){ .menu-grid{grid-template-columns:1fr;gap:34px} }
+  .mgroup h3{font-family:var(--disp);font-weight:600;font-size:1.25rem;color:var(--ochre);margin-bottom:4px;
+    display:flex;align-items:baseline;gap:10px}
+  .mgroup h3 .kr{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--ember2);text-transform:uppercase;opacity:.9}
+  .mgroup>.sub{font-size:.82rem;color:rgba(246,236,224,.55);margin-bottom:18px}
+  .item{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;justify-content:space-between;align-items:baseline}
+  .item .nm{font-weight:700;font-size:1.02rem}
+  .item .ds{display:block;font-weight:400;font-size:.86rem;color:rgba(246,236,224,.62);margin-top:3px}
+  .item .pr{font-family:var(--mono);font-size:.8rem;color:var(--ember2);white-space:nowrap;letter-spacing:.02em}
+
+  /* feature band — plateau royal (dark ember) */
+  .feature{position:relative;color:var(--cream);overflow:hidden;background:#100a06}
+  .feature .fbg{position:absolute;inset:0;background-image:url('assets/feast.jpg');background-size:cover;background-position:center 40%;
+    opacity:.62}
+  .feature .fgrad{position:absolute;inset:0;background:
+    radial-gradient(90% 120% at 15% 50%, rgba(16,10,6,.92), rgba(16,10,6,.35) 60%, rgba(16,10,6,.15)),
+    linear-gradient(0deg,rgba(207,74,30,.25),transparent 50%)}
+  .feature .wrap{position:relative;z-index:2;padding:clamp(70px,12vw,150px) 24px}
+  .feature .inner{max-width:36ch}
+  .feature .eyebrow{color:var(--ember2);margin-bottom:16px}
+  .feature h2{font-family:var(--disp);font-weight:800;font-size:clamp(2.4rem,7vw,5rem);line-height:.95;margin-bottom:16px}
+  .feature p{font-size:1.06rem;color:rgba(246,236,224,.9)}
+
+  /* gallery (light) */
+  .gallery{background:var(--cream2);padding:clamp(64px,10vw,120px) 0}
+  .gallery h2{color:var(--ink)}
+  .gg{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto auto;gap:16px;margin-top:44px}
+  .gg figure{position:relative;overflow:hidden;border-radius:6px;box-shadow:0 30px 60px -46px rgba(24,17,9,.7)}
+  .gg img{width:100%;height:100%;object-fit:cover}
+  .gg .big{grid-row:span 2}
+  .gg .big img{aspect-ratio:3/2.7}
+  .gg .sm img{aspect-ratio:3/2}
+  .gg figcaption{position:absolute;left:0;bottom:0;right:0;padding:34px 16px 12px;
+    background:linear-gradient(0deg,rgba(16,10,6,.86),transparent);color:var(--cream);
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.05em}
+  .gg figcaption b{color:var(--ember2);font-weight:500}
+  .gcap-note{margin-top:16px;font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.03em}
+  @media(max-width:680px){ .gg{grid-template-columns:1fr} .gg .big{grid-row:auto} .gg .big img,.gg .sm img{aspect-ratio:3/2} }
+
+  /* visit / almanac */
+  .visit{background:var(--char);color:var(--cream);padding:clamp(64px,10vw,120px) 0}
+  .visit h2{color:var(--cream)}
+  .visit .cols{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:clamp(24px,4vw,48px);margin-top:44px}
+  @media(max-width:820px){ .visit .cols{grid-template-columns:1fr 1fr} .visit .map{grid-column:1/-1} }
+  @media(max-width:520px){ .visit .cols{grid-template-columns:1fr} }
+  .vc h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ember2);margin-bottom:14px}
+  .vc .big{font-family:var(--disp);font-weight:600;font-size:1.15rem;color:var(--cream);line-height:1.3}
+  .vc a.big:hover{color:var(--ember2)}
+  .vc p{font-size:.92rem;color:rgba(246,236,224,.72);margin-top:8px}
+  .hours{list-style:none;font-size:.92rem}
+  .hours li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line);color:rgba(246,236,224,.86)}
+  .hours li.today{color:var(--ember2)}
+  .hours li .cl{color:var(--muted)}
+  .confirm{font-family:var(--mono);font-size:.64rem;letter-spacing:.04em;color:var(--muted);margin-top:10px}
+  .map{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;min-height:210px;background:#120c07}
+  .map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .map .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);z-index:2;text-align:center}
+  .map .pin .dot{width:16px;height:16px;border-radius:50%;background:var(--ember);margin:0 auto;box-shadow:0 0 0 6px rgba(207,74,30,.28)}
+  .map .pin span{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--cream);margin-top:6px}
+  .map .dir{position:absolute;right:10px;bottom:10px;z-index:3;background:var(--ember);color:#fff;font-family:var(--mono);
+    font-size:.66rem;letter-spacing:.06em;padding:7px 12px;border-radius:3px}
+
+  /* footer */
+  footer{background:#0d0906;color:rgba(246,236,224,.6);padding:0 0 60px}
+  .checkrule{height:9px;background:repeating-conic-gradient(#d0261c 0 25%, #f6ece0 0 50%) 0 0 / 18px 18px}
+  footer .top{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:baseline;
+    border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:22px}
+  footer .brand{color:var(--cream)}
+  footer .made{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em}
+  footer .made a{color:var(--ember2)}
+  footer .disc{font-size:.72rem;line-height:1.7;max-width:80ch;color:rgba(246,236,224,.42)}
+  footer .disc b{color:rgba(246,236,224,.6);font-weight:500}
+
+  /* sticky mobile action bar */
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:0;
+    background:var(--char);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s}
+  .dock.show{transform:translateY(0)}
+  .dock a{flex:1;text-align:center;padding:15px 8px;font-weight:700;font-size:.9rem;color:var(--cream);
+    display:flex;align-items:center;justify-content:center;gap:8px}
+  .dock a.call{background:var(--ember);color:#fff}
+  @media(max-width:760px){ .dock{display:flex} body{padding-bottom:54px} }
+
+</style>
+</head>
+<body>
+<!-- shared Croatian šahovnica pattern (their real brand mark, modernised) -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+  <pattern id="sah" width="14" height="14" patternUnits="userSpaceOnUse">
+    <rect width="14" height="14" fill="#f6ece0"/><rect width="7" height="7" fill="#d0261c"/><rect x="7" y="7" width="7" height="7" fill="#d0261c"/>
+  </pattern>
+</defs></svg>
+<a class="skip" href="#carte" data-i18n="skip">Aller à la carte</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Restaurant Gurman"><img src="assets/logo-header.png" alt="Gurman" /></a>
+    <nav class="nav">
+      <a class="navlink" href="#carte" data-i18n="nav_menu">La carte</a>
+      <a class="navlink" href="#salle" data-i18n="nav_room">La salle</a>
+      <a class="navlink" href="#visite" data-i18n="nav_visit">Nous trouver</a>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" aria-pressed="true">FR</button>
+        <button data-lang="de" aria-pressed="false">DE</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="bg"></div><div class="grad"></div>
+  <div class="firewrap" aria-hidden="true"><canvas id="fire"></canvas><div class="emberglow"></div></div>
+  <div class="wrap">
+    <p class="eyebrow"><span data-i18n="hero_eyebrow">Belvaux</span> <span class="dot">·</span> Luxembourg</p>
+    <h1 class="herologo"><img src="assets/logo.png" alt="Restaurant Gurman — Spécialités Croates" /></h1>
+    <p class="lead" data-i18n="hero_lead">Les grillades croates à la braise, l'ajvar et les grandes tablées — tout l'esprit d'une vraie konoba, à Belvaux.</p>
+    <div class="cta">
+      <a class="btn btn-fire" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+      <a class="btn btn-ghost" href="tel:+352593697" data-i18n="hero_cta2">Appeler pour réserver</a>
+    </div>
+  </div>
+  <div class="emberline"></div>
+  <div class="scrollcue" data-i18n="scroll">faites défiler</div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="histoire">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="lead-in"><span class="no">01</span><span data-i18n="s1_kicker" class="eyebrow" style="color:var(--ember)">La maison</span><span class="rule"></span></div>
+        <h2 class="head" data-i18n="s1_head">Tout vient du gril.</h2>
+        <p data-i18n="s1_p1">Chez Gurman, on cuisine la Croatie au gril. Les ćevapčići grésillent sur la braise, la pljeskavica dore, les brochettes et les grandes assiettes de viande arrivent avec l'ajvar, les frites et la salade. Rien de compliqué — des portions généreuses et le goût franc de l'Adriatique.</p>
+        <p data-i18n="s1_p2">On y vient en famille, entre amis, sans façon. C'est cette générosité, année après année, qui a fait de Gurman une adresse que l'on se transmet à Belvaux.</p>
+      </div>
+      <div class="fig">
+        <img src="assets/grill.jpg" alt="Grillade croate — viandes, saucisses et frites" loading="lazy" />
+        <div class="stat"><b>4,5<span style="font-size:1rem"> / 5</span></b><span data-i18n="s1_stat">2&nbsp;000+ avis · Google, RestaurantGuru</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="carte" id="carte">
+  <div class="wrap">
+    <div class="lead-in"><span class="no">02</span><span class="eyebrow" data-i18n="s2_kicker">La carte</span><span class="rule"></span></div>
+    <h2 class="head" data-i18n="s2_head">Sa žara — du gril</h2>
+    <p class="note" data-i18n="s2_note">Un aperçu de la carte croate — la maison en propose bien d'autres au fil des saisons.</p>
+    <div class="menu-grid">
+      <div class="mgroup">
+        <h3><span data-i18n="g_gril">Les grillades</span> <span class="kr">Roštilj</span></h3>
+        <p class="sub" data-i18n="g_gril_sub">Servies avec frites ou riz, salade &amp; ajvar.</p>
+        <div class="item"><span><span class="nm">Ćevapčići</span><span class="ds" data-i18n="d_cevapi">Petites saucisses grillées de bœuf &amp; agneau, oignon cru</span></span></div>
+        <div class="item"><span><span class="nm">Pljeskavica</span><span class="ds" data-i18n="d_plje">Grande galette de viande hachée grillée</span></span></div>
+        <div class="item"><span><span class="nm">Ražnjići</span><span class="ds" data-i18n="d_raz">Brochettes de viande marinée au gril</span></span></div>
+        <div class="item"><span><span class="nm">Steak makedonski</span><span class="ds" data-i18n="d_mak">Steak haché au fromage de chèvre</span></span></div>
+        <div class="item"><span><span class="nm">Grill mixte</span><span class="ds" data-i18n="d_mix">Assortiment de grillades de la maison</span></span></div>
+      </div>
+      <div class="mgroup">
+        <h3><span data-i18n="g_mer">De la mer &amp; à partager</span> <span class="kr">More</span></h3>
+        <p class="sub" data-i18n="g_mer_sub">Le poisson de l'Adriatique et les grandes tablées.</p>
+        <div class="item"><span><span class="nm">Plateau de poissons</span><span class="ds" data-i18n="d_poi">Poissons &amp; fruits de mer grillés</span></span></div>
+        <div class="item"><span><span class="nm">Scampi à l'ail</span><span class="ds" data-i18n="d_sca">Gambas poêlées, ail &amp; persil, riz</span></span></div>
+        <div class="item"><span><span class="nm">Le Plateau royal</span><span class="ds" data-i18n="d_roy">Le grand plateau de grillades à partager — pour goûter un peu de tout</span></span></div>
+        <div class="item"><span><span class="nm">Escalope à la crème</span><span class="ds" data-i18n="d_esc">Escalope, sauce crème aux champignons</span></span></div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:28px" data-i18n="s2_foot">Carte non exhaustive — les plats varient selon le marché et l'ardoise du jour.</p>
+  </div>
+</section>
+
+<!-- FEATURE — plateau royal -->
+<section class="feature" id="plateau">
+  <div class="fbg"></div><div class="fgrad"></div>
+  <div class="wrap">
+    <div class="inner">
+      <p class="eyebrow" data-i18n="f_kicker">La spécialité</p>
+      <h2 data-i18n="f_head">On partage tout.</h2>
+      <p data-i18n="f_p">Le Plateau royal, c'est la table croate dans un seul plat : viandes du gril, brochettes, saucisses et garnitures, posé au centre pour toute la tablée. On se sert, on recommence, on prend son temps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="salle">
+  <div class="wrap">
+    <div class="lead-in"><span class="no">03</span><span class="eyebrow" style="color:var(--ember)" data-i18n="s3_kicker">En salle</span><span class="rule"></span></div>
+    <h2 class="head" data-i18n="s3_head">Une konoba, à Belvaux</h2>
+    <div class="gg">
+      <figure class="big"><img src="assets/salle.jpg" alt="La salle — arches de pierre et murs ocre" loading="lazy" />
+        <figcaption><b data-i18n="c_salle_l">La salle</b> — <span data-i18n="c_salle">arches de pierre, murs ocre et bois chaud.</span></figcaption></figure>
+      <figure class="sm"><img src="assets/ceva.jpg" alt="Ćevapčići grillés &amp; ajvar" loading="lazy" />
+        <figcaption><b data-i18n="c_ceva_l">Sa žara</b> — <span data-i18n="c_ceva">ćevapčići grillés &amp; ajvar.</span></figcaption></figure>
+      <figure class="sm"><img src="assets/mer.jpg" alt="Pâtes aux fruits de mer" loading="lazy" />
+        <figcaption><b data-i18n="c_mer_l">De la mer</b> — <span data-i18n="c_mer">pâtes &amp; fruits de mer de l'Adriatique.</span></figcaption></figure>
+    </div>
+    <p class="gcap-note" data-i18n="s3_foot">Photos de sources publiques, retouchées à titre indicatif — à remplacer par les visuels de la maison.</p>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visite">
+  <div class="wrap">
+    <div class="lead-in"><span class="no">04</span><span class="eyebrow" data-i18n="s4_kicker">Nous trouver</span><span class="rule"></span></div>
+    <h2 class="head" data-i18n="s4_head">Passez nous voir</h2>
+    <div class="cols">
+      <div class="vc">
+        <h4 data-i18n="v_hours">Horaires</h4>
+        <ul class="hours" id="hours">
+          <li data-day="1"><span data-i18n="day_mon">Lundi</span><span class="cl" data-i18n="closed">fermé</span></li>
+          <li data-day="2"><span data-i18n="day_tue">Mardi</span><span>12:00–14:00 · 18:00–22:00</span></li>
+          <li data-day="3"><span data-i18n="day_wed">Mercredi</span><span>12:00–14:00 · 18:00–22:00</span></li>
+          <li data-day="4"><span data-i18n="day_thu">Jeudi</span><span>12:00–14:00 · 18:00–22:00</span></li>
+          <li data-day="5"><span data-i18n="day_fri">Vendredi</span><span>12:00–14:00 · 18:00–22:00</span></li>
+          <li data-day="6"><span data-i18n="day_sat">Samedi</span><span>12:00–14:00 · 18:00–22:00</span></li>
+          <li data-day="0"><span data-i18n="day_sun">Dimanche</span><span>12:00–14:00 · 18:00–22:00</span></li>
+        </ul>
+        <p class="confirm" data-i18n="v_hours_conf">Horaires sous réserve — à confirmer avec la maison.</p>
+      </div>
+      <div class="vc">
+        <h4 data-i18n="v_contact">Adresse &amp; contact</h4>
+        <span class="big">2, rue Grande-Duchesse Charlotte<br>L-4430 Belvaux</span>
+        <p data-i18n="v_addr_note">Commune de Sanem, au sud du pays.</p>
+        <a class="big" href="tel:+352593697" style="display:inline-block;margin-top:14px">+352 59 36 97</a>
+        <p class="confirm" data-i18n="v_phone_conf">Numéro à confirmer avec la maison.</p>
+      </div>
+      <div class="vc map">
+        <img src="assets/hero.jpg" alt="La façade du restaurant Gurman à la tombée du soir" loading="lazy" />
+        <a class="dir" href="https://www.google.com/maps/search/?api=1&query=Restaurant+Gurman+2+Rue+Grande-Duchesse+Charlotte+Belvaux" target="_blank" rel="noopener" data-i18n="v_dir">Itinéraire ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding-top:52px">
+    <div class="top">
+      <a class="brand" href="#top" aria-label="Restaurant Gurman — Spécialités Croates"><img src="assets/logo.png" alt="Restaurant Gurman — Spécialités Croates" /></a>
+      <span class="made" data-i18n="made">Une proposition de site — <a href="https://webwerk.lu/">Webwerk</a>, studio web · Luxembourg</span>
+    </div>
+    <p class="disc"><b data-i18n="disc_l">Maquette de démonstration.</b> <span data-i18n="disc">Le slogan, la palette et les polices sont des propositions — non issus d'une charte existante. Plats, horaires et prix (sources publiques) à confirmer avec la maison ; numéro de téléphone à vérifier ; aucune réservation en ligne (pas de système). Photographies de sources publiques, retouchées à titre indicatif — à remplacer par les visuels haute définition de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span></p>
+  </div>
+</footer>
+
+<!-- sticky mobile dock -->
+<div class="dock" id="dock">
+  <a href="#carte" data-i18n="dock_menu">La carte</a>
+  <a class="call" href="tel:+352593697" data-i18n="dock_call">Appeler</a>
+</div>
+
+<script>
+  /* ---------------- i18n ---------------- */
+  var I18N = {
+    fr:{
+      skip:"Aller à la carte",
+      nav_menu:"La carte", nav_room:"La salle", nav_visit:"Nous trouver",
+      hero_eyebrow:"Belvaux",
+      hero_lead:"Les grillades croates à la braise, l'ajvar et les grandes tablées — tout l'esprit d'une vraie konoba, à Belvaux.",
+      hero_propose:"Slogan proposé — à valider",
+      hero_cta1:"Voir la carte", hero_cta2:"Appeler pour réserver",
+      scroll:"faites défiler",
+      s1_kicker:"La maison", s1_head:"Tout vient du gril.",
+      s1_p1:"Chez Gurman, on cuisine la Croatie au gril. Les ćevapčići grésillent sur la braise, la pljeskavica dore, les brochettes et les grandes assiettes de viande arrivent avec l'ajvar, les frites et la salade. Rien de compliqué — des portions généreuses et le goût franc de l'Adriatique.",
+      s1_p2:"On y vient en famille, entre amis, sans façon. C'est cette générosité, année après année, qui a fait de Gurman une adresse que l'on se transmet à Belvaux.",
+      s1_stat:"2 000+ avis · Google, RestaurantGuru",
+      s2_kicker:"La carte", s2_head:"Sa žara — du gril",
+      s2_note:"Un aperçu de la carte croate — la maison en propose bien d'autres au fil des saisons.",
+      g_gril:"Les grillades", g_gril_sub:"Servies avec frites ou riz, salade & ajvar.",
+      d_cevapi:"Petites saucisses grillées de bœuf & agneau, oignon cru",
+      d_plje:"Grande galette de viande hachée grillée",
+      d_raz:"Brochettes de viande marinée au gril",
+      d_mak:"Steak haché au fromage de chèvre",
+      d_mix:"Assortiment de grillades de la maison",
+      g_mer:"De la mer & à partager", g_mer_sub:"Le poisson de l'Adriatique et les grandes tablées.",
+      d_poi:"Poissons & fruits de mer grillés",
+      d_sca:"Gambas poêlées, ail & persil, riz",
+      d_roy:"Le grand plateau de grillades à partager — pour goûter un peu de tout",
+      d_esc:"Escalope, sauce crème aux champignons",
+      pr_conf:"à confirmer",
+      s2_foot:"Carte non exhaustive — les plats varient selon le marché et l'ardoise du jour.",
+      f_kicker:"La spécialité", f_head:"On partage tout.",
+      f_p:"Le Plateau royal, c'est la table croate dans un seul plat : viandes du gril, brochettes, saucisses et garnitures, posé au centre pour toute la tablée. On se sert, on recommence, on prend son temps.",
+      s3_kicker:"En salle", s3_head:"Une konoba, à Belvaux",
+      c_salle_l:"La salle", c_salle:"arches de pierre, murs ocre et bois chaud.",
+      c_ceva_l:"Sa žara", c_ceva:"ćevapčići grillés & ajvar.",
+      c_mer_l:"De la mer", c_mer:"pâtes & fruits de mer de l'Adriatique.",
+      s3_foot:"Photos de sources publiques, retouchées à titre indicatif — à remplacer par les visuels de la maison.",
+      s4_kicker:"Nous trouver", s4_head:"Passez nous voir",
+      v_hours:"Horaires", v_hours_conf:"Horaires sous réserve — à confirmer avec la maison.",
+      v_contact:"Adresse & contact", v_addr_note:"Commune de Sanem, au sud du pays.",
+      v_phone_conf:"Numéro à confirmer avec la maison.", v_dir:"Itinéraire ↗",
+      day_mon:"Lundi", day_tue:"Mardi", day_wed:"Mercredi", day_thu:"Jeudi", day_fri:"Vendredi", day_sat:"Samedi", day_sun:"Dimanche",
+      closed:"fermé",
+      made:"Une proposition de site — <a href=\"https://webwerk.lu/\">Webwerk</a>, studio web · Luxembourg",
+      disc_l:"Maquette de démonstration.",
+      disc:"Le slogan, la palette et les polices sont des propositions — non issus d'une charte existante. Plats, horaires et prix (sources publiques) à confirmer avec la maison ; numéro de téléphone à vérifier ; aucune réservation en ligne (pas de système). Photographies de sources publiques, retouchées à titre indicatif — à remplacer par les visuels haute définition de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
+      dock_menu:"La carte", dock_call:"Appeler"
+    },
+    de:{
+      skip:"Zur Speisekarte",
+      nav_menu:"Speisekarte", nav_room:"Der Saal", nav_visit:"Anfahrt",
+      hero_eyebrow:"Belvaux",
+      hero_lead:"Kroatisches Grillfleisch über der Glut, Ajvar und große Tafelrunden — der ganze Geist einer echten Konoba, in Belvaux.",
+      hero_propose:"Slogan-Vorschlag — zu bestätigen",
+      hero_cta1:"Zur Speisekarte", hero_cta2:"Zum Reservieren anrufen",
+      scroll:"scrollen",
+      s1_kicker:"Das Haus", s1_head:"Alles kommt vom Grill.",
+      s1_p1:"Bei Gurman wird Kroatien über dem Grill gekocht. Die Ćevapčići brutzeln auf der Glut, die Pljeskavica bräunt, Spieße und große Fleischplatten kommen mit Ajvar, Pommes und Salat. Nichts Kompliziertes — großzügige Portionen und der ehrliche Geschmack der Adria.",
+      s1_p2:"Man kommt mit der Familie, mit Freunden, ganz ungezwungen. Diese Großzügigkeit hat Gurman über die Jahre zu einer Adresse gemacht, die man sich in Belvaux weitererzählt.",
+      s1_stat:"2 000+ Bewertungen · Google, RestaurantGuru",
+      s2_kicker:"Die Karte", s2_head:"Sa žara — vom Grill",
+      s2_note:"Ein Auszug aus der kroatischen Karte — das Haus bietet noch viel mehr.",
+      g_gril:"Vom Grill", g_gril_sub:"Serviert mit Pommes oder Reis, Salat & Ajvar.",
+      d_cevapi:"Gegrillte Röllchen aus Rind & Lamm, rohe Zwiebel",
+      d_plje:"Große gegrillte Hacksteak-Frikadelle",
+      d_raz:"Spieße aus mariniertem Fleisch vom Grill",
+      d_mak:"Hacksteak mit Ziegenkäse",
+      d_mix:"Gemischte Grillplatte des Hauses",
+      g_mer:"Aus dem Meer & zum Teilen", g_mer_sub:"Fisch aus der Adria und große Tafelrunden.",
+      d_poi:"Gegrillter Fisch & Meeresfrüchte",
+      d_sca:"Gambas in Knoblauch & Petersilie, Reis",
+      d_roy:"Die große Grillplatte zum Teilen — von allem ein bisschen",
+      d_esc:"Schnitzel in Champignon-Rahmsauce",
+      pr_conf:"auf Anfrage",
+      s2_foot:"Auswahl · die Gerichte wechseln je nach Markt und Tageskarte.",
+      f_kicker:"Die Spezialität", f_head:"Man teilt alles.",
+      f_p:"Die Plateau royal ist die kroatische Tafel auf einem Teller: Grillfleisch, Spieße, Würstchen und Beilagen, in die Mitte gestellt für die ganze Runde. Man nimmt sich, nimmt nach, lässt sich Zeit.",
+      s3_kicker:"Im Saal", s3_head:"Eine Konoba, in Belvaux",
+      c_salle_l:"Der Saal", c_salle:"Steinbögen, ockerfarbene Wände und warmes Holz.",
+      c_ceva_l:"Sa žara", c_ceva:"gegrillte Ćevapčići & Ajvar.",
+      c_mer_l:"Aus dem Meer", c_mer:"Pasta & Meeresfrüchte aus der Adria.",
+      s3_foot:"Fotos aus öffentlichen Quellen, zur Veranschaulichung bearbeitet — durch die Bilder des Hauses zu ersetzen.",
+      s4_kicker:"Anfahrt", s4_head:"Besuchen Sie uns",
+      v_hours:"Öffnungszeiten", v_hours_conf:"Zeiten unter Vorbehalt — mit dem Haus zu bestätigen.",
+      v_contact:"Adresse & Kontakt", v_addr_note:"Gemeinde Sanem, im Süden des Landes.",
+      v_phone_conf:"Nummer mit dem Haus zu bestätigen.", v_dir:"Route ↗",
+      day_mon:"Montag", day_tue:"Dienstag", day_wed:"Mittwoch", day_thu:"Donnerstag", day_fri:"Freitag", day_sat:"Samstag", day_sun:"Sonntag",
+      closed:"geschlossen",
+      made:"Ein Website-Vorschlag — <a href=\"https://webwerk.lu/\">Webwerk</a>, Webstudio · Luxemburg",
+      disc_l:"Demo-Entwurf.",
+      disc:"Slogan, Farbpalette und Schriften sind Vorschläge — nicht aus einem bestehenden Markenleitfaden. Gerichte, Öffnungszeiten und Preise (öffentliche Quellen) mit dem Haus zu bestätigen; Telefonnummer zu prüfen; keine Online-Reservierung (kein System). Fotos aus öffentlichen Quellen, zur Veranschaulichung bearbeitet — durch die hochauflösenden Bilder des Hauses zu ersetzen. Anonyme Besuchsstatistik, ohne Cookie oder personenbezogene Daten.",
+      dock_menu:"Speisekarte", dock_call:"Anrufen"
+    },
+    en:{
+      skip:"Skip to the menu",
+      nav_menu:"Menu", nav_room:"The room", nav_visit:"Find us",
+      hero_eyebrow:"Belvaux",
+      hero_lead:"Croatian grill over the coals, ajvar and big shared tables — all the spirit of a real konoba, in Belvaux.",
+      hero_propose:"Proposed tagline — to be approved",
+      hero_cta1:"See the menu", hero_cta2:"Call to book",
+      scroll:"scroll",
+      s1_kicker:"The house", s1_head:"It all comes off the grill.",
+      s1_p1:"At Gurman, Croatia is cooked over the grill. The ćevapčići sizzle on the embers, the pljeskavica turns golden, and the skewers and big platters of meat arrive with ajvar, chips and salad. Nothing complicated — generous portions and the honest taste of the Adriatic.",
+      s1_p2:"People come with family, with friends, no fuss. It's that generosity, year after year, that has made Gurman an address passed on from one table to the next in Belvaux.",
+      s1_stat:"2,000+ reviews · Google, RestaurantGuru",
+      s2_kicker:"The menu", s2_head:"Sa žara — off the grill",
+      s2_note:"A taste of the Croatian menu — the house serves many more.",
+      g_gril:"Off the grill", g_gril_sub:"Served with chips or rice, salad & ajvar.",
+      d_cevapi:"Grilled beef & lamb sausages, raw onion",
+      d_plje:"Large grilled minced-meat patty",
+      d_raz:"Skewers of marinated grilled meat",
+      d_mak:"Minced steak with goat's cheese",
+      d_mix:"The house mixed grill",
+      g_mer:"From the sea & to share", g_mer_sub:"Fish from the Adriatic and big shared tables.",
+      d_poi:"Grilled fish & seafood",
+      d_sca:"Pan-fried prawns, garlic & parsley, rice",
+      d_roy:"The great grill platter to share — a little of everything",
+      d_esc:"Escalope in a creamy mushroom sauce",
+      pr_conf:"on request",
+      s2_foot:"A selection · dishes change with the market and the day's board.",
+      f_kicker:"The speciality", f_head:"We share everything.",
+      f_p:"The Plateau royal is the Croatian table on a single dish: grilled meats, skewers, sausages and sides, set in the middle for the whole table. You help yourself, go back for more, take your time.",
+      s3_kicker:"The room", s3_head:"A konoba, in Belvaux",
+      c_salle_l:"The room", c_salle:"stone arches, ochre walls and warm wood.",
+      c_ceva_l:"Off the grill", c_ceva:"grilled ćevapčići & ajvar.",
+      c_mer_l:"From the sea", c_mer:"pasta & seafood from the Adriatic.",
+      s3_foot:"Photos from public sources, retouched for illustration — to be replaced by the venue's own images.",
+      s4_kicker:"Find us", s4_head:"Come and see us",
+      v_hours:"Hours", v_hours_conf:"Hours subject to confirmation with the house.",
+      v_contact:"Address & contact", v_addr_note:"Commune of Sanem, in the south of the country.",
+      v_phone_conf:"Number to be confirmed with the house.", v_dir:"Directions ↗",
+      day_mon:"Monday", day_tue:"Tuesday", day_wed:"Wednesday", day_thu:"Thursday", day_fri:"Friday", day_sat:"Saturday", day_sun:"Sunday",
+      closed:"closed",
+      made:"A proposed website — <a href=\"https://webwerk.lu/\">Webwerk</a>, web studio · Luxembourg",
+      disc_l:"Demonstration mock-up.",
+      disc:"The tagline, palette and fonts are proposals — not from any existing brand guide. Dishes, hours and prices (public sources) to be confirmed with the house; phone number to be verified; no online booking (no system exists). Photographs from public sources, retouched for illustration — to be replaced by the venue's own high-resolution images. Anonymous visit statistics, no cookie and no personal data.",
+      dock_menu:"Menu", dock_call:"Call"
+    }
+  };
+  var current="fr";
+  function applyLang(lang){
+    current=lang;
+    document.documentElement.lang=lang;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k=el.getAttribute("data-i18n"), v=I18N[lang][k];
+      if(v==null) v=I18N.fr[k];
+      if(v!=null){ if(v.indexOf("<")>-1) el.innerHTML=v; else el.textContent=v; }
+    });
+    document.querySelectorAll(".langs button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang")===lang ? "true":"false");
+    });
+  }
+  document.querySelectorAll(".langs button").forEach(function(b){
+    b.addEventListener("click",function(){ applyLang(b.getAttribute("data-lang")); });
+  });
+
+  /* highlight today's hours */
+  (function(){
+    var d=new Date().getDay();
+    var li=document.querySelector('#hours li[data-day="'+d+'"]');
+    if(li) li.classList.add("today");
+  })();
+
+  /* sticky dock appears after the hero */
+  (function(){
+    var dock=document.getElementById("dock"), hero=document.querySelector(".hero");
+    if(!dock||!hero||!("IntersectionObserver" in window)) return;
+    new IntersectionObserver(function(e){
+      dock.classList.toggle("show", !e[0].isIntersecting);
+    },{rootMargin:"-40% 0px 0px 0px"}).observe(hero);
+  })();
+
+  /* ---- live charcoal grill (canvas embers + sparks) ---- */
+  (function(){
+    var c=document.getElementById("fire"); if(!c) return;
+    var hero=document.querySelector(".hero"), ctx=c.getContext("2d");
+    var reduce=window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    var W=0,H=0,DPR=1,coals=[],sparks=[],t=0,running=true;
+    function resize(){
+      DPR=Math.min(2,window.devicePixelRatio||1); W=hero.clientWidth; H=hero.clientHeight;
+      c.width=Math.round(W*DPR); c.height=Math.round(H*DPR); c.style.width=W+"px"; c.style.height=H+"px";
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+      coals=[]; var n=Math.max(14,Math.round(W/16)), base=H-2;
+      for(var i=0;i<n;i++) coals.push({x:(i+ (Math.random()*0.7-0.35))*(W/n), y:base-Math.random()*30, r:12+Math.random()*26,
+        ph:Math.random()*6.28, sp:0.5+Math.random()*1.3, hue:10+Math.random()*26});
+    }
+    function drawCoals(flick){
+      ctx.globalCompositeOperation="lighter";
+      for(var i=0;i<coals.length;i++){ var o=coals[i];
+        var b=flick? (0.4+0.6*(0.5+0.5*Math.sin(t*o.sp+o.ph))) : 0.7;
+        var g=ctx.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);
+        g.addColorStop(0,"hsla("+o.hue+",96%,"+(52*b+10)+"%,"+(0.5*b+0.12)+")");
+        g.addColorStop(0.5,"hsla("+(o.hue-6)+",96%,42%,"+(0.2*b)+")");
+        g.addColorStop(1,"hsla("+(o.hue-8)+",96%,30%,0)");
+        ctx.fillStyle=g; ctx.beginPath(); ctx.arc(o.x,o.y,o.r,0,6.29); ctx.fill();
+      }
+      ctx.globalCompositeOperation="source-over";
+    }
+    function frame(){
+      if(!running) return;
+      t+=0.016; ctx.clearRect(0,0,W,H); drawCoals(true);
+      ctx.globalCompositeOperation="lighter";
+      if(Math.random()<0.55 && sparks.length<80){ var cx=Math.random()*W;
+        sparks.push({x:cx,y:H-6-Math.random()*22,vx:(Math.random()-0.5)*0.5,vy:-(0.5+Math.random()*1.7),life:1,r:0.8+Math.random()*1.6}); }
+      for(var j=sparks.length-1;j>=0;j--){ var s=sparks[j]; s.x+=s.vx; s.y+=s.vy; s.vy+=0.004; s.life-=0.011;
+        if(s.life<=0){ sparks.splice(j,1); continue; }
+        ctx.fillStyle="hsla("+(28+Math.random()*12)+",100%,"+(58+22*s.life)+"%,"+s.life+")";
+        ctx.beginPath(); ctx.arc(s.x,s.y,s.r*s.life,0,6.29); ctx.fill(); }
+      ctx.globalCompositeOperation="source-over";
+      requestAnimationFrame(frame);
+    }
+    resize(); window.addEventListener("resize",resize);
+    if(reduce){ drawCoals(false); return; }
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(e){ var vis=e[0].isIntersecting; if(vis && !running){ running=true; requestAnimationFrame(frame); } running=vis; }).observe(hero);
+    }
+    requestAnimationFrame(frame);
+  })();
+
+</script>
+</body>
+</html>
