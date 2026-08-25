@@ -69,7 +69,7 @@ nav.main a:hover::after{right:0}
 .navtoggle{display:none;border:1.5px solid var(--line);background:#fff;border-radius:12px;width:44px;height:40px;cursor:pointer;font-size:1.2rem;color:var(--navy)}
 
 /* ===================== HERO (CSS sunset scene) ===================== */
-.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--coral) 0%,var(--coral2) 42%,#f0b48f 55%,var(--teal) 55%,var(--teal2) 100%)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(58% 42% at 50% 40%,rgba(244,173,87,.6),transparent 62%),linear-gradient(180deg,var(--coral) 0%,var(--coral2) 46%,#f0b48f 56%,var(--teal) 56%,var(--teal2) 100%)}
 .hero .sun{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:min(340px,54vw);height:min(340px,54vw);border-radius:50%;
   background:radial-gradient(circle at 50% 45%,var(--orange2),var(--orange) 62%,#d9822f 100%);
   box-shadow:0 0 80px 30px rgba(229,148,60,.45);z-index:1;animation:glow 6s ease-in-out infinite}
@@ -84,7 +84,9 @@ nav.main a:hover::after{right:0}
 .hero .eyebrow{color:#fff;text-shadow:0 1px 8px rgba(33,48,57,.35)}
 .hero h1{color:#fff;font-size:clamp(34px,6vw,64px);text-shadow:0 2px 14px rgba(33,48,57,.32);margin:12px auto 0;max-width:16ch}
 .hero .sub{color:#fff;max-width:52ch;margin:16px auto 0;font-weight:600;text-shadow:0 1px 8px rgba(33,48,57,.3)}
-.hero .cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:28px 0 0}
+.hero .rating{display:inline-flex;align-items:center;gap:8px;background:rgba(251,243,233,.94);color:var(--navy);font-family:var(--disp);font-weight:700;font-size:.92rem;padding:7px 16px;border-radius:999px;margin:16px auto 0;box-shadow:var(--shadow-sm)}
+.hero .rating .st{color:var(--orange)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:22px 0 0}
 .btn{font-family:var(--disp);font-weight:700;font-size:1rem;border:0;border-radius:999px;padding:14px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease}
 .btn.p{background:var(--navy);color:#fff;box-shadow:0 12px 26px -12px rgba(33,48,57,.6)}
 .btn.p:hover{transform:translateY(-2px)}
@@ -201,15 +203,13 @@ footer a.wk{color:var(--orange2);font-weight:700}
 <main>
   <!-- HERO -->
   <section class="hero">
-    <div class="sun" aria-hidden="true"></div>
-    <svg class="palm l" viewBox="0 0 100 160" aria-hidden="true" fill="currentColor"><path d="M50 160c-3-40-6-70-10-92 12 6 22 14 30 26-6-16-16-28-30-36 14-4 28-2 40 8-10-16-26-24-42-24 12-10 26-14 40-12-14-10-32-12-46-4 4-12 12-22 24-30-16 4-28 16-34 32-4-14-2-28 6-40-12 10-18 26-16 42-2 22-2 60 8 164z"/></svg>
-    <svg class="palm r" viewBox="0 0 100 160" aria-hidden="true" fill="currentColor"><path d="M50 160c-3-40-6-70-10-92 12 6 22 14 30 26-6-16-16-28-30-36 14-4 28-2 40 8-10-16-26-24-42-24 12-10 26-14 40-12-14-10-32-12-46-4 4-12 12-22 24-30-16 4-28 16-34 32-4-14-2-28 6-40-12 10-18 26-16 42-2 22-2 60 8 164z"/></svg>
-    <div class="pier" aria-hidden="true"></div>
+    <!-- sunset rendered as ambient gradient glow; the real brand art below is the single focal sunset -->
     <div class="in wrap">
       <img class="art" src="assets/hero.jpg" alt="Buena Vista — coucher de soleil tropical, palmiers et ponton (identité de la maison)" fetchpriority="high" />
       <span class="eyebrow" data-i18n="hero_kick">Street food · saveurs latines · Bonnevoie</span>
       <h1 data-i18n="hero_h">Un coin de soleil à Bonnevoie</h1>
       <p class="sub" data-i18n="hero_sub">Burritos, quesadillas, tacos croustillants — et le barbecue du vendredi. La cuisine latine, généreuse et bon marché, au sud de la ville.</p>
+      <div class="rating"><span class="st">★</span> 4,9 · <span data-i18n="rating_txt">93 avis Google</span></div>
       <div class="cta">
         <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
         <a class="btn g" href="https://wolt.com/en/lux/luxembourg/restaurant/buena-vista-luxembourg" target="_blank" rel="noopener" data-i18n="hero_cta2">Commander en ligne ↗</a>
@@ -265,7 +265,6 @@ footer a.wk{color:var(--orange2);font-weight:700}
         <h2 data-i18n="house_h">Une adresse de quartier, tenue avec le sourire</h2>
         <p style="margin-top:14px;color:#4a5a62" data-i18n="house_p1">Buena Vista, c'est le coin de soleil de Bonnevoie : une petite adresse conviviale, tenue par son fondateur, où l'on vient pour une cuisine latine généreuse et un accueil chaleureux — sans se ruiner. Le vendredi, le barbecue s'installe dehors.</p>
         <blockquote data-i18n="house_q">« Street food, saveurs latines, ambiance plage. »</blockquote>
-        <div class="ph"><img src="assets/exterior.jpg" alt="L'intérieur de Buena Vista — comptoir clair, vitrines et cuisine ouverte" loading="lazy" /></div>
       </div>
       <div class="art-card">
         <img src="assets/hero.jpg" alt="Le logo de Buena Vista — coucher de soleil, palmiers et ponton" loading="lazy" />
@@ -313,7 +312,7 @@ footer a.wk{color:var(--orange2);font-weight:700}
         <div class="card">
           <h3>💬 <span data-i18n="info_contact">Contact</span></h3>
           <p data-i18n="info_contact_p">À emporter, sur place ou en livraison.</p>
-          <a class="line" href="tel:+35262170 7656">+352 621 70 76 56</a>
+          <a class="line" href="tel:+352621707656">+352 621 70 76 56</a>
           <div class="socials">
             <a href="https://www.instagram.com/buenavista.lux/" target="_blank" rel="noopener">Instagram ↗</a>
             <a class="alt" href="https://wolt.com/en/lux/luxembourg/restaurant/buena-vista-luxembourg" target="_blank" rel="noopener">Wolt ↗</a>
@@ -341,7 +340,7 @@ var I18N={
     nav_menu:"La carte",nav_house:"La maison",nav_gal:"En images",nav_info:"Infos",
     hero_kick:"Street food · saveurs latines · Bonnevoie",hero_h:"Un coin de soleil à Bonnevoie",
     hero_sub:"Burritos, quesadillas, tacos croustillants — et le barbecue du vendredi. La cuisine latine, généreuse et bon marché, au sud de la ville.",
-    hero_cta1:"Voir la carte",hero_cta2:"Commander en ligne ↗",
+    hero_cta1:"Voir la carte",hero_cta2:"Commander en ligne ↗",rating_txt:"93 avis Google",
     menu_kick:"La carte",menu_h:"Généreux, latin, bon marché",
     menu_p:"La street food latine à emporter ou sur place — préparée maison. Voici les incontournables.",
     menu_wraps:"Wraps & street food",menu_plates:"Buena Plates",menu_drinks:"Boissons",
@@ -367,7 +366,7 @@ var I18N={
     nav_menu:"Die Karte",nav_house:"Das Haus",nav_gal:"In Bildern",nav_info:"Infos",
     hero_kick:"Street Food · latino Aromen · Bonneweg",hero_h:"Ein Sonnenfleck in Bonneweg",
     hero_sub:"Burritos, Quesadillas, knusprige Tacos — und der Freitags-Grill. Latino-Küche, großzügig und günstig, im Süden der Stadt.",
-    hero_cta1:"Zur Karte",hero_cta2:"Online bestellen ↗",
+    hero_cta1:"Zur Karte",hero_cta2:"Online bestellen ↗",rating_txt:"93 Google-Bewertungen",
     menu_kick:"Die Karte",menu_h:"Großzügig, latino, günstig",
     menu_p:"Latino-Street-Food zum Mitnehmen oder vor Ort — hausgemacht. Das sind die Klassiker.",
     menu_wraps:"Wraps & Street Food",menu_plates:"Buena Plates",menu_drinks:"Getränke",
@@ -393,7 +392,7 @@ var I18N={
     nav_menu:"The menu",nav_house:"The place",nav_gal:"In pictures",nav_info:"Info",
     hero_kick:"Street food · Latin flavours · Bonnevoie",hero_h:"A little corner of sunshine in Bonnevoie",
     hero_sub:"Burritos, quesadillas, crispy tacos — and the Friday barbecue. Latin cooking, generous and easy on the wallet, in the south of the city.",
-    hero_cta1:"See the menu",hero_cta2:"Order online ↗",
+    hero_cta1:"See the menu",hero_cta2:"Order online ↗",rating_txt:"93 Google reviews",
     menu_kick:"The menu",menu_h:"Generous, Latin, great value",
     menu_p:"Latin street food to take away or eat in — made in-house. Here are the essentials.",
     menu_wraps:"Wraps & street food",menu_plates:"Buena Plates",menu_drinks:"Drinks",

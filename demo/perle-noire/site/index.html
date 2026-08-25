@@ -80,7 +80,7 @@ nav.main a:hover::after{right:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.55}
 .hero .bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(14,16,19,.5),rgba(14,16,19,.72) 60%,var(--noir)),
-             radial-gradient(70% 60% at 50% 40%,rgba(201,169,110,.14),transparent 70%)}
+             radial-gradient(70% 60% at 50% 40%,rgba(201,169,110,.14),transparent 70%),radial-gradient(55% 55% at 16% 92%,rgba(53,124,114,.22),transparent 72%)}
 .hero .in{position:relative;z-index:2;text-align:center;width:100%;padding:60px 0}
 .hero .award{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line2);border-radius:2px;
   padding:8px 16px;margin-bottom:26px;font-family:var(--body);font-weight:500;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2)}
@@ -99,7 +99,7 @@ nav.main a:hover::after{right:0}
 .btn.ghost:hover{border-color:var(--gold);color:var(--gold2)}
 
 /* ===================== STRIP ===================== */
-.strip{background:var(--noir2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.strip{background:var(--noir2);border-top:2px solid var(--teal2);border-bottom:1px solid var(--line)}
 .strip .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 46px;padding:22px 30px;text-align:center}
 .strip .it{font-family:var(--body);font-weight:500;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
 .strip .it b{color:var(--gold2);font-weight:500}
@@ -117,14 +117,14 @@ section.blk{padding:92px 0}
 .concept p{color:var(--dim);margin-top:16px}
 .concept .ph{position:relative}
 .concept .ph img{width:100%;height:clamp(360px,46vw,520px);object-fit:cover;filter:brightness(.9)}
-.concept .ph::after{content:"";position:absolute;inset:10px;border:1px solid var(--line2);pointer-events:none}
+.concept .ph::after{content:"";position:absolute;inset:10px;border:1px solid rgba(53,124,114,.5);pointer-events:none}
 
 /* carte olfactive */
-.carte{background:var(--noir2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.carte{background:linear-gradient(180deg,#141b1a,#12181c);border-top:1px solid rgba(53,124,114,.35);border-bottom:1px solid var(--line)}
 .tiers{display:flex;gap:26px;flex-wrap:wrap;margin:8px 0 34px;font-family:var(--body);font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2)}
-.tiers span{border:1px solid var(--line2);padding:7px 14px}
+.tiers span{border:1px solid rgba(53,124,114,.55);padding:7px 14px}
 .comp{display:grid;grid-template-columns:1fr 1fr;gap:30px 56px}
-.drink{border-bottom:1px solid var(--line);padding-bottom:22px}
+.drink{border-bottom:1px solid rgba(53,124,114,.30);padding-bottom:22px}
 .drink .top{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
 .drink .nm{font-family:var(--disp);font-weight:600;font-size:1.55rem;color:var(--pearl)}
 .drink .pr{font-family:var(--body);font-weight:500;color:var(--gold2);white-space:nowrap;font-size:.95rem}
@@ -151,7 +151,7 @@ section.blk{padding:92px 0}
 .info .hrow .cl{color:var(--fade)}
 .info .card p{color:var(--dim);font-size:.96rem}
 .info .card a.line{display:block;color:var(--pearl);margin-top:6px;letter-spacing:.04em}
-.info .card a.line:hover{color:var(--gold2)}
+.info .card a.line:hover{color:var(--teal2)}
 .info .note{font-size:.8rem;color:var(--gold);margin-top:14px;letter-spacing:.04em}
 .info .socials{margin-top:16px}
 .info .socials a{border:1px solid var(--line2);color:var(--pearl);font-family:var(--body);font-weight:500;font-size:.74rem;
@@ -341,7 +341,8 @@ footer a.wk{color:var(--gold);font-weight:500}
         </div>
         <div class="card">
           <h3 data-i18n="info_contact">Contact</h3>
-          <a class="line" href="tel:+3524714 36">+352 47 14 36</a>
+          <a class="line" href="tel:+352471436">+352 47 14 36</a>
+          <p class="note" style="color:var(--gold)" data-i18n="info_phone_flag">Numéro à confirmer.</p>
           <div class="socials"><a href="https://www.instagram.com/perlenoire_luxembourg/" target="_blank" rel="noopener">Instagram ↗</a></div>
         </div>
       </div>
@@ -387,7 +388,7 @@ var I18N={
     info_kick:"En pratique",info_h:"Ce soir, Place d'Armes",info_hours:"Les soirs",
     info_walkin:"Sans réservation — on se présente au comptoir.",
     info_find:"Nous trouver",info_addr:"7, Place d'Armes<br/>L-1136 Luxembourg<br/><span style='color:var(--fade)'>Au dernier étage, au-dessus de La Lorraine</span>",
-    info_maps:"Ouvrir dans Maps ↗",info_contact:"Contact",
+    info_maps:"Ouvrir dans Maps ↗",info_contact:"Contact",info_phone_flag:"Numéro à confirmer.",
     foot_tag:"Bar à cocktails · Place d'Armes · Luxembourg",
     disc:"Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé. La carte reprend des cocktails cités dans la presse d'ouverture ; carte complète et prix à confirmer avec la maison. Photographies de presse (à titre indicatif), à remplacer par les visuels de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],closed:"Fermé"
@@ -416,7 +417,7 @@ var I18N={
     info_kick:"Praktisches",info_h:"Heute Abend, Place d'Armes",info_hours:"Die Abende",
     info_walkin:"Ohne Reservierung — man kommt an den Tresen.",
     info_find:"So finden Sie uns",info_addr:"7, Place d'Armes<br/>L-1136 Luxemburg<br/><span style='color:var(--fade)'>Oberstes Stockwerk, über La Lorraine</span>",
-    info_maps:"In Maps öffnen ↗",info_contact:"Kontakt",
+    info_maps:"In Maps öffnen ↗",info_contact:"Kontakt",info_phone_flag:"Nummer zu bestätigen.",
     foot_tag:"Cocktailbar · Place d'Armes · Luxemburg",
     disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das (textliche) Logo ist ein Vorschlag. Die Karte nennt in der Eröffnungspresse erwähnte Cocktails; vollständige Karte und Preise mit dem Haus zu bestätigen. Pressefotos (indikativ), durch eigene Bilder des Hauses zu ersetzen. Anonyme Besuchsstatistik, ohne Cookie oder personenbezogene Daten.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],closed:"Geschlossen"
@@ -445,7 +446,7 @@ var I18N={
     info_kick:"Practical",info_h:"Tonight, Place d'Armes",info_hours:"The nights",
     info_walkin:"No reservations — just come to the bar.",
     info_find:"Find us",info_addr:"7, Place d'Armes<br/>L-1136 Luxembourg<br/><span style='color:var(--fade)'>Top floor, above La Lorraine</span>",
-    info_maps:"Open in Maps ↗",info_contact:"Contact",
+    info_maps:"Open in Maps ↗",info_contact:"Contact",info_phone_flag:"Number to be confirmed.",
     foot_tag:"Cocktail bar · Place d'Armes · Luxembourg",
     disc:"Website preview produced by Webwerk for illustration, from public sources — an unofficial proposal, not affiliated with the venue's management. The (text) logo is proposed. The menu lists cocktails mentioned in opening-night press; full menu and prices to be confirmed with the venue. Press photos (indicative), to be replaced with the venue's own visuals. Anonymous visit statistics, no cookie or personal data.",
     days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],closed:"Closed"
