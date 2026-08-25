@@ -13,6 +13,7 @@
 <title>Perle Noire · Bar à cocktails · Luxembourg</title>
 <meta name="description" content="Perle Noire — bar à cocktails, Bar de l'Année 2026 (Gault&Millau). Des cocktails composés comme des parfums. 7 Place d'Armes, Luxembourg. Sans réservation." />
 <meta name="theme-color" content="#0e1013" />
+<script>try{if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){document.documentElement.className+=' anim';}}catch(e){}</script>
 <style>
 /* ===================== FONTS (self-hosted) ===================== */
 @font-face{font-family:'Bodoni';font-weight:600;font-style:normal;font-display:swap;src:url('assets/fonts/bodoni-600-latin.woff2') format('woff2');
@@ -97,6 +98,13 @@ nav.main a:hover::after{right:0}
 .btn:hover{background:var(--gold2);border-color:var(--gold2)}
 .btn.ghost{background:transparent;color:var(--pearl);border-color:var(--line2)}
 .btn.ghost:hover{border-color:var(--gold);color:var(--gold2)}
+
+.hero #smoke{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55}
+.hero .candle{position:absolute;left:50%;top:38%;width:72%;height:72%;transform:translate(-50%,-50%);z-index:1;pointer-events:none;background:radial-gradient(closest-side,rgba(217,164,65,.20),rgba(201,169,110,.08) 45%,transparent 72%);animation:breathe 5.5s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}}
+.anim .drink .notes{opacity:0;transform:translateY(9px);filter:blur(3px);transition:opacity .8s ease,transform .8s ease,filter .8s ease}
+.anim .drink.lit .notes{opacity:1;transform:none;filter:blur(0)}
+@media(prefers-reduced-motion:reduce){.hero .candle{animation:none}}
 
 /* ===================== STRIP ===================== */
 .strip{background:var(--noir2);border-top:2px solid var(--teal2);border-bottom:1px solid var(--line)}
@@ -212,6 +220,8 @@ footer a.wk{color:var(--gold);font-weight:500}
   <!-- HERO -->
   <section class="hero">
     <div class="bg"><img src="assets/hero.jpg" alt="La salle de Perle Noire — velours émeraude, laiton et lumières feutrées" fetchpriority="high" /></div>
+    <canvas id="smoke" aria-hidden="true"></canvas>
+    <div class="candle" aria-hidden="true"></div>
     <div class="in wrap">
       <span class="award"><span class="star">✦</span> <span data-i18n="hero_award">Bar de l'Année 2026 · Gault&Millau</span></span>
       <h1>Perle Noire</h1>
@@ -480,6 +490,28 @@ nt.addEventListener("click",function(){var o=nav.classList.toggle("open");nt.set
 nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");nt.setAttribute("aria-expanded","false");});});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+  /* wow: perfumer's smoke (canvas) */
+  (function(){ var c=document.getElementById('smoke'); if(!c) return;
+    if(!document.documentElement.classList.contains('anim')) return;
+    var box=document.querySelector('.hero'), ctx=c.getContext('2d'), W=0,H=0,parts=[],run=true,t=0;
+    function size(){ var r=box.getBoundingClientRect(); c.width=W=Math.max(1,r.width|0); c.height=H=Math.max(1,r.height|0); }
+    size(); window.addEventListener('resize',size);
+    function spawn(){ parts.push({x:W*(0.34+Math.random()*0.32),y:H+12,r:14+Math.random()*24,vy:-(0.18+Math.random()*0.32),vx:(Math.random()-0.5)*0.18,life:0,max:200+Math.random()*160,ph:Math.random()*6.28}); }
+    function frame(){ requestAnimationFrame(frame); if(!run) return; t++; if(t%16===0 && parts.length<24) spawn(); ctx.clearRect(0,0,W,H);
+      for(var i=parts.length-1;i>=0;i--){ var p=parts[i]; p.life++; p.y+=p.vy; p.x+=p.vx+Math.sin(p.life*0.02+p.ph)*0.25; p.r+=0.12; var k=p.life/p.max;
+        if(k>=1){ parts.splice(i,1); continue; } var a=Math.sin(k*Math.PI)*0.10;
+        var g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r); g.addColorStop(0,'rgba(226,200,143,'+a+')'); g.addColorStop(1,'rgba(226,200,143,0)');
+        ctx.fillStyle=g; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill(); } }
+    requestAnimationFrame(frame);
+    try{ new IntersectionObserver(function(es){ es.forEach(function(e){ run=e.isIntersecting; }); }).observe(box); }catch(e){}
+  })();
+  /* wow: scent-notes diffuse in per drink */
+  (function(){ var dr=[].slice.call(document.querySelectorAll('.drink'));
+    if(document.documentElement.classList.contains('anim') && 'IntersectionObserver' in window){
+      var dio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('lit'); dio.unobserve(e.target); } }); },{threshold:.35});
+      dr.forEach(function(el){ dio.observe(el); });
+    } else { dr.forEach(function(el){ el.classList.add('lit'); }); }
+})();
 document.getElementById("yr").textContent=new Date().getFullYear();
 applyLang("fr");
 </script>

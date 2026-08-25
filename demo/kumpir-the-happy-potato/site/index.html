@@ -141,18 +141,15 @@ section.blk{padding:66px 0}
 .builder .stage{position:relative;z-index:2;display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:center}
 /* potato */
 .potato{position:relative;width:280px;height:300px;margin:0 auto}
-.potato .body{position:absolute;left:20px;top:60px;width:240px;height:200px;
-  background:linear-gradient(160deg,#c9995f,#a9773f);border-radius:52% 48% 50% 50%/60% 60% 40% 40%;
-  box-shadow:inset 0 -14px 30px rgba(74,42,27,.4),0 16px 30px -12px rgba(0,0,0,.5)}
-.potato .body::after{content:"";position:absolute;inset:0;border-radius:inherit;opacity:.5;
-  background:radial-gradient(6px 4px at 30% 40%,rgba(74,42,27,.5),transparent),radial-gradient(5px 3px at 62% 55%,rgba(74,42,27,.45),transparent),radial-gradient(5px 4px at 48% 72%,rgba(74,42,27,.4),transparent)}
-.potato .mash{position:absolute;left:52px;top:78px;width:176px;height:96px;
-  background:linear-gradient(180deg,#fbeecb,#f1dca6);border-radius:50%;
-  box-shadow:inset 0 6px 14px rgba(255,255,255,.6),inset 0 -8px 16px rgba(213,154,31,.4)}
-.potato .fill{position:absolute;left:52px;top:60px;width:176px;height:120px;overflow:visible;z-index:3}
-.potato .blob{position:absolute;width:24px;height:20px;border-radius:50%;transform:scale(0);
-  box-shadow:inset 0 -3px 5px rgba(0,0,0,.22),0 2px 3px rgba(0,0,0,.2);animation:pop .34s cubic-bezier(.2,1.4,.4,1) forwards}
-@keyframes pop{to{transform:scale(1)}}
+.potato .spud{position:absolute;inset:0;width:100%;height:100%;z-index:1;filter:drop-shadow(0 16px 26px rgba(74,42,27,.5))}
+.potato .fill{position:absolute;left:52px;top:90px;width:176px;height:112px;overflow:visible;z-index:3}
+.potato .blob{position:absolute;width:22px;height:18px;border-radius:50%;opacity:1;transform:none;
+  box-shadow:inset 0 -3px 5px rgba(0,0,0,.22),0 2px 4px rgba(0,0,0,.28);animation:drop .44s cubic-bezier(.2,.85,.3,1) forwards}
+@keyframes drop{0%{opacity:0;transform:translateY(-16px) scale(.3)}55%{opacity:1;transform:translateY(0) scale(1.16)}78%{opacity:1;transform:translateY(0) scale(.93)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.potato.happy .spud{animation:wiggle .6s ease}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg)}60%{transform:rotate(3deg)}}
+.potato .confetti{position:absolute;width:9px;height:9px;border-radius:2px;z-index:5;pointer-events:none;animation:conf .95s ease-out forwards}
+@keyframes conf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--dr))}}
 .potato .steam{position:absolute;left:50%;top:44px;width:60px;height:50px;transform:translateX(-50%);z-index:2;opacity:.7}
 .potato .steam i{position:absolute;bottom:0;width:5px;height:34px;background:linear-gradient(0deg,rgba(255,255,255,.5),transparent);
   border-radius:4px;animation:steam 3s ease-in-out infinite}
@@ -256,7 +253,7 @@ footer a.wk{color:var(--mustard);font-weight:700}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto}
-  .potato .blob{transform:scale(1)}
+  .potato .blob{opacity:1;transform:none;animation:none}
   .reveal{opacity:1;transform:none}
 }
 </style>
@@ -341,8 +338,17 @@ footer a.wk{color:var(--mustard);font-weight:700}
       <div class="stage">
         <div class="potato" aria-hidden="true">
           <div class="steam"><i></i><i></i><i></i></div>
-          <div class="body"></div>
-          <div class="mash"></div>
+          <svg class="spud" viewBox="0 0 280 300" aria-hidden="true">
+            <defs>
+              <radialGradient id="k-skin" cx="42%" cy="34%" r="74%"><stop offset="0" stop-color="#d7a666"/><stop offset="55%" stop-color="#bb843f"/><stop offset="100%" stop-color="#8c5d2f"/></radialGradient>
+              <radialGradient id="k-flesh" cx="46%" cy="38%" r="72%"><stop offset="0" stop-color="#fcefce"/><stop offset="68%" stop-color="#f3dda2"/><stop offset="100%" stop-color="#e6c377"/></radialGradient>
+            </defs>
+            <ellipse cx="140" cy="168" rx="128" ry="108" fill="url(#k-skin)"/>
+            <g fill="#7a4f28" opacity=".42"><ellipse cx="70" cy="152" rx="4" ry="3"/><ellipse cx="206" cy="182" rx="4.5" ry="3"/><ellipse cx="150" cy="236" rx="4" ry="3"/><ellipse cx="96" cy="212" rx="3.5" ry="2.5"/></g>
+            <ellipse cx="140" cy="150" rx="104" ry="70" fill="#8c5d2f"/>
+            <ellipse cx="140" cy="146" rx="98" ry="64" fill="url(#k-flesh)"/>
+            <ellipse cx="110" cy="120" rx="34" ry="15" fill="#fff7db" opacity=".5"/>
+          </svg>
           <div class="fill" id="fill"></div>
           <div class="count" id="count"><b>0</b><br><span data-i18n="build_count">garnitures</span></div>
         </div>
@@ -599,11 +605,13 @@ function renderChips(){
   });
 }
 var pile = 0;
+var celebrated=false;
 function addBlob(color){
   var fill = document.getElementById("fill");
   var s = document.createElement("span");
   s.className = "blob";
-  var x = 6 + Math.random()*140, y = 4 + Math.random()*66;
+  var cx=88, cy=52, rx=78, ry=44, ang=Math.random()*6.283, rr=Math.sqrt(Math.random());
+  var x = cx + Math.cos(ang)*rx*rr, y = cy + Math.sin(ang)*ry*rr;
   s.style.left = x+"px"; s.style.top = y+"px"; s.style.background = color;
   var sc = .8 + Math.random()*.7; s.style.width = (20*sc)+"px"; s.style.height = (17*sc)+"px";
   fill.appendChild(s);
@@ -612,9 +620,26 @@ function addBlob(color){
   var m = I18N[lang].msgs, idx = Math.min(Math.floor(pile/3), m.length-1);
   document.getElementById("buildmsg").textContent = m[idx];
   if(fill.children.length > 60) fill.removeChild(fill.firstChild);
+  if(pile>=8 && !celebrated){ celebrated=true; celebrate(); }
+}
+function celebrate(){
+  var pot=document.querySelector(".potato"); if(!pot) return;
+  var reduce=false; try{reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;}catch(e){}
+  pot.classList.add("happy"); setTimeout(function(){ pot.classList.remove("happy"); }, 650);
+  if(reduce) return;
+  var cols=["#e7b23c","#d5382c","#9daa8c","#f4c430","#6a8f3c","#d43a28"];
+  for(var i=0;i<16;i++){ var c=document.createElement("span"); c.className="confetti";
+    c.style.left="140px"; c.style.top="72px"; c.style.background=cols[i%cols.length];
+    var a=Math.random()*6.283, dist=60+Math.random()*80;
+    c.style.setProperty("--dx",(Math.cos(a)*dist).toFixed(0)+"px");
+    c.style.setProperty("--dy",(Math.sin(a)*dist*0.7+70).toFixed(0)+"px");
+    c.style.setProperty("--dr",(Math.random()*540-270).toFixed(0)+"deg");
+    pot.appendChild(c); (function(el){ setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 1000); })(c);
+  }
 }
 document.getElementById("reset").addEventListener("click", function(){
-  document.getElementById("fill").innerHTML = ""; pile = 0;
+  document.getElementById("fill").innerHTML = ""; pile = 0; celebrated=false;
+  var pot=document.querySelector(".potato"); if(pot){ pot.classList.remove("happy"); [].slice.call(pot.querySelectorAll(".confetti")).forEach(function(c){ if(c.parentNode) c.parentNode.removeChild(c); }); }
   document.querySelector("#count b").textContent = "0";
   document.getElementById("buildmsg").textContent = t("build_msg0");
 });

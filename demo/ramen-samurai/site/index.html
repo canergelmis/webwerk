@@ -111,11 +111,13 @@ nav.main a:hover::after{right:0}
   100%{opacity:0;transform:translateY(-70px) scaleY(1.35) scaleX(.7)}}
 .hero .lantern{position:absolute;z-index:2;top:26px;right:8%;width:56px;height:74px;pointer-events:none}
 .hero .lantern .l{width:56px;height:66px;border-radius:50%/44%;background:linear-gradient(180deg,#d64a3f,#a5251e);
-  box-shadow:0 0 40px rgba(224,87,76,.5),inset 0 -6px 12px rgba(0,0,0,.4);position:relative;animation:sway 6s ease-in-out infinite}
+  box-shadow:0 0 40px rgba(224,87,76,.5),inset 0 -6px 12px rgba(0,0,0,.4);position:relative;animation:sway 6s ease-in-out infinite, lflick 4.5s ease-in-out infinite}
 .hero .lantern .l::before,.hero .lantern .l::after{content:"";position:absolute;left:8%;right:8%;height:2px;background:rgba(0,0,0,.28)}
 .hero .lantern .l::before{top:32%}.hero .lantern .l::after{top:60%}
 .hero .lantern .cap{width:22px;height:5px;background:var(--sumi3);margin:0 auto;border-radius:2px}
 @keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes lflick{0%,100%{box-shadow:0 0 40px rgba(224,87,76,.5)}40%{box-shadow:0 0 22px rgba(224,87,76,.3)}68%{box-shadow:0 0 56px rgba(224,87,76,.64)}}
+#rsteam{position:absolute;left:50%;top:-20%;transform:translateX(-50%);width:80%;height:82%;z-index:4;pointer-events:none}
 
 /* strip */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--sumi2)}
@@ -256,7 +258,7 @@ footer a.wk{color:var(--gold);font-weight:700}
       </div>
       <div class="bowlwrap">
         <div class="ring"></div>
-        <div class="steam" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <canvas id="rsteam" aria-hidden="true"></canvas>
         <img class="bowl" src="assets/noodles.jpg" alt="Un bol de ramen fumant — nouilles fraîches relevées aux baguettes" fetchpriority="high" />
         <div class="frame"></div>
       </div>
@@ -535,11 +537,22 @@ nav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click",functi
 var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
 
-/* pause steam when hero off-screen */
-var hero=document.querySelector(".hero"), steam=document.querySelector(".steam");
-var hio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(steam) steam.style.animationPlayState=e.isIntersecting?"running":"paused";
-  steam&&steam.querySelectorAll("span").forEach(function(s){ s.style.animationPlayState=e.isIntersecting?"running":"paused"; }); }); });
-if(hero) hio.observe(hero);
+/* wow: canvas steam rising off the bowl */
+(function(){ var c=document.getElementById("rsteam"); if(!c) return;
+  var reduce=false; try{reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;}catch(e){}
+  if(reduce) return;
+  var ctx=c.getContext("2d"), W=0,H=0,parts=[],run=true,t=0;
+  function size(){ var r=c.getBoundingClientRect(); c.width=W=Math.max(1,r.width|0); c.height=H=Math.max(1,r.height|0); }
+  size(); window.addEventListener("resize",size);
+  function spawn(){ parts.push({x:W*(0.30+Math.random()*0.40),y:H*0.92,r:9+Math.random()*16,vy:-(0.3+Math.random()*0.45),vx:(Math.random()-0.5)*0.25,life:0,max:110+Math.random()*90,ph:Math.random()*6.28}); }
+  function frame(){ requestAnimationFrame(frame); if(!run) return; t++; if(t%10===0 && parts.length<20) spawn(); ctx.clearRect(0,0,W,H);
+    for(var i=parts.length-1;i>=0;i--){ var p=parts[i]; p.life++; p.y+=p.vy; p.x+=p.vx+Math.sin(p.life*0.03+p.ph)*0.30; p.r+=0.14; var k=p.life/p.max;
+      if(k>=1){ parts.splice(i,1); continue; } var a=Math.sin(k*Math.PI)*0.13;
+      var g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r); g.addColorStop(0,"rgba(245,238,225,"+a+")"); g.addColorStop(1,"rgba(245,238,225,0)");
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill(); } }
+  requestAnimationFrame(frame);
+  try{ new IntersectionObserver(function(es){ es.forEach(function(e){ run=e.isIntersecting; }); }).observe(c.parentNode); }catch(e){}
+})();
 
 document.getElementById("yr").textContent=new Date().getFullYear();
 applyLang("fr");
