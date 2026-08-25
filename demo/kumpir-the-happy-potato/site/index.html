@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<!--
+  KUMPIR — The Happy Potato · demo site by Webwerk (proposition, non officielle).
+  Bespoke build. Self-hosted fonts (assets/fonts/, 0 Google requests). Real venue photos only.
+  Concept "Composez votre kumpir" (build-your-own) — rooted in the venue's real chalkboard line.
+  Trilingual FR (native) / DE / EN (drafts). Honest flags on prices, hours, phone, logotype.
+-->
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Kumpir — The Happy Potato · Luxembourg</title>
+<meta name="description" content="Kumpir The Happy Potato — la pomme de terre géante turque, garnie comme vous l'aimez. Place du Théâtre, Luxembourg-Ville." />
+<meta name="theme-color" content="#6E3F2A" />
+<style>
+/* ============================ FONTS (self-hosted) ============================ */
+@font-face{font-family:'Fredoka';font-weight:600;font-style:normal;font-display:swap;
+  src:url('assets/fonts/fredoka-600-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Fredoka';font-weight:600;font-style:normal;font-display:swap;
+  src:url('assets/fonts/fredoka-600-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Fredoka';font-weight:700;font-style:normal;font-display:swap;
+  src:url('assets/fonts/fredoka-700-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Fredoka';font-weight:700;font-style:normal;font-display:swap;
+  src:url('assets/fonts/fredoka-700-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Nunito Sans';font-weight:400;font-style:normal;font-display:swap;
+  src:url('assets/fonts/nunitosans-400-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Nunito Sans';font-weight:400;font-style:normal;font-display:swap;
+  src:url('assets/fonts/nunitosans-400-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Nunito Sans';font-weight:700;font-style:normal;font-display:swap;
+  src:url('assets/fonts/nunitosans-700-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Nunito Sans';font-weight:700;font-style:normal;font-display:swap;
+  src:url('assets/fonts/nunitosans-700-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Caveat';font-weight:700;font-style:normal;font-display:swap;
+  src:url('assets/fonts/caveat-700-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Caveat';font-weight:700;font-style:normal;font-display:swap;
+  src:url('assets/fonts/caveat-700-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+/* ============================ TOKENS ============================ */
+:root{
+  --cream:#F4EAD6; --cream2:#EADBBF; --paper:#FBF6EC; --paper2:#F6EEDF;
+  --brown:#6E3F2A; --brown2:#4A2A1B; --ink:#2B2320; --muted:#8a7a68;
+  --red:#D5382C; --red2:#B62C22; --mustard:#E7B23C; --mustard2:#d59a1f;
+  --sage:#9DAA8C; --sage2:#7f8e6d; --teal:#3f857e;
+  --shadow:0 18px 44px -22px rgba(74,42,27,.45);
+  --shadow-sm:0 8px 22px -14px rgba(74,42,27,.4);
+  --maxw:1180px; --r:18px;
+  --disp:'Fredoka',system-ui,sans-serif; --body:'Nunito Sans',system-ui,sans-serif; --hand:'Caveat',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.02;color:var(--brown2);letter-spacing:-.01em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.hand{font-family:var(--hand);color:var(--red)}
+.eyebrow{font-family:var(--disp);font-weight:600;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+:focus-visible{outline:3px solid var(--mustard);outline-offset:3px;border-radius:4px}
+
+/* decorative topping strip */
+.dots{display:flex;gap:8px;align-items:center}
+.dots i{width:11px;height:11px;border-radius:50%;display:inline-block}
+
+/* ============================ HEADER ============================ */
+header{position:sticky;top:0;z-index:60;background:rgba(244,234,214,.86);backdrop-filter:blur(10px);
+  border-bottom:1.5px solid var(--cream2)}
+header .bar{display:flex;align-items:center;justify-content:space-between;min-height:66px;gap:14px}
+.brand{display:flex;flex-direction:column;line-height:.86}
+.brand .n{font-family:var(--disp);font-weight:700;font-size:1.42rem;color:var(--brown);letter-spacing:.01em}
+.brand .n b{color:var(--red)}
+.brand .s{font-family:var(--hand);font-size:1.02rem;color:var(--brown2);margin-top:1px}
+nav.main{display:flex;gap:26px;align-items:center}
+nav.main a{font-weight:700;font-size:.93rem;color:var(--brown2);position:relative;padding:4px 0}
+nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2.5px;background:var(--red);
+  border-radius:2px;transition:right .28s ease}
+nav.main a:hover::after{right:0}
+.langs{display:flex;gap:2px;align-items:center;background:var(--paper);border:1.5px solid var(--cream2);
+  border-radius:999px;padding:3px}
+.langs button{font-family:var(--disp);font-weight:600;font-size:.78rem;letter-spacing:.04em;border:0;background:transparent;
+  color:var(--muted);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--red);color:#fff}
+.navtoggle{display:none;border:1.5px solid var(--cream2);background:var(--paper);border-radius:12px;
+  width:44px;height:40px;cursor:pointer;font-size:1.2rem;color:var(--brown)}
+
+/* ============================ HERO ============================ */
+.hero{padding:44px 0 30px;position:relative}
+.hero .grid{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
+.hero .kick{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.hero h1{font-size:clamp(44px,7.4vw,88px);color:var(--brown)}
+.hero h1 .hp{display:block;font-family:var(--hand);font-weight:700;color:var(--red);font-size:.52em;letter-spacing:0;
+  transform:rotate(-3deg);margin-top:-.06em}
+.hero .lead{font-size:1.14rem;color:#4a3c30;max-width:46ch;margin:18px 0 26px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.btn{font-family:var(--disp);font-weight:700;font-size:1rem;border:0;border-radius:999px;padding:14px 26px;
+  cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease}
+.btn.p{background:var(--red);color:#fff;box-shadow:0 12px 26px -12px var(--red)}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px var(--red)}
+.btn.g{background:transparent;color:var(--brown2);border:2px solid var(--cream2)}
+.btn.g:hover{border-color:var(--brown);background:var(--paper)}
+.hero .photo{position:relative}
+.hero .photo img{width:100%;height:clamp(320px,44vw,460px);object-fit:cover;border-radius:26px;box-shadow:var(--shadow)}
+.hero .photo .tag{position:absolute;left:-14px;bottom:24px;background:var(--mustard);color:var(--brown2);
+  font-family:var(--disp);font-weight:700;font-size:.9rem;padding:10px 18px;border-radius:999px;box-shadow:var(--shadow-sm);
+  transform:rotate(-3deg)}
+.hero .photo .parasol{position:absolute;top:-16px;right:22px;background:var(--red);color:#fff;font-family:var(--hand);
+  font-size:1.5rem;padding:6px 16px 10px;border-radius:0 0 40px 40px;box-shadow:var(--shadow-sm)}
+.marquee-wrap{overflow:hidden;margin-top:34px;border-top:2px dashed var(--cream2);border-bottom:2px dashed var(--cream2);padding:12px 0;background:var(--paper)}
+.marquee{display:flex;gap:38px;white-space:nowrap;animation:mq 26s linear infinite;font-family:var(--disp);
+  font-weight:600;color:var(--brown);font-size:1.02rem;letter-spacing:.02em}
+.marquee span{display:inline-flex;align-items:center;gap:38px}
+.marquee b{color:var(--red)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ============================ SECTION SHELL ============================ */
+section.blk{padding:66px 0}
+.sec-head{max-width:60ch;margin-bottom:36px}
+.sec-head h2{font-size:clamp(30px,4.6vw,50px)}
+.sec-head p{margin-top:12px;color:#54463a;font-size:1.06rem}
+
+/* ============================ BUILDER ============================ */
+.builder{background:var(--brown);color:var(--cream);border-radius:34px;padding:clamp(26px,4vw,52px);
+  box-shadow:var(--shadow);position:relative;overflow:hidden}
+.builder::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 80% at 15% 0%,rgba(231,178,60,.16),transparent 60%),
+  radial-gradient(50% 70% at 100% 100%,rgba(213,56,44,.18),transparent 60%);pointer-events:none}
+.builder .bhead{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:flex-end;justify-content:space-between;margin-bottom:26px}
+.builder h2{color:#fff}
+.builder .bhead p{color:rgba(244,234,214,.8);max-width:44ch;margin-top:8px}
+.builder .stage{position:relative;z-index:2;display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:center}
+/* potato */
+.potato{position:relative;width:280px;height:300px;margin:0 auto}
+.potato .body{position:absolute;left:20px;top:60px;width:240px;height:200px;
+  background:linear-gradient(160deg,#c9995f,#a9773f);border-radius:52% 48% 50% 50%/60% 60% 40% 40%;
+  box-shadow:inset 0 -14px 30px rgba(74,42,27,.4),0 16px 30px -12px rgba(0,0,0,.5)}
+.potato .body::after{content:"";position:absolute;inset:0;border-radius:inherit;opacity:.5;
+  background:radial-gradient(6px 4px at 30% 40%,rgba(74,42,27,.5),transparent),radial-gradient(5px 3px at 62% 55%,rgba(74,42,27,.45),transparent),radial-gradient(5px 4px at 48% 72%,rgba(74,42,27,.4),transparent)}
+.potato .mash{position:absolute;left:52px;top:78px;width:176px;height:96px;
+  background:linear-gradient(180deg,#fbeecb,#f1dca6);border-radius:50%;
+  box-shadow:inset 0 6px 14px rgba(255,255,255,.6),inset 0 -8px 16px rgba(213,154,31,.4)}
+.potato .fill{position:absolute;left:52px;top:60px;width:176px;height:120px;overflow:visible;z-index:3}
+.potato .blob{position:absolute;width:24px;height:20px;border-radius:50%;transform:scale(0);
+  box-shadow:inset 0 -3px 5px rgba(0,0,0,.22),0 2px 3px rgba(0,0,0,.2);animation:pop .34s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes pop{to{transform:scale(1)}}
+.potato .steam{position:absolute;left:50%;top:44px;width:60px;height:50px;transform:translateX(-50%);z-index:2;opacity:.7}
+.potato .steam i{position:absolute;bottom:0;width:5px;height:34px;background:linear-gradient(0deg,rgba(255,255,255,.5),transparent);
+  border-radius:4px;animation:steam 3s ease-in-out infinite}
+.potato .steam i:nth-child(1){left:14px;animation-delay:0s}
+.potato .steam i:nth-child(2){left:30px;height:44px;animation-delay:.6s}
+.potato .steam i:nth-child(3){left:44px;animation-delay:1.2s}
+@keyframes steam{0%{opacity:0;transform:translateY(8px) scaleY(.7)}40%{opacity:.8}100%{opacity:0;transform:translateY(-14px) scaleY(1.2)}}
+.potato .count{position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);font-family:var(--disp);font-weight:700;
+  font-size:.92rem;color:var(--mustard);white-space:nowrap;text-align:center}
+.potato .count b{color:#fff;font-size:1.3rem}
+/* topping chips */
+.toppings h3{color:#fff;font-size:1.16rem;margin-bottom:4px}
+.toppings .hint{color:rgba(244,234,214,.72);font-size:.9rem;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:9px;background:rgba(251,246,236,.1);border:1.5px solid rgba(251,246,236,.22);
+  color:var(--cream);font-family:var(--disp);font-weight:600;font-size:.92rem;padding:9px 15px 9px 11px;border-radius:999px;
+  cursor:pointer;transition:background .16s ease,transform .12s ease}
+.chip:hover{background:rgba(251,246,236,.2);transform:translateY(-2px)}
+.chip .sw{width:15px;height:15px;border-radius:50%;box-shadow:inset 0 -2px 3px rgba(0,0,0,.25)}
+.builder .brow{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:24px;
+  padding-top:20px;border-top:1px solid rgba(244,234,214,.18)}
+.builder .msg{font-family:var(--hand);font-size:1.4rem;color:var(--mustard);flex:1;min-width:200px}
+.reset{background:transparent;border:1.5px solid rgba(244,234,214,.3);color:var(--cream);font-family:var(--disp);
+  font-weight:600;border-radius:999px;padding:9px 18px;cursor:pointer}
+.reset:hover{border-color:var(--red);color:#fff;background:var(--red)}
+.builder .note{position:relative;z-index:2;margin-top:16px;font-size:.82rem;color:rgba(244,234,214,.62)}
+
+/* ============================ MENU ============================ */
+.menu-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px 34px}
+.mcol h3{font-size:1.28rem;color:var(--brown);display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.mcol h3 .p{width:12px;height:12px;border-radius:50%}
+.mrow{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1.5px dashed var(--cream2)}
+.mrow .nm{font-family:var(--disp);font-weight:600;font-size:1.06rem;color:var(--brown2)}
+.mrow .dsh{flex:1;border-bottom:2px dotted var(--cream2);transform:translateY(-4px)}
+.mrow .pr{font-family:var(--disp);font-weight:700;color:var(--red);white-space:nowrap}
+.mrow .vg{font-size:.72rem;font-weight:700;color:var(--sage2);letter-spacing:.06em;text-transform:uppercase}
+.menu-note{margin-top:20px;font-size:.88rem;color:var(--muted);background:var(--paper);border-radius:14px;
+  padding:14px 18px;border:1.5px solid var(--cream2)}
+.drinks{margin-top:26px}
+.drinks .dl{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:10px}
+.drinks .dl span{background:var(--paper);border:1.5px solid var(--cream2);border-radius:999px;padding:7px 14px;font-size:.9rem;font-weight:700;color:var(--brown2)}
+
+/* ============================ STORY / PLACE ============================ */
+.story{background:var(--paper);}
+.story .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.story .imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:clamp(320px,42vw,460px)}
+.story .imgs img{border-radius:18px;box-shadow:var(--shadow-sm);width:100%;height:100%;object-fit:cover;min-height:0}
+.story .imgs .tall{grid-row:1/3}
+.story blockquote{font-family:var(--hand);font-size:1.7rem;color:var(--red);line-height:1.2;margin:18px 0 0}
+.mascot{margin-top:22px;display:flex;gap:14px;align-items:center;background:var(--cream);border-radius:16px;padding:14px 18px;border:1.5px solid var(--cream2)}
+.mascot .ic{font-size:1.8rem}
+.mascot p{font-size:.94rem;color:#54463a}
+
+/* ============================ INFO ============================ */
+.info{background:var(--brown2);color:var(--cream)}
+.info .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px}
+.info h3{color:#fff;font-size:1.16rem;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.info .card{background:rgba(251,246,236,.06);border:1.5px solid rgba(251,246,236,.14);border-radius:18px;padding:24px}
+.info .hrow{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px solid rgba(251,246,236,.12);font-size:.96rem}
+.info .hrow.today{color:var(--mustard);font-weight:700}
+.info .hrow .cl{color:rgba(244,234,214,.55)}
+.info .card p{color:rgba(244,234,214,.85);font-size:.98rem}
+.info .card a.line{display:block;color:#fff;font-weight:700;margin-top:4px}
+.info .socials{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.info .socials a{background:var(--red);color:#fff;font-family:var(--disp);font-weight:600;font-size:.9rem;
+  padding:9px 16px;border-radius:999px}
+.info .socials a.alt{background:transparent;border:1.5px solid rgba(244,234,214,.3)}
+.info .flag{font-size:.8rem;color:var(--mustard);margin-top:12px}
+
+/* ============================ FOOTER ============================ */
+footer{background:var(--brown2);color:rgba(244,234,214,.7);padding:26px 0 40px;border-top:1px solid rgba(251,246,236,.12)}
+footer .row{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:baseline;justify-content:space-between}
+footer .bn{font-family:var(--disp);font-weight:700;color:#fff;font-size:1.1rem}
+footer .bn b{color:var(--red)}
+footer .disc{font-size:.76rem;line-height:1.5;max-width:74ch;margin-top:14px;color:rgba(244,234,214,.5)}
+footer a.wk{color:var(--mustard);font-weight:700}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================ RESPONSIVE ============================ */
+@media(max-width:900px){
+  .hero .grid{grid-template-columns:1fr;gap:28px}
+  .hero .photo{order:-1}
+  .menu-wrap{grid-template-columns:1fr}
+  .story .grid{grid-template-columns:1fr;gap:28px}
+  .info .grid{grid-template-columns:1fr}
+  .builder .stage{grid-template-columns:1fr;gap:22px}
+  nav.main{display:none}
+  nav.main.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;
+    background:var(--cream);border-bottom:1.5px solid var(--cream2);padding:8px 26px 18px}
+  nav.main.open a{padding:12px 0;border-bottom:1px solid var(--cream2);width:100%}
+  .navtoggle{display:inline-flex;align-items:center;justify-content:center}
+}
+@media(max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .hero .cta{width:100%}
+  .hero .cta .btn{flex:1;justify-content:center}
+  .potato{width:240px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto}
+  .potato .blob{transform:scale(1)}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Kumpir — The Happy Potato">
+      <span class="n">Kum<b>pir</b></span>
+      <span class="s">the happy potato</span>
+    </a>
+    <nav class="main" id="nav">
+      <a href="#concept" data-i18n="nav_concept">Le concept</a>
+      <a href="#carte" data-i18n="nav_menu">La carte</a>
+      <a href="#maison" data-i18n="nav_house">La maison</a>
+      <a href="#infos" data-i18n="nav_info">Infos</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="navtoggle" id="navtoggle" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="grid">
+      <div class="txt">
+        <div class="kick">
+          <span class="eyebrow" data-i18n="hero_kick">Street food turc · Place du Théâtre</span>
+        </div>
+        <h1><span data-i18n="hero_t1">La pomme de terre</span> <span class="hp" data-i18n="hero_t2">géante &amp; heureuse</span></h1>
+        <p class="lead" data-i18n="hero_lead">Une énorme pomme de terre au four, sa chair fouettée au beurre et au fromage, puis garnie — comme vous l'aimez — au comptoir. Istanbul rencontre le Luxembourg.</p>
+        <div class="cta">
+          <a class="btn p" href="#concept" data-i18n="hero_cta1">Composez la vôtre ↓</a>
+          <a class="btn g" href="#carte" data-i18n="hero_cta2">Voir la carte</a>
+        </div>
+      </div>
+      <div class="photo">
+        <span class="parasol" data-i18n="hero_parasol">salut !</span>
+        <img src="assets/hero.jpg" alt="La façade de Kumpir, Place du Théâtre — fresque pop, parasols rouges et tables en bois" fetchpriority="high" />
+        <span class="tag" data-i18n="hero_tag">🥔 dès l'origine, un food truck</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee">
+      <span>
+        <span>maïs&nbsp;·&nbsp;<b>coleslaw</b>&nbsp;·&nbsp;haricots rouges&nbsp;·&nbsp;<b>olives</b>&nbsp;·&nbsp;cornichons&nbsp;·&nbsp;<b>fromage</b>&nbsp;·&nbsp;tomate&nbsp;·&nbsp;<b>herbes</b>&nbsp;·&nbsp;sauces maison&nbsp;·&nbsp;<b>bœuf mijoté</b>&nbsp;·&nbsp;concombre&nbsp;·&nbsp;</span>
+        <span aria-hidden="true">maïs&nbsp;·&nbsp;<b>coleslaw</b>&nbsp;·&nbsp;haricots rouges&nbsp;·&nbsp;<b>olives</b>&nbsp;·&nbsp;cornichons&nbsp;·&nbsp;<b>fromage</b>&nbsp;·&nbsp;tomate&nbsp;·&nbsp;<b>herbes</b>&nbsp;·&nbsp;sauces maison&nbsp;·&nbsp;<b>bœuf mijoté</b>&nbsp;·&nbsp;concombre&nbsp;·&nbsp;</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- CONCEPT / BUILDER -->
+  <section class="blk wrap reveal" id="concept">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="concept_kick">Le rituel</span>
+      <h2 data-i18n="concept_h">Une patate. Vos garnitures. Aucune règle.</h2>
+      <p data-i18n="concept_p">Chez Kumpir, c'est vous qui composez. On fend la pomme de terre, on écrase la chair avec du beurre et du fromage, puis on empile ce que vous voulez au comptoir coloré. Amusez-vous ci-dessous.</p>
+    </div>
+
+    <div class="builder">
+      <div class="bhead">
+        <div>
+          <h2 data-i18n="build_h">Composez votre kumpir</h2>
+          <p data-i18n="build_p">Touchez les garnitures pour les ajouter. (Pour de vrai, ça se passe au comptoir.)</p>
+        </div>
+        <div class="dots" aria-hidden="true">
+          <i style="background:var(--mustard)"></i><i style="background:var(--red)"></i><i style="background:var(--sage)"></i><i style="background:var(--teal)"></i>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="potato" aria-hidden="true">
+          <div class="steam"><i></i><i></i><i></i></div>
+          <div class="body"></div>
+          <div class="mash"></div>
+          <div class="fill" id="fill"></div>
+          <div class="count" id="count"><b>0</b><br><span data-i18n="build_count">garnitures</span></div>
+        </div>
+
+        <div class="toppings">
+          <h3 data-i18n="build_pick">Le comptoir</h3>
+          <p class="hint" data-i18n="build_hint">Des garnitures fraîches, à volonté — voici un échantillon.</p>
+          <div class="chips" id="chips"></div>
+        </div>
+      </div>
+
+      <div class="brow">
+        <div class="msg" id="buildmsg" data-i18n="build_msg0">Prêt quand vous l'êtes 🥔</div>
+        <button class="reset" id="reset" data-i18n="build_reset">Recommencer</button>
+      </div>
+      <p class="note" data-i18n="build_note">Démonstration ludique — les garnitures exactes se choisissent sur place, au comptoir.</p>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="blk wrap reveal" id="carte">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="menu_kick">La carte</span>
+      <h2 data-i18n="menu_h">Les kumpirs de la maison</h2>
+      <p data-i18n="menu_p">Onze recettes signature, chacune bâtie sur la grande pomme de terre — puis garnie au comptoir. Version viande ou 100 % végé.</p>
+    </div>
+
+    <div class="menu-wrap">
+      <div class="mcol">
+        <h3><span class="p" style="background:var(--red)"></span> <span data-i18n="menu_meat">Avec viande</span></h3>
+        <div class="mrow"><span class="nm">Komutan</span><span class="dsh"></span><span class="pr">17,00 €</span></div>
+        <div class="mrow"><span class="nm">Querido</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
+        <div class="mrow"><span class="nm">Chikeria</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
+        <div class="mrow"><span class="nm">Istanbull</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
+        <div class="mrow"><span class="nm">Max</span><span class="dsh"></span><span class="pr">15,00 €</span></div>
+      </div>
+      <div class="mcol">
+        <h3><span class="p" style="background:var(--sage)"></span> <span data-i18n="menu_veg">Végétarien</span></h3>
+        <div class="mrow"><span class="nm">Athena</span><span class="dsh"></span><span class="pr">16,00 €</span></div>
+        <div class="mrow"><span class="nm">Belly Dance</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
+        <div class="mrow"><span class="nm">Sultan</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
+        <div class="mrow"><span class="nm">Bibi Habibi</span><span class="dsh"></span><span class="pr">14,70 €</span></div>
+        <div class="mrow"><span class="nm">Parvati Sunrise</span><span class="dsh"></span><span class="pr">14,70 €</span></div>
+        <div class="mrow"><span class="nm">Ortaköy</span> <span class="vg" data-i18n="menu_cold">froid</span><span class="dsh"></span><span class="pr">14,70 €</span></div>
+      </div>
+    </div>
+
+    <div class="drinks">
+      <h3 style="font-size:1.1rem;color:var(--brown);display:flex;align-items:center;gap:9px"><span class="p" style="width:12px;height:12px;border-radius:50%;background:var(--mustard)"></span> <span data-i18n="menu_drinks">Boissons</span></h3>
+      <div class="dl">
+        <span>Coca-Cola · 3,50 €</span><span>Coca Zero · 3,50 €</span><span>Pepsi Max · 3,50 €</span>
+        <span data-i18n="dr_gloriette">Limonades Gloriette · 3,50–3,90 €</span><span data-i18n="dr_bio">Limonades bio · 4,50 €</span>
+      </div>
+    </div>
+
+    <p class="menu-note" data-i18n="menu_note">Tarifs indicatifs relevés en livraison — à confirmer en salle avec la maison. La composition exacte de chaque kumpir se choisit au comptoir.</p>
+  </section>
+
+  <!-- STORY / PLACE -->
+  <section class="blk story" id="maison">
+    <div class="wrap grid reveal">
+      <div class="imgs">
+        <img class="tall" src="assets/interior.jpg" alt="L'intérieur de Kumpir — comptoir, samovar et bannière « Turkish Food meets Luxembourg »" loading="lazy" />
+        <img src="assets/exterior.jpg" alt="La terrasse de Kumpir Place du Théâtre — parasols rouges et tables en bois" loading="lazy" />
+        <img src="assets/food2.jpg" alt="Un kumpir garni — maïs, coleslaw, haricots, oignon rouge et fromage" loading="lazy" />
+      </div>
+      <div>
+        <span class="eyebrow" data-i18n="house_kick">La maison</span>
+        <h2 data-i18n="house_h">D'un food truck à la Place du Théâtre</h2>
+        <p style="margin-top:14px;color:#54463a" data-i18n="house_p1">Kumpir a commencé sur roues, puis s'est posé au cœur de la ville. La fresque pop, les parasols rouges, les grandes tables en bois : on s'installe, on discute, on choisit ses garnitures une à une. Le patron explique volontiers chaque option — et vous fait goûter avant de choisir.</p>
+        <blockquote data-i18n="house_q">« Turkish food meets Luxembourg. »</blockquote>
+        <div class="mascot">
+          <span class="ic" aria-hidden="true">🧶</span>
+          <p data-i18n="house_mascot">Sur le comptoir veillent les « Positive Potatoes » en crochet : « je ne suis qu'une petite patate, mais je crois en vous. » Toute la maison est là-dedans.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="blk info" id="infos">
+    <div class="wrap">
+      <div class="sec-head" style="max-width:60ch">
+        <span class="eyebrow" style="color:var(--mustard)" data-i18n="info_kick">En pratique</span>
+        <h2 style="color:#fff" data-i18n="info_h">Venir, commander, savourer</h2>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>🕑 <span data-i18n="info_hours">Horaires</span></h3>
+          <div id="hours"></div>
+          <p class="flag" data-i18n="info_hours_flag">⚠ Horaires indicatifs — à confirmer avec la maison.</p>
+        </div>
+        <div class="card">
+          <h3>📍 <span data-i18n="info_find">Nous trouver</span></h3>
+          <p data-i18n="info_addr">Place du Théâtre<br/>Luxembourg-Ville</p>
+          <a class="line" href="https://www.google.com/maps/search/?api=1&query=Kumpir+The+Happy+Potato+Place+du+Théâtre+Luxembourg" target="_blank" rel="noopener" data-i18n="info_maps">Ouvrir dans Maps ↗</a>
+          <p class="flag" data-i18n="info_addr_flag">Code postal exact à confirmer.</p>
+        </div>
+        <div class="card">
+          <h3>💬 <span data-i18n="info_contact">Contact</span></h3>
+          <p data-i18n="info_contact_p">Commande à emporter, sur place ou en livraison.</p>
+          <a class="line" href="tel:+352661421030">+352 661 421 030</a>
+          <p class="flag" data-i18n="info_phone_flag">Numéro à confirmer.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/kumpirthehappypotato/" target="_blank" rel="noopener">Instagram ↗</a>
+            <a class="alt" href="https://www.facebook.com/kumpir.lu/" target="_blank" rel="noopener">Facebook ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span class="bn">Kum<b>pir</b> — the happy potato</span>
+      <span style="font-size:.9rem" data-i18n="foot_tag">Street food turc · Place du Théâtre · Luxembourg</span>
+    </div>
+    <p class="disc" data-i18n="disc">Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé et non définitif. Carte, tarifs, horaires, adresse et téléphone sont à confirmer avec la maison. Photographies de sources publiques, à remplacer par les visuels de la maison.</p>
+    <p class="disc" style="margin-top:8px">© <span id="yr"></span> · <a class="wk" href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk — nous dessinons le web.</a></p>
+  </div>
+</footer>
+
+<script>
+/* ============================ i18n ============================ */
+var I18N = {
+  fr:{
+    nav_concept:"Le concept",nav_menu:"La carte",nav_house:"La maison",nav_info:"Infos",
+    hero_kick:"Street food turc · Place du Théâtre",
+    hero_t1:"La pomme de terre",hero_t2:"géante & heureuse",
+    hero_lead:"Une énorme pomme de terre au four, sa chair fouettée au beurre et au fromage, puis garnie — comme vous l'aimez — au comptoir. Istanbul rencontre le Luxembourg.",
+    hero_cta1:"Composez la vôtre ↓",hero_cta2:"Voir la carte",hero_parasol:"salut !",hero_tag:"🥔 dès l'origine, un food truck",
+    concept_kick:"Le rituel",concept_h:"Une patate. Vos garnitures. Aucune règle.",
+    concept_p:"Chez Kumpir, c'est vous qui composez. On fend la pomme de terre, on écrase la chair avec du beurre et du fromage, puis on empile ce que vous voulez au comptoir coloré. Amusez-vous ci-dessous.",
+    build_h:"Composez votre kumpir",build_p:"Touchez les garnitures pour les ajouter. (Pour de vrai, ça se passe au comptoir.)",
+    build_pick:"Le comptoir",build_hint:"Des garnitures fraîches, à volonté — voici un échantillon.",
+    build_count:"garnitures",build_reset:"Recommencer",build_msg0:"Prêt quand vous l'êtes 🥔",
+    build_note:"Démonstration ludique — les garnitures exactes se choisissent sur place, au comptoir.",
+    menu_kick:"La carte",menu_h:"Les kumpirs de la maison",
+    menu_p:"Onze recettes signature, chacune bâtie sur la grande pomme de terre — puis garnie au comptoir. Version viande ou 100 % végé.",
+    menu_meat:"Avec viande",menu_veg:"Végétarien",menu_cold:"froid",menu_drinks:"Boissons",
+    dr_gloriette:"Limonades Gloriette · 3,50–3,90 €",dr_bio:"Limonades bio · 4,50 €",
+    menu_note:"Tarifs indicatifs relevés en livraison — à confirmer en salle avec la maison. La composition exacte de chaque kumpir se choisit au comptoir.",
+    house_kick:"La maison",house_h:"D'un food truck à la Place du Théâtre",
+    house_p1:"Kumpir a commencé sur roues, puis s'est posé au cœur de la ville. La fresque pop, les parasols rouges, les grandes tables en bois : on s'installe, on discute, on choisit ses garnitures une à une. Le patron explique volontiers chaque option — et vous fait goûter avant de choisir.",
+    house_q:"« Turkish food meets Luxembourg. »",
+    house_mascot:"Sur le comptoir veillent les « Positive Potatoes » en crochet : « je ne suis qu'une petite patate, mais je crois en vous. » Toute la maison est là-dedans.",
+    info_kick:"En pratique",info_h:"Venir, commander, savourer",
+    info_hours:"Horaires",info_hours_flag:"⚠ Horaires indicatifs — à confirmer avec la maison.",
+    info_find:"Nous trouver",info_addr:"Place du Théâtre<br/>Luxembourg-Ville",info_maps:"Ouvrir dans Maps ↗",
+    info_addr_flag:"Code postal exact à confirmer.",
+    info_contact:"Contact",info_contact_p:"Commande à emporter, sur place ou en livraison.",info_phone_flag:"Numéro à confirmer.",
+    foot_tag:"Street food turc · Place du Théâtre · Luxembourg",
+    disc:"Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé et non définitif. Carte, tarifs, horaires, adresse et téléphone sont à confirmer avec la maison. Photographies de sources publiques, à remplacer par les visuels de la maison.",
+    days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],closed:"Fermé",
+    msgs:["Prêt quand vous l'êtes 🥔","Bon début !","Ça prend forme…","Généreux 👏","Un vrai festin !","Là, c'est un chef-d'œuvre 🎉"]
+  },
+  de:{
+    nav_concept:"Das Konzept",nav_menu:"Die Karte",nav_house:"Das Haus",nav_info:"Infos",
+    hero_kick:"Türkisches Street Food · Place du Théâtre",
+    hero_t1:"Die riesige",hero_t2:"glückliche Kartoffel",
+    hero_lead:"Eine riesige Ofenkartoffel, das Innere mit Butter und Käse cremig gestampft und dann am Tresen belegt — ganz nach Ihrem Geschmack. Istanbul trifft Luxemburg.",
+    hero_cta1:"Stellen Sie Ihre zusammen ↓",hero_cta2:"Zur Karte",hero_parasol:"hallo!",hero_tag:"🥔 von Anfang an ein Food Truck",
+    concept_kick:"Das Ritual",concept_h:"Eine Kartoffel. Ihre Toppings. Keine Regeln.",
+    concept_p:"Bei Kumpir stellen Sie selbst zusammen. Die Kartoffel wird aufgeschnitten, das Innere mit Butter und Käse gestampft, dann am bunten Tresen belegt. Probieren Sie es unten aus.",
+    build_h:"Stellen Sie Ihren Kumpir zusammen",build_p:"Tippen Sie die Toppings an, um sie hinzuzufügen. (In echt läuft das am Tresen.)",
+    build_pick:"Der Tresen",build_hint:"Frische Toppings, so viel Sie mögen — hier eine Auswahl.",
+    build_count:"Toppings",build_reset:"Nochmal",build_msg0:"Bereit, wenn Sie es sind 🥔",
+    build_note:"Spielerische Demo — die genauen Toppings wählen Sie vor Ort am Tresen.",
+    menu_kick:"Die Karte",menu_h:"Die Kumpirs des Hauses",
+    menu_p:"Elf Signature-Rezepte, jedes auf der großen Kartoffel aufgebaut — dann am Tresen belegt. Mit Fleisch oder 100 % vegetarisch.",
+    menu_meat:"Mit Fleisch",menu_veg:"Vegetarisch",menu_cold:"kalt",menu_drinks:"Getränke",
+    dr_gloriette:"Gloriette-Limonaden · 3,50–3,90 €",dr_bio:"Bio-Limonaden · 4,50 €",
+    menu_note:"Richtpreise aus dem Lieferdienst — im Lokal mit dem Haus zu bestätigen. Die genaue Zusammenstellung jedes Kumpir wählen Sie am Tresen.",
+    house_kick:"Das Haus",house_h:"Vom Food Truck zur Place du Théâtre",
+    house_p1:"Kumpir begann auf Rädern und ließ sich dann mitten in der Stadt nieder. Die Pop-Wandmalerei, die roten Sonnenschirme, die großen Holztische: Man setzt sich, plaudert und wählt seine Toppings eins nach dem anderen. Der Inhaber erklärt gern jede Option — und lässt Sie vorher probieren.",
+    house_q:"„Turkish food meets Luxembourg.“",
+    house_mascot:"Auf dem Tresen wachen die gehäkelten „Positive Potatoes“: „Ich bin nur eine kleine Kartoffel, aber ich glaube an dich.“ Das ganze Haus steckt darin.",
+    info_kick:"Praktisches",info_h:"Kommen, bestellen, genießen",
+    info_hours:"Öffnungszeiten",info_hours_flag:"⚠ Zeiten ohne Gewähr — mit dem Haus zu bestätigen.",
+    info_find:"So finden Sie uns",info_addr:"Place du Théâtre<br/>Luxemburg-Stadt",info_maps:"In Maps öffnen ↗",
+    info_addr_flag:"Genaue Postleitzahl zu bestätigen.",
+    info_contact:"Kontakt",info_contact_p:"Zum Mitnehmen, vor Ort oder als Lieferung.",info_phone_flag:"Nummer zu bestätigen.",
+    foot_tag:"Türkisches Street Food · Place du Théâtre · Luxemburg",
+    disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das (textliche) Logo ist ein Vorschlag und nicht endgültig. Karte, Preise, Öffnungszeiten, Adresse und Telefon sind mit dem Haus zu bestätigen. Fotos aus öffentlichen Quellen, durch eigene Bilder des Hauses zu ersetzen.",
+    days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],closed:"Geschlossen",
+    msgs:["Bereit, wenn Sie es sind 🥔","Guter Anfang!","Nimmt Form an…","Großzügig 👏","Ein echtes Festmahl!","Jetzt ein Meisterwerk 🎉"]
+  },
+  en:{
+    nav_concept:"The concept",nav_menu:"The menu",nav_house:"The place",nav_info:"Info",
+    hero_kick:"Turkish street food · Place du Théâtre",
+    hero_t1:"The giant",hero_t2:"happy potato",
+    hero_lead:"An enormous baked potato, its inside whipped with butter and cheese, then piled high at the counter — exactly how you like it. Istanbul meets Luxembourg.",
+    hero_cta1:"Build your own ↓",hero_cta2:"See the menu",hero_parasol:"hi there!",hero_tag:"🥔 a food truck from the start",
+    concept_kick:"The ritual",concept_h:"One potato. Your toppings. No rules.",
+    concept_p:"At Kumpir, you're the one who builds it. The potato is split, the inside mashed with butter and cheese, then piled with whatever you fancy from the colourful counter. Have a go below.",
+    build_h:"Build your kumpir",build_p:"Tap the toppings to add them. (For real, it happens at the counter.)",
+    build_pick:"The counter",build_hint:"Fresh toppings, as many as you like — here's a sample.",
+    build_count:"toppings",build_reset:"Start over",build_msg0:"Ready when you are 🥔",
+    build_note:"A playful demo — the exact toppings are chosen in person, at the counter.",
+    menu_kick:"The menu",menu_h:"The house kumpirs",
+    menu_p:"Eleven signature recipes, each built on the big potato — then loaded at the counter. With meat, or fully vegetarian.",
+    menu_meat:"With meat",menu_veg:"Vegetarian",menu_cold:"cold",menu_drinks:"Drinks",
+    dr_gloriette:"Gloriette lemonades · €3.50–3.90",dr_bio:"Organic lemonades · €4.50",
+    menu_note:"Prices shown are indicative, taken from delivery — to be confirmed in-house. Each kumpir's exact toppings are chosen at the counter.",
+    house_kick:"The place",house_h:"From a food truck to Place du Théâtre",
+    house_p1:"Kumpir began on wheels, then settled in the heart of the city. The pop mural, the red parasols, the big wooden tables: you sit down, you chat, you pick your toppings one by one. The owner is happy to explain every option — and lets you taste before you choose.",
+    house_q:"“Turkish food meets Luxembourg.”",
+    house_mascot:"On the counter sit the crocheted “Positive Potatoes”: “I may be a tiny potato, but I believe in you.” The whole place is in that line.",
+    info_kick:"Practical",info_h:"Come, order, tuck in",
+    info_hours:"Opening hours",info_hours_flag:"⚠ Hours indicative — to be confirmed with the venue.",
+    info_find:"Find us",info_addr:"Place du Théâtre<br/>Luxembourg City",info_maps:"Open in Maps ↗",
+    info_addr_flag:"Exact postcode to be confirmed.",
+    info_contact:"Contact",info_contact_p:"Takeaway, dine-in or delivery.",info_phone_flag:"Number to be confirmed.",
+    foot_tag:"Turkish street food · Place du Théâtre · Luxembourg",
+    disc:"Website preview produced by Webwerk for illustration, from public sources — an unofficial proposal, not affiliated with the venue's management. The (text) logo is proposed and not final. Menu, prices, hours, address and phone are to be confirmed with the venue. Photographs from public sources, to be replaced with the venue's own visuals.",
+    days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],closed:"Closed",
+    msgs:["Ready when you are 🥔","Good start!","Coming together…","Generous 👏","A proper feast!","Now that's a masterpiece 🎉"]
+  }
+};
+
+/* hours model (indicative — flagged in UI). index 0=Mon..6=Sun */
+var HOURS = ["11:30–18:00","11:30–18:00",null,"11:30–18:00","11:30–18:00","10:00–18:00",null];
+
+/* toppings: real counter items + representative colour */
+var TOPPINGS = [
+  {fr:"Bœuf mijoté",de:"Rindergulasch",en:"Beef stew",c:"#7a4326"},
+  {fr:"Poulet",de:"Hähnchen",en:"Chicken",c:"#c98a3c"},
+  {fr:"Maïs",de:"Mais",en:"Sweetcorn",c:"#f4c430"},
+  {fr:"Haricots rouges",de:"Kidneybohnen",en:"Kidney beans",c:"#8b2e2e"},
+  {fr:"Coleslaw",de:"Krautsalat",en:"Coleslaw",c:"#e7dfc4"},
+  {fr:"Olives",de:"Oliven",en:"Olives",c:"#3f4a2a"},
+  {fr:"Cornichons",de:"Gewürzgurken",en:"Pickles",c:"#6a8f3c"},
+  {fr:"Tomate",de:"Tomate",en:"Tomato",c:"#d5382c"},
+  {fr:"Concombre",de:"Gurke",en:"Cucumber",c:"#a8c36a"},
+  {fr:"Fromage",de:"Käse",en:"Cheese",c:"#f0d060"},
+  {fr:"Herbes",de:"Kräuter",en:"Herbs",c:"#4a7a3a"},
+  {fr:"Sauce maison",de:"Haussauce",en:"House sauce",c:"#efe3c0"}
+];
+
+var lang = "fr";
+function t(k){ return (I18N[lang] && I18N[lang][k] != null) ? I18N[lang][k] : (I18N.fr[k]||""); }
+
+function renderChips(){
+  var box = document.getElementById("chips"); box.innerHTML = "";
+  TOPPINGS.forEach(function(tp){
+    var b = document.createElement("button");
+    b.className = "chip"; b.type = "button";
+    b.innerHTML = '<span class="sw" style="background:'+tp.c+'"></span>'+tp[lang];
+    b.addEventListener("click", function(){ addBlob(tp.c); });
+    box.appendChild(b);
+  });
+}
+var pile = 0;
+function addBlob(color){
+  var fill = document.getElementById("fill");
+  var s = document.createElement("span");
+  s.className = "blob";
+  var x = 6 + Math.random()*140, y = 4 + Math.random()*66;
+  s.style.left = x+"px"; s.style.top = y+"px"; s.style.background = color;
+  var sc = .8 + Math.random()*.7; s.style.width = (20*sc)+"px"; s.style.height = (17*sc)+"px";
+  fill.appendChild(s);
+  pile++;
+  document.querySelector("#count b").textContent = pile;
+  var m = I18N[lang].msgs, idx = Math.min(Math.floor(pile/3), m.length-1);
+  document.getElementById("buildmsg").textContent = m[idx];
+  if(fill.children.length > 60) fill.removeChild(fill.firstChild);
+}
+document.getElementById("reset").addEventListener("click", function(){
+  document.getElementById("fill").innerHTML = ""; pile = 0;
+  document.querySelector("#count b").textContent = "0";
+  document.getElementById("buildmsg").textContent = t("build_msg0");
+});
+
+function renderHours(){
+  var box = document.getElementById("hours"); box.innerHTML = "";
+  var today = (new Date().getDay()+6)%7; // JS 0=Sun -> our 0=Mon
+  I18N[lang].days.forEach(function(d,i){
+    var row = document.createElement("div");
+    row.className = "hrow" + (i===today ? " today":"");
+    var val = HOURS[i] ? HOURS[i] : '<span class="cl">'+t("closed")+'</span>';
+    row.innerHTML = "<span>"+d+"</span><span>"+val+"</span>";
+    box.appendChild(row);
+  });
+}
+
+function applyLang(l){
+  lang = (I18N[l] ? l : "fr");
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var k = el.getAttribute("data-i18n"), v = t(k);
+    if(v.indexOf("<") !== -1) el.innerHTML = v; else el.textContent = v;
+  });
+  document.querySelectorAll(".langs button").forEach(function(b){
+    b.classList.toggle("on", b.getAttribute("data-lang")===lang);
+  });
+  renderChips(); renderHours();
+  var m = document.getElementById("buildmsg");
+  if(pile===0) m.textContent = t("build_msg0");
+}
+
+document.querySelectorAll(".langs button").forEach(function(b){
+  b.addEventListener("click", function(){ applyLang(b.getAttribute("data-lang")); });
+});
+
+/* nav toggle (mobile) */
+var nt = document.getElementById("navtoggle"), nav = document.getElementById("nav");
+nt.addEventListener("click", function(){
+  var open = nav.classList.toggle("open");
+  nt.setAttribute("aria-expanded", open ? "true":"false");
+});
+nav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ nav.classList.remove("open"); nt.setAttribute("aria-expanded","false"); }); });
+
+/* reveal on scroll */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+}, {threshold:.12});
+document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+applyLang("fr");
+</script>
+</body>
+</html>
