@@ -16,17 +16,9 @@
 <meta name="theme-color" content="#241f1a" />
 <style>
 /* ===================== FONTS ===================== */
-@font-face{font-family:'Fraunces';font-weight:600;font-style:normal;font-display:swap;src:url('assets/fonts/fraunces-600-latin.woff2') format('woff2');
+@font-face{font-family:'Bricolage Grotesque';font-weight:600 800;font-style:normal;font-display:swap;src:url('assets/fonts/bricolage-latin.woff2') format('woff2');
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-@font-face{font-family:'Fraunces';font-weight:600;font-style:normal;font-display:swap;src:url('assets/fonts/fraunces-600-latin-ext.woff2') format('woff2');
-  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
-@font-face{font-family:'Fraunces';font-weight:800;font-style:normal;font-display:swap;src:url('assets/fonts/fraunces-800-latin.woff2') format('woff2');
-  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-@font-face{font-family:'Fraunces';font-weight:800;font-style:normal;font-display:swap;src:url('assets/fonts/fraunces-800-latin-ext.woff2') format('woff2');
-  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
-@font-face{font-family:'Fraunces';font-weight:500;font-style:italic;font-display:swap;src:url('assets/fonts/fraunces-500i-latin.woff2') format('woff2');
-  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-@font-face{font-family:'Fraunces';font-weight:500;font-style:italic;font-display:swap;src:url('assets/fonts/fraunces-500i-latin-ext.woff2') format('woff2');
+@font-face{font-family:'Bricolage Grotesque';font-weight:600 800;font-style:normal;font-display:swap;src:url('assets/fonts/bricolage-latin-ext.woff2') format('woff2');
   unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 @font-face{font-family:'Hanken';font-weight:400;font-style:normal;font-display:swap;src:url('assets/fonts/hanken-400-latin.woff2') format('woff2');
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
@@ -46,7 +38,7 @@
   --paper:#f6efe2; --paper2:#efe3cf; --ink:#241f1a; --ink2:#5b5145; --line:rgba(36,31,26,.14);
   --brass:#c1993f; --brass2:#d9bd7a; --olive:#7d7e39; --olive2:#9caa5a; --red:#c0392b; --red2:#d24b3b;
   --blush:#e4c3bb; --walnut:#2b2019; --walnut2:#38291f; --stone:#b8ab97;
-  --maxw:1180px; --disp:'Fraunces',Georgia,serif; --body:'Hanken',system-ui,sans-serif;
+  --maxw:1180px; --disp:'Bricolage Grotesque',system-ui,sans-serif; --body:'Hanken',system-ui,sans-serif;
   --shadow:0 30px 66px -34px rgba(43,32,25,.55);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -58,7 +50,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.03;color:var(--ink);letter-spacing:-.01em}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 .eyebrow{font-family:var(--body);font-weight:700;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
-.italic{font-family:var(--disp);font-style:italic;font-weight:500}
+.italic{font-family:var(--disp);font-style:normal;font-weight:600}
 :focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:3px}
 
 /* ===================== HEADER ===================== */
@@ -87,7 +79,7 @@ nav.main a:hover::after{right:0}
 .hero .kick{display:inline-flex;align-items:center;gap:12px;margin-bottom:16px}
 .hero .kick .eyebrow{color:var(--brass2)}
 .hero h1{font-size:clamp(58px,13vw,150px);color:var(--paper);line-height:.9;letter-spacing:-.02em}
-.hero .tag{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(19px,3vw,29px);color:var(--brass2);margin:14px 0 0}
+.hero .tag{font-family:var(--disp);font-style:normal;font-weight:600;letter-spacing:-.01em;font-size:clamp(19px,3vw,29px);color:var(--brass2);margin:14px 0 0}
 .hero .sub{max-width:52ch;margin:18px 0 0;color:rgba(246,239,226,.86);font-size:1.05rem}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 0}
 .btn{font-family:var(--body);font-weight:700;font-size:.95rem;border:0;border-radius:6px;padding:14px 24px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,background .2s ease}
@@ -427,7 +419,7 @@ var I18N={
     ev2_k:"Rires",ev2_h:"Comedy club",ev2_p:"Un rendez-vous mensuel de stand-up, en petit comité.",
     ev3_k:"Scène ouverte",ev3_h:"Open mic & DJ",ev3_p:"La scène est à qui la prend — et la nuit s'étire.",
     ev_note:"Programmation indicative — dates et affiches à confirmer avec la maison (suivez @konrad.cafe).",
-    room_kick:"Le décor",room_h:"Entrez, installez-vous",room_cap:"La salle du Konrad, Ville-Haute",g_arch:"La grande salle",g_sign:"L'enseigne",g_cellar:"La cave",g_facade:"La terrasse",g_cozy:"Le coin lecture",
+    room_kick:"Le décor",room_h:"Entrez, installez-vous",g_arch:"La grande salle",g_sign:"L'enseigne",g_cellar:"La cave",g_facade:"La terrasse",g_cozy:"Le coin lecture",
     room_note:"Photographies de sources publiques — à remplacer par les visuels de la maison.",
     info_kick:"En pratique",info_h:"Passer nous voir",info_hours:"Horaires",info_hours_flag:"⚠ Horaires indicatifs — à confirmer avec la maison.",
     info_find:"Nous trouver",info_addr:"7, rue du Nord<br/>L-2229 Luxembourg (Ville-Haute)",info_maps:"Ouvrir dans Maps ↗",
@@ -459,7 +451,7 @@ var I18N={
     ev2_k:"Lachen",ev2_h:"Comedy-Club",ev2_p:"Ein monatlicher Stand-up-Termin, im kleinen Kreis.",
     ev3_k:"Offene Bühne",ev3_h:"Open Mic & DJ",ev3_p:"Die Bühne gehört, wer sie nimmt — und die Nacht wird lang.",
     ev_note:"Programm ohne Gewähr — Daten und Plakate mit dem Haus zu bestätigen (@konrad.cafe).",
-    room_kick:"Das Interieur",room_h:"Kommen Sie herein, setzen Sie sich",room_cap:"Der Saal des Konrad, Oberstadt",g_arch:"Der große Saal",g_sign:"Das Leuchtschild",g_cellar:"Der Keller",g_facade:"Die Terrasse",g_cozy:"Die Leseecke",
+    room_kick:"Das Interieur",room_h:"Kommen Sie herein, setzen Sie sich",g_arch:"Der große Saal",g_sign:"Das Leuchtschild",g_cellar:"Der Keller",g_facade:"Die Terrasse",g_cozy:"Die Leseecke",
     room_note:"Fotos aus öffentlichen Quellen — durch eigene Bilder des Hauses zu ersetzen.",
     info_kick:"Praktisches",info_h:"Kommen Sie vorbei",info_hours:"Öffnungszeiten",info_hours_flag:"⚠ Zeiten ohne Gewähr — mit dem Haus zu bestätigen.",
     info_find:"So finden Sie uns",info_addr:"7, rue du Nord<br/>L-2229 Luxemburg (Oberstadt)",info_maps:"In Maps öffnen ↗",
@@ -490,8 +482,8 @@ var I18N={
     ev1_k:"Music",ev1_h:"Live concerts",ev1_p:"Intimate sets in the cellar — jazz, folk, discoveries.",
     ev2_k:"Laughter",ev2_h:"Comedy club",ev2_p:"A monthly stand-up night, up close.",
     ev3_k:"Open stage",ev3_h:"Open mic & DJ",ev3_p:"The stage is anyone's to take — and the night runs long.",
-    ev_note:"Programme indicative — dates and line-ups to be confirmed with the venue (follow @konrad.cafe).",
-    room_kick:"The room",room_h:"Come in, sit down",room_cap:"Konrad's room, Old Town",g_arch:"The main room",g_sign:"The sign",g_cellar:"The cellar",g_facade:"The terrace",g_cozy:"The reading nook",
+    ev_note:"Indicative programme — dates and line-ups to be confirmed with the venue (follow @konrad.cafe).",
+    room_kick:"The room",room_h:"Come in, sit down",g_arch:"The main room",g_sign:"The sign",g_cellar:"The cellar",g_facade:"The terrace",g_cozy:"The reading nook",
     room_note:"Public-source photographs — to be replaced with the venue's own visuals.",
     info_kick:"Practical",info_h:"Come and see us",info_hours:"Opening hours",info_hours_flag:"⚠ Hours indicative — to be confirmed with the venue.",
     info_find:"Find us",info_addr:"7, rue du Nord<br/>L-2229 Luxembourg (Old Town)",info_maps:"Open in Maps ↗",
