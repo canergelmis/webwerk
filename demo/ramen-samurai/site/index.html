@@ -8,6 +8,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍜</text></svg>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex,nofollow" />
 <title>Ramen Samurai · Luxembourg</title>
@@ -85,6 +86,9 @@ nav.main a:hover::after{right:0}
 .hero .tag{font-family:var(--disp);font-weight:700;font-size:clamp(18px,2.4vw,24px);color:var(--gold2);margin:18px 0 0;font-style:italic}
 .hero .lead{max-width:46ch;margin:20px 0 30px;color:var(--cream-dim)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px}
+.hero .pstamp{margin:28px 0 0;width:116px;height:116px;transform:rotate(-7deg);opacity:.6}
+.hero .pstamp svg{width:100%;height:100%;display:block}
+@media(max-width:900px){.hero .pstamp{margin:22px auto 0}}
 .btn{font-family:var(--body);font-weight:700;font-size:.98rem;border:0;border-radius:6px;padding:14px 26px;cursor:pointer;
   display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
 .btn.p{background:var(--red);color:#fff;box-shadow:0 14px 30px -14px var(--red)}
@@ -255,6 +259,14 @@ footer a.wk{color:var(--gold);font-weight:700}
           <a class="btn p" href="#bols" data-i18n="hero_cta1">Découvrir les bols</a>
           <a class="btn g" href="#infos" data-i18n="hero_cta2">Nous trouver</a>
         </div>
+        <div class="pstamp" aria-hidden="true"><svg viewBox="0 0 120 120">
+          <defs><path id="rp" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+          <circle cx="60" cy="60" r="54" fill="none" stroke="#e0574c" stroke-width="2.5"/>
+          <circle cx="60" cy="60" r="45" fill="none" stroke="#e0574c" stroke-width="1"/>
+          <text fill="#e0574c" font-family="'Zen Kaku',sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.4"><textPath href="#rp" startOffset="1%">TOKYO → LUXEMBOURG · RAMEN SAMURAI · </textPath></text>
+          <text x="60" y="52" text-anchor="middle" fill="#e0574c" font-family="'Zen Kaku',sans-serif" font-size="7" letter-spacing="3">EST.</text>
+          <text x="60" y="76" text-anchor="middle" fill="#e0574c" font-family="'Shippori',serif" font-weight="800" font-size="24">2026</text>
+        </svg></div>
       </div>
       <div class="bowlwrap">
         <div class="ring"></div>
