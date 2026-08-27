@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍜</text></svg>" />
+<title>Thanh's — Fusion Lunch · Boulevard Royal & Kirchberg</title>
+<meta name="description" content="Un midi à Saïgon, boulevard Royal — le meilleur Bò Bún du Luxembourg, cuisine vietnamienne fraîche. Aperçu de site composé par Webwerk." />
+<style>
+/* ===================== FONTS (self-hosted, 0 external) ===================== */
+@font-face{font-family:'Newsreader';font-weight:500 700;font-style:normal;font-display:swap;src:url('assets/fonts/newsreader-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Newsreader';font-weight:500 700;font-style:normal;font-display:swap;src:url('assets/fonts/newsreader-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Newsreader';font-weight:500 700;font-style:normal;font-display:swap;src:url('assets/fonts/newsreader-vietnamese.woff2') format('woff2');
+  unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}
+@font-face{font-family:'Figtree';font-weight:400 700;font-style:normal;font-display:swap;src:url('assets/fonts/figtree-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Figtree';font-weight:400 700;font-style:normal;font-display:swap;src:url('assets/fonts/figtree-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+/* Vietnamese glyphs for body text (Figtree has no vietnamese subset) — resolve from Newsreader's */
+@font-face{font-family:'Figtree';font-weight:400 700;font-style:normal;font-display:swap;src:url('assets/fonts/newsreader-vietnamese.woff2') format('woff2');
+  unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}
+
+/* ===================== TOKENS ===================== */
+:root{
+  --herb:#3f7d4e; --herb-deep:#1f4a2f; --herb-ink:#12331e; --herb-soft:#8fb890; --logo-green:#8a9a22; --loaf:#d2a15f;
+  --amber:#c8842f; --amber-lite:#e0a54a; --chili:#c0392b; --lime:#9bbf3a;
+  --rice:#f8f3e8; --rice2:#efe5d1; --celadon:#e0eadb; --ink:#22201a; --ink2:#60584a; --muted:#8c8271;
+  --maxw:1180px; --disp:'Newsreader',Georgia,serif; --body:'Figtree',system-ui,sans-serif;
+  --shadow:0 18px 44px rgba(20,20,10,.15); --shadow-s:0 8px 20px rgba(20,20,10,.1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--rice);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,44px)}
+h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;color:var(--ink);letter-spacing:-.01em}
+img{max-width:100%;display:block}
+a{color:inherit}
+.eyebrow{font-family:var(--body);font-weight:700;font-size:.73rem;letter-spacing:.2em;text-transform:uppercase;color:var(--herb)}
+.blk{padding:clamp(54px,8vw,90px) 0}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ===================== HEADER ===================== */
+header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdrop-filter:blur(9px);border-bottom:1px solid var(--rice2)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand .mk{width:32px;height:32px;flex:0 0 auto}
+.brand .bt{font-family:var(--disp);font-weight:700;font-size:1.32rem;color:var(--logo-green);letter-spacing:-.01em;line-height:1}
+.brand .bt small{display:block;font-family:var(--body);font-weight:700;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-top:2px}
+.navright{display:flex;align-items:center;gap:18px}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{font-weight:600;font-size:.92rem;text-decoration:none;color:var(--ink2)}
+.menu a:hover{color:var(--herb)}
+.langs{display:flex;gap:2px;background:var(--rice2);border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--ink2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--herb);color:#fff}
+.burger{display:none;background:transparent;border:0;font-size:1.42rem;line-height:1;color:var(--herb-ink);cursor:pointer;padding:4px 6px}
+
+/* ===================== HERO ===================== */
+.hero{position:relative;min-height:clamp(580px,88vh,800px);display:flex;align-items:flex-end;color:#fff;background:#1c2418;overflow:hidden}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,28,18,.30) 0%,rgba(18,28,18,.30) 42%,rgba(18,28,18,.85) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,6vw,66px);padding-top:78px}
+.hero .kick{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.hero .kick .eyebrow{color:#e9e0c9}
+.hero .kick .dot{width:6px;height:6px;border-radius:50%;background:var(--amber-lite)}
+.hero h1{color:#fff;font-size:clamp(52px,10vw,120px);line-height:.9;font-weight:600;text-shadow:0 2px 30px rgba(0,0,0,.28)}
+.hero h1 .ap{color:var(--amber-lite)}
+.hero .best{font-family:var(--disp);font-weight:500;font-size:clamp(20px,3.2vw,33px);color:#f3ead4;margin:16px 0 0;line-height:1.2}
+.hero .best .bobun{color:var(--amber-lite);font-weight:600;white-space:nowrap}
+.hero .best .bobun span{display:inline-block;opacity:0;transform:translateY(-.55em) rotate(-8deg);transition:opacity .42s ease,transform .5s cubic-bezier(.2,.8,.3,1)}
+.hero .best .bobun.in span{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.hero .best .bobun span{opacity:1;transform:none;transition:none}}
+.hero .tag{font-size:1.02rem;color:#e7ddc9;margin:14px 0 0;max-width:50ch;line-height:1.5}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{font-family:var(--body);font-weight:700;font-size:.95rem;border:0;border-radius:9px;padding:14px 24px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;text-decoration:none;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn.p{background:var(--amber);color:#231703}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(200,132,47,.34)}
+.btn.g{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.42)}
+.btn.g:hover{background:rgba(255,255,255,.2)}
+
+/* ===================== FACTS ===================== */
+.facts{background:var(--herb-ink);color:#e7e0cd}
+.facts .wrap{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:center;padding:16px 0;font-size:.9rem;text-align:center}
+.facts .f{display:inline-flex;align-items:center;gap:8px;font-weight:600}
+.facts .f b{color:var(--amber-lite);font-family:var(--disp);font-weight:600}
+.facts .sep{color:rgba(231,224,205,.32)}
+
+/* ===================== BO BUN SPOTLIGHT ===================== */
+.spot{background:linear-gradient(180deg,var(--celadon) 0%,#d6e3cf 100%)}
+.spot .wrap{display:grid;grid-template-columns:.98fr 1.02fr;gap:clamp(28px,4.5vw,64px);align-items:center}
+.spot .fig{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1}
+.spot .fig img{width:100%;height:100%;object-fit:cover}
+.spot .badge{display:inline-flex;align-items:center;gap:8px;background:var(--herb);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:6px 13px;border-radius:999px;margin-bottom:16px}
+.spot h2{font-size:clamp(32px,4.8vw,56px)}
+.spot h2 .vn{color:var(--herb)}
+.spot .lead{font-family:var(--disp);font-weight:500;font-size:clamp(18px,2.3vw,24px);color:var(--amber);margin:12px 0 16px}
+.spot p{color:var(--ink2);max-width:52ch}
+.spot .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.spot .chips span{background:rgba(255,255,255,.6);border:1px solid rgba(63,125,78,.2);color:var(--herb-deep);font-weight:600;font-size:.82rem;padding:6px 13px;border-radius:999px}
+
+/* ===================== MAISON ===================== */
+.maison .wrap{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(28px,4.5vw,60px);align-items:center}
+.maison .fig{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5}
+.maison .fig img{width:100%;height:100%;object-fit:cover}
+.maison h2{font-size:clamp(30px,4.2vw,50px);margin-top:8px}
+.maison .lead{font-family:var(--disp);font-weight:500;color:var(--amber);font-size:1.32rem;display:block;margin:10px 0 14px}
+.maison p{color:var(--ink2);margin-bottom:14px;max-width:54ch}
+.maison .quote{border-left:3px solid var(--herb);padding-left:16px;font-family:var(--disp);font-style:italic;color:var(--herb-deep);font-size:1.12rem;margin:18px 0}
+.details{display:grid;gap:15px;margin-top:24px}
+.detail{display:flex;gap:14px;align-items:flex-start}
+.detail .ic{width:42px;height:42px;flex:0 0 auto;border-radius:12px;background:var(--celadon);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.detail h3{font-family:var(--disp);font-weight:600;font-size:1.1rem;margin-bottom:2px}
+.detail p{font-size:.94rem;margin:0}
+
+/* ===================== CARTE ===================== */
+.carte{background:var(--herb-ink);color:#efe9d8}
+.carte .sec-head{text-align:center;max-width:60ch;margin:0 auto clamp(28px,5vw,48px)}
+.carte .sec-head .eyebrow{color:var(--amber-lite)}
+.carte .sec-head h2{color:#fff;font-size:clamp(30px,4.4vw,52px);margin:10px 0 12px}
+.carte .sec-head p{color:#cfc7b2}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,50px)}
+.cat h3{font-family:var(--disp);font-weight:600;font-size:1.28rem;color:var(--amber-lite);padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid rgba(239,233,216,.15)}
+.mrow{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dotted rgba(239,233,216,.13);align-items:baseline}
+.mrow:last-child{border-bottom:0}
+.mrow .l .n{font-family:var(--disp);font-weight:600;font-size:1.08rem;color:#fff}
+.mrow .l .d{font-size:.86rem;color:#c6bda6;margin-top:1px}
+.mrow .pr{font-family:var(--disp);font-weight:600;color:var(--amber-lite);white-space:nowrap;font-size:1.02rem}
+.mrow .pr small{color:#b7ad95;font-weight:400;font-size:.72rem}
+.menu-note{text-align:center;color:#b3aa93;font-size:.82rem;margin-top:22px}
+.food-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(28px,5vw,44px)}
+.food-strip figure{margin:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-s);aspect-ratio:1}
+.food-strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.food-strip figure:hover img{transform:scale(1.06)}
+
+/* ===================== GALLERY ===================== */
+.gallery .sec-head{text-align:center;margin-bottom:clamp(24px,4vw,38px)}
+.gallery h2{font-size:clamp(28px,4vw,46px)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:186px;gap:12px}
+.gal figure{position:relative;margin:0;border-radius:13px;overflow:hidden;box-shadow:var(--shadow-s)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 12px 8px;color:#fff;font-weight:600;font-size:.78rem;background:linear-gradient(0deg,rgba(15,25,15,.82),transparent)}
+
+/* ===================== ADRESSES ===================== */
+.adr .sec-head{text-align:center;margin-bottom:clamp(26px,4vw,42px)}
+.adr h2{font-size:clamp(28px,4vw,46px)}
+.adr .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px)}
+.loc{background:var(--celadon);border-radius:16px;padding:24px 26px}
+.loc .tag{font-family:var(--disp);font-weight:600;font-size:1.35rem;color:var(--herb-deep)}
+.loc .tag .pin{color:var(--chili)}
+.loc .a{font-size:.98rem;color:var(--ink2);margin-top:6px}
+.loc .map{margin-top:14px}
+.hours{list-style:none;margin-top:16px;border-top:1px solid rgba(63,125,78,.2);padding-top:12px}
+.hours li{display:flex;justify-content:space-between;padding:6px 0;font-size:.92rem}
+.hours li.today{color:var(--herb-deep);font-weight:700}
+.hours li.today .day::before{content:"▸ ";color:var(--chili)}
+.hours .cl{color:var(--muted)}
+.adr .note{text-align:center;color:var(--muted);font-size:.84rem;margin-top:20px}
+.socials{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.socials a{background:var(--herb-ink);color:#fff;font-weight:700;font-size:.82rem;padding:8px 15px;border-radius:999px;text-decoration:none}
+.socials a:hover{background:var(--herb)}
+
+/* ===================== FOOTER ===================== */
+footer{background:var(--ink);color:#d6cdb9;padding:clamp(40px,6vw,58px) 0 30px}
+footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:flex-start}
+footer .bn{font-family:var(--disp);font-weight:700;color:var(--rice);font-size:1.5rem}
+footer .bn small{display:block;font-family:var(--body);font-weight:700;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber-lite);margin-top:3px}
+footer .wk{font-size:.82rem}
+footer .wk a{color:var(--amber-lite);text-decoration:none;font-weight:700}
+footer .wk .made{color:#8f8571}
+footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margin-top:22px;border-top:1px solid rgba(214,205,185,.16);padding-top:18px}
+
+@media(max-width:860px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--rice);border-bottom:1px solid var(--rice2);box-shadow:0 14px 26px rgba(20,20,10,.12);padding:6px 0}
+  .menu.open{display:flex}
+  .menu a{padding:13px clamp(20px,5vw,44px);width:100%;font-size:1rem}
+  .spot .wrap,.maison .wrap,.cats,.adr .grid{grid-template-columns:1fr}
+  .maison .fig{order:-1;aspect-ratio:16/10}
+  .spot .fig{aspect-ratio:16/10}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:158px}.gal .h2{grid-row:span 1}
+  .food-strip{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){.gal{grid-template-columns:1fr}.gal .w2{grid-column:auto}}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Thanh's — Fusion Lunch">
+      <svg class="mk" viewBox="0 0 52 40" aria-hidden="true">
+        <ellipse cx="26" cy="22" rx="23" ry="10" fill="#d2a15f"/>
+        <path d="M13 19 l4.5 8 M20 17.5 l4.5 9 M27 17 l4.5 9 M34 17.5 l4.5 9 M40.5 19 l3.5 7" fill="none" stroke="#a9803f" stroke-width="1.7" stroke-linecap="round" opacity=".75"/>
+      </svg>
+      <span class="bt">Thanh's<small data-i18n="brand_sub">Fusion Lunch</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#bobun" data-i18n="nav_bobun">Le Bò Bún</a>
+        <a href="#carte" data-i18n="nav_carte">La carte</a>
+        <a href="#adresses" data-i18n="nav_adr">Nos adresses</a>
+      </nav>
+      <span class="langs">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </span>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="bg"><img src="assets/hero.jpg" alt="Un bol de Bò Bún coloré chez Thanh's — vermicelles, nems, herbes fraîches" /></div>
+  <div class="wrap">
+    <div class="kick"><span class="dot"></span><span class="eyebrow" data-i18n="hero_kick">Cuisine vietnamienne · Boulevard Royal &amp; Kirchberg</span></div>
+    <h1>Thanh<span class="ap">'s</span></h1>
+    <p class="best"><span data-i18n="hero_best">Le meilleur</span> <span class="bobun" id="bobun" aria-label="Bò Bún"></span> <span data-i18n="hero_best2">du Luxembourg.</span></p>
+    <p class="tag" data-i18n="hero_tag">Saveurs fraîches et exotiques du Vietnam — la cantine du midi, à deux pas du bureau.</p>
+    <div class="cta">
+      <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+      <a class="btn g" href="#adresses" data-i18n="hero_cta2">Nos deux adresses ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- facts -->
+<div class="facts">
+  <div class="wrap">
+    <span class="f" data-i18n="fact_1"><b>Vietnamien</b> · frais, fait minute</span>
+    <span class="sep">·</span>
+    <span class="f" data-i18n="fact_2">Le <b>midi</b> en semaine</span>
+    <span class="sep">·</span>
+    <span class="f" data-i18n="fact_3"><b>Deux adresses</b> · Royal &amp; Infinity</span>
+  </div>
+</div>
+
+<!-- ===================== BO BUN SPOTLIGHT ===================== -->
+<section class="spot blk" id="bobun-sec">
+  <div class="wrap">
+    <figure class="fig reveal"><img src="assets/bobun.jpg" alt="Bò Bún au bœuf — vermicelles de riz, nems, herbes, cacahuètes" loading="lazy" /></figure>
+    <div class="reveal">
+      <span class="badge" data-i18n="bb_badge">◆ La spécialité de la maison</span>
+      <h2><span class="vn">Bò Bún</span></h2>
+      <p class="lead" data-i18n="bb_lead">« Le meilleur du Luxembourg », d'après Paperjam.</p>
+      <p data-i18n="bb_p">Un grand bol de vermicelles de riz tièdes, du bœuf mariné saisi, des nems croustillants coupés dessus, une pluie d'herbes fraîches et de cacahuètes, et le nuoc-cham qui lie le tout. Frais, généreux, fait minute — et décliné au poulet, aux crevettes ou en version végé.</p>
+      <div class="chips">
+        <span data-i18n="bb_c1">Vermicelles de riz</span><span data-i18n="bb_c2">Bœuf mariné</span><span data-i18n="bb_c3">Nems croustillants</span><span data-i18n="bb_c4">Herbes fraîches</span><span data-i18n="bb_c5">Nuoc-cham</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MAISON ===================== -->
+<section class="maison blk" id="maison">
+  <div class="wrap">
+    <figure class="fig reveal"><img src="assets/interior.jpg" alt="La devanture de Thanh's — Fusion Lunch, boulevard Royal" loading="lazy" /></figure>
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="house_kick">La maison</span>
+      <h2 data-i18n="house_h">Un midi à Saïgon, boulevard Royal</h2>
+      <span class="lead" data-i18n="house_lead">On vient pour le Bò Bún, on revient pour le bouillon.</span>
+      <p data-i18n="house_p1">Thanh's, c'est la cantine vietnamienne du déjeuner : on entre, on commande au comptoir, ça arrive frais et fumant, et on repart calé pour l'après-midi. Herbes coupées le jour même, bouillons longs, portions honnêtes, options végé partout.</p>
+      <p class="quote" data-i18n="house_quote">« Saveurs fraîches et exotiques du Vietnam et d'ailleurs. »</p>
+      <p data-i18n="house_p2">Deux adresses au cœur de la ville — boulevard Royal, face à l'Hôtel Le Royal, et à l'Infinity, au Kirchberg. Service le midi, en semaine.</p>
+      <div class="details">
+        <div class="detail"><span class="ic">🌿</span><div><h3 data-i18n="d1_h">Frais, fait minute</h3><p data-i18n="d1_p">Herbes, vermicelles, bouillons — préparés le jour, pas la veille.</p></div></div>
+        <div class="detail"><span class="ic">🍜</span><div><h3 data-i18n="d2_h">Phở &amp; soupes</h3><p data-i18n="d2_p">Le bouillon Thanh's et le phở, en portion normale ou grande.</p></div></div>
+        <div class="detail"><span class="ic">🥢</span><div><h3 data-i18n="d3_h">Pour tout le monde</h3><p data-i18n="d3_p">Bœuf, poulet, crevettes ou végé — chaque plat se décline.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CARTE ===================== -->
+<section class="carte blk" id="carte">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="menu_kick">La carte</span>
+      <h2 data-i18n="menu_h">Frais, simple, vietnamien</h2>
+      <p data-i18n="menu_p">Une carte courte qui va à l'essentiel — chaque plat se décline bœuf, poulet, crevettes ou végé.</p>
+    </div>
+    <div class="cats">
+      <div class="cat reveal">
+        <h3 data-i18n="cat_start">◆ Pour commencer</h3>
+        <div class="mrow"><div class="l"><div class="n">Nem <span style="font-weight:400;font-size:.82rem;color:#c6bda6">(2 pcs)</span></div><div class="d" data-i18n="m_nem_d">Porc, poulet ou végé — croustillant.</div></div><div class="pr">3,60&nbsp;€</div></div>
+        <div class="mrow"><div class="l"><div class="n">Rouleau de printemps</div><div class="d" data-i18n="m_roll_d">Frais — bœuf, poulet, scampis ou végé.</div></div><div class="pr">4,10&nbsp;€ <small data-i18n="m_pc">/ pc</small></div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_salad_n">Salade vietnamienne</div><div class="d" data-i18n="m_salad_d">Bœuf, poulet, scampis ou tofu.</div></div><div class="pr">10,90&nbsp;€</div></div>
+      </div>
+      <div class="cat reveal">
+        <h3 data-i18n="cat_bobun">◆ Bò Bún</h3>
+        <div class="mrow"><div class="l"><div class="n">Bò Bún <span style="font-weight:400;font-size:.82rem;color:#c6bda6">(2 nems)</span></div><div class="d" data-i18n="m_bb_d">Vermicelles, herbes, cacahuètes, nuoc-cham.</div></div><div class="pr">14,90&nbsp;€</div></div>
+        <div class="mrow"><div class="l"><div class="n">Bò Bún Gourmand <span style="font-weight:400;font-size:.82rem;color:#c6bda6">(4 nems)</span></div><div class="d" data-i18n="m_bbg_d">La version copieuse.</div></div><div class="pr">17,90&nbsp;€</div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_sand_n">Sandwich vietnamien</div><div class="d" data-i18n="m_sand_d">Bánh mì — poulet/porc ou bœuf/tofu.</div></div><div class="pr">6,50–7,50&nbsp;€</div></div>
+      </div>
+      <div class="cat reveal">
+        <h3 data-i18n="cat_soup">◆ Soupes &amp; Phở</h3>
+        <div class="mrow"><div class="l"><div class="n">Soupe Thanh's</div><div class="d" data-i18n="m_soup_d">Poulet, scampis ou végé.</div></div><div class="pr">15,90 / 17,90&nbsp;€ <small data-i18n="m_ng">N / G</small></div></div>
+        <div class="mrow"><div class="l"><div class="n">Phở</div><div class="d" data-i18n="m_pho_d">Bouillon long, herbes, citron vert.</div></div><div class="pr">14,90 / 17,90&nbsp;€ <small data-i18n="m_ng2">N / G</small></div></div>
+      </div>
+      <div class="cat reveal">
+        <h3 data-i18n="cat_more">◆ Bon à savoir</h3>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_veg_n">Version végé</div><div class="d" data-i18n="m_veg_d">Sur presque tout — tofu, légumes.</div></div><div class="pr">✓</div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_take_n">À emporter</div><div class="d" data-i18n="m_take_d">Sur place ou à emporter, le midi.</div></div><div class="pr">✓</div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_lunch_n">Le midi, en semaine</div><div class="d" data-i18n="m_lunch_d">Service 7h30–15h30, du lundi au vendredi.</div></div><div class="pr">🕛</div></div>
+      </div>
+    </div>
+    <p class="menu-note" data-i18n="menu_note">Carte et prix relevés en salle — susceptibles d'évoluer, à confirmer avec la maison.</p>
+    <div class="food-strip reveal">
+      <figure><img src="assets/pho.jpg" alt="Phở — bouillon de bœuf, nouilles de riz, herbes" loading="lazy" /></figure>
+      <figure><img src="assets/freshrolls.jpg" alt="Rouleaux de printemps frais et sauce" loading="lazy" /></figure>
+      <figure><img src="assets/banhmi.jpg" alt="Bánh mì — sandwich vietnamien" loading="lazy" /></figure>
+      <figure><img src="assets/nems.jpg" alt="Nems croustillants" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="gallery blk">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="gal_kick">En images</span>
+      <h2 data-i18n="gal_h">Frais dans le bol</h2>
+    </div>
+    <div class="gal reveal">
+      <figure class="w2 h2"><img src="assets/grill.jpg" alt="Bœuf grillé et vermicelles, herbes fraîches" loading="lazy" /><figcaption data-i18n="g_grill">Bœuf grillé &amp; vermicelles</figcaption></figure>
+      <figure><img src="assets/salad.jpg" alt="Salade vietnamienne aux crevettes" loading="lazy" /><figcaption data-i18n="g_salad">Salade aux crevettes</figcaption></figure>
+      <figure><img src="assets/terrace.jpg" alt="En terrasse chez Thanh's" loading="lazy" /><figcaption data-i18n="g_terrace">En terrasse</figcaption></figure>
+      <figure><img src="assets/storefront.jpg" alt="La devanture de Thanh's, boulevard Royal" loading="lazy" /><figcaption data-i18n="g_store">Boulevard Royal</figcaption></figure>
+      <figure><img src="assets/freshrolls.jpg" alt="Rouleaux de printemps frais" loading="lazy" /><figcaption data-i18n="g_rolls">Rouleaux frais</figcaption></figure>
+    </div>
+    <p class="menu-note" style="color:var(--muted)" data-i18n="gal_note">Photographies de sources publiques — à remplacer par les visuels de la maison.</p>
+  </div>
+</section>
+
+<!-- ===================== ADRESSES ===================== -->
+<section class="adr blk" id="adresses">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="adr_kick">Nos adresses</span>
+      <h2 data-i18n="adr_h">Deux comptoirs, un même Bò Bún</h2>
+    </div>
+    <div class="grid">
+      <div class="loc reveal">
+        <div class="tag"><span class="pin">◉</span> Thanh's — Royal</div>
+        <div class="a" data-i18n="adr_royal">25, boulevard Royal · L-2449 Luxembourg<br>(face à l'Hôtel Le Royal)</div>
+        <a class="btn p map" target="_blank" rel="noopener" data-i18n="adr_map1"
+           href="https://www.google.com/maps/search/?api=1&query=Thanh's+Taste+of+Vietnam+Royal+Boulevard+Royal+Luxembourg">Itinéraire ↗</a>
+        <ul class="hours" id="hours1"></ul>
+      </div>
+      <div class="loc reveal">
+        <div class="tag"><span class="pin">◉</span> Thanh's — Infinity</div>
+        <div class="a" data-i18n="adr_inf">Infinity Shopping · 7, avenue J. F. Kennedy<br>L-1855 Kirchberg</div>
+        <a class="btn p map" target="_blank" rel="noopener" data-i18n="adr_map2"
+           href="https://www.google.com/maps/search/?api=1&query=Thanh's+Taste+of+Vietnam+Infinity+Kirchberg+Luxembourg">Itinéraire ↗</a>
+        <ul class="hours" id="hours2"></ul>
+      </div>
+    </div>
+    <p class="note" data-i18n="adr_note">Service du midi, du lundi au vendredi — fermé le week-end. Horaires indicatifs, à confirmer avec la maison.</p>
+    <div class="socials" style="justify-content:center">
+      <a href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-royal" target="_blank" rel="noopener">Wolt · Royal ↗</a>
+      <a href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-infinity" target="_blank" rel="noopener">Wolt · Infinity ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div class="bn">Thanh's<small data-i18n="foot_sub">Fusion Lunch · Luxembourg</small></div>
+      <div class="wk">
+        <div data-i18n="foot_made" class="made">Aperçu de site composé pour la maison par</div>
+        <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk · studio web · Luxembourg ↗</a>
+      </div>
+    </div>
+    <p class="disc" data-i18n="disclaimer">Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site de Thanh's. Le logotype est proposé ; la carte et les prix sont relevés sur place et restent à confirmer avec la maison, tout comme les adresses exactes et les horaires. Photographies de sources publiques, à remplacer par les visuels du restaurant.</p>
+  </div>
+</footer>
+
+<script>
+/* ===================== i18n ===================== */
+var I18N = {
+  fr:{
+    brand_sub:"Fusion Lunch", nav_bobun:"Le Bò Bún", nav_carte:"La carte", nav_adr:"Nos adresses",
+    hero_kick:"Cuisine vietnamienne · Boulevard Royal & Kirchberg", hero_best:"Le meilleur", hero_best2:"du Luxembourg.",
+    hero_tag:"Saveurs fraîches et exotiques du Vietnam — la cantine du midi, à deux pas du bureau.",
+    hero_cta1:"Voir la carte", hero_cta2:"Nos deux adresses ↓",
+    fact_1:"<b>Vietnamien</b> · frais, fait minute", fact_2:"Le <b>midi</b> en semaine", fact_3:"<b>Deux adresses</b> · Royal & Infinity",
+    bb_badge:"◆ La spécialité de la maison", bb_lead:"« Le meilleur du Luxembourg », d'après Paperjam.",
+    bb_p:"Un grand bol de vermicelles de riz tièdes, du bœuf mariné saisi, des nems croustillants coupés dessus, une pluie d'herbes fraîches et de cacahuètes, et le nuoc-cham qui lie le tout. Frais, généreux, fait minute — et décliné au poulet, aux crevettes ou en version végé.",
+    bb_c1:"Vermicelles de riz", bb_c2:"Bœuf mariné", bb_c3:"Nems croustillants", bb_c4:"Herbes fraîches", bb_c5:"Nuoc-cham",
+    house_kick:"La maison", house_h:"Un midi à Saïgon, boulevard Royal", house_lead:"On vient pour le Bò Bún, on revient pour le bouillon.",
+    house_p1:"Thanh's, c'est la cantine vietnamienne du déjeuner : on entre, on commande au comptoir, ça arrive frais et fumant, et on repart calé pour l'après-midi. Herbes coupées le jour même, bouillons longs, portions honnêtes, options végé partout.",
+    house_quote:"« Saveurs fraîches et exotiques du Vietnam et d'ailleurs. »",
+    house_p2:"Deux adresses au cœur de la ville — boulevard Royal, face à l'Hôtel Le Royal, et à l'Infinity, au Kirchberg. Service le midi, en semaine.",
+    d1_h:"Frais, fait minute", d1_p:"Herbes, vermicelles, bouillons — préparés le jour, pas la veille.",
+    d2_h:"Phở & soupes", d2_p:"Le bouillon Thanh's et le phở, en portion normale ou grande.",
+    d3_h:"Pour tout le monde", d3_p:"Bœuf, poulet, crevettes ou végé — chaque plat se décline.",
+    menu_kick:"La carte", menu_h:"Frais, simple, vietnamien",
+    menu_p:"Une carte courte qui va à l'essentiel — chaque plat se décline bœuf, poulet, crevettes ou végé.",
+    cat_start:"◆ Pour commencer", cat_bobun:"◆ Bò Bún", cat_soup:"◆ Soupes & Phở", cat_more:"◆ Bon à savoir",
+    m_nem_d:"Porc, poulet ou végé — croustillant.", m_roll_d:"Frais — bœuf, poulet, scampis ou végé.", m_pc:"/ pc",
+    m_salad_n:"Salade vietnamienne", m_salad_d:"Bœuf, poulet, scampis ou tofu.",
+    m_bb_d:"Vermicelles, herbes, cacahuètes, nuoc-cham.", m_bbg_d:"La version copieuse.",
+    m_sand_n:"Sandwich vietnamien", m_sand_d:"Bánh mì — poulet/porc ou bœuf/tofu.",
+    m_soup_d:"Poulet, scampis ou végé.", m_ng:"N / G", m_pho_d:"Bouillon long, herbes, citron vert.", m_ng2:"N / G",
+    m_veg_n:"Version végé", m_veg_d:"Sur presque tout — tofu, légumes.",
+    m_take_n:"À emporter", m_take_d:"Sur place ou à emporter, le midi.",
+    m_lunch_n:"Le midi, en semaine", m_lunch_d:"Service 7h30–15h30, du lundi au vendredi.",
+    menu_note:"Carte et prix relevés en salle — susceptibles d'évoluer, à confirmer avec la maison.",
+    gal_kick:"En images", gal_h:"Frais dans le bol",
+    g_grill:"Bœuf grillé & vermicelles", g_salad:"Salade aux crevettes", g_terrace:"En terrasse", g_store:"Boulevard Royal", g_rolls:"Rouleaux frais",
+    gal_note:"Photographies de sources publiques — à remplacer par les visuels de la maison.",
+    adr_kick:"Nos adresses", adr_h:"Deux comptoirs, un même Bò Bún",
+    adr_royal:"25, boulevard Royal · L-2449 Luxembourg<br>(face à l'Hôtel Le Royal)",
+    adr_inf:"Infinity Shopping · 7, avenue J. F. Kennedy<br>L-1855 Kirchberg",
+    adr_map1:"Itinéraire ↗", adr_map2:"Itinéraire ↗",
+    adr_note:"Service du midi, du lundi au vendredi — fermé le week-end. Horaires indicatifs, à confirmer avec la maison.",
+    foot_sub:"Fusion Lunch · Luxembourg", foot_made:"Aperçu de site composé pour la maison par",
+    disclaimer:"Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site de Thanh's. Le logotype est proposé ; la carte et les prix sont relevés sur place et restent à confirmer avec la maison, tout comme les adresses exactes et les horaires. Photographies de sources publiques, à remplacer par les visuels du restaurant.",
+    days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé", lunch:"07:30–15:30"
+  },
+  de:{
+    brand_sub:"Fusion Lunch", nav_bobun:"Das Bò Bún", nav_carte:"Die Karte", nav_adr:"Adressen",
+    hero_kick:"Vietnamesische Küche · Boulevard Royal & Kirchberg", hero_best:"Das beste", hero_best2:"Luxemburgs.",
+    hero_tag:"Frische, exotische Aromen aus Vietnam — die Mittagskantine, zwei Schritte vom Büro.",
+    hero_cta1:"Zur Karte", hero_cta2:"Unsere zwei Adressen ↓",
+    fact_1:"<b>Vietnamesisch</b> · frisch, à la minute", fact_2:"<b>Mittags</b> unter der Woche", fact_3:"<b>Zwei Adressen</b> · Royal & Infinity",
+    bb_badge:"◆ Die Spezialität des Hauses", bb_lead:"„Das beste Luxemburgs“, so Paperjam.",
+    bb_p:"Eine große Schale mit lauwarmen Reisnudeln, mariniertem, scharf angebratenem Rindfleisch, knusprigen Nems obendrauf, einer Fülle frischer Kräuter und Erdnüsse — und dem Nuoc-Cham, das alles verbindet. Frisch, großzügig, à la minute — auch mit Hähnchen, Garnelen oder vegetarisch.",
+    bb_c1:"Reisnudeln", bb_c2:"Mariniertes Rind", bb_c3:"Knusprige Nems", bb_c4:"Frische Kräuter", bb_c5:"Nuoc-Cham",
+    house_kick:"Das Haus", house_h:"Mittags in Saigon, am Boulevard Royal", house_lead:"Man kommt für das Bò Bún, man kommt wieder für die Brühe.",
+    house_p1:"Thanh's ist die vietnamesische Mittagskantine: hereinkommen, am Tresen bestellen, frisch und dampfend serviert, gesättigt in den Nachmittag. Kräuter am selben Tag geschnitten, lange Brühen, ehrliche Portionen, überall vegetarische Optionen.",
+    house_quote:"„Frische, exotische Aromen aus Vietnam und darüber hinaus.“",
+    house_p2:"Zwei Adressen mitten in der Stadt — Boulevard Royal, gegenüber dem Hôtel Le Royal, und im Infinity am Kirchberg. Mittagsservice, unter der Woche.",
+    d1_h:"Frisch, à la minute", d1_p:"Kräuter, Nudeln, Brühen — am selben Tag zubereitet, nicht am Vortag.",
+    d2_h:"Phở & Suppen", d2_p:"Die Thanh's-Brühe und Phở, in normaler oder großer Portion.",
+    d3_h:"Für alle", d3_p:"Rind, Hähnchen, Garnelen oder vegetarisch — jedes Gericht.",
+    menu_kick:"Die Karte", menu_h:"Frisch, einfach, vietnamesisch",
+    menu_p:"Eine kurze Karte, die aufs Wesentliche geht — jedes Gericht mit Rind, Hähnchen, Garnelen oder vegetarisch.",
+    cat_start:"◆ Zum Beginnen", cat_bobun:"◆ Bò Bún", cat_soup:"◆ Suppen & Phở", cat_more:"◆ Gut zu wissen",
+    m_nem_d:"Schwein, Hähnchen oder vegetarisch — knusprig.", m_roll_d:"Frisch — Rind, Hähnchen, Garnelen oder vegetarisch.", m_pc:"/ St.",
+    m_salad_n:"Vietnamesischer Salat", m_salad_d:"Rind, Hähnchen, Garnelen oder Tofu.",
+    m_bb_d:"Reisnudeln, Kräuter, Erdnüsse, Nuoc-Cham.", m_bbg_d:"Die üppige Version.",
+    m_sand_n:"Vietnamesisches Sandwich", m_sand_d:"Bánh mì — Hähnchen/Schwein oder Rind/Tofu.",
+    m_soup_d:"Hähnchen, Garnelen oder vegetarisch.", m_ng:"N / G", m_pho_d:"Lange Brühe, Kräuter, Limette.", m_ng2:"N / G",
+    m_veg_n:"Vegetarisch", m_veg_d:"Bei fast allem — Tofu, Gemüse.",
+    m_take_n:"Zum Mitnehmen", m_take_d:"Vor Ort oder mitnehmen, mittags.",
+    m_lunch_n:"Mittags, unter der Woche", m_lunch_d:"Service ~07:30–15:30, Montag bis Freitag.",
+    menu_note:"Karte und Preise vor Ort erfasst — Änderungen möglich, mit dem Haus zu bestätigen.",
+    gal_kick:"In Bildern", gal_h:"Frisch in der Schale",
+    g_grill:"Gegrilltes Rind & Nudeln", g_salad:"Salat mit Garnelen", g_terrace:"Auf der Terrasse", g_store:"Boulevard Royal", g_rolls:"Frische Rollen",
+    gal_note:"Fotos aus öffentlichen Quellen — durch eigene Bilder des Hauses zu ersetzen.",
+    adr_kick:"Adressen", adr_h:"Zwei Theken, ein und dasselbe Bò Bún",
+    adr_royal:"25, boulevard Royal · L-2449 Luxemburg<br>(gegenüber dem Hôtel Le Royal)",
+    adr_inf:"Infinity Shopping · 7, avenue J. F. Kennedy<br>L-1855 Kirchberg",
+    adr_map1:"Route ↗", adr_map2:"Route ↗",
+    adr_note:"Mittagsservice, Montag bis Freitag — am Wochenende geschlossen. Zeiten als Richtwert, mit dem Haus zu bestätigen.",
+    foot_sub:"Fusion Lunch · Luxemburg", foot_made:"Website-Vorschau für das Haus, gestaltet von",
+    disclaimer:"Diese Seite ist ein inoffizieller Vorschlag von Webwerk auf Basis öffentlicher Quellen und zeigt, wie die Website von Thanh's aussehen könnte. Das Logotype ist ein Vorschlag; Karte und Preise wurden vor Ort erfasst und sind mit dem Haus zu bestätigen, ebenso die genauen Adressen und Öffnungszeiten. Fotos aus öffentlichen Quellen, durch eigene Bilder des Restaurants zu ersetzen.",
+    days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen", lunch:"07:30–15:30"
+  },
+  en:{
+    brand_sub:"Fusion Lunch", nav_bobun:"The Bò Bún", nav_carte:"The menu", nav_adr:"Find us",
+    hero_kick:"Vietnamese cuisine · Boulevard Royal & Kirchberg", hero_best:"The best", hero_best2:"in Luxembourg.",
+    hero_tag:"Fresh, exotic flavours from Vietnam — the lunch canteen, two steps from the office.",
+    hero_cta1:"See the menu", hero_cta2:"Our two locations ↓",
+    fact_1:"<b>Vietnamese</b> · fresh, made to order", fact_2:"<b>Lunch</b> on weekdays", fact_3:"<b>Two locations</b> · Royal & Infinity",
+    bb_badge:"◆ The house speciality", bb_lead:"“The best in Luxembourg,” says Paperjam.",
+    bb_p:"A big bowl of warm rice vermicelli, seared marinated beef, crispy nems sliced on top, a shower of fresh herbs and peanuts, and the nuoc-cham that ties it together. Fresh, generous, made to order — and available with chicken, prawns or veggie.",
+    bb_c1:"Rice vermicelli", bb_c2:"Marinated beef", bb_c3:"Crispy nems", bb_c4:"Fresh herbs", bb_c5:"Nuoc-cham",
+    house_kick:"The house", house_h:"A little Saigon at lunch, on Boulevard Royal", house_lead:"You come for the Bò Bún, you come back for the broth.",
+    house_p1:"Thanh's is the Vietnamese lunch canteen: walk in, order at the counter, it arrives fresh and steaming, and you head back to the afternoon well fed. Herbs cut the same day, long broths, honest portions, veggie options throughout.",
+    house_quote:"“Fresh, exotic flavours from Vietnam and beyond.”",
+    house_p2:"Two locations in the heart of the city — Boulevard Royal, opposite the Hôtel Le Royal, and at Infinity in Kirchberg. Lunch service, on weekdays.",
+    d1_h:"Fresh, made to order", d1_p:"Herbs, noodles, broths — prepared the same day, not the day before.",
+    d2_h:"Phở & soups", d2_p:"The Thanh's broth and phở, in a normal or large portion.",
+    d3_h:"For everyone", d3_p:"Beef, chicken, prawns or veggie — every dish, your way.",
+    menu_kick:"The menu", menu_h:"Fresh, simple, Vietnamese",
+    menu_p:"A short menu that gets to the point — every dish comes beef, chicken, prawn or veggie.",
+    cat_start:"◆ To start", cat_bobun:"◆ Bò Bún", cat_soup:"◆ Soups & Phở", cat_more:"◆ Good to know",
+    m_nem_d:"Pork, chicken or veggie — crispy.", m_roll_d:"Fresh — beef, chicken, prawn or veggie.", m_pc:"/ pc",
+    m_salad_n:"Vietnamese salad", m_salad_d:"Beef, chicken, prawn or tofu.",
+    m_bb_d:"Vermicelli, herbs, peanuts, nuoc-cham.", m_bbg_d:"The generous version.",
+    m_sand_n:"Vietnamese sandwich", m_sand_d:"Bánh mì — chicken/pork or beef/tofu.",
+    m_soup_d:"Chicken, prawn or veggie.", m_ng:"N / L", m_pho_d:"Long broth, herbs, lime.", m_ng2:"N / L",
+    m_veg_n:"Veggie option", m_veg_d:"On almost everything — tofu, vegetables.",
+    m_take_n:"Takeaway", m_take_d:"Eat in or take away, at lunch.",
+    m_lunch_n:"Lunch, on weekdays", m_lunch_d:"Service ~07:30–15:30, Monday to Friday.",
+    menu_note:"Menu and prices noted on site — subject to change, to be confirmed with the venue.",
+    gal_kick:"In pictures", gal_h:"Fresh in the bowl",
+    g_grill:"Grilled beef & vermicelli", g_salad:"Prawn salad", g_terrace:"On the terrace", g_store:"Boulevard Royal", g_rolls:"Fresh rolls",
+    gal_note:"Public-source photographs — to be replaced with the venue's own visuals.",
+    adr_kick:"Find us", adr_h:"Two counters, the same Bò Bún",
+    adr_royal:"25, boulevard Royal · L-2449 Luxembourg<br>(opposite the Hôtel Le Royal)",
+    adr_inf:"Infinity Shopping · 7, avenue J. F. Kennedy<br>L-1855 Kirchberg",
+    adr_map1:"Directions ↗", adr_map2:"Directions ↗",
+    adr_note:"Lunch service, Monday to Friday — closed at the weekend. Hours indicative, to be confirmed with the venue.",
+    foot_sub:"Fusion Lunch · Luxembourg", foot_made:"Website preview composed for the venue by",
+    disclaimer:"This page is an unofficial proposal by Webwerk, built from public sources to show what Thanh's website could look like. The logotype is proposed; the menu and prices were noted on site and remain to be confirmed with the venue, as do the exact addresses and hours. Public-source photographs, to be replaced with the restaurant's own visuals.",
+    days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], closed:"Closed", lunch:"07:30–15:30"
+  }
+};
+/* Hours by getDay() (0=Sun..6=Sat): weekday lunch only; closed Sat+Sun */
+function hoursFor(i){ return (i>=1 && i<=5) ? I18N[lang].lunch : null; }
+
+var lang="fr";
+function t(k){return (I18N[lang] && I18N[lang][k]!=null)?I18N[lang][k]:I18N.fr[k];}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){var v=t(el.getAttribute("data-i18n")); if(v!=null) el.innerHTML=v;});
+  document.querySelectorAll(".langs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-lang")===l);});
+  buildHours("hours1"); buildHours("hours2");
+}
+function buildHours(id){
+  var ul=document.getElementById(id); if(!ul) return;
+  var D=I18N[lang].days, todayIdx=(new Date().getDay()), order=[1,2,3,4,5,6,0]; ul.innerHTML="";
+  order.forEach(function(i){
+    var h=hoursFor(i), li=document.createElement("li");
+    if(i===todayIdx) li.className="today";
+    var val=h?h:('<span class="cl">'+I18N[lang].closed+'</span>');
+    li.innerHTML='<span class="day">'+D[i]+'</span><span>'+val+'</span>'; ul.appendChild(li);
+  });
+}
+document.querySelectorAll(".langs button").forEach(function(b){b.addEventListener("click",function(){applyLang(b.getAttribute("data-lang"));});});
+
+/* mobile nav */
+(function(){
+  var burger=document.getElementById("burger"), menu=document.getElementById("menu"); if(!burger||!menu) return;
+  function set(open){menu.classList.toggle("open",open);burger.setAttribute("aria-expanded",open);burger.textContent=open?"✕":"☰";}
+  burger.addEventListener("click",function(){set(!menu.classList.contains("open"));});
+  menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){set(false);});});
+})();
+
+/* reveal on scroll */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+
+/* signature: the Vietnamese tones "land" — build « Bò Bún » per-character and settle them in */
+(function(){
+  var host=document.getElementById("bobun"); if(!host) return;
+  var word="Bò Bún";
+  host.textContent="";
+  for(var i=0;i<word.length;i++){
+    var s=document.createElement("span");
+    s.textContent = word[i]===" " ? " " : word[i];
+    s.style.transitionDelay=(i*70)+"ms";
+    host.appendChild(s);
+  }
+  function land(){ host.classList.add("in"); }
+  if(window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches){ land(); }
+  else{ window.addEventListener("load",function(){ setTimeout(land,420); }); }
+})();
+
+applyLang("fr");
+</script>
+</body>
+</html>
