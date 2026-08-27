@@ -146,7 +146,25 @@ section.blk{padding:66px 0}
 .potato .fill{position:absolute;left:52px;top:90px;width:176px;height:112px;overflow:visible;z-index:3}
 .potato .blob{position:absolute;width:22px;height:18px;border-radius:50%;opacity:1;transform:none;
   box-shadow:inset 0 -3px 5px rgba(0,0,0,.22),0 2px 4px rgba(0,0,0,.28);animation:drop .44s cubic-bezier(.2,.85,.3,1) forwards}
-@keyframes drop{0%{opacity:0;transform:translateY(-16px) scale(.3)}55%{opacity:1;transform:translateY(0) scale(1.16)}78%{opacity:1;transform:translateY(0) scale(.93)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes drop{0%{opacity:0;transform:translateY(-18px) scale(.3) rotate(var(--r,0deg))}55%{opacity:1;transform:translateY(0) scale(1.18) rotate(var(--r,0deg))}78%{opacity:1;transform:translateY(0) scale(.92) rotate(var(--r,0deg))}100%{opacity:1;transform:translateY(0) scale(1) rotate(var(--r,0deg))}}
+/* EVERY TOPPING USED TO BE THE SAME ELLIPSE. Twelve counter items rendered as
+   one shape in twelve colours, so the pile read as confetti rather than food —
+   the thing being built was unrecognisable as the thing on the counter. Each
+   kind now has its own silhouette, and the ones that come in multiples arrive
+   in multiples. */
+.potato .blob.k-bean{border-radius:60% 40% 55% 45%/58% 55% 45% 42%}
+.potato .blob.k-dice{border-radius:3px}
+.potato .blob.k-shred{border-radius:6px}
+.potato .blob.k-slice{border-radius:50%;box-shadow:inset 0 0 0 2.5px rgba(255,255,255,.30),inset 0 -3px 5px rgba(0,0,0,.22),0 2px 4px rgba(0,0,0,.28)}
+.potato .blob.k-fleck{border-radius:50% 50% 50% 50%/60% 60% 40% 40%}
+.potato .blob.k-sauce{border-radius:52% 48% 46% 54%/54% 46% 54% 46%;box-shadow:inset 0 -3px 6px rgba(0,0,0,.14);opacity:.82;filter:blur(.5px)}
+/* The chip you just pressed, and the piece that flies from it to the potato. */
+.chip{transition:transform .12s ease,background .2s ease}
+.chip:active{transform:translateY(1px) scale(.97)}
+.chip.tapped .sw{animation:swpulse .32s ease}
+@keyframes swpulse{0%{transform:scale(1)}45%{transform:scale(1.45)}100%{transform:scale(1)}}
+.flyer{position:fixed;z-index:60;width:15px;height:15px;border-radius:50%;pointer-events:none;
+  box-shadow:inset 0 -2px 3px rgba(0,0,0,.25);transition:transform .42s cubic-bezier(.35,.9,.35,1),opacity .42s ease}
 .potato.happy .spud{animation:wiggle .6s ease}
 @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg)}60%{transform:rotate(3deg)}}
 .potato .confetti{position:absolute;width:9px;height:9px;border-radius:2px;z-index:5;pointer-events:none;animation:conf .95s ease-out forwards}
@@ -577,19 +595,21 @@ var I18N = {
 var HOURS = ["11:30–18:00","11:30–18:00",null,"11:30–18:00","11:30–18:00","10:00–18:00",null];
 
 /* toppings: real counter items + representative colour */
+/* k = how it lands on the potato. n = how many pieces one press adds: corn and
+   herbs arrive by the spoonful, a ladle of stew does not. */
 var TOPPINGS = [
-  {fr:"Bœuf mijoté",de:"Rindergulasch",en:"Beef stew",c:"#7a4326"},
-  {fr:"Poulet",de:"Hähnchen",en:"Chicken",c:"#c98a3c"},
-  {fr:"Maïs",de:"Mais",en:"Sweetcorn",c:"#f4c430"},
-  {fr:"Haricots rouges",de:"Kidneybohnen",en:"Kidney beans",c:"#8b2e2e"},
-  {fr:"Coleslaw",de:"Krautsalat",en:"Coleslaw",c:"#e7dfc4"},
-  {fr:"Olives",de:"Oliven",en:"Olives",c:"#3f4a2a"},
-  {fr:"Cornichons",de:"Gewürzgurken",en:"Pickles",c:"#6a8f3c"},
-  {fr:"Tomate",de:"Tomate",en:"Tomato",c:"#d5382c"},
-  {fr:"Concombre",de:"Gurke",en:"Cucumber",c:"#a8c36a"},
-  {fr:"Fromage",de:"Käse",en:"Cheese",c:"#f0d060"},
-  {fr:"Herbes",de:"Kräuter",en:"Herbs",c:"#4a7a3a"},
-  {fr:"Sauce maison",de:"Haussauce",en:"House sauce",c:"#efe3c0"}
+  {fr:"Bœuf mijoté",de:"Rindergulasch",en:"Beef stew",c:"#7a4326",k:"bean",n:2,w:23,h:17},
+  {fr:"Poulet",de:"Hähnchen",en:"Chicken",c:"#c98a3c",k:"bean",n:2,w:22,h:15},
+  {fr:"Maïs",de:"Mais",en:"Sweetcorn",c:"#f4c430",k:"fleck",n:5,w:9,h:7},
+  {fr:"Haricots rouges",de:"Kidneybohnen",en:"Kidney beans",c:"#8b2e2e",k:"bean",n:4,w:13,h:9},
+  {fr:"Coleslaw",de:"Krautsalat",en:"Coleslaw",c:"#e7dfc4",k:"shred",n:4,w:19,h:5},
+  {fr:"Olives",de:"Oliven",en:"Olives",c:"#3f4a2a",k:"slice",n:3,w:12,h:12},
+  {fr:"Cornichons",de:"Gewürzgurken",en:"Pickles",c:"#6a8f3c",k:"slice",n:3,w:13,h:13},
+  {fr:"Tomate",de:"Tomate",en:"Tomato",c:"#d5382c",k:"dice",n:4,w:11,h:10},
+  {fr:"Concombre",de:"Gurke",en:"Cucumber",c:"#a8c36a",k:"slice",n:3,w:14,h:14},
+  {fr:"Fromage",de:"Käse",en:"Cheese",c:"#f0d060",k:"shred",n:5,w:16,h:4},
+  {fr:"Herbes",de:"Kräuter",en:"Herbs",c:"#4a7a3a",k:"fleck",n:6,w:7,h:5},
+  {fr:"Sauce maison",de:"Haussauce",en:"House sauce",c:"#efe3c0",k:"sauce",n:2,w:30,h:19}
 ];
 
 var lang = "fr";
@@ -601,31 +621,80 @@ function renderChips(){
     var b = document.createElement("button");
     b.className = "chip"; b.type = "button";
     b.innerHTML = '<span class="sw" style="background:'+tp.c+'"></span>'+tp[lang];
-    b.addEventListener("click", function(){ addBlob(tp.c); });
+    b.addEventListener("click", function(){ tapTopping(b, tp); });
     box.appendChild(b);
   });
 }
 var pile = 0;
 var celebrated=false;
-function addBlob(color){
+function reduced(){ try{ return matchMedia("(prefers-reduced-motion:reduce)").matches; }catch(e){ return false; } }
+
+/* IT NOW HEAPS. Pieces used to land anywhere in a fixed ellipse, so twenty
+   toppings looked exactly as flat as three — you were filling a shape, not
+   building a pile. The landing zone tightens and rides upward as the pile
+   grows, and pieces shrink slightly as they go, so the thing gains a shoulder
+   the way a real loaded kumpir does. */
+function placePiece(tp, i){
   var fill = document.getElementById("fill");
-  var s = document.createElement("span");
-  s.className = "blob";
-  var cx=88, cy=52, rx=78, ry=44, ang=Math.random()*6.283, rr=Math.sqrt(Math.random());
-  var x = cx + Math.cos(ang)*rx*rr, y = cy + Math.sin(ang)*ry*rr;
-  s.style.left = x+"px"; s.style.top = y+"px"; s.style.background = color;
-  var sc = .8 + Math.random()*.7; s.style.width = (20*sc)+"px"; s.style.height = (17*sc)+"px";
-  fill.appendChild(s);
+  var t = Math.min(1, pile/26);
+  var cx = 88, cy = 52 - 24*t, rx = 68 - 24*t, ry = 37 - 13*t;
+  var ang = Math.random()*6.283, rr = Math.sqrt(Math.random());
+  var el = document.createElement("span");
+  el.className = "blob k-" + tp.k;
+  var sc = (0.85 + Math.random()*0.35) * (1 - 0.16*t);
+  var w = (tp.w||20)*sc, h = (tp.h||17)*sc;
+  el.style.width = w+"px"; el.style.height = h+"px";
+  el.style.left = (cx + Math.cos(ang)*rx*rr - w/2)+"px";
+  el.style.top  = (cy + Math.sin(ang)*ry*rr - h/2)+"px";
+  el.style.background = tp.c;
+  /* Shreds and sauce read as debris unless they lie at an angle; round things
+     must not spin, or the eye catches the rotation on a circle. */
+  var spin = (tp.k==="shred"||tp.k==="dice"||tp.k==="bean"||tp.k==="sauce") ? (Math.random()*140-70) : 0;
+  el.style.setProperty("--r", spin.toFixed(0)+"deg");
+  if(!reduced()) el.style.animationDelay = (i*38)+"ms";
+  fill.appendChild(el);
+  while(fill.children.length > 90) fill.removeChild(fill.firstChild);
+}
+
+function addTopping(tp){
+  var count = tp.n || 1;
+  for(var i=0;i<count;i++) placePiece(tp, i);
   pile++;
   document.querySelector("#count b").textContent = pile;
   var m = I18N[lang].msgs, idx = Math.min(Math.floor(pile/3), m.length-1);
   document.getElementById("buildmsg").textContent = m[idx];
-  if(fill.children.length > 60) fill.removeChild(fill.firstChild);
   if(pile>=8 && !celebrated){ celebrated=true; celebrate(); }
+}
+
+/* The press, and the piece that travels. Tapping a chip used to change nothing
+   at the chip and everything at the potato, 300px away — so the two never felt
+   connected. A swatch now flies from the chip you pressed to the potato and the
+   topping lands when it arrives. */
+function tapTopping(btn, tp){
+  btn.classList.remove("tapped"); void btn.offsetWidth; btn.classList.add("tapped");
+  var pot = document.querySelector(".potato");
+  if(reduced() || !pot){ addTopping(tp); return; }
+  var sw = btn.querySelector(".sw"), a = sw.getBoundingClientRect(), b = pot.getBoundingClientRect();
+  var fly = document.createElement("span");
+  fly.className = "flyer";
+  fly.style.background = tp.c;
+  fly.style.left = a.left+"px"; fly.style.top = a.top+"px";
+  document.body.appendChild(fly);
+  var dx = (b.left + b.width/2) - a.left - 7, dy = (b.top + b.height*0.42) - a.top - 7;
+  requestAnimationFrame(function(){
+    fly.style.transform = "translate("+dx.toFixed(0)+"px,"+dy.toFixed(0)+"px) scale(.5)";
+    fly.style.opacity = "0";
+  });
+  var done = false;
+  var land = function(){ if(done) return; done = true; if(fly.parentNode) fly.parentNode.removeChild(fly); addTopping(tp); };
+  fly.addEventListener("transitionend", land);
+  /* transitionend does not fire on a backgrounded tab, and a topping that never
+     lands would leave the counter looking broken. */
+  setTimeout(land, 520);
 }
 function celebrate(){
   var pot=document.querySelector(".potato"); if(!pot) return;
-  var reduce=false; try{reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;}catch(e){}
+  var reduce=reduced();
   pot.classList.add("happy"); setTimeout(function(){ pot.classList.remove("happy"); }, 650);
   if(reduce) return;
   var cols=["#e7b23c","#d5382c","#9daa8c","#f4c430","#6a8f3c","#d43a28"];
