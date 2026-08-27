@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>" />
+<title>Jardin du Portugal — Restaurant portugais & luxembourgeois · Diekirch</title>
+<meta name="description" content="Un coin de Porto à Diekirch — cuisine portugaise et luxembourgeoise, la meilleure Francesinha du Luxembourg. Aperçu de site composé par Webwerk." />
+<style>
+/* ===================== FONTS (self-hosted, 0 external) ===================== */
+@font-face{font-family:'Piazzolla';font-weight:600 800;font-style:normal;font-display:swap;src:url('assets/fonts/piazzolla-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Piazzolla';font-weight:600 800;font-style:normal;font-display:swap;src:url('assets/fonts/piazzolla-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Mulish';font-weight:400 700;font-style:normal;font-display:swap;src:url('assets/fonts/mulish-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Mulish';font-weight:400 700;font-style:normal;font-display:swap;src:url('assets/fonts/mulish-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+/* ===================== TOKENS ===================== */
+:root{
+  --azul:#1f5f8b; --azul-deep:#123c5c; --azul-ink:#0e2f49; --azul-soft:#6c9cc0;
+  --terra:#c1552e; --wine:#9c2b2f; --gold:#c8973f; --laurel:#4f6b3a;
+  --cream:#f6eddb; --cream2:#efe2c9; --paper:#fbf6ec; --ink:#241f18; --ink2:#5f5545; --muted:#8a7d66;
+  --maxw:1180px; --disp:'Piazzolla',Georgia,serif; --body:'Mulish',system-ui,sans-serif;
+  --shadow:0 18px 44px rgba(20,15,8,.16); --shadow-s:0 8px 20px rgba(20,15,8,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,44px)}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.05;color:var(--ink);letter-spacing:-.01em}
+a{color:inherit}
+img{max-width:100%;display:block}
+.eyebrow{font-family:var(--body);font-weight:700;font-size:.73rem;letter-spacing:.22em;text-transform:uppercase;color:var(--azul)}
+.blk{padding:clamp(56px,8vw,92px) 0}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ===================== HEADER ===================== */
+header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.92);backdrop-filter:blur(9px);
+  border-bottom:1px solid var(--cream2)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand .mk{width:30px;height:30px;flex:0 0 auto}
+.brand .bt{font-family:var(--disp);font-weight:800;font-size:1.16rem;color:var(--azul-ink);letter-spacing:-.01em;line-height:1}
+.brand .bt small{display:block;font-family:var(--body);font-weight:700;font-size:.54rem;letter-spacing:.24em;text-transform:uppercase;color:var(--terra);margin-top:2px}
+.navright{display:flex;align-items:center;gap:18px}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{font-weight:600;font-size:.92rem;text-decoration:none;color:var(--ink2)}
+.menu a:hover{color:var(--azul)}
+.langs{display:flex;gap:2px;background:var(--cream2);border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--ink2);
+  padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--azul);color:#fff}
+.burger{display:none;background:transparent;border:0;font-size:1.42rem;line-height:1;color:var(--azul-ink);cursor:pointer;padding:4px 6px}
+
+/* ===================== HERO ===================== */
+.hero{position:relative;min-height:clamp(560px,86vh,780px);display:flex;align-items:flex-end;color:var(--cream);
+  background:#1a2530;overflow:hidden}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(14,25,34,.30) 0%,rgba(14,25,34,.34) 40%,rgba(14,25,34,.82) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,6vw,66px);padding-top:80px}
+.hero .kick{display:inline-flex;align-items:center;gap:11px;margin-bottom:20px}
+.hero .kick .eyebrow{color:#e7d9bf}
+.hero .kick .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.hero h1{color:#fff;font-size:clamp(46px,9vw,104px);line-height:.94;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+.hero h1 .p2{color:var(--gold)}
+.hero .tag{font-family:var(--disp);font-weight:600;font-size:clamp(19px,3.1vw,30px);color:#f0e4cc;margin:18px 0 0;max-width:20ch}
+.hero .sub{font-size:1.02rem;color:#e6dcc9;margin:16px 0 0;max-width:52ch;line-height:1.55}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+.btn{font-family:var(--body);font-weight:700;font-size:.95rem;border:0;border-radius:8px;padding:14px 24px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;transition:transform .15s ease,background .2s ease,box-shadow .2s ease}
+.btn.p{background:var(--gold);color:#2a2010}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(200,151,63,.34)}
+.btn.g{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn.g:hover{background:rgba(255,255,255,.2)}
+/* azulejo medallion — the signature draw-in */
+.azu-wrap{position:absolute;z-index:2;right:clamp(20px,6vw,64px);top:clamp(76px,12vw,120px);
+  width:clamp(120px,20vw,220px);height:clamp(120px,20vw,220px);opacity:.92;pointer-events:none}
+.azu{width:100%;height:100%;filter:drop-shadow(0 6px 18px rgba(0,0,0,.34))}
+.azu [data-draw]{fill:none;stroke:#eadfc6;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s ease}
+.azu [data-draw].f{fill:rgba(234,223,198,.10)}
+.azu.drawn [data-draw]{stroke-dashoffset:0}
+.azu.drawn [data-draw]:nth-of-type(2){transition-delay:.18s}
+.azu.drawn [data-draw]:nth-of-type(3){transition-delay:.36s}
+.azu.drawn [data-draw]:nth-of-type(4){transition-delay:.52s}
+.azu.drawn [data-draw]:nth-of-type(5){transition-delay:.66s}
+.azu.drawn [data-draw]:nth-of-type(n+6){transition-delay:.8s}
+@media(prefers-reduced-motion:reduce){.azu [data-draw]{transition:none;stroke-dashoffset:0}}
+@media(max-width:720px){.azu-wrap{display:none}}
+
+/* azulejo divider strip */
+.azu-strip{height:26px;background-repeat:repeat-x;background-position:center;background-size:auto 26px}
+
+/* ===================== FACTS BAR ===================== */
+.facts{background:var(--azul-ink);color:#e9dfcb}
+.facts .wrap{display:flex;flex-wrap:wrap;gap:8px 34px;justify-content:center;padding-top:16px;padding-bottom:16px;
+  font-size:.9rem;text-align:center}
+.facts .f{display:inline-flex;align-items:center;gap:9px;font-weight:600}
+.facts .f b{color:var(--gold);font-family:var(--disp);font-weight:700}
+.facts .sep{color:rgba(233,223,203,.34)}
+
+/* ===================== FRANCESINHA SPOTLIGHT ===================== */
+.spot{background:linear-gradient(180deg,var(--cream) 0%,var(--cream2) 100%)}
+.spot .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,4.5vw,64px);align-items:center}
+.spot .txt .badge{display:inline-flex;align-items:center;gap:8px;background:var(--wine);color:#fff;font-weight:700;
+  font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:6px 13px;border-radius:999px;margin-bottom:18px}
+.spot h2{font-size:clamp(32px,4.6vw,54px)}
+.spot .lead{font-family:var(--disp);font-weight:600;font-size:clamp(18px,2.3vw,24px);color:var(--wine);margin:12px 0 16px}
+.spot p{color:var(--ink2);max-width:52ch}
+.spot .fig{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/4}
+.spot .fig img{width:100%;height:100%;object-fit:cover}
+.spot .fig .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 12px;color:#fff;font-size:.82rem;font-weight:600;
+  background:linear-gradient(0deg,rgba(15,20,25,.8),transparent)}
+
+/* ===================== MAISON ===================== */
+.maison .wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,4.5vw,60px);align-items:center}
+.maison .fig{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5}
+.maison .fig img{width:100%;height:100%;object-fit:cover}
+.maison h2{font-size:clamp(30px,4.2vw,50px);margin-top:8px}
+.maison .lead{font-family:var(--disp);font-weight:600;color:var(--terra);font-size:1.35rem;display:block;margin:10px 0 14px}
+.maison p{color:var(--ink2);margin-bottom:14px;max-width:54ch}
+.details{display:grid;gap:16px;margin-top:26px}
+.detail{display:flex;gap:15px;align-items:flex-start}
+.detail .ic{width:42px;height:42px;flex:0 0 auto;border-radius:11px;background:var(--paper);border:1px solid var(--cream2);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:var(--shadow-s)}
+.detail h3{font-family:var(--disp);font-weight:700;font-size:1.1rem;margin-bottom:2px}
+.detail p{font-size:.94rem;margin:0}
+
+/* ===================== CARTE ===================== */
+.carte{background:var(--azul-ink);color:var(--cream)}
+.carte .sec-head{text-align:center;max-width:60ch;margin:0 auto clamp(30px,5vw,50px)}
+.carte .sec-head .eyebrow{color:var(--gold)}
+.carte .sec-head h2{color:#fff;font-size:clamp(30px,4.4vw,52px);margin:10px 0 12px}
+.carte .sec-head p{color:#d9cdb6}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,52px)}
+.cat h3{font-family:var(--disp);font-weight:700;font-size:1.25rem;color:var(--gold);padding-bottom:10px;margin-bottom:14px;
+  border-bottom:1px solid rgba(233,223,203,.16);display:flex;align-items:center;gap:10px}
+.mrow{padding:11px 0;border-bottom:1px dotted rgba(233,223,203,.14)}
+.mrow:last-child{border-bottom:0}
+.mrow .n{font-family:var(--disp);font-weight:700;font-size:1.06rem;color:#fff}
+.mrow .n .pt{font-family:var(--body);font-weight:600;font-size:.72rem;color:var(--azul-soft);letter-spacing:.03em;margin-left:8px}
+.mrow .d{font-size:.9rem;color:#c8bda6;margin-top:2px}
+.formules{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:clamp(30px,5vw,46px)}
+.formule{background:rgba(255,255,255,.05);border:1px solid rgba(233,223,203,.16);border-radius:13px;padding:16px 26px;text-align:center;min-width:190px}
+.formule .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--azul-soft);font-weight:700}
+.formule .v{font-family:var(--disp);font-weight:800;font-size:1.5rem;color:var(--gold);margin-top:5px}
+.formule .s{font-size:.78rem;color:#c8bda6;margin-top:3px}
+.menu-note{text-align:center;color:#b6ab94;font-size:.82rem;margin-top:22px}
+.food-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:clamp(30px,5vw,46px)}
+.food-strip figure{margin:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-s);aspect-ratio:1}
+.food-strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.food-strip figure:hover img{transform:scale(1.06)}
+
+/* ===================== GALLERY ===================== */
+.gallery .sec-head{text-align:center;margin-bottom:clamp(26px,4vw,40px)}
+.gallery h2{font-size:clamp(28px,4vw,46px)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:188px;gap:13px}
+.gal figure{position:relative;margin:0;border-radius:13px;overflow:hidden;box-shadow:var(--shadow-s)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 13px 9px;color:#fff;font-weight:600;font-size:.78rem;
+  background:linear-gradient(0deg,rgba(15,20,25,.82),transparent)}
+
+/* ===================== INFOS ===================== */
+.infos .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4.5vw,56px)}
+.infos h2{font-size:clamp(28px,4vw,46px);margin:10px 0 18px}
+.icard{background:var(--cream);border:1px solid var(--cream2);border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.icard .k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--azul);font-weight:700;margin-bottom:6px}
+.icard .v{font-family:var(--disp);font-weight:600;font-size:1.14rem}
+.icard .v a{text-decoration:none}
+.icard .s{font-size:.88rem;color:var(--ink2);margin-top:3px}
+.hours{list-style:none}
+.hours li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--cream2);font-size:.95rem}
+.hours li:last-child{border-bottom:0}
+.hours li.today{color:var(--azul-ink);font-weight:700}
+.hours li.today .day::before{content:"▸ ";color:var(--terra)}
+.hours .cl{color:var(--muted)}
+.map-btn{margin-top:6px}
+.socials{display:flex;gap:10px;margin-top:16px}
+.socials a{background:var(--azul-ink);color:#fff;font-weight:700;font-size:.84rem;padding:9px 16px;border-radius:999px;text-decoration:none}
+.socials a:hover{background:var(--azul)}
+
+/* ===================== FOOTER ===================== */
+footer{background:var(--ink);color:#d9cdb6;padding:clamp(40px,6vw,60px) 0 30px}
+footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:flex-start}
+footer .bn{font-family:var(--disp);font-weight:800;color:var(--paper);font-size:1.4rem}
+footer .bn small{display:block;font-family:var(--body);font-weight:700;font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+footer .disc{max-width:60ch;font-size:.8rem;color:#a89c85;line-height:1.55;margin-top:22px;border-top:1px solid rgba(217,205,182,.16);padding-top:18px}
+footer .wk{margin-top:14px;font-size:.82rem}
+footer .wk a{color:var(--gold);text-decoration:none;font-weight:700}
+footer .wk .made{color:#8f836d}
+
+@media(max-width:860px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;
+    background:var(--paper);border-bottom:1px solid var(--cream2);box-shadow:0 14px 26px rgba(20,15,8,.12);padding:6px 0}
+  .menu.open{display:flex}
+  .menu a{padding:13px clamp(20px,5vw,44px);width:100%;font-size:1rem}
+  .spot .wrap,.maison .wrap,.infos .wrap,.cats{grid-template-columns:1fr}
+  .maison .fig{order:-1;aspect-ratio:16/10}
+  .spot .fig{aspect-ratio:16/10}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
+  .gal .h2{grid-row:span 1}
+  .food-strip{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .brand .bt{font-size:1rem}
+  .gal{grid-template-columns:1fr}.gal .w2{grid-column:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Jardin du Portugal">
+      <svg class="mk" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#1f5f8b" stroke-width="4" stroke-linejoin="round">
+        <rect x="8" y="8" width="84" height="84" rx="6"/><rect x="30" y="30" width="40" height="40"/><rect x="30" y="30" width="40" height="40" transform="rotate(45 50 50)"/>
+        <circle cx="50" cy="50" r="7" fill="#c8973f" stroke="none"/></g></svg>
+      <span class="bt">Jardin du Portugal<small data-i18n="brand_sub">Diekirch</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#maison" data-i18n="nav_maison">La maison</a>
+        <a href="#carte" data-i18n="nav_carte">La carte</a>
+        <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+      </nav>
+      <span class="langs">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </span>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="bg"><img src="assets/hero.jpg" alt="La salle du Jardin du Portugal — arche en pierre, tables dressées, lumière chaude" /></div>
+  <div class="azu-wrap" aria-hidden="true">
+    <svg class="azu" viewBox="0 0 120 120">
+      <rect data-draw pathLength="1" x="6" y="6" width="108" height="108" rx="5"/>
+      <rect data-draw pathLength="1" x="16" y="16" width="88" height="88"/>
+      <rect data-draw pathLength="1" x="38" y="38" width="44" height="44"/>
+      <rect data-draw pathLength="1" x="38" y="38" width="44" height="44" transform="rotate(45 60 60)"/>
+      <path data-draw pathLength="1" d="M60 20 q7 12 0 22 q-7 -10 0 -22 M100 60 q-12 7 -22 0 q10 -7 22 0 M60 100 q-7 -12 0 -22 q7 10 0 22 M20 60 q12 -7 22 0 q-10 7 -22 0"/>
+      <circle data-draw pathLength="1" class="f" cx="60" cy="60" r="9"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="kick"><span class="dot"></span><span class="eyebrow" data-i18n="hero_kick">Restaurant portugais &amp; luxembourgeois · Diekirch</span></div>
+    <h1>Jardin du <span class="p2">Portugal</span></h1>
+    <p class="tag" data-i18n="hero_tag">Un coin de Porto à Diekirch.</p>
+    <p class="sub" data-i18n="hero_sub">L'âme portugaise et la table luxembourgeoise, avenue de la Gare — et la meilleure Francesinha du pays, servie généreusement.</p>
+    <div class="cta">
+      <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+      <a class="btn g" href="#infos" data-i18n="hero_cta2">Nous trouver ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- facts -->
+<div class="facts">
+  <div class="wrap">
+    <span class="f" data-i18n="fact_1">Cuisine <b>portugaise &amp; luxembourgeoise</b></span>
+    <span class="sep">·</span>
+    <span class="f" data-i18n="fact_2"><b>Francesinha</b> — « la meilleure du Luxembourg »</span>
+    <span class="sep">·</span>
+    <span class="f" data-i18n="fact_3">33 av. de la Gare · <b>Diekirch</b></span>
+  </div>
+</div>
+
+<!-- ===================== FRANCESINHA SPOTLIGHT ===================== -->
+<section class="spot blk">
+  <div class="wrap">
+    <div class="txt reveal">
+      <span class="badge" data-i18n="fr_badge">◆ La spécialité de la maison</span>
+      <h2 data-i18n="fr_h">La Francesinha</h2>
+      <p class="lead" data-i18n="fr_lead">« La meilleure du Luxembourg », dit-on.</p>
+      <p data-i18n="fr_p">Le croque-monsieur revisité de Porto : plusieurs viandes serrées entre deux tranches de pain, nappées d'une sauce riche à la bière et à la tomate, un œuf au plat posé dessus. Un plat de caractère, généreux, qu'on ne partage pas — on le mérite.</p>
+      <p style="margin-top:12px;color:var(--muted);font-size:.86rem" data-i18n="fr_note">Recette de la maison — préparation et accompagnements à confirmer sur place.</p>
+    </div>
+    <figure class="fig reveal">
+      <img src="assets/francesinha.jpg" alt="La Francesinha — pain, viandes, sauce à la bière et à la tomate, œuf au plat" loading="lazy" />
+      <figcaption class="cap" data-i18n="fr_cap">Francesinha — la signature du Jardin du Portugal</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== MAISON ===================== -->
+<section class="maison blk" id="maison">
+  <div class="wrap">
+    <figure class="fig reveal"><img src="assets/room.jpg" alt="La salle voûtée en pierre du Jardin du Portugal" loading="lazy" /></figure>
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="house_kick">La maison</span>
+      <h2 data-i18n="house_h">L'âme du Portugal, la table de Diekirch</h2>
+      <span class="lead" data-i18n="house_lead">On y entre en voisin, on en ressort rassasié.</span>
+      <p data-i18n="house_p1">Sous les arches de pierre de l'avenue de la Gare, le Jardin du Portugal réunit deux cuisines qui se ressemblent plus qu'on ne croit : la générosité portugaise et la robustesse luxembourgeoise. Poissons et morue, viandes grillées, portions franches, service souriant.</p>
+      <p data-i18n="house_p2">Une adresse de famille, sans esbroufe, où l'on vient pour bien manger et repartir content — un petit voyage à Porto sans quitter l'Éislek.</p>
+      <div class="details">
+        <div class="detail"><span class="ic">🐟</span><div><h3 data-i18n="d1_h">La morue, mille façons</h3><p data-i18n="d1_p">Le bacalhau à Brás en tête — effiloché, œufs, pommes paille, olives.</p></div></div>
+        <div class="detail"><span class="ic">🔥</span><div><h3 data-i18n="d2_h">Le grill &amp; l'espetada</h3><p data-i18n="d2_p">Brochettes marinées sur pique, entrecôtes, poulpe grillé à l'huile d'olive.</p></div></div>
+        <div class="detail"><span class="ic">🍮</span><div><h3 data-i18n="d3_h">La douceur finale</h3><p data-i18n="d3_p">Crème brûlée, mousse au chocolat, dessert du jour — la maison a la dent sucrée.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CARTE ===================== -->
+<section class="carte blk" id="carte">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="menu_kick">La carte</span>
+      <h2 data-i18n="menu_h">Portugal &amp; Luxembourg, dans la même assiette</h2>
+      <p data-i18n="menu_p">Une sélection représentative. Les plats varient au fil du marché — la carte complète et les prix sont à confirmer avec la maison.</p>
+    </div>
+    <div class="cats">
+      <div class="cat reveal">
+        <h3 data-i18n="cat_spec">◆ La spécialité</h3>
+        <div class="mrow"><div class="n">Francesinha</div><div class="d" data-i18n="m_franc_d">Croque de Porto — viandes, sauce bière &amp; tomate, œuf au plat.</div></div>
+        <div class="mrow"><div class="n">Espetada<span class="pt" data-i18n="m_espet_t">sur pique</span></div><div class="d" data-i18n="m_espet_d">Brochette de viande marinée, servie suspendue.</div></div>
+      </div>
+      <div class="cat reveal">
+        <h3 data-i18n="cat_mer">◆ Poissons &amp; fruits de mer</h3>
+        <div class="mrow"><div class="n">Bacalhau à Brás</div><div class="d" data-i18n="m_baca_d">Morue effilochée, œufs, pommes paille, olives.</div></div>
+        <div class="mrow"><div class="n">Cataplana<span class="pt" data-i18n="m_cata_t">à partager</span></div><div class="d" data-i18n="m_cata_d">Fruits de mer mijotés dans le cuivre.</div></div>
+        <div class="mrow"><div class="n">Polvo grelhado</div><div class="d" data-i18n="m_polvo_d">Poulpe grillé, huile d'olive et ail.</div></div>
+        <div class="mrow"><div class="n">Gambas à l'ail</div><div class="d" data-i18n="m_gambas_d">Crevettes poêlées, huile d'olive, ail, persil.</div></div>
+      </div>
+      <div class="cat reveal">
+        <h3 data-i18n="cat_viande">◆ Viandes</h3>
+        <div class="mrow"><div class="n">Entrecôte</div><div class="d" data-i18n="m_entre_d">Grillée, sauce au choix, frites maison.</div></div>
+        <div class="mrow"><div class="n">Escalope</div><div class="d" data-i18n="m_escal_d">Panée ou à la crème, façon maison.</div></div>
+        <div class="mrow"><div class="n">Filet américain</div><div class="d" data-i18n="m_ameri_d">Préparé minute, à la luxembourgeoise.</div></div>
+      </div>
+      <div class="cat reveal">
+        <h3 data-i18n="cat_douceur">◆ Douceurs</h3>
+        <div class="mrow"><div class="n">Crème brûlée</div><div class="d" data-i18n="m_creme_d">Vanille, croûte caramélisée.</div></div>
+        <div class="mrow"><div class="n">Mousse au chocolat</div><div class="d" data-i18n="m_mousse_d">Maison, intense.</div></div>
+        <div class="mrow"><div class="n">Dessert du jour</div><div class="d" data-i18n="m_dessert_d">Selon l'inspiration et le marché.</div></div>
+      </div>
+    </div>
+    <div class="formules">
+      <div class="formule"><div class="k" data-i18n="form_1_k">Menu du jour</div><div class="v">~16,50&nbsp;€</div><div class="s" data-i18n="form_ind">indicatif · à confirmer</div></div>
+      <div class="formule"><div class="k" data-i18n="form_2_k">À la carte</div><div class="v">~25&nbsp;€</div><div class="s" data-i18n="form_ind2">indicatif · à confirmer</div></div>
+    </div>
+    <p class="menu-note" data-i18n="menu_note">Carte, plats et prix donnés à titre indicatif — à confirmer avec la maison.</p>
+    <div class="food-strip reveal">
+      <figure><img src="assets/bacalhau.jpg" alt="Bacalhau à Brás — morue effilochée" loading="lazy" /></figure>
+      <figure><img src="assets/gambas.jpg" alt="Gambas à l'ail poêlées" loading="lazy" /></figure>
+      <figure><img src="assets/espetada.jpg" alt="Espetada — brochette de viande sur pique" loading="lazy" /></figure>
+      <figure><img src="assets/dessert.jpg" alt="Crème brûlée maison" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="gallery blk">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="gal_kick">En images</span>
+      <h2 data-i18n="gal_h">Un aperçu de la maison</h2>
+    </div>
+    <div class="gal reveal">
+      <figure class="w2 h2"><img src="assets/octopus.jpg" alt="Poulpe grillé à l'huile d'olive" loading="lazy" /><figcaption data-i18n="g_octopus">Polvo grelhado</figcaption></figure>
+      <figure><img src="assets/facade.jpg" alt="La façade du Jardin du Portugal, avenue de la Gare à Diekirch" loading="lazy" /><figcaption data-i18n="g_facade">Avenue de la Gare</figcaption></figure>
+      <figure><img src="assets/cataplana.jpg" alt="Cataplana de fruits de mer" loading="lazy" /><figcaption data-i18n="g_cata">La cataplana</figcaption></figure>
+      <figure><img src="assets/detail.jpg" alt="Table dressée du Jardin du Portugal" loading="lazy" /><figcaption data-i18n="g_detail">À table</figcaption></figure>
+      <figure><img src="assets/gambas.jpg" alt="Gambas à l'ail" loading="lazy" /><figcaption data-i18n="g_gambas">Gambas à l'ail</figcaption></figure>
+    </div>
+    <p class="menu-note" style="color:var(--muted)" data-i18n="gal_note">Photographies de sources publiques — à remplacer par les visuels de la maison.</p>
+  </div>
+</section>
+
+<!-- ===================== INFOS ===================== -->
+<section class="infos blk" id="infos">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="info_kick">Infos &amp; accès</span>
+      <h2 data-i18n="info_h">Nous trouver</h2>
+      <div class="icard">
+        <div class="k" data-i18n="info_addr_k">Adresse</div>
+        <div class="v">33, avenue de la Gare<br>L-9233 Diekirch</div>
+        <div class="s" data-i18n="info_addr_s">Vieille ville de Diekirch, dans l'Éislek.</div>
+        <a class="btn p map-btn" data-i18n="info_map" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Jardin+du+Portugal+33+Avenue+de+la+Gare+Diekirch">Itinéraire ↗</a>
+      </div>
+      <div class="icard">
+        <div class="k" data-i18n="info_tel_k">Réserver</div>
+        <div class="v"><a href="tel:+35226803705">+352 26 80 37 05</a></div>
+        <div class="s" data-i18n="info_tel_s">Réservation conseillée le week-end — numéro à confirmer.</div>
+      </div>
+      <div class="socials">
+        <a href="https://www.facebook.com/p/Jardin-Du-Portugal-100068359476036/" target="_blank" rel="noopener">Facebook ↗</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="hours_kick">Horaires</span>
+      <h2 data-i18n="hours_h">Quand nous ouvrons</h2>
+      <div class="icard">
+        <ul class="hours" id="hours"></ul>
+        <p class="s" style="margin-top:12px" data-i18n="hours_note">Service 11h30–14h &amp; 18h30–21h30. Fermé le mardi et le dimanche soir. Horaires indicatifs — à confirmer avec la maison.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div class="bn">Jardin du Portugal<small data-i18n="foot_sub">Diekirch · Luxembourg</small></div>
+      <div class="wk">
+        <div data-i18n="foot_made" class="made">Aperçu de site composé pour la maison par</div>
+        <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk · studio web · Luxembourg ↗</a>
+      </div>
+    </div>
+    <p class="disc" data-i18n="disclaimer">Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site du Jardin du Portugal. Le logotype est proposé ; la carte, les prix, les horaires et le numéro de téléphone sont donnés à titre indicatif et restent à confirmer avec la maison. Photographies de sources publiques, à remplacer par les visuels du restaurant.</p>
+  </div>
+</footer>
+
+<script>
+/* ===================== i18n ===================== */
+var I18N = {
+  fr:{
+    brand_sub:"Diekirch", nav_maison:"La maison", nav_carte:"La carte", nav_infos:"Infos & accès",
+    hero_kick:"Restaurant portugais & luxembourgeois · Diekirch", hero_tag:"Un coin de Porto à Diekirch.",
+    hero_sub:"L'âme portugaise et la table luxembourgeoise, avenue de la Gare — et la meilleure Francesinha du pays, servie généreusement.",
+    hero_cta1:"Voir la carte", hero_cta2:"Nous trouver ↓",
+    fact_1:"Cuisine <b>portugaise & luxembourgeoise</b>", fact_2:"<b>Francesinha</b> — « la meilleure du Luxembourg »", fact_3:"33 av. de la Gare · <b>Diekirch</b>",
+    fr_badge:"◆ La spécialité de la maison", fr_h:"La Francesinha", fr_lead:"« La meilleure du Luxembourg », dit-on.",
+    fr_p:"Le croque-monsieur revisité de Porto : plusieurs viandes serrées entre deux tranches de pain, nappées d'une sauce riche à la bière et à la tomate, un œuf au plat posé dessus. Un plat de caractère, généreux, qu'on ne partage pas — on le mérite.",
+    fr_note:"Recette de la maison — préparation et accompagnements à confirmer sur place.",
+    fr_cap:"Francesinha — la signature du Jardin du Portugal",
+    house_kick:"La maison", house_h:"L'âme du Portugal, la table de Diekirch", house_lead:"On y entre en voisin, on en ressort rassasié.",
+    house_p1:"Sous les arches de pierre de l'avenue de la Gare, le Jardin du Portugal réunit deux cuisines qui se ressemblent plus qu'on ne croit : la générosité portugaise et la robustesse luxembourgeoise. Poissons et morue, viandes grillées, portions franches, service souriant.",
+    house_p2:"Une adresse de famille, sans esbroufe, où l'on vient pour bien manger et repartir content — un petit voyage à Porto sans quitter l'Éislek.",
+    d1_h:"La morue, mille façons", d1_p:"Le bacalhau à Brás en tête — effiloché, œufs, pommes paille, olives.",
+    d2_h:"Le grill & l'espetada", d2_p:"Brochettes marinées sur pique, entrecôtes, poulpe grillé à l'huile d'olive.",
+    d3_h:"La douceur finale", d3_p:"Crème brûlée, mousse au chocolat, dessert du jour — la maison a la dent sucrée.",
+    menu_kick:"La carte", menu_h:"Portugal & Luxembourg, dans la même assiette",
+    menu_p:"Une sélection représentative. Les plats varient au fil du marché — la carte complète et les prix sont à confirmer avec la maison.",
+    cat_spec:"◆ La spécialité", cat_mer:"◆ Poissons & fruits de mer", cat_viande:"◆ Viandes", cat_douceur:"◆ Douceurs",
+    m_franc_d:"Croque de Porto — viandes, sauce bière & tomate, œuf au plat.",
+    m_espet_t:"sur pique", m_espet_d:"Brochette de viande marinée, servie suspendue.",
+    m_baca_d:"Morue effilochée, œufs, pommes paille, olives.",
+    m_cata_t:"à partager", m_cata_d:"Fruits de mer mijotés dans le cuivre.",
+    m_polvo_d:"Poulpe grillé, huile d'olive et ail.", m_gambas_d:"Crevettes poêlées, huile d'olive, ail, persil.",
+    m_entre_d:"Grillée, sauce au choix, frites maison.", m_escal_d:"Panée ou à la crème, façon maison.",
+    m_ameri_d:"Préparé minute, à la luxembourgeoise.",
+    m_creme_d:"Vanille, croûte caramélisée.", m_mousse_d:"Maison, intense.", m_dessert_d:"Selon l'inspiration et le marché.",
+    form_1_k:"Menu du jour", form_2_k:"À la carte", form_ind:"indicatif · à confirmer", form_ind2:"indicatif · à confirmer",
+    menu_note:"Carte, plats et prix donnés à titre indicatif — à confirmer avec la maison.",
+    gal_kick:"En images", gal_h:"Un aperçu de la maison",
+    g_octopus:"Polvo grelhado", g_facade:"Avenue de la Gare", g_cata:"La cataplana", g_detail:"À table", g_gambas:"Gambas à l'ail",
+    gal_note:"Photographies de sources publiques — à remplacer par les visuels de la maison.",
+    info_kick:"Infos & accès", info_h:"Nous trouver", info_addr_k:"Adresse", info_addr_s:"Vieille ville de Diekirch, dans l'Éislek.", info_map:"Itinéraire ↗",
+    info_tel_k:"Réserver", info_tel_s:"Réservation conseillée le week-end — numéro à confirmer.",
+    hours_kick:"Horaires", hours_h:"Quand nous ouvrons",
+    hours_note:"Service 11h30–14h & 18h30–21h30. Fermé le mardi et le dimanche soir. Horaires indicatifs — à confirmer avec la maison.",
+    foot_sub:"Diekirch · Luxembourg", foot_made:"Aperçu de site composé pour la maison par",
+    disclaimer:"Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site du Jardin du Portugal. Le logotype est proposé ; la carte, les prix, les horaires et le numéro de téléphone sont donnés à titre indicatif et restent à confirmer avec la maison. Photographies de sources publiques, à remplacer par les visuels du restaurant.",
+    days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé", today:"Aujourd'hui"
+  },
+  de:{
+    brand_sub:"Diekirch", nav_maison:"Das Haus", nav_carte:"Die Karte", nav_infos:"Infos & Anfahrt",
+    hero_kick:"Portugiesisches & luxemburgisches Restaurant · Diekirch", hero_tag:"Ein Stück Porto in Diekirch.",
+    hero_sub:"Portugiesische Seele und luxemburgische Küche an der Avenue de la Gare — und die beste Francesinha des Landes, großzügig serviert.",
+    hero_cta1:"Zur Karte", hero_cta2:"So finden Sie uns ↓",
+    fact_1:"Küche <b>portugiesisch & luxemburgisch</b>", fact_2:"<b>Francesinha</b> — „die beste Luxemburgs“", fact_3:"33 av. de la Gare · <b>Diekirch</b>",
+    fr_badge:"◆ Die Spezialität des Hauses", fr_h:"Die Francesinha", fr_lead:"„Die beste Luxemburgs“, sagt man.",
+    fr_p:"Der neu erfundene Toast aus Porto: mehrere Fleischsorten zwischen zwei Brotscheiben, übergossen mit einer kräftigen Sauce aus Bier und Tomate, ein Spiegelei obendrauf. Ein charaktervolles, großzügiges Gericht, das man nicht teilt — man verdient es sich.",
+    fr_note:"Rezept des Hauses — Zubereitung und Beilagen vor Ort zu bestätigen.",
+    fr_cap:"Francesinha — die Signatur des Jardin du Portugal",
+    house_kick:"Das Haus", house_h:"Die Seele Portugals, der Tisch von Diekirch", house_lead:"Man kommt als Nachbar und geht satt wieder.",
+    house_p1:"Unter den Steinbögen der Avenue de la Gare vereint das Jardin du Portugal zwei Küchen, die sich ähnlicher sind, als man denkt: portugiesische Großzügigkeit und luxemburgische Bodenständigkeit. Fisch und Stockfisch, gegrilltes Fleisch, ehrliche Portionen, freundlicher Service.",
+    house_p2:"Ein Familienlokal ohne Chichi, in das man kommt, um gut zu essen und zufrieden wieder zu gehen — eine kleine Reise nach Porto, ohne das Éislek zu verlassen.",
+    d1_h:"Stockfisch, tausendfach", d1_p:"Allen voran Bacalhau à Brás — zerzupft, Eier, Kartoffelstroh, Oliven.",
+    d2_h:"Grill & Espetada", d2_p:"Marinierte Spieße am Haken, Entrecôtes, gegrillter Oktopus in Olivenöl.",
+    d3_h:"Der süße Schluss", d3_p:"Crème brûlée, Mousse au Chocolat, Dessert des Tages — das Haus mag es süß.",
+    menu_kick:"Die Karte", menu_h:"Portugal & Luxemburg auf einem Teller",
+    menu_p:"Eine repräsentative Auswahl. Die Gerichte wechseln je nach Markt — die vollständige Karte und die Preise sind mit dem Haus zu bestätigen.",
+    cat_spec:"◆ Die Spezialität", cat_mer:"◆ Fisch & Meeresfrüchte", cat_viande:"◆ Fleisch", cat_douceur:"◆ Süßes",
+    m_franc_d:"Toast aus Porto — Fleisch, Bier-Tomaten-Sauce, Spiegelei.",
+    m_espet_t:"am Spieß", m_espet_d:"Mariniertes Fleisch am hängenden Spieß.",
+    m_baca_d:"Zerzupfter Stockfisch, Eier, Kartoffelstroh, Oliven.",
+    m_cata_t:"zum Teilen", m_cata_d:"Meeresfrüchte im Kupfertopf geschmort.",
+    m_polvo_d:"Gegrillter Oktopus, Olivenöl und Knoblauch.", m_gambas_d:"Gebratene Garnelen, Olivenöl, Knoblauch, Petersilie.",
+    m_entre_d:"Gegrillt, Sauce nach Wahl, hausgemachte Pommes.", m_escal_d:"Paniert oder in Rahm, nach Art des Hauses.",
+    m_ameri_d:"Frisch zubereitet, auf luxemburgische Art.",
+    m_creme_d:"Vanille, karamellisierte Kruste.", m_mousse_d:"Hausgemacht, intensiv.", m_dessert_d:"Je nach Inspiration und Markt.",
+    form_1_k:"Tagesmenü", form_2_k:"À la carte", form_ind:"Richtwert · zu bestätigen", form_ind2:"Richtwert · zu bestätigen",
+    menu_note:"Karte, Gerichte und Preise als Richtwert — mit dem Haus zu bestätigen.",
+    gal_kick:"In Bildern", gal_h:"Ein Blick ins Haus",
+    g_octopus:"Polvo grelhado", g_facade:"Avenue de la Gare", g_cata:"Die Cataplana", g_detail:"Zu Tisch", g_gambas:"Knoblauchgarnelen",
+    gal_note:"Fotos aus öffentlichen Quellen — durch eigene Bilder des Hauses zu ersetzen.",
+    info_kick:"Infos & Anfahrt", info_h:"So finden Sie uns", info_addr_k:"Adresse", info_addr_s:"Altstadt von Diekirch, im Éislek.", info_map:"Route ↗",
+    info_tel_k:"Reservieren", info_tel_s:"Am Wochenende Reservierung empfohlen — Nummer zu bestätigen.",
+    hours_kick:"Öffnungszeiten", hours_h:"Wann wir öffnen",
+    hours_note:"Service 11:30–14:00 & 18:30–21:30. Dienstag und Sonntagabend geschlossen. Zeiten als Richtwert — mit dem Haus zu bestätigen.",
+    foot_sub:"Diekirch · Luxemburg", foot_made:"Website-Vorschau für das Haus, gestaltet von",
+    disclaimer:"Diese Seite ist ein inoffizieller Vorschlag von Webwerk auf Basis öffentlicher Quellen und zeigt, wie die Website des Jardin du Portugal aussehen könnte. Das Logotype ist ein Vorschlag; Karte, Preise, Öffnungszeiten und Telefonnummer sind Richtwerte und mit dem Haus zu bestätigen. Fotos aus öffentlichen Quellen, durch eigene Bilder des Restaurants zu ersetzen.",
+    days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen", today:"Heute"
+  },
+  en:{
+    brand_sub:"Diekirch", nav_maison:"The house", nav_carte:"The menu", nav_infos:"Find us",
+    hero_kick:"Portuguese & Luxembourgish restaurant · Diekirch", hero_tag:"A corner of Porto in Diekirch.",
+    hero_sub:"Portuguese soul and a Luxembourg table on the Avenue de la Gare — and the best Francesinha in the country, generously served.",
+    hero_cta1:"See the menu", hero_cta2:"Find us ↓",
+    fact_1:"Cuisine <b>Portuguese & Luxembourgish</b>", fact_2:"<b>Francesinha</b> — “the best in Luxembourg”", fact_3:"33 av. de la Gare · <b>Diekirch</b>",
+    fr_badge:"◆ The house speciality", fr_h:"The Francesinha", fr_lead:"“The best in Luxembourg,” they say.",
+    fr_p:"Porto's reinvented toastie: several meats packed between two slices of bread, blanketed in a rich beer-and-tomato sauce, a fried egg on top. A dish with character, generous, one you don't share — you earn it.",
+    fr_note:"House recipe — preparation and sides to be confirmed on site.",
+    fr_cap:"Francesinha — the Jardin du Portugal signature",
+    house_kick:"The house", house_h:"Portugal's soul, Diekirch's table", house_lead:"You come in as a neighbour and leave well fed.",
+    house_p1:"Under the stone arches of the Avenue de la Gare, the Jardin du Portugal brings together two cuisines more alike than you'd think: Portuguese generosity and Luxembourg heartiness. Fish and salt cod, grilled meats, honest portions, a smiling welcome.",
+    house_p2:"A family place with no fuss, where you come to eat well and leave happy — a little trip to Porto without leaving the Éislek.",
+    d1_h:"Salt cod, a thousand ways", d1_p:"Bacalhau à Brás leading — shredded, eggs, straw potatoes, olives.",
+    d2_h:"The grill & the espetada", d2_p:"Marinated skewers on the hook, entrecôtes, grilled octopus in olive oil.",
+    d3_h:"The sweet finish", d3_p:"Crème brûlée, chocolate mousse, dessert of the day — the house has a sweet tooth.",
+    menu_kick:"The menu", menu_h:"Portugal & Luxembourg on one plate",
+    menu_p:"A representative selection. Dishes change with the market — the full menu and prices are to be confirmed with the house.",
+    cat_spec:"◆ The speciality", cat_mer:"◆ Fish & seafood", cat_viande:"◆ Meats", cat_douceur:"◆ Sweets",
+    m_franc_d:"Porto toastie — meats, beer & tomato sauce, fried egg.",
+    m_espet_t:"on the skewer", m_espet_d:"Marinated meat served on a hanging skewer.",
+    m_baca_d:"Shredded salt cod, eggs, straw potatoes, olives.",
+    m_cata_t:"to share", m_cata_d:"Seafood stewed in the copper pot.",
+    m_polvo_d:"Grilled octopus, olive oil and garlic.", m_gambas_d:"Pan-fried prawns, olive oil, garlic, parsley.",
+    m_entre_d:"Grilled, sauce of your choice, house chips.", m_escal_d:"Breaded or in cream, the house way.",
+    m_ameri_d:"Prepared to order, Luxembourg style.",
+    m_creme_d:"Vanilla, caramelised crust.", m_mousse_d:"Homemade, intense.", m_dessert_d:"As inspiration and the market allow.",
+    form_1_k:"Menu of the day", form_2_k:"À la carte", form_ind:"indicative · to be confirmed", form_ind2:"indicative · to be confirmed",
+    menu_note:"Menu, dishes and prices are indicative — to be confirmed with the house.",
+    gal_kick:"In pictures", gal_h:"A look inside",
+    g_octopus:"Polvo grelhado", g_facade:"Avenue de la Gare", g_cata:"The cataplana", g_detail:"At the table", g_gambas:"Garlic prawns",
+    gal_note:"Public-source photographs — to be replaced with the venue's own visuals.",
+    info_kick:"Find us", info_h:"Find us", info_addr_k:"Address", info_addr_s:"Diekirch old town, in the Éislek.", info_map:"Directions ↗",
+    info_tel_k:"Book a table", info_tel_s:"Booking advised at weekends — number to be confirmed.",
+    hours_kick:"Opening hours", hours_h:"When we open",
+    hours_note:"Service 11:30–14:00 & 18:30–21:30. Closed Tuesday and Sunday evening. Hours indicative — to be confirmed with the house.",
+    foot_sub:"Diekirch · Luxembourg", foot_made:"Website preview composed for the venue by",
+    disclaimer:"This page is an unofficial proposal by Webwerk, built from public sources to show what the Jardin du Portugal's website could look like. The logotype is proposed; the menu, prices, hours and phone number are indicative and remain to be confirmed with the venue. Public-source photographs, to be replaced with the restaurant's own visuals.",
+    days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], closed:"Closed", today:"Today"
+  }
+};
+/* Hours by getDay() index (0=Sun .. 6=Sat). null = closed. "L" lunch only. */
+var HOURS = {
+  0:{svc:"11:30–14:00"},           /* Sun: lunch only (closed evening) */
+  1:{svc:"11:30–14:00 · 18:30–21:30"},
+  2:null,                          /* Tue: closed */
+  3:{svc:"11:30–14:00 · 18:30–21:30"},
+  4:{svc:"11:30–14:00 · 18:30–21:30"},
+  5:{svc:"11:30–14:00 · 18:30–21:30"},
+  6:{svc:"11:30–14:00 · 18:30–21:30"}
+};
+
+var lang="fr";
+function t(k){return (I18N[lang] && I18N[lang][k]!=null)?I18N[lang][k]:I18N.fr[k];}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var v=t(el.getAttribute("data-i18n")); if(v!=null) el.innerHTML=v;
+  });
+  document.querySelectorAll(".langs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-lang")===l);});
+  buildHours();
+}
+function buildHours(){
+  var ul=document.getElementById("hours"); if(!ul) return;
+  var D=I18N[lang].days, todayIdx=(new Date().getDay());
+  // display order Mon..Sun
+  var order=[1,2,3,4,5,6,0]; ul.innerHTML="";
+  order.forEach(function(i){
+    var h=HOURS[i], li=document.createElement("li");
+    if(i===todayIdx) li.className="today";
+    var val=h?h.svc:('<span class="cl">'+I18N[lang].closed+'</span>');
+    li.innerHTML='<span class="day">'+D[i]+'</span><span>'+val+'</span>';
+    ul.appendChild(li);
+  });
+}
+document.querySelectorAll(".langs button").forEach(function(b){
+  b.addEventListener("click",function(){applyLang(b.getAttribute("data-lang"));});
+});
+
+/* mobile nav */
+(function(){
+  var burger=document.getElementById("burger"), menu=document.getElementById("menu");
+  if(!burger||!menu) return;
+  function set(open){menu.classList.toggle("open",open);burger.setAttribute("aria-expanded",open);burger.textContent=open?"✕":"☰";}
+  burger.addEventListener("click",function(){set(!menu.classList.contains("open"));});
+  menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){set(false);});});
+})();
+
+/* reveal on scroll */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+
+/* azulejo draw-in */
+function drawAzu(){var a=document.querySelector(".azu"); if(a) a.classList.add("drawn");}
+if(window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches){drawAzu();}
+else{ window.addEventListener("load",function(){setTimeout(drawAzu,350);}); }
+
+applyLang("fr");
+</script>
+</body>
+</html>
