@@ -17,79 +17,79 @@
 <link rel="preload" href="/fonts/archivo-79dc5e10-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/fonts/fonts.css" />
 <style>
-  :root{{ --blue:#0b2c52; --blue2:#0e3360; --cy:#bcd7f2; --wht:#eaf3ff;
-    --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; --maxw:1080px; }}
-  *{{box-sizing:border-box;margin:0;padding:0}}
-  html{{scroll-behavior:smooth}}
-  body{{background:var(--blue);color:var(--cy);font-family:'Space Mono',ui-monospace,monospace;font-size:14px;line-height:1.6;
+  :root{ --blue:#0b2c52; --blue2:#0e3360; --cy:#bcd7f2; --wht:#eaf3ff;
+    --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; --maxw:1080px; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--blue);color:var(--cy);font-family:'Space Mono',ui-monospace,monospace;font-size:14px;line-height:1.6;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
     background-image:linear-gradient(var(--faint2) 1px,transparent 1px),linear-gradient(90deg,var(--faint2) 1px,transparent 1px);
-    background-size:34px 34px;}}
-  .wrap{{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}}
-  a{{color:var(--amber);text-decoration:none}}
-  a:focus-visible,button:focus-visible{{outline:2px solid var(--amber);outline-offset:3px;border-radius:1px}}
-  .arch{{font-family:'Archivo',sans-serif}}
-  .lbl{{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}}
-  .dim{{color:rgba(188,215,242,.66)}}
-  header{{border-bottom:1px solid var(--faint);position:relative;z-index:2}}
-  header .wrap{{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}}
-  .brand{{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--wht);font-size:1.15rem}}
-  .brand .k{{color:var(--red)}}
-  .studio{{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(188,215,242,.6)}}
-  .plate{{padding:52px 0 0}}
-  .plate .fig{{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(188,215,242,.72)}}
-  .plate h1{{font-family:'Archivo',sans-serif;font-weight:800;color:var(--wht);font-size:clamp(34px,6vw,62px);
-    line-height:1.0;letter-spacing:-.01em;margin:14px 0 6px}}
-  .plate h1 .sub{{display:block;font-size:.42em;font-weight:600;color:var(--cy);letter-spacing:.01em;margin-top:8px}}
-  .plate .note{{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(-2.5deg);display:inline-block;margin-left:4px}}
-  .lede{{max-width:54ch;margin:18px 0 0;color:rgba(188,215,242,.82);font-size:.95rem}}
-  .dimline{{display:flex;align-items:center;gap:10px;margin:22px 0 0;color:var(--red);font-size:.7rem;max-width:620px}}
-  .dimline .bar{{flex:1;height:1px;background:var(--red);position:relative;transform:scaleX(0);transform-origin:left;
-    animation:draw 1s .35s cubic-bezier(.6,0,.2,1) forwards}}
-  @keyframes draw{{to{{transform:scaleX(1)}}}}
-  .dimline .bar::before,.dimline .bar::after{{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}}
-  .dimline .bar::before{{left:0}}.dimline .bar::after{{right:0}}
-  .stage{{margin:40px 0 0;position:relative}}
-  .stage .tag{{position:absolute;right:-6px;top:-30px;z-index:3;font-family:'Caveat',cursive;color:var(--amber);
-    font-size:1.5rem;transform:rotate(3deg)}}
-  .browser{{border:1px solid var(--faint);border-radius:8px;overflow:hidden;background:#0a2547;
-    box-shadow:0 40px 80px -40px rgba(0,0,0,.6);}}
-  .bbar{{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--blue2);border-bottom:1px solid var(--faint)}}
-  .bbar .dot{{width:11px;height:11px;border-radius:50%;background:rgba(188,215,242,.35)}}
-  .bbar .url{{flex:1;margin-left:10px;background:rgba(0,0,0,.22);border:1px solid var(--faint2);border-radius:20px;
-    padding:6px 14px;font-size:.72rem;color:var(--cy);display:flex;align-items:center;gap:8px}}
-  .bbar .url b{{color:var(--wht);font-weight:400}}
-  .bbar .url .lock{{color:var(--amber);font-size:.7rem}}
-  .screen{{position:relative;width:100%;overflow:hidden;background:#0e1013;height:600px}}
-  .screen iframe{{position:absolute;top:0;left:0;width:1280px;height:854px;border:0;transform-origin:top left}}
-  .screen .veil{{position:absolute;inset:0;cursor:pointer;background:transparent}}
-  .actions{{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:26px 0 0}}
-  .btn{{font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;
-    background:var(--amber);color:#0a1f38;border:0;border-radius:4px;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}}
-  .btn:hover{{filter:brightness(1.06)}}
-  .btn.ghost{{background:transparent;color:var(--cy);border:1px solid var(--faint)}}
-  .btn.ghost:hover{{border-color:var(--amber);color:var(--wht)}}
-  .titleblock{{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--faint);margin:52px 0 0}}
-  .titleblock div{{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:13px 15px}}
-  .titleblock div:nth-child(3n){{border-right:0}}
-  .titleblock div:nth-last-child(-n+3){{border-bottom:0}}
-  .titleblock .k{{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.66);display:block;margin-bottom:4px}}
-  .titleblock .v{{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem}}
-  footer{{margin:46px 0 60px;padding-top:22px;border-top:1px solid var(--faint);
-    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;justify-content:space-between}}
-  footer .note{{color:rgba(188,215,242,.6);font-size:.72rem;max-width:64ch}}
-  footer a.home{{font-family:'Archivo',sans-serif;font-weight:700;color:var(--wht)}}
-  footer a.home .k{{color:var(--red)}}
-  @media(max-width:640px){{
-    .titleblock{{grid-template-columns:1fr 1fr}}
-    .titleblock div:nth-child(3n){{border-right:1px solid var(--faint)}}
-    .titleblock div:nth-child(2n){{border-right:0}}
-    .titleblock div:nth-last-child(-n+3){{border-bottom:1px solid var(--faint)}}
-    .titleblock div:nth-last-child(-n+2){{border-bottom:0}}
-    .screen{{height:420px}}
-    .stage .tag{{display:none}}
-  }}
-  @media(prefers-reduced-motion:reduce){{ .dimline .bar{{transform:scaleX(1);animation:none}} }}
+    background-size:34px 34px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}
+  a{color:var(--amber);text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:1px}
+  .arch{font-family:'Archivo',sans-serif}
+  .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+  .dim{color:rgba(188,215,242,.66)}
+  header{border-bottom:1px solid var(--faint);position:relative;z-index:2}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
+  .brand{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--wht);font-size:1.15rem}
+  .brand .k{color:var(--red)}
+  .studio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(188,215,242,.6)}
+  .plate{padding:52px 0 0}
+  .plate .fig{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(188,215,242,.72)}
+  .plate h1{font-family:'Archivo',sans-serif;font-weight:800;color:var(--wht);font-size:clamp(34px,6vw,62px);
+    line-height:1.0;letter-spacing:-.01em;margin:14px 0 6px}
+  .plate h1 .sub{display:block;font-size:.42em;font-weight:600;color:var(--cy);letter-spacing:.01em;margin-top:8px}
+  .plate .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(-2.5deg);display:inline-block;margin-left:4px}
+  .lede{max-width:54ch;margin:18px 0 0;color:rgba(188,215,242,.82);font-size:.95rem}
+  .dimline{display:flex;align-items:center;gap:10px;margin:22px 0 0;color:var(--red);font-size:.7rem;max-width:620px}
+  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative;transform:scaleX(0);transform-origin:left;
+    animation:draw 1s .35s cubic-bezier(.6,0,.2,1) forwards}
+  @keyframes draw{to{transform:scaleX(1)}}
+  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
+  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
+  .stage{margin:40px 0 0;position:relative}
+  .stage .tag{position:absolute;right:-6px;top:-30px;z-index:3;font-family:'Caveat',cursive;color:var(--amber);
+    font-size:1.5rem;transform:rotate(3deg)}
+  .browser{border:1px solid var(--faint);border-radius:8px;overflow:hidden;background:#0a2547;
+    box-shadow:0 40px 80px -40px rgba(0,0,0,.6);}
+  .bbar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--blue2);border-bottom:1px solid var(--faint)}
+  .bbar .dot{width:11px;height:11px;border-radius:50%;background:rgba(188,215,242,.35)}
+  .bbar .url{flex:1;margin-left:10px;background:rgba(0,0,0,.22);border:1px solid var(--faint2);border-radius:20px;
+    padding:6px 14px;font-size:.72rem;color:var(--cy);display:flex;align-items:center;gap:8px}
+  .bbar .url b{color:var(--wht);font-weight:400}
+  .bbar .url .lock{color:var(--amber);font-size:.7rem}
+  .screen{position:relative;width:100%;overflow:hidden;background:#0e1013;height:600px}
+  .screen iframe{position:absolute;top:0;left:0;width:1280px;height:854px;border:0;transform-origin:top left}
+  .screen .veil{position:absolute;inset:0;cursor:pointer;background:transparent}
+  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:26px 0 0}
+  .btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;
+    background:var(--amber);color:#0a1f38;border:0;border-radius:4px;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .btn:hover{filter:brightness(1.06)}
+  .btn.ghost{background:transparent;color:var(--cy);border:1px solid var(--faint)}
+  .btn.ghost:hover{border-color:var(--amber);color:var(--wht)}
+  .titleblock{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--faint);margin:52px 0 0}
+  .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:13px 15px}
+  .titleblock div:nth-child(3n){border-right:0}
+  .titleblock div:nth-last-child(-n+3){border-bottom:0}
+  .titleblock .k{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.66);display:block;margin-bottom:4px}
+  .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem}
+  footer{margin:46px 0 60px;padding-top:22px;border-top:1px solid var(--faint);
+    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;justify-content:space-between}
+  footer .note{color:rgba(188,215,242,.6);font-size:.72rem;max-width:64ch}
+  footer a.home{font-family:'Archivo',sans-serif;font-weight:700;color:var(--wht)}
+  footer a.home .k{color:var(--red)}
+  @media(max-width:640px){
+    .titleblock{grid-template-columns:1fr 1fr}
+    .titleblock div:nth-child(3n){border-right:1px solid var(--faint)}
+    .titleblock div:nth-child(2n){border-right:0}
+    .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)}
+    .titleblock div:nth-last-child(-n+2){border-bottom:0}
+    .screen{height:420px}
+    .stage .tag{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){ .dimline .bar{transform:scaleX(1);animation:none} }
 </style>
 </head>
 <body>
@@ -137,12 +137,12 @@
   </footer>
 </main>
 <script>
-  (function(){{
+  (function(){
     var screen=document.querySelector('.screen'), frame=document.querySelector('.screen iframe');
     var BASE=1280;
-    function fit(){{ var s=screen.clientWidth/BASE; frame.style.transform='scale('+s+')'; }}
+    function fit(){ var s=screen.clientWidth/BASE; frame.style.transform='scale('+s+')'; }
     fit(); window.addEventListener('resize',fit); frame.addEventListener('load',fit);
-  }})();
+  })();
 </script>
 <!-- cookieless, GDPR-clean analytics (same as webwerk.lu) — did the reveal get opened + visitor country -->
 <script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
