@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Les Frères — Cuisine irakienne, Esch-sur-Alzette</title>
+<meta name="description" content="Cuisine irakienne familiale à Esch-sur-Alzette depuis 2016 — kebab au charbon, assiettes généreuses et douceurs faites maison. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Eczar';src:url('assets/fonts/eczar-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Eczar';src:url('assets/fonts/eczar-latinext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Commiss';src:url('assets/fonts/commissioner-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Commiss';src:url('assets/fonts/commissioner-latinext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+ --paper:#f5eee1; --cream:#efe6d4; --card:#fbf6ec;
+ --ink:#241a12; --ink2:#524334;
+ --lapis:#1e5f6e; --lapis-d:#164b57; --lapis-l:#2f7686;
+ --brick:#b4552d; --brick-d:#8f3f1e;
+ --saffron:#e0a32e; --saffron-d:#c2851a;
+ --pist:#7c8a4e; --brass:#b08d57;
+ --line:#ddcdb0; --muted:#8a7a61;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Commiss',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Eczar','Commiss',serif;font-weight:700;line-height:1.02}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Commiss',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--brick)}
+
+.star{color:var(--brass)}
+.divider{display:flex;align-items:center;gap:20px;padding:30px 0}
+.divider .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
+.divider .st{width:30px;height:30px;color:var(--brass);flex:none}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s}
+header.solid{background:var(--ink);box-shadow:0 2px 22px rgba(0,0,0,.3)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#f5eee1}
+.brand .mk{width:34px;height:34px;flex:none;color:var(--saffron)}
+.brand .nm{font-family:'Eczar',serif;font-weight:700;font-size:23px;letter-spacing:.01em;line-height:.95;color:#f5eee1}
+.brand .nm small{display:block;font-family:'Commiss';font-size:9.5px;letter-spacing:.24em;color:var(--saffron);font-weight:600;margin-top:3px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Commiss',sans-serif;font-weight:600;letter-spacing:.02em;font-size:15px;color:#f0e7d5;opacity:.92}
+nav.links a:hover{color:var(--saffron);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.13);border-radius:999px;padding:3px}
+.langs button{font-family:'Commiss',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#efe6d4;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--brick);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:#f5eee1;border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-74px;padding-top:74px}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,14,9,.5) 0%,rgba(20,14,9,.2) 30%,rgba(20,14,9,.5) 66%,rgba(15,10,6,.92) 100%)}
+.hero .inner{padding-bottom:clamp(40px,7vw,84px);padding-top:clamp(40px,10vw,90px)}
+.hero .eyebrow{color:var(--saffron);margin-bottom:18px}
+.hero h1{color:#fff;font-size:clamp(56px,11vw,138px);letter-spacing:-.01em;text-shadow:0 4px 40px rgba(0,0,0,.45)}
+.hero .est{display:inline-flex;align-items:center;gap:12px;color:var(--saffron);font-family:'Commiss';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:13px;margin-top:8px}
+.hero .est .st{width:18px;height:18px}
+.hero .tag{font-family:'Commiss',sans-serif;font-weight:500;font-size:clamp(18px,2.4vw,26px);color:#f4ead6;max-width:29ch;margin:20px 0 0;line-height:1.36}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Commiss',sans-serif;font-weight:700;letter-spacing:.02em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--brick);color:#fff}
+.btn.p:hover{background:var(--brick-d)}
+.btn.o{background:transparent;color:#f5eee1;border-color:rgba(245,238,225,.5)}
+.btn.o:hover{border-color:var(--saffron);color:var(--saffron)}
+
+.facts{background:var(--ink);color:#efe6d4;position:relative;overflow:hidden}
+.facts .field{position:absolute;inset:0;color:rgba(176,141,87,.10)}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);position:relative}
+.facts .c{background:var(--ink);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Commiss';font-weight:700;letter-spacing:.16em;font-size:11px;color:var(--saffron);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#efe6d4}
+.facts .v b{color:#fff;font-weight:700;font-family:'Eczar';font-size:19px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:720px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.5vw,60px);color:var(--ink);line-height:1.04}
+.sect-h h2 em{font-style:normal;color:var(--brick)}
+.sect-h p{font-family:'Commiss',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+.gal figure{position:relative;overflow:hidden;border-radius:3px;background:var(--cream)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,14,9,.82),transparent);color:#fff;font-family:'Eczar',serif;font-weight:600;font-size:16px}
+
+/* sweets spotlight */
+.spot{background:var(--lapis);color:#eaf2f0;position:relative;overflow:hidden}
+.spot .field{position:absolute;inset:0;color:rgba(224,163,46,.13)}
+.spot .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,5vw,66px);align-items:center;position:relative}
+.spot .pic img{width:100%;aspect-ratio:6/5;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.4)}
+.spot .pic{position:relative}
+.spot .pic .pill{position:absolute;right:-12px;bottom:22px;background:var(--saffron);color:var(--ink);font-family:'Commiss';font-weight:700;letter-spacing:.03em;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.spot .eyebrow{color:var(--saffron)}
+.spot h2{font-family:'Eczar';font-size:clamp(38px,6vw,74px);color:#fff;margin:14px 0 0;line-height:1.02}
+.spot h2 span{color:var(--saffron);display:block}
+.spot .lead{font-family:'Commiss';font-size:clamp(18px,2.2vw,24px);line-height:1.5;color:#eaf2f0;margin:22px 0 0;font-weight:500}
+.spot .body{font-size:16.5px;color:#c6d9d6;margin:16px 0 0;max-width:46ch}
+
+/* menu */
+.carte{background:var(--cream)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:32px}
+.mgroup h3{font-family:'Eczar';font-size:25px;color:var(--brick);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--line);margin-bottom:14px}
+.mgroup h3 .st{width:17px;height:17px;flex:none;color:var(--saffron-d)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Commiss';font-weight:600;font-size:17px;color:var(--ink)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Eczar';font-weight:700;color:var(--lapis);font-size:17px;white-space:nowrap}
+.carte .note{margin-top:24px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--saffron);padding-left:14px;max-width:80ch}
+
+/* maison */
+.maison{background:var(--ink);color:#eee4d2;position:relative;overflow:hidden}
+.maison .field{position:absolute;inset:0;color:rgba(176,141,87,.09)}
+.maison .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center;position:relative}
+.maison h2{font-family:'Eczar';font-size:clamp(34px,5vw,58px);color:#fff}
+.maison h2 span{color:var(--saffron);display:block}
+.maison .lead{font-size:18px;color:#e4d6bf;margin-top:18px;line-height:1.62;max-width:46ch}
+.maison .body{font-size:16px;color:#c9b795;margin-top:14px;max-width:46ch}
+.maison .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px}
+
+/* infos */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--brick);margin-top:3px}
+.ino .k{font-family:'Commiss';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--saffron)}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Eczar';font-weight:700;color:var(--pist)}
+.mapcard{background:var(--lapis);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#eaf2f0;text-align:center;padding:34px}
+.mapcard .field{position:absolute;inset:0;color:rgba(224,163,46,.16)}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Eczar';font-weight:700;font-size:30px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#1a120b;color:#c9b48d;padding:0 0 40px}
+footer .band{padding:26px 0;display:flex;align-items:center;gap:18px}
+footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
+footer .band .st{width:26px;height:26px;color:var(--brass)}
+footer .in{padding:6px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Eczar';font-weight:700;font-size:27px;color:#f5eee1}
+footer .nm small{display:block;font-family:'Commiss';font-size:10px;letter-spacing:.24em;color:var(--saffron);margin-top:4px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#b7a179}
+footer .made{font-size:12.5px;color:#8f7d5e;margin-top:22px}
+footer .made b{color:#efe6d4}
+footer .made a{color:var(--saffron)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#7d6c50;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .spot .grid,.maison .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.maison .pic{order:-1}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:74px 0 auto 0;flex-direction:column;background:var(--ink);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--ink)}
+ .hero h1{font-size:clamp(48px,15vw,86px)}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<path id="star8" d="M50 3 L61.1 23.2 L83.2 16.8 L76.8 38.9 L97 50 L76.8 61.1 L83.2 83.2 L61.1 76.8 L50 97 L38.9 76.8 L16.8 83.2 L23.2 61.1 L3 50 L23.2 38.9 L16.8 16.8 L38.9 23.2 Z"/>
+<pattern id="girihfield" width="84" height="84" patternUnits="userSpaceOnUse">
+  <use href="#star8" transform="scale(0.84)" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <circle cx="42" cy="42" r="1.6" fill="currentColor"/>
+</pattern>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Les Frères">
+   <svg class="mk" viewBox="0 0 100 100" aria-hidden="true"><use href="#star8" fill="none" stroke="currentColor" stroke-width="4"/><use href="#star8" transform="translate(50 50) scale(0.42) translate(-50 -50)" fill="currentColor"/></svg>
+   <span class="nm">Les Frères<small>Cuisine irakienne · Esch</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#douceurs" data-i18n="nav_sweets">Les douceurs</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#maison" data-i18n="nav_maison">Depuis 2016</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="La terrasse des Frères, rue de l'Alzette à Esch-sur-Alzette"/></div>
+  <div class="scrim"></div>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine irakienne · Esch-sur-Alzette</span>
+   <h1>Les Frères</h1>
+   <div class="est"><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="hero_est">Une cuisine de famille depuis 2016</span></div>
+   <p class="tag" data-i18n="hero_tag">Kebab au charbon, assiettes généreuses et douceurs irakiennes faites maison — en plein cœur d'Esch.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#douceurs" data-i18n="hero_cta2">Les douceurs maison ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#girihfield)"/></svg></div>
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Irakienne &amp; kebab halal</b><br>grillé au charbon, fait sur place</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">La maison</div><div class="v" data-i18n="fact_v2"><b>En famille depuis 2016</b><br>recettes de Bagdad, à Esch</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">L'adresse</div><div class="v" data-i18n="fact_v3"><b>34, rue de l'Alzette</b><br>en pleine rue piétonne</div></div>
+  </div></div>
+ </div>
+
+ <section id="table">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
+    <h2 data-i18n="gal_h">Du grill, <em>généreux</em></h2>
+    <p data-i18n="gal_p">Kebab et dürüm au charbon, escalope croustillante, falafel maison, grandes assiettes à partager. Halal, frais, sans détour.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/mix.jpg" alt="L'assiette Les Frères Mix, quatre viandes"/><figcaption data-i18n="cap_mix">L'assiette « Les Frères Mix »</figcaption></figure>
+    <figure><img src="assets/durum.jpg" alt="Dürüm kebab"/><figcaption data-i18n="cap_durum">Dürüm au charbon</figcaption></figure>
+    <figure><img src="assets/escalope.jpg" alt="Sandwich escalope de poulet"/><figcaption data-i18n="cap_esc">Escalope croustillante</figcaption></figure>
+    <figure class="w2"><img src="assets/shawarma.jpg" alt="Assiette shawarma de poulet"/><figcaption data-i18n="cap_shaw">Shawarma de poulet</figcaption></figure>
+    <figure><img src="assets/falafel.jpg" alt="Assiette falafel maison"/><figcaption data-i18n="cap_fal">Falafel maison</figcaption></figure>
+    <figure><img src="assets/sujuk.jpg" alt="Assiette de sujuk grillé"/><figcaption data-i18n="cap_suj">Sujuk grillé</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- SWEETS SPOTLIGHT -->
+ <section class="spot" id="douceurs">
+  <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#girihfield)"/></svg></div>
+  <div class="wrap grid">
+   <div class="pic">
+    <img src="assets/sweets.jpg" alt="Baklava et pâtisseries irakiennes faites maison"/>
+    <span class="pill" data-i18n="sw_pill">Faites maison</span>
+   </div>
+   <div class="txt">
+    <span class="eyebrow" data-i18n="sw_eyebrow">La signature</span>
+    <h2 data-i18n="sw_h">Les douceurs<span>irakiennes.</span></h2>
+    <p class="lead" data-i18n="sw_lead">Baklava à la pistache, znoud el sit dorés, kunafa fondante — préparés à la maison, comme à Bagdad.</p>
+    <p class="body" data-i18n="sw_body">C'est ce que les habitués reviennent chercher. Le sucre, la pistache et l'eau de fleur d'oranger : la vraie fin d'un repas irakien, à deux pas de la place de la Résistance.</p>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap"><div class="divider"><span class="ln"></span><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="none" stroke="currentColor" stroke-width="4"/></svg><span class="ln"></span></div></div>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="carte_p">Le meilleur du kebab et de la cuisine irakienne, à prix doux. Voici la carte — quelques spécialités se confirment à la maison.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg1">Kebabs &amp; sandwichs</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Kebab</div><div class="ds" data-i18n="i1d">Dinde &amp; poulet, pain, crudités</div></div><span class="dots"></span><span class="pr">7,00 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Dürüm kebab</div><div class="ds" data-i18n="i2d">Galette roulée</div></div><span class="dots"></span><span class="pr">8,00 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Pizza kebab</div></div><span class="dots"></span><span class="pr">9,50 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Escalope de poulet</div><div class="ds" data-i18n="i4d">Panée, croustillante</div></div><span class="dots"></span><span class="pr">7,00 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Kefta / cevapcici</div></div><span class="dots"></span><span class="pr">7,00 €</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg2">Falafel &amp; végé</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Sandwich falafel</div><div class="ds" data-i18n="i6d">Pois chiches maison</div></div><span class="dots"></span><span class="pr">7,00 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Salade falafel</div></div><span class="dots"></span><span class="pr">12,50 €</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg3">Les assiettes</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Les Frères Mix</div><div class="ds" data-i18n="i8d">Quatre viandes, frites, salade</div></div><span class="dots"></span><span class="pr">24,00 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Assiette kebab</div><div class="ds" data-i18n="i9d">Frites &amp; salade</div></div><span class="dots"></span><span class="pr" data-i18n="pr_from1">dès 13,50 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Salade brochettes</div></div><span class="dots"></span><span class="pr">14,50 €</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg4">Douceurs faites maison</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Baklava</div><div class="ds" data-i18n="i11d">Pistache, miel</div></div><span class="dots"></span><span class="pr">3,90 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Znoud el Sit</div><div class="ds" data-i18n="i12d">Rouleaux dorés, crème</div></div><span class="dots"></span><span class="pr">3,90 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i13n">Kunafa</div><div class="ds" data-i18n="i13d">Spécialité irakienne</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg5">Spécialité irakienne</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i14n">Beryani</div><div class="ds" data-i18n="i14d">Le plat irakien de la maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Prix relevés sur la carte de livraison publique (Foostix, semaine du 24–30 août 2026), à titre indicatif. Les prix en salle, le beryani et la kunafa sont à confirmer avec la maison.</p>
+  </div>
+ </section>
+
+ <!-- MAISON -->
+ <section class="maison" id="maison">
+  <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#girihfield)"/></svg></div>
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--saffron)" data-i18n="maison_eyebrow">La maison</span>
+    <h2 data-i18n="maison_h">Une famille,<span>depuis 2016.</span></h2>
+    <p class="lead" data-i18n="maison_lead">Les Frères, c'est une cuisine irakienne tenue en famille au cœur d'Esch — le kebab grillé au charbon, les assiettes généreuses, et les douceurs préparées à la main.</p>
+    <p class="body" data-i18n="maison_body">Halal, frais, à prix juste. On y vient pour un dürüm sur le pouce le midi, et on repart avec une boîte de baklava pour la maison.</p>
+   </div>
+   <div class="pic"><img src="assets/interior.jpg" alt="La salle des Frères à Esch-sur-Alzette"/></div>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">34, rue de l'Alzette<br>L-4010 Esch-sur-Alzette</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver / commander</div><div class="v"><a href="tel:+35226540007">+352 26 54 00 07</a> <span class="fl" data-i18n="ino_fl2">(à confirmer)</span><br><a class="btn p" style="margin-top:13px;padding:11px 20px;font-size:13px" href="https://www.foostix.com/restaurant/8854-les-freres" target="_blank" rel="noopener" data-i18n="ino_order">Commander en ligne ↗</a></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Midi &amp; soir · fermé le dimanche · horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#girihfield)"/></svg></div>
+     <div class="in">
+      <div class="big" data-i18n="map_big">En plein centre</div>
+      <div style="color:#bcd6d2;margin-top:8px" data-i18n="map_sub">Rue de l'Alzette, la grande rue piétonne d'Esch</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Restaurant+Les+Freres+34+Rue+de+l%27Alzette+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="none" stroke="currentColor" stroke-width="4"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Les Frères<small>Cuisine irakienne · Esch</small></div>
+   <p data-i18n="foot_p">Cuisine irakienne familiale à Esch-sur-Alzette depuis 2016. Kebab au charbon, assiettes généreuses, douceurs faites maison.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Commiss';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--saffron)">Contact</div>
+   <p style="margin-top:10px">34, rue de l'Alzette<br>L-4010 Esch-sur-Alzette<br><a href="tel:+35226540007" style="border-bottom:1px solid var(--saffron)">+352 26 54 00 07</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_sweets:"Les douceurs",nav_carte:"La carte",nav_maison:"Depuis 2016",nav_infos:"Infos & accès",
+  hero_eyebrow:"Cuisine irakienne · Esch-sur-Alzette",hero_est:"Une cuisine de famille depuis 2016",
+  hero_tag:"Kebab au charbon, assiettes généreuses et douceurs irakiennes faites maison — en plein cœur d'Esch.",
+  hero_cta1:"Voir la carte",hero_cta2:"Les douceurs maison ↓",
+  fact_k1:"La cuisine",fact_v1:"<b>Irakienne & kebab halal</b><br>grillé au charbon, fait sur place",
+  fact_k2:"La maison",fact_v2:"<b>En famille depuis 2016</b><br>recettes de Bagdad, à Esch",
+  fact_k3:"L'adresse",fact_v3:"<b>34, rue de l'Alzette</b><br>en pleine rue piétonne",
+  gal_eyebrow:"À table",gal_h:"Du grill, <em>généreux</em>",
+  gal_p:"Kebab et dürüm au charbon, escalope croustillante, falafel maison, grandes assiettes à partager. Halal, frais, sans détour.",
+  cap_mix:"L'assiette « Les Frères Mix »",cap_durum:"Dürüm au charbon",cap_esc:"Escalope croustillante",cap_shaw:"Shawarma de poulet",cap_fal:"Falafel maison",cap_suj:"Sujuk grillé",
+  sw_pill:"Faites maison",sw_eyebrow:"La signature",sw_h:"Les douceurs<span>irakiennes.</span>",
+  sw_lead:"Baklava à la pistache, znoud el sit dorés, kunafa fondante — préparés à la maison, comme à Bagdad.",
+  sw_body:"C'est ce que les habitués reviennent chercher. Le sucre, la pistache et l'eau de fleur d'oranger : la vraie fin d'un repas irakien, à deux pas de la place de la Résistance.",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
+  carte_p:"Le meilleur du kebab et de la cuisine irakienne, à prix doux. Voici la carte — quelques spécialités se confirment à la maison.",
+  mg1:"Kebabs & sandwichs",mg2:"Falafel & végé",mg3:"Les assiettes",mg4:"Douceurs faites maison",mg5:"Spécialité irakienne",
+  i1n:"Kebab",i1d:"Dinde & poulet, pain, crudités",i2n:"Dürüm kebab",i2d:"Galette roulée",i3n:"Pizza kebab",
+  i4n:"Escalope de poulet",i4d:"Panée, croustillante",i5n:"Kefta / cevapcici",
+  i6n:"Sandwich falafel",i6d:"Pois chiches maison",i7n:"Salade falafel",
+  i8n:"Les Frères Mix",i8d:"Quatre viandes, frites, salade",i9n:"Assiette kebab",i9d:"Frites & salade",i10n:"Salade brochettes",
+  i11n:"Baklava",i11d:"Pistache, miel",i12n:"Znoud el Sit",i12d:"Rouleaux dorés, crème",i13n:"Kunafa",i13d:"Spécialité irakienne",
+  i14n:"Beryani",i14d:"Le plat irakien de la maison",pr_from1:"dès 13,50 €",ac:"à conf.",
+  carte_note:"Prix relevés sur la carte de livraison publique (Foostix, semaine du 24–30 août 2026), à titre indicatif. Les prix en salle, le beryani et la kunafa sont à confirmer avec la maison.",
+  maison_eyebrow:"La maison",maison_h:"Une famille,<span>depuis 2016.</span>",
+  maison_lead:"Les Frères, c'est une cuisine irakienne tenue en famille au cœur d'Esch — le kebab grillé au charbon, les assiettes généreuses, et les douceurs préparées à la main.",
+  maison_body:"Halal, frais, à prix juste. On y vient pour un dürüm sur le pouce le midi, et on repart avec une boîte de baklava pour la maison.",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver / commander",ino_fl2:"(à confirmer)",ino_order:"Commander en ligne ↗",
+  ino_k3:"Horaires",ino_fl3:"Midi & soir · fermé le dimanche · horaires à confirmer",
+  map_big:"En plein centre",map_sub:"Rue de l'Alzette, la grande rue piétonne d'Esch",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Cuisine irakienne familiale à Esch-sur-Alzette depuis 2016. Kebab au charbon, assiettes généreuses, douceurs faites maison.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_sweets:"Süßes",nav_carte:"Karte",nav_maison:"Seit 2016",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Irakische Küche · Esch-sur-Alzette",hero_est:"Eine Familienküche seit 2016",
+  hero_tag:"Kebab vom Holzkohlegrill, großzügige Teller und hausgemachtes irakisches Gebäck — mitten in Esch.",
+  hero_cta1:"Zur Karte",hero_cta2:"Das hausgemachte Gebäck ↓",
+  fact_k1:"Die Küche",fact_v1:"<b>Irakisch & Halal-Kebab</b><br>über Holzkohle, frisch zubereitet",
+  fact_k2:"Das Haus",fact_v2:"<b>Familiär seit 2016</b><br>Rezepte aus Bagdad, in Esch",
+  fact_k3:"Die Adresse",fact_v3:"<b>34, rue de l'Alzette</b><br>mitten in der Fußgängerzone",
+  gal_eyebrow:"Zu Tisch",gal_h:"Vom Grill, <em>großzügig</em>",
+  gal_p:"Kebab und Dürüm vom Holzkohlegrill, knuspriges Schnitzel, hausgemachte Falafel, große Teller zum Teilen. Halal, frisch, direkt.",
+  cap_mix:"Der Teller „Les Frères Mix“",cap_durum:"Dürüm vom Holzkohlegrill",cap_esc:"Knuspriges Schnitzel",cap_shaw:"Hähnchen-Shawarma",cap_fal:"Hausgemachte Falafel",cap_suj:"Gegrillter Sujuk",
+  sw_pill:"Hausgemacht",sw_eyebrow:"Die Signatur",sw_h:"Das irakische<span>Gebäck.</span>",
+  sw_lead:"Baklava mit Pistazie, goldenes Znoud el Sit, zartes Kunafa — hausgemacht, wie in Bagdad.",
+  sw_body:"Das holen sich die Stammgäste immer wieder. Zucker, Pistazie und Orangenblütenwasser: der wahre Abschluss eines irakischen Essens, ein paar Schritte von der Place de la Résistance.",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
+  carte_p:"Das Beste aus Kebab und irakischer Küche, zu fairen Preisen. Hier ist die Karte — einige Spezialitäten bestätigt das Haus.",
+  mg1:"Kebabs & Sandwiches",mg2:"Falafel & Vegetarisch",mg3:"Die Teller",mg4:"Hausgemachtes Gebäck",mg5:"Irakische Spezialität",
+  i1n:"Kebab",i1d:"Pute & Hähnchen, Brot, Gemüse",i2n:"Dürüm Kebab",i2d:"Gerollter Fladen",i3n:"Pizza Kebab",
+  i4n:"Hähnchenschnitzel",i4d:"Paniert, knusprig",i5n:"Kefta / Cevapcici",
+  i6n:"Falafel-Sandwich",i6d:"Hausgemachte Kichererbsen",i7n:"Falafel-Salat",
+  i8n:"Les Frères Mix",i8d:"Vier Fleischsorten, Pommes, Salat",i9n:"Kebab-Teller",i9d:"Pommes & Salat",i10n:"Spieß-Salat",
+  i11n:"Baklava",i11d:"Pistazie, Honig",i12n:"Znoud el Sit",i12d:"Goldene Röllchen, Creme",i13n:"Kunafa",i13d:"Irakische Spezialität",
+  i14n:"Beryani",i14d:"Das irakische Gericht des Hauses",pr_from1:"ab 13,50 €",ac:"n. Angabe",
+  carte_note:"Preise von der öffentlichen Lieferkarte (Foostix, Woche 24.–30. August 2026), ohne Gewähr. Preise im Lokal, Beryani und Kunafa beim Haus zu bestätigen.",
+  maison_eyebrow:"Das Haus",maison_h:"Eine Familie,<span>seit 2016.</span>",
+  maison_lead:"Les Frères ist eine familiengeführte irakische Küche im Herzen von Esch — Kebab vom Holzkohlegrill, großzügige Teller und von Hand zubereitetes Gebäck.",
+  maison_body:"Halal, frisch, fair im Preis. Man kommt mittags für einen Dürüm auf die Hand und geht mit einer Schachtel Baklava für zu Hause.",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren / bestellen",ino_fl2:"(zu bestätigen)",ino_order:"Online bestellen ↗",
+  ino_k3:"Öffnungszeiten",ino_fl3:"Mittags & abends · sonntags geschlossen · Zeiten zu bestätigen",
+  map_big:"Mitten im Zentrum",map_sub:"Rue de l'Alzette, die große Fußgängerzone von Esch",map_btn:"In Maps öffnen ↗",
+  foot_p:"Familiengeführte irakische Küche in Esch-sur-Alzette seit 2016. Kebab vom Holzkohlegrill, großzügige Teller, hausgemachtes Gebäck.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben von Lieferplattformen und Verzeichnissen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_sweets:"The sweets",nav_carte:"Menu",nav_maison:"Since 2016",nav_infos:"Find us",
+  hero_eyebrow:"Iraqi kitchen · Esch-sur-Alzette",hero_est:"A family kitchen since 2016",
+  hero_tag:"Charcoal-grilled kebab, generous plates and handmade Iraqi sweets — in the heart of Esch.",
+  hero_cta1:"See the menu",hero_cta2:"The handmade sweets ↓",
+  fact_k1:"The kitchen",fact_v1:"<b>Iraqi & halal kebab</b><br>charcoal-grilled, made on site",
+  fact_k2:"The house",fact_v2:"<b>Family-run since 2016</b><br>Baghdad recipes, in Esch",
+  fact_k3:"The address",fact_v3:"<b>34, rue de l'Alzette</b><br>on the pedestrian high street",
+  gal_eyebrow:"At the table",gal_h:"From the grill, <em>generous</em>",
+  gal_p:"Charcoal kebab and dürüm, crisp escalope, house falafel, big plates to share. Halal, fresh, no fuss.",
+  cap_mix:"The “Les Frères Mix” platter",cap_durum:"Charcoal dürüm",cap_esc:"Crisp escalope",cap_shaw:"Chicken shawarma",cap_fal:"House falafel",cap_suj:"Grilled sujuk",
+  sw_pill:"Handmade",sw_eyebrow:"The signature",sw_h:"The Iraqi<span>sweets.</span>",
+  sw_lead:"Pistachio baklava, golden znoud el sit, soft kunafa — made in-house, the way it is in Baghdad.",
+  sw_body:"It's what the regulars come back for. Sugar, pistachio and orange-blossom water: the real end to an Iraqi meal, a step from Place de la Résistance.",
+  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
+  carte_p:"The best of kebab and Iraqi cooking, at gentle prices. Here's the menu — a few specials are confirmed by the house.",
+  mg1:"Kebabs & sandwiches",mg2:"Falafel & veg",mg3:"The plates",mg4:"Handmade sweets",mg5:"Iraqi speciality",
+  i1n:"Kebab",i1d:"Turkey & chicken, bread, salad",i2n:"Dürüm kebab",i2d:"Rolled flatbread",i3n:"Pizza kebab",
+  i4n:"Chicken escalope",i4d:"Breaded, crisp",i5n:"Kefta / cevapcici",
+  i6n:"Falafel sandwich",i6d:"House chickpea",i7n:"Falafel salad",
+  i8n:"Les Frères Mix",i8d:"Four meats, fries, salad",i9n:"Kebab plate",i9d:"Fries & salad",i10n:"Skewer salad",
+  i11n:"Baklava",i11d:"Pistachio, honey",i12n:"Znoud el Sit",i12d:"Golden rolls, cream",i13n:"Kunafa",i13d:"Iraqi speciality",
+  i14n:"Beryani",i14d:"The house Iraqi dish",pr_from1:"from 13.50 €",ac:"tbc",
+  carte_note:"Prices taken from the public delivery menu (Foostix, week of 24–30 August 2026), for reference only. Dine-in prices, beryani and kunafa to be confirmed with the house.",
+  maison_eyebrow:"The house",maison_h:"A family,<span>since 2016.</span>",
+  maison_lead:"Les Frères is a family-run Iraqi kitchen in the heart of Esch — charcoal-grilled kebab, generous plates, and sweets made by hand.",
+  maison_body:"Halal, fresh, fairly priced. You come for a dürüm on the go at lunch, and leave with a box of baklava for home.",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book / order",ino_fl2:"(to be confirmed)",ino_order:"Order online ↗",
+  ino_k3:"Opening hours",ino_fl3:"Lunch & evening · closed Sunday · hours to be confirmed",
+  map_big:"Right in the centre",map_sub:"Rue de l'Alzette, Esch's main pedestrian street",map_btn:"Open in Maps ↗",
+  foot_p:"Family-run Iraqi kitchen in Esch-sur-Alzette since 2016. Charcoal kebab, generous plates, handmade sweets.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from delivery platforms and directories). The brand and dishes belong to the house. Menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+const HOURS={fr:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],de:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
+const SCHED={0:null,1:"11:30–13:45 · 18:00–20:30",2:"11:30–13:45 · 18:00–20:30",3:"11:30–13:45 · 18:00–20:30",4:"11:30–13:45 · 18:00–20:30",5:"11:30–13:45 · 18:00–20:30",6:"12:00–13:45 · 18:00–20:30"};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  const d=new Date(); const day=d.getDay(); const s=SCHED[day];
+  const closed={fr:"Fermé aujourd'hui",de:"Heute geschlossen",en:"Closed today"}[l];
+  const el=document.getElementById("today"); if(el) el.textContent=HOURS[l][day]+" · "+(s?s:closed);
+  try{localStorage.setItem("lf_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("lf_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+</script>
+</body>
+</html>

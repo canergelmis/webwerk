@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Bistrot de Bonnevoie — Luxembourg Afrosound</title>
+<meta name="description" content="Cuisine ouest-africaine à Bonnevoie — mafé, poisson braisé, attiéké. Le midi on mange, le soir l'afrobeats. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Shoulders';src:url('assets/fonts/bigshoulders-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Shoulders';src:url('assets/fonts/bigshoulders-latinext.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Instru';src:url('assets/fonts/instrument-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instru';src:url('assets/fonts/instrument-latinext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+ --paper:#f6eddb; --raffia:#efe3c9; --card:#fbf5e7;
+ --ink:#241a13; --ink2:#4a3a2b;
+ --laterite:#b4471f; --laterite-d:#8f3717;
+ --ochre:#d9962b; --ochre-d:#b97c19;
+ --indigo:#22355f; --indigo-l:#33507f;
+ --palm:#3e5e3a;
+ --line:#d8c7a3; --muted:#7d6c53;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Instru',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Shoulders','Instru',sans-serif;font-weight:800;line-height:.94;letter-spacing:.01em;text-transform:uppercase}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Shoulders',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--laterite)}
+
+/* bogolan mudcloth band (currentColor-driven) */
+.mud{display:block;width:100%;height:26px;color:var(--indigo)}
+.mud.tall{height:34px}
+.divider{padding:26px 0;display:flex;align-items:center;gap:18px}
+.divider .mud{flex:1}
+.divider .dot{width:9px;height:9px;background:var(--laterite);transform:rotate(45deg);flex:none}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(36,26,19,.0);transition:background .3s}
+header.solid{background:var(--ink);box-shadow:0 2px 22px rgba(0,0,0,.28)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#f6eddb}
+.brand .mk{width:34px;height:34px;flex:none}
+.brand .nm{font-family:'Shoulders',sans-serif;font-weight:800;font-size:20px;letter-spacing:.04em;line-height:.9;text-transform:uppercase;color:#f6eddb}
+.brand .nm small{display:block;font-size:9.5px;letter-spacing:.28em;color:var(--ochre);font-weight:600;margin-top:3px}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Shoulders',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:14px;color:#f0e4cd;opacity:.9}
+nav.links a:hover{color:var(--ochre);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:999px;padding:3px}
+.langs button{font-family:'Shoulders',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;border:0;background:transparent;color:#efe3c9;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--laterite);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:#f6eddb;border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-72px;padding-top:72px}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(36,26,19,.62) 0%,rgba(36,26,19,.28) 34%,rgba(36,26,19,.55) 68%,rgba(20,14,9,.92) 100%)}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px)}
+.hero .eyebrow{color:var(--ochre);margin-bottom:20px}
+.hero h1{color:#fff;font-size:clamp(58px,12vw,158px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.4)}
+.hero h1 span{color:var(--ochre)}
+.hero .tag{font-family:'Instru',sans-serif;font-weight:500;text-transform:none;font-size:clamp(18px,2.5vw,27px);color:#f4ead4;max-width:30ch;margin:22px 0 0;line-height:1.34}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{font-family:'Shoulders',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:15px;padding:15px 30px;border-radius:2px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--laterite);color:#fff}
+.btn.p:hover{background:var(--laterite-d)}
+.btn.o{background:transparent;color:#f6eddb;border-color:rgba(246,237,219,.5)}
+.btn.o:hover{border-color:var(--ochre);color:var(--ochre)}
+
+/* facts */
+.facts{background:var(--ink);color:#f0e4cd}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08)}
+.facts .c{background:var(--ink);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Shoulders',sans-serif;font-weight:700;letter-spacing:.16em;font-size:11px;color:var(--ochre);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:7px;color:#efe3c9}
+.facts .v b{color:#fff;font-weight:700}
+
+section{padding:clamp(56px,9vw,104px) 0}
+.sect-h{max-width:720px;margin-bottom:44px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.5vw,62px);color:var(--ink)}
+.sect-h h2 em{font-style:normal;color:var(--laterite)}
+.sect-h p{font-family:'Instru',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+/* mafé spotlight */
+.spot{background:var(--indigo);color:#f2e7ce;position:relative;overflow:hidden}
+.spot .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,68px);align-items:center}
+.spot .txt .eyebrow{color:var(--ochre)}
+.spot h2{font-size:clamp(40px,6.5vw,84px);color:#fff;margin:14px 0 0}
+.spot h2 span{color:var(--ochre);display:block}
+.spot .lead{font-family:'Instru',sans-serif;font-size:clamp(19px,2.3vw,25px);line-height:1.5;color:#f2e7ce;margin:22px 0 0;font-weight:500}
+.spot .body{font-size:16.5px;color:#d8c7a0;margin:18px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:6/5;object-fit:cover;border-radius:3px;box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.spot .pic .tagpill{position:absolute;left:-14px;bottom:22px;background:var(--laterite);color:#fff;font-family:'Shoulders',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:14px;padding:11px 18px;border-radius:2px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.spot .mudwm{position:absolute;right:-40px;top:-30px;width:340px;height:340px;color:rgba(217,150,43,.14);pointer-events:none}
+
+/* gallery bento */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+.gal figure{position:relative;overflow:hidden;border-radius:3px;background:var(--raffia)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;bottom:0;right:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,14,9,.82),transparent);color:#fff;font-family:'Shoulders',sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:14px}
+
+/* menu */
+.carte{background:var(--raffia)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:34px}
+.mgroup h3{font-family:'Shoulders',sans-serif;font-size:24px;color:var(--laterite);letter-spacing:.04em;display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--line);margin-bottom:16px}
+.mgroup h3 .st{width:15px;height:15px;flex:none;color:var(--ochre-d)}
+.mitem{display:flex;gap:14px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Instru',sans-serif;font-weight:600;font-size:17px;color:var(--ink)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:16px}
+.mitem .pr{font-family:'Shoulders',sans-serif;font-weight:700;color:var(--indigo);font-size:16px;letter-spacing:.03em;white-space:nowrap}
+.carte .note{margin-top:26px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--ochre);padding-left:14px}
+
+/* night */
+.night{background:var(--ink);color:#efe3c9;position:relative;overflow:hidden}
+.night .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,64px);align-items:center}
+.night h2{font-size:clamp(38px,6vw,78px);color:#fff}
+.night h2 span{color:var(--ochre);display:block}
+.night .lead{font-size:18px;color:#e6d7b5;margin-top:20px;max-width:42ch;line-height:1.6}
+.night .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.night .chip{font-family:'Shoulders',sans-serif;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12.5px;color:#241a13;background:var(--ochre);padding:8px 15px;border-radius:999px}
+.night .chip.b{background:transparent;color:#efe3c9;border:1.5px solid rgba(239,227,201,.4)}
+.night .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:3px}
+
+/* infos */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--laterite);margin-top:3px}
+.ino .k{font-family:'Shoulders',sans-serif;font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--ochre)}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Shoulders',sans-serif;font-weight:700;color:var(--palm);letter-spacing:.02em}
+.mapcard{background:var(--ink);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#efe3c9;text-align:center;padding:30px}
+.mapcard .mud{position:absolute;top:0;left:0;color:rgba(217,150,43,.18)}
+.mapcard .mud.bot{top:auto;bottom:0}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Shoulders',sans-serif;font-weight:800;font-size:30px;color:#fff;text-transform:uppercase;letter-spacing:.03em}
+.mapcard .btn{margin-top:20px}
+
+/* footer */
+footer{background:#181009;color:#c9b48d;padding:0 0 40px}
+footer .band{color:var(--laterite)}
+footer .in{padding:52px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Shoulders',sans-serif;font-weight:800;font-size:26px;color:#f6eddb;letter-spacing:.04em;text-transform:uppercase}
+footer .nm small{display:block;font-size:10px;letter-spacing:.26em;color:var(--ochre);margin-top:4px}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#b7a179}
+footer .made{font-size:12.5px;color:#8f7d5e;margin-top:24px}
+footer .made b{color:#efe3c9}
+footer .made a{color:var(--ochre)}
+.disc{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#7d6c50;line-height:1.55;max-width:80ch}
+
+@media(max-width:900px){
+ .spot .grid,.night .grid,.infos .grid,.carte .cols,footer .in{grid-template-columns:1fr}
+ .spot .mudwm{display:none}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .facts .row{grid-template-columns:1fr}
+ .night .grid{gap:30px}
+ .spot .pic{order:-1}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:72px 0 auto 0;flex-direction:column;background:var(--ink);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--ink)}
+ .hero h1{font-size:clamp(46px,17vw,90px)}
+ .gal .w2{grid-column:span 2}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- bogolan pattern definition (referenced by every .mud) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<pattern id="mudpat" width="64" height="34" patternUnits="userSpaceOnUse">
+  <g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round">
+    <line x1="0" y1="4" x2="64" y2="4" stroke-dasharray="2.5 4.5"/>
+    <line x1="0" y1="30" x2="64" y2="30" stroke-dasharray="2.5 4.5"/>
+    <path d="M12 9 L20 17 L12 25 L4 17 Z"/>
+  </g>
+  <g fill="currentColor">
+    <path d="M12 13 L16 17 L12 21 L8 17 Z"/>
+    <path d="M30 10 L38 10 L34 17 Z"/>
+    <path d="M30 24 L38 24 L34 17 Z"/>
+    <circle cx="50" cy="17" r="2.1"/>
+    <path d="M56 11 L60 15 M60 11 L56 15" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M56 19 L60 23 M60 19 L56 23" stroke="currentColor" stroke-width="1.6"/>
+  </g>
+</pattern>
+<g id="sunstamp"></g>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Bistrot de Bonnevoie">
+   <svg class="mk" viewBox="0 0 40 40" aria-hidden="true">
+     <rect width="40" height="40" rx="3" fill="#b4471f"/>
+     <g fill="none" stroke="#f6eddb" stroke-width="2" stroke-linecap="round">
+       <path d="M20 7 L28 15 L20 23 L12 15 Z"/>
+       <path d="M20 12 L23 15 L20 18 L17 15 Z" fill="#d9962b" stroke="none"/>
+       <path d="M9 30 h22 M9 34 h22" stroke-dasharray="2 3.5"/>
+     </g>
+   </svg>
+   <span class="nm">Bistrot de Bonnevoie<small>Luxembourg Afrosound</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#mafe" data-i18n="nav_mafe">Le mafé</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#nuit" data-i18n="nav_night">Les soirs</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <!-- HERO -->
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="Salle du Bistrot de Bonnevoie"/></div>
+  <div class="scrim"></div>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine ouest-africaine · Bonnevoie · Luxembourg</span>
+   <h1>Bistrot de<br><span>Bonnevoie</span></h1>
+   <p class="tag" data-i18n="hero_tag">Un bout d'Afrique de l'Ouest, à deux pas de la gare. Le midi on mange, le soir on danse.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#nuit" data-i18n="hero_cta2">Les soirs afrobeats ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <!-- FACTS -->
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Afrique de l'Ouest</b> — mafé, gombo, poisson braisé, attiéké</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le quartier</div><div class="v" data-i18n="fact_v2"><b>29, rue de Bonnevoie</b> — quartier Gare</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">Du midi à la nuit</div><div class="v" data-i18n="fact_v3"><b>On mange, puis on danse</b> — bar &amp; afrobeats jusqu'à 1h</div></div>
+  </div></div>
+ </div>
+
+ <!-- MAFÉ SPOTLIGHT -->
+ <section class="spot" id="mafe">
+  <svg class="mudwm" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" fill="url(#mudpat)"/></svg>
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="mafe_eyebrow">Le plat signature</span>
+    <h2 data-i18n="mafe_h">Le mafé<span>sauce arachide</span></h2>
+    <p class="lead" data-i18n="mafe_lead">Une sauce à l'arachide qui a mijoté des heures, une viande qui se défait à la cuillère, du riz pour tout saucer.</p>
+    <p class="body" data-i18n="mafe_body">C'est le plat qu'on ne partage pas vraiment. Servi comme à la maison — généreux, réconfortant, sans chichi. Avec du gombo, du poisson braisé ou du poulet grillé, c'est toute l'Afrique de l'Ouest dans une assiette.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/mafe.jpg" alt="Mafé — sauce arachide et riz"/>
+    <span class="tagpill" data-i18n="mafe_pill">Sauce arachide · riz</span>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap"><div class="divider"><span class="dot"></span><svg class="mud" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg><span class="dot"></span></div></div>
+
+ <!-- GALLERY -->
+ <section id="table">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
+    <h2 data-i18n="gal_h">La cuisine <em>en couleurs</em></h2>
+    <p data-i18n="gal_p">Poisson braisé, chèvre grillée, gombo, plantain frit, attiéké, beignets — des assiettes généreuses, épicées comme il faut.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/fish.jpg" alt="Poisson braisé, plantain et riz"/><figcaption data-i18n="cap_fish">Poisson braisé · plantain</figcaption></figure>
+    <figure><img src="assets/goat.jpg" alt="Chèvre grillée et plantain"/><figcaption data-i18n="cap_goat">Chèvre grillée</figcaption></figure>
+    <figure><img src="assets/sauce.jpg" alt="Sauce feuille et attiéké"/><figcaption data-i18n="cap_sauce">Sauce &amp; attiéké</figcaption></figure>
+    <figure class="w2"><img src="assets/attieke.jpg" alt="Grillade, plantain et riz exotique"/><figcaption data-i18n="cap_attieke">Grillade · riz exotique</figcaption></figure>
+    <figure><img src="assets/akara.jpg" alt="Beignets"/><figcaption data-i18n="cap_akara">Beignets</figcaption></figure>
+    <figure><img src="assets/condiments.jpg" alt="Sauces piquantes maison"/><figcaption data-i18n="cap_cond">Les sauces maison</figcaption></figure>
+    <figure class="w2"><img src="assets/plantain.jpg" alt="Assiette viande, riz et plantain"/><figcaption data-i18n="cap_plantain">Viande · riz · plantain</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="carte_p">Une cuisine ouest-africaine de partage. Voici les plats qui reviennent — la carte complète et les prix se confirment à la maison.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="st" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="currentColor"/></svg><span data-i18n="mg1">Les sauces &amp; grillades</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Mafé</div><div class="ds" data-i18n="i1d">Sauce arachide mijotée, viande, riz</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Sauce gombo</div><div class="ds" data-i18n="i2d">Gombo, viande ou poisson, riz</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Poisson braisé</div><div class="ds" data-i18n="i3d">Attiéké &amp; plantain frit</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Poulet grillé</div><div class="ds" data-i18n="i4d">Riz exotique &amp; sauce</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Chèvre grillée</div><div class="ds" data-i18n="i5d">Oignons, plantain, piment</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="st" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="currentColor"/></svg><span data-i18n="mg2">Les accompagnements</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Attiéké</div><div class="ds" data-i18n="i6d">Semoule de manioc</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Riz exotique</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Plantain frit</div><div class="ds" data-i18n="i8d">Alloco</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Igname frite</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="st" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="currentColor"/></svg><span data-i18n="mg3">À grignoter &amp; le bar</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Beignets</div><div class="ds" data-i18n="i10d">À partager</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Bar</div><div class="ds" data-i18n="i11d">Bières, softs, cocktails — jusqu'à tard</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Carte relevée à partir de sources publiques (Wolt, Uber Eats), à titre indicatif. Plats, disponibilité et prix à confirmer avec la maison.</p>
+  </div>
+ </section>
+
+ <!-- NIGHT -->
+ <section class="night" id="nuit">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--ochre)" data-i18n="night_eyebrow">Quand la nuit tombe</span>
+    <h2 data-i18n="night_h">Et le soir,<span>ça devient un club.</span></h2>
+    <p class="lead" data-i18n="night_lead">Les assiettes laissent la place au bar. DJ, afrobeats, amapiano — « Luxembourg Afrosound ». On reste tard, on danse, on refait le monde jusqu'à 1h du matin.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="chip1">Afrobeats</span>
+     <span class="chip" data-i18n="chip2">Amapiano</span>
+     <span class="chip b" data-i18n="chip3">DJ sets</span>
+     <span class="chip b" data-i18n="chip4">Ouvert jusqu'à 1h</span>
+    </div>
+   </div>
+   <div class="pic"><img src="assets/facade-night.jpg" alt="Le Bistrot de Bonnevoie, rue de Bonnevoie, le soir"/></div>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">29, rue de Bonnevoie<br>L-1260 Luxembourg · quartier Gare</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver / commander</div><div class="v"><a href="tel:+352661465501">+352 661 465 501</a> <span class="fl" data-i18n="ino_fl2">(à confirmer)</span><br><span class="fl" data-i18n="ino_fl2b">Livraison via Wolt &amp; Uber Eats</span><br><a class="btn p" style="margin-top:13px;padding:11px 20px;font-size:13px" href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-bonnevoie-luxembourg" target="_blank" rel="noopener" data-i18n="ino_order">Commander sur Wolt ↗</a></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Ouvert tard, jusqu'à 01:00 · horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <svg class="mud" style="height:26px" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg>
+     <svg class="mud bot" style="height:26px" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg>
+     <div class="in">
+      <div class="big">Bonnevoie</div>
+      <div style="color:#c9b48d;margin-top:8px" data-i18n="map_sub">À 4 min à pied de la Gare de Luxembourg</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Bistrot+de+Bonnevoie+29+Rue+de+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <svg class="mud band tall" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Bistrot de Bonnevoie<small>Luxembourg Afrosound</small></div>
+   <p data-i18n="foot_p">Cuisine ouest-africaine et afrobeats, à Bonnevoie. On mange le midi, on danse le soir.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div class="k" style="font-family:'Shoulders';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--ochre)">Contact</div>
+   <p style="margin-top:10px">29, rue de Bonnevoie<br>L-1260 Luxembourg<br><a href="tel:+352661465501" style="border-bottom:1px solid var(--ochre)">+352 661 465 501</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_mafe:"Le mafé",nav_carte:"La carte",nav_night:"Les soirs",nav_infos:"Infos & accès",
+  hero_eyebrow:"Cuisine ouest-africaine · Bonnevoie · Luxembourg",
+  hero_tag:"Un bout d'Afrique de l'Ouest, à deux pas de la gare. Le midi on mange, le soir on danse.",
+  hero_cta1:"Voir la carte",hero_cta2:"Les soirs afrobeats ↓",
+  fact_k1:"La cuisine",fact_v1:"<b>Afrique de l'Ouest</b> — mafé, gombo, poisson braisé, attiéké",
+  fact_k2:"Le quartier",fact_v2:"<b>29, rue de Bonnevoie</b> — quartier Gare",
+  fact_k3:"Du midi à la nuit",fact_v3:"<b>On mange, puis on danse</b> — bar & afrobeats jusqu'à 1h",
+  mafe_eyebrow:"Le plat signature",mafe_h:"Le mafé<span>sauce arachide</span>",
+  mafe_lead:"Une sauce à l'arachide qui a mijoté des heures, une viande qui se défait à la cuillère, du riz pour tout saucer.",
+  mafe_body:"C'est le plat qu'on ne partage pas vraiment. Servi comme à la maison — généreux, réconfortant, sans chichi. Avec du gombo, du poisson braisé ou du poulet grillé, c'est toute l'Afrique de l'Ouest dans une assiette.",
+  mafe_pill:"Sauce arachide · riz",
+  gal_eyebrow:"À table",gal_h:"La cuisine <em>en couleurs</em>",
+  gal_p:"Poisson braisé, chèvre grillée, gombo, plantain frit, attiéké, beignets — des assiettes généreuses, épicées comme il faut.",
+  cap_fish:"Poisson braisé · plantain",cap_goat:"Chèvre grillée",cap_sauce:"Sauce & attiéké",cap_attieke:"Grillade · riz exotique",cap_akara:"Beignets",cap_cond:"Les sauces maison",cap_plantain:"Viande · riz · plantain",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
+  carte_p:"Une cuisine ouest-africaine de partage. Voici les plats qui reviennent — la carte complète et les prix se confirment à la maison.",
+  mg1:"Les sauces & grillades",mg2:"Les accompagnements",mg3:"À grignoter & le bar",
+  i1n:"Mafé",i1d:"Sauce arachide mijotée, viande, riz",i2n:"Sauce gombo",i2d:"Gombo, viande ou poisson, riz",
+  i3n:"Poisson braisé",i3d:"Attiéké & plantain frit",i4n:"Poulet grillé",i4d:"Riz exotique & sauce",i5n:"Chèvre grillée",i5d:"Oignons, plantain, piment",
+  i6n:"Attiéké",i6d:"Semoule de manioc",i7n:"Riz exotique",i8n:"Plantain frit",i8d:"Alloco",i9n:"Igname frite",
+  i10n:"Beignets",i10d:"À partager",i11n:"Bar",i11d:"Bières, softs, cocktails — jusqu'à tard",ac:"à conf.",
+  carte_note:"Carte relevée à partir de sources publiques (Wolt, Uber Eats), à titre indicatif. Plats, disponibilité et prix à confirmer avec la maison.",
+  night_eyebrow:"Quand la nuit tombe",night_h:"Et le soir,<span>ça devient un club.</span>",
+  night_lead:"Les assiettes laissent la place au bar. DJ, afrobeats, amapiano — « Luxembourg Afrosound ». On reste tard, on danse, on refait le monde jusqu'à 1h du matin.",
+  chip1:"Afrobeats",chip2:"Amapiano",chip3:"DJ sets",chip4:"Ouvert jusqu'à 1h",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver / commander",ino_fl2:"(à confirmer)",ino_fl2b:"Livraison via Wolt & Uber Eats",ino_order:"Commander sur Wolt ↗",
+  ino_k3:"Horaires",ino_fl3:"Ouvert tard, jusqu'à 01:00 · horaires à confirmer",
+  map_sub:"À 4 min à pied de la Gare de Luxembourg",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Cuisine ouest-africaine et afrobeats, à Bonnevoie. On mange le midi, on danse le soir.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_mafe:"Mafé",nav_carte:"Karte",nav_night:"Abends",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Westafrikanische Küche · Bonnevoie · Luxemburg",
+  hero_tag:"Ein Stück Westafrika, ein paar Schritte vom Bahnhof. Mittags wird gegessen, abends getanzt.",
+  hero_cta1:"Zur Karte",hero_cta2:"Die Afrobeats-Abende ↓",
+  fact_k1:"Die Küche",fact_v1:"<b>Westafrika</b> — Mafé, Gombo, gegrillter Fisch, Attiéké",
+  fact_k2:"Das Viertel",fact_v2:"<b>29, rue de Bonnevoie</b> — Bahnhofsviertel",
+  fact_k3:"Von mittags bis nachts",fact_v3:"<b>Erst essen, dann tanzen</b> — Bar & Afrobeats bis 1 Uhr",
+  mafe_eyebrow:"Das Signature-Gericht",mafe_h:"Mafé<span>Erdnusssauce</span>",
+  mafe_lead:"Eine Erdnusssauce, die stundenlang geschmort hat, Fleisch, das auf dem Löffel zerfällt, und Reis, um alles aufzutunken.",
+  mafe_body:"Das Gericht, das man nicht wirklich teilt. Serviert wie zu Hause — großzügig, wärmend, ohne Chichi. Mit Gombo, gegrilltem Fisch oder Hähnchen ist es ganz Westafrika auf einem Teller.",
+  mafe_pill:"Erdnusssauce · Reis",
+  gal_eyebrow:"Zu Tisch",gal_h:"Die Küche <em>in Farbe</em>",
+  gal_p:"Gegrillter Fisch, gegrillte Ziege, Gombo, gebratene Kochbananen, Attiéké, Beignets — großzügige Teller, richtig gewürzt.",
+  cap_fish:"Gegrillter Fisch · Kochbanane",cap_goat:"Gegrillte Ziege",cap_sauce:"Sauce & Attiéké",cap_attieke:"Grillteller · Reis",cap_akara:"Beignets",cap_cond:"Hausgemachte Saucen",cap_plantain:"Fleisch · Reis · Kochbanane",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
+  carte_p:"Eine westafrikanische Küche zum Teilen. Das sind die Gerichte, die wiederkehren — die vollständige Karte und die Preise bestätigt das Haus.",
+  mg1:"Saucen & Grillgerichte",mg2:"Die Beilagen",mg3:"Zum Knabbern & die Bar",
+  i1n:"Mafé",i1d:"Geschmorte Erdnusssauce, Fleisch, Reis",i2n:"Gombo-Sauce",i2d:"Okra, Fleisch oder Fisch, Reis",
+  i3n:"Gegrillter Fisch",i3d:"Attiéké & gebratene Kochbanane",i4n:"Gegrilltes Hähnchen",i4d:"Reis & Sauce",i5n:"Gegrillte Ziege",i5d:"Zwiebeln, Kochbanane, Chili",
+  i6n:"Attiéké",i6d:"Maniokgrieß",i7n:"Reis exotisch",i8n:"Gebratene Kochbanane",i8d:"Alloco",i9n:"Gebratene Yamswurzel",
+  i10n:"Beignets",i10d:"Zum Teilen",i11n:"Bar",i11d:"Biere, Softdrinks, Cocktails — bis spät",ac:"n. Angabe",
+  carte_note:"Karte aus öffentlichen Quellen (Wolt, Uber Eats), ohne Gewähr. Gerichte, Verfügbarkeit und Preise beim Haus zu bestätigen.",
+  night_eyebrow:"Wenn die Nacht kommt",night_h:"Und abends<span>wird es zum Club.</span>",
+  night_lead:"Die Teller machen der Bar Platz. DJ, Afrobeats, Amapiano — „Luxembourg Afrosound“. Man bleibt lange, tanzt und redet bis 1 Uhr morgens.",
+  chip1:"Afrobeats",chip2:"Amapiano",chip3:"DJ-Sets",chip4:"Offen bis 1 Uhr",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren / bestellen",ino_fl2:"(zu bestätigen)",ino_fl2b:"Lieferung über Wolt & Uber Eats",ino_order:"Auf Wolt bestellen ↗",
+  ino_k3:"Öffnungszeiten",ino_fl3:"Lange offen, bis 01:00 · Zeiten zu bestätigen",
+  map_sub:"4 Minuten zu Fuß vom Bahnhof Luxemburg",map_btn:"In Maps öffnen ↗",
+  foot_p:"Westafrikanische Küche und Afrobeats, in Bonnevoie. Mittags essen, abends tanzen.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben von Lieferplattformen und Verzeichnissen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_mafe:"The mafé",nav_carte:"Menu",nav_night:"After dark",nav_infos:"Find us",
+  hero_eyebrow:"West African kitchen · Bonnevoie · Luxembourg",
+  hero_tag:"A corner of West Africa, a stone's throw from the station. Lunch to eat, nights to dance.",
+  hero_cta1:"See the menu",hero_cta2:"The afrobeats nights ↓",
+  fact_k1:"The kitchen",fact_v1:"<b>West Africa</b> — mafé, gombo, grilled fish, attiéké",
+  fact_k2:"The neighbourhood",fact_v2:"<b>29, rue de Bonnevoie</b> — Gare quarter",
+  fact_k3:"From noon to night",fact_v3:"<b>Eat, then dance</b> — bar & afrobeats till 1am",
+  mafe_eyebrow:"The signature dish",mafe_h:"The mafé<span>peanut sauce</span>",
+  mafe_lead:"A peanut sauce simmered for hours, meat that falls apart on the spoon, and rice to soak up every bit.",
+  mafe_body:"It's the plate you don't really share. Served like it is at home — generous, comforting, no fuss. With gombo, grilled fish or grilled chicken, it's all of West Africa on one plate.",
+  mafe_pill:"Peanut sauce · rice",
+  gal_eyebrow:"At the table",gal_h:"The kitchen <em>in colour</em>",
+  gal_p:"Grilled fish, grilled goat, gombo, fried plantain, attiéké, beignets — generous plates, spiced just right.",
+  cap_fish:"Grilled fish · plantain",cap_goat:"Grilled goat",cap_sauce:"Sauce & attiéké",cap_attieke:"Grill plate · rice",cap_akara:"Beignets",cap_cond:"House hot sauces",cap_plantain:"Meat · rice · plantain",
+  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
+  carte_p:"A West African kitchen made for sharing. Here are the dishes that keep coming back — the full menu and prices are confirmed by the house.",
+  mg1:"Sauces & grills",mg2:"The sides",mg3:"To nibble & the bar",
+  i1n:"Mafé",i1d:"Simmered peanut sauce, meat, rice",i2n:"Gombo sauce",i2d:"Okra, meat or fish, rice",
+  i3n:"Grilled fish",i3d:"Attiéké & fried plantain",i4n:"Grilled chicken",i4d:"Spiced rice & sauce",i5n:"Grilled goat",i5d:"Onions, plantain, chilli",
+  i6n:"Attiéké",i6d:"Cassava couscous",i7n:"Spiced rice",i8n:"Fried plantain",i8d:"Alloco",i9n:"Fried yam",
+  i10n:"Beignets",i10d:"To share",i11n:"Bar",i11d:"Beers, soft drinks, cocktails — till late",ac:"tbc",
+  carte_note:"Menu drawn from public sources (Wolt, Uber Eats), for reference only. Dishes, availability and prices to be confirmed with the house.",
+  night_eyebrow:"When night falls",night_h:"And after dark,<span>it becomes a club.</span>",
+  night_lead:"The plates give way to the bar. DJ, afrobeats, amapiano — “Luxembourg Afrosound”. You stay late, you dance, you put the world to rights till 1am.",
+  chip1:"Afrobeats",chip2:"Amapiano",chip3:"DJ sets",chip4:"Open till 1am",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book / order",ino_fl2:"(to be confirmed)",ino_fl2b:"Delivery via Wolt & Uber Eats",ino_order:"Order on Wolt ↗",
+  ino_k3:"Opening hours",ino_fl3:"Open late, until 01:00 · hours to be confirmed",
+  map_sub:"A 4-minute walk from Luxembourg station",map_btn:"Open in Maps ↗",
+  foot_p:"West African kitchen and afrobeats, in Bonnevoie. Eat at noon, dance at night.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from delivery platforms and directories). The brand and dishes belong to the house. Menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+const HOURS={fr:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],de:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
+const SCHED={0:null,1:"12:00–01:00",2:"12:00–01:00",3:"12:00–01:00",4:"12:00–01:00",5:"12:00–01:00",6:"14:00–01:00"};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  const d=new Date(); const day=d.getDay(); const s=SCHED[day];
+  const closed={fr:"Fermé aujourd'hui",de:"Heute geschlossen",en:"Closed today"}[l];
+  const el=document.getElementById("today");
+  if(el) el.textContent=HOURS[l][day]+" · "+(s?s:closed);
+  try{localStorage.setItem("bb_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("bb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+</script>
+</body>
+</html>

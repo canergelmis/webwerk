@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Friture de la Moselle — Remich, au bord de l'eau</title>
+<meta name="description" content="La friture de la Moselle à Remich — petits poissons frits, moules-frites et Riesling, en terrasse au bord de la rivière. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Marcellus';src:url('assets/fonts/marcellus-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Marcellus';src:url('assets/fonts/marcellus-latinext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Onest';src:url('assets/fonts/onest-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Onest';src:url('assets/fonts/onest-latinext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+ --paper:#faf6ee; --stone:#eee7d7; --card:#fffdf8;
+ --slate:#2c3a42; --slate2:#4e6472; --slate-l:#647a88;
+ --gold:#c9a227; --gold-d:#a9861a;
+ --vine:#5c6e49; --red:#b23a2e;
+ --line:#dcd2bb; --muted:#8b8068;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--slate);font-family:'Onest',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Marcellus','Onest',serif;font-weight:400;line-height:1.06;letter-spacing:.01em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Onest',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.24em;font-size:12px;color:var(--gold-d)}
+
+.divider{display:flex;align-items:center;gap:20px;padding:30px 0}
+.divider .ln{flex:1;height:22px;color:var(--gold)}
+.divider .mk{width:40px;height:30px;color:var(--gold);flex:none}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s}
+header.solid{background:var(--slate);box-shadow:0 2px 22px rgba(0,0,0,.28)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#faf6ee}
+.brand .mk{width:38px;height:30px;flex:none;color:var(--gold)}
+.brand .nm{font-family:'Marcellus',serif;font-weight:400;font-size:21px;letter-spacing:.03em;line-height:1;color:#faf6ee}
+.brand .nm small{display:block;font-family:'Onest';font-size:9.5px;letter-spacing:.22em;color:var(--gold);font-weight:600;margin-top:4px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Onest',sans-serif;font-weight:500;font-size:15px;color:#eee7d7;opacity:.9}
+nav.links a:hover{color:var(--gold);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.13);border-radius:999px;padding:3px}
+.langs button{font-family:'Onest',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#eee7d7;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--gold);color:var(--slate)}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:#faf6ee;border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-72px;padding-top:72px}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(28,40,48,.5) 0%,rgba(28,40,48,.2) 30%,rgba(28,40,48,.45) 64%,rgba(20,30,36,.9) 100%)}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px)}
+.hero .eyebrow{color:var(--gold);margin-bottom:18px}
+.hero h1{color:#fff;font-size:clamp(50px,9vw,116px);letter-spacing:.01em;text-shadow:0 4px 40px rgba(0,0,0,.4);max-width:15ch}
+.hero .tag{font-family:'Onest',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f2ecdc;max-width:30ch;margin:22px 0 0;line-height:1.4}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Onest',sans-serif;font-weight:600;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:2px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--gold);color:var(--slate)}
+.btn.p:hover{background:var(--gold-d);color:#fff}
+.btn.o{background:transparent;color:#faf6ee;border-color:rgba(250,246,238,.5)}
+.btn.o:hover{border-color:var(--gold);color:var(--gold)}
+
+.facts{background:var(--slate);color:#eee7d7;position:relative;overflow:hidden}
+.facts .field{position:absolute;inset:0;color:rgba(201,162,39,.14)}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);position:relative}
+.facts .c{background:var(--slate);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Onest';font-weight:700;letter-spacing:.16em;font-size:11px;color:var(--gold);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#eee7d7}
+.facts .v b{color:#fff;font-weight:400;font-family:'Marcellus';font-size:20px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.2vw,58px);color:var(--slate);line-height:1.08}
+.sect-h h2 em{font-style:normal;color:var(--gold-d)}
+.sect-h p{font-family:'Onest',sans-serif;font-size:18px;color:var(--slate2);margin-top:16px;line-height:1.62}
+
+/* friture spotlight */
+.spot{background:var(--slate);color:#eae3d3;position:relative;overflow:hidden}
+.spot .field{position:absolute;inset:0;color:rgba(201,162,39,.15)}
+.spot .grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(30px,5vw,66px);align-items:center;position:relative}
+.spot .eyebrow{color:var(--gold)}
+.spot h2{font-family:'Marcellus';font-size:clamp(38px,6vw,76px);color:#fff;margin:14px 0 0;line-height:1.04}
+.spot h2 span{color:var(--gold);display:block}
+.spot .lead{font-family:'Onest';font-size:clamp(18px,2.2vw,25px);line-height:1.5;color:#eae3d3;margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#bcc7ce;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:6/5;object-fit:cover;border-radius:3px;box-shadow:0 30px 66px rgba(0,0,0,.4)}
+.spot .pic .pill{position:absolute;right:-12px;bottom:22px;background:var(--gold);color:var(--slate);font-family:'Onest';font-weight:700;letter-spacing:.02em;font-size:14px;padding:11px 18px;border-radius:2px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+.gal figure{position:relative;overflow:hidden;border-radius:3px;background:var(--stone)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,30,36,.82),transparent);color:#fff;font-family:'Marcellus',serif;font-weight:400;font-size:17px;letter-spacing:.02em}
+
+/* menu */
+.carte{background:var(--stone)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:32px}
+.mgroup h3{font-family:'Marcellus';font-size:26px;color:var(--slate);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--line);margin-bottom:14px}
+.mgroup h3 .mk{width:22px;height:15px;flex:none;color:var(--gold-d)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Onest';font-weight:600;font-size:17px;color:var(--slate)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Marcellus';color:var(--vine);font-size:16px;white-space:nowrap}
+.carte .note{margin-top:24px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--gold);padding-left:14px;max-width:80ch}
+
+/* terrace */
+.terr-sec{background:var(--slate);color:#eae3d3;position:relative;overflow:hidden}
+.terr-sec .field{position:absolute;inset:0;color:rgba(201,162,39,.12)}
+.terr-sec .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,5vw,64px);align-items:center;position:relative}
+.terr-sec h2{font-family:'Marcellus';font-size:clamp(34px,5vw,64px);color:#fff}
+.terr-sec h2 span{color:var(--gold);display:block}
+.terr-sec .lead{font-size:18px;color:#dfe6df;margin-top:18px;line-height:1.6;max-width:42ch}
+.terr-sec .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.terr-sec .chip{font-family:'Onest';font-weight:600;letter-spacing:.03em;font-size:12.5px;color:var(--slate);background:var(--gold);padding:8px 15px;border-radius:999px}
+.terr-sec .chip.b{background:transparent;color:#eae3d3;border:1.5px solid rgba(234,227,211,.4)}
+.terr-sec .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:3px}
+
+/* infos */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--gold-d);margin-top:3px}
+.ino .k{font-family:'Onest';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--slate);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--gold)}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Marcellus';color:var(--vine);font-size:18px}
+.mapcard{background:var(--slate);border-radius:3px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#eae3d3;text-align:center;padding:34px}
+.mapcard .field{position:absolute;inset:0;color:rgba(201,162,39,.2)}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Marcellus';font-size:30px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#20292f;color:#b9c1c4;padding:0 0 40px}
+footer .band{padding:26px 0;display:flex;align-items:center;gap:18px}
+footer .band .ln{flex:1;height:20px;color:var(--gold)}
+footer .band .mk{width:36px;height:26px;color:var(--gold)}
+footer .in{padding:6px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Marcellus';font-weight:400;font-size:25px;color:#faf6ee;letter-spacing:.02em}
+footer .nm small{display:block;font-family:'Onest';font-size:10px;letter-spacing:.2em;color:var(--gold);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a7b0b3}
+footer .made{font-size:12.5px;color:#7f888c;margin-top:22px}
+footer .made b{color:#eae3d3}
+footer .made a{color:var(--gold)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6f787c;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .spot .grid,.terr-sec .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.terr-sec .pic{order:-1}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:72px 0 auto 0;flex-direction:column;background:var(--slate);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--slate)}
+ .hero h1{font-size:clamp(42px,12vw,78px)}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<!-- Terrassen: terraced-vineyard contours / river ripples -->
+<pattern id="terr" width="230" height="26" patternUnits="userSpaceOnUse">
+  <path d="M0,7 C58,1 172,13 230,7" fill="none" stroke="currentColor" stroke-width="1.3"/>
+  <path d="M0,19 C58,13 172,25 230,19" fill="none" stroke="currentColor" stroke-width="1.3"/>
+</pattern>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Friture de la Moselle">
+   <svg class="mk" viewBox="0 0 40 30" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+     <path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg>
+   <span class="nm">Friture de la Moselle<small>Remich · au bord de l'eau</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#friture" data-i18n="nav_fri">La friture</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#terrasse" data-i18n="nav_terr">La terrasse</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="La Moselle et la promenade à Remich"/></div>
+  <div class="scrim"></div>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Au bord de l'eau · Remich · Moselle</span>
+   <h1 data-i18n="hero_h">Friture de la Moselle</h1>
+   <p class="tag" data-i18n="hero_tag">Les petits poissons de la rivière, frits à la minute — les pieds au bord de l'eau, un verre de Riesling à la main.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#terrasse" data-i18n="hero_cta2">La terrasse ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#terr)"/></svg></div>
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La spécialité</div><div class="v" data-i18n="fact_v1"><b>La friture de la Moselle</b><br>petits poissons frits, citron, frites</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">La terrasse</div><div class="v" data-i18n="fact_v2"><b>Sur le quai</b><br>face à la rivière et aux bateaux</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">À boire</div><div class="v" data-i18n="fact_v3"><b>Le Riesling de la Moselle</b><br>le vin du coteau, juste à côté</div></div>
+  </div></div>
+ </div>
+
+ <!-- FRITURE SPOTLIGHT -->
+ <section class="spot" id="friture">
+  <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#terr)"/></svg></div>
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="fri_eyebrow">La spécialité</span>
+    <h2 data-i18n="fri_h">La friture<span>de la Moselle.</span></h2>
+    <p class="lead" data-i18n="fri_lead">Des petits poissons de rivière, légèrement panés et frits à la minute, avec un quartier de citron et des frites maison.</p>
+    <p class="body" data-i18n="fri_body">C'est le plat qui porte le nom de la rivière, et qu'on mange avec les doigts. Simple, généreux, croustillant — comme on le fait sur la Moselle depuis toujours. Avec un verre de Riesling, face à l'eau.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/friture.jpg" alt="La friture de la Moselle, petits poissons frits"/>
+    <span class="pill" data-i18n="fri_pill">Frite à la minute</span>
+   </div>
+  </div>
+ </section>
+
+ <!-- GALLERY -->
+ <section id="table">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">À la carte</span>
+    <h2 data-i18n="gal_h">La cuisine <em>du bord de l'eau</em></h2>
+    <p data-i18n="gal_p">La friture et les moules, mais aussi les grillades, les salades, les tartes maison et les glaces — une cuisine de terrasse, simple et généreuse.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/friture.jpg" alt="La friture de la Moselle"/><figcaption data-i18n="cap_fri">La friture de la Moselle</figcaption></figure>
+    <figure><img src="assets/steak.jpg" alt="Grillade et frites"/><figcaption data-i18n="cap_steak">Grillade &amp; frites</figcaption></figure>
+    <figure><img src="assets/salade.jpg" alt="Salade"/><figcaption data-i18n="cap_sal">La salade</figcaption></figure>
+    <figure class="w2"><img src="assets/boats.jpg" alt="La Moselle et les bateaux de croisière"/><figcaption data-i18n="cap_riv">La Moselle, à deux pas</figcaption></figure>
+    <figure><img src="assets/tarte.jpg" alt="Tarte maison"/><figcaption data-i18n="cap_tarte">Tarte maison</figcaption></figure>
+    <figure><img src="assets/glace.jpg" alt="Coupe glacée"/><figcaption data-i18n="cap_glace">Coupes &amp; glaces</figcaption></figure>
+    <figure class="w2"><img src="assets/interior.jpg" alt="La vitrine à pâtisseries"/><figcaption data-i18n="cap_int">La vitrine à douceurs</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="carte_p">Une carte de terrasse au bord de l'eau. Voici les plats de la maison — les prix se confirment sur place.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="mk" viewBox="0 0 40 30"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg><span data-i18n="mg1">La friture &amp; les poissons</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Friture de la Moselle</div><div class="ds" data-i18n="i1d">Petits poissons frits, citron, frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Moules-frites</div><div class="ds" data-i18n="i2d">En saison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Fish burger</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="mk" viewBox="0 0 40 30"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg><span data-i18n="mg2">Les classiques</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Saucisses grillées</div><div class="ds" data-i18n="i4d">&amp; frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Salade</div><div class="ds" data-i18n="i5d">Fraîche, de saison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Formule du jour</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="mk" viewBox="0 0 40 30"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg><span data-i18n="mg3">Les douceurs</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Gaufres</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Glaces &amp; coupes</div><div class="ds" data-i18n="i8d">De la vitrine</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Tartes &amp; pâtisseries</div><div class="ds" data-i18n="i9d">Maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="mk" viewBox="0 0 40 30"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg><span data-i18n="mg4">Les vins de la Moselle</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Riesling</div><div class="ds" data-i18n="i10d">Du coteau voisin</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Crémant &amp; pinot</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Plats relevés à partir de sources publiques (avis, annuaires), à titre indicatif. Aucun prix n'est publié : la carte, les prix et la saison (souvent fermé le mardi) sont à confirmer avec la maison.</p>
+  </div>
+ </section>
+
+ <!-- TERRACE -->
+ <section class="terr-sec" id="terrasse">
+  <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#terr)"/></svg></div>
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--gold)" data-i18n="terr_eyebrow">La terrasse</span>
+    <h2 data-i18n="terr_h">Les pieds<span>au bord de l'eau.</span></h2>
+    <p class="lead" data-i18n="terr_lead">La terrasse donne sur la Moselle : les bateaux de croisière qui passent, les coteaux de Riesling en face, et le clapotis de la rivière. On s'installe, on commande une friture, et on prend son temps.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="chip1">Au bord de la rivière</span>
+     <span class="chip b" data-i18n="chip2">Face aux coteaux</span>
+     <span class="chip b" data-i18n="chip3">Les bateaux de la Moselle</span>
+    </div>
+   </div>
+   <div class="pic"><img src="assets/river.jpg" alt="La terrasse au bord de la Moselle"/></div>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">2, quai de la Moselle<br>L-5553 Remich · sur l'esplanade</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><a href="tel:+35223698685">+352 23 69 86 85</a> <span class="fl" data-i18n="ino_fl2">(à confirmer)</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Établissement saisonnier · souvent fermé le mardi · horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#terr)"/></svg></div>
+     <div class="in">
+      <div class="big" data-i18n="map_big">Remich</div>
+      <div style="color:#bcc7ce;margin-top:8px" data-i18n="map_sub">Sur l'esplanade, au bord de la Moselle</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Friture+de+la+Moselle+Quai+de+la+Moselle+Remich" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><svg class="ln" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#terr)"/></svg><svg class="mk" viewBox="0 0 40 30"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg><svg class="ln" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#terr)"/></svg></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Friture de la Moselle<small>Remich · au bord de l'eau</small></div>
+   <p data-i18n="foot_p">La friture de la Moselle, en terrasse au bord de la rivière, à Remich. Poissons frits, moules-frites et Riesling.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Onest';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold)">Contact</div>
+   <p style="margin-top:10px">2, quai de la Moselle<br>L-5553 Remich<br><a href="tel:+35223698685" style="border-bottom:1px solid var(--gold)">+352 23 69 86 85</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires, saison et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_fri:"La friture",nav_carte:"La carte",nav_terr:"La terrasse",nav_infos:"Infos & accès",
+  hero_eyebrow:"Au bord de l'eau · Remich · Moselle",hero_h:"Friture de la Moselle",
+  hero_tag:"Les petits poissons de la rivière, frits à la minute — les pieds au bord de l'eau, un verre de Riesling à la main.",
+  hero_cta1:"Voir la carte",hero_cta2:"La terrasse ↓",
+  fact_k1:"La spécialité",fact_v1:"<b>La friture de la Moselle</b><br>petits poissons frits, citron, frites",
+  fact_k2:"La terrasse",fact_v2:"<b>Sur le quai</b><br>face à la rivière et aux bateaux",
+  fact_k3:"À boire",fact_v3:"<b>Le Riesling de la Moselle</b><br>le vin du coteau, juste à côté",
+  fri_eyebrow:"La spécialité",fri_h:"La friture<span>de la Moselle.</span>",
+  fri_lead:"Des petits poissons de rivière, légèrement panés et frits à la minute, avec un quartier de citron et des frites maison.",
+  fri_body:"C'est le plat qui porte le nom de la rivière, et qu'on mange avec les doigts. Simple, généreux, croustillant — comme on le fait sur la Moselle depuis toujours. Avec un verre de Riesling, face à l'eau.",
+  fri_pill:"Frite à la minute",
+  gal_eyebrow:"À la carte",gal_h:"La cuisine <em>du bord de l'eau</em>",
+  gal_p:"La friture et les moules, mais aussi les grillades, les salades, les tartes maison et les glaces — une cuisine de terrasse, simple et généreuse.",
+  cap_fri:"La friture de la Moselle",cap_steak:"Grillade & frites",cap_sal:"La salade",cap_riv:"La Moselle, à deux pas",cap_tarte:"Tarte maison",cap_glace:"Coupes & glaces",cap_int:"La vitrine à douceurs",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
+  carte_p:"Une carte de terrasse au bord de l'eau. Voici les plats de la maison — les prix se confirment sur place.",
+  mg1:"La friture & les poissons",mg2:"Les classiques",mg3:"Les douceurs",mg4:"Les vins de la Moselle",
+  i1n:"Friture de la Moselle",i1d:"Petits poissons frits, citron, frites",i2n:"Moules-frites",i2d:"En saison",i3n:"Fish burger",
+  i4n:"Saucisses grillées",i4d:"& frites",i5n:"Salade",i5d:"Fraîche, de saison",i6n:"Formule du jour",
+  i7n:"Gaufres",i8n:"Glaces & coupes",i8d:"De la vitrine",i9n:"Tartes & pâtisseries",i9d:"Maison",
+  i10n:"Riesling",i10d:"Du coteau voisin",i11n:"Crémant & pinot",ac:"à conf.",
+  carte_note:"Plats relevés à partir de sources publiques (avis, annuaires), à titre indicatif. Aucun prix n'est publié : la carte, les prix et la saison (souvent fermé le mardi) sont à confirmer avec la maison.",
+  terr_eyebrow:"La terrasse",terr_h:"Les pieds<span>au bord de l'eau.</span>",
+  terr_lead:"La terrasse donne sur la Moselle : les bateaux de croisière qui passent, les coteaux de Riesling en face, et le clapotis de la rivière. On s'installe, on commande une friture, et on prend son temps.",
+  chip1:"Au bord de la rivière",chip2:"Face aux coteaux",chip3:"Les bateaux de la Moselle",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver",ino_fl2:"(à confirmer)",
+  ino_k3:"Horaires",ino_fl3:"Établissement saisonnier · souvent fermé le mardi · horaires à confirmer",
+  map_big:"Remich",map_sub:"Sur l'esplanade, au bord de la Moselle",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"La friture de la Moselle, en terrasse au bord de la rivière, à Remich. Poissons frits, moules-frites et Riesling.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires, saison et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_fri:"Die Friture",nav_carte:"Karte",nav_terr:"Die Terrasse",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Am Wasser · Remich · Mosel",hero_h:"Friture de la Moselle",
+  hero_tag:"Die kleinen Flussfische, frisch frittiert — direkt am Wasser, ein Glas Riesling in der Hand.",
+  hero_cta1:"Zur Karte",hero_cta2:"Die Terrasse ↓",
+  fact_k1:"Die Spezialität",fact_v1:"<b>Die Friture de la Moselle</b><br>frittierte Flussfischchen, Zitrone, Pommes",
+  fact_k2:"Die Terrasse",fact_v2:"<b>Am Kai</b><br>direkt am Fluss und den Booten",
+  fact_k3:"Zu trinken",fact_v3:"<b>Der Mosel-Riesling</b><br>der Wein vom Hang nebenan",
+  fri_eyebrow:"Die Spezialität",fri_h:"Die Friture<span>de la Moselle.</span>",
+  fri_lead:"Kleine Flussfische, leicht paniert und frisch frittiert, mit einer Zitronenspalte und hausgemachten Pommes.",
+  fri_body:"Es ist das Gericht, das den Namen des Flusses trägt und das man mit den Fingern isst. Einfach, großzügig, knusprig — wie man es an der Mosel seit jeher macht. Mit einem Glas Riesling, mit Blick aufs Wasser.",
+  fri_pill:"Frisch frittiert",
+  gal_eyebrow:"Von der Karte",gal_h:"Die Küche <em>am Wasser</em>",
+  gal_p:"Die Friture und die Muscheln, aber auch Grillgerichte, Salate, hausgemachte Kuchen und Eis — eine Terrassenküche, einfach und großzügig.",
+  cap_fri:"Die Friture de la Moselle",cap_steak:"Grillgericht & Pommes",cap_sal:"Der Salat",cap_riv:"Die Mosel, ganz nah",cap_tarte:"Hausgemachter Kuchen",cap_glace:"Eis & Becher",cap_int:"Die Süßwaren-Vitrine",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
+  carte_p:"Eine Terrassenkarte am Wasser. Das sind die Gerichte des Hauses — die Preise werden vor Ort bestätigt.",
+  mg1:"Friture & Fisch",mg2:"Die Klassiker",mg3:"Die Süßspeisen",mg4:"Die Mosel-Weine",
+  i1n:"Friture de la Moselle",i1d:"Frittierte Fischchen, Zitrone, Pommes",i2n:"Muscheln & Pommes",i2d:"Saisonal",i3n:"Fischburger",
+  i4n:"Gegrillte Würstchen",i4d:"& Pommes",i5n:"Salat",i5d:"Frisch, saisonal",i6n:"Tagesmenü",
+  i7n:"Waffeln",i8n:"Eis & Becher",i8d:"Aus der Vitrine",i9n:"Kuchen & Gebäck",i9d:"Hausgemacht",
+  i10n:"Riesling",i10d:"Vom benachbarten Hang",i11n:"Crémant & Pinot",ac:"n. Angabe",
+  carte_note:"Gerichte aus öffentlichen Quellen (Bewertungen, Verzeichnisse), ohne Gewähr. Es sind keine Preise veröffentlicht: Karte, Preise und Saison (oft dienstags geschlossen) beim Haus zu bestätigen.",
+  terr_eyebrow:"Die Terrasse",terr_h:"Die Füße<span>am Wasser.</span>",
+  terr_lead:"Die Terrasse liegt direkt an der Mosel: die vorbeifahrenden Ausflugsboote, die Rieslinghänge gegenüber und das Plätschern des Flusses. Man setzt sich, bestellt eine Friture und lässt sich Zeit.",
+  chip1:"Direkt am Fluss",chip2:"Blick auf die Hänge",chip3:"Die Mosel-Boote",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren",ino_fl2:"(zu bestätigen)",
+  ino_k3:"Öffnungszeiten",ino_fl3:"Saisonbetrieb · oft dienstags geschlossen · Zeiten zu bestätigen",
+  map_big:"Remich",map_sub:"Auf der Esplanade, direkt an der Mosel",map_btn:"In Maps öffnen ↗",
+  foot_p:"Die Friture de la Moselle, auf der Terrasse am Fluss, in Remich. Frittierter Fisch, Muscheln & Pommes und Riesling.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten, Saison und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_fri:"The friture",nav_carte:"Menu",nav_terr:"The terrace",nav_infos:"Find us",
+  hero_eyebrow:"By the water · Remich · Moselle",hero_h:"Friture de la Moselle",
+  hero_tag:"The river's little fish, fried to order — feet by the water, a glass of Riesling in hand.",
+  hero_cta1:"See the menu",hero_cta2:"The terrace ↓",
+  fact_k1:"The speciality",fact_v1:"<b>The Moselle friture</b><br>fried river fish, lemon, chips",
+  fact_k2:"The terrace",fact_v2:"<b>On the quay</b><br>facing the river and the boats",
+  fact_k3:"To drink",fact_v3:"<b>Moselle Riesling</b><br>the wine from the slope next door",
+  fri_eyebrow:"The speciality",fri_h:"The friture<span>of the Moselle.</span>",
+  fri_lead:"Little river fish, lightly floured and fried to order, with a wedge of lemon and house chips.",
+  fri_body:"It's the dish that carries the river's name, and you eat it with your fingers. Simple, generous, crisp — the way it's been done on the Moselle forever. With a glass of Riesling, facing the water.",
+  fri_pill:"Fried to order",
+  gal_eyebrow:"À la carte",gal_h:"The kitchen <em>by the water</em>",
+  gal_p:"The friture and the mussels, but also grills, salads, house tarts and ice cream — a terrace kitchen, simple and generous.",
+  cap_fri:"The Moselle friture",cap_steak:"Grill & chips",cap_sal:"The salad",cap_riv:"The Moselle, a step away",cap_tarte:"House tart",cap_glace:"Ice cream & sundaes",cap_int:"The pastry counter",
+  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
+  carte_p:"A terrace menu by the water. Here are the house dishes — prices are confirmed on site.",
+  mg1:"The friture & fish",mg2:"The classics",mg3:"The sweets",mg4:"Moselle wines",
+  i1n:"Friture de la Moselle",i1d:"Fried river fish, lemon, chips",i2n:"Mussels & chips",i2d:"In season",i3n:"Fish burger",
+  i4n:"Grilled sausages",i4d:"& chips",i5n:"Salad",i5d:"Fresh, seasonal",i6n:"Dish of the day",
+  i7n:"Waffles",i8n:"Ice cream & sundaes",i8d:"From the counter",i9n:"Tarts & pastries",i9d:"House-made",
+  i10n:"Riesling",i10d:"From the slope next door",i11n:"Crémant & pinot",ac:"tbc",
+  carte_note:"Dishes drawn from public sources (reviews, directories), for reference only. No prices are published: the menu, prices and season (often closed on Tuesdays) are to be confirmed with the house.",
+  terr_eyebrow:"The terrace",terr_h:"Feet<span>by the water.</span>",
+  terr_lead:"The terrace looks onto the Moselle: the cruise boats gliding past, the Riesling slopes opposite, and the lap of the river. You sit down, order a friture, and take your time.",
+  chip1:"Right by the river",chip2:"Facing the slopes",chip3:"The Moselle boats",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book",ino_fl2:"(to be confirmed)",
+  ino_k3:"Opening hours",ino_fl3:"Seasonal · often closed on Tuesdays · hours to be confirmed",
+  map_big:"Remich",map_sub:"On the esplanade, by the Moselle",map_btn:"Open in Maps ↗",
+  foot_p:"The Moselle friture, on the terrace by the river, in Remich. Fried fish, mussels & chips and Riesling.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand and dishes belong to the house. Menu, prices, hours, season and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+const HOURS={fr:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],de:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
+const SCHED={0:"11:30–21:00",1:"11:30–21:00",2:null,3:"11:30–21:00",4:"11:30–21:00",5:"11:30–21:00",6:"11:30–21:00"};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  const d=new Date(); const day=d.getDay(); const s=SCHED[day];
+  const closed={fr:"Fermé (mardi)",de:"Geschlossen (Dienstag)",en:"Closed (Tuesday)"}[l];
+  const el=document.getElementById("today"); if(el) el.textContent=HOURS[l][day]+" · "+(s?s:closed);
+  try{localStorage.setItem("fm_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("fm_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+</script>
+</body>
+</html>
