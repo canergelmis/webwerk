@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Le Diplomate — Churrasco brésilien, Dudelange</title>
+<meta name="description" content="Churrasco brésilien à Dudelange — rodízio de picanha, costela au feu de bois et caipirinha. Du café du matin au grill de minuit. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Zilla';font-weight:600;src:url('assets/fonts/zilla600-latin.woff2') format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Zilla';font-weight:600;src:url('assets/fonts/zilla600-latinext.woff2') format('woff2');font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Zilla';font-weight:700;src:url('assets/fonts/zilla700-latin.woff2') format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Zilla';font-weight:700;src:url('assets/fonts/zilla700-latinext.woff2') format('woff2');font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Albert';font-weight:400 700;src:url('assets/fonts/albert-latin.woff2') format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Albert';font-weight:400 700;src:url('assets/fonts/albert-latinext.woff2') format('woff2');font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+ --paper:#f2e8d4; --cream:#ece0c8; --card:#f8f0e0;
+ --char:#26221c; --char2:#3a3329; --ink2:#4a4034;
+ --rust:#b4531f; --rust-d:#8f3f16;
+ --amber:#e8a13a; --amber-d:#c9851f;
+ --palm:#2e6b4f; --palm-l:#3f8464;
+ --line:#d8c6a4; --muted:#877453;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--char);font-family:'Albert',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Zilla','Albert',serif;font-weight:700;line-height:1.0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Albert',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--rust)}
+
+.divider{display:flex;align-items:center;gap:16px;padding:28px 0}
+.divider .wv{flex:1;height:20px;color:var(--rust)}
+.divider .bd{width:34px;height:34px;color:var(--amber-d);flex:none}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s}
+header.solid{background:var(--char);box-shadow:0 2px 22px rgba(0,0,0,.32)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#f4ead4}
+.brand .mk{width:36px;height:36px;flex:none;color:var(--amber)}
+.brand .nm{font-family:'Zilla',serif;font-weight:700;font-size:22px;letter-spacing:.01em;line-height:.95;color:#f4ead4}
+.brand .nm small{display:block;font-family:'Albert';font-size:9.5px;letter-spacing:.22em;color:var(--amber);font-weight:600;margin-top:3px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Albert',sans-serif;font-weight:600;font-size:15px;color:#efe3cd;opacity:.92}
+nav.links a:hover{color:var(--amber);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.13);border-radius:999px;padding:3px}
+.langs button{font-family:'Albert',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#ece0c8;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--rust);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:#f4ead4;border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-70px;padding-top:70px}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,16,10,.55) 0%,rgba(20,16,10,.28) 32%,rgba(20,16,10,.55) 66%,rgba(15,11,6,.93) 100%)}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px)}
+.hero .eyebrow{color:var(--amber);margin-bottom:18px}
+.hero h1{color:#fff;font-size:clamp(56px,11.5vw,148px);letter-spacing:-.01em;text-shadow:0 4px 40px rgba(0,0,0,.45)}
+.hero .tag{font-family:'Albert',sans-serif;font-weight:500;font-size:clamp(18px,2.4vw,27px);color:#f5ecd6;max-width:30ch;margin:20px 0 0;line-height:1.36}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Albert',sans-serif;font-weight:700;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--rust);color:#fff}
+.btn.p:hover{background:var(--rust-d)}
+.btn.o{background:transparent;color:#f4ead4;border-color:rgba(244,234,212,.5)}
+.btn.o:hover{border-color:var(--amber);color:var(--amber)}
+
+.facts{background:var(--char);color:#efe3cd;position:relative;overflow:hidden}
+.facts .field{position:absolute;inset:0;color:rgba(232,161,58,.15)}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);position:relative}
+.facts .c{background:var(--char);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Albert';font-weight:700;letter-spacing:.16em;font-size:11px;color:var(--amber);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#efe3cd}
+.facts .v b{color:#fff;font-weight:700;font-family:'Zilla';font-size:19px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:720px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.5vw,60px);color:var(--char);line-height:1.03}
+.sect-h h2 em{font-style:normal;color:var(--rust)}
+.sect-h p{font-family:'Albert',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+/* rodízio spotlight */
+.spot{background:var(--char);color:#f0e6d2;position:relative;overflow:hidden}
+.spot .field{position:absolute;inset:0;color:rgba(232,161,58,.17)}
+.spot .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,66px);align-items:center;position:relative}
+.spot .eyebrow{color:var(--amber)}
+.spot h2{font-family:'Zilla';font-size:clamp(38px,6vw,80px);color:#fff;margin:14px 0 0;line-height:1.0}
+.spot h2 span{color:var(--amber);display:block}
+.spot .lead{font-family:'Albert';font-size:clamp(18px,2.2vw,25px);line-height:1.48;color:#f0e6d2;margin:22px 0 0;font-weight:500}
+.spot .body{font-size:16.5px;color:#cdbfa2;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.45)}
+.spot .pic .pill{position:absolute;left:-12px;bottom:24px;background:var(--rust);color:#fff;font-family:'Albert';font-weight:700;letter-spacing:.03em;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+.gal figure{position:relative;overflow:hidden;border-radius:3px;background:var(--cream)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,16,10,.82),transparent);color:#fff;font-family:'Zilla',serif;font-weight:600;font-size:16px}
+
+/* menu */
+.carte{background:var(--cream)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:32px}
+.mgroup h3{font-family:'Zilla';font-size:25px;color:var(--rust);display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:2px solid var(--line);margin-bottom:14px}
+.mgroup h3 .es{width:16px;height:22px;flex:none;color:var(--amber-d)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Albert';font-weight:600;font-size:17px;color:var(--char)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Zilla';font-weight:700;color:var(--palm);font-size:16px;white-space:nowrap}
+.carte .note{margin-top:24px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--amber);padding-left:14px;max-width:80ch}
+
+/* bar / never-closes */
+.barr{background:var(--palm);color:#eaf3ee;position:relative;overflow:hidden}
+.barr .field{position:absolute;inset:0;color:rgba(255,255,255,.12)}
+.barr .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,64px);align-items:center;position:relative}
+.barr h2{font-family:'Zilla';font-size:clamp(36px,5.5vw,70px);color:#fff}
+.barr h2 span{color:var(--amber);display:block}
+.barr .lead{font-size:18px;color:#e4efe9;margin-top:18px;line-height:1.6;max-width:42ch}
+.barr .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.barr .chip{font-family:'Albert';font-weight:700;letter-spacing:.05em;font-size:12.5px;color:var(--char);background:var(--amber);padding:8px 15px;border-radius:999px}
+.barr .chip.b{background:transparent;color:#eaf3ee;border:1.5px solid rgba(234,243,238,.45)}
+.barr .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px}
+
+/* infos */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--rust);margin-top:3px}
+.ino .k{font-family:'Albert';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--char);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--amber)}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Zilla';font-weight:700;color:var(--palm)}
+.mapcard{background:var(--char);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#efe3cd;text-align:center;padding:34px}
+.mapcard .field{position:absolute;inset:0;color:rgba(232,161,58,.22)}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Zilla';font-weight:700;font-size:30px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#1c1811;color:#c9b993;padding:0 0 40px}
+footer .band{padding:24px 0;display:flex;align-items:center;gap:16px}
+footer .band .wv{flex:1;height:18px;color:var(--rust)}
+footer .band .bd{width:28px;height:28px;color:var(--amber-d)}
+footer .in{padding:6px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Zilla';font-weight:700;font-size:26px;color:#f4ead4}
+footer .nm small{display:block;font-family:'Albert';font-size:10px;letter-spacing:.22em;color:var(--amber);margin-top:4px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#b7a577}
+footer .made{font-size:12.5px;color:#8f7d55;margin-top:22px}
+footer .made b{color:#efe3cd}
+footer .made a{color:var(--amber)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#7d6b48;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .spot .grid,.barr .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.barr .pic{order:-1}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:70px 0 auto 0;flex-direction:column;background:var(--char);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--char)}
+ .hero h1{font-size:clamp(48px,15vw,90px)}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<!-- calçadão de Copacabana wave -->
+<pattern id="ondas" width="120" height="30" patternUnits="userSpaceOnUse">
+  <path d="M0,8 C20,-2 40,-2 60,8 C80,18 100,18 120,8 L120,18 C100,28 80,28 60,18 C40,8 20,8 0,18 Z" fill="currentColor"/>
+</pattern>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Le Diplomate">
+   <svg class="mk" viewBox="0 0 100 100" aria-hidden="true">
+     <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+     <circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+     <path d="M20 50 C31 40 39 40 50 50 C61 60 69 60 80 50" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+   </svg>
+   <span class="nm">Le Diplomate<small>Churrasco · Dudelange</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#rodizio" data-i18n="nav_rod">Le rodízio</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#bar" data-i18n="nav_bar">Le café-bar</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="Le Diplomate, route de Kayl à Dudelange, le soir"/></div>
+  <div class="scrim"></div>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Churrasco brésilien · Dudelange</span>
+   <h1>Le Diplomate</h1>
+   <p class="tag" data-i18n="hero_tag">O sabor do Brasil à Dudelange — la picanha qui tourne, du café du matin au grill de minuit.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#rodizio" data-i18n="hero_cta2">Le rodízio ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#ondas)"/></svg></div>
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Churrasco brésilien</b><br>picanha, costela, au feu</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le rodízio</div><div class="v" data-i18n="fact_v2"><b>À volonté</b><br>la broche passe à table</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">Les horaires</div><div class="v" data-i18n="fact_v3"><b>6h → 1h du matin</b><br>café le matin, grill le soir</div></div>
+  </div></div>
+ </div>
+
+ <!-- RODÍZIO SPOTLIGHT -->
+ <section class="spot" id="rodizio">
+  <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#ondas)"/></svg></div>
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="rod_eyebrow">La signature</span>
+    <h2 data-i18n="rod_h">Le rodízio<span>de picanha.</span></h2>
+    <p class="lead" data-i18n="rod_lead">La broche passe de table en table, et on coupe une tranche de picanha tant que vous en voulez.</p>
+    <p class="body" data-i18n="rod_body">C'est le churrasco comme au Brésil : la viande grillée au feu, saignante et dorée, servie directement à la broche. Avec du riz, des haricots noirs, de la farofa et un ananas grillé — jusqu'à ce que vous disiez stop.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/rodizio.jpg" alt="Les broches de churrasco au Diplomate"/>
+    <span class="pill" data-i18n="rod_pill">À la broche, à volonté</span>
+   </div>
+  </div>
+ </section>
+
+ <!-- GALLERY -->
+ <section id="table">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">Au feu</span>
+    <h2 data-i18n="gal_h">La viande, <em>au charbon</em></h2>
+    <p data-i18n="gal_p">Picanha, costela, assortiment grillé, accompagnements brésiliens et pastéis — la générosité du churrasco, à Dudelange.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/costela.jpg" alt="Costela, travers de bœuf grillé au feu"/><figcaption data-i18n="cap_cos">Costela au feu</figcaption></figure>
+    <figure><img src="assets/served.jpg" alt="Picanha servie et coupée à table"/><figcaption data-i18n="cap_srv">Picanha, coupée à table</figcaption></figure>
+    <figure><img src="assets/plate.jpg" alt="Assiette churrasco et frites"/><figcaption data-i18n="cap_pla">L'assiette churrasco</figcaption></figure>
+    <figure><img src="assets/pasteis.jpg" alt="Pastéis et caipirinha"/><figcaption data-i18n="cap_pas">Pastéis &amp; caipirinha</figcaption></figure>
+    <figure><img src="assets/interior.jpg" alt="La salle du Diplomate"/><figcaption data-i18n="cap_int">La salle</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>grille</em></h2>
+    <p data-i18n="carte_p">Le churrasco et ses accompagnements brésiliens. Voici les plats de la maison — les prix se confirment sur place.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="es" viewBox="0 0 20 24"><line x1="10" y1="1" x2="10" y2="23" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="4" width="10" height="4" rx="2" fill="currentColor"/><rect x="5" y="10" width="10" height="4" rx="2" fill="currentColor"/><rect x="6" y="16" width="8" height="3.6" rx="1.8" fill="currentColor"/></svg><span data-i18n="mg1">Le churrasco</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Rodízio de picanha</div><div class="ds" data-i18n="i1d">À volonté, à la broche</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Picanha</div><div class="ds" data-i18n="i2d">La pièce brésilienne</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Costela</div><div class="ds" data-i18n="i3d">Travers de bœuf au feu</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Assortiment grillé</div><div class="ds" data-i18n="i4d">Bœuf, porc, poulet</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="es" viewBox="0 0 20 24"><line x1="10" y1="1" x2="10" y2="23" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="4" width="10" height="4" rx="2" fill="currentColor"/><rect x="5" y="10" width="10" height="4" rx="2" fill="currentColor"/><rect x="6" y="16" width="8" height="3.6" rx="1.8" fill="currentColor"/></svg><span data-i18n="mg2">Le café-bar</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Buffet du midi</div><div class="ds" data-i18n="i5d">Formule brésilienne</div></div><span class="dots"></span><span class="pr" data-i18n="pr_env">env. 15 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Pastéis / coxinha</div><div class="ds" data-i18n="i6d">À grignoter</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Caipirinha · bière</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="es" viewBox="0 0 20 24"><line x1="10" y1="1" x2="10" y2="23" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="4" width="10" height="4" rx="2" fill="currentColor"/><rect x="5" y="10" width="10" height="4" rx="2" fill="currentColor"/><rect x="6" y="16" width="8" height="3.6" rx="1.8" fill="currentColor"/></svg><span data-i18n="mg3">Les accompagnements</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Feijão preto</div><div class="ds" data-i18n="i8d">Haricots noirs</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Farofa</div><div class="ds" data-i18n="i9d">Semoule de manioc grillée</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Couve</div><div class="ds" data-i18n="i10d">Chou vert émincé</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Arroz &amp; frites</div><div class="ds" data-i18n="i11d">Riz brésilien</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Ananas grillé</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Plats relevés à partir de sources publiques (avis, annuaires, plateformes de livraison), à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer avec la maison.</p>
+  </div>
+ </section>
+
+ <!-- BAR / NEVER CLOSES -->
+ <section class="barr" id="bar">
+  <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#ondas)"/></svg></div>
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--amber)" data-i18n="bar_eyebrow">Le café-bar</span>
+    <h2 data-i18n="bar_h">Ouvert du matin<span>à tard le soir.</span></h2>
+    <p class="lead" data-i18n="bar_lead">Un café le matin, une caipirinha l'après-midi, le match le soir et le churrasco jusqu'à 1h. Le Diplomate, c'est le café-bar brésilien du quartier — celui qui ne ferme presque jamais.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="chip1">Caipirinha</span>
+     <span class="chip" data-i18n="chip2">Le foot</span>
+     <span class="chip b" data-i18n="chip3">Café dès 6h</span>
+     <span class="chip b" data-i18n="chip4">Grill jusqu'à 1h</span>
+    </div>
+   </div>
+   <div class="pic"><img src="assets/cafebar.jpg" alt="Une table au café-bar du Diplomate"/></div>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">9, route de Kayl<br>L-3514 Dudelange</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver / commander</div><div class="v"><a href="tel:+35228261194">+352 28 26 11 94</a> <span class="fl" data-i18n="ino_fl2">(à confirmer)</span><br><a class="btn p" style="margin-top:13px;padding:11px 20px;font-size:13px" href="https://wolt.com/en/lux/luxembourg-south/restaurant/le-diplomate-lux" target="_blank" rel="noopener" data-i18n="ino_order">Commander sur Wolt ↗</a></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Ouvert tôt et tard · horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#ondas)"/></svg></div>
+     <div class="in">
+      <div class="big" data-i18n="map_big">Dudelange</div>
+      <div style="color:#cdbfa2;margin-top:8px" data-i18n="map_sub">Route de Kayl, quartier Terres Rouges</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Le+Diplomate+9+Route+de+Kayl+Dudelange" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><svg class="wv" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#ondas)"/></svg></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Le Diplomate<small>Churrasco · Dudelange</small></div>
+   <p data-i18n="foot_p">Churrasco brésilien à Dudelange. Rodízio de picanha, café-bar du matin au soir.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Albert';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--amber)">Contact</div>
+   <p style="margin-top:10px">9, route de Kayl<br>L-3514 Dudelange<br><a href="tel:+35228261194" style="border-bottom:1px solid var(--amber)">+352 28 26 11 94</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_rod:"Le rodízio",nav_carte:"La carte",nav_bar:"Le café-bar",nav_infos:"Infos & accès",
+  hero_eyebrow:"Churrasco brésilien · Dudelange",
+  hero_tag:"O sabor do Brasil à Dudelange — la picanha qui tourne, du café du matin au grill de minuit.",
+  hero_cta1:"Voir la carte",hero_cta2:"Le rodízio ↓",
+  fact_k1:"La cuisine",fact_v1:"<b>Churrasco brésilien</b><br>picanha, costela, au feu",
+  fact_k2:"Le rodízio",fact_v2:"<b>À volonté</b><br>la broche passe à table",
+  fact_k3:"Les horaires",fact_v3:"<b>6h → 1h du matin</b><br>café le matin, grill le soir",
+  rod_eyebrow:"La signature",rod_h:"Le rodízio<span>de picanha.</span>",
+  rod_lead:"La broche passe de table en table, et on coupe une tranche de picanha tant que vous en voulez.",
+  rod_body:"C'est le churrasco comme au Brésil : la viande grillée au feu, saignante et dorée, servie directement à la broche. Avec du riz, des haricots noirs, de la farofa et un ananas grillé — jusqu'à ce que vous disiez stop.",
+  rod_pill:"À la broche, à volonté",
+  gal_eyebrow:"Au feu",gal_h:"La viande, <em>au charbon</em>",
+  gal_p:"Picanha, costela, assortiment grillé, accompagnements brésiliens et pastéis — la générosité du churrasco, à Dudelange.",
+  cap_pic:"Picanha à la broche",cap_cos:"Costela au feu",cap_srv:"Coupée à table",cap_pla:"L'assiette churrasco",cap_pas:"Pastéis & caipirinha",cap_int:"La salle",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>grille</em>",
+  carte_p:"Le churrasco et ses accompagnements brésiliens. Voici les plats de la maison — les prix se confirment sur place.",
+  mg1:"Le churrasco",mg2:"Le café-bar",mg3:"Les accompagnements",
+  i1n:"Rodízio de picanha",i1d:"À volonté, à la broche",i2n:"Picanha",i2d:"La pièce brésilienne",i3n:"Costela",i3d:"Travers de bœuf au feu",i4n:"Assortiment grillé",i4d:"Bœuf, porc, poulet",
+  i5n:"Buffet du midi",i5d:"Formule brésilienne",i6n:"Pastéis / coxinha",i6d:"À grignoter",i7n:"Caipirinha · bière",
+  i8n:"Feijão preto",i8d:"Haricots noirs",i9n:"Farofa",i9d:"Semoule de manioc grillée",i10n:"Couve",i10d:"Chou vert émincé",i11n:"Arroz & frites",i11d:"Riz brésilien",i12n:"Ananas grillé",
+  ac:"à conf.",pr_env:"env. 15 €",
+  carte_note:"Plats relevés à partir de sources publiques (avis, annuaires, plateformes de livraison), à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer avec la maison.",
+  bar_eyebrow:"Le café-bar",bar_h:"Ouvert du matin<span>à tard le soir.</span>",
+  bar_lead:"Un café le matin, une caipirinha l'après-midi, le match le soir et le churrasco jusqu'à 1h. Le Diplomate, c'est le café-bar brésilien du quartier — celui qui ne ferme presque jamais.",
+  chip1:"Caipirinha",chip2:"Le foot",chip3:"Café dès 6h",chip4:"Grill jusqu'à 1h",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver / commander",ino_fl2:"(à confirmer)",ino_order:"Commander sur Wolt ↗",
+  ino_k3:"Horaires",ino_fl3:"Ouvert tôt et tard · horaires à confirmer",
+  map_big:"Dudelange",map_sub:"Route de Kayl, quartier Terres Rouges",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Churrasco brésilien à Dudelange. Rodízio de picanha, café-bar du matin au soir.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_rod:"Rodízio",nav_carte:"Karte",nav_bar:"Café-Bar",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Brasilianisches Churrasco · Dudelange",
+  hero_tag:"O sabor do Brasil in Dudelange — die Picanha am Spieß, vom Morgenkaffee bis zum Grill um Mitternacht.",
+  hero_cta1:"Zur Karte",hero_cta2:"Das Rodízio ↓",
+  fact_k1:"Die Küche",fact_v1:"<b>Brasilianisches Churrasco</b><br>Picanha, Costela, über Feuer",
+  fact_k2:"Das Rodízio",fact_v2:"<b>All you can eat</b><br>der Spieß kommt an den Tisch",
+  fact_k3:"Die Zeiten",fact_v3:"<b>6 → 1 Uhr nachts</b><br>morgens Kaffee, abends Grill",
+  rod_eyebrow:"Die Signatur",rod_h:"Das Rodízio<span>de picanha.</span>",
+  rod_lead:"Der Spieß wandert von Tisch zu Tisch, und es wird so viel Picanha abgeschnitten, wie Sie mögen.",
+  rod_body:"Das ist Churrasco wie in Brasilien: über offenem Feuer gegrilltes Fleisch, blutig und goldbraun, direkt vom Spieß serviert. Dazu Reis, schwarze Bohnen, Farofa und gegrillte Ananas — bis Sie stopp sagen.",
+  rod_pill:"Vom Spieß, all you can eat",
+  gal_eyebrow:"Am Feuer",gal_h:"Das Fleisch, <em>über Kohle</em>",
+  gal_p:"Picanha, Costela, gemischter Grill, brasilianische Beilagen und Pastéis — die Großzügigkeit des Churrasco, in Dudelange.",
+  cap_pic:"Picanha am Spieß",cap_cos:"Costela über Feuer",cap_srv:"Am Tisch geschnitten",cap_pla:"Der Churrasco-Teller",cap_pas:"Pastéis & Caipirinha",cap_int:"Der Gastraum",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>grillen</em>",
+  carte_p:"Das Churrasco und seine brasilianischen Beilagen. Das sind die Gerichte des Hauses — die Preise werden vor Ort bestätigt.",
+  mg1:"Das Churrasco",mg2:"Café-Bar",mg3:"Die Beilagen",
+  i1n:"Rodízio de picanha",i1d:"All you can eat, vom Spieß",i2n:"Picanha",i2d:"Das brasilianische Stück",i3n:"Costela",i3d:"Rinderrippe über Feuer",i4n:"Gemischter Grill",i4d:"Rind, Schwein, Hähnchen",
+  i5n:"Mittagsbuffet",i5d:"Brasilianisches Menü",i6n:"Pastéis / Coxinha",i6d:"Zum Knabbern",i7n:"Caipirinha · Bier",
+  i8n:"Feijão preto",i8d:"Schwarze Bohnen",i9n:"Farofa",i9d:"Geröstetes Maniokmehl",i10n:"Couve",i10d:"Fein geschnittener Grünkohl",i11n:"Arroz & Pommes",i11d:"Brasilianischer Reis",i12n:"Gegrillte Ananas",
+  ac:"auf Anfrage",pr_env:"ca. 15 €",
+  carte_note:"Gerichte aus öffentlichen Quellen (Bewertungen, Verzeichnisse, Lieferplattformen), ohne Gewähr. Es sind keine Preise veröffentlicht: Karte und Preise beim Haus zu bestätigen.",
+  bar_eyebrow:"Café-Bar",bar_h:"Von morgens<span>bis spät abends.</span>",
+  bar_lead:"Morgens ein Kaffee, nachmittags eine Caipirinha, abends das Spiel und Churrasco bis 1 Uhr. Das Diplomate ist die brasilianische Café-Bar des Viertels — die fast nie schließt.",
+  chip1:"Caipirinha",chip2:"Fußball",chip3:"Kaffee ab 6 Uhr",chip4:"Grill bis 1 Uhr",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren / bestellen",ino_fl2:"(zu bestätigen)",ino_order:"Auf Wolt bestellen ↗",
+  ino_k3:"Öffnungszeiten",ino_fl3:"Früh und spät geöffnet · Zeiten zu bestätigen",
+  map_big:"Dudelange",map_sub:"Route de Kayl, Viertel Terres Rouges",map_btn:"In Maps öffnen ↗",
+  foot_p:"Brasilianisches Churrasco in Dudelange. Rodízio de picanha, Café-Bar von morgens bis abends.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben von Lieferplattformen und Verzeichnissen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_rod:"The rodízio",nav_carte:"Menu",nav_bar:"Café-bar",nav_infos:"Find us",
+  hero_eyebrow:"Brazilian churrasco · Dudelange",
+  hero_tag:"O sabor do Brasil in Dudelange — the picanha keeps turning, from morning coffee to the midnight grill.",
+  hero_cta1:"See the menu",hero_cta2:"The rodízio ↓",
+  fact_k1:"The kitchen",fact_v1:"<b>Brazilian churrasco</b><br>picanha, costela, over fire",
+  fact_k2:"The rodízio",fact_v2:"<b>All you can eat</b><br>the skewer comes to your table",
+  fact_k3:"The hours",fact_v3:"<b>6am → 1am</b><br>coffee by day, grill by night",
+  rod_eyebrow:"The signature",rod_h:"The rodízio<span>of picanha.</span>",
+  rod_lead:"The skewer moves from table to table, and they carve you a slice of picanha for as long as you like.",
+  rod_body:"This is churrasco the Brazilian way: meat grilled over fire, rare and golden, served straight off the skewer. With rice, black beans, farofa and grilled pineapple — until you say stop.",
+  rod_pill:"Off the skewer, all you can eat",
+  gal_eyebrow:"Over fire",gal_h:"The meat, <em>over coals</em>",
+  gal_p:"Picanha, costela, mixed grill, Brazilian sides and pastéis — the generosity of churrasco, in Dudelange.",
+  cap_pic:"Picanha on the skewer",cap_cos:"Costela over fire",cap_srv:"Carved at the table",cap_pla:"The churrasco plate",cap_pas:"Pastéis & caipirinha",cap_int:"The room",
+  carte_eyebrow:"The menu",carte_h:"What we <em>grill</em>",
+  carte_p:"Churrasco and its Brazilian sides. Here are the house dishes — prices to be confirmed on site.",
+  mg1:"The churrasco",mg2:"Café-bar",mg3:"The sides",
+  i1n:"Rodízio de picanha",i1d:"All you can eat, off the skewer",i2n:"Picanha",i2d:"The Brazilian cut",i3n:"Costela",i3d:"Beef rib over fire",i4n:"Mixed grill",i4d:"Beef, pork, chicken",
+  i5n:"Lunch buffet",i5d:"Brazilian set menu",i6n:"Pastéis / coxinha",i6d:"To nibble",i7n:"Caipirinha · beer",
+  i8n:"Feijão preto",i8d:"Black beans",i9n:"Farofa",i9d:"Toasted cassava flour",i10n:"Couve",i10d:"Shredded collard greens",i11n:"Arroz & fries",i11d:"Brazilian rice",i12n:"Grilled pineapple",
+  ac:"tbc",pr_env:"approx. 15 €",
+  carte_note:"Dishes drawn from public sources (reviews, directories, delivery platforms), for reference only. No prices are published: the menu and prices are to be confirmed with the house.",
+  bar_eyebrow:"Café-bar",bar_h:"Open from morning<span>till late at night.</span>",
+  bar_lead:"A coffee in the morning, a caipirinha in the afternoon, the match in the evening and churrasco till 1am. Le Diplomate is the neighbourhood's Brazilian café-bar — the one that almost never closes.",
+  chip1:"Caipirinha",chip2:"The football",chip3:"Coffee from 6am",chip4:"Grill till 1am",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book / order",ino_fl2:"(to be confirmed)",ino_order:"Order on Wolt ↗",
+  ino_k3:"Opening hours",ino_fl3:"Open early and late · hours to be confirmed",
+  map_big:"Dudelange",map_sub:"Route de Kayl, Terres Rouges district",map_btn:"Open in Maps ↗",
+  foot_p:"Brazilian churrasco in Dudelange. Rodízio de picanha, a café-bar from morning to night.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from delivery platforms and directories). The brand and dishes belong to the house. Menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+const HOURS={fr:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],de:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
+const SCHED={0:"07:00–01:00",1:"06:00–01:00",2:"06:00–01:00",3:"06:00–01:00",4:"06:00–01:00",5:"06:00–01:00",6:"06:00–01:00"};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  const d=new Date(); const day=d.getDay(); const s=SCHED[day];
+  const closed={fr:"Fermé aujourd'hui",de:"Heute geschlossen",en:"Closed today"}[l];
+  const el=document.getElementById("today"); if(el) el.textContent=HOURS[l][day]+" · "+(s?s:closed);
+  try{localStorage.setItem("ld_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("ld_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+</script>
+</body>
+</html>
