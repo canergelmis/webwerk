@@ -20,7 +20,7 @@
 
 /* ===================== TOKENS ===================== */
 :root{
-  --azul:#1f5f8b; --azul-deep:#123c5c; --azul-ink:#0e2f49; --azul-soft:#6c9cc0;
+  --azul:#6f5a45; --azul-deep:#5a4835; --azul-ink:#3f3327; --azul-soft:#a2876d; --tile:#2f6d92;
   --terra:#c1552e; --wine:#9c2b2f; --gold:#c8973f; --laurel:#4f6b3a;
   --cream:#f6eddb; --cream2:#efe2c9; --paper:#fbf6ec; --ink:#241f18; --ink2:#5f5545; --muted:#8a7d66;
   --maxw:1180px; --disp:'Piazzolla',Georgia,serif; --body:'Mulish',system-ui,sans-serif;
@@ -46,8 +46,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.92);backdro
 .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
 .brand .mk{width:30px;height:30px;flex:0 0 auto}
-.brand .bt{font-family:var(--disp);font-weight:800;font-size:1.16rem;color:var(--azul-ink);letter-spacing:-.01em;line-height:1}
-.brand .bt small{display:block;font-family:var(--body);font-weight:700;font-size:.54rem;letter-spacing:.24em;text-transform:uppercase;color:var(--terra);margin-top:2px}
+.brand .bt{font-family:var(--disp);font-weight:700;font-size:1.02rem;color:var(--azul-ink);letter-spacing:.08em;text-transform:uppercase;line-height:1.05}
+.brand .bt small{display:block;font-family:var(--body);font-weight:600;font-size:.5rem;letter-spacing:.34em;text-transform:uppercase;color:var(--azul-soft);margin-top:3px}
 .navright{display:flex;align-items:center;gap:18px}
 .menu{display:flex;align-items:center;gap:26px}
 .menu a{font-weight:600;font-size:.92rem;text-decoration:none;color:var(--ink2)}
@@ -97,7 +97,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.92);backdro
 @media(max-width:720px){.azu-wrap{display:none}}
 
 /* azulejo divider strip */
-.azu-strip{height:26px;background-repeat:repeat-x;background-position:center;background-size:auto 26px}
+.tileband{height:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='none' stroke='%232f6d92' stroke-width='1.3' opacity='0.9'%3E%3Ccircle cx='22' cy='22' r='14'/%3E%3Cpath d='M22 6 Q28 22 22 38 Q16 22 22 6 M6 22 Q22 16 38 22 Q22 28 6 22'/%3E%3Cpath d='M11 11 L18 18 M33 11 L26 18 M11 33 L18 26 M33 33 L26 26'/%3E%3C/g%3E%3C/svg%3E");background-size:40px 40px;background-repeat:repeat;opacity:.5;border-top:1px solid var(--cream2);border-bottom:1px solid var(--cream2)}
 
 /* ===================== FACTS BAR ===================== */
 .facts{background:var(--azul-ink);color:#e9dfcb}
@@ -224,10 +224,8 @@ footer .wk .made{color:#8f836d}
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Jardin du Portugal">
-      <svg class="mk" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#1f5f8b" stroke-width="4" stroke-linejoin="round">
-        <rect x="8" y="8" width="84" height="84" rx="6"/><rect x="30" y="30" width="40" height="40"/><rect x="30" y="30" width="40" height="40" transform="rotate(45 50 50)"/>
-        <circle cx="50" cy="50" r="7" fill="#c8973f" stroke="none"/></g></svg>
-      <span class="bt">Jardin du Portugal<small data-i18n="brand_sub">Diekirch</small></span>
+      <svg class="mk" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#6f5a45" stroke-width="2.6"/><circle cx="50" cy="50" r="36" fill="none" stroke="#6f5a45" stroke-width="1.3" opacity=".55"/><g fill="#6f5a45"><path d="M50 50 Q43 35.15 50 16 Q57 35.15 50 50 Z"/><path d="M50 50 Q43 35.15 50 16 Q57 35.15 50 50 Z" transform="rotate(45 50 50)"/><path d="M50 50 Q43 35.15 50 16 Q57 35.15 50 50 Z" transform="rotate(90 50 50)"/><path d="M50 50 Q43 35.15 50 16 Q57 35.15 50 50 Z" transform="rotate(135 50 50)"/><path d="M50 50 Q43 35.15 50 16 Q57 35.15 50 50 Z" transform="rotate(180 50 50)"/><path d="M50 50 Q43 35.15 50 16 Q57 35.15 50 50 Z" transform="rotate(225 50 50)"/><path d="M50 50 Q43 35.15 50 16 Q57 35.15 50 50 Z" transform="rotate(270 50 50)"/><path d="M50 50 Q43 35.15 50 16 Q57 35.15 50 50 Z" transform="rotate(315 50 50)"/></g><circle cx="50" cy="50" r="6" fill="#efe6d3" stroke="#6f5a45" stroke-width="2.2"/></svg>
+      <span class="bt">Jardin du Portugal<small data-i18n="brand_sub">Restaurant</small></span>
     </a>
     <div class="navright">
       <nav class="menu" id="menu">
@@ -247,14 +245,7 @@ footer .wk .made{color:#8f836d}
 <section class="hero" id="top">
   <div class="bg"><img src="assets/hero.jpg" alt="La salle du Jardin du Portugal — arche en pierre, tables dressées, lumière chaude" /></div>
   <div class="azu-wrap" aria-hidden="true">
-    <svg class="azu" viewBox="0 0 120 120">
-      <rect data-draw pathLength="1" x="6" y="6" width="108" height="108" rx="5"/>
-      <rect data-draw pathLength="1" x="16" y="16" width="88" height="88"/>
-      <rect data-draw pathLength="1" x="38" y="38" width="44" height="44"/>
-      <rect data-draw pathLength="1" x="38" y="38" width="44" height="44" transform="rotate(45 60 60)"/>
-      <path data-draw pathLength="1" d="M60 20 q7 12 0 22 q-7 -10 0 -22 M100 60 q-12 7 -22 0 q10 -7 22 0 M60 100 q-7 -12 0 -22 q7 10 0 22 M20 60 q12 -7 22 0 q-10 7 -22 0"/>
-      <circle data-draw pathLength="1" class="f" cx="60" cy="60" r="9"/>
-    </svg>
+    <svg class="azu" viewBox="0 0 120 120"><circle data-draw pathLength="1" cx="60" cy="60" r="54"/><circle data-draw pathLength="1" cx="60" cy="60" r="42"/><path data-draw pathLength="1" d="M60 60 Q53 42.95 60 20 Q67 42.95 60 60 Z"/><path data-draw pathLength="1" d="M60 60 Q53 42.95 60 20 Q67 42.95 60 60 Z" transform="rotate(45 60 60)"/><path data-draw pathLength="1" d="M60 60 Q53 42.95 60 20 Q67 42.95 60 60 Z" transform="rotate(90 60 60)"/><path data-draw pathLength="1" d="M60 60 Q53 42.95 60 20 Q67 42.95 60 60 Z" transform="rotate(135 60 60)"/><path data-draw pathLength="1" d="M60 60 Q53 42.95 60 20 Q67 42.95 60 60 Z" transform="rotate(180 60 60)"/><path data-draw pathLength="1" d="M60 60 Q53 42.95 60 20 Q67 42.95 60 60 Z" transform="rotate(225 60 60)"/><path data-draw pathLength="1" d="M60 60 Q53 42.95 60 20 Q67 42.95 60 60 Z" transform="rotate(270 60 60)"/><path data-draw pathLength="1" d="M60 60 Q53 42.95 60 20 Q67 42.95 60 60 Z" transform="rotate(315 60 60)"/><circle data-draw class="f" pathLength="1" cx="60" cy="60" r="9"/></svg>
   </div>
   <div class="wrap">
     <div class="kick"><span class="dot"></span><span class="eyebrow" data-i18n="hero_kick">Restaurant portugais &amp; luxembourgeois · Diekirch</span></div>
@@ -278,6 +269,8 @@ footer .wk .made{color:#8f836d}
     <span class="f" data-i18n="fact_3">33 av. de la Gare · <b>Diekirch</b></span>
   </div>
 </div>
+
+<div class="tileband" aria-hidden="true"></div>
 
 <!-- ===================== FRANCESINHA SPOTLIGHT ===================== -->
 <section class="spot blk">
@@ -432,7 +425,7 @@ footer .wk .made{color:#8f836d}
 /* ===================== i18n ===================== */
 var I18N = {
   fr:{
-    brand_sub:"Diekirch", nav_maison:"La maison", nav_carte:"La carte", nav_infos:"Infos & accès",
+    brand_sub:"Restaurant", nav_maison:"La maison", nav_carte:"La carte", nav_infos:"Infos & accès",
     hero_kick:"Restaurant portugais & luxembourgeois · Diekirch", hero_tag:"Un coin de Porto à Diekirch.",
     hero_sub:"L'âme portugaise et la table luxembourgeoise, avenue de la Gare — et la meilleure Francesinha du pays, servie généreusement.",
     hero_cta1:"Voir la carte", hero_cta2:"Nous trouver ↓",
@@ -472,7 +465,7 @@ var I18N = {
     days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé", today:"Aujourd'hui"
   },
   de:{
-    brand_sub:"Diekirch", nav_maison:"Das Haus", nav_carte:"Die Karte", nav_infos:"Infos & Anfahrt",
+    brand_sub:"Restaurant", nav_maison:"Das Haus", nav_carte:"Die Karte", nav_infos:"Infos & Anfahrt",
     hero_kick:"Portugiesisches & luxemburgisches Restaurant · Diekirch", hero_tag:"Ein Stück Porto in Diekirch.",
     hero_sub:"Portugiesische Seele und luxemburgische Küche an der Avenue de la Gare — und die beste Francesinha des Landes, großzügig serviert.",
     hero_cta1:"Zur Karte", hero_cta2:"So finden Sie uns ↓",
@@ -512,7 +505,7 @@ var I18N = {
     days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen", today:"Heute"
   },
   en:{
-    brand_sub:"Diekirch", nav_maison:"The house", nav_carte:"The menu", nav_infos:"Find us",
+    brand_sub:"Restaurant", nav_maison:"The house", nav_carte:"The menu", nav_infos:"Find us",
     hero_kick:"Portuguese & Luxembourgish restaurant · Diekirch", hero_tag:"A corner of Porto in Diekirch.",
     hero_sub:"Portuguese soul and a Luxembourg table on the Avenue de la Gare — and the best Francesinha in the country, generously served.",
     hero_cta1:"See the menu", hero_cta2:"Find us ↓",

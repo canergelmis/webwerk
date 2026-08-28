@@ -100,9 +100,9 @@ nav.main a:hover::after{right:0}
 .btn.ghost{background:transparent;color:var(--pearl);border-color:var(--line2)}
 .btn.ghost:hover{border-color:var(--gold);color:var(--gold2)}
 
-.hero #smoke{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55}
-.hero .candle{position:absolute;left:50%;top:38%;width:72%;height:72%;transform:translate(-50%,-50%);z-index:1;pointer-events:none;background:radial-gradient(closest-side,rgba(217,164,65,.20),rgba(201,169,110,.08) 45%,transparent 72%);animation:breathe 5.5s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}}
+.hero #smoke{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.82}
+.hero .candle{position:absolute;left:50%;top:38%;width:72%;height:72%;transform:translate(-50%,-50%);z-index:1;pointer-events:none;background:radial-gradient(closest-side,rgba(226,174,74,.32),rgba(205,171,112,.13) 45%,transparent 74%);animation:breathe 5.2s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
 .anim .drink .notes{opacity:0;transform:translateY(9px);filter:blur(3px);transition:opacity .8s ease,transform .8s ease,filter .8s ease}
 .anim .drink.lit .notes{opacity:1;transform:none;filter:blur(0)}
 @media(prefers-reduced-motion:reduce){.hero .candle{animation:none}}
@@ -497,10 +497,10 @@ document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
     var box=document.querySelector('.hero'), ctx=c.getContext('2d'), W=0,H=0,parts=[],run=true,t=0;
     function size(){ var r=box.getBoundingClientRect(); c.width=W=Math.max(1,r.width|0); c.height=H=Math.max(1,r.height|0); }
     size(); window.addEventListener('resize',size);
-    function spawn(){ parts.push({x:W*(0.34+Math.random()*0.32),y:H+12,r:14+Math.random()*24,vy:-(0.18+Math.random()*0.32),vx:(Math.random()-0.5)*0.18,life:0,max:200+Math.random()*160,ph:Math.random()*6.28}); }
-    function frame(){ requestAnimationFrame(frame); if(!run) return; t++; if(t%16===0 && parts.length<24) spawn(); ctx.clearRect(0,0,W,H);
+    function spawn(){ parts.push({x:W*(0.30+Math.random()*0.40),y:H+12,r:16+Math.random()*26,vy:-(0.22+Math.random()*0.36),vx:(Math.random()-0.5)*0.20,life:0,max:200+Math.random()*160,ph:Math.random()*6.28}); }
+    function frame(){ requestAnimationFrame(frame); if(!run) return; t++; if(t%12===0 && parts.length<32) spawn(); ctx.clearRect(0,0,W,H);
       for(var i=parts.length-1;i>=0;i--){ var p=parts[i]; p.life++; p.y+=p.vy; p.x+=p.vx+Math.sin(p.life*0.02+p.ph)*0.25; p.r+=0.12; var k=p.life/p.max;
-        if(k>=1){ parts.splice(i,1); continue; } var a=Math.sin(k*Math.PI)*0.10;
+        if(k>=1){ parts.splice(i,1); continue; } var a=Math.sin(k*Math.PI)*0.24;
         var g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r); g.addColorStop(0,'rgba(226,200,143,'+a+')'); g.addColorStop(1,'rgba(226,200,143,0)');
         ctx.fillStyle=g; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fill(); } }
     requestAnimationFrame(frame);
