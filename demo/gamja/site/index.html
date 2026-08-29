@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Gamja — Barbecue coréen, Dudelange</title>
+<meta name="description" content="Barbecue coréen grillé à votre table à Dudelange — bulgogi, bibimbap, banchan à volonté. 감자, la table généreuse. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Hedvig';src:url('assets/fonts/hedvig-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hedvig';src:url('assets/fonts/hedvig-latinext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-latinext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+ --paper:#f4eee2; --cream:#ece3d1; --card:#fbf6ec;
+ --char:#1e1b18; --char2:#3a352f; --ink2:#4c453b;
+ --wood:#8a5a2b; --wood-l:#b07a3c;
+ --celadon:#7ba697; --celadon-d:#5c8a7a;
+ --red:#c8452e; --red-d:#a5361f;
+ --indigo:#2e4a62; --line:#d9cdb6; --muted:#8a7f6a;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--char);font-family:'Schibsted',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Hedvig','Schibsted',serif;font-weight:400;line-height:1.05}
+.han{font-family:system-ui,'Malgun Gothic','Apple SD Gothic Neo',sans-serif}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Schibsted',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--red)}
+
+/* bojagi patchwork */
+.bojagi{display:flex;gap:3px;background:var(--char);height:16px;overflow:hidden}
+.bojagi i{display:block}
+.bojagi i:nth-child(6n+1){flex:3;background:var(--celadon)}
+.bojagi i:nth-child(6n+2){flex:2;background:var(--wood-l)}
+.bojagi i:nth-child(6n+3){flex:4;background:var(--cream)}
+.bojagi i:nth-child(6n+4){flex:1.4;background:var(--red)}
+.bojagi i:nth-child(6n+5){flex:2.6;background:var(--indigo)}
+.bojagi i:nth-child(6n+6){flex:2;background:var(--wood)}
+.divider{padding:30px 0}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s}
+header.solid{background:var(--char);box-shadow:0 2px 22px rgba(0,0,0,.3)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#f4eee2}
+.brand .mk{width:38px;height:38px;flex:none;border-radius:7px;background:var(--char);position:relative;overflow:hidden;border:1.5px solid var(--red)}
+.brand .mk .han{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#f4eee2;font-size:17px}
+.brand .mk::after{content:"";position:absolute;left:-20%;top:0;width:14px;height:150%;background:var(--red);transform:rotate(24deg)}
+.brand .nm{font-family:'Hedvig',serif;font-weight:400;font-size:23px;letter-spacing:.06em;line-height:1;color:#f4eee2}
+.brand .nm small{display:block;font-family:'Schibsted';font-size:9.5px;letter-spacing:.22em;color:var(--celadon);font-weight:600;margin-top:4px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Schibsted',sans-serif;font-weight:500;font-size:15px;color:#eee4d1;opacity:.9}
+nav.links a:hover{color:var(--celadon);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.13);border-radius:999px;padding:3px}
+.langs button{font-family:'Schibsted',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#ece3d1;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--red);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:#f4eee2;border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-70px;padding-top:70px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,17,14,.55) 0%,rgba(20,17,14,.25) 32%,rgba(20,17,14,.5) 66%,rgba(15,12,9,.92) 100%)}
+.hero .stripe{position:absolute;top:0;bottom:0;right:14%;width:34px;background:var(--red);transform:skewX(-14deg);opacity:.9;z-index:-1;box-shadow:0 0 60px rgba(200,69,46,.4)}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px)}
+.hero .eyebrow{color:var(--celadon);margin-bottom:14px}
+.hero h1{color:#fff;font-size:clamp(64px,13vw,168px);letter-spacing:.04em;text-shadow:0 4px 40px rgba(0,0,0,.45);display:flex;align-items:baseline;gap:22px;flex-wrap:wrap}
+.hero h1 .han{font-size:.42em;color:var(--celadon);letter-spacing:0}
+.hero .tag{font-family:'Schibsted',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f4ecda;max-width:30ch;margin:20px 0 0;line-height:1.4}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Schibsted',sans-serif;font-weight:700;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--red);color:#fff}
+.btn.p:hover{background:var(--red-d)}
+.btn.o{background:transparent;color:#f4eee2;border-color:rgba(244,238,226,.5)}
+.btn.o:hover{border-color:var(--celadon);color:var(--celadon)}
+
+/* facts as bojagi patches */
+.facts{padding:0}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--char)}
+.facts .c{padding:30px clamp(18px,4vw,40px)}
+.facts .c:nth-child(1){background:var(--celadon)}
+.facts .c:nth-child(2){background:var(--wood-l)}
+.facts .c:nth-child(3){background:var(--cream)}
+.facts .k{font-family:'Schibsted';font-weight:700;letter-spacing:.14em;font-size:11px;text-transform:uppercase;color:var(--char);opacity:.75}
+.facts .v{font-size:16px;margin-top:8px;color:var(--char)}
+.facts .v b{font-weight:400;font-family:'Hedvig';font-size:20px;display:block;margin-bottom:2px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--char);line-height:1.06}
+.sect-h h2 em{font-style:normal;color:var(--red)}
+.sect-h p{font-family:'Schibsted',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+/* BBQ spotlight */
+.spot{background:var(--char);color:#eee4d1;position:relative;overflow:hidden}
+.spot .grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(30px,5vw,66px);align-items:center}
+.spot .eyebrow{color:var(--celadon)}
+.spot h2{font-family:'Hedvig';font-size:clamp(38px,6vw,76px);color:#fff;margin:14px 0 0;line-height:1.04}
+.spot h2 span{color:var(--red);display:block}
+.spot .lead{font-family:'Schibsted';font-size:clamp(18px,2.2vw,25px);line-height:1.5;color:#eee4d1;margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#c3b8a2;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.45)}
+.spot .pic .pill{position:absolute;left:-12px;bottom:24px;background:var(--celadon);color:var(--char);font-family:'Schibsted';font-weight:700;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.spot .pic .han{position:absolute;right:16px;top:14px;font-size:56px;color:rgba(255,255,255,.16)}
+
+/* gallery bojagi bento */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:4px}
+.gal figure{position:relative;overflow:hidden;background:var(--cream)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(15,12,9,.82),transparent);color:#fff;font-family:'Hedvig',serif;font-weight:400;font-size:16px}
+
+/* menu */
+.carte{background:var(--cream)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:32px}
+.mgroup h3{font-family:'Hedvig';font-size:25px;color:var(--char);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--line);margin-bottom:14px}
+.mgroup h3 .patch{width:16px;height:16px;flex:none;border-radius:3px}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Schibsted';font-weight:600;font-size:17px;color:var(--char)}
+.mitem .nm .han{font-size:13px;color:var(--muted);font-weight:400;margin-left:6px}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Hedvig';color:var(--celadon-d);font-size:16px;white-space:nowrap}
+.carte .note{margin-top:24px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--red);padding-left:14px;max-width:80ch}
+
+/* table (banchan) */
+.tablsec{background:var(--celadon);color:var(--char);position:relative;overflow:hidden}
+.tablsec .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
+.tablsec h2{font-family:'Hedvig';font-size:clamp(34px,5vw,62px);color:var(--char)}
+.tablsec h2 span{color:var(--red);display:block}
+.tablsec .lead{font-size:18px;color:#20342e;margin-top:18px;line-height:1.6;max-width:42ch}
+.tablsec .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.tablsec .chip{font-family:'Schibsted';font-weight:700;font-size:12.5px;color:#f4eee2;background:var(--char);padding:8px 15px;border-radius:999px}
+.tablsec .chip.b{background:transparent;color:var(--char);border:1.5px solid rgba(30,27,24,.4)}
+.tablsec .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px}
+
+/* infos */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--red);margin-top:3px}
+.ino .k{font-family:'Schibsted';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--char);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--celadon-d)}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Hedvig';color:var(--celadon-d);font-size:18px}
+.mapcard{background:var(--char);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#eee4d1;text-align:center;padding:34px}
+.mapcard .stripe{position:absolute;top:0;bottom:0;right:24%;width:26px;background:var(--red);transform:skewX(-14deg);opacity:.85}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Hedvig';font-size:30px;color:#fff;letter-spacing:.04em}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#171410;color:#bcb09a;padding:0 0 40px}
+footer .in{padding:48px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Hedvig';font-weight:400;font-size:26px;color:#f4eee2;letter-spacing:.06em}
+footer .nm small{display:block;font-family:'Schibsted';font-size:10px;letter-spacing:.22em;color:var(--celadon);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a79b84}
+footer .made{font-size:12.5px;color:#847862;margin-top:22px}
+footer .made b{color:#eee4d1}
+footer .made a{color:var(--celadon)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6f6553;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .spot .grid,.tablsec .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.tablsec .pic{order:-1}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:70px 0 auto 0;flex-direction:column;background:var(--char);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--char)}
+ .hero h1{font-size:clamp(52px,17vw,96px)}
+ .hero .stripe{right:6%}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Gamja">
+   <span class="mk"><span class="han">감자</span></span>
+   <span class="nm">GAMJA<small>Cuisine coréenne · Dudelange</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#bbq" data-i18n="nav_bbq">Le barbecue</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#table" data-i18n="nav_table">La table</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="Le barbecue coréen grillé à table chez Gamja"/></div>
+  <div class="scrim"></div>
+  <div class="stripe" aria-hidden="true"></div>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Barbecue coréen · Dudelange</span>
+   <h1>Gamja<span class="han">감자</span></h1>
+   <p class="tag" data-i18n="hero_tag">On allume le grill à votre table, et les petits plats coréens n'arrêtent pas d'arriver.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#bbq" data-i18n="hero_cta2">Le barbecue ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <!-- FACTS as bojagi patches -->
+ <div class="facts">
+  <div class="wrap" style="max-width:none;padding:0"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Barbecue coréen</b>grillé à votre table, sur le charbon</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le banchan</div><div class="v" data-i18n="fact_v2"><b>À volonté</b>les petits plats qui tournent autour</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">L'adresse</div><div class="v" data-i18n="fact_v3"><b>Place de l'Hôtel de Ville</b>à Dudelange · le soir dès 18h</div></div>
+  </div></div>
+ </div>
+
+ <!-- BBQ SPOTLIGHT -->
+ <section class="spot" id="bbq">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="bbq_eyebrow">La spécialité</span>
+    <h2 data-i18n="bbq_h">Le barbecue<span>à votre table.</span></h2>
+    <p class="lead" data-i18n="bbq_lead">On vous apporte les viandes marinées — bulgogi, galbi — et vous les grillez vous-même sur le charbon, au centre de la table.</p>
+    <p class="body" data-i18n="bbq_body">C'est tout le rituel du barbecue coréen : la viande qui grésille, la fumée, et autour, le banchan — kimchi, pousses, légumes marinés — qu'on repique entre deux bouchées. On mange lentement, on partage, on recommande.</p>
+   </div>
+   <div class="pic">
+    <span class="han" aria-hidden="true">고기</span>
+    <img src="assets/bbq.jpg" alt="Les viandes marinées, à griller sur le charbon"/>
+    <span class="pill" data-i18n="bbq_pill">Grillé à table</span>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap divider"><div class="bojagi"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+
+ <!-- GALLERY -->
+ <section id="table-gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">Sur la table</span>
+    <h2 data-i18n="gal_h">La cuisine <em>coréenne</em></h2>
+    <p data-i18n="gal_p">Bibimbap, poulet frit coréen, ragoût de kimchi, japchae, raviolis, kimbap — la cuisine réconfortante de la maison, à côté du grill.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/bibimbap.jpg" alt="Bibimbap au bol de pierre, œuf"/><figcaption data-i18n="cap_bib">Bibimbap au bol de pierre</figcaption></figure>
+    <figure><img src="assets/friedchicken.jpg" alt="Poulet frit coréen"/><figcaption data-i18n="cap_kfc">Poulet frit coréen</figcaption></figure>
+    <figure><img src="assets/hotpot.jpg" alt="Ragoût de kimchi"/><figcaption data-i18n="cap_jji">Ragoût de kimchi</figcaption></figure>
+    <figure class="w2"><img src="assets/banchan.jpg" alt="L'assortiment de banchan"/><figcaption data-i18n="cap_ban">Les banchan</figcaption></figure>
+    <figure><img src="assets/japchae.jpg" alt="Japchae, nouilles de patate douce"/><figcaption data-i18n="cap_jap">Japchae</figcaption></figure>
+    <figure><img src="assets/kimbap.jpg" alt="Kimbap, rouleaux de riz"/><figcaption data-i18n="cap_kim">Kimbap</figcaption></figure>
+    <figure class="w2"><img src="assets/dumplings.jpg" alt="Mandoo, raviolis coréens"/><figcaption data-i18n="cap_man">Mandoo</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="carte_p">Le barbecue à griller et la cuisine coréenne de la maison. Voici les plats — les prix se confirment sur place.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><span class="patch" style="background:var(--red)"></span><span data-i18n="mg1">Le barbecue (à griller)</span></h3>
+      <div class="mitem"><div><div class="nm">Bulgogi <span class="han">불고기</span></div><div class="ds" data-i18n="i1d">Bœuf mariné, sauce sucrée-salée</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm">Galbi <span class="han">갈비</span></div><div class="ds" data-i18n="i2d">Travers de bœuf marinés</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Assortiment BBQ</div><div class="ds" data-i18n="i3d">Viandes marinées à griller à table</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><span class="patch" style="background:var(--celadon)"></span><span data-i18n="mg2">Soupes &amp; ragoûts</span></h3>
+      <div class="mitem"><div><div class="nm">Kimchi jjigae <span class="han">김치찌개</span></div><div class="ds" data-i18n="i4d">Ragoût de kimchi mijoté</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Ramen &amp; nouilles</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><span class="patch" style="background:var(--wood-l)"></span><span data-i18n="mg3">Les plats</span></h3>
+      <div class="mitem"><div><div class="nm">Bibimbap <span class="han">비빔밥</span></div><div class="ds" data-i18n="i6d">Bol de riz, œuf, légumes — au bol de pierre</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm">Japchae <span class="han">잡채</span></div><div class="ds" data-i18n="i7d">Nouilles de patate douce sautées</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Poulet frit coréen</div><div class="ds" data-i18n="i8d">Croustillant, sauce yangnyeom</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><span class="patch" style="background:var(--indigo)"></span><span data-i18n="mg4">À côté</span></h3>
+      <div class="mitem"><div><div class="nm">Banchan <span class="han">반찬</span></div><div class="ds" data-i18n="i9d">Les petits plats d'accompagnement</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm">Mandoo <span class="han">만두</span></div><div class="ds" data-i18n="i10d">Raviolis coréens</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm">Kimbap <span class="han">김밥</span></div><div class="ds" data-i18n="i11d">Rouleaux de riz</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Plats relevés à partir de sources publiques (avis, annuaires), à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer avec la maison.</p>
+  </div>
+ </section>
+
+ <!-- TABLE (banchan) -->
+ <section class="tablsec" id="table">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--red)" data-i18n="table_eyebrow">La table généreuse</span>
+    <h2 data-i18n="table_h">감자,<span>la pomme de terre.</span></h2>
+    <p class="lead" data-i18n="table_lead">« Gamja », c'est la pomme de terre — humble, généreuse, réconfortante. C'est tout l'esprit de la maison : une table où les petits plats n'arrêtent pas d'arriver, où l'on grille, on partage, et on reste.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="chip1">Banchan à volonté</span>
+     <span class="chip b" data-i18n="chip2">On grille à table</span>
+     <span class="chip b" data-i18n="chip3">Le soir dès 18h</span>
+    </div>
+   </div>
+   <div class="pic"><img src="assets/interior.jpg" alt="La salle de Gamja, à Dudelange"/></div>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">11, place de l'Hôtel de Ville<br>L-3590 Dudelange</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><a href="tel:+352515726">+352 51 57 26</a> <span class="fl" data-i18n="ino_fl2">(à confirmer)</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Service du soir · horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard" style="background-image:linear-gradient(rgba(30,27,24,.52),rgba(30,27,24,.84)),url('assets/facade.jpg');background-size:cover;background-position:center">
+     <div class="stripe" aria-hidden="true"></div>
+     <div class="in">
+      <div class="big" data-i18n="map_big">Dudelange</div>
+      <div style="color:#c3b8a2;margin-top:8px" data-i18n="map_sub">Place de l'Hôtel de Ville, au centre</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Restaurant+Gamja+Place+de+l%27Hotel+de+Ville+Dudelange" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="bojagi"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">GAMJA <span class="han">감자</span><small>Cuisine coréenne · Dudelange</small></div>
+   <p data-i18n="foot_p">Barbecue coréen grillé à table à Dudelange. Bulgogi, bibimbap, banchan à volonté.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Schibsted';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--celadon)">Contact</div>
+   <p style="margin-top:10px">11, place de l'Hôtel de Ville<br>L-3590 Dudelange<br><a href="tel:+352515726" style="border-bottom:1px solid var(--celadon)">+352 51 57 26</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_bbq:"Le barbecue",nav_carte:"La carte",nav_table:"La table",nav_infos:"Infos & accès",
+  hero_eyebrow:"Barbecue coréen · Dudelange",
+  hero_tag:"On allume le grill à votre table, et les petits plats coréens n'arrêtent pas d'arriver.",
+  hero_cta1:"Voir la carte",hero_cta2:"Le barbecue ↓",
+  fact_k1:"La cuisine",fact_v1:"<b>Barbecue coréen</b>grillé à votre table, sur le charbon",
+  fact_k2:"Le banchan",fact_v2:"<b>Avec chaque plat</b>les petits plats qui tournent autour",
+  fact_k3:"L'adresse",fact_v3:"<b>Place de l'Hôtel de Ville</b>à Dudelange · le soir dès 18h",
+  bbq_eyebrow:"La spécialité",bbq_h:"Le barbecue<span>à votre table.</span>",
+  bbq_lead:"On vous apporte les viandes marinées — bulgogi, galbi — et vous les grillez vous-même sur le charbon, au centre de la table.",
+  bbq_body:"C'est tout le rituel du barbecue coréen : la viande qui grésille, la fumée, et autour, le banchan — kimchi, pousses, légumes marinés — qu'on repique entre deux bouchées. On mange lentement, on partage, on recommande.",
+  bbq_pill:"Grillé à table",
+  gal_eyebrow:"Sur la table",gal_h:"La cuisine <em>coréenne</em>",
+  gal_p:"Bibimbap, poulet frit coréen, ragoût de kimchi, japchae, raviolis, kimbap — la cuisine réconfortante de la maison, à côté du grill.",
+  cap_bib:"Bibimbap au bol de pierre",cap_kfc:"Poulet frit coréen",cap_jji:"Ragoût de kimchi",cap_ban:"Les banchan",cap_jap:"Japchae",cap_kim:"Kimbap",cap_man:"Mandoo",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
+  carte_p:"Le barbecue à griller et la cuisine coréenne de la maison. Voici les plats — les prix se confirment sur place.",
+  mg1:"Le barbecue (à griller)",mg2:"Soupes & ragoûts",mg3:"Les plats",mg4:"À côté",
+  i1d:"Bœuf mariné, sauce sucrée-salée",i2d:"Travers de bœuf marinés",i3n:"Assortiment BBQ",i3d:"Viandes marinées à griller à table",
+  i4d:"Ragoût de kimchi mijoté",i5n:"Ramen & nouilles",
+  i6d:"Bol de riz, œuf, légumes — au bol de pierre",i7d:"Nouilles de patate douce sautées",i8n:"Poulet frit coréen",i8d:"Croustillant, sauce yangnyeom",
+  i9d:"Les petits plats d'accompagnement",i10d:"Raviolis coréens",i11d:"Rouleaux de riz",ac:"à conf.",
+  carte_note:"Plats relevés à partir de sources publiques (avis, annuaires), à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer avec la maison.",
+  table_eyebrow:"La table généreuse",table_h:"감자,<span>la pomme de terre.</span>",
+  table_lead:"« Gamja », c'est la pomme de terre — humble, généreuse, réconfortante. C'est tout l'esprit de la maison : une table où les petits plats n'arrêtent pas d'arriver, où l'on grille, on partage, et on reste.",
+  chip1:"Banchan avec chaque plat",chip2:"On grille à table",chip3:"Le soir dès 18h",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver",ino_fl2:"(à confirmer)",
+  ino_k3:"Horaires",ino_fl3:"Service du soir · horaires à confirmer",
+  map_big:"Dudelange",map_sub:"Place de l'Hôtel de Ville, au centre",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Barbecue coréen grillé à table à Dudelange. Bulgogi, bibimbap, banchan à volonté.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_bbq:"Der Grill",nav_carte:"Karte",nav_table:"Die Tafel",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Koreanisches Barbecue · Dudelange",
+  hero_tag:"Der Grill wird an Ihrem Tisch angezündet, und die kleinen koreanischen Gerichte hören nicht auf zu kommen.",
+  hero_cta1:"Zur Karte",hero_cta2:"Der Grill ↓",
+  fact_k1:"Die Küche",fact_v1:"<b>Koreanisches Barbecue</b>an Ihrem Tisch über Holzkohle gegrillt",
+  fact_k2:"Das Banchan",fact_v2:"<b>Zu jedem Gericht</b>die kleinen Beilagen ringsum",
+  fact_k3:"Die Adresse",fact_v3:"<b>Place de l'Hôtel de Ville</b>in Dudelange · abends ab 18 Uhr",
+  bbq_eyebrow:"Die Spezialität",bbq_h:"Der Grill<span>an Ihrem Tisch.</span>",
+  bbq_lead:"Wir bringen das marinierte Fleisch — Bulgogi, Galbi — und Sie grillen es selbst über der Holzkohle, mitten auf dem Tisch.",
+  bbq_body:"Das ist das ganze Ritual des koreanischen Barbecues: das brutzelnde Fleisch, der Rauch, und ringsum das Banchan — Kimchi, Sprossen, eingelegtes Gemüse — das man zwischen zwei Bissen nachnimmt. Man isst langsam, teilt und bestellt nach.",
+  bbq_pill:"Am Tisch gegrillt",
+  gal_eyebrow:"Auf dem Tisch",gal_h:"Die <em>koreanische</em> Küche",
+  gal_p:"Bibimbap, koreanisches Brathähnchen, Kimchi-Eintopf, Japchae, Teigtaschen, Kimbap — die wärmende Hausküche, neben dem Grill.",
+  cap_bib:"Bibimbap im Steintopf",cap_kfc:"Koreanisches Brathähnchen",cap_jji:"Kimchi-Eintopf",cap_ban:"Das Banchan",cap_jap:"Japchae",cap_kim:"Kimbap",cap_man:"Mandu",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
+  carte_p:"Das Grillfleisch zum Selbstgrillen und die koreanische Hausküche. Das sind die Gerichte — die Preise werden vor Ort bestätigt.",
+  mg1:"Der Grill (zum Selbstgrillen)",mg2:"Suppen & Eintöpfe",mg3:"Die Gerichte",mg4:"Dazu",
+  i1d:"Mariniertes Rind, süß-salzige Sauce",i2d:"Marinierte Rinderrippchen",i3n:"BBQ-Auswahl",i3d:"Mariniertes Fleisch zum Grillen am Tisch",
+  i4d:"Geschmorter Kimchi-Eintopf",i5n:"Ramen & Nudeln",
+  i6d:"Reisschale, Ei, Gemüse — im Steintopf",i7d:"Gebratene Süßkartoffelnudeln",i8n:"Koreanisches Brathähnchen",i8d:"Knusprig, Yangnyeom-Sauce",
+  i9d:"Die kleinen Beilagen",i10d:"Koreanische Teigtaschen",i11d:"Reisröllchen",ac:"auf Anfrage",
+  carte_note:"Gerichte aus öffentlichen Quellen (Bewertungen, Verzeichnisse), ohne Gewähr. Es sind keine Preise veröffentlicht: Karte und Preise beim Haus zu bestätigen.",
+  table_eyebrow:"Die großzügige Tafel",table_h:"감자,<span>die Kartoffel.</span>",
+  table_lead:"„Gamja“ heißt Kartoffel — bescheiden, großzügig, wärmend. Das ist der ganze Geist des Hauses: eine Tafel, an der die kleinen Gerichte nicht aufhören zu kommen, an der man grillt, teilt und bleibt.",
+  chip1:"Banchan zu jedem Gericht",chip2:"Am Tisch gegrillt",chip3:"Abends ab 18 Uhr",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren",ino_fl2:"(zu bestätigen)",
+  ino_k3:"Öffnungszeiten",ino_fl3:"Abendservice · Zeiten zu bestätigen",
+  map_big:"Dudelange",map_sub:"Place de l'Hôtel de Ville, im Zentrum",map_btn:"In Maps öffnen ↗",
+  foot_p:"Koreanisches Barbecue am Tisch in Dudelange. Bulgogi, Bibimbap, Banchan nach Belieben.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_bbq:"The grill",nav_carte:"Menu",nav_table:"The table",nav_infos:"Find us",
+  hero_eyebrow:"Korean barbecue · Dudelange",
+  hero_tag:"The grill is lit at your table, and the little Korean dishes keep on coming.",
+  hero_cta1:"See the menu",hero_cta2:"The grill ↓",
+  fact_k1:"The kitchen",fact_v1:"<b>Korean barbecue</b>grilled at your table, over charcoal",
+  fact_k2:"The banchan",fact_v2:"<b>With every dish</b>the little dishes all around",
+  fact_k3:"The address",fact_v3:"<b>Place de l'Hôtel de Ville</b>in Dudelange · evenings from 6pm",
+  bbq_eyebrow:"The speciality",bbq_h:"The grill<span>at your table.</span>",
+  bbq_lead:"We bring the marinated meats — bulgogi, galbi — and you grill them yourself over charcoal, in the middle of the table.",
+  bbq_body:"It's the whole ritual of Korean barbecue: the meat sizzling, the smoke, and all around, the banchan — kimchi, sprouts, pickled vegetables — you pick at between bites. You eat slowly, you share, you order more.",
+  bbq_pill:"Grilled at the table",
+  gal_eyebrow:"On the table",gal_h:"The <em>Korean</em> kitchen",
+  gal_p:"Bibimbap, Korean fried chicken, kimchi stew, japchae, dumplings, kimbap — the house's comfort food, alongside the grill.",
+  cap_bib:"Stone-bowl bibimbap",cap_kfc:"Korean fried chicken",cap_jji:"Kimchi stew",cap_ban:"The banchan",cap_jap:"Japchae",cap_kim:"Kimbap",cap_man:"Mandoo",
+  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
+  carte_p:"The grill-it-yourself barbecue and the house's Korean cooking. Here are the dishes — prices are confirmed on site.",
+  mg1:"The grill (grill-it-yourself)",mg2:"Soups & stews",mg3:"The dishes",mg4:"On the side",
+  i1d:"Marinated beef, sweet-savoury sauce",i2d:"Marinated beef short ribs",i3n:"BBQ assortment",i3d:"Marinated meats to grill at the table",
+  i4d:"Simmered kimchi stew",i5n:"Ramen & noodles",
+  i6d:"Rice bowl, egg, vegetables — in a stone bowl",i7d:"Stir-fried sweet-potato noodles",i8n:"Korean fried chicken",i8d:"Crisp, yangnyeom sauce",
+  i9d:"The little side dishes",i10d:"Korean dumplings",i11d:"Rice rolls",ac:"tbc",
+  carte_note:"Dishes drawn from public sources (reviews, directories), for reference only. No prices are published: the menu and prices are to be confirmed with the house.",
+  table_eyebrow:"The generous table",table_h:"감자,<span>the potato.</span>",
+  table_lead:"“Gamja” means potato — humble, generous, comforting. That's the whole spirit of the house: a table where the little dishes keep coming, where you grill, you share, and you stay.",
+  chip1:"Banchan with every dish",chip2:"Grill at the table",chip3:"Evenings from 6pm",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book",ino_fl2:"(to be confirmed)",
+  ino_k3:"Opening hours",ino_fl3:"Evening service · hours to be confirmed",
+  map_big:"Dudelange",map_sub:"Place de l'Hôtel de Ville, in the centre",map_btn:"Open in Maps ↗",
+  foot_p:"Korean barbecue grilled at the table in Dudelange. Bulgogi, bibimbap, banchan all you can eat.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand and dishes belong to the house. Menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+const HOURS={fr:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],de:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
+const SCHED={0:"18:00–23:00",1:null,2:"18:00–23:00",3:"18:00–23:00",4:"18:00–23:00",5:"18:00–23:00",6:"18:00–23:00"};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  const d=new Date(); const day=d.getDay(); const s=SCHED[day];
+  const closed={fr:"Fermé aujourd'hui",de:"Heute geschlossen",en:"Closed today"}[l];
+  const el=document.getElementById("today"); if(el) el.textContent=HOURS[l][day]+" · "+(s?s:closed);
+  try{localStorage.setItem("gj_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("gj_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+</script>
+</body>
+</html>

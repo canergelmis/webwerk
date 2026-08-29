@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Sabor di Terra — Cuisine cap-verdienne, Esch</title>
+<meta name="description" content="La table des îles du Cap-Vert à Esch — cachupa, poisson grillé de l'Atlantique, bitoque et morabeza. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Newsreader';src:url('assets/fonts/newsreader-latin.woff2') format('woff2');font-weight:400 600;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Newsreader';src:url('assets/fonts/newsreader-latinext.woff2') format('woff2');font-weight:400 600;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Sen';src:url('assets/fonts/sen-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sen';src:url('assets/fonts/sen-latinext.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+ --bone:#f2ede2; --bone2:#e7dfcd; --card:#faf6ec;
+ --indigo:#1e3a5f; --indigo-d:#16293f; --indigo-l:#325781;
+ --basalt:#2a2622; --ink2:#494234;
+ --ochre:#c98a3c; --ochre-d:#a86f26;
+ --coral:#d6584b; --coral-d:#b8402f;
+ --amber:#e0a85e; --star:#f4c430;
+ --line:#dcd0b8; --muted:#8a7f66;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bone);color:var(--basalt);font-family:'Sen',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Newsreader','Sen',serif;font-weight:500;line-height:1.08}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Sen',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--coral)}
+
+/* pano di téra strip-weave */
+.pano{height:14px;background:repeating-linear-gradient(90deg,
+  var(--indigo) 0 7px, var(--bone) 7px 9px, var(--indigo) 9px 13px, var(--ochre) 13px 16px,
+  var(--indigo) 16px 23px, var(--coral) 23px 25px, var(--indigo) 25px 31px, var(--amber) 31px 33px, var(--indigo) 33px 40px)}
+.divider{padding:26px 0}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s}
+header.solid{background:var(--indigo-d);box-shadow:0 2px 22px rgba(0,0,0,.3)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#f4efe4}
+.brand .mk{width:30px;height:30px;flex:none;border-radius:50%;background:var(--coral);position:relative}
+.brand .mk::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1.5px solid #f4efe4}
+.brand .nm{font-family:'Newsreader',serif;font-weight:500;font-size:23px;letter-spacing:.01em;line-height:.95;color:#f4efe4}
+.brand .nm small{display:block;font-family:'Sen';font-size:9px;letter-spacing:.2em;color:var(--amber);font-weight:700;margin-top:4px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Sen',sans-serif;font-weight:600;font-size:15px;color:#e8e0cf;opacity:.92}
+nav.links a:hover{color:var(--amber);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
+.langs button{font-family:'Sen',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#e7dfcd;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--coral);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:#f4efe4;border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-66px;padding-top:66px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(22,29,45,.55) 0%,rgba(22,29,45,.25) 30%,rgba(22,29,45,.5) 64%,rgba(18,24,38,.92) 100%)}
+.hero .pano{position:absolute;top:0;left:0;right:0;z-index:1}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
+.hero .eyebrow{color:var(--amber);margin-bottom:14px}
+.hero h1{color:#fff;font-size:clamp(56px,11vw,150px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.45);line-height:1.0}
+.hero h1 span{display:block;color:var(--amber)}
+.hero .tag{font-family:'Sen',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f2ecdb;max-width:31ch;margin:18px 0 0;line-height:1.4}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Sen',sans-serif;font-weight:700;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--coral);color:#fff}
+.btn.p:hover{background:var(--coral-d)}
+.btn.o{background:transparent;color:#f4efe4;border-color:rgba(244,239,228,.5)}
+.btn.o:hover{border-color:var(--amber);color:var(--amber)}
+
+.facts{background:var(--indigo);color:#e8e0cf}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.13)}
+.facts .c{background:var(--indigo);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Sen';font-weight:700;letter-spacing:.14em;font-size:11px;color:var(--amber);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#e8e0cf}
+.facts .v b{color:#fff;font-weight:500;font-family:'Newsreader';font-size:21px;display:block;margin-bottom:2px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--basalt);line-height:1.06}
+.sect-h h2 em{font-style:normal;color:var(--coral)}
+.sect-h p{font-family:'Sen',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+.spot{background:var(--indigo);color:#e8e0cf;position:relative;overflow:hidden}
+.spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center}
+.spot .eyebrow{color:var(--amber)}
+.spot h2{font-family:'Newsreader';font-size:clamp(38px,6vw,74px);color:#fff;margin:14px 0 0;line-height:1.08}
+.spot h2 span{color:var(--amber);display:block}
+.spot .lead{font-family:'Sen';font-size:clamp(18px,2.2vw,25px);line-height:1.5;color:#e8e0cf;margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#b8c2ce;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.42)}
+.spot .pic .pill{position:absolute;right:-12px;bottom:24px;background:var(--amber);color:var(--basalt);font-family:'Sen';font-weight:700;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:4px;background:var(--bone2)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(18,24,38,.82),transparent);color:#fff;font-family:'Newsreader',serif;font-weight:500;font-size:17px}
+
+.carte{background:var(--bone2)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Newsreader';font-size:26px;color:var(--indigo);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--coral);margin-bottom:14px}
+.mgroup h3 .dot{width:12px;height:12px;flex:none;border-radius:50%;background:var(--ochre)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Sen';font-weight:700;font-size:17px;color:var(--basalt)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Newsreader';color:var(--coral);font-size:16px;white-space:nowrap}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--amber);padding-left:14px;max-width:80ch}
+
+.mora{background:var(--indigo);color:#e8e0cf;position:relative;overflow:hidden}
+.mora .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
+.mora h2{font-family:'Newsreader';font-size:clamp(34px,5vw,62px);color:#fff}
+.mora h2 span{color:var(--amber);display:block}
+.mora .lead{font-size:18px;color:#e4dcc9;margin-top:18px;line-height:1.6;max-width:44ch}
+.mora .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.mora .chip{font-family:'Sen';font-weight:700;font-size:12.5px;color:var(--basalt);background:var(--amber);padding:8px 15px;border-radius:999px}
+.mora .chip.b{background:transparent;color:#e8e0cf;border:1.5px solid rgba(232,224,207,.4)}
+.mora .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px}
+
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--coral);margin-top:3px}
+.ino .k{font-family:'Sen';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--basalt);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--ochre-d)}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Newsreader';color:var(--indigo);font-size:18px}
+.mapcard{background:var(--indigo);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#e8e0cf;text-align:center;padding:34px}
+.mapcard .pano{position:absolute;top:0;left:0;right:0}
+.mapcard .pano.bot{top:auto;bottom:0}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Newsreader';font-size:30px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#141b29;color:#aeb4bf;padding:0 0 40px}
+footer .in{padding:44px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Newsreader';font-weight:500;font-size:26px;color:#f4efe4}
+footer .nm small{display:block;font-family:'Sen';font-size:10px;letter-spacing:.2em;color:var(--amber);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#9aa1ad}
+footer .made{font-size:12.5px;color:#727a86;margin-top:22px}
+footer .made b{color:#e8e0cf}
+footer .made a{color:var(--amber)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#626975;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .spot .grid,.mora .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.mora .pic{order:-1}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:66px 0 auto 0;flex-direction:column;background:var(--indigo-d);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--indigo-d)}
+ .hero h1{font-size:clamp(48px,15vw,92px)}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Sabor di Terra">
+   <span class="mk" aria-hidden="true"></span>
+   <span class="nm">Sabor di Terra<small>Cuisine cap-verdienne · Esch</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#poisson" data-i18n="nav_poisson">Le poisson</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#morabeza" data-i18n="nav_mora">La morabeza</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="Une assiette généreuse chez Sabor di Terra"/></div>
+  <div class="scrim"></div>
+  <div class="pano" aria-hidden="true"></div>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine cap-verdienne · Esch-sur-Alzette</span>
+   <h1>Sabor<span>di Terra</span></h1>
+   <p class="tag" data-i18n="hero_tag">Le goût de la terre : la cachupa, le poisson de l'Atlantique et la morabeza — la table des îles du Cap-Vert, à Esch.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#poisson" data-i18n="hero_cta2">La table des îles ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Cap-Vert</b>cachupa, poisson grillé, plats des îles</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">La table</div><div class="v" data-i18n="fact_v2"><b>Généreuse &amp; en famille</b>la morabeza, l'accueil des îles</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">Le lieu</div><div class="v" data-i18n="fact_v3"><b>Rue Zénon Bernard</b>au cœur d'Esch-sur-Alzette</div></div>
+  </div></div>
+ </div>
+
+ <!-- FISH SPOTLIGHT -->
+ <section class="spot" id="poisson">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="poi_eyebrow">La spécialité</span>
+    <h2 data-i18n="poi_h">Le poisson<span>de l'Atlantique.</span></h2>
+    <p class="lead" data-i18n="poi_lead">Poisson et fruits de mer grillés, avec du riz, des légumes et une salade — la mer des îles, dans l'assiette.</p>
+    <p class="body" data-i18n="poi_body">Aux îles du Cap-Vert, la mer est partout. Ici, on la grille simplement : le poisson frais, les gambas, le tout servi généreusement. Avec la cachupa mijotée et les plats de la maison, c'est toute la table cap-verdienne.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/fish.jpg" alt="Poisson et fruits de mer grillés, riz et salade"/>
+    <span class="pill" data-i18n="poi_pill">Grillé, généreux</span>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap divider"><div class="pano"></div></div>
+
+ <!-- GALLERY -->
+ <section id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
+    <h2 data-i18n="gal_h">La table <em>des îles</em></h2>
+    <p data-i18n="gal_p">Bitoque, poisson et fruits de mer grillés, ragoûts mijotés, chouriço — une cuisine généreuse, celle des maisons cap-verdiennes.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/seafood.jpg" alt="Fruits de mer grillés, riz et légumes"/><figcaption data-i18n="cap_sea">Fruits de mer grillés</figcaption></figure>
+    <figure><img src="assets/bitoque.jpg" alt="Bitoque, steak et œuf au plat"/><figcaption data-i18n="cap_bit">Le bitoque</figcaption></figure>
+    <figure><img src="assets/stew.jpg" alt="Ragoût mijoté et riz"/><figcaption data-i18n="cap_stew">Ragoût mijoté</figcaption></figure>
+    <figure class="w2"><img src="assets/grill.jpg" alt="Poisson grillé, riz et légumes"/><figcaption data-i18n="cap_grill">Poisson grillé</figcaption></figure>
+    <figure><img src="assets/chourico.jpg" alt="Chouriço grillé et pain"/><figcaption data-i18n="cap_cho">Chouriço &amp; pain</figcaption></figure>
+    <figure><img src="assets/stirfry.jpg" alt="Calamars sautés et frites"/><figcaption data-i18n="cap_cal">Calamars sautés</figcaption></figure>
+    <figure class="w2"><img src="assets/interior.jpg" alt="La salle de Sabor di Terra"/><figcaption data-i18n="cap_int">La salle, à Esch</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="carte_p">La cuisine des îles, généreuse et sans détour. Voici les plats de la maison — les prix se confirment sur place.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><span class="dot"></span><span data-i18n="mg1">Les plats des îles</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Cachupa</div><div class="ds" data-i18n="i1d">Le plat national — maïs, haricots, viande ou poisson</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Bitoque</div><div class="ds" data-i18n="i2d">Steak, œuf au plat, riz &amp; frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Escalope de frango</div><div class="ds" data-i18n="i3d">Poulet pané, frites &amp; salade</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Ragoût de la maison</div><div class="ds" data-i18n="i4d">Viande mijotée, riz &amp; salade</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><span class="dot"></span><span data-i18n="mg4">À grignoter &amp; à boire</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Torresmos</div><div class="ds" data-i18n="i8d">Lardons de porc croustillants</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Pastel (trigo / milho)</div><div class="ds" data-i18n="i9d">Chaussons frits, blé ou maïs</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Ponche / grogue</div><div class="ds" data-i18n="i10d">L'eau-de-vie de canne du Cap-Vert</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><span class="dot"></span><span data-i18n="mg2">La mer &amp; le grill</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Poisson grillé de l'Atlantique</div><div class="ds" data-i18n="i5d">Du jour, riz &amp; légumes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Fruits de mer grillés</div><div class="ds" data-i18n="i6d">Gambas, calamars</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Chouriço grillé</div><div class="ds" data-i18n="i7d">Avec du pain</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Grillades mixtes</div><div class="ds" data-i18n="i11d">Viandes &amp; poisson, riz &amp; salade</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><span class="dot"></span><span data-i18n="mg3">Le midi</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Formule du jour</div><div class="ds" data-i18n="i12d">Un plat des îles, chaque jour</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Plats relevés à partir de sources publiques (la carte de la maison, avis, annuaires) ; aucun prix n'est publié en ligne (fourchette ~10–20 €). Carte et prix à confirmer avec la maison.</p>
+  </div>
+ </section>
+
+ <!-- MORABEZA -->
+ <section class="mora" id="morabeza">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--amber)" data-i18n="mora_eyebrow">La morabeza</span>
+    <h2 data-i18n="mora_h">Le goût de la terre,<span>l'accueil des îles.</span></h2>
+    <p class="lead" data-i18n="mora_lead">« Sabor di terra » veut dire le goût de la terre, et « morabeza », cette hospitalité chaleureuse propre au Cap-Vert. C'est tout l'esprit de la maison : une table de quartier, généreuse, où l'on se sent chez soi — et parfois, la musique des îles.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="chip1">Cuisine des îles</span>
+     <span class="chip b" data-i18n="chip2">En famille, à Esch</span>
+     <span class="chip b" data-i18n="chip3">La morabeza</span>
+    </div>
+   </div>
+   <div class="pic"><img src="assets/interior.jpg" alt="La salle chaleureuse de Sabor di Terra"/></div>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">2, rue Zénon Bernard<br>L-4030 Esch-sur-Alzette</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><a href="tel:+352621427592">+352 621 427 592</a> <span class="fl" data-i18n="ino_fl2">(à confirmer)</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Midi &amp; soir · horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <div class="pano" aria-hidden="true"></div>
+     <div class="pano bot" aria-hidden="true"></div>
+     <div class="in">
+      <div class="big" data-i18n="map_big">Esch-sur-Alzette</div>
+      <div style="color:#b8c2ce;margin-top:8px" data-i18n="map_sub">Rue Zénon Bernard, au centre d'Esch</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Sabor+Di+Terra+Rue+Zenon+Bernard+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="pano"></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Sabor di Terra<small>Cuisine cap-verdienne · Esch</small></div>
+   <p data-i18n="foot_p">La table des îles du Cap-Vert à Esch — cachupa, poisson de l'Atlantique, bitoque et morabeza.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Sen';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--amber)">Contact</div>
+   <p style="margin-top:10px">2, rue Zénon Bernard<br>L-4030 Esch-sur-Alzette<br><a href="tel:+352621427592" style="border-bottom:1px solid var(--amber)">+352 621 427 592</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis) ; la fiche du lieu n'est pas revendiquée. La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_poisson:"Le poisson",nav_carte:"La carte",nav_mora:"La morabeza",nav_infos:"Infos & accès",
+  hero_eyebrow:"Cuisine cap-verdienne · Esch-sur-Alzette",
+  hero_tag:"Le goût de la terre : la cachupa, le poisson de l'Atlantique et la morabeza — la table des îles du Cap-Vert, à Esch.",
+  hero_cta1:"Voir la carte",hero_cta2:"La table des îles ↓",
+  fact_k1:"La cuisine",fact_v1:"<b>Cap-Vert</b>cachupa, poisson grillé, plats des îles",
+  fact_k2:"La table",fact_v2:"<b>Généreuse & en famille</b>la morabeza, l'accueil des îles",
+  fact_k3:"Le lieu",fact_v3:"<b>Rue Zénon Bernard</b>au cœur d'Esch-sur-Alzette",
+  poi_eyebrow:"La spécialité",poi_h:"Le poisson<span>de l'Atlantique.</span>",
+  poi_lead:"Poisson et fruits de mer grillés, avec du riz, des légumes et une salade — la mer des îles, dans l'assiette.",
+  poi_body:"Aux îles du Cap-Vert, la mer est partout. Ici, on la grille simplement : le poisson frais, les gambas, le tout servi généreusement. Avec la cachupa mijotée et les plats de la maison, c'est toute la table cap-verdienne.",
+  poi_pill:"Grillé, généreux",
+  gal_eyebrow:"À table",gal_h:"La table <em>des îles</em>",
+  gal_p:"Bitoque, poisson et fruits de mer grillés, ragoûts mijotés, chouriço — une cuisine généreuse, celle des maisons cap-verdiennes.",
+  cap_sea:"Fruits de mer grillés",cap_bit:"Le bitoque",cap_stew:"Ragoût mijoté",cap_grill:"Poisson grillé",cap_cho:"Chouriço & pain",cap_cal:"Calamars sautés",cap_int:"La salle, à Esch",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
+  carte_p:"La cuisine des îles, généreuse et sans détour. Voici les plats de la maison — les prix se confirment sur place.",
+  mg1:"Les plats des îles",mg2:"La mer & le grill",mg3:"Le midi",mg4:"À grignoter & à boire",
+  i1n:"Cachupa",i1d:"Le plat national — maïs, haricots, viande ou poisson",i2n:"Bitoque",i2d:"Steak, œuf au plat, riz & frites",i3n:"Escalope de frango",i3d:"Poulet pané, frites & salade",i4n:"Ragoût de la maison",i4d:"Viande mijotée, riz & salade",
+  i5n:"Poisson grillé de l'Atlantique",i5d:"Du jour, riz & légumes",i6n:"Fruits de mer grillés",i6d:"Gambas, calamars",i7n:"Chouriço grillé",i7d:"Avec du pain",i11n:"Grillades mixtes",i11d:"Viandes & poisson, riz & salade",
+  i8n:"Torresmos",i8d:"Lardons de porc croustillants",i9n:"Pastel (trigo / milho)",i9d:"Chaussons frits, blé ou maïs",i10n:"Ponche / grogue",i10d:"L'eau-de-vie de canne du Cap-Vert",
+  i12n:"Formule du jour",i12d:"Un plat des îles, chaque jour",ac:"à conf.",
+  carte_note:"Plats relevés à partir de sources publiques (la carte de la maison, avis, annuaires) ; aucun prix n'est publié en ligne (fourchette ~10–20 €). Carte et prix à confirmer avec la maison.",
+  mora_eyebrow:"La morabeza",mora_h:"Le goût de la terre,<span>l'accueil des îles.</span>",
+  mora_lead:"« Sabor di terra » veut dire le goût de la terre, et « morabeza », cette hospitalité chaleureuse propre au Cap-Vert. C'est tout l'esprit de la maison : une table de quartier, généreuse, où l'on se sent chez soi — et parfois, la musique des îles.",
+  chip1:"Cuisine des îles",chip2:"En famille, à Esch",chip3:"La morabeza",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver",ino_fl2:"(à confirmer)",
+  ino_k3:"Horaires",ino_fl3:"Midi & soir · horaires à confirmer",
+  map_big:"Esch-sur-Alzette",map_sub:"Rue Zénon Bernard, au centre d'Esch",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"La table des îles du Cap-Vert à Esch — cachupa, poisson de l'Atlantique, bitoque et morabeza.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis) ; la fiche du lieu n'est pas revendiquée. La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_poisson:"Der Fisch",nav_carte:"Karte",nav_mora:"Morabeza",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Kapverdische Küche · Esch-sur-Alzette",
+  hero_tag:"Der Geschmack der Erde: Cachupa, Fisch aus dem Atlantik und Morabeza — die Tafel der Kapverden, in Esch.",
+  hero_cta1:"Zur Karte",hero_cta2:"Die Tafel der Inseln ↓",
+  fact_k1:"Die Küche",fact_v1:"<b>Kapverden</b>Cachupa, gegrillter Fisch, Inselgerichte",
+  fact_k2:"Die Tafel",fact_v2:"<b>Großzügig & familiär</b>Morabeza, die Gastfreundschaft der Inseln",
+  fact_k3:"Der Ort",fact_v3:"<b>Rue Zénon Bernard</b>im Herzen von Esch-sur-Alzette",
+  poi_eyebrow:"Die Spezialität",poi_h:"Der Fisch<span>aus dem Atlantik.</span>",
+  poi_lead:"Gegrillter Fisch und Meeresfrüchte, mit Reis, Gemüse und Salat — das Meer der Inseln, auf dem Teller.",
+  poi_body:"Auf den Kapverden ist das Meer überall. Hier wird es einfach gegrillt: frischer Fisch, Gambas, großzügig serviert. Mit der geschmorten Cachupa und den Gerichten des Hauses ist das die ganze kapverdische Tafel.",
+  poi_pill:"Gegrillt, großzügig",
+  gal_eyebrow:"Zu Tisch",gal_h:"Die Tafel <em>der Inseln</em>",
+  gal_p:"Bitoque, gegrillter Fisch und Meeresfrüchte, geschmorte Eintöpfe, Chouriço — eine großzügige Küche, die der kapverdischen Häuser.",
+  cap_sea:"Gegrillte Meeresfrüchte",cap_bit:"Das Bitoque",cap_stew:"Geschmorter Eintopf",cap_grill:"Gegrillter Fisch",cap_cho:"Chouriço & Brot",cap_cal:"Gebratene Tintenfische",cap_int:"Der Gastraum, in Esch",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
+  carte_p:"Die Küche der Inseln, großzügig und direkt. Das sind die Gerichte des Hauses — die Preise werden vor Ort bestätigt.",
+  mg1:"Die Inselgerichte",mg2:"Das Meer & der Grill",mg3:"Mittags",mg4:"Zum Knabbern & Trinken",
+  i1n:"Cachupa",i1d:"Das Nationalgericht — Mais, Bohnen, Fleisch oder Fisch",i2n:"Bitoque",i2d:"Steak, Spiegelei, Reis & Pommes",i3n:"Escalope de frango",i3d:"Paniertes Hähnchen, Pommes & Salat",i4n:"Eintopf des Hauses",i4d:"Geschmortes Fleisch, Reis & Salat",
+  i5n:"Gegrillter Atlantik-Fisch",i5d:"Vom Tag, Reis & Gemüse",i6n:"Gegrillte Meeresfrüchte",i6d:"Gambas, Tintenfisch",i7n:"Gegrillter Chouriço",i7d:"Mit Brot",i11n:"Gemischter Grill",i11d:"Fleisch & Fisch, Reis & Salat",
+  i8n:"Torresmos",i8d:"Knusprige Schweinegrieben",i9n:"Pastel (Trigo / Milho)",i9d:"Frittierte Teigtaschen, Weizen oder Mais",i10n:"Ponche / Grogue",i10d:"Der Zuckerrohrschnaps der Kapverden",
+  i12n:"Tagesmenü",i12d:"Jeden Tag ein Inselgericht",ac:"auf Anfrage",
+  carte_note:"Gerichte aus öffentlichen Quellen (Karte des Hauses, Bewertungen, Verzeichnisse); online sind keine Preise veröffentlicht (Spanne ~10–20 €). Karte und Preise beim Haus zu bestätigen.",
+  mora_eyebrow:"Die Morabeza",mora_h:"Der Geschmack der Erde,<span>die Gastfreundschaft der Inseln.</span>",
+  mora_lead:"„Sabor di terra“ heißt der Geschmack der Erde, und „Morabeza“ jene warme Gastfreundschaft, die typisch kapverdisch ist. Das ist der ganze Geist des Hauses: eine großzügige Nachbarschaftstafel, an der man sich zu Hause fühlt — und manchmal die Musik der Inseln.",
+  chip1:"Küche der Inseln",chip2:"Familiär, in Esch",chip3:"Die Morabeza",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren",ino_fl2:"(zu bestätigen)",
+  ino_k3:"Öffnungszeiten",ino_fl3:"Mittags & abends · Zeiten zu bestätigen",
+  map_big:"Esch-sur-Alzette",map_sub:"Rue Zénon Bernard, im Zentrum von Esch",map_btn:"In Maps öffnen ↗",
+  foot_p:"Die Tafel der Kapverden in Esch — Cachupa, Atlantik-Fisch, Bitoque und Morabeza.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen); der Eintrag des Lokals ist nicht beansprucht. Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_poisson:"The fish",nav_carte:"Menu",nav_mora:"Morabeza",nav_infos:"Find us",
+  hero_eyebrow:"Cape Verdean kitchen · Esch-sur-Alzette",
+  hero_tag:"The taste of the land: cachupa, Atlantic fish and morabeza — the table of the Cape Verde islands, in Esch.",
+  hero_cta1:"See the menu",hero_cta2:"The island table ↓",
+  fact_k1:"The kitchen",fact_v1:"<b>Cape Verde</b>cachupa, grilled fish, island dishes",
+  fact_k2:"The table",fact_v2:"<b>Generous & family-run</b>morabeza, the islands' welcome",
+  fact_k3:"The place",fact_v3:"<b>Rue Zénon Bernard</b>in the heart of Esch-sur-Alzette",
+  poi_eyebrow:"The speciality",poi_h:"The fish<span>of the Atlantic.</span>",
+  poi_lead:"Grilled fish and seafood, with rice, vegetables and a salad — the islands' sea, on the plate.",
+  poi_body:"In the Cape Verde islands, the sea is everywhere. Here it's grilled simply: fresh fish, prawns, served generously. With simmered cachupa and the house dishes, it's the whole Cape Verdean table.",
+  poi_pill:"Grilled, generous",
+  gal_eyebrow:"At the table",gal_h:"The <em>island</em> table",
+  gal_p:"Bitoque, grilled fish and seafood, simmered stews, chouriço — a generous kitchen, that of Cape Verdean homes.",
+  cap_sea:"Grilled seafood",cap_bit:"The bitoque",cap_stew:"Simmered stew",cap_grill:"Grilled fish",cap_cho:"Chouriço & bread",cap_cal:"Fried squid",cap_int:"The room, in Esch",
+  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
+  carte_p:"The islands' kitchen, generous and direct. Here are the house dishes — prices are confirmed on site.",
+  mg1:"The island dishes",mg2:"The sea & the grill",mg3:"At lunch",mg4:"To nibble & to drink",
+  i1n:"Cachupa",i1d:"The national dish — corn, beans, meat or fish",i2n:"Bitoque",i2d:"Steak, fried egg, rice & chips",i3n:"Escalope de frango",i3d:"Breaded chicken, chips & salad",i4n:"House stew",i4d:"Simmered meat, rice & salad",
+  i5n:"Grilled Atlantic fish",i5d:"Of the day, rice & vegetables",i6n:"Grilled seafood",i6d:"Prawns, squid",i7n:"Grilled chouriço",i7d:"With bread",i11n:"Mixed grill",i11d:"Meat & fish, rice & salad",
+  i8n:"Torresmos",i8d:"Crisp pork bits",i9n:"Pastel (trigo / milho)",i9d:"Fried pastries, wheat or corn",i10n:"Ponche / grogue",i10d:"Cape Verde's sugarcane spirit",
+  i12n:"Dish of the day",i12d:"An island dish, every day",ac:"tbc",
+  carte_note:"Dishes drawn from public sources (the house's own menu, reviews, directories); no prices are published online (~€10–20 range). Menu and prices to be confirmed with the house.",
+  mora_eyebrow:"Morabeza",mora_h:"The taste of the land,<span>the welcome of the islands.</span>",
+  mora_lead:"“Sabor di terra” means the taste of the land, and “morabeza” that warm hospitality particular to Cape Verde. That's the whole spirit of the house: a generous neighbourhood table where you feel at home — and sometimes, the music of the islands.",
+  chip1:"Island kitchen",chip2:"Family-run, in Esch",chip3:"Morabeza",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book",ino_fl2:"(to be confirmed)",
+  ino_k3:"Opening hours",ino_fl3:"Lunch & evening · hours to be confirmed",
+  map_big:"Esch-sur-Alzette",map_sub:"Rue Zénon Bernard, in central Esch",map_btn:"Open in Maps ↗",
+  foot_p:"The table of the Cape Verde islands in Esch — cachupa, Atlantic fish, bitoque and morabeza.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews); the venue's listing is unclaimed. The brand and dishes belong to the house. Menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+const HOURS={fr:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],de:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
+const SCHED={0:"09:00–22:00",1:"09:00–22:00",2:null,3:"09:00–22:00",4:"08:00–22:00",5:"08:00–22:00",6:"09:00–22:00"};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  const d=new Date(); const day=d.getDay(); const s=SCHED[day];
+  const closed={fr:"Fermé aujourd'hui",de:"Heute geschlossen",en:"Closed today"}[l];
+  const el=document.getElementById("today"); if(el) el.textContent=HOURS[l][day]+" · "+(s?s:closed);
+  try{localStorage.setItem("sb_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("sb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+</script>
+</body>
+</html>

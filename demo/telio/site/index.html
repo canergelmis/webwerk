@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Télio — Grill grec, Grand-Rue Luxembourg</title>
+<meta name="description" content="Le grill grec de la Grand-Rue — souvlaki au charbon, mezédes maison, pita chaude, en plein cœur de la vieille ville de Luxembourg. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Gilda';src:url('assets/fonts/gilda-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Gilda';src:url('assets/fonts/gilda-latinext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Familjen';src:url('assets/fonts/familjen-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Familjen';src:url('assets/fonts/familjen-latinext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+ --stone:#ede6d6; --stone2:#e2d8c1; --card:#f7f1e4;
+ --olive:#3b4a2f; --olive-d:#2e3a25; --olive-l:#556844;
+ --clay:#b5623c; --clay-d:#94492b;
+ --ochre:#d9a441; --ochre-d:#b5852a;
+ --teal:#1f6e6a; --char:#1e1b17; --ink2:#463f31;
+ --line:#d5c8aa; --muted:#867b60;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--stone);color:var(--char);font-family:'Familjen',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Gilda','Familjen',serif;font-weight:400;line-height:1.06}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Familjen',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--clay)}
+
+.amph-divider{display:flex;align-items:center;gap:20px;padding:32px 0}
+.amph-divider .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--clay),transparent)}
+.amph-divider .am{width:30px;height:42px;color:var(--clay);flex:none}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s}
+header.solid{background:var(--olive-d);box-shadow:0 2px 22px rgba(0,0,0,.3)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#f2ecdd}
+.brand .mk{width:26px;height:38px;flex:none;color:var(--ochre)}
+.brand .nm{font-family:'Gilda',serif;font-weight:400;font-size:26px;letter-spacing:.08em;line-height:.95;color:#f2ecdd}
+.brand .nm small{display:block;font-family:'Familjen';font-size:9px;letter-spacing:.2em;color:var(--ochre);font-weight:700;margin-top:3px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Familjen',sans-serif;font-weight:600;font-size:15px;color:#e8dfce;opacity:.92}
+nav.links a:hover{color:var(--ochre);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
+.langs button{font-family:'Familjen',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#e2d8c1;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--clay);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:#f2ecdd;border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-64px;padding-top:64px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(25,22,15,.55) 0%,rgba(25,22,15,.25) 30%,rgba(25,22,15,.5) 64%,rgba(20,18,12,.92) 100%)}
+.hero .amwm{position:absolute;right:6%;top:12%;width:220px;height:300px;color:rgba(217,164,65,.14);z-index:-1}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative}
+.hero .eyebrow{color:var(--ochre);margin-bottom:14px}
+.hero h1{color:#fff;font-size:clamp(66px,13vw,176px);letter-spacing:.06em;text-shadow:0 4px 40px rgba(0,0,0,.45)}
+.hero .tag{font-family:'Familjen',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f3ead7;max-width:31ch;margin:18px 0 0;line-height:1.4}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Familjen',sans-serif;font-weight:700;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--clay);color:#fff}
+.btn.p:hover{background:var(--clay-d)}
+.btn.o{background:transparent;color:#f2ecdd;border-color:rgba(242,236,221,.5)}
+.btn.o:hover{border-color:var(--ochre);color:var(--ochre)}
+
+.facts{background:var(--olive);color:#e8dfce}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12)}
+.facts .c{background:var(--olive);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Familjen';font-weight:700;letter-spacing:.14em;font-size:11px;color:var(--ochre);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#e8dfce}
+.facts .v b{color:#fff;font-weight:400;font-family:'Gilda';font-size:21px;display:block;margin-bottom:2px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--char);line-height:1.06}
+.sect-h h2 em{font-style:normal;color:var(--clay)}
+.sect-h p{font-family:'Familjen',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+.spot{background:var(--olive);color:#e8dfce;position:relative;overflow:hidden}
+.spot .amwm{position:absolute;left:-40px;bottom:-40px;width:280px;height:380px;color:rgba(217,164,65,.1)}
+.spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center;position:relative}
+.spot .eyebrow{color:var(--ochre)}
+.spot h2{font-family:'Gilda';font-size:clamp(38px,6vw,76px);color:#fff;margin:14px 0 0;line-height:1.06}
+.spot h2 span{color:var(--ochre);display:block}
+.spot .lead{font-family:'Familjen';font-size:clamp(18px,2.2vw,25px);line-height:1.5;color:#e8dfce;margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#c3c1a3;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.42)}
+.spot .pic .pill{position:absolute;right:-12px;bottom:24px;background:var(--ochre);color:var(--char);font-family:'Familjen';font-weight:700;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:4px;background:var(--stone2)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,18,12,.82),transparent);color:#fff;font-family:'Gilda',serif;font-weight:400;font-size:17px}
+
+.carte{background:var(--stone2)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Gilda';font-size:26px;color:var(--olive-d);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--clay);margin-bottom:14px}
+.mgroup h3 .am{width:16px;height:22px;flex:none;color:var(--ochre-d)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Familjen';font-weight:700;font-size:17px;color:var(--char)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Gilda';color:var(--clay);font-size:17px;white-space:nowrap}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--ochre);padding-left:14px;max-width:80ch}
+
+.mez{background:var(--olive);color:#e8dfce;position:relative;overflow:hidden}
+.mez .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
+.mez h2{font-family:'Gilda';font-size:clamp(34px,5vw,62px);color:#fff}
+.mez h2 span{color:var(--ochre);display:block}
+.mez .lead{font-size:18px;color:#e3dac6;margin-top:18px;line-height:1.6;max-width:44ch}
+.mez .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.mez .chip{font-family:'Familjen';font-weight:700;font-size:12.5px;color:var(--char);background:var(--ochre);padding:8px 15px;border-radius:999px}
+.mez .chip.b{background:transparent;color:#e8dfce;border:1.5px solid rgba(232,223,206,.4)}
+.mez .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px}
+
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--clay);margin-top:3px}
+.ino .k{font-family:'Familjen';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--char);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--ochre-d)}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Gilda';color:var(--olive);font-size:18px}
+.mapcard{background:var(--olive);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#e8dfce;text-align:center;padding:34px}
+.mapcard .amwm{position:absolute;right:-20px;top:-20px;width:150px;height:200px;color:rgba(217,164,65,.18)}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Gilda';font-size:30px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#181610;color:#b3aa90;padding:0 0 40px}
+footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--ochre-d),transparent)}
+footer .band .am{width:26px;height:36px;color:var(--ochre-d)}
+footer .in{padding:4px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Gilda';font-weight:400;font-size:28px;color:#f2ecdd;letter-spacing:.08em}
+footer .nm small{display:block;font-family:'Familjen';font-size:10px;letter-spacing:.2em;color:var(--ochre);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a29979}
+footer .made{font-size:12.5px;color:#7c735a;margin-top:22px}
+footer .made b{color:#e8dfce}
+footer .made a{color:var(--ochre)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6a6249;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .spot .grid,.mez .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.mez .pic{order:-1}
+ .hero .amwm{display:none}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:var(--olive-d);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--olive-d)}
+ .hero h1{font-size:clamp(58px,18vw,104px)}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="amph" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M26 6 h12 v7 c11 3 19 16 19 31 c0 20 -12 34 -25 34 c-13 0 -25 -14 -25 -34 c0 -15 8 -28 19 -31 v-7 Z"/>
+  <path d="M23 15 c-9 2 -13 9 -11 17"/>
+  <path d="M41 15 c9 2 13 9 11 17"/>
+  <path d="M27 76 l-3 12 h16 l-3 -12"/>
+</g>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Télio">
+   <svg class="mk" viewBox="0 0 64 92" aria-hidden="true"><use href="#amph"/></svg>
+   <span class="nm">TÉLIO<small>Grill grec · Grand-Rue</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#souvlaki" data-i18n="nav_souv">Le souvlaki</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#meze" data-i18n="nav_meze">Les mezédes</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="La terrasse de Télio, sur la Grand-Rue"/></div>
+  <div class="scrim"></div>
+  <svg class="amwm" viewBox="0 0 64 92" aria-hidden="true"><use href="#amph"/></svg>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Grill grec · souvlaki &amp; mezédes · Grand-Rue</span>
+   <h1>Télio</h1>
+   <p class="tag" data-i18n="hero_tag">Souvlaki au charbon, mezédes faits maison et pita chaude — en plein cœur de la vieille ville.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#souvlaki" data-i18n="hero_cta2">Le souvlaki ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Grill grec</b>souvlaki au charbon, mezédes maison</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>7, Grand-Rue</b>vieille ville · terrasse au soleil</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>Frais &amp; fait maison</b>viande halal, à emporter aussi</div></div>
+  </div></div>
+ </div>
+
+ <!-- SOUVLAKI SPOTLIGHT -->
+ <section class="spot" id="souvlaki">
+  <svg class="amwm" viewBox="0 0 64 92" aria-hidden="true"><use href="#amph"/></svg>
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="souv_eyebrow">La spécialité</span>
+    <h2 data-i18n="souv_h">Le souvlaki,<span>au charbon.</span></h2>
+    <p class="lead" data-i18n="souv_lead">Des brochettes de poulet ou d'agneau, grillées au charbon, avec le tzatziki maison, la salade et la pita chaude.</p>
+    <p class="body" data-i18n="souv_body">C'est le grill grec dans ce qu'il a de plus simple et de meilleur : la viande marinée, la fumée du charbon, les dips faits maison. À emporter dans une pita, ou en assiette à partager en terrasse.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/souvlaki.jpg" alt="Brochettes de poulet, frites, salade grecque et olives"/>
+    <span class="pill" data-i18n="souv_pill">Grillé au charbon</span>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap amph-divider"><span class="ln"></span><svg class="am" viewBox="0 0 64 92"><use href="#amph"/></svg><span class="ln"></span></div>
+
+ <!-- GALLERY -->
+ <section id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
+    <h2 data-i18n="gal_h">La table <em>grecque</em></h2>
+    <p data-i18n="gal_p">Mezédes, brochettes, salade grecque, spanakopita et baklava — la générosité du grill grec, sur la Grand-Rue.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/mixgrill.jpg" alt="Le mix grill Télio"/><figcaption data-i18n="cap_mix">Le mix grill Télio</figcaption></figure>
+    <figure><img src="assets/dolmades.jpg" alt="Dolmades, feuilles de vigne farcies"/><figcaption data-i18n="cap_dol">Dolmades</figcaption></figure>
+    <figure><img src="assets/interior.jpg" alt="La salle de Télio, vieille ville"/><figcaption data-i18n="cap_sal">La salle</figcaption></figure>
+    <figure class="w2"><img src="assets/pita.jpg" alt="Pita souvlaki"/><figcaption data-i18n="cap_pita">La pita souvlaki</figcaption></figure>
+    <figure><img src="assets/bifteki.jpg" alt="Biftéki grillé"/><figcaption data-i18n="cap_bif">Biftéki</figcaption></figure>
+    <figure><img src="assets/baklava.jpg" alt="Baklava"/><figcaption data-i18n="cap_bak">Baklava</figcaption></figure>
+    <figure class="w2"><img src="assets/chicken.jpg" alt="Poulet rôti, frites et salade"/><figcaption data-i18n="cap_ter">Poulet rôti</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>grille</em></h2>
+    <p data-i18n="carte_p">Le meilleur du grill grec — mezédes, souvlaki en pita, grandes assiettes. Voici la carte, prix compris.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="am" viewBox="0 0 64 92"><use href="#amph"/></svg><span data-i18n="mg1">Les mezédes</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Salade grecque</div><div class="ds" data-i18n="i1d">Tomate, concombre, feta, olives, origan</div></div><span class="dots"></span><span class="pr">11 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Dolmades</div><div class="ds" data-i18n="i2d">Feuilles de vigne farcies, tzatziki</div></div><span class="dots"></span><span class="pr">11 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Tzatziki</div></div><span class="dots"></span><span class="pr">11 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Melitzanosalata</div><div class="ds" data-i18n="i4d">Caviar d'aubergine fumée</div></div><span class="dots"></span><span class="pr">11 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Tirokafteri</div><div class="ds" data-i18n="i5d">Feta, piment, yaourt</div></div><span class="dots"></span><span class="pr">11 €</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="am" viewBox="0 0 64 92"><use href="#amph"/></svg><span data-i18n="mg2">Le souvlaki (en pita)</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Pita brochettes de poulet</div></div><span class="dots"></span><span class="pr">9 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Pita brochettes d'agneau</div></div><span class="dots"></span><span class="pr">9,50 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Pita falafel</div></div><span class="dots"></span><span class="pr">8,50 €</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="am" viewBox="0 0 64 92"><use href="#amph"/></svg><span data-i18n="mg3">Les assiettes grillées</span></h3>
+      <p class="ds" style="color:var(--muted);font-size:13px;margin:-6px 0 8px;font-style:italic" data-i18n="mg3_sub">servies avec salade, tzatziki, frites &amp; pita</p>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Mix Grill Télio</div><div class="ds" data-i18n="i9d">Poulet, agneau, köfte, saucisse</div></div><span class="dots"></span><span class="pr">26 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Côtelettes d'agneau</div></div><span class="dots"></span><span class="pr">21 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Brochette d'agneau</div></div><span class="dots"></span><span class="pr">20,50 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Brochette de poulet</div></div><span class="dots"></span><span class="pr">19 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i13n">Biftéki</div><div class="ds" data-i18n="i13d">Boulette de viande grillée</div></div><span class="dots"></span><span class="pr">15 €</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="am" viewBox="0 0 64 92"><use href="#amph"/></svg><span data-i18n="mg4">Au four &amp; douceurs</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i14n">Spanakopita</div><div class="ds" data-i18n="i14d">Feuilleté épinards &amp; feta</div></div><span class="dots"></span><span class="pr">11 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i15n">Baklava</div></div><span class="dots"></span><span class="pr">6 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i16n">Kataïfi</div><div class="ds" data-i18n="i16d">Pistache &amp; miel</div></div><span class="dots"></span><span class="pr">6 €</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Carte et prix relevés sur la carte de livraison publique de la maison, à titre indicatif — à confirmer sur place. Sélection des spécialités grecques ; la maison propose aussi une carte méditerranéenne plus large.</p>
+  </div>
+ </section>
+
+ <!-- MEZÉDES / terrace -->
+ <section class="mez" id="meze">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--ochre)" data-i18n="mez_eyebrow">À partager</span>
+    <h2 data-i18n="mez_h">Les mezédes,<span>en terrasse.</span></h2>
+    <p class="lead" data-i18n="mez_lead">Tzatziki, dolmades, salade grecque, caviar d'aubergine : les petits plats grecs qu'on picore à plusieurs, une pita chaude à la main, en terrasse sur la Grand-Rue. On prend son temps, on partage.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="chip1">Fait maison</span>
+     <span class="chip b" data-i18n="chip2">Terrasse sur la Grand-Rue</span>
+     <span class="chip b" data-i18n="chip3">Viande halal</span>
+    </div>
+   </div>
+   <div class="pic"><img src="assets/dolmades.jpg" alt="Les mezédes à partager"/></div>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">7, Grand-Rue<br>L-1660 Luxembourg · vieille ville</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver / commander</div><div class="v"><a href="tel:+35227567787">+352 27 56 77 87</a> <span class="fl" data-i18n="ino_fl2">(à confirmer)</span><br><a class="btn p" style="margin-top:13px;padding:11px 20px;font-size:13px" href="https://wolt.com/en/lux/luxembourg/restaurant/telio-luxembourg" target="_blank" rel="noopener" data-i18n="ino_order">Commander sur Wolt ↗</a></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Tous les jours, midi &amp; soir · horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <svg class="amwm" viewBox="0 0 64 92" aria-hidden="true"><use href="#amph"/></svg>
+     <div class="in">
+      <div class="big" data-i18n="map_big">Grand-Rue</div>
+      <div style="color:#c3c1a3;margin-top:8px" data-i18n="map_sub">La grande rue piétonne de la vieille ville</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Restaurant+Telio+Grand-Rue+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="am" viewBox="0 0 64 92"><use href="#amph"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">TÉLIO<small>Grill grec · Grand-Rue</small></div>
+   <p data-i18n="foot_p">Le grill grec de la Grand-Rue — souvlaki au charbon, mezédes maison, pita chaude, en plein cœur de la vieille ville.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Familjen';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--ochre)">Contact</div>
+   <p style="margin-top:10px">7, Grand-Rue<br>L-1660 Luxembourg<br><a href="tel:+35227567787" style="border-bottom:1px solid var(--ochre)">+352 27 56 77 87</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires, d'avis et de plateformes de livraison). La marque et les plats sont ceux de la maison. La carte présentée est une sélection des spécialités grecques ; carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_souv:"Le souvlaki",nav_carte:"La carte",nav_meze:"Les mezédes",nav_infos:"Infos & accès",
+  hero_eyebrow:"Grill grec · souvlaki & mezédes · Grand-Rue",
+  hero_tag:"Souvlaki au charbon, mezédes faits maison et pita chaude — en plein cœur de la vieille ville.",
+  hero_cta1:"Voir la carte",hero_cta2:"Le souvlaki ↓",
+  fact_k1:"La cuisine",fact_v1:"<b>Grill grec</b>souvlaki au charbon, mezédes maison",
+  fact_k2:"Le lieu",fact_v2:"<b>7, Grand-Rue</b>vieille ville · terrasse au soleil",
+  fact_k3:"La maison",fact_v3:"<b>Frais & fait maison</b>viande halal, à emporter aussi",
+  souv_eyebrow:"La spécialité",souv_h:"Le souvlaki,<span>au charbon.</span>",
+  souv_lead:"Des brochettes de poulet ou d'agneau, grillées au charbon, avec le tzatziki maison, la salade et la pita chaude.",
+  souv_body:"C'est le grill grec dans ce qu'il a de plus simple et de meilleur : la viande marinée, la fumée du charbon, les dips faits maison. À emporter dans une pita, ou en assiette à partager en terrasse.",
+  souv_pill:"Grillé au charbon",
+  gal_eyebrow:"À table",gal_h:"La table <em>grecque</em>",
+  gal_p:"Mezédes, brochettes, salade grecque, spanakopita et baklava — la générosité du grill grec, sur la Grand-Rue.",
+  cap_mix:"Le mix grill Télio",cap_dol:"Dolmades",cap_sal:"La salle",cap_pita:"La pita souvlaki",cap_bif:"Biftéki",cap_bak:"Baklava",cap_ter:"Poulet rôti",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>grille</em>",
+  carte_p:"Le meilleur du grill grec — mezédes, souvlaki en pita, grandes assiettes. Voici la carte, prix compris.",
+  mg1:"Les mezédes",mg2:"Le souvlaki (en pita)",mg3:"Les assiettes grillées",mg3_sub:"servies avec salade, tzatziki, frites & pita",mg4:"Au four & douceurs",
+  i1n:"Salade grecque",i1d:"Tomate, concombre, feta, olives, origan",i2n:"Dolmades",i2d:"Feuilles de vigne farcies, tzatziki",i3n:"Tzatziki",i4n:"Melitzanosalata",i4d:"Caviar d'aubergine fumée",i5n:"Tirokafteri",i5d:"Feta, piment, yaourt",
+  i6n:"Pita brochettes de poulet",i7n:"Pita brochettes d'agneau",i8n:"Pita falafel",
+  i9n:"Mix Grill Télio",i9d:"Poulet, agneau, köfte, saucisse",i10n:"Côtelettes d'agneau",i11n:"Brochette d'agneau",i12n:"Brochette de poulet",i13n:"Biftéki",i13d:"Boulette de viande grillée",
+  i14n:"Spanakopita",i14d:"Feuilleté épinards & feta",i15n:"Baklava",i16n:"Kataïfi",i16d:"Pistache & miel",
+  carte_note:"Carte et prix relevés sur la carte de livraison publique de la maison, à titre indicatif — à confirmer sur place. Sélection des spécialités grecques ; la maison propose aussi une carte méditerranéenne plus large.",
+  mez_eyebrow:"À partager",mez_h:"Les mezédes,<span>en terrasse.</span>",
+  mez_lead:"Tzatziki, dolmades, salade grecque, caviar d'aubergine : les petits plats grecs qu'on picore à plusieurs, une pita chaude à la main, en terrasse sur la Grand-Rue. On prend son temps, on partage.",
+  chip1:"Fait maison",chip2:"Terrasse sur la Grand-Rue",chip3:"Viande halal",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver / commander",ino_fl2:"(à confirmer)",ino_order:"Commander sur Wolt ↗",
+  ino_k3:"Horaires",ino_fl3:"Tous les jours, midi & soir · horaires à confirmer",
+  map_big:"Grand-Rue",map_sub:"La grande rue piétonne de la vieille ville",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Le grill grec de la Grand-Rue — souvlaki au charbon, mezédes maison, pita chaude, en plein cœur de la vieille ville.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires, d'avis et de plateformes de livraison). La marque et les plats sont ceux de la maison. La carte présentée est une sélection des spécialités grecques ; carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_souv:"Souvlaki",nav_carte:"Karte",nav_meze:"Mezédes",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Griechischer Grill · Souvlaki & Mezédes · Grand-Rue",
+  hero_tag:"Souvlaki vom Holzkohlegrill, hausgemachte Mezédes und warmes Pita — mitten in der Altstadt.",
+  hero_cta1:"Zur Karte",hero_cta2:"Das Souvlaki ↓",
+  fact_k1:"Die Küche",fact_v1:"<b>Griechischer Grill</b>Souvlaki über Holzkohle, Mezédes hausgemacht",
+  fact_k2:"Der Ort",fact_v2:"<b>7, Grand-Rue</b>Altstadt · sonnige Terrasse",
+  fact_k3:"Das Haus",fact_v3:"<b>Frisch & hausgemacht</b>Halal-Fleisch, auch zum Mitnehmen",
+  souv_eyebrow:"Die Spezialität",souv_h:"Das Souvlaki,<span>vom Holzkohlegrill.</span>",
+  souv_lead:"Hähnchen- oder Lammspieße, über Holzkohle gegrillt, mit hausgemachtem Tzatziki, Salat und warmem Pita.",
+  souv_body:"Das ist der griechische Grill in seiner einfachsten und besten Form: mariniertes Fleisch, Holzkohlerauch, hausgemachte Dips. Im Pita zum Mitnehmen oder als Teller zum Teilen auf der Terrasse.",
+  souv_pill:"Vom Holzkohlegrill",
+  gal_eyebrow:"Zu Tisch",gal_h:"Der <em>griechische</em> Tisch",
+  gal_p:"Mezédes, Spieße, griechischer Salat, Spanakopita und Baklava — die Großzügigkeit des griechischen Grills, auf der Grand-Rue.",
+  cap_mix:"Der Mix Grill Télio",cap_dol:"Dolmades",cap_sal:"Der Gastraum",cap_pita:"Das Souvlaki-Pita",cap_bif:"Biftéki",cap_bak:"Baklava",cap_ter:"Brathähnchen",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>grillen</em>",
+  carte_p:"Das Beste vom griechischen Grill — Mezédes, Souvlaki im Pita, große Teller. Hier ist die Karte, Preise inklusive.",
+  mg1:"Die Mezédes",mg2:"Das Souvlaki (im Pita)",mg3:"Die Grillteller",mg3_sub:"serviert mit Salat, Tzatziki, Pommes & Pita",mg4:"Aus dem Ofen & Süßes",
+  i1n:"Griechischer Salat",i1d:"Tomate, Gurke, Feta, Oliven, Oregano",i2n:"Dolmades",i2d:"Gefüllte Weinblätter, Tzatziki",i3n:"Tzatziki",i4n:"Melitzanosalata",i4d:"Geräucherter Auberginen-Dip",i5n:"Tirokafteri",i5d:"Feta, Chili, Joghurt",
+  i6n:"Pita Hähnchenspieße",i7n:"Pita Lammspieße",i8n:"Pita Falafel",
+  i9n:"Mix Grill Télio",i9d:"Hähnchen, Lamm, Köfte, Wurst",i10n:"Lammkoteletts",i11n:"Lammspieß",i12n:"Hähnchenspieß",i13n:"Biftéki",i13d:"Gegrillte Frikadelle",
+  i14n:"Spanakopita",i14d:"Blätterteig mit Spinat & Feta",i15n:"Baklava",i16n:"Kataïfi",i16d:"Pistazie & Honig",
+  carte_note:"Karte und Preise von der öffentlichen Lieferkarte des Hauses, unverbindlich — vor Ort zu bestätigen. Auswahl der griechischen Spezialitäten; das Haus bietet auch eine breitere mediterrane Karte.",
+  mez_eyebrow:"Zum Teilen",mez_h:"Die Mezédes,<span>auf der Terrasse.</span>",
+  mez_lead:"Tzatziki, Dolmades, griechischer Salat, Auberginen-Dip: die kleinen griechischen Gerichte, die man zu mehreren nascht, ein warmes Pita in der Hand, auf der Terrasse an der Grand-Rue. Man lässt sich Zeit, man teilt.",
+  chip1:"Hausgemacht",chip2:"Terrasse an der Grand-Rue",chip3:"Halal-Fleisch",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren / bestellen",ino_fl2:"(zu bestätigen)",ino_order:"Auf Wolt bestellen ↗",
+  ino_k3:"Öffnungszeiten",ino_fl3:"Täglich, mittags & abends · Zeiten zu bestätigen",
+  map_big:"Grand-Rue",map_sub:"Die große Fußgängerstraße der Altstadt",map_btn:"In Maps öffnen ↗",
+  foot_p:"Der griechische Grill der Grand-Rue — Souvlaki vom Holzkohlegrill, Mezédes hausgemacht, warmes Pita, mitten in der Altstadt.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen, Bewertungen und Lieferplattformen). Marke und Gerichte gehören dem Haus. Die gezeigte Karte ist eine Auswahl der griechischen Spezialitäten; Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_souv:"The souvlaki",nav_carte:"Menu",nav_meze:"Mezédes",nav_infos:"Find us",
+  hero_eyebrow:"Greek grill · souvlaki & mezédes · Grand-Rue",
+  hero_tag:"Charcoal souvlaki, homemade mezédes and warm pita — in the heart of the old town.",
+  hero_cta1:"See the menu",hero_cta2:"The souvlaki ↓",
+  fact_k1:"The kitchen",fact_v1:"<b>Greek grill</b>charcoal souvlaki, homemade mezédes",
+  fact_k2:"The place",fact_v2:"<b>7, Grand-Rue</b>old town · sunny terrace",
+  fact_k3:"The house",fact_v3:"<b>Fresh & homemade</b>halal meat, takeaway too",
+  souv_eyebrow:"The speciality",souv_h:"The souvlaki,<span>over charcoal.</span>",
+  souv_lead:"Chicken or lamb skewers, grilled over charcoal, with homemade tzatziki, salad and warm pita.",
+  souv_body:"It's the Greek grill at its simplest and best: marinated meat, charcoal smoke, homemade dips. In a pita to take away, or on a plate to share on the terrace.",
+  souv_pill:"Charcoal-grilled",
+  gal_eyebrow:"At the table",gal_h:"The <em>Greek</em> table",
+  gal_p:"Mezédes, skewers, Greek salad, spanakopita and baklava — the generosity of the Greek grill, on the Grand-Rue.",
+  cap_mix:"The Télio mix grill",cap_dol:"Dolmades",cap_sal:"The dining room",cap_pita:"The souvlaki pita",cap_bif:"Biftéki",cap_bak:"Baklava",cap_ter:"Roast chicken",
+  carte_eyebrow:"The menu",carte_h:"What we <em>grill</em>",
+  carte_p:"The best of the Greek grill — mezédes, souvlaki in pita, big plates. Here's the menu, prices included.",
+  mg1:"The mezédes",mg2:"The souvlaki (in pita)",mg3:"The grill plates",mg3_sub:"served with salad, tzatziki, chips & pita",mg4:"From the oven & sweets",
+  i1n:"Greek salad",i1d:"Tomato, cucumber, feta, olives, oregano",i2n:"Dolmades",i2d:"Stuffed vine leaves, tzatziki",i3n:"Tzatziki",i4n:"Melitzanosalata",i4d:"Smoked aubergine dip",i5n:"Tirokafteri",i5d:"Feta, chilli, yogurt",
+  i6n:"Pita chicken skewers",i7n:"Pita lamb skewers",i8n:"Pita falafel",
+  i9n:"Télio mix grill",i9d:"Chicken, lamb, köfte, sausage",i10n:"Lamb chops",i11n:"Lamb skewer",i12n:"Chicken skewer",i13n:"Biftéki",i13d:"Grilled meat patty",
+  i14n:"Spanakopita",i14d:"Spinach & feta filo",i15n:"Baklava",i16n:"Kataïfi",i16d:"Pistachio & honey",
+  carte_note:"Menu and prices taken from the house's public delivery menu, for reference — to be confirmed on site. A selection of the Greek specialities; the house also offers a wider Mediterranean menu.",
+  mez_eyebrow:"To share",mez_h:"The mezédes,<span>on the terrace.</span>",
+  mez_lead:"Tzatziki, dolmades, Greek salad, aubergine dip: the little Greek dishes you pick at together, a warm pita in hand, on the terrace along the Grand-Rue. You take your time, you share.",
+  chip1:"Homemade",chip2:"Terrace on the Grand-Rue",chip3:"Halal meat",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book / order",ino_fl2:"(to be confirmed)",ino_order:"Order on Wolt ↗",
+  ino_k3:"Opening hours",ino_fl3:"Every day, lunch & evening · hours to be confirmed",
+  map_big:"Grand-Rue",map_sub:"The old town's main pedestrian street",map_btn:"Open in Maps ↗",
+  foot_p:"The Greek grill of the Grand-Rue — charcoal souvlaki, homemade mezédes, warm pita, in the heart of the old town.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories, reviews and delivery platforms). The brand and dishes belong to the house. The menu shown is a selection of the Greek specialities; menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+const HOURS={fr:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],de:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
+const SCHED={0:"12:00–21:30",1:"11:00–22:30",2:"11:00–22:30",3:"11:00–22:30",4:"11:00–22:30",5:"11:00–23:30",6:"11:00–23:30"};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  const d=new Date(); const day=d.getDay(); const s=SCHED[day];
+  const closed={fr:"Fermé aujourd'hui",de:"Heute geschlossen",en:"Closed today"}[l];
+  const el=document.getElementById("today"); if(el) el.textContent=HOURS[l][day]+" · "+(s?s:closed);
+  try{localStorage.setItem("te_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("te_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+</script>
+</body>
+</html>
