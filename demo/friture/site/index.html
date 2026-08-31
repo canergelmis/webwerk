@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
 <title>Friture de la Moselle — Remich, au bord de l'eau</title>
-<meta name="description" content="La friture de la Moselle à Remich — petits poissons frits, moules-frites et Riesling, en terrasse au bord de la rivière. Démonstration Webwerk."/>
+<meta name="description" content="La friture de la Moselle à Remich — petits poissons frits, moules-frites et Riesling, en terrasse au bord de la rivière, à la belle saison. Démonstration Webwerk."/>
 <style>
 @font-face{font-family:'Marcellus';src:url('assets/fonts/marcellus-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Marcellus';src:url('assets/fonts/marcellus-latinext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -52,14 +52,15 @@ nav.links a:hover{color:var(--gold);opacity:1}
 .burger.x span:nth-child(2){opacity:0}
 .burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
-.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-72px;padding-top:72px}
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-72px;padding-top:72px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
 .hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(28,40,48,.5) 0%,rgba(28,40,48,.2) 30%,rgba(28,40,48,.45) 64%,rgba(20,30,36,.9) 100%)}
-.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px)}
+.hero canvas#water{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--gold);margin-bottom:18px}
 .hero h1{color:#fff;font-size:clamp(50px,9vw,116px);letter-spacing:.01em;text-shadow:0 4px 40px rgba(0,0,0,.4);max-width:15ch}
-.hero .tag{font-family:'Onest',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f2ecdc;max-width:30ch;margin:22px 0 0;line-height:1.4}
+.hero .tag{font-family:'Onest',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f2ecdc;max-width:32ch;margin:22px 0 0;line-height:1.4}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
 .btn{font-family:'Onest',sans-serif;font-weight:600;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:2px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
 .btn.p{background:var(--gold);color:var(--slate)}
@@ -98,10 +99,11 @@ section{padding:clamp(56px,9vw,102px) 0}
 /* gallery */
 .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
 .gal figure{position:relative;overflow:hidden;border-radius:3px;background:var(--stone)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.gal figure:hover img{transform:scale(1.05)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.03);transition:transform .6s ease,filter .5s ease}
+.gal figure:hover img{transform:scale(1.05);filter:saturate(1.04) contrast(1.02)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,30,36,.82),transparent);color:#fff;font-family:'Marcellus',serif;font-weight:400;font-size:17px;letter-spacing:.02em}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,30,36,.82),transparent);color:#fff;font-family:'Marcellus',serif;font-weight:400;font-size:17px;letter-spacing:.02em}
+.gal figure::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(44,58,66,.12),rgba(201,162,39,.05));mix-blend-mode:multiply}
 
 /* menu */
 .carte{background:var(--stone)}
@@ -206,10 +208,11 @@ footer .made a{color:var(--gold)}
  <section class="hero" id="hero">
   <div class="bg"><img src="assets/hero.jpg" alt="La Moselle et la promenade à Remich"/></div>
   <div class="scrim"></div>
+  <canvas id="water" aria-hidden="true"></canvas>
   <div class="wrap inner">
-   <span class="eyebrow" data-i18n="hero_eyebrow">Au bord de l'eau · Remich · Moselle</span>
+   <span class="eyebrow" data-i18n="hero_eyebrow">La friture du quai · Remich · à la belle saison</span>
    <h1 data-i18n="hero_h">Friture de la Moselle</h1>
-   <p class="tag" data-i18n="hero_tag">Les petits poissons de la rivière, frits à la minute — les pieds au bord de l'eau, un verre de Riesling à la main.</p>
+   <p class="tag" data-i18n="hero_tag">Les petits poissons de la rivière, frits à la minute — la terrasse au bord de l'eau, un verre de Riesling à la main, aux beaux jours.</p>
    <div class="cta">
     <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
     <a class="btn o" href="#terrasse" data-i18n="hero_cta2">La terrasse ↓</a>
@@ -221,7 +224,7 @@ footer .made a{color:var(--gold)}
   <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#terr)"/></svg></div>
   <div class="wrap"><div class="row">
     <div class="c"><div class="k" data-i18n="fact_k1">La spécialité</div><div class="v" data-i18n="fact_v1"><b>La friture de la Moselle</b><br>petits poissons frits, citron, frites</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k2">La terrasse</div><div class="v" data-i18n="fact_v2"><b>Sur le quai</b><br>face à la rivière et aux bateaux</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">La terrasse</div><div class="v" data-i18n="fact_v2"><b>Sur le quai</b><br>au bord de l'eau, aux beaux jours</div></div>
     <div class="c"><div class="k" data-i18n="fact_k3">À boire</div><div class="v" data-i18n="fact_v3"><b>Le Riesling de la Moselle</b><br>le vin du coteau, juste à côté</div></div>
   </div></div>
  </div>
@@ -252,10 +255,10 @@ footer .made a{color:var(--gold)}
     <p data-i18n="gal_p">La friture et les moules, mais aussi les grillades, les salades, les tartes maison et les glaces — une cuisine de terrasse, simple et généreuse.</p>
    </div>
    <div class="gal">
-    <figure class="w2 h2"><img src="assets/friture.jpg" alt="La friture de la Moselle"/><figcaption data-i18n="cap_fri">La friture de la Moselle</figcaption></figure>
+    <figure class="w2 h2"><img src="assets/boats.jpg" alt="La Moselle et les bateaux de croisière"/><figcaption data-i18n="cap_riv">La Moselle, à deux pas</figcaption></figure>
     <figure><img src="assets/steak.jpg" alt="Grillade et frites"/><figcaption data-i18n="cap_steak">Grillade &amp; frites</figcaption></figure>
     <figure><img src="assets/salade.jpg" alt="Salade"/><figcaption data-i18n="cap_sal">La salade</figcaption></figure>
-    <figure class="w2"><img src="assets/boats.jpg" alt="La Moselle et les bateaux de croisière"/><figcaption data-i18n="cap_riv">La Moselle, à deux pas</figcaption></figure>
+    <figure class="w2"><img src="assets/hero.jpg" alt="La promenade du quai à Remich"/><figcaption data-i18n="cap_quai">La promenade du quai</figcaption></figure>
     <figure><img src="assets/tarte.jpg" alt="Tarte maison"/><figcaption data-i18n="cap_tarte">Tarte maison</figcaption></figure>
     <figure><img src="assets/glace.jpg" alt="Coupe glacée"/><figcaption data-i18n="cap_glace">Coupes &amp; glaces</figcaption></figure>
     <figure class="w2"><img src="assets/interior.jpg" alt="La vitrine à pâtisseries"/><figcaption data-i18n="cap_int">La vitrine à douceurs</figcaption></figure>
@@ -311,7 +314,7 @@ footer .made a{color:var(--gold)}
    <div class="txt">
     <span class="eyebrow" style="color:var(--gold)" data-i18n="terr_eyebrow">La terrasse</span>
     <h2 data-i18n="terr_h">Les pieds<span>au bord de l'eau.</span></h2>
-    <p class="lead" data-i18n="terr_lead">La terrasse donne sur la Moselle : les bateaux de croisière qui passent, les coteaux de Riesling en face, et le clapotis de la rivière. On s'installe, on commande une friture, et on prend son temps.</p>
+    <p class="lead" data-i18n="terr_lead">Aux beaux jours, la terrasse donne sur la Moselle : les bateaux de croisière qui passent, les coteaux de Riesling en face, et le clapotis de la rivière. On s'installe, on commande une friture, et on prend son temps.</p>
     <div class="chips">
      <span class="chip" data-i18n="chip1">Au bord de la rivière</span>
      <span class="chip b" data-i18n="chip2">Face aux coteaux</span>
@@ -333,7 +336,7 @@ footer .made a{color:var(--gold)}
     <div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">2, quai de la Moselle<br>L-5553 Remich · sur l'esplanade</div></div></div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><a href="tel:+35223698685">+352 23 69 86 85</a> <span class="fl" data-i18n="ino_fl2">(à confirmer)</span></div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Établissement saisonnier · souvent fermé le mardi · horaires à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Ouvert à la belle saison · souvent fermé le mardi · horaires à confirmer</span></div></div></div>
     </div>
     <div class="mapcard">
      <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#terr)"/></svg></div>
@@ -353,7 +356,7 @@ footer .made a{color:var(--gold)}
  <div class="wrap in">
   <div>
    <div class="nm">Friture de la Moselle<small>Remich · au bord de l'eau</small></div>
-   <p data-i18n="foot_p">La friture de la Moselle, en terrasse au bord de la rivière, à Remich. Poissons frits, moules-frites et Riesling.</p>
+   <p data-i18n="foot_p">La friture de la Moselle, en terrasse au bord de la rivière, à Remich. Poissons frits, moules-frites et Riesling, à la belle saison.</p>
    <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
   </div>
   <div>
@@ -368,11 +371,11 @@ footer .made a{color:var(--gold)}
 const I18N={
  fr:{
   nav_fri:"La friture",nav_carte:"La carte",nav_terr:"La terrasse",nav_infos:"Infos & accès",
-  hero_eyebrow:"Au bord de l'eau · Remich · Moselle",hero_h:"Friture de la Moselle",
-  hero_tag:"Les petits poissons de la rivière, frits à la minute — les pieds au bord de l'eau, un verre de Riesling à la main.",
+  hero_eyebrow:"La friture du quai · Remich · à la belle saison",hero_h:"Friture de la Moselle",
+  hero_tag:"Les petits poissons de la rivière, frits à la minute — la terrasse au bord de l'eau, un verre de Riesling à la main, aux beaux jours.",
   hero_cta1:"Voir la carte",hero_cta2:"La terrasse ↓",
   fact_k1:"La spécialité",fact_v1:"<b>La friture de la Moselle</b><br>petits poissons frits, citron, frites",
-  fact_k2:"La terrasse",fact_v2:"<b>Sur le quai</b><br>face à la rivière et aux bateaux",
+  fact_k2:"La terrasse",fact_v2:"<b>Sur le quai</b><br>au bord de l'eau, aux beaux jours",
   fact_k3:"À boire",fact_v3:"<b>Le Riesling de la Moselle</b><br>le vin du coteau, juste à côté",
   fri_eyebrow:"La spécialité",fri_h:"La friture<span>de la Moselle.</span>",
   fri_lead:"Des petits poissons de rivière, légèrement panés et frits à la minute, avec un quartier de citron et des frites maison.",
@@ -380,7 +383,7 @@ const I18N={
   fri_pill:"Frite à la minute",
   gal_eyebrow:"À la carte",gal_h:"La cuisine <em>du bord de l'eau</em>",
   gal_p:"La friture et les moules, mais aussi les grillades, les salades, les tartes maison et les glaces — une cuisine de terrasse, simple et généreuse.",
-  cap_fri:"La friture de la Moselle",cap_steak:"Grillade & frites",cap_sal:"La salade",cap_riv:"La Moselle, à deux pas",cap_tarte:"Tarte maison",cap_glace:"Coupes & glaces",cap_int:"La vitrine à douceurs",
+  cap_fri:"La friture de la Moselle",cap_steak:"Grillade & frites",cap_sal:"La salade",cap_riv:"La Moselle, à deux pas",cap_quai:"La promenade du quai",cap_tarte:"Tarte maison",cap_glace:"Coupes & glaces",cap_int:"La vitrine à douceurs",
   carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
   carte_p:"Une carte de terrasse au bord de l'eau. Voici les plats de la maison — les prix se confirment sur place.",
   mg1:"La friture & les poissons",mg2:"Les classiques",mg3:"Les douceurs",mg4:"Les vins de la Moselle",
@@ -390,23 +393,23 @@ const I18N={
   i10n:"Riesling",i10d:"Du coteau voisin",i11n:"Crémant & pinot",ac:"à conf.",
   carte_note:"Plats relevés à partir de sources publiques (avis, annuaires), à titre indicatif. Aucun prix n'est publié : la carte, les prix et la saison (souvent fermé le mardi) sont à confirmer avec la maison.",
   terr_eyebrow:"La terrasse",terr_h:"Les pieds<span>au bord de l'eau.</span>",
-  terr_lead:"La terrasse donne sur la Moselle : les bateaux de croisière qui passent, les coteaux de Riesling en face, et le clapotis de la rivière. On s'installe, on commande une friture, et on prend son temps.",
+  terr_lead:"Aux beaux jours, la terrasse donne sur la Moselle : les bateaux de croisière qui passent, les coteaux de Riesling en face, et le clapotis de la rivière. On s'installe, on commande une friture, et on prend son temps.",
   chip1:"Au bord de la rivière",chip2:"Face aux coteaux",chip3:"Les bateaux de la Moselle",
   infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
   ino_k1:"Adresse",ino_k2:"Réserver",ino_fl2:"(à confirmer)",
-  ino_k3:"Horaires",ino_fl3:"Établissement saisonnier · souvent fermé le mardi · horaires à confirmer",
+  ino_k3:"Horaires",ino_fl3:"Ouvert à la belle saison · souvent fermé le mardi · horaires à confirmer",
   map_big:"Remich",map_sub:"Sur l'esplanade, au bord de la Moselle",map_btn:"Ouvrir dans Maps ↗",
-  foot_p:"La friture de la Moselle, en terrasse au bord de la rivière, à Remich. Poissons frits, moules-frites et Riesling.",
+  foot_p:"La friture de la Moselle, en terrasse au bord de la rivière, à Remich. Poissons frits, moules-frites et Riesling, à la belle saison.",
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires, saison et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
  de:{
   nav_fri:"Die Friture",nav_carte:"Karte",nav_terr:"Die Terrasse",nav_infos:"Infos & Anfahrt",
-  hero_eyebrow:"Am Wasser · Remich · Mosel",hero_h:"Friture de la Moselle",
-  hero_tag:"Die kleinen Flussfische, frisch frittiert — direkt am Wasser, ein Glas Riesling in der Hand.",
+  hero_eyebrow:"Die Friture am Kai · Remich · zur schönen Jahreszeit",hero_h:"Friture de la Moselle",
+  hero_tag:"Die kleinen Flussfische, frisch frittiert — die Terrasse am Wasser, ein Glas Riesling in der Hand, an den schönen Tagen.",
   hero_cta1:"Zur Karte",hero_cta2:"Die Terrasse ↓",
   fact_k1:"Die Spezialität",fact_v1:"<b>Die Friture de la Moselle</b><br>frittierte Flussfischchen, Zitrone, Pommes",
-  fact_k2:"Die Terrasse",fact_v2:"<b>Am Kai</b><br>direkt am Fluss und den Booten",
+  fact_k2:"Die Terrasse",fact_v2:"<b>Am Kai</b><br>am Wasser, an den schönen Tagen",
   fact_k3:"Zu trinken",fact_v3:"<b>Der Mosel-Riesling</b><br>der Wein vom Hang nebenan",
   fri_eyebrow:"Die Spezialität",fri_h:"Die Friture<span>de la Moselle.</span>",
   fri_lead:"Kleine Flussfische, leicht paniert und frisch frittiert, mit einer Zitronenspalte und hausgemachten Pommes.",
@@ -414,7 +417,7 @@ const I18N={
   fri_pill:"Frisch frittiert",
   gal_eyebrow:"Von der Karte",gal_h:"Die Küche <em>am Wasser</em>",
   gal_p:"Die Friture und die Muscheln, aber auch Grillgerichte, Salate, hausgemachte Kuchen und Eis — eine Terrassenküche, einfach und großzügig.",
-  cap_fri:"Die Friture de la Moselle",cap_steak:"Grillgericht & Pommes",cap_sal:"Der Salat",cap_riv:"Die Mosel, ganz nah",cap_tarte:"Hausgemachter Kuchen",cap_glace:"Eis & Becher",cap_int:"Die Süßwaren-Vitrine",
+  cap_fri:"Die Friture de la Moselle",cap_steak:"Grillgericht & Pommes",cap_sal:"Der Salat",cap_riv:"Die Mosel, ganz nah",cap_quai:"Die Uferpromenade",cap_tarte:"Hausgemachter Kuchen",cap_glace:"Eis & Becher",cap_int:"Die Süßwaren-Vitrine",
   carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
   carte_p:"Eine Terrassenkarte am Wasser. Das sind die Gerichte des Hauses — die Preise werden vor Ort bestätigt.",
   mg1:"Friture & Fisch",mg2:"Die Klassiker",mg3:"Die Süßspeisen",mg4:"Die Mosel-Weine",
@@ -424,23 +427,23 @@ const I18N={
   i10n:"Riesling",i10d:"Vom benachbarten Hang",i11n:"Crémant & Pinot",ac:"n. Angabe",
   carte_note:"Gerichte aus öffentlichen Quellen (Bewertungen, Verzeichnisse), ohne Gewähr. Es sind keine Preise veröffentlicht: Karte, Preise und Saison (oft dienstags geschlossen) beim Haus zu bestätigen.",
   terr_eyebrow:"Die Terrasse",terr_h:"Die Füße<span>am Wasser.</span>",
-  terr_lead:"Die Terrasse liegt direkt an der Mosel: die vorbeifahrenden Ausflugsboote, die Rieslinghänge gegenüber und das Plätschern des Flusses. Man setzt sich, bestellt eine Friture und lässt sich Zeit.",
+  terr_lead:"An den schönen Tagen liegt die Terrasse direkt an der Mosel: die vorbeifahrenden Ausflugsboote, die Rieslinghänge gegenüber und das Plätschern des Flusses. Man setzt sich, bestellt eine Friture und lässt sich Zeit.",
   chip1:"Direkt am Fluss",chip2:"Blick auf die Hänge",chip3:"Die Mosel-Boote",
   infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
   ino_k1:"Adresse",ino_k2:"Reservieren",ino_fl2:"(zu bestätigen)",
-  ino_k3:"Öffnungszeiten",ino_fl3:"Saisonbetrieb · oft dienstags geschlossen · Zeiten zu bestätigen",
+  ino_k3:"Öffnungszeiten",ino_fl3:"Zur schönen Jahreszeit geöffnet · oft dienstags geschlossen · Zeiten zu bestätigen",
   map_big:"Remich",map_sub:"Auf der Esplanade, direkt an der Mosel",map_btn:"In Maps öffnen ↗",
-  foot_p:"Die Friture de la Moselle, auf der Terrasse am Fluss, in Remich. Frittierter Fisch, Muscheln & Pommes und Riesling.",
+  foot_p:"Die Friture de la Moselle, auf der Terrasse am Fluss, in Remich. Frittierter Fisch, Muscheln & Pommes und Riesling, zur schönen Jahreszeit.",
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten, Saison und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
  en:{
   nav_fri:"The friture",nav_carte:"Menu",nav_terr:"The terrace",nav_infos:"Find us",
-  hero_eyebrow:"By the water · Remich · Moselle",hero_h:"Friture de la Moselle",
-  hero_tag:"The river's little fish, fried to order — feet by the water, a glass of Riesling in hand.",
+  hero_eyebrow:"The friture on the quay · Remich · in the fine season",hero_h:"Friture de la Moselle",
+  hero_tag:"The river's little fish, fried to order — the terrace by the water, a glass of Riesling in hand, on the fine days.",
   hero_cta1:"See the menu",hero_cta2:"The terrace ↓",
   fact_k1:"The speciality",fact_v1:"<b>The Moselle friture</b><br>fried river fish, lemon, chips",
-  fact_k2:"The terrace",fact_v2:"<b>On the quay</b><br>facing the river and the boats",
+  fact_k2:"The terrace",fact_v2:"<b>On the quay</b><br>by the water, on the fine days",
   fact_k3:"To drink",fact_v3:"<b>Moselle Riesling</b><br>the wine from the slope next door",
   fri_eyebrow:"The speciality",fri_h:"The friture<span>of the Moselle.</span>",
   fri_lead:"Little river fish, lightly floured and fried to order, with a wedge of lemon and house chips.",
@@ -448,7 +451,7 @@ const I18N={
   fri_pill:"Fried to order",
   gal_eyebrow:"À la carte",gal_h:"The kitchen <em>by the water</em>",
   gal_p:"The friture and the mussels, but also grills, salads, house tarts and ice cream — a terrace kitchen, simple and generous.",
-  cap_fri:"The Moselle friture",cap_steak:"Grill & chips",cap_sal:"The salad",cap_riv:"The Moselle, a step away",cap_tarte:"House tart",cap_glace:"Ice cream & sundaes",cap_int:"The pastry counter",
+  cap_fri:"The Moselle friture",cap_steak:"Grill & chips",cap_sal:"The salad",cap_riv:"The Moselle, a step away",cap_quai:"The quayside promenade",cap_tarte:"House tart",cap_glace:"Ice cream & sundaes",cap_int:"The pastry counter",
   carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
   carte_p:"A terrace menu by the water. Here are the house dishes — prices are confirmed on site.",
   mg1:"The friture & fish",mg2:"The classics",mg3:"The sweets",mg4:"Moselle wines",
@@ -458,13 +461,13 @@ const I18N={
   i10n:"Riesling",i10d:"From the slope next door",i11n:"Crémant & pinot",ac:"tbc",
   carte_note:"Dishes drawn from public sources (reviews, directories), for reference only. No prices are published: the menu, prices and season (often closed on Tuesdays) are to be confirmed with the house.",
   terr_eyebrow:"The terrace",terr_h:"Feet<span>by the water.</span>",
-  terr_lead:"The terrace looks onto the Moselle: the cruise boats gliding past, the Riesling slopes opposite, and the lap of the river. You sit down, order a friture, and take your time.",
+  terr_lead:"On the fine days, the terrace looks onto the Moselle: the cruise boats gliding past, the Riesling slopes opposite, and the lap of the river. You sit down, order a friture, and take your time.",
   chip1:"Right by the river",chip2:"Facing the slopes",chip3:"The Moselle boats",
   infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
   ino_k1:"Address",ino_k2:"Book",ino_fl2:"(to be confirmed)",
-  ino_k3:"Opening hours",ino_fl3:"Seasonal · often closed on Tuesdays · hours to be confirmed",
+  ino_k3:"Opening hours",ino_fl3:"Open in the fine season · often closed on Tuesdays · hours to be confirmed",
   map_big:"Remich",map_sub:"On the esplanade, by the Moselle",map_btn:"Open in Maps ↗",
-  foot_p:"The Moselle friture, on the terrace by the river, in Remich. Fried fish, mussels & chips and Riesling.",
+  foot_p:"The Moselle friture, on the terrace by the river, in Remich. Fried fish, mussels & chips and Riesling, in the fine season.",
   foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
   disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand and dishes belong to the house. Menu, prices, hours, season and phone are to be confirmed — an unofficial proposal, not affiliated to date."
  }
@@ -490,6 +493,31 @@ const hd=document.getElementById("hd");
 const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("fm_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* the living Moselle — drifting current lines behind the hero */
+(function(){
+  const cv=document.getElementById("water"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null; const N=9;
+  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+  function frame(t){
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<N;i++){
+      const yBase=H*(0.34+i*0.072);
+      const amp=3+i*0.9, k=0.007+i*0.0004, sp=t*0.0006*(0.6+i*0.05)+i*1.3;
+      const alpha=0.05+(i/N)*0.15;
+      ctx.strokeStyle="rgba(201,162,39,"+alpha.toFixed(3)+")"; ctx.lineWidth=1.2; ctx.beginPath();
+      for(let x=0;x<=W;x+=8){const y=yBase+Math.sin(x*k+sp)*amp; if(x===0)ctx.moveTo(x,y); else ctx.lineTo(x,y);}
+      ctx.stroke();
+    }
+  }
+  function loop(t){frame(t);raf=requestAnimationFrame(loop);}
+  resize(); window.addEventListener("resize",resize);
+  if(reduce){frame(0);return;}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf)raf=requestAnimationFrame(loop);else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
+  io.observe(cv);
+})();
 </script>
 </body>
 </html>
