@@ -62,6 +62,7 @@ nav.links a:hover{color:var(--amber);opacity:1}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
 .hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(22,29,45,.55) 0%,rgba(22,29,45,.25) 30%,rgba(22,29,45,.5) 64%,rgba(18,24,38,.92) 100%)}
 .hero .pano{position:absolute;top:0;left:0;right:0;z-index:1}
+.hero canvas#weave{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--amber);margin-bottom:14px}
 .hero h1{color:#fff;font-size:clamp(56px,11vw,150px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.45);line-height:1.0}
@@ -194,6 +195,7 @@ footer .made a{color:var(--amber)}
  <section class="hero" id="hero">
   <div class="bg"><img src="assets/hero.jpg" alt="Une assiette généreuse chez Sabor di Terra"/></div>
   <div class="scrim"></div>
+  <canvas id="weave" aria-hidden="true"></canvas>
   <div class="pano" aria-hidden="true"></div>
   <div class="wrap inner">
    <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine cap-verdienne · Esch-sur-Alzette</span>
@@ -480,6 +482,37 @@ const hd=document.getElementById("hd");
 const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("sb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* pano di téra — woven-light shimmer sweeping across the strip-weave (the signature) */
+(function(){
+  const cv=document.getElementById("weave"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null,cols=[]; const SEG=7;
+  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  // pano-di-téra band palette: indigo / ochre / coral / amber / indigo / bone (rgb, base alpha)
+  const PAL=[["30,58,95",0.11],["201,138,60",0.15],["214,88,75",0.14],["224,168,94",0.14],["30,58,95",0.11],["242,237,226",0.08]];
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);build();}
+  function build(){cols=[];let x=0,i=0;while(x<W){const bw=11+(i%3)*7;const c=PAL[i%PAL.length];cols.push({x:x,w:bw,c:c[0],a:c[1]});x+=bw+2;i++;}}
+  function draw(tm){
+    ctx.clearRect(0,0,W,H);
+    const range=W+0.6*H; const lc=((tm*0.00026)%1)*(range+W*0.6)-W*0.3; // diagonal light centre, sweeping L→R
+    for(const col of cols){
+      for(let s=0;s<SEG;s++){
+        const y=H*s/SEG, ymid=y+H/(2*SEG);
+        const proj=col.x-0.6*ymid;               // tilt → diagonal band
+        const d=Math.abs(proj-lc), lit=Math.max(0,1-d/(W*0.40));
+        const a=col.a+0.52*lit*lit;              // base ~0.11 → lit ~0.63, a bright sweep of woven light
+        ctx.fillStyle="rgba("+col.c+","+a.toFixed(3)+")";
+        ctx.fillRect(col.x,y,col.w,H/SEG+1);
+      }
+    }
+  }
+  function loop(tm){draw(tm);raf=requestAnimationFrame(loop);}
+  resize(); window.addEventListener("resize",resize);
+  if(reduce){draw(4000);return;}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf)raf=requestAnimationFrame(loop);else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
+  io.observe(cv);
+})();
 </script>
 </body>
 </html>

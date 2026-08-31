@@ -72,16 +72,18 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .btn.p:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(184,145,47,.36)}
 .btn.g{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.42)}
 .btn.g:hover{background:rgba(255,255,255,.2)}
-/* wycinanki sun — the real brand mark, drawing in */
-.sun-wrap{position:absolute;z-index:2;right:clamp(18px,6vw,60px);top:clamp(74px,12vw,116px);width:clamp(120px,20vw,210px);height:clamp(120px,20vw,210px);opacity:.95;pointer-events:none}
-.sun{width:100%;height:100%;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4))}
+/* wycinanki sun — the real brand mark: draws in, then rotates + breathes continuously */
+.sun-wrap{position:absolute;z-index:1;right:clamp(-56px,-2vw,20px);top:0;bottom:0;margin:auto 0;width:clamp(260px,40vw,500px);height:clamp(260px,40vw,500px);opacity:.55;pointer-events:none;transform-origin:center;animation:sunbreathe 5.5s ease-in-out infinite}
+.sun{width:100%;height:100%;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4));transform-origin:center;animation:sunspin 24s linear infinite}
 .sun *{fill:none;stroke:var(--gold-lite);stroke-linecap:round}
 .sun [data-core]{fill:var(--gold-lite);stroke:none}
 .sun.draw *{opacity:0;transform:scale(.5);transform-box:fill-box;transform-origin:50% 50%;animation:sunin .6s cubic-bezier(.2,.8,.3,1) forwards}
 .sun.draw *:nth-child(1){animation-delay:0s}.sun.draw *:nth-child(2){animation-delay:.07s}.sun.draw *:nth-child(3){animation-delay:.14s}.sun.draw *:nth-child(4){animation-delay:.21s}.sun.draw *:nth-child(5){animation-delay:.28s}.sun.draw *:nth-child(6){animation-delay:.35s}.sun.draw *:nth-child(7){animation-delay:.42s}.sun.draw *:nth-child(8){animation-delay:.49s}
 @keyframes sunin{to{opacity:1;transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){.sun.draw *{animation:none;opacity:1;transform:none}}
-@media(max-width:720px){.sun-wrap{display:none}}
+@keyframes sunspin{to{transform:rotate(360deg)}}
+@keyframes sunbreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@media(prefers-reduced-motion:reduce){.sun.draw *{animation:none;opacity:1;transform:none}.sun{animation:none}.sun-wrap{animation:none}}
+@media(max-width:720px){.sun-wrap{width:clamp(200px,62vw,340px);height:clamp(200px,62vw,340px);right:clamp(-60px,-10vw,-8px);opacity:.4}}
 
 /* ===================== FACTS ===================== */
 .facts{background:var(--char);color:#ecdcbb}
@@ -419,7 +421,7 @@ var I18N = {
     hours_kick:"Horaires", hours_h:"Quand nous ouvrons", hours_note:"Service midi & soir (pause l'après-midi). Horaires indicatifs — à confirmer avec la maison.",
     foot_sub:"Brasserie · Pfaffenthal · Luxembourg", foot_made:"Aperçu de site composé pour la maison par",
     disclaimer:"Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site d'Osada. La marque (soleil & nom) est celle de la maison, reprise d'après son enseigne. La carte et les prix sont relevés sur la carte de la maison et restent à confirmer, tout comme les horaires et le numéro. Photographies de sources publiques, à remplacer par les visuels du restaurant.",
-    days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé", svc:"11:30–14:00 · 18:00–22:00"
+    days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé", svc:"midi & soir"
   },
   de:{
     brand_sub:"Brasserie Restaurant", nav_zurek:"Der Żurek", nav_carte:"Die Karte", nav_infos:"Infos & Anfahrt",
@@ -452,7 +454,7 @@ var I18N = {
     hours_kick:"Öffnungszeiten", hours_h:"Wann wir öffnen", hours_note:"Mittags & abends (Pause am Nachmittag). Zeiten als Richtwert — mit dem Haus zu bestätigen.",
     foot_sub:"Brasserie · Pfaffenthal · Luxemburg", foot_made:"Website-Vorschau für das Haus, gestaltet von",
     disclaimer:"Diese Seite ist ein inoffizieller Vorschlag von Webwerk auf Basis öffentlicher Quellen und zeigt, wie die Website von Osada aussehen könnte. Die Marke (Sonne & Name) gehört dem Haus, übernommen von seinem Schild. Karte und Preise wurden von der Karte des Hauses abgelesen und bleiben zu bestätigen, ebenso Öffnungszeiten und Nummer. Fotos aus öffentlichen Quellen, durch eigene Bilder des Restaurants zu ersetzen.",
-    days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen", svc:"11:30–14:00 · 18:00–22:00"
+    days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen", svc:"mittags & abends"
   },
   en:{
     brand_sub:"Brasserie Restaurant", nav_zurek:"The żurek", nav_carte:"The menu", nav_infos:"Find us",
@@ -485,7 +487,7 @@ var I18N = {
     hours_kick:"Opening hours", hours_h:"When we open", hours_note:"Lunch & dinner (afternoon break). Hours indicative — to be confirmed with the venue.",
     foot_sub:"Brasserie · Pfaffenthal · Luxembourg", foot_made:"Website preview composed for the venue by",
     disclaimer:"This page is an unofficial proposal by Webwerk, built from public sources to show what Osada's website could look like. The brand (sun & name) is the venue's own, taken from its sign. The menu and prices were read off the venue's own card and remain to be confirmed, as do the hours and phone number. Public-source photographs, to be replaced with the restaurant's own visuals.",
-    days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], closed:"Closed", svc:"11:30–14:00 · 18:00–22:00"
+    days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], closed:"Closed", svc:"lunch & evening"
   }
 };
 /* Hours by getDay() (0=Sun..6=Sat) — indicative: open Tue–Sun midday & evening, closed Monday (à confirmer) */

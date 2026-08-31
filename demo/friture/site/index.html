@@ -505,9 +505,9 @@ try{const sv=localStorage.getItem("fm_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
     ctx.clearRect(0,0,W,H);
     for(let i=0;i<N;i++){
       const yBase=H*(0.34+i*0.072);
-      const amp=3+i*0.9, k=0.007+i*0.0004, sp=t*0.0006*(0.6+i*0.05)+i*1.3;
-      const alpha=0.05+(i/N)*0.15;
-      ctx.strokeStyle="rgba(201,162,39,"+alpha.toFixed(3)+")"; ctx.lineWidth=1.2; ctx.beginPath();
+      const amp=5+i*1.4, k=0.007+i*0.0004, sp=t*0.0006*(0.6+i*0.05)+i*1.3;
+      const alpha=0.10+(i/N)*0.30;
+      ctx.strokeStyle="rgba(201,162,39,"+alpha.toFixed(3)+")"; ctx.lineWidth=1.5; ctx.beginPath();
       for(let x=0;x<=W;x+=8){const y=yBase+Math.sin(x*k+sp)*amp; if(x===0)ctx.moveTo(x,y); else ctx.lineTo(x,y);}
       ctx.stroke();
     }
