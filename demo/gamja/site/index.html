@@ -41,6 +41,18 @@ h1,h2,h3,.disp{font-family:'Hedvig','Schibsted',serif;font-weight:400;line-heigh
 .bojagi i:nth-child(6n+5){flex:2.6;background:var(--indigo)}
 .bojagi i:nth-child(6n+6){flex:2;background:var(--wood)}
 .divider{padding:30px 0}
+/* living quilt — bojagi patches breathe, + the red sign-stripe catches a shine (the signature) */
+@keyframes bojBreathe{0%,100%{opacity:.7;filter:brightness(.95)}50%{opacity:1;filter:brightness(1.08)}}
+.bojagi i{animation:bojBreathe 4.2s ease-in-out infinite}
+.bojagi i:nth-child(2n){animation-delay:-1.1s}
+.bojagi i:nth-child(3n){animation-delay:-2.3s}
+.bojagi i:nth-child(4n){animation-delay:-3.4s}
+@keyframes quiltPulse{0%,100%{filter:brightness(.97)}50%{filter:brightness(1.06)}}
+.facts .c{animation:quiltPulse 4.6s ease-in-out infinite}
+.facts .c:nth-child(2){animation-delay:-1.6s}
+.facts .c:nth-child(3){animation-delay:-3.1s}
+.hero .stripe::after,.mapcard .stripe::after{content:"";position:absolute;left:-25%;right:-25%;height:38%;top:-45%;background:linear-gradient(180deg,transparent,rgba(255,255,255,.6),transparent);pointer-events:none;animation:stripeShine 5s ease-in-out infinite}
+@keyframes stripeShine{0%{top:-45%;opacity:0}12%{opacity:.9}80%{opacity:.9}100%{top:104%;opacity:0}}
 
 header{position:sticky;top:0;z-index:50;transition:background .3s}
 header.solid{background:var(--char);box-shadow:0 2px 22px rgba(0,0,0,.3)}
@@ -67,8 +79,9 @@ nav.links a:hover{color:var(--celadon);opacity:1}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
 .hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,17,14,.55) 0%,rgba(20,17,14,.25) 32%,rgba(20,17,14,.5) 66%,rgba(15,12,9,.92) 100%)}
-.hero .stripe{position:absolute;top:0;bottom:0;right:14%;width:34px;background:var(--red);transform:skewX(-14deg);opacity:.9;z-index:-1;box-shadow:0 0 60px rgba(200,69,46,.4)}
-.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px)}
+.hero .stripe{position:absolute;top:0;bottom:0;right:14%;width:34px;background:var(--red);transform:skewX(-14deg);opacity:.9;z-index:-1;box-shadow:0 0 60px rgba(200,69,46,.4);overflow:hidden}
+.hero canvas#quilt{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--celadon);margin-bottom:14px}
 .hero h1{color:#fff;font-size:clamp(64px,13vw,168px);letter-spacing:.04em;text-shadow:0 4px 40px rgba(0,0,0,.45);display:flex;align-items:baseline;gap:22px;flex-wrap:wrap}
 .hero h1 .han{font-size:.42em;color:var(--celadon);letter-spacing:0}
@@ -154,7 +167,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .ino .fl{color:var(--muted);font-size:13px;font-style:italic}
 .hours-today{font-family:'Hedvig';color:var(--celadon-d);font-size:18px}
 .mapcard{background:var(--char);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#eee4d1;text-align:center;padding:34px}
-.mapcard .stripe{position:absolute;top:0;bottom:0;right:24%;width:26px;background:var(--red);transform:skewX(-14deg);opacity:.85}
+.mapcard .stripe{position:absolute;top:0;bottom:0;right:24%;width:26px;background:var(--red);transform:skewX(-14deg);opacity:.85;overflow:hidden}
 .mapcard .in{position:relative}
 .mapcard .big{font-family:'Hedvig';font-size:30px;color:#fff;letter-spacing:.04em}
 .mapcard .btn{margin-top:20px}
@@ -183,7 +196,10 @@ footer .made a{color:var(--celadon)}
  .hero h1{font-size:clamp(52px,17vw,96px)}
  .hero .stripe{right:6%}
 }
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}
+ .bojagi i,.facts .c,.hero .stripe::after,.mapcard .stripe::after{animation:none!important}
+ .bojagi i{opacity:1;filter:none}
+ .hero .stripe::after,.mapcard .stripe::after{opacity:0}}
 </style>
 </head>
 <body>
@@ -212,6 +228,7 @@ footer .made a{color:var(--celadon)}
   <div class="bg"><img src="assets/hero.jpg" alt="Le barbecue coréen grillé à table chez Gamja"/></div>
   <div class="scrim"></div>
   <div class="stripe" aria-hidden="true"></div>
+  <canvas id="quilt" aria-hidden="true"></canvas>
   <div class="wrap inner">
    <span class="eyebrow" data-i18n="hero_eyebrow">Barbecue coréen · Dudelange</span>
    <h1>Gamja<span class="han">감자</span></h1>
@@ -497,6 +514,32 @@ const hd=document.getElementById("hd");
 const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("gj_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* bojagi living quilt — a pieced patchwork lit by a light sweeping the hero (the signature) */
+(function(){
+  const cv=document.getElementById("quilt"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let panels=[],raf=null;
+  const PAL=[[123,166,151],[176,122,60],[236,227,209],[200,69,46],[46,74,98],[138,90,43]];
+  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);build();}
+  function build(){panels=[];let y=0,ri=0;while(y<H){const rh=Math.round(H*(0.12+((ri*7)%5)*0.028));let x=0,ci=0;while(x<W){const cw=Math.round(W*(0.09+(((ri+ci)*13)%6)*0.027));const c=PAL[(ri*3+ci)%PAL.length];panels.push({x:x,y:y,w:Math.min(cw,W-x),h:Math.min(rh,H-y),c:c});x+=cw+2;ci++;}y+=rh+2;ri++;}}
+  function frame(tm){
+    ctx.clearRect(0,0,W,H);
+    const range=W+0.6*H, lc=((tm*0.00017)%1)*(range+W*0.5)-W*0.25;
+    for(const p of panels){
+      const px=p.x+p.w/2, py=p.y+p.h/2, proj=px-0.6*py, d=Math.abs(proj-lc), lit=Math.max(0,1-d/(W*0.36));
+      const a=0.06+0.28*lit*lit;
+      ctx.fillStyle="rgba("+p.c[0]+","+p.c[1]+","+p.c[2]+","+a.toFixed(3)+")";
+      ctx.fillRect(p.x,p.y,p.w-1.5,p.h-1.5);
+    }
+  }
+  function loop(tm){frame(tm);raf=requestAnimationFrame(loop);}
+  resize(); window.addEventListener("resize",resize);
+  if(reduce){frame(3000);return;}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf)raf=requestAnimationFrame(loop);else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
+  io.observe(cv);
+})();
 </script>
 </body>
 </html>

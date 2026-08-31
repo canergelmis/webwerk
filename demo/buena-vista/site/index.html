@@ -71,15 +71,16 @@ nav.main a:hover::after{right:0}
 
 /* ===================== HERO (CSS sunset scene) ===================== */
 .hero{position:relative;overflow:hidden;background:radial-gradient(58% 42% at 50% 40%,rgba(244,173,87,.6),transparent 62%),linear-gradient(180deg,var(--coral) 0%,var(--coral2) 46%,#f0b48f 56%,var(--teal) 56%,var(--teal2) 100%)}
-.hero .ghsky{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(56% 40% at 50% 38%,rgba(255,196,120,.34),transparent 62%);animation:ghsky 9s ease-in-out infinite}
+.hero .ghsky{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(56% 40% at 50% 38%,rgba(255,196,120,.52),transparent 64%);animation:ghsky 9s ease-in-out infinite}
 @keyframes ghsky{0%,100%{opacity:.55;transform:translateY(0)}50%{opacity:1;transform:translateY(2.5%)}}
-.hero .rays{position:absolute;left:50%;top:34%;width:120vmax;height:120vmax;transform:translate(-50%,-50%);z-index:0;pointer-events:none;opacity:.65;
-  background:repeating-conic-gradient(from 0deg,rgba(255,214,150,.10) 0 5deg,transparent 5deg 16deg);
-  -webkit-mask:radial-gradient(closest-side,#000 0 26%,transparent 60%);mask:radial-gradient(closest-side,#000 0 26%,transparent 60%);
-  animation:spin 64s linear infinite}
+.hero .rays{position:absolute;left:50%;top:34%;width:120vmax;height:120vmax;transform:translate(-50%,-50%);z-index:0;pointer-events:none;opacity:.9;
+  background:repeating-conic-gradient(from 0deg,rgba(255,214,150,.22) 0 5deg,transparent 5deg 16deg);
+  -webkit-mask:radial-gradient(closest-side,#000 0 22%,transparent 66%);mask:radial-gradient(closest-side,#000 0 22%,transparent 66%);
+  animation:spin 30s linear infinite}
 @keyframes spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 .hero .sea{position:absolute;left:0;right:0;bottom:0;height:44%;z-index:0;pointer-events:none;overflow:hidden}
-.hero .sea::before{content:"";position:absolute;left:-50%;right:-50%;top:16%;height:3px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);filter:blur(1px);animation:shimmer 7.5s ease-in-out infinite}
+.hero .sea::before{content:"";position:absolute;left:-50%;right:-50%;top:16%;height:3px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);filter:blur(1px);animation:shimmer 6s ease-in-out infinite}
+.hero .sea::after{content:"";position:absolute;left:-50%;right:-50%;top:34%;height:2px;background:linear-gradient(90deg,transparent,rgba(255,236,200,.6),transparent);filter:blur(1px);animation:shimmer 9s ease-in-out infinite .8s}
 @keyframes shimmer{0%{transform:translateX(-28%);opacity:0}50%{opacity:.85}100%{transform:translateX(28%);opacity:0}}
 .hero .sun{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:min(340px,54vw);height:min(340px,54vw);border-radius:50%;
   background:radial-gradient(circle at 50% 45%,var(--orange2),var(--orange) 62%,#d9822f 100%);

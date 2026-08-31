@@ -55,11 +55,12 @@ nav.links a:hover{color:var(--amber);opacity:1}
 .burger.x span:nth-child(2){opacity:0}
 .burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
-.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-70px;padding-top:70px}
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-70px;padding-top:70px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
 .hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,16,10,.55) 0%,rgba(20,16,10,.28) 32%,rgba(20,16,10,.55) 66%,rgba(15,11,6,.93) 100%)}
-.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px)}
+.hero canvas#calc{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--amber);margin-bottom:18px}
 .hero h1{color:#fff;font-size:clamp(56px,11.5vw,148px);letter-spacing:-.01em;text-shadow:0 4px 40px rgba(0,0,0,.45)}
 .hero .tag{font-family:'Albert',sans-serif;font-weight:500;font-size:clamp(18px,2.4vw,27px);color:#f5ecd6;max-width:30ch;margin:20px 0 0;line-height:1.36}
@@ -211,6 +212,7 @@ footer .made a{color:var(--amber)}
  <section class="hero" id="hero">
   <div class="bg"><img src="assets/hero.jpg" alt="Le Diplomate, route de Kayl à Dudelange, le soir"/></div>
   <div class="scrim"></div>
+  <canvas id="calc" aria-hidden="true"></canvas>
   <div class="wrap inner">
    <span class="eyebrow" data-i18n="hero_eyebrow">Churrasco brésilien · Dudelange</span>
    <h1>Le Diplomate</h1>
@@ -492,6 +494,34 @@ const hd=document.getElementById("hd");
 const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("ld_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* calçadão de Copacabana — bold flowing wave bands (the wow) */
+(function(){
+  const cv=document.getElementById("calc"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null; const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const LINES=7;
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+  function frame(tm){
+    ctx.clearRect(0,0,W,H);
+    const gap=H/(LINES-1), k=(2*Math.PI)/(W*0.62);
+    ctx.lineCap="round";
+    for(let i=0;i<LINES;i++){
+      const yBase=i*gap, amp=22+(i%2)*6, ph=tm*0.00058+i*0.72;
+      const cream=(i%2===0);
+      ctx.strokeStyle=cream?"rgba(236,224,200,0.15)":"rgba(180,83,31,0.22)";
+      ctx.lineWidth=cream?15:17;
+      ctx.beginPath();
+      for(let x=-40;x<=W+40;x+=10){const y=yBase+Math.sin(x*k+ph)*amp; if(x<=-40)ctx.moveTo(x,y); else ctx.lineTo(x,y);}
+      ctx.stroke();
+    }
+  }
+  function loop(tm){frame(tm);raf=requestAnimationFrame(loop);}
+  resize(); window.addEventListener("resize",resize);
+  if(reduce){frame(1200);return;}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf)raf=requestAnimationFrame(loop);else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
+  io.observe(cv);
+})();
 </script>
 </body>
 </html>

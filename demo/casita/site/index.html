@@ -58,6 +58,16 @@ nav.links a:hover{color:var(--marigold);opacity:1}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
 .hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,26,44,.55) 0%,rgba(20,26,44,.22) 30%,rgba(20,26,44,.5) 64%,rgba(15,20,36,.92) 100%)}
 .hero .papel{position:absolute;top:0;left:0;right:0;z-index:1;color:var(--marigold)}
+/* swaying papel-picado banner — the wow */
+.picado{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:center;align-items:flex-start;padding:0 4px;pointer-events:none}
+.picado::before{content:"";position:absolute;top:4px;left:0;right:0;height:2px;background:rgba(246,236,216,.55)}
+.picado .flag{flex:1 1 0;min-width:0;max-width:72px;transform-origin:50% 2px;animation:sway 3.2s ease-in-out infinite alternate;animation-delay:calc(var(--i) * -0.26s);filter:drop-shadow(0 4px 6px rgba(0,0,0,.28))}
+.picado .flag svg{width:100%;height:auto;display:block}
+.picado .flag.c1{color:var(--marigold)}
+.picado .flag.c2{color:var(--red)}
+.picado .flag.c3{color:#f2e4cf}
+@keyframes sway{from{transform:rotate(-2deg)}to{transform:rotate(2.4deg)}}
+@media(prefers-reduced-motion:reduce){.picado .flag{animation:none}}
 .hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--marigold);margin-bottom:14px}
 .hero h1{color:#fff;font-size:clamp(54px,10vw,132px);letter-spacing:.01em;text-shadow:0 4px 40px rgba(0,0,0,.45)}
@@ -178,6 +188,7 @@ footer .made a{color:var(--marigold)}
   <line x1="0" y1="4" x2="60" y2="4" stroke="currentColor" stroke-width="1.4"/>
   <path fill="currentColor" fill-rule="evenodd" d="M8 6 H52 V44 L30 54 L8 44 Z M30 16 L36 24 L30 32 L24 24 Z M18 34 m-3.5 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0 M42 34 m-3.5 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0 M30 40 m-2.5 0 a2.5 2.5 0 1 0 5 0 a2.5 2.5 0 1 0 -5 0"/>
 </pattern>
+<symbol id="pflag" viewBox="0 0 60 56"><path fill="currentColor" fill-rule="evenodd" d="M8 2 H52 V44 L30 54 L8 44 Z M30 14 L36 22 L30 30 L24 22 Z M18 32 m-3.5 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0 M42 32 m-3.5 0 a3.5 3.5 0 1 0 7 0 a3.5 3.5 0 1 0 -7 0 M30 38 m-2.5 0 a2.5 2.5 0 1 0 5 0 a2.5 2.5 0 1 0 -5 0"/></symbol>
 <g id="corn"><ellipse cx="10" cy="9" rx="6" ry="8.5" fill="currentColor"/><path d="M10 17 C5 15 3 20 5 23 C8 22 10 20 10 18 M10 17 C15 15 17 20 15 23 C12 22 10 20 10 18" fill="var(--nopal)"/><g stroke="#fff" stroke-width="0.7" opacity="0.5"><path d="M6 4 v11 M10 3 v13 M14 4 v11"/><path d="M5 8 h10 M5 12 h10"/></g></g>
 </defs></svg>
 
@@ -204,7 +215,20 @@ footer .made a{color:var(--marigold)}
  <section class="hero" id="hero">
   <div class="bg"><img src="assets/hero.jpg" alt="La salle de la Taqueria Casita, dans le Grund"/></div>
   <div class="scrim"></div>
-  <svg class="papel" preserveAspectRatio="none" aria-hidden="true"><rect width="100%" height="100%" fill="url(#papelpat)"/></svg>
+  <div class="picado" aria-hidden="true">
+   <span class="flag c1" style="--i:0"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c2" style="--i:1"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c3" style="--i:2"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c1" style="--i:3"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c2" style="--i:4"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c3" style="--i:5"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c1" style="--i:6"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c2" style="--i:7"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c3" style="--i:8"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c1" style="--i:9"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c2" style="--i:10"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+   <span class="flag c3" style="--i:11"><svg viewBox="0 0 60 56"><use href="#pflag"/></svg></span>
+  </div>
   <div class="wrap inner">
    <span class="eyebrow" data-i18n="hero_eyebrow">Taqueria · Grund · Luxembourg</span>
    <h1>Taqueria<span>Casita</span></h1>
