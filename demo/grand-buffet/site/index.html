@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Grand Buffet — Buffet asiatique à volonté, Schifflange</title>
+<meta name="description" content="Grand Buffet à Schifflange — le buffet asiatique à volonté : sushis, grillades, wok et desserts, midi et soir. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Syne';src:url('assets/fonts/syne-latin.woff2') format('woff2');font-weight:600 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Instr';src:url('assets/fonts/instr-latin.woff2') format('woff2');font-weight:400 600;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --navy:#12263f; --navy-d:#0c1a2e; --navy-l:#1c3a5c; --blue:#3f7fc4; --blue-glow:#5fa0e0;
+ --gold:#d9a441; --gold-l:#efc463; --cream:#f4edde; --stone:#e6dcc6; --card:#fbf6ea;
+ --char:#141922; --ink:#25303f; --ink2:#465468; --red:#c0473a;
+ --line:#d8cbb0; --muted:#86816e;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Instr',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Syne','Instr',sans-serif;font-weight:800;line-height:1.02;letter-spacing:-.01em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Instr',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--gold)}
+
+.dish-div{display:flex;align-items:center;gap:20px;padding:30px 0}
+.dish-div .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.dish-div .dm{width:34px;height:34px;color:var(--gold);flex:none}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s}
+header.solid{background:var(--navy-d);box-shadow:0 2px 22px rgba(0,0,0,.32)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
+.brand .dm{width:34px;height:34px;flex:none;color:var(--gold-l)}
+.brand .nm{font-family:'Syne',sans-serif;font-weight:800;font-size:23px;letter-spacing:.01em;line-height:.95;color:var(--cream)}
+.brand .nm small{display:block;font-family:'Instr';font-size:9px;letter-spacing:.2em;color:var(--gold-l);font-weight:600;margin-top:4px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Instr',sans-serif;font-weight:600;font-size:15px;color:#dfe7f1;opacity:.92}
+nav.links a:hover{color:var(--gold-l);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
+.langs button{font-family:'Instr',sans-serif;font-weight:600;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#dfe7f1;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--gold);color:var(--navy-d)}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:var(--cream);border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-64px;padding-top:64px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,18,32,.66) 0%,rgba(10,18,32,.4) 32%,rgba(10,18,32,.6) 66%,rgba(8,14,24,.95) 100%)}
+.hero canvas#lazy{position:absolute;right:1%;top:6%;height:78%;width:42%;z-index:0;pointer-events:none}
+.hero .inner{padding-bottom:clamp(40px,7vw,88px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
+.hero .eyebrow{color:var(--gold-l);margin-bottom:16px}
+.hero h1{color:#fff;font-size:clamp(56px,11vw,150px);letter-spacing:-.02em;text-shadow:0 4px 40px rgba(0,0,0,.5)}
+.hero .tag{font-family:'Instr',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#eaf1fb;max-width:30ch;margin:20px 0 0;line-height:1.4}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Instr',sans-serif;font-weight:600;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--gold);color:var(--navy-d)}
+.btn.p:hover{background:var(--gold-l)}
+.btn.o{background:transparent;color:var(--cream);border-color:rgba(244,237,222,.5)}
+.btn.o:hover{border-color:var(--gold-l);color:var(--gold-l)}
+
+.facts{background:var(--navy);color:#dfe7f1}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12)}
+.facts .c{background:var(--navy);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Instr';font-weight:600;letter-spacing:.14em;font-size:11px;color:var(--gold-l);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#dfe7f1}
+.facts .v b{color:#fff;font-weight:800;font-family:'Syne';font-size:20px;display:block;margin-bottom:2px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,62px);color:var(--ink);line-height:1.03}
+.sect-h h2 em{font-style:normal;color:var(--red)}
+.sect-h p{font-family:'Instr',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+/* buffet spotlight */
+.spot{background:var(--navy);color:#e7eef8;position:relative;overflow:hidden}
+.spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center}
+.spot .eyebrow{color:var(--gold-l)}
+.spot h2{font-family:'Syne';font-size:clamp(40px,6.4vw,86px);color:#fff;margin:14px 0 0;line-height:.98;letter-spacing:-.02em}
+.spot h2 span{color:var(--gold-l);display:block}
+.spot .lead{font-family:'Instr';font-size:clamp(18px,2.2vw,24px);line-height:1.5;color:#e7eef8;margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#a9bcd4;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.5)}
+.spot .pic .pill{position:absolute;right:-12px;bottom:24px;background:var(--gold);color:var(--navy-d);font-family:'Instr';font-weight:600;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:4px;background:var(--stone)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(8,14,24,.86),transparent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+
+/* salle band */
+.salle{background:var(--navy-d);color:#e7eef8;position:relative;overflow:hidden}
+.salle .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
+.salle h2{font-family:'Syne';font-size:clamp(34px,5vw,64px);color:#fff}
+.salle h2 span{color:var(--gold-l);display:block}
+.salle .lead{font-size:18px;color:#cdd9e8;margin-top:18px;line-height:1.6;max-width:44ch}
+.salle .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.salle .chip{font-family:'Instr';font-weight:600;font-size:12.5px;color:var(--navy-d);background:var(--gold-l);padding:8px 15px;border-radius:999px}
+.salle .chip.b{background:transparent;color:#e7eef8;border:1.5px solid rgba(231,238,248,.4)}
+.salle .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px;box-shadow:0 20px 44px rgba(0,0,0,.4)}
+
+/* stations (buffet menu) */
+.carte{background:var(--stone)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Syne';font-size:24px;color:var(--navy);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--gold);margin-bottom:14px}
+.mgroup h3 .dm{width:22px;height:22px;flex:none;color:var(--red)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:8px 0}
+.mitem .nm{font-family:'Instr';font-weight:600;font-size:17px;color:var(--ink)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:48ch}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--gold);padding-left:14px;max-width:80ch}
+
+/* infos */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--red);margin-top:3px}
+.ino .k{font-family:'Instr';font-weight:600;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Syne';color:var(--navy);font-size:18px;font-weight:700}
+.mapcard{background:var(--navy);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#e7eef8;text-align:center;padding:34px}
+.mapcard .dmwm{position:absolute;right:-10px;top:-10px;width:150px;height:150px;color:rgba(217,164,65,.14)}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Syne';font-size:28px;color:#fff;font-weight:800}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#0a1424;color:#9fb0c6;padding:0 0 40px}
+footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+footer .band .dm{width:30px;height:30px;color:var(--gold)}
+footer .in{padding:4px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Syne';font-weight:800;font-size:25px;color:var(--cream)}
+footer .nm small{display:block;font-family:'Instr';font-size:10px;letter-spacing:.2em;color:var(--gold-l);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#8fa1b8}
+footer .made{font-size:12.5px;color:#6d7f96;margin-top:22px}
+footer .made b{color:#cdd9e8}
+footer .made a{color:var(--gold-l)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#5f7189;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .spot .grid,.salle .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.salle .pic{order:-1}
+ .hero canvas#lazy{width:58%;opacity:.88}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:var(--navy-d);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--navy-d)}
+ .hero h1{font-size:clamp(48px,15vw,92px)}
+ .hero canvas#lazy{width:66%;opacity:.72}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="dishmark" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="32" cy="34" r="20"/>
+  <circle cx="32" cy="34" r="9"/>
+  <path d="M14 12 L40 30"/><path d="M20 8 L44 28"/>
+</g>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Grand Buffet">
+   <svg class="dm" viewBox="0 0 64 64" aria-hidden="true"><use href="#dishmark"/></svg>
+   <span class="nm">Grand Buffet<small>Buffet asiatique · Schifflange</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#buffet" data-i18n="nav_buffet">Le buffet</a>
+   <a href="#stations" data-i18n="nav_stations">Ce qu'on trouve</a>
+   <a href="#salle" data-i18n="nav_salle">La salle</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="La grande salle lumineuse du Grand Buffet"/></div>
+  <div class="scrim"></div>
+  <canvas id="lazy" aria-hidden="true"></canvas>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Buffet asiatique à volonté · Schifflange</span>
+   <h1>Grand Buffet</h1>
+   <p class="tag" data-i18n="hero_tag">Sushis, grillades, wok et desserts — le buffet à volonté, midi et soir. On tourne la table, et on se ressert.</p>
+   <div class="cta">
+    <a class="btn p" href="https://www.google.com/maps/search/Grand+Buffet+Schifflange" target="_blank" rel="noopener" data-i18n="hero_cta1">Itinéraire ↗</a>
+    <a class="btn o" href="#stations" data-i18n="hero_cta2">Voir le buffet</a>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">Le principe</div><div class="v" data-i18n="fact_v1"><b>À volonté</b>midi &amp; soir · on se ressert</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le choix</div><div class="v" data-i18n="fact_v2"><b>Sushis, grill, wok, desserts</b>des dizaines de plats, chauds &amp; froids</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">Le lieu</div><div class="v" data-i18n="fact_v3"><b>Schifflange</b>grande salle · parking</div></div>
+  </div></div>
+ </div>
+
+ <!-- BUFFET SPOTLIGHT -->
+ <section class="spot" id="buffet">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="bf_eyebrow">Le principe</span>
+    <h2 data-i18n="bf_h">À volonté,<span>tout simplement.</span></h2>
+    <p class="lead" data-i18n="bf_lead">Un grand buffet chaud et froid : sushis roulés sur place, grillades, wok, plats mijotés, salades, et un coin desserts &amp; glaces.</p>
+    <p class="body" data-i18n="bf_body">On choisit, on goûte à tout, on revient. C'est l'idée de la maison : la variété et la générosité, à un seul prix. Idéal en famille ou entre collègues, le midi comme le soir.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/buffet.jpg" alt="Le buffet chaud, illuminé"/>
+    <span class="pill" data-i18n="bf_pill">À volonté</span>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap dish-div"><span class="ln"></span><svg class="dm" viewBox="0 0 64 64"><use href="#dishmark"/></svg><span class="ln"></span></div>
+
+ <!-- GALLERY -->
+ <section id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">Au buffet</span>
+    <h2 data-i18n="gal_h">Il y en a pour tout le monde</h2>
+    <p data-i18n="gal_p">Sushis, grillades, wok, plats du jour et un grand choix de desserts et de glaces — chaud et froid, à volonté.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/ligne.jpg" alt="La longue ligne de buffet"/><figcaption data-i18n="cap_ligne">La ligne du buffet</figcaption></figure>
+    <figure><img src="assets/sushi.jpg" alt="Assiette de sushis"/><figcaption data-i18n="cap_sushi">Les sushis</figcaption></figure>
+    <figure><img src="assets/grill.jpg" alt="Grillades et plats chauds"/><figcaption data-i18n="cap_grill">Le chaud &amp; le grill</figcaption></figure>
+    <figure class="w2"><img src="assets/fried.jpg" alt="Entrées et beignets"/><figcaption data-i18n="cap_fried">Les entrées</figcaption></figure>
+    <figure><img src="assets/glaces.jpg" alt="Le buffet de glaces"/><figcaption data-i18n="cap_glaces">Les glaces</figcaption></figure>
+    <figure><img src="assets/desserts.jpg" alt="La vitrine à desserts"/><figcaption data-i18n="cap_desserts">Les desserts</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- SALLE -->
+ <section class="salle" id="salle">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--gold-l)" data-i18n="salle_eyebrow">La salle</span>
+    <h2 data-i18n="salle_h">Grande,<span>lumineuse.</span></h2>
+    <p class="lead" data-i18n="salle_lead">Une salle moderne et spacieuse, tout en lumière — de la place pour les familles, les groupes et les repas d'équipe. Un bar pour l'apéritif, et de quoi se garer juste devant.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="chip1">Grande salle</span>
+     <span class="chip b" data-i18n="chip2">Groupes &amp; familles</span>
+     <span class="chip b" data-i18n="chip3">Parking</span>
+    </div>
+   </div>
+   <div class="pic"><img src="assets/salle.jpg" alt="La salle du Grand Buffet"/></div>
+  </div>
+ </section>
+
+ <!-- STATIONS -->
+ <section class="carte" id="stations">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="st_eyebrow">Ce qu'on trouve</span>
+    <h2 data-i18n="st_h">Les <em>stations</em> du buffet</h2>
+    <p data-i18n="st_p">Un aperçu de ce qui vous attend au buffet — l'offre varie chaque jour.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="dm" viewBox="0 0 64 64"><use href="#dishmark"/></svg><span data-i18n="mg1">Sushi &amp; froid</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Sushis &amp; makis</div><div class="ds" data-i18n="i1d">Roulés sur place</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Salades &amp; entrées</div><div class="ds" data-i18n="i2d">Le coin frais</div></div></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="dm" viewBox="0 0 64 64"><use href="#dishmark"/></svg><span data-i18n="mg2">Le chaud</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Grillades</div><div class="ds" data-i18n="i3d">Viandes &amp; brochettes</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Wok &amp; plats mijotés</div><div class="ds" data-i18n="i4d">Nouilles, riz, sautés</div></div></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="dm" viewBox="0 0 64 64"><use href="#dishmark"/></svg><span data-i18n="mg3">Desserts &amp; glaces</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Pâtisseries</div><div class="ds" data-i18n="i5d">La vitrine sucrée</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Glaces à volonté</div><div class="ds" data-i18n="i6d">Plusieurs parfums</div></div></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="dm" viewBox="0 0 64 64"><use href="#dishmark"/></svg><span data-i18n="mg4">Les formules</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Formule midi — à volonté</div><div class="ds" data-i18n="i7d">Tarif à confirmer</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Formule soir — à volonté</div><div class="ds" data-i18n="i8d">Tarif à confirmer</div></div></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="st_note">Stations d'après les photos publiques de la maison, à titre indicatif — l'offre change selon les jours. Formules à volonté midi &amp; soir : tarifs à confirmer sur place.</p>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous trouver</h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">Schifflange<br><span class="fl" data-i18n="ino_fl1">Adresse exacte à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v" data-i18n="ino_phone">Téléphone à confirmer</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" data-i18n="ino_ht">Midi &amp; soir</span><br><span class="fl" data-i18n="ino_fl3">Ouvert midi &amp; soir · horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <svg class="dmwm" viewBox="0 0 64 64" aria-hidden="true"><use href="#dishmark"/></svg>
+     <div class="in">
+      <div class="big" data-i18n="map_big">Schifflange</div>
+      <div style="color:#a9bcd4;margin-top:8px" data-i18n="map_sub">Grande salle · parking devant</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Grand+Buffet+Schifflange" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="dm" viewBox="0 0 64 64"><use href="#dishmark"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Grand Buffet<small>Buffet asiatique · Schifflange</small></div>
+   <p data-i18n="foot_p">Le buffet asiatique à volonté de Schifflange — sushis, grillades, wok et desserts, midi et soir.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Instr';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold-l)">Contact</div>
+   <p style="margin-top:10px">Schifflange, Luxembourg<br><span data-i18n="foot_conf">Adresse &amp; téléphone à confirmer</span></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, formules, prix, horaires, adresse exacte et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_buffet:"Le buffet",nav_stations:"Ce qu'on trouve",nav_salle:"La salle",nav_infos:"Infos & accès",
+  hero_eyebrow:"Buffet asiatique à volonté · Schifflange",
+  hero_tag:"Sushis, grillades, wok et desserts — le buffet à volonté, midi et soir. On tourne la table, et on se ressert.",
+  hero_cta1:"Itinéraire ↗",hero_cta2:"Voir le buffet",
+  fact_k1:"Le principe",fact_v1:"<b>À volonté</b>midi & soir · on se ressert",
+  fact_k2:"Le choix",fact_v2:"<b>Sushis, grill, wok, desserts</b>des dizaines de plats, chauds & froids",
+  fact_k3:"Le lieu",fact_v3:"<b>Schifflange</b>grande salle · parking",
+  bf_eyebrow:"Le principe",bf_h:"À volonté,<span>tout simplement.</span>",
+  bf_lead:"Un grand buffet chaud et froid : sushis roulés sur place, grillades, wok, plats mijotés, salades, et un coin desserts & glaces.",
+  bf_body:"On choisit, on goûte à tout, on revient. C'est l'idée de la maison : la variété et la générosité, à un seul prix. Idéal en famille ou entre collègues, le midi comme le soir.",
+  bf_pill:"À volonté",
+  gal_eyebrow:"Au buffet",gal_h:"Il y en a pour tout le monde",
+  gal_p:"Sushis, grillades, wok, plats du jour et un grand choix de desserts et de glaces — chaud et froid, à volonté.",
+  cap_ligne:"La ligne du buffet",cap_sushi:"Les sushis",cap_grill:"Le chaud & le grill",cap_fried:"Les entrées",cap_glaces:"Les glaces",cap_desserts:"Les desserts",
+  salle_eyebrow:"La salle",salle_h:"Grande,<span>lumineuse.</span>",
+  salle_lead:"Une salle moderne et spacieuse, tout en lumière — de la place pour les familles, les groupes et les repas d'équipe. Un bar pour l'apéritif, et de quoi se garer juste devant.",
+  chip1:"Grande salle",chip2:"Groupes & familles",chip3:"Parking",
+  st_eyebrow:"Ce qu'on trouve",st_h:"Les <em>stations</em> du buffet",st_p:"Un aperçu de ce qui vous attend au buffet — l'offre varie chaque jour.",
+  mg1:"Sushi & froid",mg2:"Le chaud",mg3:"Desserts & glaces",mg4:"Les formules",
+  i1n:"Sushis & makis",i1d:"Roulés sur place",i2n:"Salades & entrées",i2d:"Le coin frais",
+  i3n:"Grillades",i3d:"Viandes & brochettes",i4n:"Wok & plats mijotés",i4d:"Nouilles, riz, sautés",
+  i5n:"Pâtisseries",i5d:"La vitrine sucrée",i6n:"Glaces à volonté",i6d:"Plusieurs parfums",
+  i7n:"Formule midi — à volonté",i7d:"Tarif à confirmer",i8n:"Formule soir — à volonté",i8d:"Tarif à confirmer",
+  st_note:"Stations d'après les photos publiques de la maison, à titre indicatif — l'offre change selon les jours. Formules à volonté midi & soir : tarifs à confirmer sur place.",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
+  ino_k1:"Adresse",ino_fl1:"Adresse exacte à confirmer",ino_k2:"Réserver",ino_phone:"Téléphone à confirmer",
+  ino_k3:"Horaires",ino_ht:"Midi & soir",ino_fl3:"Ouvert midi & soir · horaires à confirmer",
+  map_big:"Schifflange",map_sub:"Grande salle · parking devant",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Le buffet asiatique à volonté de Schifflange — sushis, grillades, wok et desserts, midi et soir.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  foot_conf:"Adresse & téléphone à confirmer",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, formules, prix, horaires, adresse exacte et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_buffet:"Das Buffet",nav_stations:"Das Angebot",nav_salle:"Der Saal",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Asiatisches All-you-can-eat · Schifflange",
+  hero_tag:"Sushi, Grill, Wok und Desserts — das Buffet nach Belieben, mittags und abends. Man dreht den Tisch und nimmt sich nach.",
+  hero_cta1:"Anfahrt ↗",hero_cta2:"Zum Buffet",
+  fact_k1:"Das Prinzip",fact_v1:"<b>Nach Belieben</b>mittags & abends · Nachschlag inklusive",
+  fact_k2:"Die Auswahl",fact_v2:"<b>Sushi, Grill, Wok, Desserts</b>Dutzende Gerichte, warm & kalt",
+  fact_k3:"Der Ort",fact_v3:"<b>Schifflingen</b>großer Saal · Parkplatz",
+  bf_eyebrow:"Das Prinzip",bf_h:"Nach Belieben,<span>ganz einfach.</span>",
+  bf_lead:"Ein großes warmes und kaltes Buffet: frisch gerolltes Sushi, Grillgerichte, Wok, Schmorgerichte, Salate und eine Ecke mit Desserts & Eis.",
+  bf_body:"Man wählt, probiert alles und kommt wieder. Das ist die Idee des Hauses: Vielfalt und Großzügigkeit zu einem Preis. Ideal mit der Familie oder mit Kollegen, mittags wie abends.",
+  bf_pill:"Nach Belieben",
+  gal_eyebrow:"Am Buffet",gal_h:"Für jeden etwas",
+  gal_p:"Sushi, Grillgerichte, Wok, Tagesgerichte und eine große Auswahl an Desserts und Eis — warm und kalt, nach Belieben.",
+  cap_ligne:"Die Buffet-Linie",cap_sushi:"Das Sushi",cap_grill:"Warm & vom Grill",cap_fried:"Die Vorspeisen",cap_glaces:"Das Eis",cap_desserts:"Die Desserts",
+  salle_eyebrow:"Der Saal",salle_h:"Groß,<span>hell.</span>",
+  salle_lead:"Ein moderner, geräumiger Saal voller Licht — Platz für Familien, Gruppen und Teamessen. Eine Bar für den Aperitif und ein Parkplatz direkt davor.",
+  chip1:"Großer Saal",chip2:"Gruppen & Familien",chip3:"Parkplatz",
+  st_eyebrow:"Das Angebot",st_h:"Die <em>Stationen</em> des Buffets",st_p:"Ein Vorgeschmack auf das, was Sie am Buffet erwartet — das Angebot wechselt täglich.",
+  mg1:"Sushi & Kaltes",mg2:"Das Warme",mg3:"Desserts & Eis",mg4:"Die Formeln",
+  i1n:"Sushi & Maki",i1d:"Frisch gerollt",i2n:"Salate & Vorspeisen",i2d:"Die frische Ecke",
+  i3n:"Grillgerichte",i3d:"Fleisch & Spieße",i4n:"Wok & Schmorgerichte",i4d:"Nudeln, Reis, Pfannengerichte",
+  i5n:"Gebäck",i5d:"Die süße Vitrine",i6n:"Eis nach Belieben",i6d:"Mehrere Sorten",
+  i7n:"Mittagsformel — nach Belieben",i7d:"Preis zu bestätigen",i8n:"Abendformel — nach Belieben",i8d:"Preis zu bestätigen",
+  st_note:"Stationen nach den öffentlichen Fotos des Hauses, ohne Gewähr — das Angebot wechselt täglich. All-you-can-eat mittags & abends: Preise vor Ort zu bestätigen.",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So finden Sie uns",
+  ino_k1:"Adresse",ino_fl1:"Genaue Adresse zu bestätigen",ino_k2:"Reservieren",ino_phone:"Telefon zu bestätigen",
+  ino_k3:"Öffnungszeiten",ino_ht:"Mittags & abends",ino_fl3:"Mittags & abends geöffnet · Zeiten zu bestätigen",
+  map_big:"Schifflingen",map_sub:"Großer Saal · Parkplatz davor",map_btn:"In Maps öffnen ↗",
+  foot_p:"Das asiatische All-you-can-eat-Buffet von Schifflingen — Sushi, Grill, Wok und Desserts, mittags und abends.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  foot_conf:"Adresse & Telefon zu bestätigen",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Formeln, Preise, Zeiten, genaue Adresse und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_buffet:"The buffet",nav_stations:"What's on",nav_salle:"The room",nav_infos:"Find us",
+  hero_eyebrow:"Asian all-you-can-eat · Schifflange",
+  hero_tag:"Sushi, grill, wok and desserts — the all-you-can-eat buffet, midday and evening. Spin the table and help yourself again.",
+  hero_cta1:"Directions ↗",hero_cta2:"See the buffet",
+  fact_k1:"The idea",fact_v1:"<b>All you can eat</b>midday & evening · go back for more",
+  fact_k2:"The choice",fact_v2:"<b>Sushi, grill, wok, desserts</b>dozens of dishes, hot & cold",
+  fact_k3:"The place",fact_v3:"<b>Schifflange</b>large room · parking",
+  bf_eyebrow:"The idea",bf_h:"All you can eat,<span>plain and simple.</span>",
+  bf_lead:"A big hot-and-cold buffet: sushi rolled on site, grills, wok, slow-cooked dishes, salads, and a desserts & ice-cream corner.",
+  bf_body:"You choose, you taste everything, you come back. That's the idea of the house: variety and generosity at one price. Perfect with family or colleagues, at lunch or dinner.",
+  bf_pill:"All you can eat",
+  gal_eyebrow:"At the buffet",gal_h:"There's something for everyone",
+  gal_p:"Sushi, grills, wok, daily dishes and a big choice of desserts and ice cream — hot and cold, all you can eat.",
+  cap_ligne:"The buffet line",cap_sushi:"The sushi",cap_grill:"Hot & from the grill",cap_fried:"The starters",cap_glaces:"The ice cream",cap_desserts:"The desserts",
+  salle_eyebrow:"The room",salle_h:"Big,<span>full of light.</span>",
+  salle_lead:"A modern, spacious room full of light — room for families, groups and team meals. A bar for an aperitif, and parking right out front.",
+  chip1:"Large room",chip2:"Groups & families",chip3:"Parking",
+  st_eyebrow:"What's on",st_h:"The buffet <em>stations</em>",st_p:"A taste of what's waiting at the buffet — the offer changes daily.",
+  mg1:"Sushi & cold",mg2:"The hot line",mg3:"Desserts & ice cream",mg4:"The deals",
+  i1n:"Sushi & maki",i1d:"Rolled on site",i2n:"Salads & starters",i2d:"The fresh corner",
+  i3n:"Grills",i3d:"Meats & skewers",i4n:"Wok & slow-cooked",i4d:"Noodles, rice, stir-fries",
+  i5n:"Pastries",i5d:"The sweet counter",i6n:"Ice cream, all you can eat",i6d:"Several flavours",
+  i7n:"Lunch deal — all you can eat",i7d:"Price to be confirmed",i8n:"Dinner deal — all you can eat",i8d:"Price to be confirmed",
+  st_note:"Stations from the house's public photos, for reference — the offer changes daily. All-you-can-eat lunch & dinner: prices to be confirmed on site.",
+  infos_eyebrow:"Info & access",infos_h:"Find us",
+  ino_k1:"Address",ino_fl1:"Exact address to be confirmed",ino_k2:"Book",ino_phone:"Phone to be confirmed",
+  ino_k3:"Opening hours",ino_ht:"Midday & evening",ino_fl3:"Open midday & evening · hours to be confirmed",
+  map_big:"Schifflange",map_sub:"Large room · parking out front",map_btn:"Open in Maps ↗",
+  foot_p:"The Asian all-you-can-eat buffet of Schifflange — sushi, grill, wok and desserts, midday and evening.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  foot_conf:"Address & phone to be confirmed",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand and dishes belong to the house. Menu, deals, prices, hours, exact address and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  try{localStorage.setItem("gbf_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("gbf_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* the wow: a lazy-Susan — the Chinese turning table of dishes, slowly rotating */
+(function(){
+  const cv=document.getElementById("lazy"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null, ang=0;
+  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const PAL=["#e9b64e","#c0473a","#f4edde","#6f9a5a","#5fa0e0","#e08a3c"]; // gold,red,cream,green,blue,orange dishes
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+  function plate(x,y,r,fill){ // flat plate
+    ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fillStyle="rgba(244,237,222,0.20)";ctx.fill();
+    ctx.beginPath();ctx.arc(x,y,r*0.74,0,7);ctx.fillStyle=fill;ctx.fill();
+    ctx.beginPath();ctx.arc(x-r*0.26,y-r*0.26,r*0.16,0,7);ctx.fillStyle="rgba(255,255,255,0.28)";ctx.fill();
+  }
+  function bowl(x,y,r,fill){ // deeper bowl: wide rim + inset well + food mound
+    ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fillStyle="rgba(244,237,222,0.24)";ctx.fill();
+    ctx.beginPath();ctx.arc(x,y,r*0.82,0,7);ctx.fillStyle="rgba(18,24,34,0.55)";ctx.fill();
+    ctx.beginPath();ctx.arc(x,y,r*0.58,0,7);ctx.fillStyle=fill;ctx.fill();
+    ctx.beginPath();ctx.arc(x-r*0.18,y-r*0.20,r*0.12,0,7);ctx.fillStyle="rgba(255,255,255,0.24)";ctx.fill();
+  }
+  function oval(x,y,r,fill,rot){ // oval serving dish
+    ctx.save();ctx.translate(x,y);ctx.rotate(rot);ctx.scale(1.34,0.76);
+    ctx.beginPath();ctx.arc(0,0,r,0,7);ctx.fillStyle="rgba(244,237,222,0.20)";ctx.fill();
+    ctx.beginPath();ctx.arc(0,0,r*0.74,0,7);ctx.fillStyle=fill;ctx.fill();
+    ctx.restore();
+  }
+  function dish(x,y,r,fill,type,rot){ if(type===1) bowl(x,y,r,fill); else if(type===2) oval(x,y,r,fill,rot); else plate(x,y,r,fill); }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const cx=W*0.5, cy=H*0.5, base=Math.min(W,H)*0.44;
+    // wooden TABLE EDGE around the turntable — so it reads as "a table"
+    ctx.beginPath();ctx.arc(cx,cy,base*1.14,0,7);ctx.lineWidth=base*0.10;ctx.strokeStyle="rgba(150,100,52,0.42)";ctx.stroke();
+    ctx.beginPath();ctx.arc(cx,cy,base*1.09,0,7);ctx.lineWidth=1.5;ctx.strokeStyle="rgba(233,182,78,0.5)";ctx.stroke();
+    // glass lazy-Susan tray
+    ctx.beginPath();ctx.arc(cx,cy,base,0,7);ctx.fillStyle="rgba(31,58,92,0.32)";ctx.fill();
+    ctx.beginPath();ctx.arc(cx,cy,base,0,7);ctx.strokeStyle="rgba(217,164,65,0.40)";ctx.lineWidth=2;ctx.stroke();
+    ctx.beginPath();ctx.arc(cx,cy,base*0.60,0,7);ctx.strokeStyle="rgba(217,164,65,0.16)";ctx.lineWidth=1.2;ctx.stroke();
+    // outer ring — alternating dish silhouettes
+    const N=8, R=base*0.76, dr=base*0.15;
+    for(let i=0;i<N;i++){ const a=ang + i*(Math.PI*2/N); dish(cx+Math.cos(a)*R, cy+Math.sin(a)*R, dr, PAL[i%PAL.length], i%3, a+1.57); }
+    // inner ring, counter-rotating
+    const N2=5, R2=base*0.38, dr2=base*0.12;
+    for(let i=0;i<N2;i++){ const a=-ang*1.25 + i*(Math.PI*2/N2)+0.4; dish(cx+Math.cos(a)*R2, cy+Math.sin(a)*R2, dr2, PAL[(i+2)%PAL.length], (i+1)%3, a+1.57); }
+    // chopsticks resting across the rim (turn with the table)
+    const chA=ang+0.6, ri=base*0.55, ro=base*1.02;
+    ctx.strokeStyle="rgba(226,198,150,0.85)";ctx.lineCap="round";
+    for(const off of [-0.05,0.02]){ ctx.lineWidth=base*0.022;
+      ctx.beginPath();ctx.moveTo(cx+Math.cos(chA+off)*ri, cy+Math.sin(chA+off)*ri);ctx.lineTo(cx+Math.cos(chA+off)*ro, cy+Math.sin(chA+off)*ro);ctx.stroke(); }
+    // centre knob
+    plate(cx,cy,base*0.10,"#d9a441");
+  }
+  function loop(){ ang+=0.006; draw(); raf=requestAnimationFrame(loop); }
+  resize(); window.addEventListener("resize",resize);
+  if(reduce){ draw(); return; }
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf)raf=requestAnimationFrame(loop);else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
+  io.observe(cv);
+})();
+</script>
+</body>
+</html>

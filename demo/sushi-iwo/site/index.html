@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Sushi Iwo — Comptoir à sushi, Ettelbruck</title>
+<meta name="description" content="Sushi Iwo à Ettelbruck — sushi, sashimi et maki préparés au comptoir, fraîcheur et précision. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Garamond';src:url('assets/fonts/garamond-400-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Garamond';src:url('assets/fonts/garamond-600-latin.woff2') format('woff2');font-weight:600;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Garamond';src:url('assets/fonts/garamond-700-latin.woff2') format('woff2');font-weight:700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Manrope';src:url('assets/fonts/manrope-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --sumi:#15130f; --ink:#211d16; --charcoal:#2c2720;
+ --cream:#f4efe4; --rice:#faf7ee; --wood:#cbb389; --wood-d:#a98d63;
+ --seal:#b23a2e; --seal-d:#8f2c22; --muted:#8a8072; --line:#e2dac8; --line-d:#39332a;
+ --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--rice);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Garamond','Manrope',serif;font-weight:600;line-height:1.06}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Manrope',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.26em;font-size:11.5px;color:var(--seal)}
+
+.seal{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1.5px solid var(--seal);color:var(--seal);font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP","Songti SC",'Garamond',serif;font-weight:700;font-size:17px;border-radius:3px;flex:none}
+.rule{display:flex;align-items:center;gap:18px;padding:30px 0}
+.rule .ln{flex:1;height:1px;background:var(--line)}
+.rule .dot{width:7px;height:7px;background:var(--seal);border-radius:50%;flex:none}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.solid{background:rgba(21,19,15,.94);border-color:var(--line-d);backdrop-filter:blur(6px)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
+.brand .seal{width:30px;height:30px;font-size:15px}
+.brand .nm{font-family:'Garamond',serif;font-weight:700;font-size:24px;letter-spacing:.03em;line-height:.95;color:var(--cream)}
+.brand .nm small{display:block;font-family:'Manrope';font-size:9px;letter-spacing:.28em;color:var(--wood);font-weight:700;margin-top:3px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Manrope',sans-serif;font-weight:600;font-size:14.5px;color:#e6ddca;opacity:.9}
+nav.links a:hover{color:var(--wood);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:999px;padding:3px}
+.langs button{font-family:'Manrope',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#e2dac8;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--seal);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:var(--cream);border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;margin-top:-63px;padding-top:63px;overflow:hidden;background:var(--sumi)}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.28}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(120% 90% at 72% 50%,rgba(21,19,15,.35),rgba(21,19,15,.86) 70%),linear-gradient(90deg,rgba(21,19,15,.94),rgba(21,19,15,.5))}
+.hero canvas#ensocv{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:min(46%,520px);height:80%;z-index:2;pointer-events:none}
+.hero .inner{position:relative;z-index:3;padding:clamp(40px,8vw,90px) 0}
+.hero .eyebrow{color:var(--wood);margin-bottom:18px}
+.hero h1{color:var(--cream);font-size:clamp(54px,10vw,140px);letter-spacing:.02em;font-weight:700}
+.hero .jp{font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP","Songti SC",'Garamond',serif;color:var(--seal);font-size:clamp(20px,3vw,30px);letter-spacing:.3em;margin-top:2px}
+.hero .tag{font-family:'Manrope',sans-serif;font-weight:400;font-size:clamp(18px,2.3vw,25px);color:#e8dfcb;max-width:26ch;margin:20px 0 0;line-height:1.45}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Manrope',sans-serif;font-weight:700;letter-spacing:.02em;font-size:14.5px;padding:14px 28px;border-radius:2px;cursor:pointer;border:1.5px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--seal);color:#fff}
+.btn.p:hover{background:var(--seal-d)}
+.btn.o{background:transparent;color:var(--cream);border-color:rgba(244,239,228,.45)}
+.btn.o:hover{border-color:var(--wood);color:var(--wood)}
+.ino .resa{display:inline-flex;align-items:center;gap:8px;margin-top:2px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:.01em;color:var(--wood);border:1.5px solid var(--wood-d);border-radius:2px;padding:9px 16px}
+
+.facts{background:var(--sumi);color:#e6ddca;border-top:1px solid var(--line-d)}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d)}
+.facts .c{background:var(--sumi);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Manrope';font-weight:700;letter-spacing:.16em;font-size:11px;color:var(--seal);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#e6ddca}
+.facts .v b{color:var(--cream);font-weight:600;font-family:'Garamond';font-size:21px;display:block;margin-bottom:2px}
+
+section{padding:clamp(58px,9vw,104px) 0}
+.sect-h{max-width:720px;margin-bottom:44px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,58px);color:var(--ink);line-height:1.06}
+.sect-h p{font-family:'Manrope',sans-serif;font-size:18px;color:#5f574a;margin-top:16px;line-height:1.62}
+
+/* spotlight */
+.spot{background:var(--rice);color:var(--ink);position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.spot .eyebrow{color:var(--seal)}
+.spot h2{font-family:'Garamond';font-size:clamp(38px,6vw,72px);color:var(--ink);margin:14px 0 0;line-height:1.06}
+.spot .lead{font-family:'Manrope';font-size:clamp(18px,2.1vw,23px);line-height:1.5;color:var(--ink);margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#5f574a;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;box-shadow:0 30px 66px rgba(0,0,0,.5)}
+.spot .pic .tag2{position:absolute;left:-12px;bottom:24px;background:var(--seal);color:#fff;font-family:'Manrope';font-weight:700;font-size:13.5px;letter-spacing:.02em;padding:10px 16px;border-radius:2px}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:3px;background:var(--charcoal)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:saturate(.94) contrast(1.04) brightness(.99);transition:transform .6s ease,filter .5s ease}
+.gal figure::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(33,29,22,.10),rgba(178,58,46,.05));mix-blend-mode:multiply}
+.gal figcaption{z-index:2}
+.gal figure:hover img{transform:scale(1.05);filter:saturate(1.02) contrast(1.02)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(15,13,10,.86),transparent);color:var(--cream);font-family:'Garamond',serif;font-weight:600;font-size:17px}
+
+/* carte */
+.carte{background:var(--rice)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,66px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Garamond';font-weight:600;font-size:25px;color:var(--ink);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.mgroup h3 .dot{width:7px;height:7px;background:var(--seal);border-radius:50%;flex:none}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Manrope';font-weight:700;font-size:16.5px;color:var(--ink)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
+.mitem .dots{flex:1;border-bottom:1px dotted var(--wood-d);transform:translateY(-4px);min-width:14px;opacity:.5}
+.mitem .pr{font-family:'Garamond';font-weight:600;color:var(--seal);font-size:16px;white-space:nowrap}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:2px solid var(--seal);padding-left:14px;max-width:80ch}
+
+/* infos */
+.infos{background:var(--ink);color:#ece3d0}
+.infos .sect-h h2{color:var(--cream)}
+.infos .sect-h p{color:#b7ac97}
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line-d)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--wood);margin-top:3px}
+.ino .k{font-family:'Manrope';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--wood)}
+.ino .v{font-size:16.5px;color:var(--cream);margin-top:3px}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.mapcard{background:var(--sumi);border:1px solid var(--line-d);border-radius:3px;overflow:hidden;min-height:270px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:34px}
+.mapcard .big{font-family:'Garamond';font-weight:600;font-size:28px;color:var(--cream)}
+.mapcard .btn{margin-top:20px}
+
+footer{background:var(--sumi);color:#9d937f;padding:0 0 42px;border-top:1px solid var(--line-d)}
+footer .band{padding:24px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:1px;background:var(--line-d)}
+footer .band .dot{width:7px;height:7px;background:var(--seal);border-radius:50%}
+footer .in{padding:4px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Garamond';font-weight:700;font-size:26px;color:var(--cream);letter-spacing:.03em}
+footer .nm small{display:block;font-family:'Manrope';font-size:10px;letter-spacing:.24em;color:var(--wood);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#8a8072}
+footer .made{font-size:12.5px;color:#6f6656;margin-top:22px}
+footer .made b{color:#cbb389}
+footer .made a{color:var(--wood)}
+.disc{margin-top:26px;padding-top:20px;border-top:1px solid var(--line-d);font-size:11.5px;color:#645c4d;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .spot .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:165px}
+ .spot .pic{order:-1}
+ .hero canvas#ensocv{width:56%;opacity:.9}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:63px 0 auto 0;flex-direction:column;background:rgba(21,19,15,.98);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.5);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:rgba(21,19,15,.94)}
+ .hero h1{font-size:clamp(48px,15vw,92px)}
+ .hero canvas#ensocv{width:70%;opacity:.6;right:-6%}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Sushi Iwo">
+   <span class="seal" aria-hidden="true">岩</span>
+   <span class="nm">Sushi Iwo<small>Comptoir à sushi · Ettelbruck</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#comptoir" data-i18n="nav_comptoir">Le comptoir</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#gal" data-i18n="nav_gal">En images</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="Un plateau de sushi de Sushi Iwo"/></div>
+  <div class="scrim"></div>
+  <canvas id="ensocv" aria-hidden="true"></canvas>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Sushi · sashimi · maki · Ettelbruck</span>
+   <h1>Sushi Iwo</h1>
+   <div class="jp" aria-hidden="true">岩</div>
+   <p class="tag" data-i18n="hero_tag">Le poisson tranché au comptoir, à la minute — au cœur du nord du pays.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#comptoir" data-i18n="hero_cta2">Le comptoir ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Sushi &amp; sashimi</b>tranchés au comptoir, à la minute</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>Ettelbruck</b>au cœur du nord</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>Une maison familiale</b>sur place ou à emporter</div></div>
+  </div></div>
+ </div>
+
+ <!-- SPOTLIGHT -->
+ <section class="spot" id="comptoir">
+  <div class="wrap grid">
+   <div class="pic">
+    <img src="assets/signature.jpg" alt="Sushi et tartares dressés avec précision"/>
+    <span class="tag2" data-i18n="sp_tag">Dressé à la main</span>
+   </div>
+   <div class="txt">
+    <span class="eyebrow" data-i18n="sp_eyebrow">Le comptoir</span>
+    <h2 data-i18n="sp_h">Fraîcheur &amp; précision.</h2>
+    <p class="lead" data-i18n="sp_lead">Le poisson est tranché au comptoir, le riz assaisonné juste, chaque pièce dressée à la main — nigiri, maki, sashimi et tartares.</p>
+    <p class="body" data-i18n="sp_body">Ici, le geste compte autant que le produit. On regarde le comptoir travailler, on commande une sélection, et l'assiette arrive nette, précise, fraîche. Rien de superflu. Une maison familiale, tenue avec soin.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- GALLERY -->
+ <section id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">En images</span>
+    <h2 data-i18n="gal_h">La table japonaise</h2>
+    <p data-i18n="gal_p">Nigiri, maki roulés à la commande, sashimi, tartares et grands plateaux à partager — la fraîcheur d'abord.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/roll.jpg" alt="Maki et sashimi de saumon"/><figcaption data-i18n="cap_roll">Maki &amp; sashimi</figcaption></figure>
+    <figure><img src="assets/maki.jpg" alt="Maki garni, sauce"/><figcaption data-i18n="cap_maki">Le maki signature</figcaption></figure>
+    <figure><img src="assets/assiette.jpg" alt="Assiette de sushi variés"/><figcaption data-i18n="cap_assiette">L'assiette variée</figcaption></figure>
+    <figure class="w2"><img src="assets/plateau.jpg" alt="Grand plateau à partager"/><figcaption data-i18n="cap_plateau">Le grand plateau</figcaption></figure>
+    <figure><img src="assets/comptoir.jpg" alt="Le comptoir et la salle"/><figcaption data-i18n="cap_comptoir">Le comptoir</figcaption></figure>
+    <figure><img src="assets/salle.jpg" alt="La salle de Sushi Iwo"/><figcaption data-i18n="cap_salle">La salle</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- CARTE -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on prépare</h2>
+    <p data-i18n="carte_p">Les classiques du comptoir — nigiri, maki, sashimi, tartares, et des plateaux composés.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><span class="dot"></span><span data-i18n="mg1">Nigiri &amp; sashimi</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Nigiri saumon</div><div class="ds" data-i18n="i1d">Riz vinaigré, saumon tranché</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Sashimi assortis</div><div class="ds" data-i18n="i2d">Sélection du comptoir</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Tartare &amp; ikura</div><div class="ds" data-i18n="i3d">Dressé à la main</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><span class="dot"></span><span data-i18n="mg2">Maki &amp; rolls</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Maki</div><div class="ds" data-i18n="i4d">Roulés à la commande</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">California &amp; rolls signés</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><span class="dot"></span><span data-i18n="mg3">Les plateaux</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Plateau découverte</div><div class="ds" data-i18n="i6d">Assortiment composé</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Grand plateau à partager</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><span class="dot"></span><span data-i18n="mg4">Chaud &amp; à côté</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Tempura</div><div class="ds" data-i18n="i8d">Beignets croustillants</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Soupe miso &amp; edamame</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié en ligne : la carte et les prix sont à confirmer sur place.</p>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous trouver</h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">Ettelbruck<br><span class="fl" data-i18n="ino_fl1">adresse exacte à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><span class="resa" data-i18n="ino_resa">Réserver par téléphone</span><br><span class="fl" data-i18n="ino_phone">Numéro à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span data-i18n="ino_ht">Midi &amp; soir</span><br><span class="fl" data-i18n="ino_fl3">horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <div>
+      <div class="big" data-i18n="map_big">Ettelbruck</div>
+      <div style="color:#b7ac97;margin-top:8px" data-i18n="map_sub">Au cœur du nord du Luxembourg</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Sushi+Iwo+Ettelbruck" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><span class="dot"></span><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Sushi Iwo<small>Comptoir à sushi · Ettelbruck</small></div>
+   <p data-i18n="foot_p">Le comptoir à sushi d'Ettelbruck — sushi, sashimi et maki préparés à la minute, au comptoir.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Manrope';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--wood)">Contact</div>
+   <p style="margin-top:10px">Ettelbruck<br><span data-i18n="foot_phone">Téléphone à confirmer</span></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Adresse exacte, carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_comptoir:"Le comptoir",nav_carte:"La carte",nav_gal:"En images",nav_infos:"Infos & accès",
+  hero_eyebrow:"Sushi · sashimi · maki · Ettelbruck",
+  hero_tag:"Le poisson tranché au comptoir, à la minute — au cœur du nord du pays.",
+  hero_cta1:"Voir la carte",hero_cta2:"Le comptoir ↓",
+  fact_k1:"La cuisine",fact_v1:"<b>Sushi & sashimi</b>tranchés au comptoir, à la minute",
+  fact_k2:"Le lieu",fact_v2:"<b>Ettelbruck</b>au cœur du nord",
+  fact_k3:"La maison",fact_v3:"<b>Une maison familiale</b>sur place ou à emporter",
+  sp_tag:"Dressé à la main",sp_eyebrow:"Le comptoir",sp_h:"Fraîcheur & précision.",
+  sp_lead:"Le poisson est tranché au comptoir, le riz assaisonné juste, chaque pièce dressée à la main — nigiri, maki, sashimi et tartares.",
+  sp_body:"Ici, le geste compte autant que le produit. On regarde le comptoir travailler, on commande une sélection, et l'assiette arrive nette, précise, fraîche. Rien de superflu. Une maison familiale, tenue avec soin.",
+  gal_eyebrow:"En images",gal_h:"La table japonaise",
+  gal_p:"Nigiri, maki roulés à la commande, sashimi, tartares et grands plateaux à partager — la fraîcheur d'abord.",
+  cap_roll:"Maki & sashimi",cap_maki:"Le maki signature",cap_assiette:"L'assiette variée",cap_plateau:"Le grand plateau",cap_comptoir:"Le comptoir",cap_salle:"La salle",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on prépare",
+  carte_p:"Les classiques du comptoir — nigiri, maki, sashimi, tartares, et des plateaux composés.",
+  mg1:"Nigiri & sashimi",mg2:"Maki & rolls",mg3:"Les plateaux",mg4:"Chaud & à côté",
+  i1n:"Nigiri saumon",i1d:"Riz vinaigré, saumon tranché",i2n:"Sashimi assortis",i2d:"Sélection du comptoir",i3n:"Tartare & ikura",i3d:"Dressé à la main",
+  i4n:"Maki",i4d:"Roulés à la commande",i5n:"California & rolls signés",
+  i6n:"Plateau découverte",i6d:"Assortiment composé",i7n:"Grand plateau à partager",
+  i8n:"Tempura",i8d:"Beignets croustillants",i9n:"Soupe miso & edamame",ac:"à conf.",
+  carte_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié en ligne : la carte et les prix sont à confirmer sur place.",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
+  ino_k1:"Adresse",ino_fl1:"adresse exacte à confirmer",ino_k2:"Réserver",ino_resa:"Réserver par téléphone",ino_phone:"Numéro à confirmer",
+  ino_k3:"Horaires",ino_ht:"Midi & soir",ino_fl3:"horaires à confirmer",
+  map_big:"Ettelbruck",map_sub:"Au cœur du nord du Luxembourg",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Le comptoir à sushi d'Ettelbruck — sushi, sashimi et maki préparés à la minute, au comptoir.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  foot_phone:"Téléphone à confirmer",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Adresse exacte, carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_comptoir:"Der Tresen",nav_carte:"Karte",nav_gal:"Bilder",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Sushi · Sashimi · Maki · Ettelbruck",
+  hero_tag:"Der Fisch am Tresen geschnitten, à la minute — im Norden des Landes.",
+  hero_cta1:"Zur Karte",hero_cta2:"Der Tresen ↓",
+  fact_k1:"Die Küche",fact_v1:"<b>Sushi & Sashimi</b>am Tresen geschnitten, à la minute",
+  fact_k2:"Der Ort",fact_v2:"<b>Ettelbruck</b>im Herzen des Nordens",
+  fact_k3:"Das Haus",fact_v3:"<b>Ein Familienbetrieb</b>vor Ort oder zum Mitnehmen",
+  sp_tag:"Von Hand angerichtet",sp_eyebrow:"Der Tresen",sp_h:"Frische & Präzision.",
+  sp_lead:"Der Fisch wird am Tresen geschnitten, der Reis genau gewürzt, jedes Stück von Hand angerichtet — Nigiri, Maki, Sashimi und Tatar.",
+  sp_body:"Hier zählt die Handbewegung so viel wie das Produkt. Man sieht dem Tresen bei der Arbeit zu, bestellt eine Auswahl, und der Teller kommt klar, präzise, frisch. Nichts Überflüssiges. Ein Familienbetrieb, mit Sorgfalt geführt.",
+  gal_eyebrow:"Bilder",gal_h:"Der japanische Tisch",
+  gal_p:"Nigiri, auf Bestellung gerollte Maki, Sashimi, Tatar und große Platten zum Teilen — Frische zuerst.",
+  cap_roll:"Maki & Sashimi",cap_maki:"Das Signature-Maki",cap_assiette:"Der gemischte Teller",cap_plateau:"Die große Platte",cap_comptoir:"Der Tresen",cap_salle:"Der Gastraum",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir zubereiten",
+  carte_p:"Die Klassiker vom Tresen — Nigiri, Maki, Sashimi, Tatar und zusammengestellte Platten.",
+  mg1:"Nigiri & Sashimi",mg2:"Maki & Rolls",mg3:"Die Platten",mg4:"Warm & dazu",
+  i1n:"Lachs-Nigiri",i1d:"Sushi-Reis, geschnittener Lachs",i2n:"Sashimi-Auswahl",i2d:"Auswahl vom Tresen",i3n:"Tatar & Ikura",i3d:"Von Hand angerichtet",
+  i4n:"Maki",i4d:"Auf Bestellung gerollt",i5n:"California & Signature-Rolls",
+  i6n:"Entdecker-Platte",i6d:"Zusammengestelltes Sortiment",i7n:"Große Platte zum Teilen",
+  i8n:"Tempura",i8d:"Knusprige Teigtaschen",i9n:"Miso-Suppe & Edamame",ac:"n. Angabe",
+  carte_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Es sind keine Preise online veröffentlicht: Karte und Preise vor Ort zu bestätigen.",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So finden Sie uns",
+  ino_k1:"Adresse",ino_fl1:"genaue Adresse zu bestätigen",ino_k2:"Reservieren",ino_resa:"Telefonisch reservieren",ino_phone:"Nummer zu bestätigen",
+  ino_k3:"Öffnungszeiten",ino_ht:"Mittags & abends",ino_fl3:"Zeiten zu bestätigen",
+  map_big:"Ettelbruck",map_sub:"Im Herzen des Luxemburger Nordens",map_btn:"In Maps öffnen ↗",
+  foot_p:"Der Sushi-Tresen von Ettelbruck — Sushi, Sashimi und Maki à la minute, am Tresen.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  foot_phone:"Telefon zu bestätigen",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Genaue Adresse, Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_comptoir:"The counter",nav_carte:"Menu",nav_gal:"In pictures",nav_infos:"Find us",
+  hero_eyebrow:"Sushi · sashimi · maki · Ettelbruck",
+  hero_tag:"Fish sliced at the counter, to order — in the heart of the north.",
+  hero_cta1:"See the menu",hero_cta2:"The counter ↓",
+  fact_k1:"The kitchen",fact_v1:"<b>Sushi & sashimi</b>sliced at the counter, to order",
+  fact_k2:"The place",fact_v2:"<b>Ettelbruck</b>in the heart of the north",
+  fact_k3:"The house",fact_v3:"<b>A family-run house</b>dine in or take away",
+  sp_tag:"Plated by hand",sp_eyebrow:"The counter",sp_h:"Freshness & precision.",
+  sp_lead:"The fish is sliced at the counter, the rice seasoned just so, each piece plated by hand — nigiri, maki, sashimi and tartares.",
+  sp_body:"Here the gesture matters as much as the product. You watch the counter work, order a selection, and the plate arrives clean, precise, fresh. Nothing superfluous. A family-run house, kept with care.",
+  gal_eyebrow:"In pictures",gal_h:"The Japanese table",
+  gal_p:"Nigiri, maki rolled to order, sashimi, tartares and big sharing platters — freshness first.",
+  cap_roll:"Maki & sashimi",cap_maki:"The signature maki",cap_assiette:"The mixed plate",cap_plateau:"The big platter",cap_comptoir:"The counter",cap_salle:"The dining room",
+  carte_eyebrow:"The menu",carte_h:"What we prepare",
+  carte_p:"The counter classics — nigiri, maki, sashimi, tartares, and composed platters.",
+  mg1:"Nigiri & sashimi",mg2:"Maki & rolls",mg3:"The platters",mg4:"Hot & sides",
+  i1n:"Salmon nigiri",i1d:"Vinegared rice, sliced salmon",i2n:"Assorted sashimi",i2d:"The counter's selection",i3n:"Tartare & ikura",i3d:"Plated by hand",
+  i4n:"Maki",i4d:"Rolled to order",i5n:"California & signature rolls",
+  i6n:"Discovery platter",i6d:"Composed assortment",i7n:"Big sharing platter",
+  i8n:"Tempura",i8d:"Crisp fritters",i9n:"Miso soup & edamame",ac:"tbc",
+  carte_note:"Dishes from the house's public photos, for reference. No prices are published online: the menu and prices are to be confirmed on site.",
+  infos_eyebrow:"Info & access",infos_h:"Find us",
+  ino_k1:"Address",ino_fl1:"exact address to be confirmed",ino_k2:"Book",ino_resa:"Book by phone",ino_phone:"Number to be confirmed",
+  ino_k3:"Opening hours",ino_ht:"Lunch & evening",ino_fl3:"hours to be confirmed",
+  map_big:"Ettelbruck",map_sub:"In the heart of Luxembourg's north",map_btn:"Open in Maps ↗",
+  foot_p:"The sushi counter of Ettelbruck — sushi, sashimi and maki made to order, at the counter.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  foot_phone:"Phone to be confirmed",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand and dishes belong to the house. Exact address, menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  try{localStorage.setItem("iwo_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>50);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("iwo_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* wow: a self-drawing enso (brush circle) + red seal — precision/zen, distinct from Ramen's steam */
+(function(){
+  const cv=document.getElementById("ensocv"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null,t0=null;
+  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+  function enso(prog,breath){
+    ctx.clearRect(0,0,W,H);
+    const cx=W*0.5, cy=H*0.5, R=Math.min(W,H)*0.36;
+    const start=-Math.PI*0.68, sweep=Math.PI*1.9;
+    const seg=120;
+    for(let i=0;i<seg;i++){
+      const u=i/seg; if(u>prog) break;
+      const a=start+sweep*u;
+      const taper=Math.pow(Math.sin(Math.PI*Math.min(u/prog,1)),0.6);
+      const w=2.5+26*taper;
+      const rr=R+Math.sin(u*26)*2.4;
+      const a2=start+sweep*Math.min(u+1/seg,prog);
+      const x=cx+Math.cos(a)*rr, y=cy+Math.sin(a)*rr;
+      const x2=cx+Math.cos(a2)*rr, y2=cy+Math.sin(a2)*rr;
+      ctx.strokeStyle="rgba(244,239,228,"+(0.9*breath).toFixed(3)+")";
+      ctx.lineWidth=w; ctx.lineCap="round";
+      ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x2,y2); ctx.stroke();
+    }
+    if(prog>0.8){ const sa=Math.min(1,(prog-0.8)/0.2)*breath; const s=R*0.26;
+      ctx.fillStyle="rgba(178,58,46,"+(sa).toFixed(3)+")";
+      ctx.fillRect(cx+R*0.42, cy+R*0.42, s, s);
+      ctx.fillStyle="rgba(250,247,238,"+(sa*0.9).toFixed(3)+")";
+      ctx.font="700 "+(s*0.5)+"px 'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP','Songti SC',serif"; ctx.textAlign="center"; ctx.textBaseline="middle";
+      ctx.fillText("岩", cx+R*0.42+s/2, cy+R*0.42+s/2);
+    }
+  }
+  function frame(ts){ if(t0===null)t0=ts; const el=(ts-t0)/1000;
+    const p=Math.min(1, el/2.6); const eased=1-Math.pow(1-p,3);
+    const breath=p<1?1:(0.88+0.12*Math.sin(el*1.1));
+    enso(eased,breath); raf=requestAnimationFrame(frame); }
+  resize(); window.addEventListener("resize",resize);
+  if(reduce){ enso(1,1); return; }
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf){t0=null;raf=requestAnimationFrame(frame);}else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
+  io.observe(cv);
+})();
+</script>
+</body>
+</html>
