@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Auberge Roudbaach — Auberge de village, Préizerdaul</title>
+<meta name="description" content="Auberge Roudbaach à Platen (Préizerdaul) — une seule adresse, toutes les envies : sushi et maki, classiques français, pâtes et desserts, sur une terrasse au soleil. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Disp';src:url('assets/fonts/disp-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Body';src:url('assets/fonts/body-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --ink:#2a2016; --ink2:#5b4a38;
+ --cream:#f7f0e1; --paper:#fbf4e6; --card:#fdf9ee; --sand:#efe3c9;
+ --terra:#c15a34; --terra-d:#9c4526; --terra-l:#d98a5f;
+ --amber:#e0a13c; --amber-l:#f0c274;
+ --green:#5a7143; --green-d:#3f5330;
+ --red:#b23a2e;
+ --line:#e6d7ba; --muted:#8c7c62;
+ --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Body',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Disp',Georgia,serif;font-weight:600;line-height:1.06}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Body',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:11.5px;color:var(--terra)}
+
+/* leaf mark + rule */
+.lf{width:14px;height:20px;flex:none;color:var(--red)}
+.rule{display:flex;align-items:center;gap:16px;padding:8px 0}
+.rule .ln{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+.rule .lf{width:14px;height:20px;color:var(--terra);flex:none}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,box-shadow .3s,border-color .3s;border-bottom:1px solid transparent}
+header.solid{background:rgba(247,240,225,.93);backdrop-filter:blur(8px);box-shadow:0 2px 20px rgba(90,60,30,.10);border-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:11px;color:var(--cream)}
+header.solid .brand{color:var(--ink)}
+.brand .lf{width:20px;height:28px;flex:none;color:var(--red)}
+.brand .nm{font-family:'Disp',serif;font-weight:600;font-size:23px;letter-spacing:.01em;line-height:.98}
+.brand .nm small{display:block;font-family:'Body';font-size:8.5px;letter-spacing:.24em;color:var(--amber-l);font-weight:700;margin-top:3px;text-transform:uppercase}
+header.solid .brand .nm small{color:var(--terra)}
+nav.links{display:flex;align-items:center;gap:24px}
+nav.links a{font-family:'Body',sans-serif;font-weight:600;font-size:14.5px;color:#f4ead6;opacity:.94}
+header.solid nav.links a{color:var(--ink2)}
+nav.links a:hover{color:var(--amber-l)}
+header.solid nav.links a:hover{color:var(--terra)}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.16);border-radius:999px;padding:3px}
+header.solid .langs{background:rgba(154,69,38,.10)}
+.langs button{font-family:'Body',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;border:0;background:transparent;color:#f0e6d2;padding:5px 10px;border-radius:999px;cursor:pointer}
+header.solid .langs button{color:var(--ink2)}
+.langs button.on{background:var(--terra);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:25px;height:2.5px;background:var(--cream);border-radius:2px;transition:.3s}
+header.solid .burger span{background:var(--ink)}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* HERO — golden-hour village auberge */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;background:#e9c68a}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(120,52,22,.86) 0%,rgba(150,78,34,.42) 40%,rgba(224,161,60,.10) 68%,rgba(255,236,190,.04) 100%)}
+.hero canvas#skycv{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero .inner{position:relative;z-index:3;padding-bottom:clamp(42px,7vw,90px);padding-top:130px}
+.hero .eyebrow{color:var(--amber-l);margin-bottom:16px;display:block}
+.hero h1{color:#fff;font-size:clamp(50px,10vw,124px);letter-spacing:.005em;text-shadow:0 3px 34px rgba(70,30,10,.45)}
+.hero h1 span{display:block;color:var(--amber-l);font-style:italic;font-size:.62em;font-weight:400;margin-top:2px}
+.hero .tag{font-family:'Body',sans-serif;font-weight:400;font-size:clamp(18px,2.3vw,26px);color:#fbeed7;max-width:30ch;margin:20px 0 0;line-height:1.42;text-shadow:0 2px 18px rgba(70,30,10,.35)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+.btn{font-family:'Body',sans-serif;font-weight:700;letter-spacing:.01em;font-size:14.5px;padding:14px 26px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--terra);color:#fff}
+.btn.p:hover{background:var(--terra-d)}
+.btn.o{background:transparent;color:#fff;border-color:rgba(255,244,224,.55)}
+.btn.o:hover{border-color:var(--amber-l);color:var(--amber-l)}
+
+/* CONCEPT ribbon — replaces the fact-strip; folds the spine in */
+.rib{background:var(--terra);color:#fdeede}
+.rib .in{padding:clamp(34px,5vw,54px) 0}
+.rib .spine{font-family:'Disp',serif;font-weight:600;font-style:italic;font-size:clamp(24px,3.6vw,42px);line-height:1.12;color:#fff;max-width:22ch}
+.rib .spine b{font-style:normal;color:var(--amber-l);font-weight:600}
+.rib .sub{font-size:16.5px;color:#f6dcc9;margin-top:16px;max-width:52ch;line-height:1.6}
+.rib .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.20);margin-top:34px;border-radius:4px;overflow:hidden}
+.rib .c{background:var(--terra);padding:20px clamp(16px,2.4vw,26px)}
+.rib .k{font-family:'Body';font-weight:700;letter-spacing:.14em;font-size:10.5px;color:var(--amber-l);text-transform:uppercase}
+.rib .v{font-size:15px;margin-top:7px;color:#fdeede}
+.rib .v b{color:#fff;font-weight:600;font-family:'Disp';font-size:19px;display:block;margin-bottom:2px}
+
+section{padding:clamp(58px,9vw,102px) 0}
+.sect-h{max-width:720px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:13px;display:inline-flex;align-items:center;gap:9px}
+.sect-h .eyebrow .lf{width:13px;height:19px;color:var(--red)}
+.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--ink);line-height:1.04}
+.sect-h h2 em{font-style:italic;color:var(--terra)}
+.sect-h p{font-family:'Body',sans-serif;font-size:18px;color:var(--ink2);margin-top:15px;line-height:1.62}
+
+/* TOUTES LES ENVIES — the craving grid (structural heart) */
+.envies{background:var(--paper)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.6vw,30px)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 34px rgba(120,80,40,.07);transition:transform .35s ease,box-shadow .35s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(120,80,40,.14)}
+.card .ph{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--sand)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover .ph img{transform:scale(1.05)}
+.card .no{position:absolute;top:12px;left:12px;z-index:2;font-family:'Disp';font-weight:600;font-size:14px;color:#fff;background:rgba(42,32,22,.55);backdrop-filter:blur(2px);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.card .tx{padding:22px 22px 24px}
+.card h3{font-family:'Disp';font-size:26px;color:var(--ink);display:flex;align-items:center;gap:10px}
+.card h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--terra);flex:none}
+.card p{font-size:14.5px;color:var(--ink2);margin-top:9px;line-height:1.55}
+.card .fl{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:11px}
+
+/* TERRASSE — golden-hour beat */
+.terr{background:var(--green-d);color:#eef0e2;position:relative;overflow:hidden}
+.terr .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,66px);align-items:center}
+.terr .eyebrow{color:var(--amber-l)}
+.terr .eyebrow .lf{color:var(--amber-l)}
+.terr h2{font-family:'Disp';font-size:clamp(34px,5.2vw,62px);color:#fff;line-height:1.04;margin-top:12px}
+.terr h2 span{display:block;font-style:italic;color:var(--amber-l)}
+.terr .lead{font-size:18.5px;color:#e6ecd8;margin-top:20px;line-height:1.58;max-width:44ch}
+.terr .body{font-size:15.5px;color:#c4cfae;margin-top:14px;max-width:46ch;line-height:1.62}
+.terr .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.terr .chip{font-family:'Body';font-weight:700;font-size:12.5px;color:var(--green-d);background:var(--amber-l);padding:8px 15px;border-radius:999px}
+.terr .chip.b{background:transparent;color:#e6ecd8;border:1.5px solid rgba(230,236,216,.36)}
+.terr .pic{position:relative}
+.terr .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:5px;box-shadow:0 26px 56px rgba(0,0,0,.4)}
+.terr .pic .badge{position:absolute;left:-12px;bottom:24px;background:var(--terra);color:#fff;font-family:'Body';font-weight:700;font-size:13px;padding:10px 16px;border-radius:3px;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+
+/* GALLERY — la maison */
+.maison{background:var(--cream)}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:168px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:5px;background:var(--sand)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02) contrast(1.02);transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .a{grid-column:span 3;grid-row:span 2}
+.gal .b{grid-column:span 3}
+.gal .c{grid-column:span 2}
+.gal .d{grid-column:span 2}
+.gal .e{grid-column:span 2}
+.gal .f{grid-column:span 3}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 15px 11px;background:linear-gradient(0deg,rgba(42,26,14,.82),transparent);color:#fbeed7;font-family:'Disp',serif;font-weight:600;font-size:16px}
+
+/* CARTE */
+.carte{background:var(--paper)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Disp';font-size:24px;color:var(--terra-d);display:flex;align-items:center;gap:10px;padding-bottom:11px;border-bottom:2px solid var(--terra);margin-bottom:13px}
+.mgroup h3 .lf{width:12px;height:17px;color:var(--red)}
+.mitem{display:flex;gap:12px;align-items:baseline;padding:8px 0}
+.mitem .nm{font-family:'Body';font-weight:700;font-size:16.5px;color:var(--ink)}
+.mitem .ds{font-size:13px;color:var(--muted);margin-top:2px;max-width:44ch}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Disp';color:var(--terra);font-size:15.5px;white-space:nowrap;font-weight:600}
+.carte .note{margin-top:22px;font-size:13px;color:var(--muted);font-style:italic;border-left:3px solid var(--amber);padding-left:14px;max-width:80ch}
+
+/* INFOS */
+.infos{background:var(--ink);color:#ede2cd}
+.infos .sect-h h2{color:var(--cream)}
+.infos .sect-h h2 em{color:var(--amber-l)}
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.10)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--amber-l);margin-top:3px}
+.ino .k{font-family:'Body';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--amber-l)}
+.ino .v{font-size:16.5px;color:var(--cream);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--terra-l)}
+.ino .fl{color:#a99a80;font-size:13px;font-style:italic}
+.hours-now{font-family:'Disp';color:var(--amber-l);font-size:18px;font-weight:600}
+.mapcard{background:#20180f;border:1px solid rgba(255,255,255,.10);border-radius:5px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:34px}
+.mapcard .lfwm{position:absolute;right:-10px;top:-14px;width:150px;height:210px;color:rgba(224,161,60,.10)}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Disp';font-size:27px;color:var(--cream)}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#20180f;color:#ab9c82;padding:0 0 40px}
+footer .band{padding:24px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:1px;background:rgba(255,255,255,.12)}
+footer .band .lf{width:16px;height:23px;color:var(--terra)}
+footer .in{padding:4px 0 0;display:grid;grid-template-columns:1.5fr 1fr;gap:40px}
+footer .nm{font-family:'Disp';font-weight:600;font-size:26px;color:var(--cream)}
+footer .nm small{display:block;font-family:'Body';font-size:9.5px;letter-spacing:.2em;color:var(--amber-l);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:13px;max-width:44ch;color:#9a8b72}
+footer .made{font-size:12.5px;color:#7d6f59;margin-top:22px}
+footer .made b{color:#d9c8a6}
+footer .made a{color:var(--amber-l)}
+footer .ck{font-family:'Body';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--amber-l)}
+.disc{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.10);font-size:11.5px;color:#6f6350;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .rib .facts,.terr .grid,.infos .grid,.carte .cols,footer .in{grid-template-columns:1fr}
+ .cards{grid-template-columns:1fr}
+ .terr .pic{order:-1}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+ .gal .a,.gal .b,.gal .c,.gal .d,.gal .e,.gal .f{grid-column:span 1;grid-row:span 1}
+ .gal .a{grid-column:span 2;grid-row:span 2}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:62px 0 auto 0;flex-direction:column;background:rgba(247,240,225,.98);padding:22px 0 28px;gap:4px;transform:translateY(-145%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(90,60,30,.18);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px;color:var(--ink2)}
+ .burger{display:flex}
+ header{background:rgba(247,240,225,.93);backdrop-filter:blur(8px);border-color:var(--line)}
+ header .brand{color:var(--ink)} header .brand .nm small{color:var(--terra)}
+ header .langs{background:rgba(154,69,38,.10)} header .langs button{color:var(--ink2)}
+ header .burger span{background:var(--ink)}
+ .hero h1{font-size:clamp(44px,14vw,80px)}
+ .hero .inner{padding-top:110px}
+}
+@media(max-width:420px){
+ .brand .nm{font-size:20px}
+ .bar{gap:8px}
+ nav.links{gap:2px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="leaf"><path d="M12 1 C4 6 2 15 12 23 C22 15 20 6 12 1 Z" fill="currentColor"/><path d="M12 4 L12 21" stroke="rgba(255,255,255,.35)" stroke-width="1.1" fill="none"/></g>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Auberge Roudbaach">
+   <svg class="lf" viewBox="0 0 24 24" aria-hidden="true"><use href="#leaf"/></svg>
+   <span class="nm">Auberge Roudbaach<small>Auberge de village · Préizerdaul</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#envies" data-i18n="nav_envies">Toutes les envies</a>
+   <a href="#terrasse" data-i18n="nav_terrasse">La terrasse</a>
+   <a href="#maison" data-i18n="nav_maison">La maison</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="La façade orange de l'Auberge Roudbaach et sa terrasse, en fin de journée"/></div>
+  <div class="scrim"></div>
+  <canvas id="skycv" aria-hidden="true"></canvas>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Auberge de village · Roudbaach · Préizerdaul</span>
+   <h1>Auberge Roudbaach<span data-i18n="hero_h_sub">toutes les envies, une seule adresse</span></h1>
+   <p class="tag" data-i18n="hero_tag">Sushi et maki, classiques français, pâtes et desserts maison — servis dans une maison de village, la terrasse au soleil.</p>
+   <div class="cta">
+    <a class="btn p" href="#envies" data-i18n="hero_cta1">Toutes les envies</a>
+    <a class="btn o" href="#infos" data-i18n="hero_cta2">Nous trouver ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <!-- CONCEPT RIBBON -->
+ <section class="rib" style="padding:0" id="rib">
+  <div class="wrap in">
+   <div class="spine" data-i18n="rib_spine">Une seule adresse, <b>toutes les envies.</b></div>
+   <p class="sub" data-i18n="rib_sub">Une auberge de campagne à Préizerdaul où une même cuisine fait le sushi, le plat mijoté et les pâtes — honnête, sans chichi, généreuse.</p>
+   <div class="facts">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Large &amp; généreuse</b>sushi · classiques · pâtes · desserts</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>Roudbaach, Préizerdaul</b>maison de village &amp; terrasse</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">À table</div><div class="v" data-i18n="fact_v3"><b>Sur place ou à emporter</b>la ligne sushi se commande à emporter</div></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- TOUTES LES ENVIES -->
+ <section class="envies" id="envies">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow"><svg class="lf" viewBox="0 0 24 24"><use href="#leaf"/></svg><span data-i18n="env_eyebrow">Toutes les envies</span></span>
+    <h2 data-i18n="env_h">Une cuisine, <em>quatre envies</em></h2>
+    <p data-i18n="env_p">On ne choisit pas son camp : la même maison roule le maki, nappe l'escalope de sa sauce forestière, tourne les tagliatelles et dresse le dessert. Voilà ce qu'on aime.</p>
+   </div>
+   <div class="cards">
+    <div class="card">
+     <div class="ph"><span class="no">1</span><img src="assets/sushi.jpg" alt="Assortiment de sushi : nigiri saumon et thon, gambas, maki et rose de saumon"/></div>
+     <div class="tx"><h3><span class="dot"></span><span data-i18n="c1_h">Sushi &amp; maki</span></h3><p data-i18n="c1_p">Nigiri, maki, California, sashimi, temaki : la ligne japonaise, roulée et tranchée à la commande — sur place ou à emporter.</p></div>
+    </div>
+    <div class="card">
+     <div class="ph"><span class="no">2</span><img src="assets/classique.jpg" alt="Escalope nappée d'une sauce crémeuse aux champignons, légumes du marché"/></div>
+     <div class="tx"><h3><span class="dot"></span><span data-i18n="c2_h">Les classiques</span></h3><p data-i18n="c2_p">Escalope de veau ou de porc, sauce forestière aux champignons, grillades et brochettes — la cuisine française et luxembourgeoise, généreuse.</p></div>
+    </div>
+    <div class="card">
+     <div class="ph"><span class="no">3</span><img src="assets/pates.jpg" alt="Tagliatelles fraîches aux légumes émincés, carotte, courgette et oignon"/></div>
+     <div class="tx"><h3><span class="dot"></span><span data-i18n="c3_h">Les pâtes</span></h3><p data-i18n="c3_p">Tagliatelles carbonara, ou aux légumes de saison émincés minute — simples, chaudes, réconfortantes.</p></div>
+    </div>
+    <div class="card">
+     <div class="ph"><span class="no">4</span><img src="assets/dessert.jpg" alt="Assiette gourmande : crème brûlée, glace, parfait, fruits frais"/></div>
+     <div class="tx"><h3><span class="dot"></span><span data-i18n="c4_h">Les desserts</span></h3><p data-i18n="c4_p">Crème brûlée, assiette gourmande, fruits frais et fromage — la fin heureuse d'un repas de campagne.</p></div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- TERRASSE -->
+ <section class="terr" id="terrasse">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow"><svg class="lf" viewBox="0 0 24 24"><use href="#leaf"/></svg><span data-i18n="ter_eyebrow">Sur la terrasse</span></span>
+    <h2 data-i18n="ter_h">Le soleil traverse<span>la campagne.</span></h2>
+    <p class="lead" data-i18n="ter_lead">Une grande terrasse abritée par la pergola et les voiles d'ombrage, des tables espacées, la campagne de Préizerdaul autour. On y prend son temps du déjeuner jusqu'au soir.</p>
+    <p class="body" data-i18n="ter_body">Quand la lumière tourne à l'or en fin de journée, c'est l'adresse où l'on s'attarde — un verre, une planche de sushi, un plat qui mijote.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="ter_chip1">Terrasse au soleil</span>
+     <span class="chip b" data-i18n="ter_chip2">Pergola &amp; ombrage</span>
+     <span class="chip b" data-i18n="ter_chip3">En pleine campagne</span>
+    </div>
+   </div>
+   <div class="pic">
+    <img src="assets/terrasse.jpg" alt="La terrasse-jardin de l'Auberge Roudbaach, tables dressées sous la pergola"/>
+    <span class="badge" data-i18n="ter_badge">Au grand air</span>
+   </div>
+  </div>
+ </section>
+
+ <!-- LA MAISON / GALLERY -->
+ <section class="maison" id="maison">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow"><svg class="lf" viewBox="0 0 24 24"><use href="#leaf"/></svg><span data-i18n="gal_eyebrow">La maison</span></span>
+    <h2 data-i18n="gal_h">De la salle <em>à l'assiette</em></h2>
+    <p data-i18n="gal_p">La salle à nappes blanches, la lumière du soir, et une table qui va du plateau de sushi au bol de soupe. Une auberge, tout simplement.</p>
+   </div>
+   <div class="gal">
+    <figure class="a"><img src="assets/salle.jpg" alt="La salle à manger à nappes blanches"/><figcaption data-i18n="cap_salle">La salle à nappes blanches</figcaption></figure>
+    <figure class="b"><img src="assets/plateau.jpg" alt="Plateau de sushi assortis sur assiette laquée"/><figcaption data-i18n="cap_plateau">Le plateau de sushi</figcaption></figure>
+    <figure class="c"><img src="assets/rouleaux.jpg" alt="Rouleaux garnis et sauce à partager"/><figcaption data-i18n="cap_rouleaux">Rouleaux &amp; sauce</figcaption></figure>
+    <figure class="d"><img src="assets/soupe.jpg" alt="Bol de soupe miso au tofu et algues"/><figcaption data-i18n="cap_soupe">La soupe miso</figcaption></figure>
+    <figure class="e"><img src="assets/maki.jpg" alt="Maki saumon, thon et avocat"/><figcaption data-i18n="cap_maki">Maki à la commande</figcaption></figure>
+    <figure class="f"><img src="assets/soiree.jpg" alt="La salle en soirée, aux chandelles"/><figcaption data-i18n="cap_soiree">En soirée, aux chandelles</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- CARTE -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow"><svg class="lf" viewBox="0 0 24 24"><use href="#leaf"/></svg><span data-i18n="carte_eyebrow">La carte</span></span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="carte_p">Les familles de plats d'après la carte de la maison. Les prix ne sont pas repris ici — carte &amp; prix à confirmer sur place.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="lf" viewBox="0 0 24 24"><use href="#leaf"/></svg><span data-i18n="mg1">Sushi, maki &amp; sashimi</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Nigiri &amp; sushi</div><div class="ds" data-i18n="i1d">Saumon, thon, gambas</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Maki &amp; California</div><div class="ds" data-i18n="i2d">Roulés à la commande</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Temaki &amp; chirashi</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Sashimi &amp; tataki</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="lf" viewBox="0 0 24 24"><use href="#leaf"/></svg><span data-i18n="mg2">À l'asiatique</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Nems &amp; rouleaux</div><div class="ds" data-i18n="i5d">Sauce à part</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Soupe miso</div><div class="ds" data-i18n="i6d">Tofu &amp; algues</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="lf" viewBox="0 0 24 24"><use href="#leaf"/></svg><span data-i18n="mg3">Classiques &amp; pâtes</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Escalope sauce forestière</div><div class="ds" data-i18n="i7d">Veau ou porc, champignons</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Grillades &amp; brochettes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Tagliatelles carbonara</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Tagliatelles aux légumes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="lf" viewBox="0 0 24 24"><use href="#leaf"/></svg><span data-i18n="mg4">Desserts maison</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Crème brûlée</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Assiette gourmande</div><div class="ds" data-i18n="i12d">Un peu de tout</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i13n">Fruits frais &amp; fromage</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Familles de plats d'après les photos et la carte publiques de la maison, à titre indicatif. Aucun prix n'est publié ici : la carte et les prix sont à confirmer sur place.</p>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" style="color:var(--amber-l)"><svg class="lf" viewBox="0 0 24 24" style="color:var(--amber-l)"><use href="#leaf"/></svg><span data-i18n="infos_eyebrow">Infos &amp; accès</span></span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">50, Roudbaach<br>L-8558 Platen (Préizerdaul)</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver &amp; commander</div><div class="v"><a href="tel:+35223620797">23 62 07 97</a><br><span class="fl" data-i18n="ino_fl2">sur place ou à emporter</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-now" data-i18n="ino_ht">Service à partir de 11h30</span><br><span class="fl" data-i18n="ino_fl3">horaires complets à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <svg class="lfwm" viewBox="0 0 24 24" aria-hidden="true"><use href="#leaf"/></svg>
+     <div class="in">
+      <div class="big" data-i18n="map_big">Roudbaach</div>
+      <div style="color:#b7ac97;margin-top:8px" data-i18n="map_sub">50, Roudbaach — au cœur de Préizerdaul</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Auberge+Roudbaach+50+Roudbaach+Platen+Pr%C3%A9izerdaul" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="lf" viewBox="0 0 24 24"><use href="#leaf"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Auberge Roudbaach<small>Auberge de village · Préizerdaul</small></div>
+   <p data-i18n="foot_p">L'auberge de Roudbaach — une seule adresse pour toutes les envies : sushi et maki, classiques français, pâtes et desserts, sur une terrasse au soleil.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div class="ck" data-i18n="foot_contact">Contact</div>
+   <p style="margin-top:10px">50, Roudbaach<br>L-8558 Platen (Préizerdaul)<br><a href="tel:+35223620797" style="border-bottom:1px solid var(--terra-l)">23 62 07 97</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis) — photos à remplacer par celles de la maison. La marque de la maison est recréée. Carte, prix et horaires sont à confirmer. Proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_envies:"Toutes les envies",nav_terrasse:"La terrasse",nav_maison:"La maison",nav_carte:"La carte",nav_infos:"Infos & accès",
+  hero_eyebrow:"Auberge de village · Roudbaach · Préizerdaul",
+  hero_h_sub:"toutes les envies, une seule adresse",
+  hero_tag:"Sushi et maki, classiques français, pâtes et desserts maison — servis dans une maison de village, la terrasse au soleil.",
+  hero_cta1:"Toutes les envies",hero_cta2:"Nous trouver ↓",
+  rib_spine:"Une seule adresse, <b>toutes les envies.</b>",
+  rib_sub:"Une auberge de campagne à Préizerdaul où une même cuisine fait le sushi, le plat mijoté et les pâtes — honnête, sans chichi, généreuse.",
+  fact_k1:"La cuisine",fact_v1:"<b>Large & généreuse</b>sushi · classiques · pâtes · desserts",
+  fact_k2:"Le lieu",fact_v2:"<b>Roudbaach, Préizerdaul</b>maison de village & terrasse",
+  fact_k3:"À table",fact_v3:"<b>Sur place ou à emporter</b>la ligne sushi se commande à emporter",
+  env_eyebrow:"Toutes les envies",env_h:"Une cuisine, <em>quatre envies</em>",
+  env_p:"On ne choisit pas son camp : la même maison roule le maki, nappe l'escalope de sa sauce forestière, tourne les tagliatelles et dresse le dessert. Voilà ce qu'on aime.",
+  c1_h:"Sushi & maki",c1_p:"Nigiri, maki, California, sashimi, temaki : la ligne japonaise, roulée et tranchée à la commande — sur place ou à emporter.",
+  c2_h:"Les classiques",c2_p:"Escalope de veau ou de porc, sauce forestière aux champignons, grillades et brochettes — la cuisine française et luxembourgeoise, généreuse.",
+  c3_h:"Les pâtes",c3_p:"Tagliatelles carbonara, ou aux légumes de saison émincés minute — simples, chaudes, réconfortantes.",
+  c4_h:"Les desserts",c4_p:"Crème brûlée, assiette gourmande, fruits frais et fromage — la fin heureuse d'un repas de campagne.",
+  ter_eyebrow:"Sur la terrasse",ter_h:"Le soleil traverse<span>la campagne.</span>",
+  ter_lead:"Une grande terrasse abritée par la pergola et les voiles d'ombrage, des tables espacées, la campagne de Préizerdaul autour. On y prend son temps du déjeuner jusqu'au soir.",
+  ter_body:"Quand la lumière tourne à l'or en fin de journée, c'est l'adresse où l'on s'attarde — un verre, une planche de sushi, un plat qui mijote.",
+  ter_chip1:"Terrasse au soleil",ter_chip2:"Pergola & ombrage",ter_chip3:"En pleine campagne",ter_badge:"Au grand air",
+  gal_eyebrow:"La maison",gal_h:"De la salle <em>à l'assiette</em>",
+  gal_p:"La salle à nappes blanches, la lumière du soir, et une table qui va du plateau de sushi au bol de soupe. Une auberge, tout simplement.",
+  cap_salle:"La salle à nappes blanches",cap_plateau:"Le plateau de sushi",cap_rouleaux:"Rouleaux & sauce",cap_soupe:"La soupe miso",cap_maki:"Maki à la commande",cap_soiree:"En soirée, aux chandelles",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
+  carte_p:"Les familles de plats d'après la carte de la maison. Les prix ne sont pas repris ici — carte & prix à confirmer sur place.",
+  mg1:"Sushi, maki & sashimi",mg2:"À l'asiatique",mg3:"Classiques & pâtes",mg4:"Desserts maison",
+  i1n:"Nigiri & sushi",i1d:"Saumon, thon, gambas",i2n:"Maki & California",i2d:"Roulés à la commande",i3n:"Temaki & chirashi",i4n:"Sashimi & tataki",
+  i5n:"Nems & rouleaux",i5d:"Sauce à part",i6n:"Soupe miso",i6d:"Tofu & algues",
+  i7n:"Escalope sauce forestière",i7d:"Veau ou porc, champignons",i8n:"Grillades & brochettes",i9n:"Tagliatelles carbonara",i10n:"Tagliatelles aux légumes",
+  i11n:"Crème brûlée",i12n:"Assiette gourmande",i12d:"Un peu de tout",i13n:"Fruits frais & fromage",ac:"à conf.",
+  carte_note:"Familles de plats d'après les photos et la carte publiques de la maison, à titre indicatif. Aucun prix n'est publié ici : la carte et les prix sont à confirmer sur place.",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver & commander",ino_fl2:"sur place ou à emporter",
+  ino_k3:"Horaires",ino_ht:"Service à partir de 11h30",ino_fl3:"horaires complets à confirmer",
+  map_big:"Roudbaach",map_sub:"50, Roudbaach — au cœur de Préizerdaul",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"L'auberge de Roudbaach — une seule adresse pour toutes les envies : sushi et maki, classiques français, pâtes et desserts, sur une terrasse au soleil.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"Démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis) — photos à remplacer par celles de la maison. La marque de la maison est recréée. Carte, prix et horaires sont à confirmer. Proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_envies:"Alle Gelüste",nav_terrasse:"Die Terrasse",nav_maison:"Das Haus",nav_carte:"Karte",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Dorfgasthaus · Roudbaach · Préizerdaul",
+  hero_h_sub:"alle Gelüste, eine Adresse",
+  hero_tag:"Sushi und Maki, französische Klassiker, Pasta und hausgemachte Desserts — serviert in einem Dorfhaus, die Terrasse in der Sonne.",
+  hero_cta1:"Alle Gelüste",hero_cta2:"So finden Sie uns ↓",
+  rib_spine:"Eine Adresse, <b>alle Gelüste.</b>",
+  rib_sub:"Ein Landgasthaus in Préizerdaul, in dem dieselbe Küche Sushi, Schmorgerichte und Pasta macht — ehrlich, unkompliziert, großzügig.",
+  fact_k1:"Die Küche",fact_v1:"<b>Breit & großzügig</b>Sushi · Klassiker · Pasta · Desserts",
+  fact_k2:"Der Ort",fact_v2:"<b>Roudbaach, Préizerdaul</b>Dorfhaus & Terrasse",
+  fact_k3:"Zu Tisch",fact_v3:"<b>Vor Ort oder zum Mitnehmen</b>die Sushi-Linie gibt es zum Mitnehmen",
+  env_eyebrow:"Alle Gelüste",env_h:"Eine Küche, <em>vier Gelüste</em>",
+  env_p:"Man muss sich nicht entscheiden: dasselbe Haus rollt das Maki, nappiert das Schnitzel mit Waldpilzsauce, schwenkt die Tagliatelle und richtet das Dessert an. Genau das mögen wir.",
+  c1_h:"Sushi & Maki",c1_p:"Nigiri, Maki, California, Sashimi, Temaki: die japanische Linie, auf Bestellung gerollt und geschnitten — vor Ort oder zum Mitnehmen.",
+  c2_h:"Die Klassiker",c2_p:"Kalbs- oder Schweineschnitzel, Waldpilzsauce, Grillgerichte und Spieße — die französische und luxemburgische Küche, großzügig.",
+  c3_h:"Die Pasta",c3_p:"Tagliatelle Carbonara oder mit frisch geschwenktem Saisongemüse — schlicht, warm, wohltuend.",
+  c4_h:"Die Desserts",c4_p:"Crème brûlée, Dessertteller, frisches Obst und Käse — das glückliche Ende eines Landessens.",
+  ter_eyebrow:"Auf der Terrasse",ter_h:"Die Sonne wandert<span>über das Land.</span>",
+  ter_lead:"Eine große Terrasse, geschützt von Pergola und Sonnensegeln, weit gestellte Tische, ringsum die Landschaft von Préizerdaul. Man nimmt sich Zeit, vom Mittag bis zum Abend.",
+  ter_body:"Wenn das Licht am späten Tag golden wird, ist dies die Adresse zum Verweilen — ein Glas, eine Sushi-Platte, ein Schmorgericht.",
+  ter_chip1:"Terrasse in der Sonne",ter_chip2:"Pergola & Schatten",ter_chip3:"Mitten im Grünen",ter_badge:"An der frischen Luft",
+  gal_eyebrow:"Das Haus",gal_h:"Vom Gastraum <em>zum Teller</em>",
+  gal_p:"Der Gastraum mit weißen Tischdecken, das Abendlicht und ein Tisch, der von der Sushi-Platte bis zur Suppenschale reicht. Ein Gasthaus, ganz einfach.",
+  cap_salle:"Der Gastraum mit weißen Decken",cap_plateau:"Die Sushi-Platte",cap_rouleaux:"Röllchen & Sauce",cap_soupe:"Die Miso-Suppe",cap_maki:"Maki auf Bestellung",cap_soiree:"Am Abend, bei Kerzenlicht",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
+  carte_p:"Die Gerichtgruppen nach der Karte des Hauses. Preise stehen hier nicht — Karte & Preise vor Ort zu bestätigen.",
+  mg1:"Sushi, Maki & Sashimi",mg2:"Asiatisch",mg3:"Klassiker & Pasta",mg4:"Hausgemachte Desserts",
+  i1n:"Nigiri & Sushi",i1d:"Lachs, Thunfisch, Gambas",i2n:"Maki & California",i2d:"Auf Bestellung gerollt",i3n:"Temaki & Chirashi",i4n:"Sashimi & Tataki",
+  i5n:"Nems & Röllchen",i5d:"Sauce separat",i6n:"Miso-Suppe",i6d:"Tofu & Algen",
+  i7n:"Schnitzel Waldpilzsauce",i7d:"Kalb oder Schwein, Champignons",i8n:"Grillgerichte & Spieße",i9n:"Tagliatelle Carbonara",i10n:"Tagliatelle mit Gemüse",
+  i11n:"Crème brûlée",i12n:"Dessertteller",i12d:"Von allem etwas",i13n:"Frisches Obst & Käse",ac:"n. Angabe",
+  carte_note:"Gerichtgruppen nach den öffentlichen Fotos und der Karte des Hauses, ohne Gewähr. Hier sind keine Preise veröffentlicht: Karte und Preise vor Ort zu bestätigen.",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren & bestellen",ino_fl2:"vor Ort oder zum Mitnehmen",
+  ino_k3:"Öffnungszeiten",ino_ht:"Service ab 11:30 Uhr",ino_fl3:"vollständige Zeiten zu bestätigen",
+  map_big:"Roudbaach",map_sub:"50, Roudbaach — im Herzen von Préizerdaul",map_btn:"In Maps öffnen ↗",
+  foot_p:"Das Gasthaus von Roudbaach — eine Adresse für alle Gelüste: Sushi und Maki, französische Klassiker, Pasta und Desserts, auf einer Terrasse in der Sonne.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  foot_contact:"Kontakt",
+  disc:"Von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen) — Fotos durch die des Hauses zu ersetzen. Die Marke des Hauses ist nachgebildet. Karte, Preise und Zeiten sind zu bestätigen. Inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_envies:"Every craving",nav_terrasse:"The terrace",nav_maison:"The house",nav_carte:"Menu",nav_infos:"Find us",
+  hero_eyebrow:"Village auberge · Roudbaach · Préizerdaul",
+  hero_h_sub:"every craving, one address",
+  hero_tag:"Sushi and maki, French classics, pasta and homemade desserts — served in a village house, the terrace in the sun.",
+  hero_cta1:"Every craving",hero_cta2:"Find us ↓",
+  rib_spine:"One address, <b>every craving.</b>",
+  rib_sub:"A country auberge in Préizerdaul where one kitchen turns out the sushi, the slow-cooked plate and the pasta — honest, unfussy, generous.",
+  fact_k1:"The kitchen",fact_v1:"<b>Broad & generous</b>sushi · classics · pasta · desserts",
+  fact_k2:"The place",fact_v2:"<b>Roudbaach, Préizerdaul</b>village house & terrace",
+  fact_k3:"At the table",fact_v3:"<b>Dine in or take away</b>the sushi line is available to take away",
+  env_eyebrow:"Every craving",env_h:"One kitchen, <em>four cravings</em>",
+  env_p:"No need to pick a side: the same house rolls the maki, blankets the escalope in its forest-mushroom sauce, tosses the tagliatelle and plates the dessert. That's what we love.",
+  c1_h:"Sushi & maki",c1_p:"Nigiri, maki, California, sashimi, temaki: the Japanese line, rolled and sliced to order — dine in or take away.",
+  c2_h:"The classics",c2_p:"Veal or pork escalope, forest-mushroom cream sauce, grills and skewers — French and Luxembourgish cooking, generous.",
+  c3_h:"The pasta",c3_p:"Tagliatelle carbonara, or with seasonal vegetables tossed to order — simple, warm, comforting.",
+  c4_h:"The desserts",c4_p:"Crème brûlée, a gourmet dessert plate, fresh fruit and cheese — the happy end to a country meal.",
+  ter_eyebrow:"On the terrace",ter_h:"The sun moves<span>across the country.</span>",
+  ter_lead:"A large terrace sheltered by the pergola and shade sails, tables set well apart, the countryside of Préizerdaul all around. You take your time, from lunch into the evening.",
+  ter_body:"When the light turns gold late in the day, this is the address to linger at — a glass, a plate of sushi, something slow-cooked.",
+  ter_chip1:"Sunny terrace",ter_chip2:"Pergola & shade",ter_chip3:"Deep in the country",ter_badge:"In the open air",
+  gal_eyebrow:"The house",gal_h:"From the room <em>to the plate</em>",
+  gal_p:"The white-tablecloth room, the evening light, and a table that runs from the sushi platter to the bowl of soup. An auberge, quite simply.",
+  cap_salle:"The white-tablecloth room",cap_plateau:"The sushi platter",cap_rouleaux:"Rolls & sauce",cap_soupe:"The miso soup",cap_maki:"Maki to order",cap_soiree:"In the evening, by candlelight",
+  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
+  carte_p:"The families of dishes from the house's menu. Prices aren't listed here — menu & prices to be confirmed on site.",
+  mg1:"Sushi, maki & sashimi",mg2:"Asian bites",mg3:"Classics & pasta",mg4:"Homemade desserts",
+  i1n:"Nigiri & sushi",i1d:"Salmon, tuna, prawn",i2n:"Maki & California",i2d:"Rolled to order",i3n:"Temaki & chirashi",i4n:"Sashimi & tataki",
+  i5n:"Nems & rolls",i5d:"Sauce on the side",i6n:"Miso soup",i6d:"Tofu & seaweed",
+  i7n:"Escalope, forest sauce",i7d:"Veal or pork, mushrooms",i8n:"Grills & skewers",i9n:"Tagliatelle carbonara",i10n:"Tagliatelle with vegetables",
+  i11n:"Crème brûlée",i12n:"Gourmet dessert plate",i12d:"A little of everything",i13n:"Fresh fruit & cheese",ac:"tbc",
+  carte_note:"Families of dishes from the house's public photos and menu, for reference. No prices are published here: the menu and prices are to be confirmed on site.",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book & order",ino_fl2:"dine in or take away",
+  ino_k3:"Opening hours",ino_ht:"Service from 11:30",ino_fl3:"full hours to be confirmed",
+  map_big:"Roudbaach",map_sub:"50, Roudbaach — in the heart of Préizerdaul",map_btn:"Open in Maps ↗",
+  foot_p:"The auberge of Roudbaach — one address for every craving: sushi and maki, French classics, pasta and desserts, on a terrace in the sun.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"A demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews) — photos to be replaced with the house's own. The house's brand is recreated. Menu, prices and hours are to be confirmed. An unofficial proposal, not affiliated to date."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  try{localStorage.setItem("rdb_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("rdb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* THE WOW — a golden-hour light arc over the terrace: a warm sun-glow that slowly
+   cycles day -> golden hour -> dusk while drifting, plus leaves carried on the air.
+   Transparent overlay, so the warmth is felt across the whole hero. */
+(function(){
+  const cv=document.getElementById("skycv"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null,t0=null; const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const N=Math.max(9,Math.min(16,Math.round((window.innerWidth||900)/70)));
+  let leaves=[];
+  function seed(){leaves=[];for(let i=0;i<N;i++)leaves.push({
+    x:Math.random(),y:Math.random(),
+    s:5+Math.random()*8, sp:0.012+Math.random()*0.03,
+    sw:0.4+Math.random()*0.9, ph:Math.random()*Math.PI*2,
+    rot:Math.random()*Math.PI, rs:(Math.random()-0.5)*0.03,
+    hue:Math.random()<0.5?0:1
+  });}
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+  // warm palette interpolated along the day->golden->dusk cycle (c in 0..1)
+  function sunColor(c){
+    // day gold -> deep amber -> rose dusk
+    const stops=[[255,231,170],[255,196,110],[240,150,70],[214,96,64],[255,214,150]];
+    const f=c*(stops.length-1), i=Math.floor(f), k=f-i, a=stops[i], b=stops[Math.min(i+1,stops.length-1)];
+    return [a[0]+(b[0]-a[0])*k,a[1]+(b[1]-a[1])*k,a[2]+(b[2]-a[2])*k];
+  }
+  function draw(el){
+    ctx.clearRect(0,0,W,H);
+    const cyc=(el/28)%1;                 // ~28s day->dusk loop
+    const col=sunColor(cyc);
+    const sx=W*(0.18+0.64*cyc);           // sun drifts left -> right
+    const sy=H*(0.16+0.30*Math.sin(cyc*Math.PI)); // rises then lowers
+    const R=Math.max(W,H)*0.62;
+    const g=ctx.createRadialGradient(sx,sy,0,sx,sy,R);
+    g.addColorStop(0,"rgba("+(col[0]|0)+","+(col[1]|0)+","+(col[2]|0)+",0.55)");
+    g.addColorStop(0.28,"rgba("+(col[0]|0)+","+(col[1]|0)+","+(col[2]|0)+",0.20)");
+    g.addColorStop(1,"rgba("+(col[0]|0)+","+(col[1]|0)+","+(col[2]|0)+",0)");
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    // bright core
+    const gc=ctx.createRadialGradient(sx,sy,0,sx,sy,R*0.13);
+    gc.addColorStop(0,"rgba(255,248,225,0.6)"); gc.addColorStop(1,"rgba(255,248,225,0)");
+    ctx.fillStyle=gc; ctx.fillRect(0,0,W,H);
+    // drifting leaves
+    for(const p of leaves){
+      p.y-=p.sp*0.014; p.ph+=0.02; p.rot+=p.rs;
+      const dx=Math.sin(p.ph)*p.sw*0.03;
+      if(p.y<-0.08){p.y=1.08;p.x=Math.random();}
+      let x=(p.x+dx)*W, y=p.y*H, s=p.s;
+      ctx.save(); ctx.translate(x,y); ctx.rotate(p.rot);
+      ctx.fillStyle=p.hue?"rgba(180,92,44,0.5)":"rgba(120,132,70,0.42)";
+      ctx.beginPath(); ctx.moveTo(0,-s); ctx.quadraticCurveTo(s*0.62,-s*0.1,0,s);
+      ctx.quadraticCurveTo(-s*0.62,-s*0.1,0,-s); ctx.fill();
+      ctx.restore();
+    }
+  }
+  function frame(ts){ if(t0===null)t0=ts; draw((ts-t0)/1000); raf=requestAnimationFrame(frame); }
+  seed(); resize(); window.addEventListener("resize",()=>{resize();});
+  if(reduce){ draw(7); return; }               // static golden frame
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf){t0=null;raf=requestAnimationFrame(frame);}else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
+  io.observe(cv);
+})();
+</script>
+</body>
+</html>
