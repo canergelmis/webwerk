@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Chez Lurdes — Churrasqueira portugaise, Luxembourg-Gare</title>
+<meta name="description" content="Chez Lurdes, la churrasqueira du quartier Gare à Luxembourg — espetada au charbon, francesinha, bacalhau et un vin portugais. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Disp';src:url('assets/fonts/disp-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Body';src:url('assets/fonts/body-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --coal:#160f0c; --coal2:#1f1410; --char:#241611; --ink:#2c1d15;
+ --ember:#e8531e; --ember-l:#ff8a3d; --glow:#ffb347;
+ --piri:#cf3122; --piri-d:#a41f16;
+ --cream:#f6efe1; --cream2:#efe4d0; --card:#fbf6ea; --stone:#e8dabf;
+ --green:#2f7d4f; --line:#e0d1b6; --line-d:#3b2a20; --muted:#8c7a62;
+ --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Body',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Disp',Georgia,serif;font-weight:700;line-height:1.04}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Body',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--ember)}
+
+.flame{width:20px;height:26px;flex:none}
+.flame .o{fill:var(--ember)}.flame .i{fill:var(--glow)}
+.fdiv{display:flex;align-items:center;gap:16px;padding:34px 0}
+.fdiv .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--ember),transparent)}
+.fdiv .flame{width:18px;height:24px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.solid{background:rgba(20,13,10,.95);box-shadow:0 2px 24px rgba(0,0,0,.4);backdrop-filter:blur(6px)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0}
+.brand{display:flex;align-items:center;gap:11px;color:var(--cream)}
+.brand .flame{width:22px;height:29px}
+.brand .nm{font-family:'Disp',serif;font-weight:700;font-size:25px;letter-spacing:.005em;line-height:.95;color:var(--cream)}
+.brand .nm small{display:block;font-family:'Body';font-size:9px;letter-spacing:.22em;color:var(--ember-l);font-weight:800;margin-top:3px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:24px}
+nav.links a{font-family:'Body',sans-serif;font-weight:700;font-size:14.5px;color:#f0e4d2;opacity:.9}
+nav.links a:hover{color:var(--glow);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.13);border-radius:999px;padding:3px}
+.langs button{font-family:'Body',sans-serif;font-weight:800;font-size:12px;letter-spacing:.05em;border:0;background:transparent;color:#e8dabf;padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--piri);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:var(--cream);border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* hero — dark charcoal grill, live canvas */
+.hero{position:relative;min-height:94vh;display:flex;align-items:center;margin-top:-63px;padding-top:63px;overflow:hidden;background:radial-gradient(120% 90% at 50% 108%,#3a1c0e 0%,var(--coal2) 42%,var(--coal) 100%)}
+.hero canvas#grillcv{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(20,13,10,.92) 0%,rgba(20,13,10,.62) 42%,rgba(20,13,10,.15) 70%,transparent 100%)}
+.hero .inner{position:relative;z-index:2;padding:clamp(40px,7vw,80px) 0;max-width:640px}
+.hero .eyebrow{color:var(--glow);margin-bottom:16px;display:block}
+.hero h1{color:#fff;font-size:clamp(58px,11vw,140px);letter-spacing:-.01em;text-shadow:0 6px 44px rgba(0,0,0,.6)}
+.hero h1 span{display:block;color:var(--ember-l);font-size:.42em;letter-spacing:.02em;margin-top:6px}
+.hero .tag{font-family:'Body',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,26px);color:#f3e6d3;max-width:24ch;margin:20px 0 0;line-height:1.42}
+.hero .tag b{color:#fff;font-weight:700}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
+.btn{font-family:'Body',sans-serif;font-weight:800;letter-spacing:.01em;font-size:15px;padding:14px 26px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--piri);color:#fff}
+.btn.p:hover{background:var(--piri-d)}
+.btn.o{background:transparent;color:var(--cream);border-color:rgba(246,239,225,.42)}
+.btn.o:hover{border-color:var(--glow);color:var(--glow)}
+.hero .late{position:absolute;right:clamp(18px,5vw,54px);bottom:24px;z-index:2;font-family:'Body';font-weight:700;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#e3b98f;display:flex;align-items:center;gap:9px}
+.hero .late .dot{width:8px;height:8px;border-radius:50%;background:var(--ember);box-shadow:0 0 12px var(--ember-l)}
+
+section{padding:clamp(56px,9vw,104px) 0}
+
+/* signature band — espetada */
+.sig{background:var(--coal);color:#f0e0cd;position:relative;overflow:hidden}
+.sig::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--piri),var(--ember),var(--glow),var(--ember),var(--piri))}
+.sig .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.sig .eyebrow{color:var(--glow)}
+.sig h2{font-family:'Disp';font-size:clamp(40px,6.4vw,80px);color:#fff;margin:14px 0 0;line-height:1.02}
+.sig h2 span{color:var(--ember-l)}
+.sig .lead{font-size:clamp(18px,2.2vw,24px);line-height:1.5;color:#f2e3d0;margin:22px 0 0}
+.sig .body{font-size:16.5px;color:#c9b39c;margin:16px 0 0;max-width:46ch}
+.sig .pic{position:relative}
+.sig .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:5px;box-shadow:0 34px 70px rgba(0,0,0,.55)}
+.sig .pic .pill{position:absolute;left:-12px;bottom:26px;background:var(--ember);color:#241611;font-family:'Body';font-weight:800;font-size:13.5px;letter-spacing:.02em;padding:10px 17px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+
+/* incontournables cards */
+.inc{background:var(--cream)}
+.sect-h{max-width:720px;margin-bottom:44px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--ink);line-height:1.04}
+.sect-h h2 em{font-style:normal;color:var(--piri)}
+.sect-h p{font-size:18px;color:#5c4a38;margin-top:16px;line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:7px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(60,30,10,.16)}
+.card .ph{height:clamp(190px,26vw,250px);overflow:hidden;background:var(--stone)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover .ph img{transform:scale(1.06)}
+.card .tx{padding:20px 22px 24px}
+.card .kk{font-family:'Body';font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:10.5px;color:var(--ember)}
+.card h3{font-family:'Disp';font-size:27px;color:var(--ink);margin:6px 0 0}
+.card p{font-size:15px;color:#6a5744;margin-top:9px;line-height:1.55}
+
+/* gallery mosaic */
+.gal-sec{background:var(--cream2)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:5px;background:var(--stone)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02) contrast(1.02);transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 15px 12px;background:linear-gradient(0deg,rgba(18,10,7,.86),transparent);color:#fff;font-family:'Disp',serif;font-weight:600;font-size:17px}
+
+/* maison / quartier band */
+.mai{background:var(--char);color:#eaddc9;position:relative;overflow:hidden}
+.mai .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center}
+.mai .eyebrow{color:var(--glow)}
+.mai h2{font-family:'Disp';font-size:clamp(34px,5.2vw,62px);color:#fff;margin-top:12px}
+.mai .lead{font-size:18px;color:#e6d6c1;margin-top:18px;line-height:1.6;max-width:44ch}
+.mai .body{font-size:15.5px;color:#b6a087;margin-top:14px;max-width:46ch}
+.mai .fl{font-size:13.5px;color:#9c8468;font-style:italic;margin-top:16px;border-left:3px solid var(--ember);padding-left:13px;max-width:48ch}
+.mai .imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:clamp(320px,44vw,440px)}
+.mai .imgs figure{overflow:hidden;border-radius:5px;background:var(--coal)}
+.mai .imgs img{width:100%;height:100%;object-fit:cover}
+.mai .imgs .big{grid-row:1/3}
+
+/* carte */
+.carte{background:var(--cream)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,66px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Disp';font-size:25px;color:var(--piri-d);display:flex;align-items:center;gap:11px;padding-bottom:11px;border-bottom:2px solid var(--piri);margin-bottom:13px}
+.mgroup h3 .flame{width:15px;height:20px}
+.mitem{display:flex;gap:12px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Body';font-weight:800;font-size:16.5px;color:var(--ink)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Disp';font-weight:600;color:var(--ember);font-size:15.5px;white-space:nowrap}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--ember);padding-left:14px;max-width:80ch}
+
+/* infos */
+.infos{background:var(--coal2);color:#ecdcc6}
+.infos .sect-h h2{color:#fff}
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,58px)}
+.ino{display:flex;gap:14px;padding:17px 0;border-bottom:1px solid var(--line-d)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--ember-l);margin-top:3px}
+.ino .k{font-family:'Body';font-weight:800;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--ember-l)}
+.ino .v{font-size:16.5px;color:#f4e8d5;margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--ember)}
+.ino .fl{color:#a8926f;font-size:13px;font-style:italic}
+.hours-late{font-family:'Disp';color:var(--glow);font-size:18px;font-weight:600}
+.mapcard{background:var(--coal);border:1px solid var(--line-d);border-radius:6px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:34px}
+.mapcard .flame{position:absolute;right:14px;top:16px;width:48px;height:64px;opacity:.14}
+.mapcard .big{font-family:'Disp';font-size:28px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+/* footer */
+footer{background:#100b09;color:#a8927a;padding:0 0 40px}
+footer .band{padding:26px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--ember),transparent)}
+footer .in{padding:4px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Disp';font-weight:700;font-size:27px;color:var(--cream)}
+footer .nm small{display:block;font-family:'Body';font-size:10px;letter-spacing:.2em;color:var(--ember-l);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#9a836b}
+footer .lbl{font-family:'Body';font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--ember-l)}
+footer .made{font-size:12.5px;color:#7e6a53;margin-top:22px}
+footer .made b{color:#e6d6c1}footer .made a{color:var(--glow)}
+.disc{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6a5947;line-height:1.55;max-width:84ch}
+
+@media(max-width:900px){
+ .sig .grid,.mai .grid,.infos .grid,.carte .cols,footer .in{grid-template-columns:1fr}
+ .cards{grid-template-columns:1fr 1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+ .sig .pic,.mai .imgs{order:-1}
+ .mai .imgs{height:clamp(300px,70vw,380px)}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:63px 0 auto 0;flex-direction:column;background:rgba(20,13,10,.98);padding:22px 0 28px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.5);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:rgba(20,13,10,.95)}
+ .hero .scrim{background:linear-gradient(180deg,rgba(20,13,10,.86) 0%,rgba(20,13,10,.4) 46%,rgba(20,13,10,.72) 100%)}
+ .hero h1{font-size:clamp(52px,16vw,92px)}
+ .hero .late{display:none}
+}
+@media(max-width:520px){
+ .cards{grid-template-columns:1fr}
+ .brand .nm{font-size:22px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="flame" viewBox="0 0 24 32">
+ <path class="o" d="M13 1.6c1.7 4.1.3 6.7-1.4 8.9-1.6 2-3.6 4-3.6 7.1A6.4 6.4 0 0 0 18.8 18c0-2.1-.9-3.8-2-5.4-.4 1.4-1.4 2.1-2.4 2.3.4-2.3-.2-5.2-3.4-13.3Z"/>
+ <path class="i" d="M12.2 12.7c1.6 1.9 2.5 3.4 2.5 5.2a3.1 3.1 0 0 1-6.2 0c0-1.8 1.2-3.1 2.1-4.6.4.9 1.1 1 1.6-.6Z"/>
+</symbol>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Chez Lurdes">
+   <svg class="flame"><use href="#flame"/></svg>
+   <span class="nm">Chez Lurdes<small>Churrasqueira · quartier Gare</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#sig" data-i18n="nav_sig">L'espetada</a>
+   <a href="#inc" data-i18n="nav_inc">Les classiques</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#maison" data-i18n="nav_maison">La maison</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <canvas id="grillcv" aria-hidden="true"></canvas>
+  <div class="scrim"></div>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Churrasqueira portugaise · Luxembourg-Gare</span>
+   <h1>Chez Lurdes<span data-i18n="hero_sub">au charbon de bois</span></h1>
+   <p class="tag" data-i18n="hero_tag">Le charbon, la <b>francesinha</b>, un vin portugais. La churrasqueira du quartier Gare.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#sig" data-i18n="hero_cta2">L'espetada ↓</a>
+   </div>
+  </div>
+  <div class="late"><span class="dot"></span><span data-i18n="hero_late">Ouvert tard</span></div>
+ </section>
+
+ <!-- SIGNATURE : ESPETADA -->
+ <section class="sig" id="sig">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="sig_eyebrow">La signature de la maison</span>
+    <h2 data-i18n="sig_h">L'espetada,<span> sur la braise.</span></h2>
+    <p class="lead" data-i18n="sig_lead">Les brochettes suspendues au-dessus du charbon — la viande qui grille, tourne doucement et dore sur les braises.</p>
+    <p class="body" data-i18n="sig_body">Picanha, bœuf, chouriço, oignon et poivron enfilés sur la broche, servis debout au-dessus d'une assiette. C'est le churrasco à la portugaise : généreux, fumé, partagé. On fait glisser une pièce, on se ressert, et le repas dure.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/espetada.jpg" alt="Deux brochettes d'espetada suspendues, grillées au charbon"/>
+    <span class="pill" data-i18n="sig_pill">Au charbon de bois</span>
+   </div>
+  </div>
+ </section>
+
+ <!-- INCONTOURNABLES -->
+ <section class="inc" id="inc">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="inc_eyebrow">Les classiques</span>
+    <h2 data-i18n="inc_h">Ce qu'on vient <em>chercher ici</em></h2>
+    <p data-i18n="inc_p">Trois plats que la maison fait tous les jours — droit du Portugal, sans chichi.</p>
+   </div>
+   <div class="cards">
+    <div class="card">
+     <div class="ph"><img src="assets/francesinha.jpg" alt="Francesinha nappée de sauce, avec des frites"/></div>
+     <div class="tx"><div class="kk" data-i18n="inc1_k">Le sandwich de Porto</div><h3>Francesinha</h3><p data-i18n="inc1_d">Pain, viandes et fromage fondu, nappés de la sauce maison — avec des frites.</p></div>
+    </div>
+    <div class="card">
+     <div class="ph"><img src="assets/frango.jpg" alt="Frango grelhado, poulet grillé dans un plat en terre cuite"/></div>
+     <div class="tx"><div class="kk" data-i18n="inc2_k">Poulet au charbon</div><h3>Frango grelhado</h3><p data-i18n="inc2_d">Le poulet grillé, doré et juteux, servi dans la louça portugaise avec une touche d'orange.</p></div>
+    </div>
+    <div class="card">
+     <div class="ph"><img src="assets/bacalhau.jpg" alt="Bacalhau, morue avec pommes de terre et légumes verts"/></div>
+     <div class="tx"><div class="kk" data-i18n="inc3_k">La morue portugaise</div><h3>Bacalhau</h3><p data-i18n="inc3_d">La morue à la portugaise, avec batatas a murro, chou et un filet d'huile d'olive.</p></div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap fdiv"><span class="ln"></span><svg class="flame"><use href="#flame"/></svg><span class="ln"></span></div>
+
+ <!-- GALLERY -->
+ <section class="gal-sec" id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
+    <h2 data-i18n="gal_h">Généreux, <em>au feu de bois</em></h2>
+    <p data-i18n="gal_p">Les grillades, le poisson du gril, les douceurs et un rouge portugais — la cuisine qu'on partage.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/picanha.jpg" alt="Picanha et entrecôte grillés, ananas grillé et frites"/><figcaption data-i18n="cap_picanha">Picanha &amp; entrecôte grillés</figcaption></figure>
+    <figure><img src="assets/cote.jpg" alt="Côte de bœuf grillée au beurre d'herbes"/><figcaption data-i18n="cap_cote">La côte de bœuf</figcaption></figure>
+    <figure><img src="assets/poisson.jpg" alt="Poisson grillé avec pommes de terre et légumes"/><figcaption data-i18n="cap_poisson">Le poisson du gril</figcaption></figure>
+    <figure class="w2"><img src="assets/sardines.jpg" alt="Sardines grillées, sardinhas"/><figcaption data-i18n="cap_sardines">Sardinhas grelhadas</figcaption></figure>
+    <figure><img src="assets/pudim.jpg" alt="Pudim, flan portugais au caramel avec fraises"/><figcaption data-i18n="cap_pudim">Pudim maison</figcaption></figure>
+    <figure><img src="assets/vinho.jpg" alt="Bouteilles de vin portugais"/><figcaption data-i18n="cap_vinho">Un vin portugais</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- MAISON / QUARTIER -->
+ <section class="mai" id="maison">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="mai_eyebrow">La maison</span>
+    <h2 data-i18n="mai_h">La churrasqueira du quartier Gare</h2>
+    <p class="lead" data-i18n="mai_lead">Rue de Strasbourg, à deux pas de la gare : une salle simple, une terrasse sur le trottoir, et l'accueil chaleureux d'une maison portugaise.</p>
+    <p class="body" data-i18n="mai_body">On vient pour la braise, on reste pour l'ambiance — le va-et-vient du service, une bouteille sur la table, et le charbon qui travaille au fond. La morabeza, cette hospitalité qu'on ne raconte pas : on la vit sur place.</p>
+    <p class="fl" data-i18n="mai_fl">Aujourd'hui, Chez Lurdes n'a qu'une page Facebook — pas de site. Cette page en est une démonstration.</p>
+   </div>
+   <div class="imgs">
+    <figure class="big"><img src="assets/devanture.jpg" alt="La devanture Chez Lurdes et sa terrasse, quartier Gare"/></figure>
+    <figure><img src="assets/salle.jpg" alt="La salle de la churrasqueira"/></figure>
+    <figure><img src="assets/frango.jpg" alt="Un plat de frango grillé"/></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- CARTE -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Do carvão — <em>au charbon</em></h2>
+    <p data-i18n="carte_p">Un aperçu, d'après les plats de la maison. La carte complète et les prix sont à confirmer sur place.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="flame"><use href="#flame"/></svg><span data-i18n="mg1">Do carvão · au charbon</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Espetada</div><div class="ds" data-i18n="i1d">Brochette suspendue, grillée sur la braise</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Frango grelhado</div><div class="ds" data-i18n="i2d">Poulet grillé au charbon</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="flame"><use href="#flame"/></svg><span data-i18n="mg2">Grelhados · les grillades</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Picanha / entrecôte</div><div class="ds" data-i18n="i3d">Grillés, ananas grillé &amp; frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Côte de bœuf</div><div class="ds" data-i18n="i4d">Au beurre d'herbes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="flame"><use href="#flame"/></svg><span data-i18n="mg3">Especialidades</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Francesinha</div><div class="ds" data-i18n="i5d">Le sandwich de Porto, sauce maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Bacalhau</div><div class="ds" data-i18n="i6d">À brás · com natas · lagareiro</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="flame"><use href="#flame"/></svg><span data-i18n="mg4">Mar &amp; doces</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Sardinhas / poisson grillé</div><div class="ds" data-i18n="i7d">Du gril, selon l'arrivage</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Pudim &amp; vinhos</div><div class="ds" data-i18n="i8d">Flan maison &amp; vins portugais</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer sur place.</p>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">45, Rue de Strasbourg<br>L-2561 Luxembourg · Gare</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><a href="tel:+35224873629">24 87 36 29</a><br><span class="fl" data-i18n="ino_phone_fl">Numéro d'annuaire · à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-late" data-i18n="ino_ht">Ouvert tard</span><br><span class="fl" data-i18n="ino_fl3">Horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <svg class="flame"><use href="#flame"/></svg>
+     <div>
+      <div class="big" data-i18n="map_big">Quartier Gare</div>
+      <div style="color:#b6a087;margin-top:8px" data-i18n="map_sub">45, Rue de Strasbourg — à deux pas de la gare</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Chez+Lurdes+45+Rue+de+Strasbourg+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="flame"><use href="#flame"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Chez Lurdes<small>Churrasqueira · quartier Gare</small></div>
+   <p data-i18n="foot_p">La churrasqueira portugaise du quartier Gare — espetada au charbon, francesinha, bacalhau et un vin portugais.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div class="lbl" data-i18n="foot_contact">Contact</div>
+   <p style="margin-top:10px">45, Rue de Strasbourg<br>L-2561 Luxembourg<br><a href="tel:+35224873629">24 87 36 29</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Démonstration créée par Webwerk à titre indicatif, à partir de sources publiques. La marque a été recréée ; les photos, issues de sources publiques, sont à remplacer. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_sig:"L'espetada",nav_inc:"Les classiques",nav_carte:"La carte",nav_maison:"La maison",nav_infos:"Infos & accès",
+  hero_eyebrow:"Churrasqueira portugaise · Luxembourg-Gare",hero_sub:"au charbon de bois",
+  hero_tag:"Le charbon, la <b>francesinha</b>, un vin portugais. La churrasqueira du quartier Gare.",
+  hero_cta1:"Voir la carte",hero_cta2:"L'espetada ↓",hero_late:"Ouvert tard",
+  sig_eyebrow:"La signature de la maison",sig_h:"L'espetada,<span> sur la braise.</span>",
+  sig_lead:"Les brochettes suspendues au-dessus du charbon — la viande qui grille, tourne doucement et dore sur les braises.",
+  sig_body:"Picanha, bœuf, chouriço, oignon et poivron enfilés sur la broche, servis debout au-dessus d'une assiette. C'est le churrasco à la portugaise : généreux, fumé, partagé. On fait glisser une pièce, on se ressert, et le repas dure.",
+  sig_pill:"Au charbon de bois",
+  inc_eyebrow:"Les classiques",inc_h:"Ce qu'on vient <em>chercher ici</em>",
+  inc_p:"Trois plats que la maison fait tous les jours — droit du Portugal, sans chichi.",
+  inc1_k:"Le sandwich de Porto",inc1_d:"Pain, viandes et fromage fondu, nappés de la sauce maison — avec des frites.",
+  inc2_k:"Poulet au charbon",inc2_d:"Le poulet grillé, doré et juteux, servi dans la louça portugaise avec une touche d'orange.",
+  inc3_k:"La morue portugaise",inc3_d:"La morue à la portugaise, avec batatas a murro, chou et un filet d'huile d'olive.",
+  gal_eyebrow:"À table",gal_h:"Généreux, <em>au feu de bois</em>",
+  gal_p:"Les grillades, le poisson du gril, les douceurs et un rouge portugais — la cuisine qu'on partage.",
+  cap_picanha:"Picanha & entrecôte grillés",cap_cote:"La côte de bœuf",cap_poisson:"Le poisson du gril",cap_sardines:"Sardinhas grelhadas",cap_pudim:"Pudim maison",cap_vinho:"Un vin portugais",
+  mai_eyebrow:"La maison",mai_h:"La churrasqueira du quartier Gare",
+  mai_lead:"Rue de Strasbourg, à deux pas de la gare : une salle simple, une terrasse sur le trottoir, et l'accueil chaleureux d'une maison portugaise.",
+  mai_body:"On vient pour la braise, on reste pour l'ambiance — le va-et-vient du service, une bouteille sur la table, et le charbon qui travaille au fond. La morabeza, cette hospitalité qu'on ne raconte pas : on la vit sur place.",
+  mai_fl:"Aujourd'hui, Chez Lurdes n'a qu'une page Facebook — pas de site. Cette page en est une démonstration.",
+  carte_eyebrow:"La carte",carte_h:"Do carvão — <em>au charbon</em>",
+  carte_p:"Un aperçu, d'après les plats de la maison. La carte complète et les prix sont à confirmer sur place.",
+  mg1:"Do carvão · au charbon",mg2:"Grelhados · les grillades",mg3:"Especialidades",mg4:"Mar & doces",
+  i1n:"Espetada",i1d:"Brochette suspendue, grillée sur la braise",i2n:"Frango grelhado",i2d:"Poulet grillé au charbon",
+  i3n:"Picanha / entrecôte",i3d:"Grillés, ananas grillé & frites",i4n:"Côte de bœuf",i4d:"Au beurre d'herbes",
+  i5n:"Francesinha",i5d:"Le sandwich de Porto, sauce maison",i6n:"Bacalhau",i6d:"À brás · com natas · lagareiro",
+  i7n:"Sardinhas / poisson grillé",i7d:"Du gril, selon l'arrivage",i8n:"Pudim & vinhos",i8d:"Flan maison & vins portugais",ac:"à conf.",
+  carte_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer sur place.",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver",ino_phone_fl:"Numéro d'annuaire · à confirmer",
+  ino_k3:"Horaires",ino_ht:"Ouvert tard",ino_fl3:"Horaires à confirmer",
+  map_big:"Quartier Gare",map_sub:"45, Rue de Strasbourg — à deux pas de la gare",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"La churrasqueira portugaise du quartier Gare — espetada au charbon, francesinha, bacalhau et un vin portugais.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"Démonstration créée par Webwerk à titre indicatif, à partir de sources publiques. La marque a été recréée ; les photos, issues de sources publiques, sont à remplacer. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_sig:"Die Espetada",nav_inc:"Die Klassiker",nav_carte:"Karte",nav_maison:"Das Haus",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Portugiesische Churrasqueira · Luxemburg-Bahnhof",hero_sub:"über Holzkohle",
+  hero_tag:"Die Kohle, die <b>Francesinha</b>, ein portugiesischer Wein. Die Churrasqueira im Bahnhofsviertel.",
+  hero_cta1:"Zur Karte",hero_cta2:"Die Espetada ↓",hero_late:"Bis spät geöffnet",
+  sig_eyebrow:"Die Signatur des Hauses",sig_h:"Die Espetada,<span> über der Glut.</span>",
+  sig_lead:"Die Spieße hängen über der Holzkohle — das Fleisch grillt, dreht sich sacht und bräunt über der Glut.",
+  sig_body:"Picanha, Rind, Chouriço, Zwiebel und Paprika auf dem Spieß, aufrecht über einem Teller serviert. Das ist Churrasco auf portugiesische Art: großzügig, rauchig, zum Teilen. Man lässt ein Stück heruntergleiten, nimmt nach, und das Essen zieht sich hin.",
+  sig_pill:"Über Holzkohle",
+  inc_eyebrow:"Die Klassiker",inc_h:"Wofür man <em>hierherkommt</em>",
+  inc_p:"Drei Gerichte, die das Haus jeden Tag macht — direkt aus Portugal, ohne Schnickschnack.",
+  inc1_k:"Das Sandwich aus Porto",inc1_d:"Brot, Fleisch und geschmolzener Käse, übergossen mit der Haussauce — mit Pommes.",
+  inc2_k:"Hähnchen über Kohle",inc2_d:"Das gegrillte Hähnchen, goldbraun und saftig, in der portugiesischen Louça mit einem Hauch Orange.",
+  inc3_k:"Der portugiesische Stockfisch",inc3_d:"Bacalhau auf portugiesische Art, mit Batatas a murro, Kohl und einem Schuss Olivenöl.",
+  gal_eyebrow:"Zu Tisch",gal_h:"Großzügig, <em>über dem Feuer</em>",
+  gal_p:"Die Grillgerichte, der Fisch vom Rost, die Süßspeisen und ein portugiesischer Roter — die Küche, die man teilt.",
+  cap_picanha:"Picanha & Entrecôte vom Grill",cap_cote:"Das Rippenstück",cap_poisson:"Fisch vom Rost",cap_sardines:"Sardinhas grelhadas",cap_pudim:"Pudim aus dem Haus",cap_vinho:"Ein portugiesischer Wein",
+  mai_eyebrow:"Das Haus",mai_h:"Die Churrasqueira im Bahnhofsviertel",
+  mai_lead:"Rue de Strasbourg, ein paar Schritte vom Bahnhof: ein schlichter Gastraum, eine Terrasse am Gehweg und der herzliche Empfang eines portugiesischen Hauses.",
+  mai_body:"Man kommt für die Glut, man bleibt für die Stimmung — das Kommen und Gehen des Service, eine Flasche auf dem Tisch und die Kohle, die hinten arbeitet. Die Morabeza, diese Gastfreundschaft, die man nicht erzählt: man erlebt sie vor Ort.",
+  mai_fl:"Heute hat Chez Lurdes nur eine Facebook-Seite — keine Website. Diese Seite ist eine Demonstration davon.",
+  carte_eyebrow:"Die Karte",carte_h:"Do carvão — <em>über Kohle</em>",
+  carte_p:"Ein Auszug, nach den Gerichten des Hauses. Die vollständige Karte und die Preise sind vor Ort zu bestätigen.",
+  mg1:"Do carvão · über Kohle",mg2:"Grelhados · vom Grill",mg3:"Especialidades",mg4:"Mar & doces",
+  i1n:"Espetada",i1d:"Hängender Spieß, über der Glut gegrillt",i2n:"Frango grelhado",i2d:"Hähnchen über Kohle gegrillt",
+  i3n:"Picanha / Entrecôte",i3d:"Vom Grill, gegrillte Ananas & Pommes",i4n:"Rippenstück vom Rind",i4d:"Mit Kräuterbutter",
+  i5n:"Francesinha",i5d:"Das Sandwich aus Porto, Haussauce",i6n:"Bacalhau",i6d:"À brás · com natas · lagareiro",
+  i7n:"Sardinhas / Fisch vom Grill",i7d:"Vom Rost, je nach Anlieferung",i8n:"Pudim & vinhos",i8d:"Hausflan & portugiesische Weine",ac:"n. Angabe",
+  carte_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Es sind keine Preise veröffentlicht: Karte und Preise vor Ort zu bestätigen.",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren",ino_phone_fl:"Verzeichnisnummer · zu bestätigen",
+  ino_k3:"Öffnungszeiten",ino_ht:"Bis spät geöffnet",ino_fl3:"Zeiten zu bestätigen",
+  map_big:"Bahnhofsviertel",map_sub:"45, Rue de Strasbourg — ein paar Schritte vom Bahnhof",map_btn:"In Maps öffnen ↗",
+  foot_p:"Die portugiesische Churrasqueira im Bahnhofsviertel — Espetada über Kohle, Francesinha, Bacalhau und ein portugiesischer Wein.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  foot_contact:"Kontakt",
+  disc:"Demonstration von Webwerk, unverbindlich, auf Basis öffentlicher Quellen. Die Marke wurde nachgebildet; die Fotos aus öffentlichen Quellen sind zu ersetzen. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_sig:"The espetada",nav_inc:"The classics",nav_carte:"Menu",nav_maison:"The house",nav_infos:"Find us",
+  hero_eyebrow:"Portuguese churrasqueira · Luxembourg-Gare",hero_sub:"over charcoal",
+  hero_tag:"The charcoal, the <b>francesinha</b>, a Portuguese wine. The churrasqueira of the Gare quarter.",
+  hero_cta1:"See the menu",hero_cta2:"The espetada ↓",hero_late:"Open late",
+  sig_eyebrow:"The signature of the house",sig_h:"The espetada,<span> over the embers.</span>",
+  sig_lead:"Skewers hung above the charcoal — the meat grilling, turning slowly and browning over the embers.",
+  sig_body:"Picanha, beef, chouriço, onion and pepper threaded on the spit, served standing over a plate. This is churrasco the Portuguese way: generous, smoky, shared. You slide a piece down, help yourself again, and the meal stretches on.",
+  sig_pill:"Over charcoal",
+  inc_eyebrow:"The classics",inc_h:"What you come <em>here for</em>",
+  inc_p:"Three dishes the house makes every day — straight from Portugal, no fuss.",
+  inc1_k:"The sandwich from Porto",inc1_d:"Bread, meats and melted cheese under the house sauce — with fries.",
+  inc2_k:"Chicken over charcoal",inc2_d:"Grilled chicken, golden and juicy, served in the Portuguese louça with a touch of orange.",
+  inc3_k:"Portuguese salt cod",inc3_d:"Bacalhau the Portuguese way, with batatas a murro, greens and a drizzle of olive oil.",
+  gal_eyebrow:"At the table",gal_h:"Generous, <em>over the fire</em>",
+  gal_p:"The grills, the fish off the coals, the sweets and a Portuguese red — the cooking we share.",
+  cap_picanha:"Grilled picanha & entrecôte",cap_cote:"The côte de bœuf",cap_poisson:"Fish off the grill",cap_sardines:"Sardinhas grelhadas",cap_pudim:"House pudim",cap_vinho:"A Portuguese wine",
+  mai_eyebrow:"The house",mai_h:"The churrasqueira of the Gare quarter",
+  mai_lead:"Rue de Strasbourg, a step from the station: a simple room, a terrace on the pavement, and the warm welcome of a Portuguese house.",
+  mai_body:"You come for the embers, you stay for the room — the to and fro of service, a bottle on the table, and the charcoal working at the back. Morabeza, the hospitality you don't narrate: you live it on the spot.",
+  mai_fl:"Today, Chez Lurdes has only a Facebook page — no website. This page is a demonstration of one.",
+  carte_eyebrow:"The menu",carte_h:"Do carvão — <em>over charcoal</em>",
+  carte_p:"A glimpse, from the house's dishes. The full menu and prices are to be confirmed on site.",
+  mg1:"Do carvão · over charcoal",mg2:"Grelhados · the grills",mg3:"Especialidades",mg4:"Mar & doces",
+  i1n:"Espetada",i1d:"Hanging skewer, grilled over embers",i2n:"Frango grelhado",i2d:"Chicken grilled over charcoal",
+  i3n:"Picanha / entrecôte",i3d:"Grilled, grilled pineapple & fries",i4n:"Côte de bœuf",i4d:"With herb butter",
+  i5n:"Francesinha",i5d:"The sandwich from Porto, house sauce",i6n:"Bacalhau",i6d:"À brás · com natas · lagareiro",
+  i7n:"Sardinhas / grilled fish",i7d:"Off the grill, as it comes in",i8n:"Pudim & vinhos",i8d:"House flan & Portuguese wines",ac:"tbc",
+  carte_note:"Dishes from the house's public photos, for reference. No prices are published: the menu and prices are to be confirmed on site.",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book",ino_phone_fl:"Directory number · to be confirmed",
+  ino_k3:"Opening hours",ino_ht:"Open late",ino_fl3:"Hours to be confirmed",
+  map_big:"Gare quarter",map_sub:"45, Rue de Strasbourg — a step from the station",map_btn:"Open in Maps ↗",
+  foot_p:"The Portuguese churrasqueira of the Gare quarter — espetada over charcoal, francesinha, bacalhau and a Portuguese wine.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"A demonstration created by Webwerk for reference, from public sources. The brand has been recreated; the photos, from public sources, are to be replaced. Menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  try{localStorage.setItem("clz_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("clz_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* THE WOW: a horizontal charcoal grill — breathing ember bed + hanging skewers that sway & turn, heat shimmer */
+(function(){
+  const cv=document.getElementById("grillcv"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null,t0=null,coals=[],sparks=[];
+  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function seed(){
+    coals=[]; const n=Math.max(46,Math.floor(W/12));
+    for(let i=0;i<n;i++)coals.push({x:Math.random(),y:Math.random(),r:3+Math.random()*7,ph:Math.random()*6.28,sp:.5+Math.random()*1.0,hot:Math.random()});
+    sparks=[]; const m=Math.max(10,Math.floor(W/60));
+    for(let i=0;i<m;i++)sparks.push({x:Math.random(),life:Math.random(),sp:.15+Math.random()*.35,dx:(Math.random()-.5)*.04,r:.7+Math.random()*1.4});
+  }
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);seed();}
+  function ell(x,y,rx,ry){ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,6.2832);ctx.fill();}
+  function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();ctx.fill();}
+  function scene(time){
+    ctx.clearRect(0,0,W,H);
+    const bedTop=H*0.72, bedBot=H*0.94, bedH=bedBot-bedTop;
+    const breath=0.5+0.5*Math.sin(time*0.85);
+    // ambient warm rise
+    let gy=ctx.createLinearGradient(0,H,0,H*0.15);
+    gy.addColorStop(0,"rgba(232,83,30,"+(0.20+0.10*breath).toFixed(3)+")");
+    gy.addColorStop(0.4,"rgba(196,49,30,"+(0.08+0.05*breath).toFixed(3)+")");
+    gy.addColorStop(1,"rgba(196,49,30,0)");
+    ctx.fillStyle=gy; ctx.fillRect(0,0,W,H);
+    // hot core over the bed
+    let rg=ctx.createRadialGradient(W*0.5,bedBot,8,W*0.5,bedBot,Math.max(W*0.62,H*0.7));
+    rg.addColorStop(0,"rgba(255,150,45,"+(0.22+0.12*breath).toFixed(3)+")");
+    rg.addColorStop(1,"rgba(255,120,30,0)");
+    ctx.fillStyle=rg; ctx.fillRect(0,0,W,H);
+    // skewers (behind so bed glow reads in front)
+    const nS = W<560?3:(W<900?3:4);
+    const x0=0.30, x1=0.86, barY=H*0.05, botY=bedTop-4;
+    // support bar
+    ctx.strokeStyle="rgba(150,150,160,0.35)"; ctx.lineWidth=3;
+    ctx.beginPath(); ctx.moveTo(W*(x0-0.03),barY); ctx.lineTo(W*(x1+0.03),barY); ctx.stroke();
+    for(let s=0;s<nS;s++){
+      const fx=nS>1?(x0+(x1-x0)*s/(nS-1)):0.58;
+      const bx=W*fx;
+      const sway=Math.sin(time*0.7+s*1.25)*0.055;
+      ctx.save(); ctx.translate(bx,barY); ctx.rotate(sway);
+      const len=botY-barY;
+      // hook + rod
+      ctx.strokeStyle="rgba(170,172,182,0.5)"; ctx.lineWidth=2.4; ctx.lineCap="round";
+      ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(0,len); ctx.stroke();
+      const nc=5;
+      for(let i=0;i<nc;i++){
+        const yy=(i+0.75)/(nc+0.2)*len;
+        const turn=Math.sin(time*0.9+s*1.7+i*0.7);
+        const wB=(W<560?20:26)-i*1.0;
+        const w=wB*(0.72+0.28*Math.abs(turn));
+        const h=w*0.72;
+        const lit=0.45+0.55*(i/nc);                 // lower cubes catch more ember light
+        const warm=0.55+0.45*lit*(0.6+0.4*breath);
+        const rC=Math.round(120+95*warm), gC=Math.round(52+70*warm*Math.abs(turn)), bC=Math.round(34+26*warm);
+        ctx.fillStyle="rgb("+rC+","+gC+","+bC+")"; rr(-w/2,yy-h/2,w,h,Math.min(6,h*0.3));
+        // char shadow on one side depending on turn
+        ctx.fillStyle="rgba(20,8,4,"+(0.22+0.18*(turn>0?turn:0)).toFixed(3)+")"; rr(-w/2,yy-h/2,w*0.32,h,Math.min(6,h*0.3));
+        // glossy ember highlight
+        ctx.fillStyle="rgba(255,180,90,"+(0.16*lit*(0.5+0.5*breath)).toFixed(3)+")"; ell(-w*0.12,yy-h*0.18,w*0.26,h*0.16);
+        // occasional pepper/onion accent
+        if(i%3===1){ctx.fillStyle=(s+i)%2?"rgba(206,49,34,0.9)":"rgba(233,224,200,0.85)"; ell(0,yy-h*0.62,w*0.22,h*0.2);}
+      }
+      ctx.restore();
+    }
+    // heat shimmer — faint warm columns rising between bed & skewers
+    for(let k=0;k<4;k++){
+      const sx=W*(0.32+0.16*k)+Math.sin(time*1.3+k)*10;
+      let sg=ctx.createLinearGradient(0,bedTop,0,H*0.34);
+      const a=(0.05+0.04*Math.abs(Math.sin(time*0.9+k*1.4)));
+      sg.addColorStop(0,"rgba(255,150,60,"+a.toFixed(3)+")"); sg.addColorStop(1,"rgba(255,150,60,0)");
+      ctx.fillStyle=sg; ctx.fillRect(sx-26,H*0.34,52,bedTop-H*0.34);
+    }
+    // ember bed
+    for(const c of coals){
+      const cx=c.x*W, cy=bedTop+c.y*bedH;
+      const flick=0.5+0.5*Math.sin(time*c.sp*3+c.ph);
+      const hot=Math.min(1,c.hot*0.5+0.5*flick*breath+0.15);
+      const col= hot>0.62?[255,182,74]: hot>0.34?[240,110,42]:[176,50,26];
+      let hg=ctx.createRadialGradient(cx,cy,0,cx,cy,c.r*2.6);
+      hg.addColorStop(0,"rgba("+col[0]+","+col[1]+","+col[2]+","+(0.55*hot).toFixed(3)+")");
+      hg.addColorStop(1,"rgba("+col[0]+","+col[1]+","+col[2]+",0)");
+      ctx.fillStyle=hg; ctx.beginPath(); ctx.arc(cx,cy,c.r*2.6,0,6.2832); ctx.fill();
+      ctx.fillStyle="rgba(28,12,8,0.85)"; ell(cx,cy,c.r*1.1,c.r*0.66);
+      ctx.fillStyle="rgba("+col[0]+","+col[1]+","+col[2]+","+(0.35+0.55*hot).toFixed(3)+")"; ell(cx,cy,c.r*0.72,c.r*0.44);
+    }
+    // sparks
+    for(const p of sparks){
+      p.life+= (1/60)*p.sp; p.x+=p.dx*0.01;
+      if(p.life>1){p.life=0;p.x=0.25+Math.random()*0.55;}
+      const y=bedBot-(bedBot-H*0.30)*p.life;
+      const a=(1-p.life)*0.8;
+      ctx.fillStyle="rgba(255,"+Math.round(150+80*(1-p.life))+",60,"+a.toFixed(3)+")";
+      ctx.beginPath(); ctx.arc(p.x*W,y,p.r,0,6.2832); ctx.fill();
+    }
+  }
+  function loop(ts){ if(t0===null)t0=ts; const time=(ts-t0)/1000; scene(time); raf=requestAnimationFrame(loop); }
+  resize(); window.addEventListener("resize",resize);
+  if(reduce){ scene(0.6); return; }
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf){t0=null;raf=requestAnimationFrame(loop);}else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
+  io.observe(cv);
+})();
+</script>
+</body>
+</html>

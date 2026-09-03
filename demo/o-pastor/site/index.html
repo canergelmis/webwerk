@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>O Pastor — Pizzeria du village, Consdorf</title>
+<meta name="description" content="O Pastor à Consdorf — la pizzeria du village au cœur du Mullerthal : pizzas à pâte fine, pâtes généreuses, dans une salle chaleureuse. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Disp';src:url('assets/fonts/disp-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Body';src:url('assets/fonts/body-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --cream:#fbf3e2; --paper:#fffaf0; --sand:#f2e6cd;
+ --ink:#2b201a; --ink2:#5d4c3d; --muted:#8f7d68;
+ --tomato:#d33d2b; --tomato-d:#a82d1f; --tomato-l:#e35a45;
+ --basil:#3f7a3f; --basil-d:#274d28; --basil-dd:#1e3d1f;
+ --wood:#2c1f17; --wood2:#3a291d; --terra:#c1714a;
+ --gold:#e2a548;
+ --line:#ecdfc4; --line-d:#4a3a2c;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Body',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Disp','Body',sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.01em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Body',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--tomato)}
+
+/* checked motif divider */
+.rule{display:flex;align-items:center;gap:16px;padding:8px 0}
+.rule .ln{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--tomato) 0 10px,transparent 10px 20px);opacity:.5}
+.rule .sl{width:26px;height:26px;flex:none}
+
+/* ---------- header (light — the differentiator) ---------- */
+header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s;border-bottom:1px solid transparent}
+header.solid{background:rgba(251,243,226,.92);backdrop-filter:blur(8px);box-shadow:0 2px 20px rgba(43,32,26,.10);border-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+.brand{display:flex;align-items:center;gap:11px;color:var(--ink)}
+.brand .sl{width:30px;height:30px;flex:none}
+.brand .nm{font-family:'Disp',sans-serif;font-weight:800;font-size:25px;line-height:.9;color:var(--ink)}
+.brand .nm small{display:block;font-family:'Body';font-size:9.5px;letter-spacing:.22em;color:var(--tomato);font-weight:800;margin-top:4px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:24px}
+nav.links a{font-family:'Body',sans-serif;font-weight:700;font-size:14.5px;color:var(--ink2)}
+nav.links a:hover{color:var(--tomato)}
+.langs{display:flex;gap:2px;background:rgba(43,32,26,.07);border-radius:999px;padding:3px}
+.langs button{font-family:'Body',sans-serif;font-weight:800;font-size:12px;letter-spacing:.05em;border:0;background:transparent;color:var(--ink2);padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--tomato);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.6px;background:var(--ink);border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.6px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.6px) rotate(-45deg)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:
+   radial-gradient(120% 90% at 88% 12%,rgba(211,61,43,.06),transparent 60%),
+   var(--cream)}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+   background-image:linear-gradient(45deg,rgba(211,61,43,.045) 25%,transparent 25%,transparent 75%,rgba(211,61,43,.045) 75%),
+   linear-gradient(45deg,rgba(211,61,43,.045) 25%,transparent 25%,transparent 75%,rgba(211,61,43,.045) 75%);
+   background-size:44px 44px;background-position:0 0,22px 22px;
+   -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent);mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent)}
+.hero .wrap{position:relative;z-index:2}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,60px);align-items:center;min-height:calc(100vh - 62px);padding:clamp(30px,6vw,64px) 0}
+.hero .eyebrow{margin-bottom:18px;display:inline-block}
+.hero h1{font-size:clamp(60px,12vw,150px);color:var(--ink);letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--tomato)}
+.hero .tag{font-size:clamp(18px,2.3vw,25px);color:var(--ink2);max-width:26ch;margin:16px 0 0;line-height:1.45}
+.hero .loc{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-weight:700;font-size:14px;color:var(--basil-d);background:rgba(63,122,63,.10);border:1px solid rgba(63,122,63,.28);border-radius:999px;padding:7px 15px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
+.btn{font-family:'Body',sans-serif;font-weight:800;letter-spacing:.01em;font-size:15px;padding:14px 26px;border-radius:999px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--tomato);color:#fff}
+.btn.p:hover{background:var(--tomato-d)}
+.btn.o{background:transparent;color:var(--ink);border-color:rgba(43,32,26,.22)}
+.btn.o:hover{border-color:var(--tomato);color:var(--tomato)}
+.pizzawrap{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1}
+.pizzawrap::after{content:"";position:absolute;width:82%;height:9%;left:9%;bottom:2%;background:radial-gradient(50% 50% at 50% 50%,rgba(43,32,26,.20),transparent 70%);filter:blur(3px)}
+canvas#pizzacv{width:100%;height:100%;position:relative;z-index:1}
+
+/* ---------- facts (basil band) ---------- */
+.facts{background:var(--basil-dd);color:#eef3e6}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.10)}
+.facts .c{background:var(--basil-dd);padding:26px clamp(18px,4vw,42px)}
+.facts .k{font-family:'Body';font-weight:800;letter-spacing:.16em;font-size:11px;color:var(--gold);text-transform:uppercase}
+.facts .v{font-size:15.5px;margin-top:9px;color:#dfe8d5}
+.facts .v b{color:#fff;font-weight:700;font-family:'Disp';font-size:21px;display:block;margin-bottom:3px}
+
+section{padding:clamp(56px,9vw,104px) 0}
+.sect-h{max-width:730px;margin-bottom:40px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,62px);color:var(--ink);line-height:1.04}
+.sect-h h2 em{font-style:normal;color:var(--tomato)}
+.sect-h p{font-size:18px;color:var(--ink2);margin-top:15px;line-height:1.6}
+
+/* ---------- signature pizza ---------- */
+.spot .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,68px);align-items:center}
+.spot .eyebrow{color:var(--tomato)}
+.spot h2{font-family:'Disp';font-size:clamp(38px,6vw,72px);color:var(--ink);margin:13px 0 0;line-height:1.03}
+.spot h2 span{color:var(--tomato)}
+.spot .lead{font-size:clamp(18px,2.1vw,23px);line-height:1.5;color:var(--ink);margin:20px 0 0}
+.spot .body{font-size:16.5px;color:var(--ink2);margin:15px 0 0;max-width:46ch}
+.spot .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.chip{font-family:'Body';font-weight:800;font-size:12.5px;color:var(--basil-d);background:rgba(63,122,63,.12);border:1px solid rgba(63,122,63,.26);padding:7px 14px;border-radius:999px}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;box-shadow:0 30px 60px rgba(43,32,26,.28)}
+.spot .pic .pill{position:absolute;left:-10px;bottom:22px;background:var(--tomato);color:#fff;font-family:'Body';font-weight:800;font-size:13.5px;padding:10px 17px;border-radius:999px;box-shadow:0 12px 26px rgba(168,45,31,.4)}
+
+/* ---------- gallery ---------- */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:10px;background:var(--sand)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02);transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(30,20,14,.82),transparent);color:#fff;font-family:'Disp',sans-serif;font-weight:700;font-size:17px}
+
+/* ---------- maison (dark wood band) ---------- */
+.maison{background:var(--wood);color:#efe2ce}
+.maison .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,66px);align-items:center}
+.maison .eyebrow{color:var(--terra)}
+.maison h2{font-family:'Disp';font-size:clamp(34px,5.2vw,64px);color:#fff;margin:13px 0 0;line-height:1.03}
+.maison h2 span{color:var(--terra)}
+.maison .lead{font-size:clamp(18px,2vw,22px);color:#efe2ce;margin-top:18px;line-height:1.5;max-width:44ch}
+.maison .body{font-size:16px;color:#cdbca4;margin-top:14px;max-width:46ch}
+.maison .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:10px;box-shadow:0 26px 54px rgba(0,0,0,.4)}
+
+/* ---------- carte ---------- */
+.carte{background:var(--paper)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,66px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Disp';font-weight:700;font-size:25px;color:var(--ink);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--tomato);margin-bottom:12px}
+.mgroup h3 .sl{width:22px;height:22px;flex:none}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Body';font-weight:800;font-size:16.5px;color:var(--ink)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Disp';font-weight:700;color:var(--tomato);font-size:15px;white-space:nowrap}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--tomato);padding-left:14px;max-width:80ch}
+
+/* ---------- infos ---------- */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--tomato);margin-top:3px}
+.ino .k{font-family:'Body';font-weight:800;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--tomato)}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.mapcard{background:var(--basil-dd);border-radius:10px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#eef3e6;text-align:center;padding:34px}
+.mapcard .big{font-family:'Disp';font-size:28px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+/* ---------- footer ---------- */
+footer{background:var(--wood2);color:#b7a488;padding:0 0 40px}
+footer .band{padding:24px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--terra) 0 10px,transparent 10px 20px);opacity:.5}
+footer .band .sl{width:24px;height:24px}
+footer .in{padding:4px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Disp';font-weight:800;font-size:27px;color:var(--cream)}
+footer .nm small{display:block;font-family:'Body';font-size:10px;letter-spacing:.2em;color:var(--terra);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:13px;max-width:44ch;color:#a59176}
+footer .made{font-size:12.5px;color:#8a765d;margin-top:22px}
+footer .made b{color:#e7d8c2}
+footer .made a{color:var(--terra)}
+.disc{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#7d6a52;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .hero .grid,.spot .grid,.maison .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .hero .grid{min-height:0;gap:8px}
+ .pizzawrap{max-width:440px;margin:6px auto 0}
+ .spot .pic,.maison .pic{order:-1}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:62px 0 auto 0;flex-direction:column;background:var(--cream);padding:22px 0 28px;gap:4px;transform:translateY(-150%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(43,32,26,.18);align-items:center;border-bottom:1px solid var(--line)}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:rgba(251,243,226,.92);border-color:var(--line)}
+ .hero h1{font-size:clamp(52px,17vw,92px)}
+}
+@media(max-width:520px){
+ .brand .nm{font-size:21px}
+ .bar{gap:8px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="slice" viewBox="0 0 48 48">
+  <path d="M24 45 L9.5 15.5 Q24 8 38.5 15.5 Z" fill="#d33d2b"/>
+  <path d="M9.5 15.5 Q24 8 38.5 15.5" fill="none" stroke="#e2a548" stroke-width="4.4" stroke-linecap="round"/>
+  <circle cx="19.5" cy="23" r="3" fill="#f7ead0"/>
+  <circle cx="28" cy="29" r="2.4" fill="#f7ead0"/>
+  <circle cx="24.5" cy="18.5" r="2.3" fill="#3f7a3f"/>
+ </symbol>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="O Pastor">
+   <svg class="sl" aria-hidden="true"><use href="#slice"/></svg>
+   <span class="nm">O Pastor<small data-i18n="brand_sub">Pizzeria · Consdorf</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#pizza" data-i18n="nav_pizza">La pizza</a>
+   <a href="#table" data-i18n="nav_table">À table</a>
+   <a href="#maison" data-i18n="nav_maison">La maison</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="wrap">
+   <div class="grid">
+    <div class="txt">
+     <span class="eyebrow" data-i18n="hero_eyebrow">Pizzeria · pâtes · Consdorf</span>
+     <h1 data-i18n="hero_h">La pizzeria <em>du village.</em></h1>
+     <p class="tag" data-i18n="hero_tag">Une bonne pizza à pâte fine, des pâtes généreuses — au cœur du Mullerthal.</p>
+     <div><span class="loc" data-i18n="hero_loc">📍 Consdorf · la Petite Suisse luxembourgeoise</span></div>
+     <div class="cta">
+      <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+      <a class="btn o" href="#infos" data-i18n="hero_cta2">Réserver une table</a>
+     </div>
+    </div>
+    <div class="pizzawrap">
+     <canvas id="pizzacv" aria-hidden="true"></canvas>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">Dans l'assiette</div><div class="v" data-i18n="fact_v1"><b>Pizzas &amp; pâtes</b>pâte fine, penne généreuses, burgers &amp; salades</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>3, Rte de Luxembourg</b>Consdorf · Mullerthal</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>La pizzeria du village</b>portugaise de cœur, italienne dans l'assiette</div></div>
+  </div></div>
+ </div>
+
+ <!-- SIGNATURE PIZZA -->
+ <section class="spot" id="pizza">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="pz_eyebrow">La spécialité</span>
+    <h2 data-i18n="pz_h">La pizza,<br><span>à pâte fine.</span></h2>
+    <p class="lead" data-i18n="pz_lead">Une base fine et croustillante, un bord bien doré, la garniture jusqu'au bord — la pizza que le village vient chercher.</p>
+    <p class="body" data-i18n="pz_body">De la margherita aux fruits de mer, en passant par la pizza à l'œuf : de grandes pizzas rondes, généreuses et sans chichi, à partager sur une nappe à carreaux.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="pz_c1">Pâte fine</span>
+     <span class="chip" data-i18n="pz_c2">Grandes parts</span>
+     <span class="chip" data-i18n="pz_c3">Sur place ou à emporter</span>
+    </div>
+   </div>
+   <div class="pic">
+    <img src="assets/pizza.jpg" alt="Une grande pizza à pâte fine, garnie jusqu'au bord, chez O Pastor"/>
+    <span class="pill" data-i18n="pz_pill">La grande ronde</span>
+   </div>
+  </div>
+ </section>
+
+ <!-- GALLERY -->
+ <section id="table">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="tb_eyebrow">À table</span>
+    <h2 data-i18n="tb_h">Généreux, <em>sans façon</em></h2>
+    <p data-i18n="tb_p">Des pizzas rondes, des penne bien nappées, un plat qui remplit l'assiette — la cuisine simple et bonne qu'on partage.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/penne.jpg" alt="Penne à la crème et parmesan"/><figcaption data-i18n="cap_penne">Penne à la crème</figcaption></figure>
+    <figure class="w2"><img src="assets/pizza-mer.jpg" alt="Pizza aux fruits de mer — saumon et crevettes"/><figcaption data-i18n="cap_mer">Pizza fruits de mer</figcaption></figure>
+    <figure><img src="assets/penne2.jpg" alt="Penne, crème et jambon"/><figcaption data-i18n="cap_penne2">Penne, crème &amp; jambon</figcaption></figure>
+    <figure><img src="assets/plat.jpg" alt="Plat gratiné à l'œuf, frites et salade"/><figcaption data-i18n="cap_plat">Œuf, frites &amp; salade</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- MAISON -->
+ <section class="maison" id="maison">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="ma_eyebrow">La maison</span>
+    <h2 data-i18n="ma_h">Une salle<br><span>chaleureuse.</span></h2>
+    <p class="lead" data-i18n="ma_lead">Un plafond de bois, une cave à vin qui veille dans un coin, des photos du Portugal au mur — et de la place autour de la table.</p>
+    <p class="body" data-i18n="ma_body">On y vient en voisin, en famille, entre amis, un soir de semaine comme le week-end. La pizzeria du village, tout simplement — tenue avec soin, portugaise de cœur.</p>
+   </div>
+   <div class="pic"><img src="assets/salle.jpg" alt="La salle d'O Pastor — plafond de bois, cave à vin, photos au mur"/></div>
+  </div>
+ </section>
+
+ <!-- CARTE -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="ct_eyebrow">La carte</span>
+    <h2 data-i18n="ct_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="ct_p">Les pizzas et les pâtes de la maison — et de quoi contenter tout le monde autour de la table.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="sl"><use href="#slice"/></svg><span data-i18n="mg1">Les pizzas</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Margherita</div><div class="ds" data-i18n="i1d">Tomate, mozzarella, basilic</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Pizza fruits de mer</div><div class="ds" data-i18n="i2d">Saumon &amp; crevettes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Pizza à l'œuf</div><div class="ds" data-i18n="i3d">Œuf, oignons</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="sl"><use href="#slice"/></svg><span data-i18n="mg2">Les pâtes</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Penne à la crème</div><div class="ds" data-i18n="i4d">Crème &amp; parmesan</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Penne, crème &amp; jambon</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Penne, sauce tomate</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="sl"><use href="#slice"/></svg><span data-i18n="mg3">Et aussi</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Burgers</div><div class="ds" data-i18n="i7d">Servis avec frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Salades</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Plat gratiné, œuf &amp; frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="sl"><use href="#slice"/></svg><span data-i18n="mg4">À emporter</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Toute la carte</div><div class="ds" data-i18n="i10d">Pizzas &amp; pâtes à emporter</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="ct_note">Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié ici : la carte et les prix sont à confirmer sur place.</p>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="in_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="in_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="in_k1">Adresse</div><div class="v">3, Rte de Luxembourg<br>L-6210 Consdorf</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="in_k2">Réserver</div><div class="v"><a href="tel:+35226784370">(+352) 26 78 43 70</a></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="in_k3">Horaires</div><div class="v"><span data-i18n="in_ht">Midi &amp; soir</span><br><span class="fl" data-i18n="in_fl3">horaires à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><div><div class="k" data-i18n="in_k4">La terrasse</div><div class="v"><span data-i18n="in_terr">Terrasse aux beaux jours</span><br><span class="fl" data-i18n="in_fl4">à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <div>
+      <div class="big">Consdorf</div>
+      <div style="color:#cfe0c6;margin-top:8px" data-i18n="map_sub">3, Rte de Luxembourg — au cœur du village</div>
+      <a class="btn p" href="https://www.google.com/maps/search/O+Pastor+3+Route+de+Luxembourg+Consdorf" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="sl"><use href="#slice"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">O Pastor<small data-i18n="brand_sub">Pizzeria · Consdorf</small></div>
+   <p data-i18n="foot_p">La pizzeria du village à Consdorf — pizzas à pâte fine et pâtes généreuses, au cœur du Mullerthal.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Body';font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--terra)" data-i18n="foot_contact">Contact</div>
+   <p style="margin-top:10px">3, Rte de Luxembourg<br>L-6210 Consdorf<br><a href="tel:+35226784370">(+352) 26 78 43 70</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Démonstration Webwerk, à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). Photos de sources publiques, à remplacer. Marque recréée. Carte, prix et horaires à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  brand_sub:"Pizzeria · Consdorf",
+  nav_pizza:"La pizza",nav_table:"À table",nav_maison:"La maison",nav_carte:"La carte",nav_infos:"Infos & accès",
+  hero_eyebrow:"Pizzeria · pâtes · Consdorf",
+  hero_h:"La pizzeria <em>du village.</em>",
+  hero_tag:"Une bonne pizza à pâte fine, des pâtes généreuses — au cœur du Mullerthal.",
+  hero_loc:"📍 Consdorf · la Petite Suisse luxembourgeoise",
+  hero_cta1:"Voir la carte",hero_cta2:"Réserver une table",
+  fact_k1:"Dans l'assiette",fact_v1:"<b>Pizzas & pâtes</b>pâte fine, penne généreuses, burgers & salades",
+  fact_k2:"Le lieu",fact_v2:"<b>3, Rte de Luxembourg</b>Consdorf · Mullerthal",
+  fact_k3:"La maison",fact_v3:"<b>La pizzeria du village</b>portugaise de cœur, italienne dans l'assiette",
+  pz_eyebrow:"La spécialité",pz_h:"La pizza,<br><span>à pâte fine.</span>",
+  pz_lead:"Une base fine et croustillante, un bord bien doré, la garniture jusqu'au bord — la pizza que le village vient chercher.",
+  pz_body:"De la margherita aux fruits de mer, en passant par la pizza à l'œuf : de grandes pizzas rondes, généreuses et sans chichi, à partager sur une nappe à carreaux.",
+  pz_c1:"Pâte fine",pz_c2:"Grandes parts",pz_c3:"Sur place ou à emporter",pz_pill:"La grande ronde",
+  tb_eyebrow:"À table",tb_h:"Généreux, <em>sans façon</em>",
+  tb_p:"Des pizzas rondes, des penne bien nappées, un plat qui remplit l'assiette — la cuisine simple et bonne qu'on partage.",
+  cap_penne:"Penne à la crème",cap_mer:"Pizza fruits de mer",cap_penne2:"Penne, crème & jambon",cap_plat:"Œuf, frites & salade",
+  ma_eyebrow:"La maison",ma_h:"Une salle<br><span>chaleureuse.</span>",
+  ma_lead:"Un plafond de bois, une cave à vin qui veille dans un coin, des photos du Portugal au mur — et de la place autour de la table.",
+  ma_body:"On y vient en voisin, en famille, entre amis, un soir de semaine comme le week-end. La pizzeria du village, tout simplement — tenue avec soin, portugaise de cœur.",
+  ct_eyebrow:"La carte",ct_h:"Ce qu'on <em>sert</em>",
+  ct_p:"Les pizzas et les pâtes de la maison — et de quoi contenter tout le monde autour de la table.",
+  mg1:"Les pizzas",mg2:"Les pâtes",mg3:"Et aussi",mg4:"À emporter",
+  i1n:"Margherita",i1d:"Tomate, mozzarella, basilic",i2n:"Pizza fruits de mer",i2d:"Saumon & crevettes",i3n:"Pizza à l'œuf",i3d:"Œuf, oignons",
+  i4n:"Penne à la crème",i4d:"Crème & parmesan",i5n:"Penne, crème & jambon",i6n:"Penne, sauce tomate",
+  i7n:"Burgers",i7d:"Servis avec frites",i8n:"Salades",i9n:"Plat gratiné, œuf & frites",
+  i10n:"Toute la carte",i10d:"Pizzas & pâtes à emporter",ac:"à conf.",
+  ct_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié ici : la carte et les prix sont à confirmer sur place.",
+  in_eyebrow:"Infos & accès",in_h:"Nous <em>trouver</em>",
+  in_k1:"Adresse",in_k2:"Réserver",in_k3:"Horaires",in_ht:"Midi & soir",in_fl3:"horaires à confirmer",
+  in_k4:"La terrasse",in_terr:"Terrasse aux beaux jours",in_fl4:"à confirmer",
+  map_sub:"3, Rte de Luxembourg — au cœur du village",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"La pizzeria du village à Consdorf — pizzas à pâte fine et pâtes généreuses, au cœur du Mullerthal.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"Démonstration Webwerk, à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). Photos de sources publiques, à remplacer. Marque recréée. Carte, prix et horaires à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  brand_sub:"Pizzeria · Consdorf",
+  nav_pizza:"Die Pizza",nav_table:"Zu Tisch",nav_maison:"Das Haus",nav_carte:"Karte",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Pizzeria · Pasta · Consdorf",
+  hero_h:"Die Pizzeria <em>im Dorf.</em>",
+  hero_tag:"Eine gute Pizza mit dünnem Boden, großzügige Pasta — mitten im Müllerthal.",
+  hero_loc:"📍 Consdorf · die kleine Luxemburger Schweiz",
+  hero_cta1:"Zur Karte",hero_cta2:"Tisch reservieren",
+  fact_k1:"Auf dem Teller",fact_v1:"<b>Pizza & Pasta</b>dünner Boden, großzügige Penne, Burger & Salate",
+  fact_k2:"Der Ort",fact_v2:"<b>3, Rte de Luxembourg</b>Consdorf · Müllerthal",
+  fact_k3:"Das Haus",fact_v3:"<b>Die Pizzeria im Dorf</b>portugiesisch im Herzen, italienisch auf dem Teller",
+  pz_eyebrow:"Die Spezialität",pz_h:"Die Pizza,<br><span>mit dünnem Boden.</span>",
+  pz_lead:"Ein dünner, knuspriger Boden, ein schön gebräunter Rand, Belag bis zum Rand — die Pizza, für die das Dorf kommt.",
+  pz_body:"Von der Margherita über Meeresfrüchte bis zur Pizza mit Ei: große, runde Pizzen, großzügig und unkompliziert, zum Teilen auf der karierten Tischdecke.",
+  pz_c1:"Dünner Boden",pz_c2:"Große Stücke",pz_c3:"Vor Ort oder zum Mitnehmen",pz_pill:"Die große Runde",
+  tb_eyebrow:"Zu Tisch",tb_h:"Großzügig, <em>ganz ungezwungen</em>",
+  tb_p:"Runde Pizzen, gut nappierte Penne, ein Gericht, das den Teller füllt — die einfache, gute Küche, die man teilt.",
+  cap_penne:"Penne mit Sahne",cap_mer:"Pizza Meeresfrüchte",cap_penne2:"Penne, Sahne & Schinken",cap_plat:"Ei, Pommes & Salat",
+  ma_eyebrow:"Das Haus",ma_h:"Ein Gastraum,<br><span>der wärmt.</span>",
+  ma_lead:"Eine Holzdecke, ein Weinschrank, der in der Ecke wacht, Fotos aus Portugal an der Wand — und Platz rund um den Tisch.",
+  ma_body:"Man kommt als Nachbar, mit der Familie, unter Freunden, werktags wie am Wochenende. Die Pizzeria im Dorf, ganz einfach — mit Sorgfalt geführt, portugiesisch im Herzen.",
+  ct_eyebrow:"Die Karte",ct_h:"Was wir <em>servieren</em>",
+  ct_p:"Die Pizzen und die Pasta des Hauses — und etwas für jeden am Tisch.",
+  mg1:"Die Pizzen",mg2:"Die Pasta",mg3:"Und außerdem",mg4:"Zum Mitnehmen",
+  i1n:"Margherita",i1d:"Tomate, Mozzarella, Basilikum",i2n:"Pizza Meeresfrüchte",i2d:"Lachs & Garnelen",i3n:"Pizza mit Ei",i3d:"Ei, Zwiebeln",
+  i4n:"Penne mit Sahne",i4d:"Sahne & Parmesan",i5n:"Penne, Sahne & Schinken",i6n:"Penne, Tomatensauce",
+  i7n:"Burger",i7d:"Mit Pommes serviert",i8n:"Salate",i9n:"Überbackenes Gericht, Ei & Pommes",
+  i10n:"Die ganze Karte",i10d:"Pizza & Pasta zum Mitnehmen",ac:"n. Angabe",
+  ct_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Hier sind keine Preise veröffentlicht: Karte und Preise vor Ort zu bestätigen.",
+  in_eyebrow:"Infos & Anfahrt",in_h:"So <em>finden</em> Sie uns",
+  in_k1:"Adresse",in_k2:"Reservieren",in_k3:"Öffnungszeiten",in_ht:"Mittags & abends",in_fl3:"Zeiten zu bestätigen",
+  in_k4:"Die Terrasse",in_terr:"Terrasse an schönen Tagen",in_fl4:"zu bestätigen",
+  map_sub:"3, Rte de Luxembourg — im Herzen des Dorfes",map_btn:"In Maps öffnen ↗",
+  foot_p:"Die Pizzeria im Dorf in Consdorf — Pizza mit dünnem Boden und großzügige Pasta, mitten im Müllerthal.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  foot_contact:"Kontakt",
+  disc:"Webwerk-Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Fotos aus öffentlichen Quellen, zu ersetzen. Marke nachgebildet. Karte, Preise und Zeiten zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  brand_sub:"Pizzeria · Consdorf",
+  nav_pizza:"The pizza",nav_table:"At the table",nav_maison:"The house",nav_carte:"Menu",nav_infos:"Find us",
+  hero_eyebrow:"Pizzeria · pasta · Consdorf",
+  hero_h:"The village <em>pizzeria.</em>",
+  hero_tag:"A good thin-crust pizza, generous pasta — in the heart of the Mullerthal.",
+  hero_loc:"📍 Consdorf · Luxembourg's Little Switzerland",
+  hero_cta1:"See the menu",hero_cta2:"Book a table",
+  fact_k1:"On the plate",fact_v1:"<b>Pizza & pasta</b>thin crust, generous penne, burgers & salads",
+  fact_k2:"The place",fact_v2:"<b>3, Rte de Luxembourg</b>Consdorf · Mullerthal",
+  fact_k3:"The house",fact_v3:"<b>The village pizzeria</b>Portuguese at heart, Italian on the plate",
+  pz_eyebrow:"The speciality",pz_h:"The pizza,<br><span>thin-crust.</span>",
+  pz_lead:"A thin, crisp base, a nicely charred rim, toppings right to the edge — the pizza the village comes for.",
+  pz_body:"From the margherita to seafood to the egg pizza: big round pizzas, generous and unfussy, to share on a checked tablecloth.",
+  pz_c1:"Thin crust",pz_c2:"Big slices",pz_c3:"Dine in or take away",pz_pill:"The big round",
+  tb_eyebrow:"At the table",tb_h:"Generous, <em>no fuss</em>",
+  tb_p:"Round pizzas, well-sauced penne, a plate that fills the plate — the simple, good cooking you share.",
+  cap_penne:"Penne with cream",cap_mer:"Seafood pizza",cap_penne2:"Penne, cream & ham",cap_plat:"Egg, chips & salad",
+  ma_eyebrow:"The house",ma_h:"A warm<br><span>dining room.</span>",
+  ma_lead:"A wooden ceiling, a wine cabinet keeping watch in the corner, photos of Portugal on the wall — and room around the table.",
+  ma_body:"You come as a neighbour, with family, among friends, a weeknight or the weekend. The village pizzeria, quite simply — kept with care, Portuguese at heart.",
+  ct_eyebrow:"The menu",ct_h:"What we <em>serve</em>",
+  ct_p:"The house pizzas and pasta — and something for everyone around the table.",
+  mg1:"The pizzas",mg2:"The pasta",mg3:"And also",mg4:"Takeaway",
+  i1n:"Margherita",i1d:"Tomato, mozzarella, basil",i2n:"Seafood pizza",i2d:"Salmon & prawns",i3n:"Egg pizza",i3d:"Egg, onions",
+  i4n:"Penne with cream",i4d:"Cream & parmesan",i5n:"Penne, cream & ham",i6n:"Penne, tomato sauce",
+  i7n:"Burgers",i7d:"Served with chips",i8n:"Salads",i9n:"Gratin plate, egg & chips",
+  i10n:"The whole menu",i10d:"Pizza & pasta to take away",ac:"tbc",
+  ct_note:"Dishes from the house's public photos, for reference. No prices are published here: the menu and prices are to be confirmed on site.",
+  in_eyebrow:"Info & access",in_h:"Find <em>us</em>",
+  in_k1:"Address",in_k2:"Book",in_k3:"Opening hours",in_ht:"Lunch & evening",in_fl3:"hours to be confirmed",
+  in_k4:"The terrace",in_terr:"Terrace in fine weather",in_fl4:"to be confirmed",
+  map_sub:"3, Rte de Luxembourg — in the heart of the village",map_btn:"Open in Maps ↗",
+  foot_p:"The village pizzeria in Consdorf — thin-crust pizza and generous pasta, in the heart of the Mullerthal.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"Webwerk demonstration, for reference, from public sources (photos and information from directories and reviews). Photos from public sources, to be replaced. Brand recreated. Menu, prices and hours to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  try{localStorage.setItem("opa_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>40);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("opa_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* ===== THE WOW: a playful pizza-kinetic margherita =====
+   toppings assemble on load -> a cutter draws the 8 slices -> the pizza rotates slowly, breathing.
+   Vector on canvas. dpr<=2 · IntersectionObserver-paused · static under prefers-reduced-motion. */
+(function(){
+  const cv=document.getElementById("pizzacv"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null,t0=null;
+  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const COL={crust:"#e9b45a",crustD:"#c8863a",sauce:"#cf4530",sauceD:"#b0361f",
+             mozz:"#f6ecd4",mozzE:"#e7d3a6",basil:"#3f7a3f",basilD:"#2f5f30",tom:"#d33d2b",steel:"#c9ccd2",steelD:"#8a8f98"};
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+
+  // deterministic topping layout (mozzarella, cherry-tomato halves, basil leaves)
+  const N=13, tops=[];
+  (function(){let s=7;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280;};
+   for(let i=0;i<N;i++){const ring=i<5?0.30:0.60;const ang=i*(Math.PI*2/N)+rnd()*0.5;
+     const kind=i%3===0?"tom":(i%3===1?"mozz":"basil");
+     tops.push({r:ring+rnd()*0.10,a:ang,kind,rot:rnd()*Math.PI,sz:0.9+rnd()*0.5,t:0.15+i*0.09});}
+  })();
+
+  function leaf(x,y,sz,rot){ctx.save();ctx.translate(x,y);ctx.rotate(rot);
+    ctx.fillStyle=COL.basil;ctx.beginPath();
+    ctx.moveTo(0,-sz);ctx.quadraticCurveTo(sz*0.8,-sz*0.1,0,sz);ctx.quadraticCurveTo(-sz*0.8,-sz*0.1,0,-sz);ctx.fill();
+    ctx.strokeStyle=COL.basilD;ctx.lineWidth=Math.max(0.6,sz*0.09);ctx.beginPath();ctx.moveTo(0,-sz*0.8);ctx.lineTo(0,sz*0.8);ctx.stroke();
+    ctx.restore();}
+
+  function pizza(prog, sliceP, rot, breath){
+    ctx.clearRect(0,0,W,H);
+    const cx=W*0.5, cy=H*0.5, R=Math.min(W,H)*0.46*(0.985+0.018*breath);
+    ctx.save(); ctx.translate(cx,cy); ctx.rotate(rot);
+    // crust
+    ctx.fillStyle=COL.crustD; ctx.beginPath(); ctx.arc(0,0,R,0,7); ctx.fill();
+    ctx.fillStyle=COL.crust; ctx.beginPath(); ctx.arc(0,0,R*0.985,0,7); ctx.fill();
+    // charred leopard spots on the rim
+    ctx.fillStyle="rgba(120,70,30,.32)";
+    for(let i=0;i<14;i++){const a=i*(Math.PI*2/14)+0.3;const rr=R*0.925;
+      ctx.beginPath();ctx.arc(Math.cos(a)*rr,Math.sin(a)*rr,R*(0.03+0.02*((i*7)%3)/2),0,7);ctx.fill();}
+    // sauce
+    ctx.fillStyle=COL.sauceD; ctx.beginPath(); ctx.arc(0,0,R*0.86,0,7); ctx.fill();
+    ctx.fillStyle=COL.sauce;  ctx.beginPath(); ctx.arc(0,0,R*0.845,0,7); ctx.fill();
+    // cheese wash (appears with first third of assembly)
+    const cheese=Math.min(1,prog/0.4);
+    if(cheese>0){ctx.globalAlpha=0.9*cheese;ctx.fillStyle="rgba(246,236,212,.55)";
+      ctx.beginPath();ctx.arc(0,0,R*0.83,0,7);ctx.fill();ctx.globalAlpha=1;}
+    // toppings assemble
+    for(const tp of tops){
+      const p=Math.max(0,Math.min(1,(prog-tp.t)/0.28)); if(p<=0) continue;
+      const e=1-Math.pow(1-p,3); const rr=R*tp.r, x=Math.cos(tp.a)*rr, y=Math.sin(tp.a)*rr;
+      const s=(R*0.085)*tp.sz*e;
+      if(tp.kind==="mozz"){ctx.fillStyle=COL.mozz;ctx.strokeStyle=COL.mozzE;ctx.lineWidth=s*0.12;
+        ctx.beginPath();ctx.arc(x,y,s,0,7);ctx.fill();ctx.stroke();}
+      else if(tp.kind==="tom"){ctx.fillStyle=COL.tom;ctx.beginPath();ctx.arc(x,y,s*0.92,0,7);ctx.fill();
+        ctx.fillStyle="rgba(255,255,255,.32)";ctx.beginPath();ctx.arc(x-s*0.2,y-s*0.2,s*0.28,0,7);ctx.fill();}
+      else{leaf(x,y,s*1.05,tp.rot);}
+    }
+    // slice cuts (8) revealed progressively
+    if(sliceP>0){ctx.strokeStyle="rgba(120,60,25,.42)";ctx.lineWidth=Math.max(1.2,R*0.012);ctx.lineCap="round";
+      for(let k=0;k<4;k++){const kp=Math.max(0,Math.min(1,sliceP*4-k)); if(kp<=0) break;
+        const a=k*Math.PI/4; const ln=R*0.80*kp;
+        ctx.beginPath();ctx.moveTo(-Math.cos(a)*ln,-Math.sin(a)*ln);ctx.lineTo(Math.cos(a)*ln,Math.sin(a)*ln);ctx.stroke();}}
+    ctx.restore();
+
+    // the pizza cutter — travels across during slicing, then rests & bobs (keeps motion alive)
+    let cxp, cyp;
+    if(sliceP<1){ const trav=(sliceP*4)%1; cxp=cx-R*0.9+ (R*1.8)*trav; cyp=cy - R*1.02; }
+    else { cxp=cx + R*0.86 + Math.sin(rot*2.0)*R*0.05; cyp=cy - R*0.9 + Math.cos(rot*2.0)*R*0.05; }
+    drawCutter(cxp,cyp,R*0.19, rot*6);
+  }
+  function drawCutter(x,y,r,spin){
+    ctx.save();ctx.translate(x,y);
+    // handle
+    ctx.strokeStyle=COL.steelD;ctx.lineWidth=r*0.34;ctx.lineCap="round";
+    ctx.beginPath();ctx.moveTo(0,-r*0.15);ctx.lineTo(0,-r*1.5);ctx.stroke();
+    ctx.strokeStyle="#6b4a32";ctx.lineWidth=r*0.5;ctx.beginPath();ctx.moveTo(0,-r*1.5);ctx.lineTo(0,-r*2.2);ctx.stroke();
+    // wheel
+    ctx.rotate(spin);
+    ctx.fillStyle=COL.steel;ctx.beginPath();ctx.arc(0,0,r,0,7);ctx.fill();
+    ctx.strokeStyle=COL.steelD;ctx.lineWidth=r*0.12;ctx.beginPath();ctx.arc(0,0,r*0.86,0,7);ctx.stroke();
+    ctx.fillStyle=COL.steelD;ctx.beginPath();ctx.arc(0,0,r*0.18,0,7);ctx.fill();
+    for(let i=0;i<6;i++){const a=i*Math.PI/3;ctx.strokeStyle="rgba(120,125,135,.7)";ctx.lineWidth=r*0.06;
+      ctx.beginPath();ctx.moveTo(Math.cos(a)*r*0.2,Math.sin(a)*r*0.2);ctx.lineTo(Math.cos(a)*r*0.8,Math.sin(a)*r*0.8);ctx.stroke();}
+    ctx.restore();
+  }
+  function frame(ts){ if(t0===null)t0=ts; const el=(ts-t0)/1000;
+    const prog=Math.min(1,el/1.7);
+    const sliceP=Math.max(0,Math.min(1,(el-1.7)/1.7));
+    const rot=Math.max(0,el-3.4)*0.16;             // slow steady turn once sliced
+    const breath=0.5+0.5*Math.sin(el*1.15);        // radius/alpha breathing -> guarantees per-frame change
+    pizza(prog,sliceP,rot,breath);
+    raf=requestAnimationFrame(frame);
+  }
+  resize(); window.addEventListener("resize",resize);
+  if(reduce){ pizza(1,1,0.35,0.5); return; }
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{
+    if(e.isIntersecting&&!raf){raf=requestAnimationFrame(frame);}
+    else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}
+  });});
+  io.observe(cv);
+})();
+</script>
+</body>
+</html>

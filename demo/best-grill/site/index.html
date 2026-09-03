@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Best Grill — Döner &amp; grill à la broche, Clausen</title>
+<meta name="description" content="Best Grill à Clausen — le döner à la broche, tranché à la minute : assiettes, dürüm, grillades et çay. Frais, rapide, généreux. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Disp';src:url('assets/fonts/disp-latin.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Body';src:url('assets/fonts/body-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --char:#17110c; --graphite:#231a12; --ink:#241a11; --ink2:#4d3b29;
+ --cream:#f7f0e2; --sand:#efe3cd; --card:#fdf8ec;
+ --red:#d1372b; --red-d:#a3261d; --red-l:#e5564a;
+ --amber:#f0a728; --amber-l:#f8c85c; --gold:#e39a2f;
+ --green:#4f9e54; --line:#e3d6ba; --line-d:#3a2c1d; --muted:#8c7a60;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Body',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Disp',system-ui,sans-serif;font-weight:800;line-height:1.02;letter-spacing:-.005em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Body',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--red)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.solid{background:rgba(23,17,12,.95);box-shadow:0 2px 26px rgba(0,0,0,.4);backdrop-filter:blur(6px)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:11px;color:var(--cream)}
+.brand .mk{width:20px;height:48px;flex:none;color:var(--amber)}
+.brand .nm{font-family:'Disp',sans-serif;font-weight:800;font-size:23px;letter-spacing:.02em;line-height:.9;color:var(--cream);text-transform:uppercase}
+.brand .nm small{display:block;font-family:'Body';font-size:9px;letter-spacing:.2em;color:var(--amber);font-weight:700;margin-top:4px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Body',sans-serif;font-weight:700;font-size:14.5px;color:#efe4cf;opacity:.92}
+nav.links a:hover{color:var(--amber);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.13);border-radius:999px;padding:3px}
+.langs button{font-family:'Body',sans-serif;font-weight:800;font-size:12px;letter-spacing:.05em;border:0;background:transparent;color:#e6dac2;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--red);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.6px;background:var(--cream);border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.6px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.6px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;min-height:94vh;display:flex;align-items:center;margin-top:-64px;padding-top:64px;overflow:hidden;background:var(--char)}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.34}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(115% 90% at 74% 42%,rgba(240,167,40,.16),rgba(23,17,12,.2) 44%,rgba(23,17,12,.9) 78%),linear-gradient(90deg,rgba(23,17,12,.96),rgba(23,17,12,.5) 62%,rgba(23,17,12,.2))}
+.hero canvas#conecv{position:absolute;right:3%;top:50%;transform:translateY(-50%);width:min(42%,470px);height:88%;z-index:2;pointer-events:none}
+.hero .inner{position:relative;z-index:3;padding:clamp(40px,7vw,86px) 0;max-width:640px}
+.hero .eyebrow{color:var(--amber);margin-bottom:16px;display:block}
+.hero h1{color:#fff;font-size:clamp(56px,11vw,138px);text-transform:uppercase;letter-spacing:-.01em;text-shadow:0 6px 44px rgba(0,0,0,.5);line-height:.9}
+.hero .tag{font-family:'Body',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,26px);color:#f2e6cf;max-width:24ch;margin:18px 0 0;line-height:1.4}
+.pill{display:inline-flex;align-items:center;gap:9px;margin-top:24px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 15px;font-family:'Body';font-weight:700;font-size:13.5px;color:#f2e6cf}
+.pill .dot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex:none;box-shadow:0 0 0 0 rgba(0,0,0,0)}
+.pill.on .dot{background:var(--green);box-shadow:0 0 10px rgba(79,158,84,.8)}
+.pill.off .dot{background:var(--red-l)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:22px}
+.btn{font-family:'Body',sans-serif;font-weight:800;letter-spacing:.01em;font-size:14.5px;padding:14px 27px;border-radius:4px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px;text-transform:uppercase}
+.btn.p{background:var(--red);color:#fff}
+.btn.p:hover{background:var(--red-l)}
+.btn.o{background:transparent;color:var(--cream);border-color:rgba(247,240,226,.42)}
+.btn.o:hover{border-color:var(--amber);color:var(--amber)}
+
+/* info bar */
+.infobar{background:var(--red);color:#fff}
+.infobar .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.22)}
+.infobar .c{background:var(--red);padding:20px clamp(18px,4vw,40px);display:flex;gap:14px;align-items:flex-start}
+.infobar .ic{width:22px;height:22px;flex:none;margin-top:2px;color:var(--amber-l)}
+.infobar .k{font-family:'Body';font-weight:800;letter-spacing:.14em;font-size:10.5px;text-transform:uppercase;color:#ffd9a3}
+.infobar .v{font-size:15.5px;margin-top:3px;color:#fff;font-weight:600}
+.infobar .v a{border-bottom:1px solid rgba(255,255,255,.5)}
+.infobar .v small{display:block;font-weight:400;font-size:12.5px;color:#ffe6c8;letter-spacing:0}
+
+section{padding:clamp(56px,9vw,104px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:13px;display:block}
+.sect-h h2{font-size:clamp(34px,5.6vw,62px);color:var(--ink);text-transform:uppercase;line-height:1}
+.sect-h h2 em{font-style:normal;color:var(--red)}
+.sect-h p{font-family:'Body',sans-serif;font-size:18px;color:var(--ink2);margin-top:15px;line-height:1.62;max-width:60ch}
+
+/* steps */
+.steps{background:var(--sand)}
+.steps .g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,26px)}
+.step{background:var(--card);border-radius:8px;padding:28px 26px;border:1px solid var(--line);position:relative;overflow:hidden}
+.step .no{font-family:'Disp';font-weight:800;font-size:52px;color:var(--amber);line-height:1;opacity:.9}
+.step h3{font-size:22px;margin:12px 0 8px;color:var(--ink);text-transform:uppercase}
+.step p{font-size:15px;color:var(--ink2)}
+.step .bar{position:absolute;left:0;top:0;height:5px;width:100%;background:linear-gradient(90deg,var(--red),var(--amber))}
+
+/* spotlight */
+.spot{background:var(--char);color:#f1e6d2;position:relative;overflow:hidden}
+.spot .glow{position:absolute;right:-10%;top:-10%;width:60%;height:120%;background:radial-gradient(circle at 60% 40%,rgba(240,167,40,.22),transparent 60%);z-index:0}
+.spot .grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,68px);align-items:center}
+.spot .eyebrow{color:var(--amber)}
+.spot h2{font-family:'Disp';font-size:clamp(38px,6vw,74px);color:#fff;margin:14px 0 0;text-transform:uppercase;line-height:.98}
+.spot h2 span{color:var(--amber);display:block}
+.spot .lead{font-family:'Body';font-size:clamp(18px,2.2vw,24px);line-height:1.48;color:#f4e9d5;margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#cdb794;margin:16px 0 0;max-width:46ch}
+.spot .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.spot .tag{font-family:'Body';font-weight:700;font-size:12.5px;color:var(--char);background:var(--amber);padding:8px 14px;border-radius:999px}
+.spot .tag.b{background:transparent;color:#f1e6d2;border:1.5px solid rgba(241,230,210,.36)}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.spot .pic .badge{position:absolute;left:-14px;bottom:26px;background:var(--red);color:#fff;font-family:'Disp';font-weight:800;font-size:15px;letter-spacing:.02em;text-transform:uppercase;padding:11px 18px;border-radius:4px;box-shadow:0 12px 30px rgba(0,0,0,.45)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:6px;background:var(--sand);min-height:0}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:saturate(1.02)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 15px 12px;background:linear-gradient(0deg,rgba(20,13,7,.86),transparent);color:#fff;font-family:'Disp',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.01em}
+
+/* carte */
+.carte{background:var(--sand)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,56px)}
+.mgroup{margin-bottom:28px}
+.mgroup h3{font-family:'Disp';font-weight:800;font-size:23px;color:var(--red-d);display:flex;align-items:center;gap:11px;padding-bottom:11px;border-bottom:2px solid var(--red);margin-bottom:12px;text-transform:uppercase}
+.mgroup h3 .mk{width:11px;height:26px;flex:none;color:var(--amber)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line)}
+.mitem:last-child{border-bottom:0}
+.mitem .nm{font-family:'Body';font-weight:800;font-size:16.5px;color:var(--ink)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:44ch}
+.carte .note{margin-top:20px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--amber);padding-left:14px;max-width:80ch}
+
+/* infos */
+.infos{background:var(--char);color:#ece0cb}
+.infos .sect-h h2{color:#fff}
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line-d)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--amber);margin-top:3px}
+.ino .k{font-family:'Body';font-weight:800;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--amber)}
+.ino .v{font-size:16.5px;color:#fff;margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--gold)}
+.ino .fl{color:#b6a689;font-size:13px}
+.mapcard{background:var(--graphite);border:1px solid var(--line-d);border-radius:6px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:34px}
+.mapcard .mk{position:absolute;right:-8px;bottom:-14px;width:120px;height:260px;color:rgba(240,167,40,.12)}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Disp';font-weight:800;font-size:28px;color:#fff;text-transform:uppercase}
+.mapcard .btn{margin-top:20px}
+
+/* footer */
+footer{background:#120c07;color:#b2a086;padding:0 0 40px}
+footer .band{padding:24px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+footer .band .mk{width:18px;height:44px;color:var(--gold)}
+footer .in{padding:4px 0 0;display:grid;grid-template-columns:1.5fr 1fr;gap:40px}
+footer .nm{font-family:'Disp';font-weight:800;font-size:25px;color:var(--cream);text-transform:uppercase;letter-spacing:.02em}
+footer .nm small{display:block;font-family:'Body';font-size:10px;letter-spacing:.18em;color:var(--gold);margin-top:6px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:13px;max-width:44ch;color:#a1907a}
+footer .made{font-size:12.5px;color:#7d6d58;margin-top:22px}
+footer .made b{color:#e0d2ba}
+footer .made a{color:var(--amber)}
+footer .ct{font-family:'Body';font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--amber)}
+.disc{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6a5b47;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .infobar .row,.steps .g,.spot .grid,.infos .grid,.carte .cols,footer .in{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic{order:-1}
+ .hero canvas#conecv{width:56%;opacity:.9}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:rgba(23,17,12,.98);padding:24px 0 30px;gap:6px;transform:translateY(-145%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.45);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:rgba(23,17,12,.95)}
+ .hero h1{font-size:clamp(50px,16vw,92px)}
+ .hero canvas#conecv{width:66%;right:-4%;opacity:.7}
+}
+@media(max-width:520px){
+ .brand .nm{font-size:20px}
+ .wrap{padding:0 18px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="spit" viewBox="0 0 40 96">
+ <line x1="20" y1="4" x2="20" y2="30" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+ <circle cx="20" cy="4" r="2.8" fill="currentColor"/>
+ <path d="M20 28 C31 33 34 47 34 59 C34 76 26 88 20 90 C14 88 6 76 6 59 C6 47 9 33 20 28 Z" fill="currentColor"/>
+</symbol>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Best Grill">
+   <svg class="mk" viewBox="0 0 40 96" aria-hidden="true"><use href="#spit"/></svg>
+   <span class="nm">Best Grill<small>Döner &amp; grill · Clausen</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#broche" data-i18n="nav_broche">À la broche</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#gal" data-i18n="nav_gal">En images</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/spit.jpg" alt="La broche de döner que l'on tranche au comptoir, Best Grill"/></div>
+  <div class="scrim"></div>
+  <canvas id="conecv" aria-hidden="true"></canvas>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Döner · dürüm · grillades · Clausen</span>
+   <h1>Best Grill</h1>
+   <p class="tag" data-i18n="hero_tag">Le döner de Clausen, à la broche — tranché à la minute. Frais, rapide, généreux.</p>
+   <div class="pill" id="statusPill"><span class="dot"></span><span id="stWord" data-i18n="st_open">Ouvert</span></div>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#broche" data-i18n="hero_cta2">La broche ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <div class="infobar">
+  <div class="wrap"><div class="row">
+    <div class="c">
+     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+     <div><div class="k" data-i18n="ib_hours_k">Horaires</div><div class="v" data-i18n="ib_hours_v">Lun–Sam 11:00–22:30<small>Dimanche 16:30–22:00</small></div></div>
+    </div>
+    <div class="c">
+     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+     <div><div class="k" data-i18n="ib_addr_k">Adresse</div><div class="v">63, Rue de Clausen<small>L-1342 Luxembourg</small></div></div>
+    </div>
+    <div class="c">
+     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+     <div><div class="k" data-i18n="ib_tel_k">Commander</div><div class="v"><a href="tel:+35227848386">27 84 83 86</a><small data-i18n="ib_tel_v">Sur place ou à emporter</small></div></div>
+    </div>
+  </div></div>
+ </div>
+
+ <!-- STEPS -->
+ <section class="steps" id="steps">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="step_eyebrow">Le comptoir</span>
+    <h2 data-i18n="step_h">Simple, <em>et rapide</em></h2>
+   </div>
+   <div class="g">
+    <div class="step"><span class="bar"></span><div class="no">01</div><h3 data-i18n="s1t">Tu choisis</h3><p data-i18n="s1d">Assiette, dürüm ou sandwich — döner, poulet, grillades. La salade et les sauces au comptoir.</p></div>
+    <div class="step"><span class="bar"></span><div class="no">02</div><h3 data-i18n="s2t">À la broche</h3><p data-i18n="s2d">La viande tourne sur la broche verticale et se tranche à la minute, sous la lampe chauffante.</p></div>
+    <div class="step"><span class="bar"></span><div class="no">03</div><h3 data-i18n="s3t">Sur place ou à emporter</h3><p data-i18n="s3d">On dresse généreux, on emballe chaud. À table dans la salle ou emporté en dürüm.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- SPOTLIGHT -->
+ <section class="spot" id="broche">
+  <div class="glow"></div>
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="sp_eyebrow">La signature</span>
+    <h2 data-i18n="sp_h">La broche,<span>tranchée minute.</span></h2>
+    <p class="lead" data-i18n="sp_lead">La viande empilée tourne toute la journée sur la broche verticale. On la tranche fine à la commande — dorée sur les bords, fondante au cœur.</p>
+    <p class="body" data-i18n="sp_body">Döner de bœuf ou de poulet, dressé sur une assiette généreuse avec frites, salade croquante et sauces. Ou roulé serré dans un dürüm, à emporter. C'est l'idée de la maison : frais, rapide, sans chichis.</p>
+    <div class="tags">
+     <span class="tag" data-i18n="sp_t1">Döner à la broche</span>
+     <span class="tag b" data-i18n="sp_t2">Dürüm à emporter</span>
+     <span class="tag b" data-i18n="sp_t3">Grillades</span>
+    </div>
+   </div>
+   <div class="pic">
+    <img src="assets/assiette.jpg" alt="Une assiette de döner généreuse : viande, frites, salade et sauces"/>
+    <span class="badge" data-i18n="sp_badge">Généreux</span>
+   </div>
+  </div>
+ </section>
+
+ <!-- GALLERY -->
+ <section id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">En images</span>
+    <h2 data-i18n="gal_h">Le <em>plein les yeux</em></h2>
+    <p data-i18n="gal_p">Assiettes garnies, dürüm roulés minute, çay servi au verre — la cuisine turque de Clausen, à la broche.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/plat.jpg" alt="Assiette de döner : viande tranchée, frites, salade et sauce blanche"/><figcaption data-i18n="cap_plat">L'assiette döner</figcaption></figure>
+    <figure><img src="assets/durum.jpg" alt="Dürüm roulé, garni de poulet, salade et carotte"/><figcaption data-i18n="cap_durum">Le dürüm</figcaption></figure>
+    <figure><img src="assets/cay.jpg" alt="Çay turc servi dans un verre tulipe"/><figcaption data-i18n="cap_cay">Le çay</figcaption></figure>
+    <figure class="w2"><img src="assets/plateau.jpg" alt="Grande assiette généreuse à partager"/><figcaption data-i18n="cap_plateau">La grande assiette</figcaption></figure>
+    <figure><img src="assets/comptoir.jpg" alt="Le comptoir à salades et les tableaux lumineux"/><figcaption data-i18n="cap_comptoir">Le comptoir</figcaption></figure>
+    <figure><img src="assets/salle.jpg" alt="La salle moderne de Best Grill"/><figcaption data-i18n="cap_salle">La salle</figcaption></figure>
+    <figure class="w2"><img src="assets/facade.jpg" alt="La devanture Best Grill, rue de Clausen"/><figcaption data-i18n="cap_facade">La devanture</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- CARTE -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="carte_p">Le döner sous toutes ses formes, les grillades, quelques burgers — et le çay pour finir.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="mk" viewBox="0 0 40 96"><use href="#spit"/></svg><span data-i18n="mg1">À la broche</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Döner assiette</div><div class="ds" data-i18n="i1d">Viande tranchée, frites, salade, sauces</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Dürüm döner</div><div class="ds" data-i18n="i2d">Galette roulée, à emporter</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Sandwich döner</div><div class="ds" data-i18n="i3d">Pain, viande, salade</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Köfte</div><div class="ds" data-i18n="i4d">Boulettes de bœuf grillées</div></div></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="mk" viewBox="0 0 40 96"><use href="#spit"/></svg><span data-i18n="mg2">Du grill</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Brochette poulet</div><div class="ds" data-i18n="i7d">Marinée, grillée</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Escalope</div><div class="ds" data-i18n="i8d">Assiette ou menu</div></div></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="mk" viewBox="0 0 40 96"><use href="#spit"/></svg><span data-i18n="mg3">Burgers &amp; plus</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Cheeseburger</div><div class="ds" data-i18n="i9d">Steak, cheddar, salade</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Falafel</div><div class="ds" data-i18n="i11d">Végétarien, sauce blanche</div></div></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="mk" viewBox="0 0 40 96"><use href="#spit"/></svg><span data-i18n="mg4">Boissons</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i13n">Çay</div><div class="ds" data-i18n="i13d">Thé turc, au verre</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i14n">Sodas &amp; boissons</div><div class="ds" data-i18n="i14d">Canettes, eau</div></div></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Plats d'après les tableaux et les photos publiques de la maison, à titre indicatif. Carte et prix à confirmer sur place.</p>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">63, Rue de Clausen<br>L-1342 Luxembourg</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Téléphone</div><div class="v"><a href="tel:+35227848386">27 84 83 86</a></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span data-i18n="ino_h1">Lundi – Samedi : 11:00 – 22:30</span><br><span data-i18n="ino_h2">Dimanche : 16:30 – 22:00</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <svg class="mk" viewBox="0 0 40 96" aria-hidden="true"><use href="#spit"/></svg>
+     <div class="in">
+      <div class="big">Clausen</div>
+      <div style="color:#c3b498;margin-top:8px" data-i18n="map_sub">63, Rue de Clausen · Luxembourg</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Best+Grill+63+Rue+de+Clausen+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="mk" viewBox="0 0 40 96"><use href="#spit"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Best Grill<small>Döner &amp; grill · Clausen</small></div>
+   <p data-i18n="foot_p">Le döner de Clausen, à la broche — assiettes, dürüm et grillades, frais et généreux.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div class="ct" data-i18n="foot_contact">Contact</div>
+   <p style="margin-top:10px">63, Rue de Clausen<br>L-1342 Luxembourg<br><a href="tel:+35227848386" style="border-bottom:1px solid var(--gold)">27 84 83 86</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Démonstration Webwerk, à titre indicatif — photos de sources publiques à remplacer, marque recréée, carte et prix à confirmer. Le nom et les plats sont ceux de la maison ; horaires, téléphone et adresse d'après des sources publiques. Proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_broche:"À la broche",nav_carte:"La carte",nav_gal:"En images",nav_infos:"Infos & accès",
+  hero_eyebrow:"Döner · dürüm · grillades · Clausen",
+  hero_tag:"Le döner de Clausen, à la broche — tranché à la minute. Frais, rapide, généreux.",
+  st_open:"Ouvert",st_closed:"Fermé",pill_until:"ferme à",
+  hero_cta1:"Voir la carte",hero_cta2:"La broche ↓",
+  ib_hours_k:"Horaires",ib_hours_v:"Lun–Sam 11:00–22:30<small>Dimanche 16:30–22:00</small>",
+  ib_addr_k:"Adresse",ib_tel_k:"Commander",ib_tel_v:"Sur place ou à emporter",
+  step_eyebrow:"Le comptoir",step_h:"Simple, <em>et rapide</em>",
+  s1t:"Tu choisis",s1d:"Assiette, dürüm ou sandwich — döner, poulet, grillades. La salade et les sauces au comptoir.",
+  s2t:"À la broche",s2d:"La viande tourne sur la broche verticale et se tranche à la minute, sous la lampe chauffante.",
+  s3t:"Sur place ou à emporter",s3d:"On dresse généreux, on emballe chaud. À table dans la salle ou emporté en dürüm.",
+  sp_eyebrow:"La signature",sp_h:"La broche,<span>tranchée minute.</span>",
+  sp_lead:"La viande empilée tourne toute la journée sur la broche verticale. On la tranche fine à la commande — dorée sur les bords, fondante au cœur.",
+  sp_body:"Döner de bœuf ou de poulet, dressé sur une assiette généreuse avec frites, salade croquante et sauces. Ou roulé serré dans un dürüm, à emporter. C'est l'idée de la maison : frais, rapide, sans chichis.",
+  sp_t1:"Döner à la broche",sp_t2:"Dürüm à emporter",sp_t3:"Grillades",sp_badge:"Généreux",
+  gal_eyebrow:"En images",gal_h:"Le <em>plein les yeux</em>",
+  gal_p:"Assiettes garnies, dürüm roulés minute, çay servi au verre — la cuisine turque de Clausen, à la broche.",
+  cap_plat:"L'assiette döner",cap_durum:"Le dürüm",cap_cay:"Le çay",cap_plateau:"La grande assiette",cap_comptoir:"Le comptoir",cap_salle:"La salle",cap_facade:"La devanture",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
+  carte_p:"Le döner sous toutes ses formes, les grillades, quelques burgers — et le çay pour finir.",
+  mg1:"À la broche",mg2:"Du grill",mg3:"Burgers & plus",mg4:"Boissons",
+  i1n:"Döner assiette",i1d:"Viande tranchée, frites, salade, sauces",i2n:"Dürüm döner",i2d:"Galette roulée, à emporter",i3n:"Sandwich döner",i3d:"Pain, viande, salade",i4n:"Köfte",i4d:"Boulettes de bœuf grillées",
+  i7n:"Brochette poulet",i7d:"Marinée, grillée",i8n:"Escalope",i8d:"Assiette ou menu",
+  i9n:"Cheeseburger",i9d:"Steak, cheddar, salade",i11n:"Falafel",i11d:"Végétarien, sauce blanche",
+  i13n:"Çay",i13d:"Thé turc, au verre",i14n:"Sodas & boissons",i14d:"Canettes, eau",
+  carte_note:"Plats d'après les tableaux et les photos publiques de la maison, à titre indicatif. Carte et prix à confirmer sur place.",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Téléphone",ino_k3:"Horaires",ino_h1:"Lundi – Samedi : 11:00 – 22:30",ino_h2:"Dimanche : 16:30 – 22:00",
+  map_sub:"63, Rue de Clausen · Luxembourg",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Le döner de Clausen, à la broche — assiettes, dürüm et grillades, frais et généreux.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"Démonstration Webwerk, à titre indicatif — photos de sources publiques à remplacer, marque recréée, carte et prix à confirmer. Le nom et les plats sont ceux de la maison ; horaires, téléphone et adresse d'après des sources publiques. Proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_broche:"Vom Spieß",nav_carte:"Karte",nav_gal:"Bilder",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Döner · Dürüm · Grill · Clausen",
+  hero_tag:"Der Döner von Clausen, vom Spieß — frisch geschnitten. Frisch, schnell, großzügig.",
+  st_open:"Geöffnet",st_closed:"Geschlossen",pill_until:"schließt um",
+  hero_cta1:"Zur Karte",hero_cta2:"Der Spieß ↓",
+  ib_hours_k:"Öffnungszeiten",ib_hours_v:"Mo–Sa 11:00–22:30<small>Sonntag 16:30–22:00</small>",
+  ib_addr_k:"Adresse",ib_tel_k:"Bestellen",ib_tel_v:"Vor Ort oder zum Mitnehmen",
+  step_eyebrow:"Der Tresen",step_h:"Einfach, <em>und schnell</em>",
+  s1t:"Du wählst",s1d:"Teller, Dürüm oder Sandwich — Döner, Hähnchen, Grill. Salat und Saucen am Tresen.",
+  s2t:"Vom Spieß",s2d:"Das Fleisch dreht sich am senkrechten Spieß und wird à la minute geschnitten, unter der Wärmelampe.",
+  s3t:"Vor Ort oder to go",s3d:"Großzügig angerichtet, warm eingepackt. Am Tisch im Gastraum oder als Dürüm zum Mitnehmen.",
+  sp_eyebrow:"Die Signatur",sp_h:"Der Spieß,<span>frisch geschnitten.</span>",
+  sp_lead:"Das geschichtete Fleisch dreht sich den ganzen Tag am senkrechten Spieß. Auf Bestellung dünn geschnitten — an den Rändern goldbraun, innen zart.",
+  sp_body:"Döner von Rind oder Hähnchen, auf einem großzügigen Teller mit Pommes, knackigem Salat und Saucen. Oder fest in ein Dürüm gerollt, zum Mitnehmen. Die Idee des Hauses: frisch, schnell, ohne Schnickschnack.",
+  sp_t1:"Döner vom Spieß",sp_t2:"Dürüm to go",sp_t3:"Grillgerichte",sp_badge:"Großzügig",
+  gal_eyebrow:"Bilder",gal_h:"Ein <em>Augenschmaus</em>",
+  gal_p:"Gut gefüllte Teller, frisch gerollte Dürüm, Çay im Glas — die türkische Küche von Clausen, vom Spieß.",
+  cap_plat:"Der Döner-Teller",cap_durum:"Das Dürüm",cap_cay:"Der Çay",cap_plateau:"Der große Teller",cap_comptoir:"Der Tresen",cap_salle:"Der Gastraum",cap_facade:"Die Fassade",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
+  carte_p:"Döner in allen Varianten, Grillgerichte, ein paar Burger — und zum Schluss der Çay.",
+  mg1:"Vom Spieß",mg2:"Vom Grill",mg3:"Burger & mehr",mg4:"Getränke",
+  i1n:"Döner-Teller",i1d:"Geschnittenes Fleisch, Pommes, Salat, Saucen",i2n:"Dürüm Döner",i2d:"Gerolltes Fladenbrot, to go",i3n:"Döner-Sandwich",i3d:"Brot, Fleisch, Salat",i4n:"Köfte",i4d:"Gegrillte Rindfleischbällchen",
+  i7n:"Hähnchenspieß",i7d:"Mariniert, gegrillt",i8n:"Schnitzel",i8d:"Teller oder Menü",
+  i9n:"Cheeseburger",i9d:"Patty, Cheddar, Salat",i11n:"Falafel",i11d:"Vegetarisch, weiße Sauce",
+  i13n:"Çay",i13d:"Türkischer Tee, im Glas",i14n:"Softdrinks & Getränke",i14d:"Dosen, Wasser",
+  carte_note:"Gerichte nach den Tafeln und öffentlichen Fotos des Hauses, ohne Gewähr. Karte und Preise vor Ort zu bestätigen.",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Telefon",ino_k3:"Öffnungszeiten",ino_h1:"Montag – Samstag: 11:00 – 22:30",ino_h2:"Sonntag: 16:30 – 22:00",
+  map_sub:"63, Rue de Clausen · Luxemburg",map_btn:"In Maps öffnen ↗",
+  foot_p:"Der Döner von Clausen, vom Spieß — Teller, Dürüm und Grill, frisch und großzügig.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  foot_contact:"Kontakt",
+  disc:"Webwerk-Demonstration, unverbindlich — Fotos aus öffentlichen Quellen, zu ersetzen, Marke nachgebildet, Karte und Preise zu bestätigen. Name und Gerichte gehören dem Haus; Öffnungszeiten, Telefon und Adresse nach öffentlichen Quellen. Inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_broche:"On the spit",nav_carte:"Menu",nav_gal:"In pictures",nav_infos:"Find us",
+  hero_eyebrow:"Döner · dürüm · grill · Clausen",
+  hero_tag:"The döner of Clausen, on the spit — sliced to order. Fresh, fast, generous.",
+  st_open:"Open",st_closed:"Closed",pill_until:"closes at",
+  hero_cta1:"See the menu",hero_cta2:"The spit ↓",
+  ib_hours_k:"Hours",ib_hours_v:"Mon–Sat 11:00–22:30<small>Sunday 16:30–22:00</small>",
+  ib_addr_k:"Address",ib_tel_k:"Order",ib_tel_v:"Dine in or take away",
+  step_eyebrow:"The counter",step_h:"Simple, <em>and fast</em>",
+  s1t:"You choose",s1d:"Plate, dürüm or sandwich — döner, chicken, grilled. Salad and sauces at the counter.",
+  s2t:"On the spit",s2d:"The meat turns on the vertical spit and is sliced to order, under the heat lamp.",
+  s3t:"Dine in or take away",s3d:"Plated generous, wrapped hot. At a table in the room, or taken away in a dürüm.",
+  sp_eyebrow:"The signature",sp_h:"The spit,<span>sliced to order.</span>",
+  sp_lead:"The stacked meat turns all day on the vertical spit. Sliced thin to order — golden at the edges, tender at the core.",
+  sp_body:"Beef or chicken döner, plated generous with fries, crisp salad and sauces. Or rolled tight in a dürüm, to take away. It's the idea of the house: fresh, fast, no fuss.",
+  sp_t1:"Döner on the spit",sp_t2:"Dürüm to go",sp_t3:"Grilled dishes",sp_badge:"Generous",
+  gal_eyebrow:"In pictures",gal_h:"A <em>feast for the eyes</em>",
+  gal_p:"Loaded plates, dürüm rolled to order, çay by the glass — the Turkish kitchen of Clausen, on the spit.",
+  cap_plat:"The döner plate",cap_durum:"The dürüm",cap_cay:"The çay",cap_plateau:"The big plate",cap_comptoir:"The counter",cap_salle:"The dining room",cap_facade:"The storefront",
+  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
+  carte_p:"Döner in every form, grilled dishes, a few burgers — and çay to finish.",
+  mg1:"On the spit",mg2:"From the grill",mg3:"Burgers & more",mg4:"Drinks",
+  i1n:"Döner plate",i1d:"Sliced meat, fries, salad, sauces",i2n:"Dürüm döner",i2d:"Rolled flatbread, to go",i3n:"Döner sandwich",i3d:"Bread, meat, salad",i4n:"Köfte",i4d:"Grilled beef meatballs",
+  i7n:"Chicken skewer",i7d:"Marinated, grilled",i8n:"Escalope",i8d:"Plate or menu",
+  i9n:"Cheeseburger",i9d:"Patty, cheddar, salad",i11n:"Falafel",i11d:"Vegetarian, white sauce",
+  i13n:"Çay",i13d:"Turkish tea, by the glass",i14n:"Sodas & drinks",i14d:"Cans, water",
+  carte_note:"Dishes from the house's boards and public photos, for reference. Menu and prices to be confirmed on site.",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Phone",ino_k3:"Opening hours",ino_h1:"Monday – Saturday: 11:00 – 22:30",ino_h2:"Sunday: 16:30 – 22:00",
+  map_sub:"63, Rue de Clausen · Luxembourg",map_btn:"Open in Maps ↗",
+  foot_p:"The döner of Clausen, on the spit — plates, dürüm and grilled dishes, fresh and generous.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"Webwerk demonstration, for reference — photos from public sources to be replaced, brand recreated, menu and prices to be confirmed. The name and dishes belong to the house; hours, phone and address from public sources. An unofficial proposal, not affiliated to date."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+const HRS={0:[16.5,22],1:[11,22.5],2:[11,22.5],3:[11,22.5],4:[11,22.5],5:[11,22.5],6:[11,22.5]};
+function fmt(h){const H=Math.floor(h),M=Math.round((h-H)*60);return (H<10?"0":"")+H+":"+(M<10?"0":"")+M;}
+function updateStatus(){
+  const el=document.getElementById("stWord"),pill=document.getElementById("statusPill");
+  if(!el||!pill)return;
+  const d=new Date(),day=d.getDay(),cur=d.getHours()+d.getMinutes()/60,w=HRS[day];
+  const open=w&&cur>=w[0]&&cur<w[1];
+  if(open){el.textContent=t("st_open")+" · "+t("pill_until")+" "+fmt(w[1]);pill.classList.add("on");pill.classList.remove("off");}
+  else{el.textContent=t("st_closed");pill.classList.add("off");pill.classList.remove("on");}
+}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  updateStatus();
+  try{localStorage.setItem("bgr_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("bgr_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+setInterval(updateStatus,60000);
+
+/* THE WOW — a vertical döner cone rotating under a heat lamp: turning meat, char flecks, a falling shaving, heat haze */
+(function(){
+  const cv=document.getElementById("conecv"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null,phase=0,tt=0,last=0,nextShave=1.4,shavings=[];
+  const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+  function prof(u){const b=Math.sin(Math.pow(u,0.85)*Math.PI);return 0.30+0.70*Math.pow(b,0.9);}
+  function maxR(){return Math.min(W*0.34,150);}
+  function coneY(){return {top:H*0.14,bot:H*0.9};}
+  function draw(anim){
+    ctx.clearRect(0,0,W,H);
+    const cx=W*0.5,{top,bot}=coneY(),span=bot-top,R=maxR();
+    // heat-lamp glow (pulsing alpha -> motion)
+    const pulse=anim?(0.5+0.5*Math.sin(tt*1.7)):0.6;
+    const gy=top+span*0.28;
+    let gl=ctx.createRadialGradient(cx,gy,8,cx,gy,R*3.1);
+    gl.addColorStop(0,"rgba(240,167,40,"+(0.28+0.16*pulse).toFixed(3)+")");
+    gl.addColorStop(0.42,"rgba(220,116,38,"+(0.09+0.05*pulse).toFixed(3)+")");
+    gl.addColorStop(1,"rgba(220,116,38,0)");
+    ctx.fillStyle=gl; ctx.fillRect(0,0,W,H);
+    // spit rod + finial
+    ctx.strokeStyle="rgba(208,203,196,0.7)"; ctx.lineWidth=3; ctx.lineCap="round";
+    ctx.beginPath(); ctx.moveTo(cx,top-span*0.11); ctx.lineTo(cx,top+span*0.02); ctx.stroke();
+    ctx.fillStyle="rgba(228,222,214,0.85)"; ctx.beginPath(); ctx.arc(cx,top-span*0.11,3.4,0,7); ctx.fill();
+    // silhouette clip
+    const N=60,L=[],Rr=[];
+    for(let i=0;i<=N;i++){const u=i/N,y=top+u*span,r=R*prof(u);L.push([cx-r,y]);Rr.push([cx+r,y]);}
+    ctx.save();
+    ctx.beginPath(); ctx.moveTo(L[0][0],L[0][1]);
+    for(const p of L) ctx.lineTo(p[0],p[1]);
+    for(let i=Rr.length-1;i>=0;i--) ctx.lineTo(Rr[i][0],Rr[i][1]);
+    ctx.closePath(); ctx.clip();
+    // base vertical gradient
+    let vg=ctx.createLinearGradient(0,top,0,bot);
+    vg.addColorStop(0,"#3a2213");vg.addColorStop(0.18,"#6e3d18");vg.addColorStop(0.44,"#c9812f");
+    vg.addColorStop(0.62,"#e0982f");vg.addColorStop(0.82,"#9a541f");vg.addColorStop(1,"#5c2f14");
+    ctx.fillStyle=vg; ctx.fillRect(cx-R,top,R*2,span);
+    // cylinder shading (dark edges)
+    let hg=ctx.createLinearGradient(cx-R,0,cx+R,0);
+    hg.addColorStop(0,"rgba(20,10,4,0.55)");hg.addColorStop(0.5,"rgba(255,220,150,0)");hg.addColorStop(1,"rgba(20,10,4,0.55)");
+    ctx.fillStyle=hg; ctx.fillRect(cx-R,top,R*2,span);
+    // moving specular band = rotation
+    const spec=cx+Math.sin(phase)*R*0.55;
+    let sg=ctx.createRadialGradient(spec,top+span*0.45,4,spec,top+span*0.45,R*1.15);
+    sg.addColorStop(0,"rgba(255,232,170,0.5)");sg.addColorStop(0.5,"rgba(255,210,120,0.12)");sg.addColorStop(1,"rgba(255,210,120,0)");
+    ctx.fillStyle=sg; ctx.fillRect(cx-R,top,R*2,span);
+    // striations (stacked meat layers)
+    ctx.globalAlpha=0.5;
+    for(let i=0;i<26;i++){
+      const u=i/26,y=top+u*span+span*0.006*Math.sin(tt*2+i),r=R*prof(u);
+      ctx.strokeStyle=i%2?"rgba(58,30,12,0.5)":"rgba(255,210,140,0.18)";
+      ctx.lineWidth=i%2?2.2:1.2; ctx.beginPath();
+      let f=true;
+      for(let x=-1;x<=1.001;x+=0.1){const px=cx+x*r,py=y+Math.sin(x*3+phase+i*0.4)*2.2; f?ctx.moveTo(px,py):ctx.lineTo(px,py); f=false;}
+      ctx.stroke();
+    }
+    ctx.globalAlpha=1;
+    // char flecks turning with the cone
+    for(let i=0;i<30;i++){
+      const u=(i*0.131)%1,y=top+u*span,r=R*prof(u),a=phase+i*0.7,x=cx+Math.sin(a)*r*0.82,z=Math.cos(a);
+      if(z<0) continue;
+      ctx.fillStyle="rgba(40,20,8,"+(0.26*z).toFixed(3)+")";
+      ctx.beginPath(); ctx.arc(x,y,1.3+1.2*z,0,7); ctx.fill();
+    }
+    ctx.restore();
+    // falling shavings
+    for(const s of shavings){
+      ctx.save(); ctx.translate(s.x,s.y); ctx.rotate(s.rot); ctx.globalAlpha=Math.max(0,Math.min(1,s.life));
+      ctx.fillStyle="#d9922f"; ctx.beginPath(); ctx.ellipse(0,0,s.len,s.len*0.16,0,0,7); ctx.fill();
+      ctx.strokeStyle="rgba(90,45,18,0.6)"; ctx.lineWidth=0.8; ctx.stroke(); ctx.restore();
+    }
+    // heat haze
+    if(anim){
+      ctx.save(); ctx.globalCompositeOperation="screen";
+      for(let b=0;b<3;b++){
+        const yo=(tt*18+b*42)%(H*0.5),baseY=top+30-yo;
+        ctx.globalAlpha=0.05+0.03*Math.sin(tt*2+b); ctx.fillStyle="rgba(255,200,130,1)";
+        ctx.beginPath(); let f=true;
+        for(let x=cx-90;x<=cx+90;x+=6){const y=baseY+Math.sin(x*0.06+tt*2+b)*6; f?ctx.moveTo(x,y):ctx.lineTo(x,y); f=false;}
+        for(let x=cx+90;x>=cx-90;x-=6){const y=baseY+22+Math.sin(x*0.06+tt*2+b)*6; ctx.lineTo(x,y);}
+        ctx.closePath(); ctx.fill();
+      }
+      ctx.restore();
+    }
+  }
+  function loop(now){
+    const dt=Math.min(0.05,(now-last)/1000); last=now; tt+=dt; phase+=dt*1.1; nextShave-=dt;
+    if(nextShave<=0){
+      nextShave=2.6+Math.random()*2.4;
+      const cx=W*0.5,{top,bot}=coneY(),span=bot-top,u=0.62,r=maxR()*prof(u);
+      shavings.push({x:cx+r*0.72,y:top+u*span,vx:16+Math.random()*18,vy:8,rot:Math.random(),vr:2+Math.random()*2,len:11+Math.random()*8,life:1});
+    }
+    for(const s of shavings){s.vy+=120*dt; s.x+=s.vx*dt; s.y+=s.vy*dt; s.rot+=s.vr*dt; s.life-=dt*0.55;}
+    shavings=shavings.filter(s=>s.life>0&&s.y<H+50);
+    draw(true); raf=requestAnimationFrame(loop);
+  }
+  resize(); addEventListener("resize",resize);
+  if(reduce){ draw(false); return; }
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting&&!raf){last=performance.now();raf=requestAnimationFrame(loop);}
+    else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}
+  }));
+  io.observe(cv);
+})();
+</script>
+</body>
+</html>

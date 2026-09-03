@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Restaurant Welcome — Table portugaise, fruits de mer &amp; grillades, Esch-sur-Alzette</title>
+<meta name="description" content="Restaurant Welcome à Esch-sur-Alzette — la table portugaise d'Esch : fruits de mer, arroz de marisco, espetada, bacalhau et grillades, dans une maison où l'on est reçu. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Disp';src:url('assets/fonts/disp-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Body';src:url('assets/fonts/body-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --blue:#1b4f9c; --blue-d:#123a78; --blue-dd:#0e2c5c; --blue-ink:#0a2247;
+ --azu:#2a6ac2; --azu-l:#5b93da;
+ --cream:#f6f0e2; --paper:#faf5ea; --stone:#ece2cc; --card:#fffdf7;
+ --red:#c0432f; --red-d:#9c3323; --terra:#c9613f;
+ --wine:#6e2230; --gold:#d7a13a;
+ --ink:#20242c; --ink2:#4a4f5a; --muted:#8b8474; --line:#ddd0b6;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Body',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Disp',Georgia,serif;font-weight:600;line-height:1.05}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Body',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.24em;font-size:11.5px;color:var(--red)}
+
+/* azulejo tile chip used as a repeating decorative divider */
+.tilebar{height:14px;background:
+  repeating-linear-gradient(45deg,rgba(27,79,156,.16) 0 8px,transparent 8px 16px),
+  repeating-linear-gradient(-45deg,rgba(27,79,156,.16) 0 8px,transparent 8px 16px),
+  var(--blue);
+ background-blend-mode:normal;border-top:2px solid var(--blue-d);border-bottom:2px solid var(--blue-d)}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.solid{background:var(--blue-dd);box-shadow:0 2px 22px rgba(6,20,45,.4)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
+.brand .mk{width:38px;height:38px;flex:none;border-radius:7px;background:var(--cream);display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.brand .mk svg{width:30px;height:30px}
+.brand .nm{font-family:'Disp',serif;font-weight:600;font-size:24px;letter-spacing:.01em;line-height:.95;color:var(--cream)}
+.brand .nm small{display:block;font-family:'Body';font-size:9px;letter-spacing:.2em;color:var(--azu-l);font-weight:700;margin-top:4px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Body',sans-serif;font-weight:600;font-size:14.5px;color:#eaf1fb;opacity:.92}
+nav.links a:hover{color:#fff;opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.15);border-radius:999px;padding:3px}
+.langs button{font-family:'Body',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#dbe6f6;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--red);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:var(--cream);border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* HERO — azulejo-blue field with tessellating tilework */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;margin-top:-64px;padding-top:64px;overflow:hidden;background:radial-gradient(120% 100% at 20% 12%,var(--blue) 0,var(--blue-d) 46%,var(--blue-dd) 100%)}
+.hero canvas#azu{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,34,71,.82) 0%,rgba(10,34,71,.5) 42%,rgba(10,34,71,.15) 70%,rgba(10,34,71,.28) 100%)}
+.hero .inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center;padding:clamp(38px,7vw,86px) 0}
+.hero .eyebrow{color:var(--gold);margin-bottom:16px;display:block}
+.hero h1{color:#fff;font-size:clamp(58px,11vw,150px);letter-spacing:.005em;text-shadow:0 6px 44px rgba(0,0,0,.45);line-height:.9}
+.hero h1 .kick{display:block;font-family:'Body',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.42em;font-size:clamp(12px,1.5vw,16px);color:var(--azu-l);margin-bottom:14px;text-shadow:none}
+.hero .tag{font-family:'Body',sans-serif;font-weight:400;font-size:clamp(18px,2.3vw,25px);color:#eaf1fb;max-width:32ch;margin:22px 0 0;line-height:1.45}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Body',sans-serif;font-weight:700;letter-spacing:.01em;font-size:14.5px;padding:14px 26px;border-radius:4px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--red);color:#fff}
+.btn.p:hover{background:var(--red-d)}
+.btn.o{background:transparent;color:var(--cream);border-color:rgba(246,240,226,.5)}
+.btn.o:hover{border-color:var(--gold);color:var(--gold)}
+.btn.b{background:var(--blue);color:#fff}
+.btn.b:hover{background:var(--blue-d)}
+/* framed photo card = a glazed panel */
+.herocard{position:relative;justify-self:end;width:100%;max-width:440px}
+.herocard .frame{background:var(--cream);padding:12px;border-radius:8px;box-shadow:0 34px 70px rgba(6,18,42,.55);transform:rotate(-1.4deg)}
+.herocard .frame img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px}
+.herocard .pill{position:absolute;left:-14px;bottom:22px;background:var(--red);color:#fff;font-family:'Body';font-weight:700;font-size:13px;letter-spacing:.02em;padding:10px 16px;border-radius:4px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:rotate(-1.4deg)}
+
+/* FACTS */
+.facts{background:var(--blue-dd);color:#e8eef9}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.14)}
+.facts .c{background:var(--blue-dd);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Body';font-weight:700;letter-spacing:.15em;font-size:11px;color:var(--gold);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#e8eef9}
+.facts .v b{color:#fff;font-weight:600;font-family:'Disp';font-size:21px;display:block;margin-bottom:2px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--ink);line-height:1.05}
+.sect-h h2 em{font-style:italic;color:var(--blue)}
+.sect-h p{font-family:'Body',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+/* SPOTLIGHT — polvo */
+.spot{background:var(--cream);position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.spot .eyebrow{color:var(--red)}
+.spot h2{font-family:'Disp';font-size:clamp(36px,6vw,70px);color:var(--ink);margin:12px 0 0;line-height:1.04}
+.spot h2 span{display:block;font-family:'Body',sans-serif;font-weight:700;font-size:clamp(15px,1.8vw,19px);letter-spacing:.02em;color:var(--blue);text-transform:none;margin-top:8px}
+.spot .lead{font-family:'Body';font-size:clamp(18px,2.1vw,23px);line-height:1.5;color:var(--ink);margin:22px 0 0}
+.spot .body{font-size:16.5px;color:var(--ink2);margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:5px;box-shadow:0 30px 66px rgba(20,30,50,.35)}
+.spot .pic .pill{position:absolute;right:-12px;bottom:24px;background:var(--blue);color:#fff;font-family:'Body';font-weight:700;font-size:13.5px;padding:10px 16px;border-radius:4px;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+
+/* AZULEJO BAND — the concept line */
+.azubar{position:relative;background:var(--blue-d);color:#eef3fc;overflow:hidden}
+.azubar canvas#azu2{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none;opacity:.9}
+.azubar .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(13,44,92,.9),rgba(13,44,92,.5) 60%,rgba(13,44,92,.15))}
+.azubar .in{position:relative;z-index:2;max-width:620px}
+.azubar .eyebrow{color:var(--gold)}
+.azubar h2{font-family:'Disp';font-size:clamp(32px,5.2vw,58px);color:#fff;margin:14px 0 0;line-height:1.06}
+.azubar h2 span{color:var(--azu-l);font-style:italic}
+.azubar p{font-size:18px;color:#dbe6f6;margin-top:18px;line-height:1.6;max-width:52ch}
+.azubar .sig{font-family:'Disp';font-style:italic;color:var(--gold);font-size:26px;margin-top:14px}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:5px;background:var(--stone)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02) contrast(1.02);transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(10,20,42,.86),transparent);color:#fff;font-family:'Disp',serif;font-weight:600;font-size:17px}
+
+/* LA MAISON — rooms */
+.maison{background:var(--stone)}
+.maison .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.maison figure{position:relative;overflow:hidden;border-radius:6px;background:#cfc3a8;box-shadow:0 14px 34px rgba(20,30,50,.14)}
+.maison figure img{width:100%;height:clamp(220px,32vw,340px);object-fit:cover}
+.maison figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 14px 12px;background:linear-gradient(0deg,rgba(10,20,42,.8),transparent);color:#fff;font-family:'Disp';font-weight:600;font-size:16px}
+.maison .lead{max-width:60ch;font-size:18px;color:var(--ink2);margin-top:26px;line-height:1.6}
+
+/* CARTE */
+.carte{background:var(--paper)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Disp';font-weight:600;font-size:25px;color:var(--blue-d);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--blue);margin-bottom:14px}
+.mgroup h3 .az{width:16px;height:16px;flex:none;border-radius:3px;background:
+  repeating-linear-gradient(45deg,var(--blue) 0 4px,#fff 4px 8px)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Body';font-weight:700;font-size:16.5px;color:var(--ink)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Disp';color:var(--red);font-size:16px;white-space:nowrap;font-weight:600}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--blue);padding-left:14px;max-width:80ch}
+
+/* INFOS */
+.infos{background:var(--blue-dd);color:#e8eef9}
+.infos .sect-h h2{color:#fff}
+.infos .sect-h h2 em{color:var(--azu-l)}
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--gold);margin-top:3px}
+.ino .k{font-family:'Body';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--azu-l)}
+.ino .v{font-size:16.5px;color:#fff;margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--gold)}
+.ino .fl{color:#a9b6cc;font-size:13px;font-style:italic}
+.infos .photo{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 20px 44px rgba(0,0,0,.4);min-height:260px}
+.infos .photo img{width:100%;height:100%;min-height:260px;object-fit:cover}
+.infos .photo .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(10,20,42,.85),transparent);color:#fff;font-family:'Disp';font-weight:600;font-size:16px}
+.infos .photo .cap .btn{margin-top:10px}
+
+footer{background:var(--blue-ink);color:#9fb0cc;padding:0 0 40px}
+footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--azu) 0 8px,transparent 8px 16px)}
+footer .in{padding:6px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Disp';font-weight:600;font-size:26px;color:var(--cream)}
+footer .nm small{display:block;font-family:'Body';font-size:10px;letter-spacing:.2em;color:var(--azu-l);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#93a4c0}
+footer .made{font-size:12.5px;color:#7688a6;margin-top:22px}
+footer .made b{color:#cdd8ea}
+footer .made a{color:var(--gold)}
+.disc{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:11.5px;color:#6d7e9c;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .hero .inner,.spot .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .hero{min-height:auto}
+ .herocard{justify-self:center;margin-top:8px;max-width:400px}
+ .maison .rooms{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic{order:-1}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:var(--blue-dd);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--blue-dd)}
+ .hero h1{font-size:clamp(52px,17vw,90px)}
+}
+@media(max-width:520px){
+ .brand .nm{font-size:20px}
+ .brand .mk{width:32px;height:32px}
+ .brand .mk svg{width:25px;height:25px}
+ .bar{gap:8px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- azulejo mark: a stylised blue-and-white Portuguese tile, decorative national motif -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <g id="azmark">
+  <rect x="1" y="1" width="30" height="30" rx="3" fill="#fff" stroke="#1b4f9c" stroke-width="2"/>
+  <path d="M1 1 A15 15 0 0 1 16 16 A15 15 0 0 1 1 31 M31 1 A15 15 0 0 0 16 16 A15 15 0 0 0 31 31" fill="none" stroke="#2a6ac2" stroke-width="1.6"/>
+  <g fill="none" stroke="#1b4f9c" stroke-width="1.7">
+   <circle cx="16" cy="10.5" r="4"/><circle cx="16" cy="21.5" r="4"/><circle cx="10.5" cy="16" r="4"/><circle cx="21.5" cy="16" r="4"/>
+  </g>
+  <circle cx="16" cy="16" r="2.4" fill="#c0432f"/>
+ </g>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Restaurant Welcome">
+   <span class="mk"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#azmark"/></svg></span>
+   <span class="nm">Restaurant Welcome<small data-i18n="brand_sub">La table portugaise · Esch</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#signature" data-i18n="nav_sig">La signature</a>
+   <a href="#gal" data-i18n="nav_gal">À table</a>
+   <a href="#maison" data-i18n="nav_maison">La maison</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <canvas id="azu" aria-hidden="true"></canvas>
+  <div class="scrim"></div>
+  <div class="wrap inner">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="hero_eyebrow">Fruits de mer · grillades · cuisine portugaise · Esch</span>
+    <h1><span class="kick" data-i18n="hero_kick">Restaurant</span>Welcome</h1>
+    <p class="tag" data-i18n="hero_tag">La table portugaise d'Esch — fruits de mer, espetada, bacalhau et grillades, dans une maison où l'on est reçu.</p>
+    <div class="cta">
+     <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+     <a class="btn o" href="#signature" data-i18n="hero_cta2">La signature ↓</a>
+    </div>
+   </div>
+   <div class="herocard">
+    <div class="frame"><img src="assets/marisco.jpg" alt="Un grand plat d'arroz de marisco aux langoustes, langoustines et gambas"/></div>
+    <span class="pill" data-i18n="hero_pill">Arroz de marisco</span>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Fruits de mer &amp; grillades</b>gambas, arroz de marisco, espetada</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>103, Rue du Canal</b>Esch-sur-Alzette</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>La table portugaise d'Esch</b>généreuse, où l'on est reçu</div></div>
+  </div></div>
+ </div>
+
+ <!-- SIGNATURE — polvo a lagareiro -->
+ <section class="spot" id="signature">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="sig_eyebrow">La signature</span>
+    <h2>Polvo à lagareiro<span data-i18n="sig_sub">Le poulpe grillé, sur sa planche</span></h2>
+    <p class="lead" data-i18n="sig_lead">Le poulpe grillé, arrosé d'huile d'olive et d'ail, avec ses pommes de terre — un grand classique portugais, servi sur la planche de terre cuite.</p>
+    <p class="body" data-i18n="sig_body">À côté, toute la mer : gambas, langoustines, arroz de marisco. Et le gril qui tourne — espetada, côte de bœuf, bacalhau. La générosité d'une vraie table portugaise, où l'on est reçu comme à la maison.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/polvo.jpg" alt="Polvo à lagareiro — poulpe grillé et pommes de terre sur une planche de terre cuite"/>
+    <span class="pill" data-i18n="sig_pill">Sur sa planche</span>
+   </div>
+  </div>
+ </section>
+
+ <!-- AZULEJO BAND — concept -->
+ <section class="azubar" id="azubar">
+  <canvas id="azu2" aria-hidden="true"></canvas>
+  <div class="scrim"></div>
+  <div class="wrap in">
+   <span class="eyebrow" data-i18n="azu_eyebrow">Azulejo</span>
+   <h2 data-i18n="azu_h">Le motif se déroule<span> comme un accueil.</span></h2>
+   <p data-i18n="azu_p">Le bleu et blanc du Portugal, posé carreau par carreau — un clin d'œil décoratif au pays, à la manière dont la maison vous ouvre la porte.</p>
+   <div class="sig" data-i18n="azu_sig">« Welcome. »</div>
+  </div>
+ </section>
+
+ <!-- GALLERY -->
+ <section id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
+    <h2 data-i18n="gal_h">Généreux, <em>fruits de mer &amp; gril</em></h2>
+    <p data-i18n="gal_p">Grands plats de la mer, grillades et espetada — la cuisine portugaise, abondante, qu'on partage à Esch.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/gambas.jpg" alt="Gambas et langoustines sur un riz safrané"/><figcaption data-i18n="cap_gambas">Gambas &amp; langoustines</figcaption></figure>
+    <figure><img src="assets/arroz.jpg" alt="Arroz de marisco dans sa poêle"/><figcaption data-i18n="cap_arroz">Arroz de marisco</figcaption></figure>
+    <figure><img src="assets/espetada.jpg" alt="Espetada — brochette de viande grillée suspendue"/><figcaption data-i18n="cap_espetada">Espetada</figcaption></figure>
+    <figure class="w2"><img src="assets/cote.jpg" alt="Côte de bœuf grillée, beurre maître d'hôtel"/><figcaption data-i18n="cap_cote">Côte de bœuf</figcaption></figure>
+    <figure><img src="assets/bacalhau.jpg" alt="Bacalhau frit et frites dans un plat en terre"/><figcaption data-i18n="cap_bacalhau">Bacalhau</figcaption></figure>
+    <figure><img src="assets/peixinhos.jpg" alt="Petits poissons frits, citron et salade"/><figcaption data-i18n="cap_peixinhos">Petits poissons frits</figcaption></figure>
+    <figure class="w2"><img src="assets/prato.jpg" alt="Grillade avec riz, haricots noirs et légumes verts"/><figcaption data-i18n="cap_prato">Grillade, riz &amp; haricots noirs</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- LA MAISON -->
+ <section class="maison" id="maison">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="maison_eyebrow">La maison</span>
+    <h2 data-i18n="maison_h">Une maison <em>où l'on est reçu</em></h2>
+   </div>
+   <div class="rooms">
+    <figure><img src="assets/salle.jpg" alt="La salle du restaurant, nappes blanches et rouges"/><figcaption data-i18n="cap_salle">La salle</figcaption></figure>
+    <figure><img src="assets/comptoir.jpg" alt="Le comptoir garni de verrerie et d'orchidées"/><figcaption data-i18n="cap_comptoir">Le comptoir</figcaption></figure>
+    <figure><img src="assets/welcome.jpg" alt="L'écriteau « Welcome » et les orchidées sur le bar"/><figcaption data-i18n="cap_accueil">L'accueil</figcaption></figure>
+   </div>
+   <p class="lead" data-i18n="maison_lead">Nappes blanches et rouges, un comptoir garni, l'orchidée sur le bar et le petit écriteau « Welcome » : une maison portugaise chaleureuse et animée, où l'on prend le temps — sur place ou pour une grande tablée.</p>
+  </div>
+ </section>
+
+ <!-- CARTE -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="carte_p">La mer, le gril et les classiques portugais — et de quoi les accompagner. Plats d'après les photos de la maison ; prix à confirmer sur place.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><span class="az"></span><span data-i18n="mg1">La mer</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Gambas &amp; langoustines</div><div class="ds" data-i18n="i1d">Plateau grillé, à partager</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Arroz de marisco</div><div class="ds" data-i18n="i2d">Riz de fruits de mer</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Polvo à lagareiro</div><div class="ds" data-i18n="i3d">Poulpe grillé, pommes de terre</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Sardinhas</div><div class="ds" data-i18n="i4d">Sardines grillées</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><span class="az"></span><span data-i18n="mg2">Le gril</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Espetada</div><div class="ds" data-i18n="i5d">Brochette grillée sur son support</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Côte de bœuf</div><div class="ds" data-i18n="i6d">Beurre maître d'hôtel</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Entrecôte</div><div class="ds" data-i18n="i7d">Grillée, garniture</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><span class="az"></span><span data-i18n="mg3">Le Portugal</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Bacalhau</div><div class="ds" data-i18n="i8d">Com natas · à brás · pané</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Feijoada</div><div class="ds" data-i18n="i9d">Haricots noirs, viandes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><span class="az"></span><span data-i18n="mg4">À boire &amp; desserts</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Vinhos portugueses</div><div class="ds" data-i18n="i10d">Sélection de la maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Sangria</div><div class="ds" data-i18n="i11d">Au verre ou au pichet</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Pudim</div><div class="ds" data-i18n="i12d">Le dessert portugais</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer sur place.</p>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">103, Rue du Canal<br>L-4051 Esch-sur-Alzette</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><a href="tel:542558">54 25 58</a></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span data-i18n="ino_ht">Midi &amp; soir</span><br><span class="fl" data-i18n="ino_fl3">horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="photo">
+     <img src="assets/facade.jpg" alt="La façade du Restaurant Welcome, Rue du Canal à Esch-sur-Alzette"/>
+     <div class="cap">
+      <span data-i18n="photo_cap">103, Rue du Canal — Esch-sur-Alzette</span>
+      <a class="btn p" href="https://www.google.com/maps/search/Restaurant+Welcome+103+Rue+du+Canal+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><use href="#azmark"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Restaurant Welcome<small data-i18n="brand_sub">La table portugaise · Esch</small></div>
+   <p data-i18n="foot_p">La table portugaise d'Esch-sur-Alzette — fruits de mer, espetada, bacalhau et grillades, dans une maison où l'on est reçu.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Body';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold)" data-i18n="foot_contact">Contact</div>
+   <p style="margin-top:10px">103, Rue du Canal<br>L-4051 Esch-sur-Alzette<br><a href="tel:542558" style="border-bottom:1px solid var(--gold)">54 25 58</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration réalisée par Webwerk, à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque « Welcome » a été recréée pour la démonstration ; les photos, de sources publiques, sont à remplacer. Le motif azulejo est un clin d'œil décoratif au Portugal, non une description du décor. Carte, prix et horaires sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  brand_sub:"La table portugaise · Esch",
+  nav_sig:"La signature",nav_gal:"À table",nav_maison:"La maison",nav_carte:"La carte",nav_infos:"Infos & accès",
+  hero_eyebrow:"Fruits de mer · grillades · cuisine portugaise · Esch",
+  hero_kick:"Restaurant",
+  hero_tag:"La table portugaise d'Esch — fruits de mer, espetada, bacalhau et grillades, dans une maison où l'on est reçu.",
+  hero_cta1:"Voir la carte",hero_cta2:"La signature ↓",hero_pill:"Arroz de marisco",
+  fact_k1:"La cuisine",fact_v1:"<b>Fruits de mer & grillades</b>gambas, arroz de marisco, espetada",
+  fact_k2:"Le lieu",fact_v2:"<b>103, Rue du Canal</b>Esch-sur-Alzette",
+  fact_k3:"La maison",fact_v3:"<b>La table portugaise d'Esch</b>généreuse, où l'on est reçu",
+  sig_eyebrow:"La signature",sig_sub:"Le poulpe grillé, sur sa planche",
+  sig_lead:"Le poulpe grillé, arrosé d'huile d'olive et d'ail, avec ses pommes de terre — un grand classique portugais, servi sur la planche de terre cuite.",
+  sig_body:"À côté, toute la mer : gambas, langoustines, arroz de marisco. Et le gril qui tourne — espetada, côte de bœuf, bacalhau. La générosité d'une vraie table portugaise, où l'on est reçu comme à la maison.",
+  sig_pill:"Sur sa planche",
+  azu_eyebrow:"Azulejo",azu_h:"Le motif se déroule<span> comme un accueil.</span>",
+  azu_p:"Le bleu et blanc du Portugal, posé carreau par carreau — un clin d'œil décoratif au pays, à la manière dont la maison vous ouvre la porte.",
+  azu_sig:"« Welcome. »",
+  gal_eyebrow:"À table",gal_h:"Généreux, <em>fruits de mer & gril</em>",
+  gal_p:"Grands plats de la mer, grillades et espetada — la cuisine portugaise, abondante, qu'on partage à Esch.",
+  cap_gambas:"Gambas & langoustines",cap_arroz:"Arroz de marisco",cap_espetada:"Espetada",cap_cote:"Côte de bœuf",cap_bacalhau:"Bacalhau",cap_peixinhos:"Petits poissons frits",cap_prato:"Grillade, riz & haricots noirs",
+  maison_eyebrow:"La maison",maison_h:"Une maison <em>où l'on est reçu</em>",
+  cap_salle:"La salle",cap_comptoir:"Le comptoir",cap_accueil:"L'accueil",
+  maison_lead:"Nappes blanches et rouges, un comptoir garni, l'orchidée sur le bar et le petit écriteau « Welcome » : une maison portugaise chaleureuse et animée, où l'on prend le temps — sur place ou pour une grande tablée.",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
+  carte_p:"La mer, le gril et les classiques portugais — et de quoi les accompagner. Plats d'après les photos de la maison ; prix à confirmer sur place.",
+  mg1:"La mer",mg2:"Le gril",mg3:"Le Portugal",mg4:"À boire & desserts",
+  i1n:"Gambas & langoustines",i1d:"Plateau grillé, à partager",i2n:"Arroz de marisco",i2d:"Riz de fruits de mer",
+  i3n:"Polvo à lagareiro",i3d:"Poulpe grillé, pommes de terre",i4n:"Sardinhas",i4d:"Sardines grillées",
+  i5n:"Espetada",i5d:"Brochette grillée sur son support",i6n:"Côte de bœuf",i6d:"Beurre maître d'hôtel",
+  i7n:"Entrecôte",i7d:"Grillée, garniture",
+  i8n:"Bacalhau",i8d:"Com natas · à brás · pané",i9n:"Feijoada",i9d:"Haricots noirs, viandes",
+  i10n:"Vinhos portugueses",i10d:"Sélection de la maison",i11n:"Sangria",i11d:"Au verre ou au pichet",i12n:"Pudim",i12d:"Le dessert portugais",ac:"à conf.",
+  carte_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer sur place.",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver",ino_k3:"Horaires",ino_ht:"Midi & soir",ino_fl3:"horaires à confirmer",
+  photo_cap:"103, Rue du Canal — Esch-sur-Alzette",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"La table portugaise d'Esch-sur-Alzette — fruits de mer, espetada, bacalhau et grillades, dans une maison où l'on est reçu.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"Ce site est une démonstration réalisée par Webwerk, à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque « Welcome » a été recréée pour la démonstration ; les photos, de sources publiques, sont à remplacer. Le motif azulejo est un clin d'œil décoratif au Portugal, non une description du décor. Carte, prix et horaires sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  brand_sub:"Portugiesische Tafel · Esch",
+  nav_sig:"Das Signature-Gericht",nav_gal:"Zu Tisch",nav_maison:"Das Haus",nav_carte:"Karte",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Meeresfrüchte · Grill · portugiesische Küche · Esch",
+  hero_kick:"Restaurant",
+  hero_tag:"Die portugiesische Tafel von Esch — Meeresfrüchte, Espetada, Bacalhau und Grillgerichte, in einem Haus, in dem man empfangen wird.",
+  hero_cta1:"Zur Karte",hero_cta2:"Das Signature-Gericht ↓",hero_pill:"Arroz de marisco",
+  fact_k1:"Die Küche",fact_v1:"<b>Meeresfrüchte & Grill</b>Gambas, Arroz de marisco, Espetada",
+  fact_k2:"Der Ort",fact_v2:"<b>103, Rue du Canal</b>Esch-sur-Alzette",
+  fact_k3:"Das Haus",fact_v3:"<b>Die portugiesische Tafel von Esch</b>großzügig, herzlich empfangen",
+  sig_eyebrow:"Das Signature-Gericht",sig_sub:"Gegrillter Oktopus, auf dem Brett",
+  sig_lead:"Gegrillter Oktopus, mit Olivenöl und Knoblauch beträufelt, dazu Kartoffeln — ein großer portugiesischer Klassiker, serviert auf dem Tonbrett.",
+  sig_body:"Daneben das ganze Meer: Gambas, Langustinen, Arroz de marisco. Und der Grill, der läuft — Espetada, Côte de bœuf, Bacalhau. Die Großzügigkeit einer echten portugiesischen Tafel, wo man wie zu Hause empfangen wird.",
+  sig_pill:"Auf dem Brett",
+  azu_eyebrow:"Azulejo",azu_h:"Das Muster rollt sich aus<span> wie ein Willkommen.</span>",
+  azu_p:"Das Blau-Weiß Portugals, Kachel für Kachel gelegt — eine dekorative Anspielung auf das Land, so wie das Haus Ihnen die Tür öffnet.",
+  azu_sig:"„ Welcome. “",
+  gal_eyebrow:"Zu Tisch",gal_h:"Großzügig, <em>Meeresfrüchte & Grill</em>",
+  gal_p:"Große Meeresplatten, Grillgerichte und Espetada — die portugiesische Küche, reichlich, die man in Esch teilt.",
+  cap_gambas:"Gambas & Langustinen",cap_arroz:"Arroz de marisco",cap_espetada:"Espetada",cap_cote:"Côte de bœuf",cap_bacalhau:"Bacalhau",cap_peixinhos:"Kleine frittierte Fische",cap_prato:"Grillfleisch, Reis & schwarze Bohnen",
+  maison_eyebrow:"Das Haus",maison_h:"Ein Haus, <em>in dem man empfangen wird</em>",
+  cap_salle:"Der Gastraum",cap_comptoir:"Der Tresen",cap_accueil:"Der Empfang",
+  maison_lead:"Weiße und rote Tischdecken, ein gut bestückter Tresen, die Orchidee auf der Bar und das kleine Schild „Welcome“: ein herzliches, lebhaftes portugiesisches Haus, in dem man sich Zeit nimmt — vor Ort oder für die große Tafelrunde.",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
+  carte_p:"Das Meer, der Grill und die portugiesischen Klassiker — und was dazu passt. Gerichte nach den Fotos des Hauses; Preise vor Ort zu bestätigen.",
+  mg1:"Das Meer",mg2:"Der Grill",mg3:"Portugal",mg4:"Getränke & Desserts",
+  i1n:"Gambas & Langustinen",i1d:"Gegrillte Platte, zum Teilen",i2n:"Arroz de marisco",i2d:"Meeresfrüchte-Reis",
+  i3n:"Polvo à lagareiro",i3d:"Gegrillter Oktopus, Kartoffeln",i4n:"Sardinhas",i4d:"Gegrillte Sardinen",
+  i5n:"Espetada",i5d:"Gegrillter Spieß am Ständer",i6n:"Côte de bœuf",i6d:"Kräuterbutter",
+  i7n:"Entrecôte",i7d:"Gegrillt, mit Beilage",
+  i8n:"Bacalhau",i8d:"Com natas · à brás · paniert",i9n:"Feijoada",i9d:"Schwarze Bohnen, Fleisch",
+  i10n:"Vinhos portugueses",i10d:"Auswahl des Hauses",i11n:"Sangria",i11d:"Im Glas oder im Krug",i12n:"Pudim",i12d:"Das portugiesische Dessert",ac:"n. Angabe",
+  carte_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Es sind keine Preise veröffentlicht: Karte und Preise vor Ort zu bestätigen.",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren",ino_k3:"Öffnungszeiten",ino_ht:"Mittags & abends",ino_fl3:"Zeiten zu bestätigen",
+  photo_cap:"103, Rue du Canal — Esch-sur-Alzette",map_btn:"In Maps öffnen ↗",
+  foot_p:"Die portugiesische Tafel von Esch-sur-Alzette — Meeresfrüchte, Espetada, Bacalhau und Grillgerichte, in einem Haus, in dem man empfangen wird.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  foot_contact:"Kontakt",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Die Marke „Welcome“ wurde für die Demonstration nachgebildet; die Fotos, aus öffentlichen Quellen, sind zu ersetzen. Das Azulejo-Muster ist eine dekorative Anspielung auf Portugal, keine Beschreibung des Dekors. Karte, Preise und Zeiten sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  brand_sub:"The Portuguese table · Esch",
+  nav_sig:"The signature",nav_gal:"At the table",nav_maison:"The house",nav_carte:"Menu",nav_infos:"Find us",
+  hero_eyebrow:"Seafood · grill · Portuguese cooking · Esch",
+  hero_kick:"Restaurant",
+  hero_tag:"The Portuguese table of Esch — seafood, espetada, bacalhau and grills, in a house where you're made welcome.",
+  hero_cta1:"See the menu",hero_cta2:"The signature ↓",hero_pill:"Arroz de marisco",
+  fact_k1:"The kitchen",fact_v1:"<b>Seafood & grill</b>gambas, arroz de marisco, espetada",
+  fact_k2:"The place",fact_v2:"<b>103, Rue du Canal</b>Esch-sur-Alzette",
+  fact_k3:"The house",fact_v3:"<b>The Portuguese table of Esch</b>generous, and made welcome",
+  sig_eyebrow:"The signature",sig_sub:"Grilled octopus, on its board",
+  sig_lead:"Grilled octopus, dressed with olive oil and garlic, with its potatoes — a great Portuguese classic, served on the terracotta board.",
+  sig_body:"Alongside, all of the sea: gambas, langoustines, arroz de marisco. And the grill turning — espetada, côte de bœuf, bacalhau. The generosity of a true Portuguese table, where you're received like family.",
+  sig_pill:"On its board",
+  azu_eyebrow:"Azulejo",azu_h:"The pattern rolls out<span> like a welcome.</span>",
+  azu_p:"Portugal's blue and white, laid tile by tile — a decorative nod to the country, the way the house opens its door to you.",
+  azu_sig:"“ Welcome. ”",
+  gal_eyebrow:"At the table",gal_h:"Generous, <em>seafood & grill</em>",
+  gal_p:"Big plates from the sea, grills and espetada — Portuguese cooking, abundant, shared here in Esch.",
+  cap_gambas:"Gambas & langoustines",cap_arroz:"Arroz de marisco",cap_espetada:"Espetada",cap_cote:"Côte de bœuf",cap_bacalhau:"Bacalhau",cap_peixinhos:"Little fried fish",cap_prato:"Grilled beef, rice & black beans",
+  maison_eyebrow:"The house",maison_h:"A house <em>where you're made welcome</em>",
+  cap_salle:"The dining room",cap_comptoir:"The counter",cap_accueil:"The welcome",
+  maison_lead:"White and red tablecloths, a well-stocked counter, the orchid on the bar and the little “Welcome” sign: a warm, lively Portuguese house where you take your time — in for dinner or for a big table of friends.",
+  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
+  carte_p:"The sea, the grill and the Portuguese classics — and what goes with them. Dishes from the house's photos; prices to be confirmed on site.",
+  mg1:"The sea",mg2:"The grill",mg3:"Portugal",mg4:"Drinks & desserts",
+  i1n:"Gambas & langoustines",i1d:"Grilled platter, to share",i2n:"Arroz de marisco",i2d:"Seafood rice",
+  i3n:"Polvo à lagareiro",i3d:"Grilled octopus, potatoes",i4n:"Sardinhas",i4d:"Grilled sardines",
+  i5n:"Espetada",i5d:"Grilled skewer on its stand",i6n:"Côte de bœuf",i6d:"Herb butter",
+  i7n:"Entrecôte",i7d:"Grilled, with sides",
+  i8n:"Bacalhau",i8d:"Com natas · à brás · breaded",i9n:"Feijoada",i9d:"Black beans, meats",
+  i10n:"Vinhos portugueses",i10d:"The house selection",i11n:"Sangria",i11d:"By the glass or the jug",i12n:"Pudim",i12d:"The Portuguese dessert",ac:"tbc",
+  carte_note:"Dishes from the house's public photos, for reference. No prices are published: the menu and prices are to be confirmed on site.",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book",ino_k3:"Opening hours",ino_ht:"Lunch & evening",ino_fl3:"hours to be confirmed",
+  photo_cap:"103, Rue du Canal — Esch-sur-Alzette",map_btn:"Open in Maps ↗",
+  foot_p:"The Portuguese table of Esch-sur-Alzette — seafood, espetada, bacalhau and grills, in a house where you're made welcome.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  foot_contact:"Contact",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The “Welcome” brand has been recreated for the demonstration; the photos, from public sources, are to be replaced. The azulejo motif is a decorative nod to Portugal, not a description of the décor. Menu, prices and hours are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  try{localStorage.setItem("welcome_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("welcome_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* ===== THE WOW: azulejo (Portuguese blue-and-white tilework) that tessellates
+   and "rolls out a welcome" — a decorative national motif, not a decor claim.
+   A diagonal wavefront lays the tiles; a slow highlight keeps sweeping after.  */
+function azulejo(canvas, opts){
+  const cv=document.getElementById(canvas); if(!cv) return;
+  const ctx=cv.getContext("2d"); const dpr=Math.min(window.devicePixelRatio||1,2);
+  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  let W=0,H=0,cols=0,rows=0,s=0,raf=null,t0=null;
+  const speed=opts.speed||1;
+  function resize(){
+    const r=cv.getBoundingClientRect(); W=r.width; H=r.height;
+    cv.width=Math.max(1,Math.round(W*dpr)); cv.height=Math.max(1,Math.round(H*dpr));
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    s=Math.max(46,Math.min(W,H)/ (opts.div||7));
+    cols=Math.ceil(W/s)+1; rows=Math.ceil(H/s)+1;
+  }
+  function tile(px,py,a,glow){
+    if(a<=0) return;
+    const r=s*0.5, cx=px+s/2, cy=py+s/2;
+    // faint glazed ground
+    ctx.fillStyle="rgba(255,255,255,"+(0.035*a+0.05*glow)+")";
+    ctx.fillRect(px+1,py+1,s-2,s-2);
+    // interlocking corner arcs -> full circles on the grid vertices (classic padrão)
+    ctx.lineWidth=Math.max(1,s*0.03);
+    ctx.strokeStyle="rgba(150,190,240,"+(0.42*a+0.4*glow)+")";
+    ctx.beginPath();
+    ctx.arc(px,py,r,0,Math.PI/2);
+    ctx.moveTo(px+s+r,py); ctx.arc(px+s,py,r,Math.PI/2,Math.PI);
+    ctx.moveTo(px+r,py+s); ctx.arc(px,py+s,r,-Math.PI/2,0);
+    ctx.moveTo(px+s+r,py+s); ctx.arc(px+s,py+s,r,Math.PI,1.5*Math.PI);
+    ctx.stroke();
+    // centre four-petal flower
+    ctx.lineWidth=Math.max(1,s*0.026);
+    ctx.strokeStyle="rgba(238,244,255,"+(0.72*a+0.28*glow)+")";
+    const pr=s*0.15;
+    for(let k=0;k<4;k++){
+      const ang=k*Math.PI/2, ox=cx+Math.cos(ang)*pr, oy=cy+Math.sin(ang)*pr;
+      ctx.beginPath(); ctx.arc(ox,oy,pr,0,Math.PI*2); ctx.stroke();
+    }
+    // red centre pip (the napkin-script red — a Portuguese pop)
+    ctx.fillStyle="rgba(200,80,60,"+(0.7*a+0.3*glow)+")";
+    ctx.beginPath(); ctx.arc(cx,cy,s*0.045,0,Math.PI*2); ctx.fill();
+  }
+  function draw(el){
+    ctx.clearRect(0,0,W,H);
+    const maxD=cols+rows;                 // diagonal span
+    const front=el*speed*3.4;             // assembly wavefront position
+    const sweep=(el*speed*0.9)%(maxD+6);  // perpetual highlight sweep
+    for(let cx=0;cx<cols;cx++){
+      for(let cy=0;cy<rows;cy++){
+        const d=cx+cy;
+        let a=(front-d);                  // per-tile assembly progress
+        a=a<=0?0:(a>=1?1:a*a*(3-2*a));    // smoothstep in
+        const dist=Math.abs(d-sweep);
+        const glow=dist<1.4? (1-dist/1.4)*a : 0;   // moving glaze glint
+        tile(cx*s,cy*s,a,glow);
+      }
+    }
+  }
+  function loop(ts){ if(t0===null)t0=ts; draw((ts-t0)/1000); raf=requestAnimationFrame(loop); }
+  resize(); window.addEventListener("resize",()=>{resize(); if(reduce) draw(9999);});
+  if(reduce){ draw(9999); return; }        // static, fully-laid frame
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{
+    if(e.isIntersecting&&!raf){ raf=requestAnimationFrame(loop); }
+    else if(!e.isIntersecting&&raf){ cancelAnimationFrame(raf); raf=null; }
+  });},{threshold:0.02});
+  io.observe(cv);
+}
+azulejo("azu",{div:7,speed:1});
+azulejo("azu2",{div:6,speed:1.15});
+</script>
+</body>
+</html>
