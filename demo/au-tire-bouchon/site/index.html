@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Au Tire-Bouchon — Brasserie &amp; bar à vin, Mondercange</title>
+<meta name="description" content="Au Tire-Bouchon à Mondercange — planches de charcuterie et fruits de mer à partager, un verre de vin, et de la musique certains soirs. Démonstration Webwerk."/>
+<style>
+@font-face{font-family:'Bodoni';src:url('assets/fonts/bodoni-latin.woff2') format('woff2');font-weight:400 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hanken';src:url('assets/fonts/hanken-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --char:#1a1210; --ink:#2a1c15; --ink2:#4a382c;
+ --cream:#f4ecdc; --stone:#e7dbc4; --card:#fbf5e8;
+ --bordeaux:#7a2130; --bordeaux-d:#571620; --bordeaux-l:#9c3040;
+ --brass:#c78a34; --brass-l:#e0a94a; --amber:#e9b64e;
+ --green:#3f7a4d; --line:#ddccae; --muted:#8a7860;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Hanken',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Bodoni','Hanken',serif;font-weight:600;line-height:1.04}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Hanken',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--brass)}
+
+/* corkscrew divider */
+.cork-div{display:flex;align-items:center;gap:20px;padding:30px 0}
+.cork-div .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
+.cork-div .ck{width:20px;height:40px;color:var(--brass);flex:none}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s}
+header.solid{background:var(--bordeaux-d);box-shadow:0 2px 22px rgba(0,0,0,.3)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
+.brand .ck{width:18px;height:40px;flex:none;color:var(--brass-l)}
+.brand .nm{font-family:'Bodoni',serif;font-weight:600;font-size:25px;letter-spacing:.01em;line-height:.95;color:var(--cream)}
+.brand .nm small{display:block;font-family:'Hanken';font-size:9px;letter-spacing:.22em;color:var(--brass-l);font-weight:700;margin-top:3px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Hanken',sans-serif;font-weight:600;font-size:15px;color:#f0e6d4;opacity:.92}
+nav.links a:hover{color:var(--amber);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
+.langs button{font-family:'Hanken',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#e7dbc4;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--bordeaux);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:var(--cream);border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-64px;padding-top:64px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,12,10,.68) 0%,rgba(20,12,10,.42) 34%,rgba(20,12,10,.6) 66%,rgba(14,8,6,.95) 100%)}
+.hero canvas#corkcv{position:absolute;right:2%;top:8%;height:80%;width:40%;z-index:0;pointer-events:none}
+.hero .inner{padding-bottom:clamp(40px,7vw,88px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
+.hero .eyebrow{color:var(--amber);margin-bottom:16px}
+.hero h1{color:#fff;font-size:clamp(52px,10vw,132px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.5)}
+.hero .tag{font-family:'Hanken',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f3e7d3;max-width:30ch;margin:20px 0 0;line-height:1.4}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Hanken',sans-serif;font-weight:700;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--bordeaux);color:#fff}
+.btn.p:hover{background:var(--bordeaux-l)}
+.btn.o{background:transparent;color:var(--cream);border-color:rgba(244,236,220,.5)}
+.btn.o:hover{border-color:var(--amber);color:var(--amber)}
+
+.facts{background:var(--bordeaux-d);color:#f0e6d4}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12)}
+.facts .c{background:var(--bordeaux-d);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Hanken';font-weight:700;letter-spacing:.14em;font-size:11px;color:var(--amber);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#f0e6d4}
+.facts .v b{color:#fff;font-weight:600;font-family:'Bodoni';font-size:21px;display:block;margin-bottom:2px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--ink);line-height:1.05}
+.sect-h h2 em{font-style:normal;color:var(--bordeaux)}
+.sect-h p{font-family:'Hanken',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+/* planche spotlight */
+.spot{background:var(--ink);color:#efe3cf;position:relative;overflow:hidden}
+.spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center}
+.spot .eyebrow{color:var(--amber)}
+.spot h2{font-family:'Bodoni';font-size:clamp(38px,6vw,74px);color:#fff;margin:14px 0 0;line-height:1.05}
+.spot h2 span{color:var(--amber);display:block;font-style:italic}
+.spot .lead{font-family:'Hanken';font-size:clamp(18px,2.2vw,24px);line-height:1.5;color:#efe3cf;margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#c9b79c;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.45)}
+.spot .pic .pill{position:absolute;right:-12px;bottom:24px;background:var(--amber);color:var(--ink);font-family:'Hanken';font-weight:700;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:4px;background:var(--stone)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:saturate(.98)}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(18,10,8,.85),transparent);color:#fff;font-family:'Bodoni',serif;font-weight:600;font-size:17px}
+
+/* wine + lounge band */
+.vin{background:var(--bordeaux);color:#f4e7d6;position:relative;overflow:hidden}
+.vin .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
+.vin h2{font-family:'Bodoni';font-size:clamp(34px,5vw,62px);color:#fff}
+.vin h2 span{color:var(--amber);display:block;font-style:italic}
+.vin .lead{font-size:18px;color:#f0e0cd;margin-top:18px;line-height:1.6;max-width:44ch}
+.vin .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.vin .chip{font-family:'Hanken';font-weight:700;font-size:12.5px;color:var(--ink);background:var(--amber);padding:8px 15px;border-radius:999px}
+.vin .chip.b{background:transparent;color:#f4e7d6;border:1.5px solid rgba(244,231,214,.4)}
+.vin .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px;box-shadow:0 20px 44px rgba(0,0,0,.35)}
+
+/* events */
+.soir{background:var(--char);color:#e7d8c2;position:relative;overflow:hidden}
+.soir .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,64px);align-items:center}
+.soir h2{font-family:'Bodoni';font-size:clamp(34px,5vw,60px);color:#fff}
+.soir h2 span{color:var(--amber);display:block;font-style:italic}
+.soir .lead{font-size:18px;color:#d7c6ad;margin-top:18px;line-height:1.6;max-width:42ch}
+.soir .fl{font-size:13px;color:var(--muted);font-style:italic;margin-top:14px}
+.soir .pic img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:4px}
+
+/* menu */
+.carte{background:var(--stone)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Bodoni';font-size:26px;color:var(--bordeaux-d);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--bordeaux);margin-bottom:14px}
+.mgroup h3 .ck{width:12px;height:24px;flex:none;color:var(--brass)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Hanken';font-weight:700;font-size:17px;color:var(--ink)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Bodoni';color:var(--bordeaux);font-size:16px;white-space:nowrap;font-weight:600}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--brass);padding-left:14px;max-width:80ch}
+
+/* infos */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--bordeaux);margin-top:3px}
+.ino .k{font-family:'Hanken';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--brass)}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Bodoni';color:var(--bordeaux);font-size:18px;font-weight:600}
+.mapcard{background:var(--bordeaux-d);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#f0e6d4;text-align:center;padding:34px}
+.mapcard .ckwm{position:absolute;right:-6px;top:-10px;width:120px;height:240px;color:rgba(224,169,74,.16)}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Bodoni';font-size:28px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#150d0a;color:#b6a488;padding:0 0 40px}
+footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
+footer .band .ck{width:18px;height:38px;color:var(--brass)}
+footer .in{padding:4px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Bodoni';font-weight:600;font-size:27px;color:var(--cream)}
+footer .nm small{display:block;font-family:'Hanken';font-size:10px;letter-spacing:.2em;color:var(--brass-l);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a5937a}
+footer .made{font-size:12.5px;color:#82715a;margin-top:22px}
+footer .made b{color:#e7d8c2}
+footer .made a{color:var(--amber)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6d5e49;line-height:1.55;max-width:82ch}
+
+@media(max-width:900px){
+ .spot .grid,.vin .grid,.soir .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.vin .pic,.soir .pic{order:-1}
+ .hero canvas#corkcv{width:56%;opacity:.85}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:var(--bordeaux-d);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--bordeaux-d)}
+ .hero h1{font-size:clamp(46px,15vw,88px)}
+ .hero canvas#corkcv{width:64%;opacity:.7}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="cork" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+  <path d="M32 4 v18"/>
+  <path d="M20 26 h24 l-3 6 h-18 Z"/>
+  <path d="M32 32 C20 38 44 46 32 52 C20 58 44 66 32 72 C24 76 30 82 32 84"/>
+</g>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Au Tire-Bouchon">
+   <svg class="ck" viewBox="0 0 64 92" aria-hidden="true"><use href="#cork"/></svg>
+   <span class="nm">Au Tire-Bouchon<small>Brasserie &amp; bar à vin · Mondercange</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#planche" data-i18n="nav_planche">La planche</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#soir" data-i18n="nav_soir">Le soir</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="Une planche de charcuterie et un verre de vin, Au Tire-Bouchon"/></div>
+  <div class="scrim"></div>
+  <canvas id="corkcv" aria-hidden="true"></canvas>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Brasserie · bar à vin · Mondercange</span>
+   <h1>Au Tire-Bouchon</h1>
+   <p class="tag" data-i18n="hero_tag">On débouche une bonne bouteille, on dresse une planche, et on partage — jusque tard dans la soirée.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#planche" data-i18n="hero_cta2">La planche ↓</a>
+   </div>
+  </div>
+ </section>
+
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">À partager</div><div class="v" data-i18n="fact_v1"><b>Planches &amp; fruits de mer</b>charcuterie, gambas, moules, brochettes</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>4, rue d'Esch</b>Mondercange · terrasse</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>Le bar à vin du coin</b>convivial, ouvert tard</div></div>
+  </div></div>
+ </div>
+
+ <!-- PLANCHE SPOTLIGHT -->
+ <section class="spot" id="planche">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="pl_eyebrow">La signature</span>
+    <h2 data-i18n="pl_h">La planche,<span>à partager.</span></h2>
+    <p class="lead" data-i18n="pl_lead">Charcuterie, fromages, cornichons et olives sur une grande planche — posée au milieu de la table, une bouteille débouchée à côté.</p>
+    <p class="body" data-i18n="pl_body">C'est l'idée de la maison : on ne commande pas chacun son plat, on partage. Une planche généreuse, un bon verre, et la soirée s'étire. Fruits de mer, gambas grillées et moules quand c'est la saison.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/planche.jpg" alt="La planche de charcuterie et fromages, sur la table"/>
+    <span class="pill" data-i18n="pl_pill">À partager</span>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap cork-div"><span class="ln"></span><svg class="ck" viewBox="0 0 64 92"><use href="#cork"/></svg><span class="ln"></span></div>
+
+ <!-- GALLERY -->
+ <section id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
+    <h2 data-i18n="gal_h">Généreux, <em>sans façon</em></h2>
+    <p data-i18n="gal_p">Planches de charcuterie, montagnes de gambas, moules, brochettes grillées — la cuisine de brasserie qu'on partage, un verre à la main.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/planche.jpg" alt="Grande planche de charcuterie"/><figcaption data-i18n="cap_planche">La planche de charcuterie</figcaption></figure>
+    <figure><img src="assets/seafood.jpg" alt="Gambas grillées à partager"/><figcaption data-i18n="cap_seafood">Gambas grillées</figcaption></figure>
+    <figure><img src="assets/moules.jpg" alt="Moules"/><figcaption data-i18n="cap_moules">Moules de saison</figcaption></figure>
+    <figure class="w2"><img src="assets/brochettes.jpg" alt="Brochettes grillées"/><figcaption data-i18n="cap_broch">Brochettes grillées</figcaption></figure>
+    <figure><img src="assets/vin.jpg" alt="Un verre de vin rouge"/><figcaption data-i18n="cap_vin">Un verre de vin</figcaption></figure>
+    <figure><img src="assets/salle.jpg" alt="La salle de la brasserie"/><figcaption data-i18n="cap_salle">La salle</figcaption></figure>
+    <figure class="w2"><img src="assets/terrasse.jpg" alt="La terrasse de la maison"/><figcaption data-i18n="cap_terrasse">La terrasse</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- WINE / LOUNGE -->
+ <section class="vin" id="vin">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--amber)" data-i18n="vin_eyebrow">Le verre</span>
+    <h2 data-i18n="vin_h">Un verre,<span>une planche.</span></h2>
+    <p class="lead" data-i18n="vin_lead">Le nom le dit : ici on débouche. Un rouge qui tient, un blanc frais, une planche au milieu — et le coin salon qui invite à rester. Le bar de quartier où l'on prend son temps.</p>
+    <div class="chips">
+     <span class="chip" data-i18n="chip1">Bar à vin</span>
+     <span class="chip b" data-i18n="chip2">Terrasse</span>
+     <span class="chip b" data-i18n="chip3">Ouvert tard</span>
+    </div>
+   </div>
+   <div class="pic"><img src="assets/lounge.jpg" alt="Le coin salon de la maison"/></div>
+  </div>
+ </section>
+
+ <!-- EVENTS -->
+ <section class="soir" id="soir">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="soir_eyebrow">Quand la soirée s'étire</span>
+    <h2 data-i18n="soir_h">Et certains soirs,<span>ça joue.</span></h2>
+    <p class="lead" data-i18n="soir_lead">La salle du fond, ses murs de pierre et ses guirlandes : de la musique certains soirs, un verre qui traîne, et l'on reste tard.</p>
+    <p class="fl" data-i18n="soir_fl">Programmation musicale à confirmer avec la maison.</p>
+   </div>
+   <div class="pic"><img src="assets/musique.jpg" alt="La salle du fond, musique certains soirs"/></div>
+  </div>
+ </section>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>partage</em></h2>
+    <p data-i18n="carte_p">Des planches, des fruits de mer, les classiques de brasserie — et une carte des vins pour aller avec.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="ck" viewBox="0 0 64 92"><use href="#cork"/></svg><span data-i18n="mg1">Les planches</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Planche de charcuterie</div><div class="ds" data-i18n="i1d">Charcuterie, fromages, cornichons, olives</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Planche mixte</div><div class="ds" data-i18n="i2d">Charcuterie &amp; fromages</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="ck" viewBox="0 0 64 92"><use href="#cork"/></svg><span data-i18n="mg2">La mer</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Gambas grillées</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Moules-frites</div><div class="ds" data-i18n="i4d">En saison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="ck" viewBox="0 0 64 92"><use href="#cork"/></svg><span data-i18n="mg3">Le grill</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Brochettes grillées</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Suggestions du moment</div><div class="ds" data-i18n="i6d">À l'ardoise</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="ck" viewBox="0 0 64 92"><use href="#cork"/></svg><span data-i18n="mg4">La cave</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Vins au verre</div><div class="ds" data-i18n="i7d">Rouge, blanc, rosé</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Bouteilles</div><div class="ds" data-i18n="i8d">Sélection de la maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+     </div>
+    </div>
+   </div>
+   <p class="note" data-i18n="carte_note">Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer sur place.</p>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">4, rue d'Esch<br>L-3920 Mondercange</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v" data-i18n="ino_phone">Téléphone à confirmer</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" data-i18n="ino_ht">Du soir jusque tard</span><br><span class="fl" data-i18n="ino_fl3">Ouvert en soirée · horaires à confirmer</span></div></div></div>
+    </div>
+    <div class="mapcard">
+     <svg class="ckwm" viewBox="0 0 64 92" aria-hidden="true"><use href="#cork"/></svg>
+     <div class="in">
+      <div class="big" data-i18n="map_big">Mondercange</div>
+      <div style="color:#d7c6ad;margin-top:8px" data-i18n="map_sub">4, rue d'Esch — au cœur du village</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Au+Tire-Bouchon+4+Rue+d%27Esch+Mondercange" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="ck" viewBox="0 0 64 92"><use href="#cork"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Au Tire-Bouchon<small>Brasserie &amp; bar à vin · Mondercange</small></div>
+   <p data-i18n="foot_p">Le bar à vin et brasserie de Mondercange — planches à partager, fruits de mer, et de la musique certains soirs.</p>
+   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+  </div>
+  <div>
+   <div style="font-family:'Hanken';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--amber)">Contact</div>
+   <p style="margin-top:10px">4, rue d'Esch<br>L-3920 Mondercange<br><span data-i18n="foot_phone">Téléphone à confirmer</span></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires, téléphone et programmation musicale sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+</footer>
+
+<script>
+const I18N={
+ fr:{
+  nav_planche:"La planche",nav_carte:"La carte",nav_soir:"Le soir",nav_infos:"Infos & accès",
+  hero_eyebrow:"Brasserie · bar à vin · Mondercange",
+  hero_tag:"On débouche une bonne bouteille, on dresse une planche, et on partage — jusque tard dans la soirée.",
+  hero_cta1:"Voir la carte",hero_cta2:"La planche ↓",
+  fact_k1:"À partager",fact_v1:"<b>Planches & fruits de mer</b>charcuterie, gambas, moules, brochettes",
+  fact_k2:"Le lieu",fact_v2:"<b>4, rue d'Esch</b>Mondercange · terrasse",
+  fact_k3:"La maison",fact_v3:"<b>Le bar à vin du coin</b>convivial, ouvert tard",
+  pl_eyebrow:"La signature",pl_h:"La planche,<span>à partager.</span>",
+  pl_lead:"Charcuterie, fromages, cornichons et olives sur une grande planche — posée au milieu de la table, une bouteille débouchée à côté.",
+  pl_body:"C'est l'idée de la maison : on ne commande pas chacun son plat, on partage. Une planche généreuse, un bon verre, et la soirée s'étire. Fruits de mer, gambas grillées et moules quand c'est la saison.",
+  pl_pill:"À partager",
+  gal_eyebrow:"À table",gal_h:"Généreux, <em>sans façon</em>",
+  gal_p:"Planches de charcuterie, montagnes de gambas, moules, brochettes grillées — la cuisine de brasserie qu'on partage, un verre à la main.",
+  cap_planche:"La planche de charcuterie",cap_seafood:"Gambas grillées",cap_moules:"Moules de saison",cap_broch:"Brochettes grillées",cap_vin:"Un verre de vin",cap_salle:"La salle",cap_terrasse:"La terrasse",
+  vin_eyebrow:"Le verre",vin_h:"Un verre,<span>une planche.</span>",
+  vin_lead:"Le nom le dit : ici on débouche. Un rouge qui tient, un blanc frais, une planche au milieu — et le coin salon qui invite à rester. Le bar de quartier où l'on prend son temps.",
+  chip1:"Bar à vin",chip2:"Terrasse",chip3:"Ouvert tard",
+  soir_eyebrow:"Quand la soirée s'étire",soir_h:"Et certains soirs,<span>ça joue.</span>",
+  soir_lead:"La salle du fond, ses murs de pierre et ses guirlandes : de la musique certains soirs, un verre qui traîne, et l'on reste tard.",
+  soir_fl:"Programmation musicale à confirmer avec la maison.",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>partage</em>",
+  carte_p:"Des planches, des fruits de mer, les classiques de brasserie — et une carte des vins pour aller avec.",
+  mg1:"Les planches",mg2:"La mer",mg3:"Le grill",mg4:"La cave",
+  i1n:"Planche de charcuterie",i1d:"Charcuterie, fromages, cornichons, olives",i2n:"Planche mixte",i2d:"Charcuterie & fromages",
+  i3n:"Gambas grillées",i4n:"Moules-frites",i4d:"En saison",
+  i5n:"Brochettes grillées",i6n:"Suggestions du moment",i6d:"À l'ardoise",
+  i7n:"Vins au verre",i7d:"Rouge, blanc, rosé",i8n:"Bouteilles",i8d:"Sélection de la maison",ac:"à conf.",
+  carte_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer sur place.",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver",ino_phone:"Téléphone à confirmer",
+  ino_k3:"Horaires",ino_ht:"Du soir jusque tard",ino_fl3:"Ouvert en soirée · horaires à confirmer",
+  map_big:"Mondercange",map_sub:"4, rue d'Esch — au cœur du village",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Le bar à vin et brasserie de Mondercange — planches à partager, fruits de mer, et de la musique certains soirs.",
+  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
+  foot_phone:"Téléphone à confirmer",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires, téléphone et programmation musicale sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ },
+ de:{
+  nav_planche:"Die Platte",nav_carte:"Karte",nav_soir:"Am Abend",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Brasserie · Weinbar · Mondercange",
+  hero_tag:"Man entkorkt eine gute Flasche, richtet eine Platte an und teilt — bis spät in den Abend.",
+  hero_cta1:"Zur Karte",hero_cta2:"Die Platte ↓",
+  fact_k1:"Zum Teilen",fact_v1:"<b>Platten & Meeresfrüchte</b>Charcuterie, Gambas, Muscheln, Spieße",
+  fact_k2:"Der Ort",fact_v2:"<b>4, rue d'Esch</b>Mondercange · Terrasse",
+  fact_k3:"Das Haus",fact_v3:"<b>Die Weinbar im Viertel</b>gesellig, lange geöffnet",
+  pl_eyebrow:"Die Signatur",pl_h:"Die Platte,<span>zum Teilen.</span>",
+  pl_lead:"Charcuterie, Käse, Cornichons und Oliven auf einer großen Platte — in die Tischmitte gestellt, daneben eine entkorkte Flasche.",
+  pl_body:"Das ist die Idee des Hauses: nicht jeder sein eigenes Gericht, sondern teilen. Eine großzügige Platte, ein gutes Glas, und der Abend zieht sich. Meeresfrüchte, gegrillte Gambas und Muscheln in der Saison.",
+  pl_pill:"Zum Teilen",
+  gal_eyebrow:"Zu Tisch",gal_h:"Großzügig, <em>ganz ungezwungen</em>",
+  gal_p:"Charcuterie-Platten, Berge von Gambas, Muscheln, gegrillte Spieße — Brasserie-Küche, die man teilt, das Glas in der Hand.",
+  cap_planche:"Die Charcuterie-Platte",cap_seafood:"Gegrillte Gambas",cap_moules:"Muscheln der Saison",cap_broch:"Gegrillte Spieße",cap_vin:"Ein Glas Wein",cap_salle:"Der Gastraum",cap_terrasse:"Die Terrasse",
+  vin_eyebrow:"Das Glas",vin_h:"Ein Glas,<span>eine Platte.</span>",
+  vin_lead:"Der Name sagt es: hier wird entkorkt. Ein kräftiger Roter, ein frischer Weißer, eine Platte in der Mitte — und die Lounge-Ecke, die zum Bleiben einlädt. Die Viertelbar, in der man sich Zeit nimmt.",
+  chip1:"Weinbar",chip2:"Terrasse",chip3:"Lange geöffnet",
+  soir_eyebrow:"Wenn der Abend länger wird",soir_h:"Und an manchen Abenden<span>spielt Musik.</span>",
+  soir_lead:"Der hintere Raum, seine Steinmauern und Lichterketten: an manchen Abenden Musik, ein Glas, das bleibt, und man bleibt lange.",
+  soir_fl:"Musikprogramm beim Haus zu bestätigen.",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>teilen</em>",
+  carte_p:"Platten, Meeresfrüchte, die Brasserie-Klassiker — und eine Weinkarte dazu.",
+  mg1:"Die Platten",mg2:"Das Meer",mg3:"Der Grill",mg4:"Der Weinkeller",
+  i1n:"Charcuterie-Platte",i1d:"Charcuterie, Käse, Cornichons, Oliven",i2n:"Gemischte Platte",i2d:"Charcuterie & Käse",
+  i3n:"Gegrillte Gambas",i4n:"Muscheln & Pommes",i4d:"In der Saison",
+  i5n:"Gegrillte Spieße",i6n:"Empfehlungen des Moments",i6d:"Auf der Tafel",
+  i7n:"Offene Weine",i7d:"Rot, Weiß, Rosé",i8n:"Flaschen",i8d:"Auswahl des Hauses",ac:"n. Angabe",
+  carte_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Es sind keine Preise veröffentlicht: Karte und Preise vor Ort zu bestätigen.",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren",ino_phone:"Telefon zu bestätigen",
+  ino_k3:"Öffnungszeiten",ino_ht:"Abends bis spät",ino_fl3:"Abends geöffnet · Zeiten zu bestätigen",
+  map_big:"Mondercange",map_sub:"4, rue d'Esch — im Herzen des Dorfes",map_btn:"In Maps öffnen ↗",
+  foot_p:"Die Weinbar und Brasserie von Mondercange — Platten zum Teilen, Meeresfrüchte und an manchen Abenden Musik.",
+  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
+  foot_phone:"Telefon zu bestätigen",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten, Telefon und Musikprogramm sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ },
+ en:{
+  nav_planche:"The board",nav_carte:"Menu",nav_soir:"After dark",nav_infos:"Find us",
+  hero_eyebrow:"Brasserie · wine bar · Mondercange",
+  hero_tag:"Uncork a good bottle, set down a board, and share — well into the evening.",
+  hero_cta1:"See the menu",hero_cta2:"The board ↓",
+  fact_k1:"To share",fact_v1:"<b>Boards & seafood</b>charcuterie, prawns, mussels, skewers",
+  fact_k2:"The place",fact_v2:"<b>4, rue d'Esch</b>Mondercange · terrace",
+  fact_k3:"The house",fact_v3:"<b>The neighbourhood wine bar</b>convivial, open late",
+  pl_eyebrow:"The signature",pl_h:"The board,<span>to share.</span>",
+  pl_lead:"Charcuterie, cheeses, cornichons and olives on a big board — set in the middle of the table, an uncorked bottle beside it.",
+  pl_body:"It's the idea of the house: not everyone their own plate, but sharing. A generous board, a good glass, and the evening stretches out. Seafood, grilled prawns and mussels in season.",
+  pl_pill:"To share",
+  gal_eyebrow:"At the table",gal_h:"Generous, <em>no fuss</em>",
+  gal_p:"Charcuterie boards, mountains of prawns, mussels, grilled skewers — brasserie cooking you share, a glass in hand.",
+  cap_planche:"The charcuterie board",cap_seafood:"Grilled prawns",cap_moules:"Mussels in season",cap_broch:"Grilled skewers",cap_vin:"A glass of wine",cap_salle:"The dining room",cap_terrasse:"The terrace",
+  vin_eyebrow:"The glass",vin_h:"A glass,<span>a board.</span>",
+  vin_lead:"The name says it: here we uncork. A red with backbone, a fresh white, a board in the middle — and the lounge corner that invites you to stay. The neighbourhood bar where you take your time.",
+  chip1:"Wine bar",chip2:"Terrace",chip3:"Open late",
+  soir_eyebrow:"When the evening runs long",soir_h:"And some evenings,<span>there's music.</span>",
+  soir_lead:"The back room, its stone walls and string lights: music on some evenings, a glass that lingers, and you stay late.",
+  soir_fl:"Music programme to be confirmed with the house.",
+  carte_eyebrow:"The menu",carte_h:"What we <em>share</em>",
+  carte_p:"Boards, seafood, the brasserie classics — and a wine list to go with them.",
+  mg1:"The boards",mg2:"The sea",mg3:"The grill",mg4:"The cellar",
+  i1n:"Charcuterie board",i1d:"Charcuterie, cheeses, cornichons, olives",i2n:"Mixed board",i2d:"Charcuterie & cheeses",
+  i3n:"Grilled prawns",i4n:"Mussels & chips",i4d:"In season",
+  i5n:"Grilled skewers",i6n:"Today's suggestions",i6d:"On the board",
+  i7n:"Wines by the glass",i7d:"Red, white, rosé",i8n:"Bottles",i8d:"The house selection",ac:"tbc",
+  carte_note:"Dishes from the house's public photos, for reference. No prices are published: the menu and prices are to be confirmed on site.",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book",ino_phone:"Phone to be confirmed",
+  ino_k3:"Opening hours",ino_ht:"Evenings, till late",ino_fl3:"Open evenings · hours to be confirmed",
+  map_big:"Mondercange",map_sub:"4, rue d'Esch — in the heart of the village",map_btn:"Open in Maps ↗",
+  foot_p:"The wine bar and brasserie of Mondercange — boards to share, seafood, and music on some evenings.",
+  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
+  foot_phone:"Phone to be confirmed",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand and dishes belong to the house. Menu, prices, hours, phone and music programme are to be confirmed — an unofficial proposal, not affiliated to date."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  try{localStorage.setItem("atb_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("atb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+
+/* the wow: a corkscrew helix that slowly turns (the name = the corkscrew) */
+(function(){
+  const cv=document.getElementById("corkcv"); if(!cv) return;
+  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
+  let raf=null, phase=0;
+  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const cx=W*0.5, top=H*0.12, bottom=H*0.92, coils=4, R=Math.min(W*0.30,120);
+    {const g0=ctx.createRadialGradient(cx,H*0.5,10,cx,H*0.5,Math.max(W,H)*0.5);g0.addColorStop(0,"rgba(18,8,6,0.34)");g0.addColorStop(1,"rgba(18,8,6,0)");ctx.fillStyle=g0;ctx.fillRect(0,0,W,H);}
+    const steps=180, span=bottom-top;
+    // shaft
+    ctx.strokeStyle="rgba(224,169,74,0.16)"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx,top-span*0.10); ctx.lineTo(cx,top); ctx.stroke();
+    // helix — front strokes brighter, back dimmer (fake 3D via z=cos)
+    for(let i=0;i<steps;i++){
+      const u=i/steps, y=top+u*span;
+      const a=u*coils*Math.PI*2 + phase;
+      const x=cx+Math.sin(a)*R*(1-u*0.12);
+      const z=Math.cos(a); // -1 back .. 1 front
+      const alpha=0.30+0.60*((z+1)/2);
+      const lw=2.2+4.4*((z+1)/2);
+      const y2=top+((i+1)/steps)*span;
+      const a2=((i+1)/steps)*coils*Math.PI*2 + phase;
+      const x2=cx+Math.sin(a2)*R*(1-((i+1)/steps)*0.12);
+      ctx.strokeStyle="rgba("+ (z>0? "233,182,78":"201,138,52") +","+alpha.toFixed(3)+")";
+      ctx.lineWidth=lw; ctx.lineCap="round";
+      ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x2,y2); ctx.stroke();
+    }
+    // pointed tip
+    const ty=bottom, tx=cx+Math.sin(coils*Math.PI*2+phase)*R*0.88;
+    ctx.strokeStyle="rgba(233,182,78,0.7)"; ctx.lineWidth=2.4; ctx.beginPath(); ctx.moveTo(tx,ty); ctx.lineTo(cx,ty+span*0.09); ctx.stroke();
+  }
+  function loop(){ phase+=0.018; draw(); raf=requestAnimationFrame(loop); }
+  resize(); window.addEventListener("resize",resize);
+  if(reduce){ draw(); return; }
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf)raf=requestAnimationFrame(loop);else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
+  io.observe(cv);
+})();
+</script>
+</body>
+</html>
