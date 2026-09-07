@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 92'><path fill='%23268881' d='M50 5 C44.5 5 41 9.5 41 14.5 C41 18.5 43 21 44.5 23.5 C39 27.5 36.5 38 36.5 53.5 C36.5 72 42.5 87 50 87 C57.5 87 63.5 72 63.5 53.5 C63.5 38 61 27.5 55.5 23.5 C57 21 59 18.5 59 14.5 C59 9.5 55.5 5 50 5 Z'/></svg>" />
+<title>Um Stamminet — Café · Brasserie · Belair, Luxembourg</title>
+<meta name="description" content="Le stamminet du quartier : café le matin, table & quilles le soir. Cuisine portugaise et brasserie, un vrai jeu de quilles. Aperçu de site composé par Webwerk." />
+<style>
+/* ===== FONTS (self-hosted, 0 external) ===== */
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/fredoka-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/fredoka-600-latin-ext.woff2') format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/fredoka-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/fredoka-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/nunitosans-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/nunitosans-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/nunitosans-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/nunitosans-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+/* ===== TOKENS ===== */
+:root{
+  --green:#268881; --green-deep:#1a625d; --green-dk:#123f3b; --green-lite:#6fb0a8;
+  --cream:#efe7d2; --paper:#f6f1e4; --sand:#e6ddc9; --card:#fbf7ec;
+  --pink:#f87baa; --pink-deep:#e05a92;
+  --ink:#1f1e1b; --ink2:#4c483f; --muted:#8c857578;
+  --muted:#8c8575; --line:#e2dac6;
+  --maxw:1180px; --disp:'Fredoka',system-ui,sans-serif; --body:'Nunito Sans',system-ui,-apple-system,sans-serif;
+  --sh:0 22px 48px rgba(30,40,32,.16); --sh-s:0 10px 24px rgba(30,40,32,.11);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,46px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.02;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:600;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-deep)}
+.eyebrow::before{content:"";width:20px;height:2px;border-radius:2px;background:var(--pink)}
+.blk{padding:clamp(56px,8.5vw,104px) 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.pin{flex:0 0 auto;fill:currentColor}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:60;background:rgba(246,241,228,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:14px}
+.brand{display:flex;align-items:center;gap:11px;color:var(--ink)}
+.brand .pin{color:var(--green);height:30px}
+.brand .bt{font-family:var(--disp);font-weight:700;font-size:1.5rem;line-height:.85;color:var(--green-deep)}
+.brand .bt small{display:block;font-family:var(--body);font-weight:700;font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.navright{display:flex;align-items:center;gap:22px}
+.menu{display:flex;align-items:center;gap:24px}
+.menu a{font-family:var(--disp);font-weight:600;font-size:.98rem;color:var(--ink2)}
+.menu a:hover{color:var(--pink-deep)}
+.langs{display:flex;gap:2px;background:var(--sand);border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--ink2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--green);color:#fff}
+.burger{display:none;background:transparent;border:0;color:var(--ink);cursor:pointer;padding:6px;font-size:1.5rem;line-height:1}
+@media(max-width:860px){
+  .menu{position:fixed;inset:70px 0 auto 0;flex-direction:column;gap:0;background:var(--card);border-bottom:1px solid var(--line);padding:6px 0;transform:translateY(-140%);transition:transform .32s ease;box-shadow:var(--sh-s)}
+  .menu.open{transform:none}.menu a{padding:15px clamp(20px,5vw,46px);width:100%;border-top:1px solid var(--line)}
+  .burger{display:block}
+}
+@media(max-width:520px){.brand .bt{font-size:1.3rem}.navright{gap:12px}}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:clamp(560px,88vh,800px);display:flex;align-items:flex-end;color:#fff;background:#123f3b;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(183deg,rgba(15,30,28,.30) 0%,rgba(15,30,28,.12) 32%,rgba(18,50,46,.66) 74%,rgba(12,38,35,.9) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:92px;padding-bottom:clamp(42px,6vw,72px)}
+.hero .eyebrow{color:#ffd4e6}.hero .eyebrow::before{background:var(--pink)}
+.hero h1{color:#fff;font-size:clamp(58px,12vw,148px);letter-spacing:-.02em;margin:12px 0 0;text-shadow:0 3px 40px rgba(0,0,0,.4)}
+.hero .tag{font-family:var(--disp);font-weight:600;font-size:clamp(20px,3.2vw,32px);color:#ffd9e8;margin:8px 0 0}
+.hero .sub{font-size:1.04rem;color:#eef2ea;margin:16px 0 0;max-width:52ch;line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
+.hero .rate{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:.9rem;color:#e9efe6}
+.hero .rate b{color:#fff}.hero .rate .star{color:var(--pink)}
+.btn{font-family:var(--disp);font-weight:600;font-size:1rem;border:0;border-radius:999px;padding:13px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn.p{background:var(--pink);color:#3a1224}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(248,123,170,.4)}
+.btn.g{background:rgba(255,255,255,.13);color:#fff;border:1px solid rgba(255,255,255,.5)}
+.btn.g:hover{background:rgba(255,255,255,.22)}
+
+/* ===== STAMMINET (story) ===== */
+.story{background:var(--cream)}
+.sgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,66px);align-items:center}
+.story h2{font-size:clamp(32px,4.8vw,56px);margin:14px 0 0;color:var(--green-deep)}
+.story .lede{font-size:1.16rem;color:var(--ink2);margin:22px 0 0;max-width:42ch}
+.story p.body{color:var(--ink2);margin:15px 0 0;max-width:44ch}
+.spics{position:relative}
+.spics .main{border-radius:16px;overflow:hidden;box-shadow:var(--sh);aspect-ratio:4/3.2}
+.spics .main img{width:100%;height:100%;object-fit:cover}
+.spics .chip{position:absolute;right:-14px;bottom:-20px;width:46%;border-radius:14px;overflow:hidden;border:5px solid var(--cream);box-shadow:var(--sh-s);aspect-ratio:3/2.3}
+.spics .chip img{width:100%;height:100%;object-fit:cover}
+
+/* ===== QUILLES (signature) ===== */
+.quilles{background:var(--green-deep);color:#eaf3f0;position:relative;overflow:hidden}
+.quilles .eyebrow{color:#ffd4e6}.quilles .eyebrow::before{background:var(--pink)}
+.quilles .head{text-align:center;display:flex;flex-direction:column;align-items:center}
+.quilles h2{color:#fff;font-size:clamp(34px,5.2vw,64px);margin:12px 0 0}
+.quilles .sub{color:#c9e0db;max-width:52ch;margin:16px auto 0;text-align:center;font-size:1.06rem}
+.quille-row{display:flex;align-items:flex-end;justify-content:center;gap:clamp(10px,2.4vw,26px);margin:clamp(34px,5vw,54px) 0}
+.quille-row .q{height:clamp(54px,9vw,92px);color:#f4ecd8;fill:currentColor}
+.quille-row .q:nth-child(even){color:var(--pink)}
+.quille-row .q{transform:translateY(130%);opacity:0}
+.quille-row.set .q{animation:setup .62s cubic-bezier(.2,.9,.3,1.35) forwards}
+.quille-row.set .q:nth-child(1){animation-delay:.02s}.quille-row.set .q:nth-child(2){animation-delay:.12s}.quille-row.set .q:nth-child(3){animation-delay:.22s}.quille-row.set .q:nth-child(4){animation-delay:.32s}.quille-row.set .q:nth-child(5){animation-delay:.42s}.quille-row.set .q:nth-child(6){animation-delay:.52s}
+@keyframes setup{to{transform:translateY(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.quille-row .q{transform:none;opacity:1;animation:none}}
+.qgrid{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-top:8px}
+.qgrid figure{margin:0;border-radius:16px;overflow:hidden;box-shadow:var(--sh)}
+.qgrid img{width:100%;height:100%;object-fit:cover;min-height:200px}
+@media(max-width:760px){.qgrid{grid-template-columns:1fr}}
+
+/* ===== CARTE ===== */
+.carte{background:var(--paper)}
+.carte .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.carte h2{font-size:clamp(32px,4.8vw,56px);margin:12px 0 0;color:var(--green-deep)}
+.carte .intro{color:var(--ink2);max-width:54ch;margin:14px auto 0;text-align:center}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(30px,4vw,48px)}
+.mosaic figure{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--sh-s);margin:0;aspect-ratio:1/1}
+.mosaic figure.w2{grid-column:span 2;aspect-ratio:2/1}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 14px 11px;font-family:var(--disp);font-weight:600;font-size:.92rem;color:#fff;background:linear-gradient(transparent,rgba(18,40,36,.75))}
+@media(max-width:760px){.mosaic{grid-template-columns:repeat(2,1fr)}.mosaic figure.w2{grid-column:span 2}}
+.dishes{display:flex;flex-wrap:wrap;gap:10px 12px;justify-content:center;margin-top:clamp(28px,4vw,44px);max-width:900px;margin-left:auto;margin-right:auto}
+.dish{display:inline-flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 17px;font-weight:700;color:var(--green-deep)}
+.dish .d{font-weight:400;color:var(--muted);font-size:.86rem}
+.drinks{margin-top:22px;text-align:center;color:var(--ink2);font-size:1.02rem}
+.drinks b{color:var(--pink-deep);font-family:var(--disp);font-weight:600}
+.pricenote{margin-top:18px;font-size:.86rem;color:var(--muted);text-align:center}
+
+/* ===== INFOS ===== */
+.visit{background:var(--green-dk);color:#e6f0ec}
+.visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+.visit .eyebrow{color:#ffd4e6}.visit .eyebrow::before{background:var(--pink)}
+.visit h2{color:#fff;font-size:clamp(30px,4.4vw,50px);margin:14px 0 0}
+.info{margin-top:24px}
+.info .row{padding:15px 0;border-top:1px solid rgba(255,255,255,.15)}
+.info .row:last-child{border-bottom:1px solid rgba(255,255,255,.15)}
+.info .k{font-family:var(--disp);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pink)}
+.info .v{margin-top:5px;color:#f0f6f3}
+.info .v a{border-bottom:1px solid rgba(255,255,255,.4)}
+.visit .cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.visit .btn.g{border-color:rgba(255,255,255,.55)}
+.mapcard{border-radius:16px;overflow:hidden;box-shadow:var(--sh);align-self:start}
+.mapcard img{width:100%;height:100%;object-fit:cover;min-height:300px}
+@media(max-width:760px){.visit .vgrid2{grid-template-columns:1fr}}
+
+/* ===== FOOTER ===== */
+footer{background:#15201d;color:#a9b4ad;padding:44px 0 40px;font-size:.86rem;line-height:1.6}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-top .bt{font-family:var(--disp);font-weight:700;font-size:1.5rem;color:#efe7d2;display:flex;align-items:center;gap:11px}
+.foot-top .bt .pin{color:var(--green-lite);height:26px}
+.disc{margin-top:22px;color:#82897f;max-width:82ch}
+.madeby{margin-top:14px;color:#e6b3c9}
+.madeby a{color:#f2dbe6;border-bottom:1px solid rgba(242,219,230,.4)}
+@media(max-width:860px){.sgrid{grid-template-columns:1fr;gap:40px}.spics .chip{width:40%}}
+</style>
+</head>
+<body id="top">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="skittle"><path d="M50 5 C44.5 5 41 9.5 41 14.5 C41 18.5 43 21 44.5 23.5 C39 27.5 36.5 38 36.5 53.5 C36.5 72 42.5 87 50 87 C57.5 87 63.5 72 63.5 53.5 C63.5 38 61 27.5 55.5 23.5 C57 21 59 18.5 59 14.5 C59 9.5 55.5 5 50 5 Z"/></g>
+</defs></svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Um Stamminet">
+      <svg class="pin" viewBox="0 0 100 92"><use href="#skittle"/></svg>
+      <span class="bt">Um Stamminet<small data-i18n="brand_sub">Café · Belair</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#story" data-i18n="n_story">Le stamminet</a>
+        <a href="#quilles" data-i18n="n_quilles">Les quilles</a>
+        <a href="#carte" data-i18n="n_carte">La carte</a>
+        <a href="#visit" data-i18n="n_visit">Infos</a>
+      </nav>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="bg"><img src="assets/facade.jpg" alt="La façade d'Um Stamminet, enseigne verte et terrasse" /></div>
+    <div class="shade"></div>
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="hero_eyebrow">Café · Brasserie · Belair</span>
+      <h1>Um Stamminet</h1>
+      <p class="tag" data-i18n="hero_tag">Le stamminet du quartier.</p>
+      <p class="sub" data-i18n="hero_sub">Le café le matin, la table et les quilles le soir. Cuisine portugaise et classiques de brasserie, la Bofferding en pression, un vrai jeu de quilles au fond.</p>
+      <div class="cta">
+        <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
+        <a href="tel:+35226458961" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 26 45 89 61</a>
+      </div>
+      <div class="rate"><span class="star">★</span> <b>4,0</b> · 109 <span data-i18n="rate_word">avis Google</span></div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story blk" id="story">
+    <div class="wrap sgrid">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="s_eyebrow">Le stamminet</span>
+        <h2 data-i18n="s_head">Le café du quartier, du matin à tard le soir.</h2>
+        <p class="lede" data-i18n="s_lede">Un vrai « stamminet » — le café de quartier à la portugaise, sur la Route de Longwy : on y vient pour un café le matin, un plat le midi, un verre et une partie le soir.</p>
+        <p class="body" data-i18n="s_p1">Banquettes, amphores portugaises et souvenirs de brasserie, la Bofferding en pression, les soirs de match sous la terrasse couverte, drapeaux au vent. Une adresse de quartier, sans chichi.</p>
+      </div>
+      <div class="spics reveal">
+        <div class="main"><img src="assets/salle-bw.jpg" alt="La salle — banquettes et amphores portugaises" /></div>
+        <div class="chip"><img src="assets/facade-automne.jpg" alt="La terrasse et l'enseigne en automne" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUILLES (signature) -->
+  <section class="quilles blk" id="quilles">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow" data-i18n="q_eyebrow">La signature</span>
+        <h2 data-i18n="q_head">Un vrai jeu de quilles.</h2>
+        <p class="sub" data-i18n="q_sub">La particularité de la maison : une piste de quilles au fond du café. On dîne, on boit un coup, et on lance — fléchettes en prime.</p>
+      </div>
+      <div class="quille-row" id="quilles-row" aria-hidden="true">
+        <svg class="q" viewBox="0 0 100 92"><use href="#skittle"/></svg>
+        <svg class="q" viewBox="0 0 100 92"><use href="#skittle"/></svg>
+        <svg class="q" viewBox="0 0 100 92"><use href="#skittle"/></svg>
+        <svg class="q" viewBox="0 0 100 92"><use href="#skittle"/></svg>
+        <svg class="q" viewBox="0 0 100 92"><use href="#skittle"/></svg>
+        <svg class="q" viewBox="0 0 100 92"><use href="#skittle"/></svg>
+      </div>
+      <div class="qgrid reveal">
+        <figure><img src="assets/bowling.jpg" alt="La piste de quilles — quilles en bois et boules rouges" /></figure>
+        <figure><img src="assets/jeux-flechettes.jpg" alt="Le coin fléchettes électroniques" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTE -->
+  <section class="carte blk" id="carte">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow" data-i18n="c_eyebrow">La carte</span>
+        <h2 data-i18n="c_head">Portugal &amp; brasserie.</h2>
+        <p class="intro" data-i18n="c_intro">Des plats généreux et sans façon — spécialités portugaises et classiques de brasserie.</p>
+      </div>
+      <div class="mosaic reveal">
+        <figure class="w2"><img src="assets/plat-francesinha.jpg" alt="Francesinha" /><figcaption>Francesinha</figcaption></figure>
+        <figure><img src="assets/plat-bife-a-cheval.jpg" alt="Bife à cavalo" /><figcaption data-i18n="m_bife">Bife à cavalo</figcaption></figure>
+        <figure><img src="assets/plat-ameijoas.jpg" alt="Amêijoas" /><figcaption data-i18n="m_clams">Amêijoas</figcaption></figure>
+        <figure><img src="assets/plat-escalope.jpg" alt="Escalope panée" /><figcaption data-i18n="m_escalope">Escalope</figcaption></figure>
+        <figure><img src="assets/plat-bifana.jpg" alt="Bifana" /><figcaption>Bifana</figcaption></figure>
+        <figure><img src="assets/plat-salade-saumon.jpg" alt="Salade au saumon fumé" /><figcaption data-i18n="m_salade">Salade saumon</figcaption></figure>
+      </div>
+      <div class="dishes reveal">
+        <span class="dish">Francesinha</span>
+        <span class="dish" data-i18n="dd_bifana">Bifana <span class="d">porc en pain</span></span>
+        <span class="dish" data-i18n="dd_clams">Amêijoas <span class="d">palourdes</span></span>
+        <span class="dish" data-i18n="dd_bife">Bife à cavalo <span class="d">steak &amp; œuf</span></span>
+        <span class="dish" data-i18n="dd_escalope">Escalope panée</span>
+        <span class="dish" data-i18n="dd_salade">Salade au saumon fumé</span>
+      </div>
+      <p class="drinks reveal" data-i18n="c_drinks">Au comptoir : <b>Bofferding en pression</b>, Battin, vins &amp; rosé.</p>
+      <p class="pricenote reveal" data-i18n="c_pricenote">Plats relevés en salle — la carte et les prix se découvrent sur place.</p>
+    </div>
+  </section>
+
+  <!-- INFOS -->
+  <section class="visit blk" id="visit">
+    <div class="wrap vgrid2">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="vi_eyebrow">Infos</span>
+        <h2 data-i18n="vi_head">Route de Longwy, Belair.</h2>
+        <div class="info">
+          <div class="row"><div class="k" data-i18n="l_addr">Adresse</div><div class="v">294 Route de Longwy, L-1940 Belair</div></div>
+          <div class="row"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+35226458961">26 45 89 61</a></div></div>
+          <div class="row"><div class="k" data-i18n="l_hours">Horaires</div><div class="v" data-i18n="h_val">Ouvert tard — jusqu'à 1h du matin · horaires détaillés à confirmer</div></div>
+          <div class="row"><div class="k" data-i18n="l_serv">Services</div><div class="v" data-i18n="serv_val">Sur place · à emporter · café · quilles · fléchettes</div></div>
+        </div>
+        <div class="cta">
+          <a href="tel:+35226458961" class="btn p" data-i18n="vi_call">Appeler</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Um+Stamminet+294+Route+de+Longwy+Luxembourg" target="_blank" rel="noopener" class="btn g" data-i18n="vi_dir">Itinéraire</a>
+        </div>
+      </div>
+      <div class="mapcard reveal"><img src="assets/facade-nuit.jpg" alt="L'enseigne illuminée le soir" /></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="bt"><svg class="pin" viewBox="0 0 100 92"><use href="#skittle"/></svg>Um Stamminet</span>
+      <span>294 Route de Longwy, L-1940 Belair · <a href="tel:+35226458961" style="color:#f2dbe6">26 45 89 61</a></span>
+    </div>
+    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps), à remplacer par vos propres visuels. La maison n'a pas de logo indépendant (l'enseigne est co-marquée avec la brasserie Bofferding) — identité proposée ; le nom apparaît aussi « Staminet ». Carte sans prix : plats relevés en photo, carte et prix en salle. Horaires à confirmer. Note 4,0/5 : Google.</p>
+    <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+ fr:{
+  brand_sub:"Café · Belair", n_story:"Le stamminet", n_quilles:"Les quilles", n_carte:"La carte", n_visit:"Infos",
+  hero_eyebrow:"Café · Brasserie · Belair", hero_tag:"Le stamminet du quartier.",
+  hero_sub:"Le café le matin, la table et les quilles le soir. Cuisine portugaise et classiques de brasserie, la Bofferding en pression, un vrai jeu de quilles au fond.",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler", rate_word:"avis Google",
+  s_eyebrow:"Le stamminet", s_head:"Le café du quartier, du matin à tard le soir.",
+  s_lede:"Un vrai « stamminet » — le café de quartier à la portugaise, sur la Route de Longwy : on y vient pour un café le matin, un plat le midi, un verre et une partie le soir.",
+  s_p1:"Banquettes, amphores portugaises et souvenirs de brasserie, la Bofferding en pression, les soirs de match sous la terrasse couverte, drapeaux au vent. Une adresse de quartier, sans chichi.",
+  q_eyebrow:"La signature", q_head:"Un vrai jeu de quilles.",
+  q_sub:"La particularité de la maison : une piste de quilles au fond du café. On dîne, on boit un coup, et on lance — fléchettes en prime.",
+  c_eyebrow:"La carte", c_head:"Portugal & brasserie.", c_intro:"Des plats généreux et sans façon — spécialités portugaises et classiques de brasserie.",
+  m_bife:"Bife à cavalo", m_clams:"Amêijoas", m_escalope:"Escalope", m_salade:"Salade saumon",
+  dd_bifana:"Bifana", dd_clams:"Amêijoas", dd_bife:"Bife à cavalo", dd_escalope:"Escalope panée", dd_salade:"Salade au saumon fumé",
+  c_drinks:"Au comptoir : Bofferding en pression, Battin, vins & rosé.",
+  c_pricenote:"Plats relevés en salle — la carte et les prix se découvrent sur place.",
+  vi_eyebrow:"Infos", vi_head:"Route de Longwy, Belair.",
+  l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Ouvert tard — jusqu'à 1h du matin · horaires détaillés à confirmer",
+  l_serv:"Services", serv_val:"Sur place · à emporter · café · quilles · fléchettes",
+  vi_call:"Appeler", vi_dir:"Itinéraire",
+  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps), à remplacer par vos propres visuels. La maison n'a pas de logo indépendant (l'enseigne est co-marquée avec la brasserie Bofferding) — identité proposée ; le nom apparaît aussi « Staminet ». Carte sans prix : plats relevés en photo, carte et prix en salle. Horaires à confirmer. Note 4,0/5 : Google.",
+  foot_made:"Un aperçu"
+ },
+ de:{
+  brand_sub:"Café · Belair", n_story:"Das Stamminet", n_quilles:"Das Kegeln", n_carte:"Die Karte", n_visit:"Infos",
+  hero_eyebrow:"Café · Brasserie · Belair", hero_tag:"Das Stamminet des Viertels.",
+  hero_sub:"Morgens Kaffee, abends Tisch und Kegeln. Portugiesische Küche und Brasserie-Klassiker, Bofferding vom Fass, hinten eine echte Kegelbahn.",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", rate_word:"Google-Bewertungen",
+  s_eyebrow:"Das Stamminet", s_head:"Das Viertelcafé, von morgens bis spät.",
+  s_lede:"Ein echtes „Stamminet“ — das portugiesische Viertelcafé an der Route de Longwy: morgens ein Kaffee, mittags ein Teller, abends ein Glas und eine Runde.",
+  s_p1:"Bänke, portugiesische Amphoren und Brasserie-Andenken, Bofferding vom Fass, Spielabende unter der überdachten Terrasse, Fahnen im Wind. Eine Adresse fürs Viertel, ohne Schnickschnack.",
+  q_eyebrow:"Die Besonderheit", q_head:"Eine echte Kegelbahn.",
+  q_sub:"Die Besonderheit des Hauses: eine Kegelbahn hinten im Café. Man isst, trinkt etwas und kegelt — Darts gibt es obendrein.",
+  c_eyebrow:"Die Karte", c_head:"Portugal & Brasserie.", c_intro:"Großzügige, unkomplizierte Gerichte — portugiesische Spezialitäten und Brasserie-Klassiker.",
+  m_bife:"Bife à cavalo", m_clams:"Venusmuscheln", m_escalope:"Schnitzel", m_salade:"Lachssalat",
+  dd_bifana:"Bifana", dd_clams:"Amêijoas", dd_bife:"Bife à cavalo", dd_escalope:"Paniertes Schnitzel", dd_salade:"Salat mit Räucherlachs",
+  c_drinks:"Am Tresen: Bofferding vom Fass, Battin, Wein & Rosé.",
+  c_pricenote:"Gerichte im Lokal aufgenommen — Karte und Preise vor Ort.",
+  vi_eyebrow:"Infos", vi_head:"Route de Longwy, Belair.",
+  l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Lange geöffnet — bis 1 Uhr nachts · genaue Zeiten zu bestätigen",
+  l_serv:"Services", serv_val:"Vor Ort · zum Mitnehmen · Café · Kegeln · Darts",
+  vi_call:"Anrufen", vi_dir:"Route",
+  foot_disc:"Demo-Vorschau von Webwerk aus öffentlichen Fotos (Google Maps), durch eigene Bilder zu ersetzen. Das Haus hat kein eigenständiges Logo (das Schild ist mit der Brauerei Bofferding co-gebrandet) — Identität als Vorschlag; der Name erscheint auch als „Staminet“. Karte ohne Preise: Gerichte aus Fotos, Karte und Preise vor Ort. Öffnungszeiten zu bestätigen. Bewertung 4,0/5: Google.",
+  foot_made:"Eine Vorschau von"
+ },
+ en:{
+  brand_sub:"Café · Belair", n_story:"The stamminet", n_quilles:"The skittles", n_carte:"The menu", n_visit:"Find us",
+  hero_eyebrow:"Café · Brasserie · Belair", hero_tag:"The neighbourhood stamminet.",
+  hero_sub:"Coffee in the morning, a table and skittles at night. Portuguese cooking and brasserie classics, Bofferding on tap, and a real skittle alley at the back.",
+  hero_cta1:"See the menu", hero_cta2:"Call", rate_word:"Google reviews",
+  s_eyebrow:"The stamminet", s_head:"The neighbourhood café, morning to late.",
+  s_lede:"A real “stamminet” — the Portuguese neighbourhood café on the Route de Longwy: a coffee in the morning, a plate at noon, a drink and a game at night.",
+  s_p1:"Banquettes, Portuguese amphorae and brasserie mementos, Bofferding on tap, match nights under the covered terrace with flags flying. A local address, no fuss.",
+  q_eyebrow:"The signature", q_head:"A real skittle alley.",
+  q_sub:"The house's quirk: a skittle alley at the back of the café. You eat, you have a drink, and you bowl — darts thrown in.",
+  c_eyebrow:"The menu", c_head:"Portugal & brasserie.", c_intro:"Generous, unfussy plates — Portuguese specialities and brasserie classics.",
+  m_bife:"Bife à cavalo", m_clams:"Clams", m_escalope:"Escalope", m_salade:"Salmon salad",
+  dd_bifana:"Bifana", dd_clams:"Amêijoas", dd_bife:"Bife à cavalo", dd_escalope:"Breaded escalope", dd_salade:"Smoked-salmon salad",
+  c_drinks:"At the bar: Bofferding on tap, Battin, wine & rosé.",
+  c_pricenote:"Dishes noted in-house — the menu and prices are found on site.",
+  vi_eyebrow:"Find us", vi_head:"Route de Longwy, Belair.",
+  l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Open late — until 1am · detailed hours to be confirmed",
+  l_serv:"Services", serv_val:"Dine-in · takeaway · café · skittles · darts",
+  vi_call:"Call", vi_dir:"Directions",
+  foot_disc:"Demonstration preview composed by Webwerk from public photos (Google Maps), to be replaced with your own visuals. The venue has no standalone logo (the sign is co-branded with the Bofferding brewery) — identity proposed; the name also appears as “Staminet”. Menu without prices: dishes noted from photos, menu and prices in-house. Hours to be confirmed. 4.0/5 rating: Google.",
+  foot_made:"A preview by"
+ }
+};
+function applyLang(l){
+  const d = I18N[l] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ const k=el.getAttribute('data-i18n'); if(d[k]!=null) el.textContent=d[k]; });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  try{ localStorage.setItem('stamminet_lang', l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
+(function(){ let l='fr'; try{ l=localStorage.getItem('stamminet_lang')||'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* jeu de quilles — skittles set up when the section scrolls in */
+(function(){
+  const row=document.getElementById('quilles-row'); if(!row) return;
+  const qio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ row.classList.add('set'); qio.unobserve(row); } }); }, {threshold:.4});
+  qio.observe(row);
+})();
+</script>
+</body>
+</html>
