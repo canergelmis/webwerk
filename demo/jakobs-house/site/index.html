@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231c1712'/><g stroke='%23c9973f' stroke-width='7' stroke-linecap='round'><path d='M20 20 L80 80 M20 80 L80 20'/></g></svg>" />
+<title>Jakob's House — Bar · Terrasse · Salle · Rives de Clausen</title>
+<meta name="description" content="Bar, terrasse et salle dans l'ancienne brasserie Mousel, aux Rives de Clausen. Aperçu de site composé par Webwerk." />
+<style>
+/* ===== FONTS (self-hosted, 0 external) ===== */
+@font-face{font-family:'Bricolage Grotesque';font-weight:600 800;font-style:normal;font-display:swap;src:url('assets/fonts/bricolage-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Bricolage Grotesque';font-weight:600 800;font-style:normal;font-display:swap;src:url('assets/fonts/bricolage-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Hanken';font-weight:400;font-style:normal;font-display:swap;src:url('assets/fonts/hanken-400-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Hanken';font-weight:400;font-style:normal;font-display:swap;src:url('assets/fonts/hanken-400-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Hanken';font-weight:500;font-style:normal;font-display:swap;src:url('assets/fonts/hanken-500-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Hanken';font-weight:500;font-style:normal;font-display:swap;src:url('assets/fonts/hanken-500-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Hanken';font-weight:700;font-style:normal;font-display:swap;src:url('assets/fonts/hanken-700-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Hanken';font-weight:700;font-style:normal;font-display:swap;src:url('assets/fonts/hanken-700-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+/* ===== TOKENS ===== */
+:root{
+  --paper:#f5efe2; --paper2:#ece0c9; --cream:#faf6ec; --card:#fffdf7;
+  --ink:#1c1712; --ink2:#5a4f42; --muted:#9c8f7a;
+  --amber:#b8792f; --amber2:#8f5b23; --amber-lite:#e0b573;
+  --night:#171b22; --night2:#232a36;
+  --line:#ddd0b8;
+  --maxw:1180px; --disp:'Bricolage Grotesque',system-ui,sans-serif; --body:'Hanken',system-ui,-apple-system,sans-serif;
+  --sh:0 22px 48px rgba(28,23,18,.18); --sh-s:0 10px 24px rgba(28,23,18,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,46px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:.98;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:.92rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+.eyebrow::before{content:'';width:20px;height:2px;background:var(--amber)}
+.blk{padding:clamp(58px,8.5vw,108px) 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.lat{height:24px;width:auto;flex:0 0 auto}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:60;background:rgba(245,239,226,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
+.brand{display:flex;align-items:center;gap:11px;color:var(--ink)}
+.brand img{height:34px;width:34px}
+.brand .bt{font-family:var(--disp);font-weight:800;font-size:1.5rem;letter-spacing:-.01em;line-height:.82}
+.brand .bt small{display:block;font-family:var(--body);font-weight:600;font-size:.5rem;letter-spacing:.26em;color:var(--muted);margin-top:4px;text-transform:uppercase}
+.navright{display:flex;align-items:center;gap:20px}
+.menu{display:flex;align-items:center;gap:24px}
+.menu a{font-family:var(--disp);font-weight:700;font-size:.98rem;letter-spacing:.01em;color:var(--ink2)}
+.menu a:hover{color:var(--amber)}
+.langs{display:flex;gap:2px;background:var(--paper2);border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--ink2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--ink);color:#fff}
+.burger{display:none;background:transparent;border:0;color:var(--ink);cursor:pointer;padding:6px;font-size:1.5rem;line-height:1}
+@media(max-width:860px){
+  .menu{position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 0;transform:translateY(-140%);transition:transform .32s ease;box-shadow:var(--sh-s)}
+  .menu.open{transform:none}
+  .menu a{padding:15px clamp(20px,5vw,46px);width:100%;border-top:1px solid var(--line)}
+  .burger{display:block}
+}
+@media(max-width:520px){.brand .bt{font-size:1.28rem}.navright{gap:10px}}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:clamp(600px,92vh,860px);display:flex;align-items:flex-end;color:#fff;background:#171310;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+#dust{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.85}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(15,12,8,.4) 0%,rgba(15,12,8,.12) 30%,rgba(15,12,8,.7) 78%,rgba(10,8,5,.92) 100%)}
+.hero .wrap{position:relative;z-index:3;width:100%;padding-top:96px;padding-bottom:clamp(44px,6vw,76px)}
+.hero .brandmark{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.hero .brandmark img{height:56px;width:56px}
+.hero h1{color:#fff;font-size:clamp(52px,10vw,116px);letter-spacing:-.02em;text-shadow:0 3px 40px rgba(0,0,0,.5)}
+.hero .tag{font-family:var(--disp);font-weight:700;font-size:clamp(18px,2.6vw,27px);letter-spacing:.02em;color:var(--amber-lite);margin:10px 0 0}
+.hero .sub{font-family:var(--body);font-size:1.04rem;color:#eee4d3;margin:16px 0 0;max-width:54ch;line-height:1.6;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
+.hero .chip{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--body);font-size:.88rem;color:#e6d9c1}
+.btn{font-family:var(--disp);font-weight:700;font-size:1rem;letter-spacing:.01em;border:0;border-radius:8px;padding:13px 25px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn.p{background:var(--amber);color:#1c1712}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(184,121,47,.4)}
+.btn.g{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5)}
+.btn.g:hover{background:rgba(255,255,255,.2)}
+
+/* ===== MAISON (intro / heritage) ===== */
+.maison{background:var(--cream)}
+.mgrid{display:grid;grid-template-columns:.62fr 1.38fr;gap:clamp(28px,5vw,64px);align-items:center}
+.mbadge{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:clamp(26px,3vw,38px);background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-s)}
+.mbadge img{width:96px;height:96px}
+.mbadge .est{font-family:var(--disp);font-weight:700;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber2)}
+.maison h2{font-size:clamp(32px,4.6vw,52px);margin:14px 0 0;color:var(--ink)}
+.maison p{color:var(--ink2);margin:16px 0 0;max-width:58ch}
+@media(max-width:860px){.mgrid{grid-template-columns:1fr}.mbadge{max-width:280px;margin:0 auto}}
+
+/* ===== FLOOR SECTIONS (bar/terrace + dining) ===== */
+.floor{position:relative;overflow:hidden}
+.floor.ground{background:var(--night);color:#e9e2d2}
+.floor.upper{background:var(--paper)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.floor .txt{padding:clamp(50px,7vw,98px) clamp(22px,5vw,64px);display:flex;flex-direction:column;justify-content:center}
+.floor.ground .eyebrow{color:var(--amber-lite)}.floor.ground .eyebrow::before{background:var(--amber-lite)}
+.floor h2{font-size:clamp(32px,4.6vw,54px);margin:14px 0 0}
+.floor.ground h2{color:#fff}
+.floor.upper h2{color:var(--ink)}
+.floor p{margin:18px 0 0;max-width:46ch;font-size:1.05rem}
+.floor.ground p{color:#d4c8ae}
+.floor.upper p{color:var(--ink2)}
+.floor .pics{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;gap:0;min-height:340px}
+.floor .pics img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:860px){.fgrid{grid-template-columns:1fr}.floor .pics{grid-template-rows:220px}}
+
+/* upper floor: single big lattice-glow feature image + steak spotlight */
+.spotlight{margin-top:clamp(30px,4vw,50px)}
+.spot-card{display:grid;grid-template-columns:1fr 1.15fr 1fr;grid-template-rows:320px;gap:0;border-radius:16px;overflow:hidden;box-shadow:var(--sh)}
+.spot-card img{width:100%;height:100%;object-fit:cover;min-height:0;display:block}
+.spot-txt{background:var(--ink);color:#f0e6d3;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;justify-content:center}
+.spot-txt .k{font-family:var(--disp);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-lite);font-size:.9rem}
+.spot-txt p{margin-top:10px;color:#e2d6bd;max-width:34ch}
+@media(max-width:760px){.spot-card{grid-template-columns:1fr;grid-template-rows:220px auto 220px}}
+
+/* ===== CARTE (broad, sourced categories only — no invented items) ===== */
+.carte{background:var(--cream)}
+.carte .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.carte .head-c .eyebrow{justify-content:center}
+.carte h2{font-size:clamp(32px,4.6vw,50px);margin:12px 0 0}
+.carte .intro{color:var(--ink2);max-width:58ch;margin:14px auto 0;text-align:center}
+.csig{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;margin-top:clamp(32px,4vw,52px)}
+.cwide{position:relative;overflow:hidden;background:var(--ink);border-radius:16px;padding:clamp(28px,3.4vw,42px);box-shadow:var(--sh)}
+.cwide .lat{position:absolute;right:-18px;bottom:-18px;width:140px;height:140px;color:rgba(224,181,115,.16);z-index:0}
+.cwide .in{position:relative;z-index:1}
+.cwide h3{font-size:clamp(1.6rem,2.6vw,2.1rem);color:#fff}
+.cwide p{margin-top:10px;color:#e2d6bd;max-width:34ch;font-size:.98rem}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,3vw,34px);box-shadow:var(--sh-s);display:flex;flex-direction:column;justify-content:center}
+.ccard h3{font-size:1.55rem;color:var(--ink)}
+.ccard p{margin-top:9px;color:var(--ink2);font-size:.95rem}
+.cline{display:flex;align-items:center;gap:14px;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.cline .lat{color:var(--amber);height:20px;flex:0 0 auto}
+.cline p{color:var(--ink2);font-size:.92rem;margin:0}
+.pricenote{margin-top:26px;font-size:.86rem;color:var(--muted);text-align:center}
+@media(max-width:760px){.csig{grid-template-columns:1fr}}
+
+/* ===== EVENTS ("la maison, à vous") ===== */
+.events{background:var(--night);color:#e9e2d2;position:relative}
+.egrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);align-items:center}
+.events .eyebrow{color:var(--amber-lite)}.events .eyebrow::before{background:var(--amber-lite)}
+.events h2{color:#fff;font-size:clamp(30px,4.4vw,48px);margin:14px 0 0}
+.events p{color:#d4c8ae;margin:16px 0 0;max-width:46ch}
+.etags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.etags span{font-family:var(--disp);font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border:1px solid rgba(230,217,193,.34);border-radius:999px;color:#e6d9c1}
+.epic{border-radius:16px;overflow:hidden;box-shadow:var(--sh);aspect-ratio:4/3.2}
+.epic img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.egrid{grid-template-columns:1fr}}
+
+/* ===== VISIT ===== */
+.visit{background:var(--paper)}
+.visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+.info{margin-top:24px}
+.info .row{padding:15px 0;border-top:1px solid var(--line)}
+.info .row:last-child{border-bottom:1px solid var(--line)}
+.info .k{font-family:var(--disp);font-weight:700;font-size:.86rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber2)}
+.info .v{margin-top:5px;color:var(--ink)}
+.info .v a{border-bottom:1px solid var(--line)}
+.visit .cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.visit .cta .btn.p{background:var(--amber);color:#1c1712}
+.visit .cta .btn.g{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.deadsite{margin-top:26px;padding:18px 20px;background:var(--card);border:1px dashed var(--muted);border-radius:12px}
+.deadsite .k{font-family:var(--disp);font-weight:700;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber2)}
+.deadsite p{margin-top:6px;color:var(--ink2);font-size:.92rem}
+.mapcard{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start;min-height:300px}
+.mapcard svg{width:100%;height:100%;display:block;min-height:300px}
+.mapcta{position:absolute;left:18px;bottom:16px;font-family:var(--disp);font-weight:700;font-size:.86rem;color:#fff;background:rgba(23,27,34,.55);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 14px}
+@media(max-width:760px){.visit .vgrid2{grid-template-columns:1fr}}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:#b9ae99;padding:44px 0 40px;font-size:.86rem;line-height:1.6}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-top .bt{font-family:var(--disp);font-weight:800;font-size:1.4rem;color:#f2ece0;display:flex;align-items:center;gap:11px}
+.foot-top .bt img{height:28px;width:28px}
+.disc{margin-top:22px;color:#8f8471;max-width:80ch}
+.madeby{margin-top:14px;color:var(--amber-lite)}
+.madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+</style>
+</head>
+<body id="top">
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Jakob's House">
+      <img src="assets/img/logo-dark.png" alt="" />
+      <span class="bt">Jakob's House<small data-i18n="brand_sub">Rives de Clausen · Est. 2014</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#maison" data-i18n="n_maison">La maison</a>
+        <a href="#etage" data-i18n="n_etage">La salle</a>
+        <a href="#carte" data-i18n="n_carte">La carte</a>
+        <a href="#visit" data-i18n="n_visit">Infos</a>
+      </nav>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 32 22" width="22" height="16"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M1 2H31M1 11H31M1 20H31"/></g></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="bg"><img src="assets/img/hero-lattice.jpg" alt="La salle à l'étage — façade en lattis de bois, lumière du soir sur les toits du Grund" /></div>
+    <canvas id="dust" aria-hidden="true"></canvas>
+    <div class="shade"></div>
+    <div class="wrap">
+      <div class="brandmark"><img src="assets/img/logo-cream.png" alt="" /></div>
+      <h1>Jakob's House</h1>
+      <p class="tag">Where Dinner Meets Party</p>
+      <p class="sub" data-i18n="hero_sub">Bar, terrasse et salle dans l'ancienne brasserie Mousel, aux Rives de Clausen — une seule maison.</p>
+      <div class="cta">
+        <a href="#maison" class="btn p" data-i18n="hero_cta1">Découvrir la maison</a>
+        <a href="tel:+352621277487" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 621 277 487</a>
+      </div>
+      <div class="chip" data-i18n="hero_chip">9 Rives de Clausen, Grund · Luxembourg</div>
+    </div>
+  </section>
+
+  <!-- MAISON / heritage -->
+  <section class="maison blk" id="maison">
+    <div class="wrap mgrid">
+      <div class="mbadge reveal">
+        <img src="assets/img/logo-cream.png" style="filter:invert(1) brightness(.3)" alt="" />
+        <span class="est" data-i18n="m_est">Rives de Clausen · Est. 2014</span>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="m_eyebrow">La maison</span>
+        <h2 data-i18n="m_head">Le bar, la salle &amp; la fête — une seule maison.</h2>
+        <p data-i18n="m_p1">Jakob's House occupe un bâtiment des Rives de Clausen, l'ancien site de la brasserie Mousel — le vieux quartier brassicole du Grund, reconverti en un ensemble de bars et restaurants au bord de l'Alzette.</p>
+        <p data-i18n="m_p2">Au rez, le bar et la terrasse. À l'étage, la salle et sa façade en lattis de bois. Et, quand la maison se prête aux fêtes, une grande salle privée. Trois ambiances, un seul nom : eat, meet &amp; dance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROUND FLOOR: bar & terrace -->
+  <section class="floor ground" id="rez">
+    <div class="fgrid">
+      <div class="txt reveal">
+        <span class="eyebrow" data-i18n="g_eyebrow">Rez-de-chaussée</span>
+        <h2 data-i18n="g_head">Le bar &amp; la terrasse.</h2>
+        <p data-i18n="g_p">Un bar habillé de bois sombre et de miroir, et une terrasse aménagée pour prendre un verre entre amis — coussins, plaids, chauffages d'extérieur, à l'ombre des Rives de Clausen.</p>
+      </div>
+      <div class="pics reveal">
+        <img src="assets/img/terrace-day.jpg" alt="La terrasse chauffée, coussins et plaids en peau de mouton" />
+        <img src="assets/img/terrace-night.jpg" alt="La terrasse en soirée, guirlandes lumineuses" />
+      </div>
+    </div>
+  </section>
+
+  <!-- UPPER FLOOR: dining room, lattice, steak spotlight -->
+  <section class="floor upper blk" id="etage">
+    <div class="wrap">
+      <div class="reveal" style="max-width:640px">
+        <span class="eyebrow" data-i18n="u_eyebrow">À l'étage</span>
+        <h2 data-i18n="u_head">La salle, derrière le lattis.</h2>
+        <p data-i18n="u_p">En cuisine, on prépare des plats soignés à partir de bons produits — la salle donne sur les toits du Grund à travers une façade de bois en lattis, un des traits les plus marquants de la maison.</p>
+      </div>
+      <div class="spotlight reveal">
+        <div class="spot-card">
+          <img src="assets/img/dining-1.jpg" alt="Table dressée, mur de pierre et miroirs ronds" />
+          <div class="spot-txt">
+            <span class="k" data-i18n="u_spot_k">Cuisine du monde</span>
+            <p data-i18n="u_spot_p">Burgers et fondue figurent parmi les habitués de la carte, aux côtés d'une cuisine plus large — sans prétention, pensée pour la table comme pour l'entre-deux d'une soirée.</p>
+          </div>
+          <img src="assets/img/steak.jpg" alt="Pièce de bœuf grillée, tranchée, sauce au poivre" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTE — broad, sourced categories, no invented items -->
+  <section class="carte blk" id="carte">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow" data-i18n="c_eyebrow">La carte</span>
+        <h2 data-i18n="c_head">Burgers, fondue &amp; cuisine du monde.</h2>
+        <p class="intro" data-i18n="c_intro">Voici les grandes lignes de la carte — la sélection complète, avec les prix, est servie en salle.</p>
+      </div>
+      <div class="csig reveal">
+        <div class="cwide">
+          <svg class="lat" viewBox="0 0 100 100"><use href="#latmark"/></svg>
+          <div class="in">
+            <h3 data-i18n="c_g1_h">Burgers</h3>
+            <p data-i18n="c_g1_p">Un des habitués de la maison, servi au bar comme en salle.</p>
+          </div>
+        </div>
+        <div class="ccard">
+          <h3 data-i18n="c_g2_h">Fondue</h3>
+          <p data-i18n="c_g2_p">L'autre signature — à partager, pour une soirée qui s'installe.</p>
+          <div class="cline">
+            <svg class="lat" viewBox="0 0 100 100"><use href="#latmark"/></svg>
+            <p data-i18n="c_g3_p2">Cuisine du monde — le reste de la carte, plus large, sans un seul registre de cuisine.</p>
+          </div>
+        </div>
+      </div>
+      <p class="pricenote" data-i18n="c_pricenote">Catégories indicatives ; carte détaillée, plats et prix à confirmer en salle.</p>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="events blk" id="events">
+    <div class="wrap egrid">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="e_eyebrow">La maison, à vous</span>
+        <h2 data-i18n="e_head">Mariages, anniversaires, événements.</h2>
+        <p data-i18n="e_p">La grande salle de l'étage s'arrange selon vos besoins — pour un mariage, un anniversaire, ou une réunion professionnelle. Capacité et devis à confirmer directement avec la maison.</p>
+        <div class="etags">
+          <span data-i18n="e_t1">Wedding party</span>
+          <span data-i18n="e_t2">Birthday party</span>
+          <span data-i18n="e_t3">Corporate</span>
+        </div>
+      </div>
+      <div class="epic reveal"><img src="assets/img/dining-2.jpg" alt="La salle privée, escalier et mur de pierre" /></div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit blk" id="visit">
+    <div class="wrap vgrid2">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="v_eyebrow">Infos pratiques</span>
+        <h2 data-i18n="v_head">9 Rives de Clausen, Grund.</h2>
+        <div class="info">
+          <div class="row"><div class="k" data-i18n="l_addr">Adresse</div><div class="v">9 Rives de Clausen, L-2165 Luxembourg</div></div>
+          <div class="row"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+352621277487">621 277 487</a></div></div>
+          <div class="row"><div class="k" data-i18n="l_mail">E-mail</div><div class="v"><a href="mailto:contact@jakobs.lu">contact@jakobs.lu</a></div></div>
+          <div class="row"><div class="k" data-i18n="l_hours">Horaires</div><div class="v" data-i18n="h_val">Fermé le lundi · mar-ven 10h-minuit · sam 10h-13h puis 15h30-tard · horaires à confirmer</div></div>
+        </div>
+        <div class="cta">
+          <a href="tel:+352621277487" class="btn p" data-i18n="v_call">Appeler</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Jakob%27s+House+9+Rives+de+Clausen+Luxembourg" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
+        </div>
+        <div class="deadsite reveal">
+          <span class="k" data-i18n="ds_k">Ancien site</span>
+          <p data-i18n="ds_p">jakobs.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.</p>
+        </div>
+      </div>
+      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Jakob%27s+House+9+Rives+de+Clausen+Luxembourg" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
+        <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
+          <rect width="400" height="300" fill="#171b22"/>
+          <path d="M-20 40 C 80 20, 120 90, 200 80 S 320 40, 430 100" stroke="#2a3342" stroke-width="34" fill="none"/>
+          <path d="M-20 40 C 80 20, 120 90, 200 80 S 320 40, 430 100" stroke="#39485e" stroke-width="2" fill="none"/>
+          <g stroke="#3a3226" stroke-width="10" opacity=".5">
+            <path d="M40 230 H150"/><path d="M180 250 H300"/><path d="M60 190 H130"/><path d="M240 210 H360"/>
+          </g>
+          <g transform="translate(205,150)">
+            <circle r="34" fill="rgba(224,181,115,.16)"/>
+            <path d="M0 -22 C12 -22 20 -13 20 -2 C20 12 0 30 0 30 C0 30 -20 12 -20 -2 C-20 -13 -12 -22 0 -22 Z" fill="#b8792f"/>
+            <circle r="6" fill="#171b22"/>
+          </g>
+          <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#cbbfa6" letter-spacing="1">RIVES DE CLAUSEN · ALZETTE</text>
+        </svg>
+        <span class="mapcta" data-i18n="v_dir2">Ouvrir l'itinéraire ↗</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="bt"><img src="assets/img/logo-cream.png" alt="" />Jakob's House</span>
+      <span>9 Rives de Clausen, L-2165 Luxembourg · <a href="tel:+352621277487" style="color:#e7dcc3">621 277 487</a></span>
+    </div>
+    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (site archivé de jakobs.lu, editus.lu, gastronomie.lu, cityshopping.lu, Google Maps), à remplacer par vos propres visuels. Logotype proposé, d'après votre enseigne. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur l'ancien site, à confirmer.</p>
+    <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
+  </div>
+</footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="latmark" fill="none" stroke="#b8792f" stroke-width="8" stroke-linecap="round"><path d="M20 20 L80 80 M20 80 L80 20"/></g>
+</defs></svg>
+
+<script>
+const I18N = {
+ fr:{
+  brand_sub:"Rives de Clausen · Est. 2014", n_maison:"La maison", n_etage:"La salle", n_carte:"La carte", n_visit:"Infos",
+  hero_sub:"Bar, terrasse et salle dans l'ancienne brasserie Mousel, aux Rives de Clausen — une seule maison.",
+  hero_cta1:"Découvrir la maison", hero_cta2:"Appeler", hero_chip:"9 Rives de Clausen, Grund · Luxembourg",
+  m_eyebrow:"La maison", m_est:"Rives de Clausen · Est. 2014", m_head:"Le bar, la salle & la fête — une seule maison.",
+  m_p1:"Jakob's House occupe un bâtiment des Rives de Clausen, l'ancien site de la brasserie Mousel — le vieux quartier brassicole du Grund, reconverti en un ensemble de bars et restaurants au bord de l'Alzette.",
+  m_p2:"Au rez, le bar et la terrasse. À l'étage, la salle et sa façade en lattis de bois. Et, quand la maison se prête aux fêtes, une grande salle privée. Trois ambiances, un seul nom : eat, meet & dance.",
+  g_eyebrow:"Rez-de-chaussée", g_head:"Le bar & la terrasse.",
+  g_p:"Un bar habillé de bois sombre et de miroir, et une terrasse aménagée pour prendre un verre entre amis — coussins, plaids, chauffages d'extérieur, à l'ombre des Rives de Clausen.",
+  u_eyebrow:"À l'étage", u_head:"La salle, derrière le lattis.",
+  u_p:"En cuisine, on prépare des plats soignés à partir de bons produits — la salle donne sur les toits du Grund à travers une façade de bois en lattis, un des traits les plus marquants de la maison.",
+  u_spot_k:"Cuisine du monde", u_spot_p:"Burgers et fondue figurent parmi les habitués de la carte, aux côtés d'une cuisine plus large — sans prétention, pensée pour la table comme pour l'entre-deux d'une soirée.",
+  c_eyebrow:"La carte", c_head:"Burgers, fondue & cuisine du monde.", c_intro:"Voici les grandes lignes de la carte — la sélection complète, avec les prix, est servie en salle.",
+  c_g1_h:"Burgers", c_g1_p:"Un des habitués de la maison, servi au bar comme en salle.",
+  c_g2_h:"Fondue", c_g2_p:"L'autre signature — à partager, pour une soirée qui s'installe.",
+  c_g3_h:"Cuisine du monde", c_g3_p:"Le reste de la carte, plus large, sans un seul registre de cuisine.",
+  c_g3_p2:"Cuisine du monde — le reste de la carte, plus large, sans un seul registre de cuisine.",
+  c_pricenote:"Catégories indicatives ; carte détaillée, plats et prix à confirmer en salle.",
+  e_eyebrow:"La maison, à vous", e_head:"Mariages, anniversaires, événements.",
+  e_p:"La grande salle de l'étage s'arrange selon vos besoins — pour un mariage, un anniversaire, ou une réunion professionnelle. Capacité et devis à confirmer directement avec la maison.",
+  e_t1:"Wedding party", e_t2:"Birthday party", e_t3:"Corporate",
+  v_eyebrow:"Infos pratiques", v_head:"9 Rives de Clausen, Grund.",
+  l_addr:"Adresse", l_tel:"Téléphone", l_mail:"E-mail", l_hours:"Horaires",
+  h_val:"Fermé le lundi · mar-ven 10h-minuit · sam 10h-13h puis 15h30-tard · horaires à confirmer",
+  v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
+  ds_k:"Ancien site", ds_p:"jakobs.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.",
+  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (site archivé de jakobs.lu, editus.lu, gastronomie.lu, cityshopping.lu, Google Maps), à remplacer par vos propres visuels. Logotype proposé, d'après votre enseigne. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur l'ancien site, à confirmer.",
+  foot_made:"Un aperçu"
+ },
+ de:{
+  brand_sub:"Rives de Clausen · Seit 2014", n_maison:"Das Haus", n_etage:"Der Saal", n_carte:"Die Karte", n_visit:"Infos",
+  hero_sub:"Bar, Terrasse und Saal in der ehemaligen Mousel-Brauerei, an den Rives de Clausen — ein Haus.",
+  hero_cta1:"Das Haus entdecken", hero_cta2:"Anrufen", hero_chip:"9 Rives de Clausen, Grund · Luxemburg",
+  m_eyebrow:"Das Haus", m_est:"Rives de Clausen · Seit 2014", m_head:"Die Bar, der Saal & das Fest — ein Haus.",
+  m_p1:"Jakob's House liegt in einem Gebäude der Rives de Clausen, dem ehemaligen Gelände der Mousel-Brauerei — dem alten Brauereiviertel im Grund, heute ein Ensemble aus Bars und Restaurants an der Alzette.",
+  m_p2:"Im Erdgeschoss die Bar und die Terrasse. Im Obergeschoss der Saal mit seiner Holzlattenfassade. Und, wenn gefeiert wird, ein großer privater Saal. Drei Stimmungen, ein Name: eat, meet & dance.",
+  g_eyebrow:"Erdgeschoss", g_head:"Die Bar & die Terrasse.",
+  g_p:"Eine Bar aus dunklem Holz und Spiegel, und eine Terrasse zum Verweilen mit Freunden — Kissen, Decken, Heizstrahler, im Schatten der Rives de Clausen.",
+  u_eyebrow:"Im Obergeschoss", u_head:"Der Saal, hinter dem Lattenwerk.",
+  u_p:"In der Küche entstehen sorgfältig zubereitete Gerichte aus guten Zutaten — der Saal blickt durch eine hölzerne Lattenfassade über die Dächer des Grund, eines der markantesten Merkmale des Hauses.",
+  u_spot_k:"Weltküche", u_spot_p:"Burger und Fondue gehören zu den Stammgästen der Karte, neben einer breiteren Küche — unprätentiös, gedacht für den Tisch wie für den späten Abend.",
+  c_eyebrow:"Die Karte", c_head:"Burger, Fondue & Weltküche.", c_intro:"Hier die groben Linien der Karte — die vollständige Auswahl mit Preisen gibt es im Restaurant.",
+  c_g1_h:"Burger", c_g1_p:"Ein Stammgast des Hauses, an der Bar wie im Saal serviert.",
+  c_g2_h:"Fondue", c_g2_p:"Die andere Spezialität — zum Teilen, für einen Abend, der sich Zeit nimmt.",
+  c_g3_h:"Weltküche", c_g3_p:"Der Rest der Karte, breiter, ohne eine einzige feste Küchenrichtung.",
+  c_g3_p2:"Weltküche — der Rest der Karte, breiter, ohne eine einzige feste Küchenrichtung.",
+  c_pricenote:"Kategorien beispielhaft; detaillierte Karte, Gerichte und Preise im Restaurant zu bestätigen.",
+  e_eyebrow:"Das Haus für Sie", e_head:"Hochzeiten, Geburtstage, Events.",
+  e_p:"Der große Saal im Obergeschoss wird nach Ihren Wünschen eingerichtet — für eine Hochzeit, einen Geburtstag oder ein Firmentreffen. Kapazität und Angebot direkt beim Haus zu bestätigen.",
+  e_t1:"Wedding Party", e_t2:"Birthday Party", e_t3:"Firmenevents",
+  v_eyebrow:"Praktische Infos", v_head:"9 Rives de Clausen, Grund.",
+  l_addr:"Adresse", l_tel:"Telefon", l_mail:"E-Mail", l_hours:"Öffnungszeiten",
+  h_val:"Montags geschlossen · Di-Fr 10-24 Uhr · Sa 10-13 Uhr, dann 15:30-spät · genaue Zeiten zu bestätigen",
+  v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
+  ds_k:"Alte Webseite", ds_p:"jakobs.lu antwortet nicht mehr — dies ist ein Vorschlag für eine neue Webseite, aus Ihren eigenen Fotos und Ihrer Karte.",
+  foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (archivierte jakobs.lu-Seite, editus.lu, gastronomie.lu, cityshopping.lu, Google Maps), durch eigene Bilder zu ersetzen. Logo als Vorschlag, nach Ihrem Schild. Karte in groben Kategorien ohne Preise gezeigt — detaillierte Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten von der alten Seite übernommen, zu bestätigen.",
+  foot_made:"Eine Vorschau von"
+ },
+ en:{
+  brand_sub:"Rives de Clausen · Est. 2014", n_maison:"The house", n_etage:"The dining room", n_carte:"The menu", n_visit:"Find us",
+  hero_sub:"Bar, terrace and dining room in the former Mousel brewery, at the Rives de Clausen — one house.",
+  hero_cta1:"Discover the house", hero_cta2:"Call", hero_chip:"9 Rives de Clausen, Grund · Luxembourg",
+  m_eyebrow:"The house", m_est:"Rives de Clausen · Est. 2014", m_head:"The bar, the dining room & the party — one house.",
+  m_p1:"Jakob's House occupies a building at the Rives de Clausen, the former site of the Mousel brewery — the old brewing quarter of the Grund, now a cluster of bars and restaurants along the Alzette.",
+  m_p2:"Downstairs, the bar and the terrace. Upstairs, the dining room and its timber-lattice facade. And, when the house is dressed for a party, a large private room. Three moods, one name: eat, meet & dance.",
+  g_eyebrow:"Ground floor", g_head:"The bar & the terrace.",
+  g_p:"A bar dressed in dark wood and mirror, and a terrace fitted out for a drink with friends — cushions, throws, outdoor heaters, in the shade of the Rives de Clausen.",
+  u_eyebrow:"Upstairs", u_head:"The dining room, behind the lattice.",
+  u_p:"In the kitchen, dishes are prepared with care from good ingredients — the dining room looks out over the rooftops of the Grund through a timber-lattice facade, one of the house's most striking features.",
+  u_spot_k:"World kitchen", u_spot_p:"Burgers and fondue are among the menu's regulars, alongside a broader kitchen — unpretentious, built for the table as much as the late hours of an evening.",
+  c_eyebrow:"The menu", c_head:"Burgers, fondue & world kitchen.", c_intro:"Here are the broad lines of the menu — the full selection, with prices, is served in-house.",
+  c_g1_h:"Burgers", c_g1_p:"One of the house regulars, served at the bar as much as in the dining room.",
+  c_g2_h:"Fondue", c_g2_p:"The other signature — for sharing, on an evening that settles in.",
+  c_g3_h:"World kitchen", c_g3_p:"The rest of the menu, wider, with no single fixed cuisine.",
+  c_g3_p2:"World kitchen — the rest of the menu, wider, with no single fixed cuisine.",
+  c_pricenote:"Categories indicative; the detailed menu and prices are to be confirmed in-house.",
+  e_eyebrow:"The house, for you", e_head:"Weddings, birthdays, events.",
+  e_p:"The large upstairs room is arranged to fit your needs — for a wedding, a birthday, or a corporate gathering. Capacity and quotes to be confirmed directly with the house.",
+  e_t1:"Wedding party", e_t2:"Birthday party", e_t3:"Corporate",
+  v_eyebrow:"Find us", v_head:"9 Rives de Clausen, Grund.",
+  l_addr:"Address", l_tel:"Phone", l_mail:"Email", l_hours:"Hours",
+  h_val:"Closed Mondays · Tue-Fri 10am-midnight · Sat 10am-1pm then 3:30pm-late · hours to be confirmed",
+  v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
+  ds_k:"Old website", ds_p:"jakobs.lu no longer responds — this is a proposal for a new site, built from your own photos and menu.",
+  foot_disc:"Demonstration preview composed by Webwerk from public photos and information (archived jakobs.lu site, editus.lu, gastronomie.lu, cityshopping.lu, Google Maps), to be replaced with your own visuals. Logo proposed, based on your own sign. Menu shown in broad categories with no prices — the detailed menu and prices are to be confirmed in-house. Hours taken from the old site, to be confirmed.",
+  foot_made:"A preview by"
+ }
+};
+function applyLang(l){
+  const d = I18N[l] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ const k=el.getAttribute('data-i18n'); if(d[k]!=null) el.textContent=d[k]; });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  try{ localStorage.setItem('jakobshouse_lang', l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
+(function(){ let l='fr'; try{ l=localStorage.getItem('jakobshouse_lang')||'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* ===== signature: warm dust motes drifting up through the hero, catching the light like the lattice photo ===== */
+(function(){
+  const c=document.getElementById('dust'); if(!c) return;
+  const hero=document.getElementById('hero'), ctx=c.getContext('2d');
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  let W=0,H=0,motes=[],raf=null,running=false;
+  function build(){
+    motes=[];
+    const n=Math.max(18,Math.round(W*H/32000));
+    for(let i=0;i<n;i++){ motes.push({ x:Math.random()*W, y:H+Math.random()*H*.6, r:.7+Math.random()*2, vy:.18+Math.random()*.42, drift:.2+Math.random()*.5, ph:Math.random()*6.28, a:.25+Math.random()*.45 }); }
+  }
+  function size(){ const r=hero.getBoundingClientRect(); W=r.width; H=r.height; c.width=Math.round(W*dpr); c.height=Math.round(H*dpr); c.style.width=W+'px'; c.style.height=H+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); build(); if(reduce) draw(true); }
+  function draw(stat){
+    ctx.clearRect(0,0,W,H);
+    for(const m of motes){
+      if(!stat){ m.y-=m.vy; m.x+=Math.sin(m.y/48+m.ph)*m.drift*0.4; if(m.y+m.r<0){ m.y=H+4; m.x=Math.random()*W; } }
+      ctx.beginPath(); ctx.arc(m.x,m.y,m.r,0,6.2832); ctx.fillStyle='rgba(224,181,115,'+m.a.toFixed(2)+')'; ctx.fill();
+    }
+  }
+  function frame(){ draw(false); raf=requestAnimationFrame(frame); }
+  function start(){ if(running||reduce) return; running=true; frame(); }
+  function stop(){ running=false; if(raf) cancelAnimationFrame(raf); raf=null; }
+  size();
+  const vis=new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?start():stop(); }); }, {threshold:.02});
+  vis.observe(hero);
+  let rt=null; window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(size,180); });
+})();
+</script>
+</body>
+</html>
