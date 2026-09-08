@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g stroke='%23d1502a' stroke-width='9' stroke-linecap='round'><line x1='14' y1='30' x2='86' y2='30'/><line x1='14' y1='50' x2='86' y2='50'/><line x1='14' y1='70' x2='86' y2='70'/><line x1='36' y1='22' x2='36' y2='78'/><line x1='64' y1='22' x2='64' y2='78'/></g></svg>" />
+<title>Restaurant Penalty — Grill croate · Oberkorn, Differdange</title>
+<meta name="description" content="Le grill croate d'Oberkorn — grillades croates, mix grill, ćevapi et pljeskavica, portions généreuses. Aperçu de site composé par Webwerk." />
+<style>
+/* ===== FONTS (self-hosted, 0 external) ===== */
+@font-face{font-family:'Yeseva';src:url('assets/fonts/yeseva-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Yeseva';src:url('assets/fonts/yeseva-latinext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Karla';src:url('assets/fonts/karla-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Karla';src:url('assets/fonts/karla-latinext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/* ===== TOKENS (dark charcoal grill house) ===== */
+:root{
+  --bg:#211d19; --bg2:#191512; --panel:#2b2520; --char:#141010;
+  --cream:#f4ece0; --cream2:#d7cbb6; --muted:#a1968554; --muted:#a39887;
+  --red:#d1502a; --red2:#e8703f; --ember:#ff8a45;
+  --wood:#8a6a48; --line:#3b332c; --line2:#4a4038;
+  --maxw:1180px; --disp:'Yeseva',Georgia,serif; --body:'Karla',system-ui,-apple-system,sans-serif;
+  --sh:0 24px 52px rgba(0,0,0,.45); --sh-s:0 12px 26px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream2);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,46px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.04;color:var(--cream)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:700;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red2)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--red)}
+.blk{padding:clamp(56px,8.5vw,104px) 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.grate-mk{flex:0 0 auto}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:60;background:rgba(25,21,18,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
+.brand .grate-mk{color:var(--red);height:26px;width:26px}
+.brand .bt{font-family:var(--disp);font-size:1.6rem;line-height:.9;letter-spacing:.02em}
+.brand .bt small{display:block;font-family:var(--body);font-weight:700;font-size:.5rem;letter-spacing:.24em;color:var(--muted);margin-top:5px;text-transform:uppercase}
+.navright{display:flex;align-items:center;gap:22px}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{font-family:var(--body);font-weight:600;font-size:.95rem;color:var(--cream2)}
+.menu a:hover{color:var(--red2)}
+.langs{display:flex;gap:2px;background:var(--panel);border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--cream2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--red);color:#fff}
+.burger{display:none;background:transparent;border:0;color:var(--cream);cursor:pointer;padding:6px;font-size:1.5rem;line-height:1}
+@media(max-width:860px){
+  .menu{position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--line);padding:6px 0;transform:translateY(-140%);transition:transform .32s ease;box-shadow:var(--sh-s)}
+  .menu.open{transform:none}.menu a{padding:15px clamp(20px,5vw,46px);width:100%;border-top:1px solid var(--line)}
+  .burger{display:block}
+}
+@media(max-width:520px){.brand .bt{font-size:1.4rem}.navright{gap:12px}}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:clamp(560px,88vh,800px);display:flex;align-items:flex-end;color:var(--cream);background:#100c0a;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 45%;opacity:.86}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(184deg,rgba(16,12,10,.5) 0%,rgba(16,12,10,.32) 34%,rgba(16,12,10,.72) 74%,rgba(14,10,8,.95) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:92px;padding-bottom:clamp(42px,6vw,74px)}
+.hero .eyebrow{color:var(--ember)}.hero .eyebrow::before{background:var(--red2)}
+.hero h1{font-size:clamp(72px,15vw,180px);letter-spacing:.01em;margin:12px 0 0;text-shadow:0 4px 44px rgba(0,0,0,.55)}
+.hero .tag{font-family:var(--disp);font-size:clamp(22px,3.4vw,36px);color:var(--ember);margin:6px 0 0}
+.hero .sub{font-family:var(--body);font-size:1.05rem;color:#e9e0d0;margin:16px 0 0;max-width:52ch;line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
+.hero .rate{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:.9rem;color:#e2d8c6}
+.hero .rate b{color:#fff}.hero .rate .star{color:var(--ember)}
+.btn{font-family:var(--body);font-weight:700;font-size:.96rem;letter-spacing:.02em;border:0;border-radius:5px;padding:14px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn.p{background:var(--red);color:#fff}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(209,80,42,.45)}
+.btn.g{background:rgba(255,255,255,.09);color:var(--cream);border:1px solid rgba(255,255,255,.32)}
+.btn.g:hover{background:rgba(255,255,255,.17)}
+
+/* ===== SEAR BAND (signature) ===== */
+.searband{position:relative;height:76px;background:#140f0c;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.searband::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(90,74,60,.5) 0 2px,transparent 2px 30px)}
+.searband::after{content:"";position:absolute;top:0;bottom:0;width:24%;left:-32%;background:linear-gradient(90deg,transparent,rgba(209,80,42,.5),rgba(255,138,69,.92),rgba(209,80,42,.5),transparent);filter:blur(3px);mix-blend-mode:screen}
+.searband.sear::after{animation:sear 1.7s cubic-bezier(.42,0,.2,1) forwards}
+@keyframes sear{to{left:112%}}
+@media(prefers-reduced-motion:reduce){.searband.sear::after{animation:none;left:38%}}
+.searband .lbl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--body);font-weight:700;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:#8a7a68;z-index:2}
+
+/* ===== GRILL (signature section) ===== */
+.grill{background:var(--bg2)}
+.ggrid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+.grill h2{font-size:clamp(34px,5vw,60px);margin:14px 0 0}
+.grill .lede{font-size:1.16rem;color:var(--cream2);margin:22px 0 0;max-width:40ch}
+.grill p.body{color:var(--muted);margin:15px 0 0;max-width:44ch}
+.gpic{border-radius:14px;overflow:hidden;box-shadow:var(--sh);aspect-ratio:4/3.3;border:1px solid var(--line)}
+.gpic img{width:100%;height:100%;object-fit:cover}
+/* one warm unifying grade so mixed Google-Maps plates read as one dark, deliberate set */
+.mosaic img,.gpic img,.salle .pic img,.mapcard img{filter:contrast(1.05) saturate(.9) sepia(.14) brightness(.97)}
+
+/* ===== CARTE ===== */
+.carte{background:var(--bg)}
+.carte .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.carte h2{font-size:clamp(34px,5vw,60px);margin:12px 0 0}
+.carte .intro{color:var(--muted);max-width:56ch;margin:14px auto 0;text-align:center}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:clamp(30px,4vw,48px)}
+.mosaic figure{position:relative;border-radius:12px;overflow:hidden;box-shadow:var(--sh-s);margin:0;aspect-ratio:1/1;border:1px solid var(--line)}
+.mosaic figure.w2{grid-column:span 2;aspect-ratio:2/1}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 13px 9px;font-family:var(--disp);font-size:.98rem;color:#fff;background:linear-gradient(transparent,rgba(10,7,5,.82))}
+@media(max-width:760px){.mosaic{grid-template-columns:repeat(2,1fr)}}
+.menucols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);margin-top:clamp(34px,4.5vw,54px)}
+.mgroup{margin-bottom:28px}
+.mgroup h3{font-family:var(--disp);font-size:1.55rem;color:var(--cream);display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:11px;border-bottom:1px solid var(--line2);margin-bottom:13px}
+.mgroup h3 .grate-mk{color:var(--red);height:18px;width:18px}
+.item{display:flex;gap:6px 12px;align-items:baseline;margin:10px 0;flex-wrap:wrap}
+.item .nm{font-weight:700;color:var(--cream);min-width:0}
+.item .ds{color:var(--muted);font-size:.86rem}
+.pop{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);border:1px solid rgba(255,138,69,.4);border-radius:999px;padding:2px 8px;margin-left:8px}
+.wines{margin-top:8px;padding:20px 22px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.wines .k{font-family:var(--disp);font-size:1.2rem;color:var(--ember)}
+.wines p{margin-top:5px;color:var(--cream2);font-size:.96rem}
+.pricenote{margin-top:20px;font-size:.86rem;color:var(--muted);text-align:center}
+
+/* ===== SALLE (atmosphere) ===== */
+.salle{background:var(--panel)}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.salle .txt{padding:clamp(48px,7vw,92px) clamp(22px,5vw,60px)}
+.salle h2{font-size:clamp(30px,4.4vw,50px);margin:14px 0 0}
+.salle p{color:var(--cream2);margin:18px 0 0;max-width:42ch;font-size:1.04rem}
+.salle .pic img{width:100%;height:100%;object-fit:cover;min-height:280px}
+@media(max-width:860px){.salle .sgrid{grid-template-columns:1fr}}
+
+/* ===== INFOS ===== */
+.visit{background:var(--char)}
+.visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+.visit h2{font-size:clamp(30px,4.4vw,50px);margin:14px 0 0}
+.info{margin-top:24px}
+.info .row{padding:14px 0;border-top:1px solid var(--line)}
+.info .row:last-child{border-bottom:1px solid var(--line)}
+.info .k{font-family:var(--body);font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red2)}
+.info .v{margin-top:5px;color:var(--cream)}
+.info .v a{border-bottom:1px solid var(--line2)}
+.info .cl{color:var(--muted)}
+.visit .cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.mapcard{border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start;border:1px solid var(--line)}
+.mapcard img{width:100%;height:100%;object-fit:cover;min-height:300px}
+@media(max-width:760px){.visit .vgrid2{grid-template-columns:1fr}}
+
+/* ===== FOOTER ===== */
+footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;line-height:1.6}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.foot-top .bt{font-family:var(--disp);font-size:1.6rem;color:var(--cream);display:flex;align-items:center;gap:11px}
+.foot-top .bt .grate-mk{color:var(--red);height:22px;width:22px}
+.disc{margin-top:22px;color:#726858;max-width:82ch}
+.madeby{margin-top:14px;color:var(--red2)}
+.madeby a{color:#e9c3ad;border-bottom:1px solid rgba(233,195,173,.4)}
+@media(max-width:860px){.ggrid{grid-template-columns:1fr;gap:34px}}
+</style>
+</head>
+<body id="top">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="grate" stroke="currentColor" stroke-width="8" stroke-linecap="round"><line x1="14" y1="30" x2="86" y2="30"/><line x1="14" y1="50" x2="86" y2="50"/><line x1="14" y1="70" x2="86" y2="70"/><line x1="36" y1="22" x2="36" y2="78"/><line x1="64" y1="22" x2="64" y2="78"/></g>
+</defs></svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Restaurant Penalty">
+      <svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg>
+      <span class="bt">Penalty<small data-i18n="brand_sub">Grill croate · Oberkorn</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#grill" data-i18n="n_grill">Le grill</a>
+        <a href="#carte" data-i18n="n_carte">La carte</a>
+        <a href="#salle" data-i18n="n_salle">La salle</a>
+        <a href="#visit" data-i18n="n_visit">Infos</a>
+      </nav>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="bg"><img src="assets/salle.jpg" alt="La salle de Restaurant Penalty — bois sombre, ambiance feutrée" /></div>
+    <div class="shade"></div>
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="hero_eyebrow">Grill croate · Oberkorn</span>
+      <h1>Penalty</h1>
+      <p class="tag" data-i18n="hero_tag">Grillades généreuses.</p>
+      <p class="sub" data-i18n="hero_sub">Le grill croate d'Oberkorn : mix grill, ćevapi et pljeskavica, viande soignée et portions généreuses, dans une salle sombre, tout en bois. Une adresse du quartier.</p>
+      <div class="cta">
+        <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
+        <a href="tel:+352586984" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 58 69 84</a>
+      </div>
+      <div class="rate"><span class="star">★</span> <b>4,5</b> · 537 <span data-i18n="rate_word">avis Google</span></div>
+    </div>
+  </section>
+
+  <!-- SEAR BAND -->
+  <div class="searband" id="searband"><span class="lbl" data-i18n="sear_lbl">Sur le grill</span></div>
+
+  <!-- GRILL -->
+  <section class="grill blk" id="grill">
+    <div class="wrap ggrid">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="g_eyebrow">Le grill</span>
+        <h2 data-i18n="g_head">Toute la grillade croate, sur une assiette.</h2>
+        <p class="lede" data-i18n="g_lede">Le mix grill réunit les spécialités : ćevapčići, pljeskavica, brochettes et viandes grillées, servis avec ajvar et oignons.</p>
+        <p class="body" data-i18n="g_p1">On vient pour la grillade et la générosité de l'assiette. Une cuisine des Balkans franche, sans esbroufe, dans une salle en bois sombre et lumière basse — un vrai restaurant de quartier.</p>
+      </div>
+      <div class="gpic reveal"><img src="assets/plat-mixed-grill.jpg" alt="Le mix grill croate — grillades, ajvar, oignons" /></div>
+    </div>
+  </section>
+
+  <!-- CARTE -->
+  <section class="carte blk" id="carte">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow" data-i18n="c_eyebrow">La carte</span>
+        <h2 data-i18n="c_head">Grillades &amp; spécialités.</h2>
+        <p class="intro" data-i18n="c_intro">Une sélection d'après nos photos — la carte complète et les prix se découvrent en salle.</p>
+      </div>
+      <div class="mosaic reveal">
+        <figure class="w2"><img src="assets/plat-grillade.jpg" alt="Grillade mixte" /><figcaption data-i18n="m_grill">Mix grill croate</figcaption></figure>
+        <figure><img src="assets/plat-cevapi.jpg" alt="Ćevapčići" /><figcaption>Ćevapčići</figcaption></figure>
+        <figure><img src="assets/plat-pljeskavica.jpg" alt="Pljeskavica" /><figcaption>Pljeskavica</figcaption></figure>
+        <figure><img src="assets/plat-entrecote.jpg" alt="Entrecôte grillée" /><figcaption data-i18n="m_entrecote">Entrecôte</figcaption></figure>
+        <figure><img src="assets/plat-brochettes.jpg" alt="Brochettes / ražnjići" /><figcaption data-i18n="m_broch">Brochettes</figcaption></figure>
+        <figure><img src="assets/salade.jpg" alt="Salade de scampis" /><figcaption data-i18n="m_salade">Salade scampis</figcaption></figure>
+        <figure><img src="assets/dessert.jpg" alt="Dessert — fraises chantilly" /><figcaption data-i18n="m_dessert">Dessert</figcaption></figure>
+      </div>
+      <div class="menucols reveal">
+        <div>
+          <div class="mgroup">
+            <h3><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg><span data-i18n="g_grillades">Grillades</span></h3>
+            <div class="item"><span class="nm" data-i18n="d_mix">Mix grill croate</span><span class="pop" data-i18n="pop">populaire · Google</span></div>
+            <div class="item"><span class="nm">Ćevapčići</span></div>
+            <div class="item"><span class="nm">Pljeskavica</span></div>
+            <div class="item"><span class="nm" data-i18n="d_broch">Brochettes (ražnjići)</span></div>
+          </div>
+          <div class="mgroup">
+            <h3><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg><span data-i18n="g_sea">Poissons &amp; salades</span></h3>
+            <div class="item"><span class="nm" data-i18n="d_scampi">Salade de scampis</span></div>
+            <div class="item"><span class="nm" data-i18n="d_moules">Moules</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="mgroup">
+            <h3><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg><span data-i18n="g_meats">Viandes</span></h3>
+            <div class="item"><span class="nm" data-i18n="d_entrecote">Entrecôte grillée</span></div>
+            <div class="item"><span class="nm" data-i18n="d_cordon">Cordon bleu, crème de champignons</span><span class="pop" data-i18n="pop2">populaire · Google</span></div>
+            <div class="item"><span class="nm" data-i18n="d_cheval">Filet de cheval, sauce vin rouge</span><span class="pop" data-i18n="pop3">populaire · Google</span></div>
+          </div>
+          <div class="mgroup">
+            <h3><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg>Dolci</h3>
+            <div class="item"><span class="nm" data-i18n="d_dessert">Fraises chantilly &amp; profiterole</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="wines reveal">
+        <span class="k" data-i18n="w_k">Cave croate</span>
+        <p data-i18n="w_p">Des vins de Croatie à la carte — Dingač, Plavac Mali — pour accompagner la grillade.</p>
+      </div>
+      <p class="pricenote reveal" data-i18n="c_pricenote">Plats d'après nos photos ; les plats « populaires » sont signalés par Google. Carte et prix en salle — comptez environ 30–40 € par personne (source Google).</p>
+    </div>
+  </section>
+
+  <!-- SALLE -->
+  <section class="salle" id="salle">
+    <div class="sgrid">
+      <div class="txt reveal">
+        <span class="eyebrow" data-i18n="s_eyebrow">La salle</span>
+        <h2 data-i18n="s_head">Bois sombre, lumière basse.</h2>
+        <p data-i18n="s_p">Une salle chaleureuse et feutrée, à deux pas de la gare d'Oberkorn — pour un dîner tranquille ou une tablée qui s'attarde. Repas sur place ou à emporter.</p>
+      </div>
+      <div class="pic reveal"><img src="assets/salle-2.jpg" alt="La salle à manger, tables dressées" /></div>
+    </div>
+  </section>
+
+  <!-- INFOS -->
+  <section class="visit blk" id="visit">
+    <div class="wrap vgrid2">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="vi_eyebrow">Infos</span>
+        <h2 data-i18n="vi_head">Rue de la Gare, Oberkorn.</h2>
+        <div class="info">
+          <div class="row"><div class="k" data-i18n="l_addr">Adresse</div><div class="v">22 Rue de la Gare, L-4571 Oberkorn (Differdange)</div></div>
+          <div class="row"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+352586984">58 69 84</a></div></div>
+          <div class="row"><div class="k" data-i18n="l_hours">Horaires</div><div class="v">
+            <div data-i18n="h_days">Lun · Mer–Dim : 11h30–14h &amp; 18h–21h30</div>
+            <div class="cl" data-i18n="h_tue">Mardi : fermé</div>
+          </div></div>
+          <div class="row"><div class="k" data-i18n="l_serv">Services</div><div class="v" data-i18n="serv_val">Sur place · à emporter</div></div>
+        </div>
+        <div class="cta">
+          <a href="tel:+352586984" class="btn p" data-i18n="vi_call">Appeler pour réserver</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+Penalty+22+Rue+de+la+Gare+Oberkorn" target="_blank" rel="noopener" class="btn g" data-i18n="vi_dir">Itinéraire</a>
+        </div>
+      </div>
+      <div class="mapcard reveal"><img src="assets/facade-wide.jpg" alt="La devanture, rue de la Gare à Oberkorn" /></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="bt"><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg>Restaurant Penalty</span>
+      <span>22 Rue de la Gare, L-4571 Oberkorn · <a href="tel:+352586984" style="color:#e9c3ad">58 69 84</a></span>
+    </div>
+    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps ; façade Google Street View, 2023), à remplacer par vos propres visuels. La maison n'a pas de logo — seulement son nom ; identité proposée. Carte sans prix : plats d'après photos, plats « populaires » signalés par Google, carte et prix en salle. Note 4,5/5 et plats populaires : Google. À revérifier avant tout contact.</p>
+    <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+ fr:{
+  brand_sub:"Grill croate · Oberkorn", n_grill:"Le grill", n_carte:"La carte", n_salle:"La salle", n_visit:"Infos",
+  hero_eyebrow:"Grill croate · Oberkorn", hero_tag:"Grillades généreuses.",
+  hero_sub:"Le grill croate d'Oberkorn : mix grill, ćevapi et pljeskavica, viande soignée et portions généreuses, dans une salle sombre, tout en bois. Une adresse du quartier.",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler", rate_word:"avis Google", sear_lbl:"Sur le grill",
+  g_eyebrow:"Le grill", g_head:"Toute la grillade croate, sur une assiette.",
+  g_lede:"Le mix grill réunit les spécialités : ćevapčići, pljeskavica, brochettes et viandes grillées, servis avec ajvar et oignons.",
+  g_p1:"On vient pour la grillade et la générosité de l'assiette. Une cuisine des Balkans franche, sans esbroufe, dans une salle en bois sombre et lumière basse — un vrai restaurant de quartier.",
+  c_eyebrow:"La carte", c_head:"Grillades & spécialités.", c_intro:"Une sélection d'après nos photos — la carte complète et les prix se découvrent en salle.",
+  m_grill:"Mix grill croate", m_entrecote:"Entrecôte", m_broch:"Brochettes", m_salade:"Salade scampis", m_dessert:"Dessert",
+  g_grillades:"Grillades", d_mix:"Mix grill croate", d_broch:"Brochettes (ražnjići)",
+  g_sea:"Poissons & salades", d_scampi:"Salade de scampis", d_moules:"Moules",
+  g_meats:"Viandes", d_entrecote:"Entrecôte grillée", d_cordon:"Cordon bleu, crème de champignons", d_cheval:"Filet de cheval, sauce vin rouge",
+  d_dessert:"Fraises chantilly & profiterole",
+  pop:"populaire · Google", pop2:"populaire · Google", pop3:"populaire · Google",
+  w_k:"Cave croate", w_p:"Des vins de Croatie à la carte — Dingač, Plavac Mali — pour accompagner la grillade.",
+  c_pricenote:"Plats d'après nos photos ; les plats « populaires » sont signalés par Google. Carte et prix en salle — comptez environ 30–40 € par personne (source Google).",
+  s_eyebrow:"La salle", s_head:"Bois sombre, lumière basse.",
+  s_p:"Une salle chaleureuse et feutrée, à deux pas de la gare d'Oberkorn — pour un dîner tranquille ou une tablée qui s'attarde. Repas sur place ou à emporter.",
+  vi_eyebrow:"Infos", vi_head:"Rue de la Gare, Oberkorn.",
+  l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_days:"Lun · Mer–Dim : 11h30–14h & 18h–21h30", h_tue:"Mardi : fermé",
+  l_serv:"Services", serv_val:"Sur place · à emporter",
+  vi_call:"Appeler pour réserver", vi_dir:"Itinéraire",
+  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps ; façade Google Street View, 2023), à remplacer par vos propres visuels. La maison n'a pas de logo — seulement son nom ; identité proposée. Carte sans prix : plats d'après photos, plats « populaires » signalés par Google, carte et prix en salle. Note 4,5/5 et plats populaires : Google. À revérifier avant tout contact.",
+  foot_made:"Un aperçu"
+ },
+ de:{
+  brand_sub:"Kroatischer Grill · Oberkorn", n_grill:"Der Grill", n_carte:"Die Karte", n_salle:"Der Saal", n_visit:"Infos",
+  hero_eyebrow:"Kroatischer Grill · Oberkorn", hero_tag:"Großzügige Grillteller.",
+  hero_sub:"Der kroatische Grill in Oberkorn: Mixed Grill, Ćevapi und Pljeskavica, sorgfältiges Fleisch und großzügige Portionen, in einem dunklen Saal aus Holz. Eine Adresse des Viertels.",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", rate_word:"Google-Bewertungen", sear_lbl:"Auf dem Grill",
+  g_eyebrow:"Der Grill", g_head:"Der ganze kroatische Grill auf einem Teller.",
+  g_lede:"Der Mixed Grill vereint die Spezialitäten: Ćevapčići, Pljeskavica, Spieße und gegrilltes Fleisch, serviert mit Ajvar und Zwiebeln.",
+  g_p1:"Man kommt für den Grill und die großzügige Portion. Ehrliche Balkanküche ohne Schnickschnack, in einem Saal aus dunklem Holz bei gedämpftem Licht — ein echtes Viertelrestaurant.",
+  c_eyebrow:"Die Karte", c_head:"Grill & Spezialitäten.", c_intro:"Eine Auswahl nach unseren Fotos — die vollständige Karte und die Preise gibt es im Restaurant.",
+  m_grill:"Kroatischer Mixed Grill", m_entrecote:"Entrecôte", m_broch:"Spieße", m_salade:"Scampi-Salat", m_dessert:"Dessert",
+  g_grillades:"Grill", d_mix:"Kroatischer Mixed Grill", d_broch:"Spieße (Ražnjići)",
+  g_sea:"Fisch & Salate", d_scampi:"Scampi-Salat", d_moules:"Muscheln",
+  g_meats:"Fleisch", d_entrecote:"Gegrilltes Entrecôte", d_cordon:"Cordon bleu, Champignonrahm", d_cheval:"Pferdefilet, Rotweinsauce",
+  d_dessert:"Erdbeeren mit Sahne & Profiterole",
+  pop:"beliebt · Google", pop2:"beliebt · Google", pop3:"beliebt · Google",
+  w_k:"Kroatischer Weinkeller", w_p:"Kroatische Weine auf der Karte — Dingač, Plavac Mali — zum Grill.",
+  c_pricenote:"Gerichte nach unseren Fotos; die „beliebten“ Gerichte sind von Google markiert. Karte und Preise im Restaurant — rechnen Sie mit etwa 30–40 € pro Person (Quelle: Google).",
+  s_eyebrow:"Der Saal", s_head:"Dunkles Holz, gedämpftes Licht.",
+  s_p:"Ein warmer, gemütlicher Saal, wenige Schritte vom Bahnhof Oberkorn — für ein ruhiges Abendessen oder eine Runde, die bleibt. Vor Ort oder zum Mitnehmen.",
+  vi_eyebrow:"Infos", vi_head:"Rue de la Gare, Oberkorn.",
+  l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_days:"Mo · Mi–So: 11:30–14 & 18–21:30", h_tue:"Dienstag: geschlossen",
+  l_serv:"Services", serv_val:"Vor Ort · zum Mitnehmen",
+  vi_call:"Zum Reservieren anrufen", vi_dir:"Route",
+  foot_disc:"Demo-Vorschau von Webwerk aus öffentlichen Fotos (Google Maps; Fassade Google Street View, 2023), durch eigene Bilder zu ersetzen. Das Haus hat kein Logo — nur den Namen; Identität als Vorschlag. Karte ohne Preise: Gerichte nach Fotos, „beliebte“ Gerichte von Google markiert, Karte und Preise im Restaurant. Bewertung 4,5/5 und beliebte Gerichte: Google. Vor Kontakt zu prüfen.",
+  foot_made:"Eine Vorschau von"
+ },
+ en:{
+  brand_sub:"Croatian grill · Oberkorn", n_grill:"The grill", n_carte:"The menu", n_salle:"The room", n_visit:"Find us",
+  hero_eyebrow:"Croatian grill · Oberkorn", hero_tag:"Generous grills.",
+  hero_sub:"The Croatian grill in Oberkorn: mixed grill, ćevapi and pljeskavica, carefully-cooked meat and generous plates, in a dark, wood-lined room. A neighbourhood address.",
+  hero_cta1:"See the menu", hero_cta2:"Call", rate_word:"Google reviews", sear_lbl:"On the grill",
+  g_eyebrow:"The grill", g_head:"The whole Croatian grill, on one plate.",
+  g_lede:"The mixed grill brings the specialities together: ćevapčići, pljeskavica, skewers and grilled meats, served with ajvar and onions.",
+  g_p1:"You come for the grill and the generosity of the plate. Honest Balkan cooking, no fuss, in a dark-wood room under low light — a real neighbourhood restaurant.",
+  c_eyebrow:"The menu", c_head:"Grills & specialities.", c_intro:"A selection from our photos — the full menu and prices are found in-house.",
+  m_grill:"Croatian mixed grill", m_entrecote:"Entrecôte", m_broch:"Skewers", m_salade:"Scampi salad", m_dessert:"Dessert",
+  g_grillades:"Grills", d_mix:"Croatian mixed grill", d_broch:"Skewers (ražnjići)",
+  g_sea:"Fish & salads", d_scampi:"Scampi salad", d_moules:"Mussels",
+  g_meats:"Meats", d_entrecote:"Grilled entrecôte", d_cordon:"Cordon bleu, mushroom cream", d_cheval:"Horse fillet, red-wine sauce",
+  d_dessert:"Strawberries & cream, profiterole",
+  pop:"popular · Google", pop2:"popular · Google", pop3:"popular · Google",
+  w_k:"Croatian cellar", w_p:"Croatian wines on the list — Dingač, Plavac Mali — to go with the grill.",
+  c_pricenote:"Dishes from our photos; the “popular” dishes are flagged by Google. Menu and prices in-house — reckon on about €30–40 per person (source: Google).",
+  s_eyebrow:"The room", s_head:"Dark wood, low light.",
+  s_p:"A warm, snug room a step from the Oberkorn station — for a quiet dinner or a table that lingers. Dine-in or takeaway.",
+  vi_eyebrow:"Find us", vi_head:"Rue de la Gare, Oberkorn.",
+  l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_days:"Mon · Wed–Sun: 11:30–14 & 18–21:30", h_tue:"Tuesday: closed",
+  l_serv:"Services", serv_val:"Dine-in · takeaway",
+  vi_call:"Call to reserve", vi_dir:"Directions",
+  foot_disc:"Demonstration preview composed by Webwerk from public photos (Google Maps; facade Google Street View, 2023), to be replaced with your own visuals. The venue has no logo — only its name; identity proposed. Menu without prices: dishes from photos, “popular” dishes flagged by Google, menu and prices in-house. 4.5/5 rating and popular dishes: Google. To be re-verified before any contact.",
+  foot_made:"A preview by"
+ }
+};
+function applyLang(l){
+  const d = I18N[l] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ const k=el.getAttribute('data-i18n'); if(d[k]!=null) el.textContent=d[k]; });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  try{ localStorage.setItem('penalty_lang', l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
+(function(){ let l='fr'; try{ l=localStorage.getItem('penalty_lang')||'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* the sear sweeps across the grate when the band scrolls in */
+(function(){
+  const b=document.getElementById('searband'); if(!b) return;
+  const sio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ b.classList.add('sear'); sio.unobserve(b); } }); }, {threshold:.5});
+  sio.observe(b);
+})();
+</script>
+</body>
+</html>
