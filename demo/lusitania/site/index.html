@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" type="image/png" href="assets/img/crest.png" />
+<title>Restaurant Lusitânia — Cuisine portugaise, Dippach</title>
+<meta name="description" content="Le Portugal plus près de nous — cuisine portugaise et française à Dippach depuis 2007. Aperçu de site composé par Webwerk." />
+<style>
+@font-face{font-family:'Bitter';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/bitter-500-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Bitter';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/bitter-500-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Bitter';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/bitter-600-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Bitter';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/bitter-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Bitter';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/bitter-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Bitter';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/bitter-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Bitter';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/bitter-800-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Bitter';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/bitter-800-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/nunito-sans-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/nunito-sans-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/nunito-sans-600-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/nunito-sans-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/nunito-sans-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Nunito Sans';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/nunito-sans-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+
+:root{
+  --paper:#f7f0e6; --paper2:#ecdfc9; --cream:#fbf6ec; --card:#fffcf5;
+  --ink:#241713; --ink2:#5a423a; --muted:#93796d;
+  --wine:#6b1f2a; --wine2:#4a151d; --gold:#c9a227; --gold2:#a6841c;
+  --line:#e1d0b4;
+  --maxw:1160px; --disp:'Bitter',Georgia,serif; --body:'Nunito Sans',system-ui,-apple-system,sans-serif;
+  --sh:0 22px 48px rgba(36,23,19,.2); --sh-s:0 10px 24px rgba(36,23,19,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.64;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,46px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.06}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:700;font-size:.86rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)}
+.eyebrow::before{content:'';width:20px;height:2px;background:var(--gold2)}
+.blk{padding:clamp(58px,8.5vw,108px) 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+header{position:sticky;top:0;z-index:60;background:rgba(247,240,230,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink)}
+.brand img{height:40px;width:auto}
+.brand .bt{font-family:var(--disp);font-weight:700;font-size:1.28rem;line-height:.9}
+.brand .bt small{display:block;font-family:var(--body);font-weight:600;font-size:.48rem;letter-spacing:.2em;color:var(--muted);margin-top:5px;text-transform:uppercase}
+.navright{display:flex;align-items:center;gap:20px}
+.menu{display:flex;align-items:center;gap:24px}
+.menu a{font-family:var(--body);font-weight:700;font-size:.9rem;color:var(--ink2)}
+.menu a:hover{color:var(--wine)}
+.langs{display:flex;gap:2px;background:var(--paper2);border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--ink2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--wine);color:#fff}
+.burger{display:none;background:transparent;border:0;color:var(--ink);cursor:pointer;padding:6px}
+@media(max-width:860px){
+  .menu{position:fixed;inset:76px 0 auto 0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 0;transform:translateY(-140%);transition:transform .32s ease;box-shadow:var(--sh-s)}
+  .menu.open{transform:none}
+  .menu a{padding:15px clamp(20px,5vw,46px);width:100%;border-top:1px solid var(--line)}
+  .burger{display:block}
+}
+@media(max-width:520px){.brand .bt{font-size:1.05rem}.navright{gap:10px}.brand img{height:32px}}
+
+.hero{position:relative;min-height:clamp(600px,90vh,840px);display:flex;align-items:flex-end;color:#fff;background:#1e0c0f;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(182deg,rgba(30,12,15,.44) 0%,rgba(30,12,15,.12) 32%,rgba(30,12,15,.78) 78%,rgba(20,8,10,.94) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:100px;padding-bottom:clamp(44px,6vw,76px)}
+.hero .crest{height:64px;width:auto;margin-bottom:14px;filter:drop-shadow(0 2px 10px rgba(0,0,0,.55))}
+.hero h1{color:#fff;font-size:clamp(42px,8vw,88px);letter-spacing:-.01em;text-shadow:0 3px 40px rgba(0,0,0,.5)}
+.hero .tag{font-family:var(--body);font-weight:700;font-size:clamp(15px,1.9vw,19px);letter-spacing:.05em;color:var(--gold);margin:12px 0 0}
+.hero .sub{font-family:var(--body);font-size:1.04rem;color:#f2e6d8;margin:16px 0 0;max-width:54ch;line-height:1.6;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
+.hero .chip{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--body);font-size:.88rem;color:#ecdcc4}
+.btn{font-family:var(--body);font-weight:700;font-size:.98rem;border:0;border-radius:8px;padding:13px 25px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn.p{background:var(--gold);color:#2a1a0a}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(201,162,39,.35)}
+.btn.g{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5)}
+.btn.g:hover{background:rgba(255,255,255,.2)}
+
+.maison{background:var(--cream)}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.maison h2{font-size:clamp(32px,4.6vw,52px);margin:14px 0 0;color:var(--ink)}
+.maison p{color:var(--ink2);margin:16px 0 0;max-width:52ch}
+.maison blockquote{margin-top:20px;padding-left:18px;border-left:3px solid var(--gold);font-style:italic;color:var(--wine2);font-family:var(--disp);font-size:1.15rem}
+.estbadge{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:clamp(26px,3vw,38px);background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-s)}
+.estbadge img{width:120px;height:auto}
+.estbadge .est{font-family:var(--disp);font-weight:700;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;color:var(--wine)}
+@media(max-width:860px){.mgrid{grid-template-columns:1fr}.estbadge{max-width:280px;margin:0 auto}}
+
+.tileband{position:relative;height:58px;overflow:hidden}
+.tileband .tcrest-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:rgba(247,240,230,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.tileband .tcrest-wrap img{height:36px;width:auto}
+@media(max-width:520px){.tileband{height:42px}.tileband .tcrest-wrap{width:34px;height:34px}.tileband .tcrest-wrap img{height:26px}}
+.tileband.tag .tband-row{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:13px}
+.tileband.tag .tcrest-wrap{position:static;transform:none}
+.tband-tag{font-family:var(--body);font-weight:700;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#c9a227;white-space:nowrap}
+@media(max-width:640px){.tband-tag{font-size:.6rem;letter-spacing:.13em}}
+@media(max-width:400px){.tband-tag{display:none}}
+
+.spot{position:relative;background:#1e0c0f;color:#f2e6d8;overflow:hidden}
+.sgrid{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:340px;gap:0}
+.sgrid img{width:100%;height:100%;object-fit:cover;display:block}
+.stxt{background:var(--wine2);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;justify-content:center}
+.stxt .k{font-family:var(--disp);font-weight:700;letter-spacing:.06em;color:var(--gold);font-size:1.1rem}
+.stxt p{margin-top:10px;color:#e6d8c4;max-width:34ch;font-size:.96rem}
+@media(max-width:760px){.sgrid{grid-template-columns:1fr;grid-template-rows:auto 220px}}
+
+.carte{background:var(--paper)}
+.carte .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.carte .head-c .eyebrow{justify-content:center}
+.carte h2{font-size:clamp(32px,4.6vw,50px);margin:12px 0 0}
+.carte .intro{color:var(--ink2);max-width:58ch;margin:14px auto 0;text-align:center}
+.menucols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);margin-top:clamp(36px,5vw,58px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-size:1.4rem;color:var(--wine);padding-bottom:11px;border-bottom:1px solid var(--line);margin-bottom:14px;font-weight:600}
+.dishrow{display:inline;color:var(--ink2);font-size:.98rem;line-height:1.9}
+.dishrow b{color:var(--ink);font-weight:600}
+.pricenote{margin-top:26px;font-size:.86rem;color:var(--muted);text-align:center}
+
+.events{background:var(--wine2);color:#f2e6d8}
+.egrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);align-items:center}
+.events .eyebrow{color:var(--gold)}.events .eyebrow::before{background:var(--gold)}
+.events h2{color:#fff;font-size:clamp(30px,4.4vw,48px);margin:14px 0 0}
+.events p{color:#e0cfb8;margin:16px 0 0;max-width:46ch}
+.etags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.etags span{font-family:var(--body);font-weight:700;font-size:.82rem;letter-spacing:.04em;padding:8px 14px;border:1px solid rgba(230,216,196,.34);border-radius:999px;color:#e6d8c4}
+.epic{border-radius:16px;overflow:hidden;box-shadow:var(--sh);aspect-ratio:4/3.2}
+.epic img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.egrid{grid-template-columns:1fr}}
+
+.visit{background:var(--cream)}
+.visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+.info{margin-top:24px}
+.info .row{padding:15px 0;border-top:1px solid var(--line)}
+.info .row:last-child{border-bottom:1px solid var(--line)}
+.info .k{font-family:var(--body);font-weight:700;font-size:.84rem;letter-spacing:.12em;text-transform:uppercase;color:var(--wine)}
+.info .v{margin-top:5px;color:var(--ink)}
+.info .v a{border-bottom:1px solid var(--line)}
+.visit .cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.visit .cta .btn.g{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.deadsite{margin-top:26px;padding:18px 20px;background:var(--card);border:1px dashed var(--muted);border-radius:12px}
+.deadsite .k{font-family:var(--body);font-weight:700;font-size:.84rem;letter-spacing:.08em;text-transform:uppercase;color:var(--wine)}
+.deadsite p{margin-top:6px;color:var(--ink2);font-size:.92rem}
+.mapcard{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start;min-height:300px}
+.mapcard svg{width:100%;height:100%;display:block;min-height:300px}
+.mapcta{position:absolute;left:18px;bottom:16px;font-family:var(--body);font-weight:700;font-size:.86rem;color:#fff;background:rgba(30,12,15,.6);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 14px}
+
+footer{background:var(--ink);color:#b9ac9e;padding:44px 0 40px;font-size:.86rem;line-height:1.6}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-top .bt{font-family:var(--disp);font-weight:700;font-size:1.3rem;color:#f2ece0;display:flex;align-items:center;gap:10px}
+.foot-top .bt img{height:30px}
+.disc{margin-top:22px;color:#8f8271;max-width:80ch}
+.madeby{margin-top:14px;color:var(--gold)}
+.madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+</style>
+</head>
+<body id="top">
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Restaurant Lusitânia">
+      <img src="assets/img/logo.png" alt="" />
+      <span class="bt">Lusitânia<small data-i18n="brand_sub">Depuis 2007 · Dippach</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#maison" data-i18n="n_maison">La maison</a>
+        <a href="#carte" data-i18n="n_carte">La carte</a>
+        <a href="#events" data-i18n="n_events">Fêtes</a>
+        <a href="#visit" data-i18n="n_visit">Infos</a>
+      </nav>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 32 22" width="22" height="16"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M1 2H31M1 11H31M1 20H31"/></g></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <div class="bg"><img src="assets/img/dish-bacalhau.jpg" alt="Bacalhau, olives, pommes de terre grenaille" /></div>
+    <div class="shade"></div>
+    <div class="wrap">
+      <img class="crest" src="assets/img/crest.png" alt="" />
+      <h1>Restaurant Lusitânia</h1>
+      <p class="tag" data-i18n="hero_tag">Le Portugal plus près de nous.</p>
+      <p class="sub" data-i18n="hero_sub">Cuisine portugaise et française à Dippach, depuis 2007 — bacalhau, grillades et cataplana, dans un cadre chaleureux.</p>
+      <div class="cta">
+        <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
+        <a href="tel:+35226374742" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 26 37 47 42</a>
+      </div>
+      <div class="chip" data-i18n="hero_chip">163 Route de Luxembourg, Dippach</div>
+    </div>
+  </section>
+
+  <div class="tileband tag" style="background:#4a151d">
+    <svg class="tiles" viewBox="0 0 320 52" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="az-dark-1" width="44" height="44" patternUnits="userSpaceOnUse">
+          <rect width="44" height="44" fill="#4a151d"/>
+          <g opacity=".55">
+            <circle cx="14" cy="22" r="8" fill="#c9a227"/>
+            <circle cx="30" cy="22" r="8" fill="#c9a227"/>
+            <circle cx="22" cy="14" r="8" fill="#c9a227"/>
+            <circle cx="22" cy="30" r="8" fill="#c9a227"/>
+            <circle cx="22" cy="22" r="5.5" fill="#4a151d"/>
+          </g>
+        </pattern>
+      </defs>
+      <rect width="320" height="52" fill="url(#az-dark-1)"/>
+    </svg>
+    <div class="tband-row">
+      <span class="tcrest-wrap"><img src="assets/img/crest.png" alt="" /></span>
+      <span class="tband-tag" data-i18n="tag_band">Le Portugal plus près de nous</span>
+    </div>
+  </div>
+
+  <section class="maison blk" id="maison">
+    <div class="wrap mgrid">
+      <div class="estbadge reveal">
+        <img src="assets/img/logo.png" alt="" />
+        <span class="est" data-i18n="m_est">Depuis 2007</span>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="m_eyebrow">La maison</span>
+        <h2 data-i18n="m_head">Le Portugal, à Dippach depuis 2007.</h2>
+        <p data-i18n="m_p1">Une cuisine portugaise et française variée — bacalhau, seiches grillées, filet de bœuf, côte à l'os — préparée avec soin par la maison, dans un cadre chaleureux propice aux repas de famille.</p>
+        <p data-i18n="m_p2">Terrasse d'été, parking, wifi gratuit, et de temps en temps une soirée à thème — la « soirée Fado » — pour retrouver l'ambiance du Portugal.</p>
+        <blockquote data-i18n="m_q">« Le Portugal plus près de nous. »</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="spot" id="carte-spot">
+    <div class="sgrid">
+      <div class="stxt">
+        <span class="k" data-i18n="s_k">La cataplana</span>
+        <p data-i18n="s_p">Gambas cataplana, scampis flambés, grillade mixte de poissons — la mer portugaise, généreusement servie.</p>
+      </div>
+      <img src="assets/img/interior-plaque.jpg" alt="La salle — enseigne Lusitania et tables dressées" />
+    </div>
+  </section>
+
+  <section class="carte blk" id="carte">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow" data-i18n="c_eyebrow">La carte</span>
+        <h2 data-i18n="c_head">Ce qu'on y mange.</h2>
+        <p class="intro" data-i18n="c_intro">Une sélection de plats — la carte complète, avec les prix, est servie en salle.</p>
+      </div>
+      <div class="menucols reveal">
+        <div>
+          <div class="mgroup">
+            <h3 data-i18n="g_entrees">Entrées</h3>
+            <p class="dishrow" data-i18n="d_entrees">Palourdes façon du chef · Scampis à l'ail · Escargots de Bourgogne · Cuisses de grenouille à l'ail · Melon au jambon · Saumon fumé · Salade mixte · Salade de tomates · Spaghettis aux fruits de mer · Spaghettis aux palourdes</p>
+          </div>
+          <div class="mgroup">
+            <h3 data-i18n="g_poissons">Poissons</h3>
+            <p class="dishrow" data-i18n="d_poissons">Morue de mille et une façon · Sôle · Calamares grillés · Seiches grillées · Dorade rôtie au four · Saumon grillé · Grillade mixte de poissons · Brochette façon du chef · Scampis flambés · Cataplana de fruits de mer</p>
+          </div>
+        </div>
+        <div>
+          <div class="mgroup">
+            <h3 data-i18n="g_viandes">Viandes</h3>
+            <p class="dishrow" data-i18n="d_viandes">Filet de cheval · Entrecôte · Filet de bœuf · Côte à l'os grillée · Escalope de veau · Mignon de porc · Cordon bleu de veau · Poulet grillé au barbecue</p>
+          </div>
+          <div class="mgroup">
+            <h3 data-i18n="g_midi">À midi</h3>
+            <p class="dishrow" data-i18n="d_midi">Deux plats du jour, chaque midi.</p>
+          </div>
+        </div>
+      </div>
+      <p class="pricenote" data-i18n="c_pricenote">Sélection indicative ; carte détaillée et prix à confirmer en salle.</p>
+    </div>
+  </section>
+
+  <div class="tileband" style="background:#f7f0e6">
+    <svg class="tiles" viewBox="0 0 320 52" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="az-light-1" width="44" height="44" patternUnits="userSpaceOnUse">
+          <rect width="44" height="44" fill="#f7f0e6"/>
+          <g opacity=".42">
+            <circle cx="14" cy="22" r="8" fill="#6b1f2a"/>
+            <circle cx="30" cy="22" r="8" fill="#6b1f2a"/>
+            <circle cx="22" cy="14" r="8" fill="#6b1f2a"/>
+            <circle cx="22" cy="30" r="8" fill="#6b1f2a"/>
+            <circle cx="22" cy="22" r="5.5" fill="#f7f0e6"/>
+          </g>
+        </pattern>
+      </defs>
+      <rect width="320" height="52" fill="url(#az-light-1)"/>
+    </svg>
+    <span class="tcrest-wrap"><img src="assets/img/crest.png" alt="" /></span>
+  </div>
+
+  <section class="events blk" id="events">
+    <div class="wrap egrid">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="e_eyebrow">Fêtes de famille</span>
+        <h2 data-i18n="e_head">Mariages, baptêmes, communions.</h2>
+        <p data-i18n="e_p">La salle peut être privatisée pour vos grandes occasions — la maison propose un cadre chaleureux pour recevoir famille et amis. Capacité et devis à confirmer directement avec le restaurant.</p>
+        <div class="etags">
+          <span data-i18n="e_t1">Mariages</span>
+          <span data-i18n="e_t2">Baptêmes</span>
+          <span data-i18n="e_t3">Communions</span>
+          <span data-i18n="e_t4">Soirée Fado</span>
+        </div>
+      </div>
+      <div class="epic reveal"><img src="assets/img/interior-wide.jpg" alt="La grande salle, colonnes et plantes vertes, prête pour vos fêtes" /></div>
+    </div>
+  </section>
+
+  <div class="tileband" style="background:#4a151d">
+    <svg class="tiles" viewBox="0 0 320 52" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="az-dark-2" width="44" height="44" patternUnits="userSpaceOnUse">
+          <rect width="44" height="44" fill="#4a151d"/>
+          <g opacity=".55">
+            <circle cx="14" cy="22" r="8" fill="#c9a227"/>
+            <circle cx="30" cy="22" r="8" fill="#c9a227"/>
+            <circle cx="22" cy="14" r="8" fill="#c9a227"/>
+            <circle cx="22" cy="30" r="8" fill="#c9a227"/>
+            <circle cx="22" cy="22" r="5.5" fill="#4a151d"/>
+          </g>
+        </pattern>
+      </defs>
+      <rect width="320" height="52" fill="url(#az-dark-2)"/>
+    </svg>
+    <span class="tcrest-wrap"><img src="assets/img/crest.png" alt="" /></span>
+  </div>
+
+  <section class="visit blk" id="visit">
+    <div class="wrap vgrid2">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="v_eyebrow">Infos pratiques</span>
+        <h2 data-i18n="v_head">163 Route de Luxembourg, Dippach.</h2>
+        <div class="info">
+          <div class="row"><div class="k" data-i18n="l_addr">Adresse</div><div class="v">163 Route de Luxembourg, L-4973 Dippach</div></div>
+          <div class="row"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+35226374742">26 37 47 42</a></div></div>
+          <div class="row"><div class="k" data-i18n="l_ger">Gérant</div><div class="v">Paulo Lopes</div></div>
+          <div class="row"><div class="k" data-i18n="l_hours">Horaires</div><div class="v" data-i18n="h_val">Lun-jeu &amp; dim 11h30-14h30, 18h30-22h · ven-sam 11h30-14h30, 18h30-22h30 · horaires à confirmer</div></div>
+          <div class="row"><div class="k" data-i18n="l_serv">Services</div><div class="v" data-i18n="serv_val">Parking · WiFi gratuit · terrasse d'été · terrasse fumeurs couverte</div></div>
+        </div>
+        <div class="cta">
+          <a href="tel:+35226374742" class="btn p" data-i18n="v_call">Appeler pour réserver</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+Lusitania+163+Route+de+Luxembourg+Dippach" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
+        </div>
+        <div class="deadsite reveal">
+          <span class="k" data-i18n="ds_k">Ancien site</span>
+          <p data-i18n="ds_p">restaurant-lusitania.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.</p>
+        </div>
+      </div>
+      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+Lusitania+163+Route+de+Luxembourg+Dippach" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
+        <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
+          <rect width="400" height="300" fill="#1e0c0f"/>
+          <g stroke="#3d2429" stroke-width="10" opacity=".55">
+            <path d="M30 60 H150"/><path d="M220 40 H340"/><path d="M50 230 H160"/><path d="M210 250 H330"/><path d="M60 140 H150"/><path d="M240 150 H360"/>
+          </g>
+          <g transform="translate(200,150)">
+            <circle r="34" fill="rgba(201,162,39,.18)"/>
+            <path d="M0 -22 C12 -22 20 -13 20 -2 C20 12 0 30 0 30 C0 30 -20 12 -20 -2 C-20 -13 -12 -22 0 -22 Z" fill="#c9a227"/>
+            <circle r="6" fill="#1e0c0f"/>
+          </g>
+          <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#d9c4a8" letter-spacing="1">ROUTE DE LUXEMBOURG · DIPPACH</text>
+        </svg>
+        <span class="mapcta" data-i18n="v_dir2">Ouvrir l'itinéraire ↗</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="bt"><img src="assets/img/logo.png" alt="" />Restaurant Lusitânia</span>
+      <span>163 Route de Luxembourg, L-4973 Dippach · <a href="tel:+35226374742" style="color:#e7dcc3">26 37 47 42</a></span>
+    </div>
+    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (ancien site archivé de restaurant-lusitania.lu, rankeat.fr, Google Maps). Logotype réel de la maison, retrouvé sur l'ancien site. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur l'ancien site (2019) et un annuaire (2026), à confirmer.</p>
+    <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+ fr:{
+  brand_sub:"Depuis 2007 · Dippach", n_maison:"La maison", n_carte:"La carte", n_events:"Fêtes", n_visit:"Infos",
+  hero_tag:"Le Portugal plus près de nous.", tag_band:"Le Portugal plus près de nous",
+  hero_sub:"Cuisine portugaise et française à Dippach, depuis 2007 — bacalhau, grillades et cataplana, dans un cadre chaleureux.",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler", hero_chip:"163 Route de Luxembourg, Dippach",
+  m_eyebrow:"La maison", m_est:"Depuis 2007", m_head:"Le Portugal, à Dippach depuis 2007.",
+  m_p1:"Une cuisine portugaise et française variée — bacalhau, seiches grillées, filet de bœuf, côte à l'os — préparée avec soin par la maison, dans un cadre chaleureux propice aux repas de famille.",
+  m_p2:"Terrasse d'été, parking, wifi gratuit, et de temps en temps une soirée à thème — la « soirée Fado » — pour retrouver l'ambiance du Portugal.",
+  m_q:"« Le Portugal plus près de nous. »",
+  s_k:"La cataplana", s_p:"Gambas cataplana, scampis flambés, grillade mixte de poissons — la mer portugaise, généreusement servie.",
+  c_eyebrow:"La carte", c_head:"Ce qu'on y mange.", c_intro:"Une sélection de plats — la carte complète, avec les prix, est servie en salle.",
+  g_entrees:"Entrées", d_entrees:"Palourdes façon du chef · Scampis à l'ail · Escargots de Bourgogne · Cuisses de grenouille à l'ail · Melon au jambon · Saumon fumé · Salade mixte · Salade de tomates · Spaghettis aux fruits de mer · Spaghettis aux palourdes",
+  g_poissons:"Poissons", d_poissons:"Morue de mille et une façon · Sôle · Calamares grillés · Seiches grillées · Dorade rôtie au four · Saumon grillé · Grillade mixte de poissons · Brochette façon du chef · Scampis flambés · Cataplana de fruits de mer",
+  g_viandes:"Viandes", d_viandes:"Filet de cheval · Entrecôte · Filet de bœuf · Côte à l'os grillée · Escalope de veau · Mignon de porc · Cordon bleu de veau · Poulet grillé au barbecue",
+  g_midi:"À midi", d_midi:"Deux plats du jour, chaque midi.",
+  c_pricenote:"Sélection indicative ; carte détaillée et prix à confirmer en salle.",
+  e_eyebrow:"Fêtes de famille", e_head:"Mariages, baptêmes, communions.",
+  e_p:"La salle peut être privatisée pour vos grandes occasions — la maison propose un cadre chaleureux pour recevoir famille et amis. Capacité et devis à confirmer directement avec le restaurant.",
+  e_t1:"Mariages", e_t2:"Baptêmes", e_t3:"Communions", e_t4:"Soirée Fado",
+  v_eyebrow:"Infos pratiques", v_head:"163 Route de Luxembourg, Dippach.",
+  l_addr:"Adresse", l_tel:"Téléphone", l_ger:"Gérant", l_hours:"Horaires",
+  h_val:"Lun-jeu & dim 11h30-14h30, 18h30-22h · ven-sam 11h30-14h30, 18h30-22h30 · horaires à confirmer",
+  l_serv:"Services", serv_val:"Parking · WiFi gratuit · terrasse d'été · terrasse fumeurs couverte",
+  v_call:"Appeler pour réserver", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
+  ds_k:"Ancien site", ds_p:"restaurant-lusitania.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.",
+  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (ancien site archivé de restaurant-lusitania.lu, rankeat.fr, Google Maps). Logotype réel de la maison, retrouvé sur l'ancien site. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur l'ancien site (2019) et un annuaire (2026), à confirmer.",
+  foot_made:"Un aperçu"
+ },
+ de:{
+  brand_sub:"Seit 2007 · Dippach", n_maison:"Das Haus", n_carte:"Die Karte", n_events:"Feiern", n_visit:"Infos",
+  hero_tag:"Portugal, näher bei uns.", tag_band:"Portugal, näher bei uns",
+  hero_sub:"Portugiesische und französische Küche in Dippach, seit 2007 — Bacalhau, Grillgerichte und Cataplana, in herzlicher Atmosphäre.",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", hero_chip:"163 Route de Luxembourg, Dippach",
+  m_eyebrow:"Das Haus", m_est:"Seit 2007", m_head:"Portugal, in Dippach seit 2007.",
+  m_p1:"Eine vielfältige portugiesische und französische Küche — Bacalhau, gegrillte Sepia, Rinderfilet, Kotelett am Knochen — sorgfältig zubereitet, in herzlicher Atmosphäre für Familienfeiern.",
+  m_p2:"Sommerterrasse, Parkplatz, kostenloses WLAN, und gelegentlich ein Themenabend — der „Fado-Abend“ — für die Atmosphäre Portugals.",
+  m_q:"„Portugal, näher bei uns.“",
+  s_k:"Die Cataplana", s_p:"Gambas Cataplana, flambierte Scampi, gemischter Fischgrill — das portugiesische Meer, großzügig serviert.",
+  c_eyebrow:"Die Karte", c_head:"Was hier gegessen wird.", c_intro:"Eine Auswahl an Gerichten — die vollständige Karte mit Preisen gibt es im Restaurant.",
+  g_entrees:"Vorspeisen", d_entrees:"Venusmuscheln nach Art des Chefs · Knoblauch-Scampi · Weinbergschnecken · Froschschenkel mit Knoblauch · Melone mit Schinken · Räucherlachs · Gemischter Salat · Tomatensalat · Spaghetti mit Meeresfrüchten · Spaghetti mit Venusmuscheln",
+  g_poissons:"Fischgerichte", d_poissons:"Kabeljau auf tausend und eine Art · Seezunge · Gegrillte Tintenfischringe · Gegrillte Sepia · Ofen-Dorade · Gegrillter Lachs · Gemischter Fischgrill · Spieß nach Art des Chefs · Flambierte Scampi · Cataplana mit Meeresfrüchten",
+  g_viandes:"Fleischgerichte", d_viandes:"Pferdefilet · Entrecôte · Rinderfilet · Kotelett am Knochen, gegrillt · Kalbsschnitzel · Schweinemedaillons · Cordon bleu vom Kalb · Gegrilltes Hähnchen vom Grill",
+  g_midi:"Mittags", d_midi:"Zwei Tagesgerichte, jeden Mittag.",
+  c_pricenote:"Auswahl beispielhaft; detaillierte Karte und Preise im Restaurant zu bestätigen.",
+  e_eyebrow:"Familienfeiern", e_head:"Hochzeiten, Taufen, Kommunionen.",
+  e_p:"Der Saal kann für Ihre großen Anlässe privatisiert werden — das Haus bietet einen herzlichen Rahmen, um Familie und Freunde zu empfangen. Kapazität und Angebot direkt mit dem Restaurant zu bestätigen.",
+  e_t1:"Hochzeiten", e_t2:"Taufen", e_t3:"Kommunionen", e_t4:"Fado-Abend",
+  v_eyebrow:"Praktische Infos", v_head:"163 Route de Luxembourg, Dippach.",
+  l_addr:"Adresse", l_tel:"Telefon", l_ger:"Geschäftsführer", l_hours:"Öffnungszeiten",
+  h_val:"Mo-Do & So 11:30-14:30, 18:30-22 Uhr · Fr-Sa 11:30-14:30, 18:30-22:30 Uhr · genaue Zeiten zu bestätigen",
+  l_serv:"Services", serv_val:"Parkplatz · Kostenloses WLAN · Sommerterrasse · überdachte Raucherterrasse",
+  v_call:"Zum Reservieren anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
+  ds_k:"Alte Webseite", ds_p:"restaurant-lusitania.lu antwortet nicht mehr — dies ist ein Vorschlag für eine neue Webseite, aus Ihren Fotos und Ihrer Karte.",
+  foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (archivierte Seite von restaurant-lusitania.lu, rankeat.fr, Google Maps). Echtes Logo des Hauses, von der alten Seite. Karte in groben Kategorien ohne Preise gezeigt — detaillierte Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten von der alten Seite (2019) und einem Verzeichnis (2026), zu bestätigen.",
+  foot_made:"Eine Vorschau von"
+ },
+ en:{
+  brand_sub:"Since 2007 · Dippach", n_maison:"The house", n_carte:"The menu", n_events:"Celebrations", n_visit:"Find us",
+  hero_tag:"Portugal, closer to us.", tag_band:"Portugal, closer to us",
+  hero_sub:"Portuguese and French cooking in Dippach, since 2007 — bacalhau, grilled dishes and cataplana, in a warm setting.",
+  hero_cta1:"See the menu", hero_cta2:"Call", hero_chip:"163 Route de Luxembourg, Dippach",
+  m_eyebrow:"The house", m_est:"Since 2007", m_head:"Portugal, in Dippach since 2007.",
+  m_p1:"A varied Portuguese and French kitchen — bacalhau, grilled cuttlefish, beef filet, bone-in rib — prepared with care, in a warm setting suited to family meals.",
+  m_p2:"Summer terrace, parking, free WiFi, and now and then a themed evening — the \"Fado night\" — to bring back the atmosphere of Portugal.",
+  m_q:"\"Portugal, closer to us.\"",
+  s_k:"The cataplana", s_p:"Prawn cataplana, flambéed scampi, mixed fish grill — the Portuguese sea, generously served.",
+  c_eyebrow:"The menu", c_head:"What's on the table.", c_intro:"A selection of dishes — the full menu, with prices, is served in-house.",
+  g_entrees:"Starters", d_entrees:"Clams the chef's way · Garlic scampi · Burgundy snails · Garlic frog legs · Melon & ham · Smoked salmon · Mixed salad · Tomato salad · Seafood spaghetti · Clam spaghetti",
+  g_poissons:"Fish", d_poissons:"Salt cod a thousand ways · Sole · Grilled squid rings · Grilled cuttlefish · Oven-roasted sea bream · Grilled salmon · Mixed fish grill · Skewer the chef's way · Flambéed scampi · Seafood cataplana",
+  g_viandes:"Meat", d_viandes:"Horse filet · Entrecôte · Beef filet · Grilled bone-in rib · Veal escalope · Pork medallions · Veal cordon bleu · Barbecue-grilled chicken",
+  g_midi:"At lunch", d_midi:"Two daily specials, every lunchtime.",
+  c_pricenote:"Selection indicative; the detailed menu and prices are to be confirmed in-house.",
+  e_eyebrow:"Family celebrations", e_head:"Weddings, baptisms, communions.",
+  e_p:"The room can be privatised for your big occasions — the house offers a warm setting to host family and friends. Capacity and quotes to be confirmed directly with the restaurant.",
+  e_t1:"Weddings", e_t2:"Baptisms", e_t3:"Communions", e_t4:"Fado night",
+  v_eyebrow:"Find us", v_head:"163 Route de Luxembourg, Dippach.",
+  l_addr:"Address", l_tel:"Phone", l_ger:"Manager", l_hours:"Hours",
+  h_val:"Mon-Thu & Sun 11:30am-2:30pm, 6:30-10pm · Fri-Sat 11:30am-2:30pm, 6:30-10:30pm · hours to be confirmed",
+  l_serv:"Amenities", serv_val:"Parking · Free WiFi · summer terrace · covered smoking terrace",
+  v_call:"Call to book", v_dir:"Directions", v_dir2:"Open directions ↗",
+  ds_k:"Old website", ds_p:"restaurant-lusitania.lu no longer responds — this is a proposal for a new site, built from your own photos and menu.",
+  foot_disc:"Demonstration preview composed by Webwerk from public photos and information (archived restaurant-lusitania.lu site, rankeat.fr, Google Maps). Real logo of the house, recovered from the old site. Menu shown in broad categories with no prices — the detailed menu and prices are to be confirmed in-house. Hours taken from the old site (2019) and a directory (2026), to be confirmed.",
+  foot_made:"A preview by"
+ }
+};
+function applyLang(l){
+  const d = I18N[l] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ const k=el.getAttribute('data-i18n'); if(d[k]!=null) el.textContent=d[k]; });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  try{ localStorage.setItem('lusitania_lang', l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
+(function(){ let l='fr'; try{ l=localStorage.getItem('lusitania_lang')||'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
