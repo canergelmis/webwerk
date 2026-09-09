@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2314201a'/><text x='50' y='68' font-family='Georgia,serif' font-style='italic' font-size='58' fill='%23edeae0' text-anchor='middle'>G</text></svg>" />
+<title>Trattoria da Gino — Cuisine italienne, tout fait maison · Gare, Luxembourg</title>
+<meta name="description" content="Trattoria da Gino — pas de carte imprimée, juste l'ardoise refaite chaque jour. Cuisine ouverte, pâtes fraîches. 5 rue Glesener, quartier Gare, Luxembourg." />
+<style>
+/* ===== FONTS (self-hosted, 0 external requests) ===== */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/fraunces-c2Wa0KxC9TeA.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/fraunces-Wa0KxCFTeOU.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:400 600;font-display:swap;src:url('assets/fonts/fraunces-TK0K1ChjeveQ.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:400 600;font-display:swap;src:url('assets/fonts/fraunces-K1ChjdPeQ5Y.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Familjen Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('assets/fonts/familjengrotesk-1wby8WbHoEjw.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Familjen Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url('assets/fonts/familjengrotesk-by8WbHQEj6M7.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url('assets/fonts/caveat-bAfYB2Q7ZjYY.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url('assets/fonts/caveat-YB2Q7aDYYmg8.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+
+/* ===== TOKENS ===== */
+:root{
+  --wall:#F5EEE0; --wall2:#EDE4D2; --card:#FFFCF5;
+  --ink:#241F1C; --ink2:#4A423A; --muted:#8A7F70;
+  --ardoise:#182620; --ardoise2:#0F1C16;
+  --chalk:#EDEAE0; --chalk-dim:rgba(237,234,224,.68);
+  --tomato:#B7202E; --tomato-d:#8F1620; --basil:#2E5A3E; --terracotta:#C9782D;
+  --stamp:#D9A24B;
+  --line:rgba(36,31,28,.14);
+  --maxw:1180px;
+  --serif:'Fraunces',Georgia,serif; --sans:'Familjen Grotesk',system-ui,-apple-system,sans-serif; --chalkfont:'Caveat',cursive;
+  --sh:0 24px 50px -20px rgba(20,18,14,.28); --sh-s:0 10px 26px -14px rgba(20,18,14,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--wall);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--sans);font-weight:700;line-height:1.04;letter-spacing:-.015em;color:var(--ardoise)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--tomato)}
+.eyebrow::before{content:"";width:16px;height:2px;background:var(--tomato);border-radius:2px}
+section{padding:clamp(56px,7vw,100px) 0}
+.lede{font-size:1.14rem;color:var(--ink2);max-width:52ch}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:40;background:rgba(245,238,224,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,48px);gap:16px}
+.brand{display:flex;align-items:baseline;gap:8px}
+.brand .b1{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-family:var(--sans);font-weight:700;color:var(--ink2)}
+.brand .b2{font-family:var(--chalkfont);font-weight:700;font-style:normal;font-size:1.7rem;color:var(--tomato)}
+.nav-links{display:flex;gap:26px;font-size:.88rem;font-weight:600;color:var(--ink2)}
+.nav-links a:hover{color:var(--tomato)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.langs{display:flex;gap:2px;background:var(--wall2);border-radius:20px;padding:3px}
+.langs button{border:0;background:transparent;font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.05em;padding:6px 11px;border-radius:16px;cursor:pointer;color:var(--ink2)}
+.langs button.on{background:var(--ardoise);color:var(--chalk)}
+.nav-cta{background:var(--tomato);color:#fff;font-weight:700;font-size:.84rem;padding:10px 18px;border-radius:24px;box-shadow:0 5px 0 var(--tomato-d);transition:transform .12s}
+.nav-cta:hover{transform:translateY(-1px)}
+@media (max-width:820px){.nav-links{display:none}}
+@media (max-width:480px){
+  .nav{padding:12px 16px;gap:8px}
+  .brand .b1{display:none}
+  .nav-cta{display:none}
+  .langs button{padding:6px 8px;font-size:.68rem}
+}
+
+/* ===== HERO ===== */
+#hero{padding-top:clamp(40px,6vw,64px)}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,4vw,60px);align-items:center}
+.hero-copy h1{font-size:clamp(2.3rem,4vw,3.5rem);margin:16px 0 18px}
+.hero-copy h1 .chalked{font-family:var(--chalkfont);font-weight:700;font-style:normal;color:var(--tomato);position:relative;padding:0 .06em}
+.hero-copy h1 .chalked::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.02em;height:.09em;background:var(--terracotta);opacity:.35;border-radius:2px;transform:rotate(-.6deg)}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 28px;list-style:none}
+.facts li{font-size:.82rem;font-weight:600;color:var(--ink2);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:7px 14px;display:flex;align-items:center;gap:7px}
+.facts .dot{width:6px;height:6px;border-radius:50%;background:var(--terracotta)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.95rem;padding:13px 22px;border-radius:4px;text-decoration:none;cursor:pointer;border:0}
+.btn-solid{background:var(--tomato);color:#fff;box-shadow:0 5px 0 var(--tomato-d)}
+.btn-solid:hover{transform:translateY(-1px)}
+.btn-outline{border:2px solid var(--ardoise);color:var(--ardoise)}
+.btn-outline:hover{background:var(--ardoise);color:var(--chalk)}
+.btn svg{width:15px;height:15px;fill:currentColor}
+
+.board-frame{position:relative;background:var(--ardoise2);border-radius:6px;padding:14px 14px 46px;box-shadow:var(--sh);transform:rotate(.6deg)}
+.board-frame img{border-radius:2px;width:100%;aspect-ratio:4/3;object-fit:cover}
+.board-cap{position:absolute;left:14px;right:14px;bottom:14px;display:flex;justify-content:space-between;align-items:baseline;font-family:var(--chalkfont);color:var(--chalk-dim);font-size:1.05rem}
+.board-cap b{color:#fff}
+
+/* ===== STORY (LA MAISON) ===== */
+#story .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,4vw,60px);align-items:center}
+#story h2{font-size:clamp(1.9rem,3vw,2.6rem);margin:14px 0 18px}
+#story p{color:var(--ink2);margin-bottom:14px;font-size:1.04rem}
+.story-photo{aspect-ratio:4/5;border-radius:4px;overflow:hidden;box-shadow:var(--sh-s)}
+.story-photo img{width:100%;height:100%;object-fit:cover}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.badges span{font-size:.8rem;font-weight:600;color:var(--basil);border:1px solid rgba(46,90,62,.3);border-radius:30px;padding:6px 14px}
+
+/* ===== ARDOISE (real board) ===== */
+#ardoise{background:var(--ardoise);color:var(--chalk)}
+#ardoise .eyebrow{color:var(--stamp)}
+#ardoise .eyebrow::before{background:var(--stamp)}
+.ard-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin:14px 0 8px}
+.ard-head h2{color:#fff;font-size:clamp(1.9rem,3vw,2.6rem)}
+.stamp{font-family:var(--chalkfont);font-size:1.15rem;color:var(--stamp);border:1.5px dashed rgba(217,162,75,.55);border-radius:8px;padding:4px 14px;transform:rotate(-2deg);white-space:nowrap}
+.ard-note{font-size:.92rem;color:rgba(237,234,224,.65);max-width:60ch;margin-bottom:30px}
+.board-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
+.board-cat h3{font-family:var(--sans);font-weight:700;font-size:.76rem;text-transform:uppercase;letter-spacing:.16em;color:var(--stamp);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(237,234,224,.16)}
+.board-cat ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.board-cat li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:.94rem}
+.board-cat .nm{color:var(--chalk);line-height:1.3}
+.board-cat .pr{font-family:var(--chalkfont);font-size:1.15rem;color:var(--stamp);flex:none}
+.board-cat .sub{display:block;font-size:.72rem;color:rgba(237,234,224,.5);margin-top:2px;font-style:italic}
+@media (max-width:900px){.board-cols{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.board-cols{grid-template-columns:1fr}}
+
+/* ===== RANGE (Nord-Sud) ===== */
+#range{text-align:center}
+#range .eyebrow{justify-content:center}
+#range .eyebrow::before{display:none}
+#range h2{font-size:clamp(1.8rem,3vw,2.4rem);margin:14px auto 16px;max-width:26ch}
+#range p{color:var(--ink2);max-width:58ch;margin:0 auto}
+.regions{display:flex;justify-content:center;gap:clamp(14px,3vw,32px);margin-top:30px;flex-wrap:wrap;font-family:var(--serif);font-style:italic;color:var(--terracotta);font-size:1.15rem}
+.regions span:not(:last-child)::after{content:"·";color:var(--muted);margin-left:clamp(14px,3vw,32px);font-style:normal}
+
+/* ===== AMBIANCE ===== */
+#ambiance .amb-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:30px}
+#ambiance h2{font-size:clamp(1.9rem,3vw,2.6rem)}
+.amb-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:14px}
+.amb-grid a,.amb-grid div{border-radius:4px;overflow:hidden;box-shadow:var(--sh-s)}
+.amb-grid img{width:100%;height:100%;object-fit:cover}
+.amb-1{grid-column:1/2;grid-row:1/3;aspect-ratio:4/5}
+.amb-2{grid-column:2/3;grid-row:1/2;aspect-ratio:4/3}
+.amb-3{grid-column:3/4;grid-row:1/2;aspect-ratio:4/3}
+.amb-4{grid-column:2/4;grid-row:2/3;aspect-ratio:16/7}
+@media (max-width:760px){.amb-grid{grid-template-columns:1fr 1fr}.amb-1{grid-column:1/3;grid-row:1/2;aspect-ratio:16/9}.amb-2{grid-column:1/2;grid-row:2/3}.amb-3{grid-column:2/3;grid-row:2/3}.amb-4{grid-column:1/3;grid-row:3/4}}
+
+/* ===== COMMUNITY PLAQUE ===== */
+#community{padding:44px 0}
+.plaque{max-width:720px;margin:0 auto;background:var(--card);border:1px dashed var(--line);border-radius:6px;padding:26px 30px;display:flex;gap:18px;align-items:flex-start}
+.plaque svg{width:30px;height:30px;flex:none;fill:var(--terracotta);margin-top:2px}
+.plaque p{font-size:.96rem;color:var(--ink2)}
+.plaque b{color:var(--ink)}
+
+/* ===== FIND US ===== */
+#find{background:var(--wall2)}
+.find-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,4vw,56px);align-items:stretch}
+#find h2{font-size:clamp(1.9rem,3vw,2.6rem);margin:14px 0 22px}
+.find-block{margin-bottom:20px}
+.find-block h4{font-family:var(--sans);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--tomato);margin-bottom:6px}
+.find-block p,.find-block a{font-size:1.02rem;color:var(--ink2)}
+.find-block a{color:var(--ardoise);font-weight:600;border-bottom:1px solid rgba(36,31,28,.3)}
+.hours-table{width:100%;border-collapse:collapse;font-size:.94rem}
+.hours-table td{padding:6px 0;border-bottom:1px dashed var(--line)}
+.hours-table td:last-child{text-align:right;color:var(--ink2)}
+.hours-table .closed{color:var(--tomato);font-style:italic}
+.verify-note{font-size:.76rem;color:var(--muted);margin-top:10px}
+.find-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.card-proof{display:flex;align-items:center;gap:12px;margin-top:22px;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:6px;max-width:340px}
+.card-proof img{width:84px;border-radius:3px;flex:none;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.card-proof span{font-size:.74rem;color:var(--muted);line-height:1.4}
+.map-frame{border-radius:4px;overflow:hidden;box-shadow:var(--sh-s);min-height:320px}
+.map-frame iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+@media (max-width:800px){.find-grid{grid-template-columns:1fr}}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ardoise2);color:rgba(237,234,224,.82)}
+footer .wrap{padding:52px clamp(20px,5vw,48px) 40px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:baseline;border-bottom:1px solid rgba(237,234,224,.14);padding-bottom:22px;margin-bottom:22px}
+.foot-top .brand2{font-family:var(--chalkfont);font-weight:700;font-size:1.6rem;color:#fff}
+.foot-social{display:flex;gap:16px;font-size:.88rem}
+.foot-social a{color:var(--stamp)}
+.disc{font-size:.78rem;line-height:1.7;color:rgba(237,234,224,.55);max-width:80ch}
+.madeby{margin-top:18px;font-size:.82rem}
+.madeby a{color:var(--stamp);font-weight:600}
+
+/* ===== MOBILE STICKY BAR ===== */
+.mbar{display:none}
+@media (max-width:720px){
+  .mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:50;box-shadow:0 -4px 18px rgba(0,0,0,.22)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 8px;font-weight:700;font-size:.94rem}
+  .mbar .m-call{background:var(--tomato);color:#fff}
+  .mbar .m-dir{background:var(--ardoise);color:var(--chalk)}
+  .mbar svg{width:15px;height:15px;fill:currentColor}
+  body{padding-bottom:58px}
+  .hero-grid{grid-template-columns:1fr}
+  .board-frame{transform:none;order:-1}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.nav-cta{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#hero" class="brand"><span class="b1">Trattoria</span><span class="b2">da Gino</span></a>
+    <div class="nav-links">
+      <a href="#story" data-i18n="nav_maison">La maison</a>
+      <a href="#ardoise" data-i18n="nav_ardoise">L'ardoise</a>
+      <a href="#find" data-i18n="nav_find">Nous trouver</a>
+    </div>
+    <div class="nav-right">
+      <div class="langs" role="group" aria-label="Langue / Language / Sprache">
+        <button type="button" data-lang="fr" class="on">FR</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a href="tel:+35228777825" class="nav-cta" data-i18n="nav_cta">Réserver</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section id="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero_eyebrow">Trattoria italienne · Gare, Luxembourg</p>
+        <h1 data-i18n="hero_h1">Pas de carte imprimée. Juste <span class="chalked">l'ardoise</span>, refaite chaque jour.</h1>
+        <p class="lede" data-i18n="hero_lede">Une trattoria familiale où la cuisine est ouverte sur la salle. Pâtes fraîches, plats du jour écrits à la craie par Gino lui-même — pas de carte figée, pas de mise en scène.</p>
+        <ul class="facts" aria-label="Infos pratiques">
+          <li><span class="dot"></span><span data-i18n="fact_gare">Quartier Gare</span></li>
+          <li><span class="dot"></span><span data-i18n="fact_kitchen">Cuisine ouverte</span></li>
+          <li><span class="dot"></span><span data-i18n="fact_gf">Sans gluten dispo</span></li>
+          <li><span class="dot"></span><span data-i18n="fact_pets">Chiens bienvenus</span></li>
+        </ul>
+        <div class="hero-cta">
+          <a href="tel:+35228777825" class="btn btn-solid">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>
+            <span data-i18n="cta_call">+352 28 77 78 25</span>
+          </a>
+          <a href="#ardoise" class="btn btn-outline" data-i18n="cta_board">Voir l'ardoise</a>
+        </div>
+      </div>
+      <div class="board-frame">
+        <img src="assets/board.jpg" alt="L'ardoise de la Trattoria da Gino, photographiée en salle en septembre 2026">
+        <div class="board-cap"><span data-i18n="board_cap_l">photographiée en salle</span><b data-i18n="board_cap_r">sept. 2026</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LA MAISON ================= -->
+  <section id="story">
+    <div class="wrap story-grid">
+      <div class="story-copy">
+        <p class="eyebrow" data-i18n="story_eyebrow">La maison</p>
+        <h2 data-i18n="story_h2">Le seul menu, c'est la craie.</h2>
+        <p data-i18n="story_p1">Chez Gino, il n'y a jamais eu de carte imprimée. Ce qui se cuisine chaque jour est écrit à la main sur une ardoise, en salle — et c'est cette même ardoise qui est postée sur Facebook. La carte change tous les jours, selon le marché.</p>
+        <p data-i18n="story_p2">La cuisine est ouverte à l'arrière de la salle : on voit tourner les plats. Gino accueille souvent lui-même les tables et prend le temps d'expliquer ce qu'il y a au tableau — un vrai savoir-faire de la restauration à Luxembourg, mis directement sous les yeux des clients.</p>
+        <div class="badges">
+          <span data-i18n="badge_kitchen">Cuisine ouverte</span>
+          <span data-i18n="badge_board">Ardoise quotidienne</span>
+          <span data-i18n="badge_fresh">Pâtes fraîches</span>
+          <span data-i18n="badge_gf">Sans gluten dispo</span>
+        </div>
+      </div>
+      <div class="story-photo">
+        <img src="assets/ambiance-dining-truffle.jpg" alt="Salle de la Trattoria da Gino : l'ardoise au mur, un plat aux truffes à table">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ARDOISE (real board) ================= -->
+  <section id="ardoise">
+    <div class="wrap">
+      <div class="ard-head">
+        <div>
+          <p class="eyebrow" data-i18n="ard_eyebrow">Ce qui était écrit sur le mur</p>
+          <h2 data-i18n="ard_h2">L'ardoise, telle que photographiée</h2>
+        </div>
+        <span class="stamp" data-i18n="ard_stamp">oggi · un jour de sept. 2026</span>
+      </div>
+      <p class="ard-note" data-i18n="ard_note">La carte change tous les jours — ceci est une ardoise réelle, photographiée en salle un jour donné, pas une carte fixe. Prix relevés tels qu'affichés ce jour-là.</p>
+
+      <div class="board-cols">
+        <div class="board-cat">
+          <h3 data-i18n="cat_antipasti">Antipasti</h3>
+          <ul>
+            <li><span class="nm">Pinsa, pomodoro, mozzarella e pancetta</span><span class="pr">22 €</span></li>
+            <li><span class="nm">Tonno bollito, pesto di basilico e pistacchi e branzino fumé</span><span class="pr">22 €</span></li>
+            <li><span class="nm">Tartare di manzo e salsa tartufata</span><span class="pr">23 €</span></li>
+            <li><span class="nm">Scamorza affumicata, carciofi e aceto balsamico</span><span class="pr">16,50 €</span></li>
+          </ul>
+        </div>
+        <div class="board-cat">
+          <h3><span data-i18n="cat_chef">Consigli dello Chef</span><span class="sub" data-i18n="cat_chef_sub">recommandations du chef</span></h3>
+          <ul>
+            <li><span class="nm">Sedanini alla bolognese di anatra e primo sale</span><span class="pr">24,50 €</span></li>
+            <li><span class="nm">Maritati con seppie e pomodoro</span><span class="pr">23,50 €</span></li>
+            <li><span class="nm">Orecchiette, carciofi stufati e cacio ricotta</span><span class="pr">19 €</span></li>
+            <li><span class="nm">Tagliatelle, taleggio e tartufo nero</span><span class="pr">32 €</span></li>
+            <li><span class="nm">Strascinati integrali, sedano rapa e parmigiano</span><span class="pr">19,50 €</span></li>
+          </ul>
+        </div>
+        <div class="board-cat">
+          <h3><span data-i18n="cat_classici">I Classici</span><span class="sub" data-i18n="cat_classici_sub">les classiques</span></h3>
+          <ul>
+            <li><span class="nm">Trofie, melanzane gratinate al forno</span><span class="pr">18,50 €</span></li>
+            <li><span class="nm">Cortecce alla boscaiola</span><span class="pr">19,50 €</span></li>
+            <li><span class="nm">Spaghettoni carbonara</span><span class="pr">18 €</span></li>
+            <li><span class="nm">Spaghettoni alla forma di formaggio</span><span class="pr">18,50 €</span></li>
+            <li><span class="nm">Spaghettoni cacio e pepe alla forma di pecorino</span><span class="pr">19,50 €</span></li>
+          </ul>
+        </div>
+        <div class="board-cat">
+          <h3><span data-i18n="cat_bipbip">Bip·Bip dello Chef</span><span class="sub" data-i18n="cat_bipbip_sub">la surprise du chef, écrite en rouge sur l'ardoise</span></h3>
+          <ul>
+            <li><span class="nm">Tortelli di patate e verdurine, gamberoni, cipolla rossa di Tropea, pesto di basilico e pistacchi</span><span class="pr">38 €</span></li>
+          </ul>
+        </div>
+        <div class="board-cat">
+          <h3><span data-i18n="cat_carne">Carne</span><span class="sub" data-i18n="cat_carne_sub">viande</span></h3>
+          <ul>
+            <li><span class="nm">Costata Wagyu <span class="sub" style="display:inline" data-i18n="cat_carne_2p">(pour 2 personnes)</span></span><span class="pr">150 €</span></li>
+            <li><span class="nm">Guancia di manzo</span><span class="pr">29,50 €</span></li>
+          </ul>
+        </div>
+        <div class="board-cat">
+          <h3><span data-i18n="cat_pesce">Pesce</span><span class="sub" data-i18n="cat_pesce_sub">poisson</span></h3>
+          <ul>
+            <li><span class="nm">Salmone impanato al forno</span><span class="pr">28,50 €</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RANGE (Nord-Sud) ================= -->
+  <section id="range">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="range_eyebrow">D'une région à l'autre</p>
+      <h2 data-i18n="range_h2">De la Calabre à la Sardaigne, sans quitter la Gare</h2>
+      <p data-i18n="range_p">L'ardoise ne reste jamais dans une seule région : orecchiette et maritati de Puglia, cacio e pepe à la façon calabraise, fregola sarde aux fruits de mer, vitello tonnato du nord — la trattoria fait le tour de l'Italie, un jour à la fois.</p>
+      <div class="regions" aria-hidden="true">
+        <span>Calabria</span><span>Puglia</span><span>Sardegna</span><span>Nord</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AMBIANCE ================= -->
+  <section id="ambiance">
+    <div class="wrap">
+      <div class="amb-head">
+        <div>
+          <p class="eyebrow" data-i18n="amb_eyebrow">À table</p>
+          <h2 data-i18n="amb_h2">Une salle qui sent la cuisine qui tourne</h2>
+        </div>
+      </div>
+      <div class="amb-grid">
+        <a class="amb-1"><img src="assets/dish-carbonara.jpg" alt="Spaghettoni carbonara servis à la Trattoria da Gino"></a>
+        <div class="amb-2"><img src="assets/wine-three-bottles.jpg" alt="Vins mis en bouteille sous étiquette Trattoria da Gino"></div>
+        <div class="amb-3"><img src="assets/dish-orecchiette.jpg" alt="Orecchiette, carciofi stufati e cacio ricotta"></div>
+        <div class="amb-4"><img src="assets/dish-risotto-funghi.jpg" alt="Risotto aux champignons, plat du jour"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMMUNITY PLAQUE ================= -->
+  <section id="community">
+    <div class="wrap">
+      <div class="plaque">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.4 8 2 4.5 5.4 4c2-.3 3.8.7 4.6 2.2C10.8 4.7 12.6 3.7 14.6 4c3.4.5 5 4 3.4 7.7C15.5 16.4 12 21 12 21z"/></svg>
+        <p data-i18n="community_p">Détail relevé sur la fiche Google Maps de l'établissement : l'équipe de la Trattoria a remis un chèque de <b>450 €</b> à la Fondation Kriibskrank Kanner, qui soutient les enfants atteints de cancer au Luxembourg.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FIND US ================= -->
+  <section id="find">
+    <div class="wrap find-grid">
+      <div class="find-info">
+        <p class="eyebrow" data-i18n="find_eyebrow">Nous trouver</p>
+        <h2 data-i18n="find_h2">Réserver &amp; venir</h2>
+        <div class="find-block">
+          <h4 data-i18n="find_addr_l">Adresse</h4>
+          <p>5, rue Glesener<br>L-1631 Luxembourg — <span data-i18n="find_district">quartier Gare</span></p>
+        </div>
+        <div class="find-block">
+          <h4 data-i18n="find_phone_l">Téléphone</h4>
+          <p><a href="tel:+35228777825">+352 28 77 78 25</a></p>
+        </div>
+        <div class="find-block">
+          <h4 data-i18n="find_email_l">E-mail</h4>
+          <p><a href="mailto:trattoriadagino2018@gmail.com">trattoriadagino2018@gmail.com</a></p>
+        </div>
+        <div class="find-block">
+          <h4 data-i18n="find_hours_l">Horaires</h4>
+          <table class="hours-table">
+            <tr><td data-i18n="day_mon">Lundi</td><td>12:00–14:00</td></tr>
+            <tr><td data-i18n="day_tue">Mardi</td><td>12:00–14:00 · 19:00–22:00</td></tr>
+            <tr><td data-i18n="day_wed">Mercredi</td><td>12:00–14:00 · 19:00–22:00</td></tr>
+            <tr><td data-i18n="day_thu">Jeudi</td><td>12:00–14:00 · 19:00–22:00</td></tr>
+            <tr><td data-i18n="day_fri">Vendredi</td><td>12:00–14:00 · 19:00–22:30</td></tr>
+            <tr><td data-i18n="day_sat">Samedi</td><td>19:00–22:30</td></tr>
+            <tr><td data-i18n="day_sun">Dimanche</td><td class="closed" data-i18n="closed">Fermé</td></tr>
+          </table>
+          <p class="verify-note" data-i18n="hours_verify">Horaires vérifiés en ligne le 9 septembre 2026 — à reconfirmer par téléphone en cas de doute.</p>
+        </div>
+        <div class="find-cta">
+          <a href="tel:+35228777825" class="btn btn-solid" data-i18n="cta_call2">Réserver une table</a>
+          <a href="https://www.gaultmillau.lu/en/restaurants/trattoria-da-gino-luxembourg" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="cta_online">Réserver en ligne</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Trattoria+da+Gino+5+Rue+Glesener+1631+Luxembourg" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="cta_route">Itinéraire</a>
+        </div>
+        <div class="card-proof">
+          <img src="assets/business-card.jpg" alt="Carte de visite de la Trattoria da Gino">
+          <span data-i18n="card_proof_cap">Coordonnées telles qu'affichées sur la carte de visite de la maison</span>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=Trattoria+da+Gino,+5+Rue+Glesener,+1631+Luxembourg&output=embed" title="Carte — Trattoria da Gino, 5 rue Glesener, Luxembourg" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="brand2">Trattoria da Gino</span>
+      <div class="foot-social">
+        <a href="https://www.facebook.com/trattoriadaGino2018/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/trattoriadagino_luxembourg/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir d'informations et de photos publiques (fiche Google Maps de l'établissement, Gault&amp;Millau, avis publiés). L'ardoise reproduite est celle photographiée en salle en septembre 2026 — la carte change chaque jour et les prix sont à reconfirmer sur place. Horaires vérifiés le 9 septembre 2026. Aucune note ni nombre d'avis n'est repris sur cette page.</p>
+    <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a href="tel:+35228777825" class="m-call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg><span data-i18n="mbar_call">Appeler</span></a>
+  <a href="https://www.google.com/maps/search/?api=1&query=Trattoria+da+Gino+5+Rue+Glesener+1631+Luxembourg" target="_blank" rel="noopener" class="m-dir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8 2 4.5 5 4.5 9.5 4.5 15 12 22 12 22s7.5-7 7.5-12.5C19.5 5 16 2 12 2zm0 10a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg><span data-i18n="mbar_dir">Itinéraire</span></a>
+</div>
+
+<script>
+const I18N = {
+ fr:{
+  nav_maison:"La maison", nav_ardoise:"L'ardoise", nav_find:"Nous trouver", nav_cta:"Réserver",
+  hero_eyebrow:"Trattoria italienne · Gare, Luxembourg",
+  hero_h1:"Pas de carte imprimée. Juste <span class=\"chalked\">l'ardoise</span>, refaite chaque jour.",
+  hero_lede:"Une trattoria familiale où la cuisine est ouverte sur la salle. Pâtes fraîches, plats du jour écrits à la craie par Gino lui-même — pas de carte figée, pas de mise en scène.",
+  fact_gare:"Quartier Gare", fact_kitchen:"Cuisine ouverte", fact_gf:"Sans gluten dispo", fact_pets:"Chiens bienvenus",
+  cta_call:"+352 28 77 78 25", cta_board:"Voir l'ardoise",
+  board_cap_l:"photographiée en salle", board_cap_r:"sept. 2026",
+  story_eyebrow:"La maison", story_h2:"Le seul menu, c'est la craie.",
+  story_p1:"Chez Gino, il n'y a jamais eu de carte imprimée. Ce qui se cuisine chaque jour est écrit à la main sur une ardoise, en salle — et c'est cette même ardoise qui est postée sur Facebook. La carte change tous les jours, selon le marché.",
+  story_p2:"La cuisine est ouverte à l'arrière de la salle : on voit tourner les plats. Gino accueille souvent lui-même les tables et prend le temps d'expliquer ce qu'il y a au tableau — un vrai savoir-faire de la restauration à Luxembourg, mis directement sous les yeux des clients.",
+  badge_kitchen:"Cuisine ouverte", badge_board:"Ardoise quotidienne", badge_fresh:"Pâtes fraîches", badge_gf:"Sans gluten dispo",
+  ard_eyebrow:"Ce qui était écrit sur le mur", ard_h2:"L'ardoise, telle que photographiée", ard_stamp:"oggi · un jour de sept. 2026",
+  ard_note:"La carte change tous les jours — ceci est une ardoise réelle, photographiée en salle un jour donné, pas une carte fixe. Prix relevés tels qu'affichés ce jour-là.",
+  cat_antipasti:"Antipasti", cat_chef:"Consigli dello Chef", cat_chef_sub:"recommandations du chef",
+  cat_classici:"I Classici", cat_classici_sub:"les classiques",
+  cat_bipbip:"Bip·Bip dello Chef", cat_bipbip_sub:"la surprise du chef, écrite en rouge sur l'ardoise",
+  cat_carne:"Carne", cat_carne_sub:"viande", cat_carne_2p:"(pour 2 personnes)",
+  cat_pesce:"Pesce", cat_pesce_sub:"poisson",
+  range_eyebrow:"D'une région à l'autre", range_h2:"De la Calabre à la Sardaigne, sans quitter la Gare",
+  range_p:"L'ardoise ne reste jamais dans une seule région : orecchiette et maritati de Puglia, cacio e pepe à la façon calabraise, fregola sarde aux fruits de mer, vitello tonnato du nord — la trattoria fait le tour de l'Italie, un jour à la fois.",
+  amb_eyebrow:"À table", amb_h2:"Une salle qui sent la cuisine qui tourne",
+  community_p:"Détail relevé sur la fiche Google Maps de l'établissement : l'équipe de la Trattoria a remis un chèque de <b>450 €</b> à la Fondation Kriibskrank Kanner, qui soutient les enfants atteints de cancer au Luxembourg.",
+  find_eyebrow:"Nous trouver", find_h2:"Réserver &amp; venir", find_addr_l:"Adresse", find_district:"quartier Gare", find_phone_l:"Téléphone", find_email_l:"E-mail", find_hours_l:"Horaires",
+  day_mon:"Lundi", day_tue:"Mardi", day_wed:"Mercredi", day_thu:"Jeudi", day_fri:"Vendredi", day_sat:"Samedi", day_sun:"Dimanche", closed:"Fermé",
+  hours_verify:"Horaires vérifiés en ligne le 9 septembre 2026 — à reconfirmer par téléphone en cas de doute.",
+  cta_call2:"Réserver une table", cta_online:"Réserver en ligne", cta_route:"Itinéraire", card_proof_cap:"Coordonnées telles qu'affichées sur la carte de visite de la maison",
+  foot_disc:"Aperçu de démonstration composé par Webwerk à partir d'informations et de photos publiques (fiche Google Maps de l'établissement, Gault&amp;Millau, avis publiés). L'ardoise reproduite est celle photographiée en salle en septembre 2026 — la carte change chaque jour et les prix sont à reconfirmer sur place. Horaires vérifiés le 9 septembre 2026. Aucune note ni nombre d'avis n'est repris sur cette page.",
+  foot_made:"Un aperçu", mbar_call:"Appeler", mbar_dir:"Itinéraire"
+ },
+ de:{
+  nav_maison:"Das Haus", nav_ardoise:"Die Tafel", nav_find:"Finden Sie uns", nav_cta:"Reservieren",
+  hero_eyebrow:"Italienische Trattoria · Gare, Luxemburg",
+  hero_h1:"Keine gedruckte Karte. Nur <span class=\"chalked\">die Tafel</span>, jeden Tag neu geschrieben.",
+  hero_lede:"Eine familiäre Trattoria mit offener Küche zum Gastraum. Frische Pasta, Tagesgerichte, die Gino selbst mit Kreide aufschreibt — keine feste Karte, keine Inszenierung.",
+  fact_gare:"Viertel Gare", fact_kitchen:"Offene Küche", fact_gf:"Glutenfrei möglich", fact_pets:"Hunde willkommen",
+  cta_call:"+352 28 77 78 25", cta_board:"Die Tafel ansehen",
+  board_cap_l:"im Lokal fotografiert", board_cap_r:"Sept. 2026",
+  story_eyebrow:"Das Haus", story_h2:"Das einzige Menü ist die Kreide.",
+  story_p1:"Bei Gino gab es nie eine gedruckte Karte. Was jeden Tag gekocht wird, steht handgeschrieben auf einer Tafel im Gastraum — genau diese Tafel wird auch auf Facebook gepostet. Die Karte wechselt täglich, je nach Markt.",
+  story_p2:"Die Küche ist am hinteren Ende des Raums offen einsehbar — man sieht, wie die Gerichte entstehen. Gino begrüßt die Gäste oft selbst und erklärt in Ruhe, was auf der Tafel steht — echtes Gastro-Know-how aus Luxemburg, direkt vor den Augen der Gäste.",
+  badge_kitchen:"Offene Küche", badge_board:"Tägliche Tafel", badge_fresh:"Frische Pasta", badge_gf:"Glutenfrei möglich",
+  ard_eyebrow:"Was an der Wand stand", ard_h2:"Die Tafel, so wie fotografiert", ard_stamp:"oggi · ein Tag im Sept. 2026",
+  ard_note:"Die Karte wechselt jeden Tag — dies ist eine echte, im Lokal an einem bestimmten Tag fotografierte Tafel, keine feste Karte. Preise wie an diesem Tag angeschrieben.",
+  cat_antipasti:"Antipasti", cat_chef:"Consigli dello Chef", cat_chef_sub:"Empfehlungen des Chefs",
+  cat_classici:"I Classici", cat_classici_sub:"die Klassiker",
+  cat_bipbip:"Bip·Bip dello Chef", cat_bipbip_sub:"die Überraschung des Chefs, rot auf die Tafel geschrieben",
+  cat_carne:"Carne", cat_carne_sub:"Fleisch", cat_carne_2p:"(für 2 Personen)",
+  cat_pesce:"Pesce", cat_pesce_sub:"Fisch",
+  range_eyebrow:"Von Region zu Region", range_h2:"Von Kalabrien bis Sardinien, ohne die Gare zu verlassen",
+  range_p:"Die Tafel bleibt nie bei einer Region: Orecchiette und Maritati aus Apulien, Cacio e Pepe nach kalabrischer Art, sardische Fregola mit Meeresfrüchten, Vitello Tonnato aus dem Norden — die Trattoria reist einmal durch Italien, einen Tag nach dem anderen.",
+  amb_eyebrow:"Bei Tisch", amb_h2:"Ein Raum, der nach echter Küche riecht",
+  community_p:"Ein Detail von der Google-Maps-Seite des Lokals: Das Team der Trattoria überreichte einen Scheck über <b>450 €</b> an die Fondation Kriibskrank Kanner, die krebskranke Kinder in Luxemburg unterstützt.",
+  find_eyebrow:"Finden Sie uns", find_h2:"Reservieren &amp; kommen", find_addr_l:"Adresse", find_district:"Viertel Gare", find_phone_l:"Telefon", find_email_l:"E-Mail", find_hours_l:"Öffnungszeiten",
+  day_mon:"Montag", day_tue:"Dienstag", day_wed:"Mittwoch", day_thu:"Donnerstag", day_fri:"Freitag", day_sat:"Samstag", day_sun:"Sonntag", closed:"Geschlossen",
+  hours_verify:"Öffnungszeiten online geprüft am 9. September 2026 — im Zweifel telefonisch bestätigen.",
+  cta_call2:"Tisch reservieren", cta_online:"Online reservieren", cta_route:"Route", card_proof_cap:"Kontaktdaten wie auf der Visitenkarte des Hauses angegeben",
+  foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Informationen und Fotos (Google-Maps-Seite des Lokals, Gault&amp;Millau, veröffentlichte Bewertungen). Die gezeigte Tafel wurde im September 2026 im Lokal fotografiert — die Karte wechselt täglich, Preise vor Ort bestätigen. Öffnungszeiten geprüft am 9. September 2026. Diese Seite zeigt keine Bewertungszahl und keine Sternebewertung.",
+  foot_made:"Eine Vorschau von", mbar_call:"Anrufen", mbar_dir:"Route"
+ },
+ en:{
+  nav_maison:"The house", nav_ardoise:"The board", nav_find:"Find us", nav_cta:"Reserve",
+  hero_eyebrow:"Italian trattoria · Gare, Luxembourg",
+  hero_h1:"No printed menu. Just <span class=\"chalked\">the board</span>, rewritten every day.",
+  hero_lede:"A family trattoria with an open kitchen onto the dining room. Fresh pasta, daily dishes chalked up by Gino himself — no fixed menu, no staging.",
+  fact_gare:"Gare district", fact_kitchen:"Open kitchen", fact_gf:"Gluten-free available", fact_pets:"Dogs welcome",
+  cta_call:"+352 28 77 78 25", cta_board:"See the board",
+  board_cap_l:"photographed in-house", board_cap_r:"Sept. 2026",
+  story_eyebrow:"The house", story_h2:"The only menu is the chalk.",
+  story_p1:"At Gino's, there has never been a printed menu. Whatever's being cooked that day is written up by hand on a chalkboard in the room — and that same board is what gets posted to Facebook. The menu changes daily, depending on the market.",
+  story_p2:"The kitchen is open at the back of the room — you can watch the dishes being made. Gino often greets tables himself and takes the time to walk through what's on the board — real Luxembourg restaurant know-how, put right in front of guests.",
+  badge_kitchen:"Open kitchen", badge_board:"Daily board", badge_fresh:"Fresh pasta", badge_gf:"Gluten-free available",
+  ard_eyebrow:"What was on the wall", ard_h2:"The board, as photographed", ard_stamp:"oggi · one day in Sept. 2026",
+  ard_note:"The menu changes every day — this is a real chalkboard, photographed in-house on one given day, not a fixed menu. Prices as written that day.",
+  cat_antipasti:"Antipasti", cat_chef:"Consigli dello Chef", cat_chef_sub:"chef's recommendations",
+  cat_classici:"I Classici", cat_classici_sub:"the classics",
+  cat_bipbip:"Bip·Bip dello Chef", cat_bipbip_sub:"the chef's whim, written in red on the board",
+  cat_carne:"Carne", cat_carne_sub:"meat", cat_carne_2p:"(for 2 people)",
+  cat_pesce:"Pesce", cat_pesce_sub:"fish",
+  range_eyebrow:"From region to region", range_h2:"From Calabria to Sardinia, without leaving the Gare",
+  range_p:"The board never stays in one region: orecchiette and maritati from Puglia, cacio e pepe done the Calabrian way, Sardinian fregola with seafood, vitello tonnato from the north — the trattoria tours Italy, one day at a time.",
+  amb_eyebrow:"At the table", amb_h2:"A room that smells like a kitchen at work",
+  community_p:"A detail from the venue's own Google Maps listing: the Trattoria's team presented a €450 cheque to Fondation Kriibskrank Kanner, which supports children with cancer in Luxembourg.",
+  find_eyebrow:"Find us", find_h2:"Reserve &amp; visit", find_addr_l:"Address", find_district:"Gare district", find_phone_l:"Phone", find_email_l:"Email", find_hours_l:"Hours",
+  day_mon:"Monday", day_tue:"Tuesday", day_wed:"Wednesday", day_thu:"Thursday", day_fri:"Friday", day_sat:"Saturday", day_sun:"Sunday", closed:"Closed",
+  hours_verify:"Hours verified online on 9 September 2026 — reconfirm by phone if in doubt.",
+  cta_call2:"Reserve a table", cta_online:"Book online", cta_route:"Directions", card_proof_cap:"Contact details as shown on the venue's own business card",
+  foot_disc:"Demo preview composed by Webwerk from public information and photos (the venue's own Google Maps listing, Gault&amp;Millau, published reviews). The board shown was photographed in-house in September 2026 — the menu changes daily and prices should be reconfirmed on site. Hours verified 9 September 2026. This page carries no rating figure and no review count.",
+  foot_made:"A preview by", mbar_call:"Call", mbar_dir:"Directions"
+ }
+};
+function applyLang(l){
+  const d = I18N[l] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    const k = el.getAttribute('data-i18n');
+    if(d[k]!=null) el.innerHTML = d[k];
+  });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  try{ localStorage.setItem('trattoriadagino_lang', l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
+(function(){ let l='fr'; try{ l = localStorage.getItem('trattoriadagino_lang') || 'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+</script>
+</body>
+</html>
