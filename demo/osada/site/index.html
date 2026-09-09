@@ -141,7 +141,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .mrow:last-child{border-bottom:0}
 .mrow .l .n{font-family:var(--disp);font-weight:600;font-size:1.06rem;color:#231a10}
 .mrow .l .d{font-size:.86rem;color:#59492f;margin-top:1px}
-.mrow .pr{font-family:var(--disp);font-weight:700;color:#231a10;white-space:nowrap;font-size:1.02rem}
 .menu-note{text-align:center;color:#5a4a2e;font-size:.82rem;margin-top:22px}
 .food-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(28px,5vw,44px)}
 .food-strip figure{margin:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-s);aspect-ratio:1}
@@ -156,12 +155,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .icard .v{font-family:var(--disp);font-weight:600;font-size:1.14rem}
 .icard .v a{text-decoration:none}
 .icard .s{font-size:.88rem;color:var(--ink2);margin-top:3px}
-.hours{list-style:none}
-.hours li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--cream2);font-size:.95rem}
-.hours li:last-child{border-bottom:0}
-.hours li.today{color:var(--ink);font-weight:700}
-.hours li.today .day::before{content:"▸ ";color:var(--red)}
-.hours .cl{color:var(--muted)}
 .socials{display:flex;gap:10px;margin-top:16px}
 .socials a{background:var(--char);color:#fff;font-weight:700;font-size:.84rem;padding:9px 16px;border-radius:999px;text-decoration:none}
 .socials a:hover{background:var(--gold)}
@@ -222,7 +215,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
     <div class="kick"><span class="dot"></span><span class="eyebrow" data-i18n="hero_kick">Brasserie polonaise · Pfaffenthal</span></div>
     <h1>Osada</h1>
     <p class="tag" data-i18n="hero_tag">Un coin de Pologne, au fond de la vallée.</p>
-    <p class="sub" data-i18n="hero_sub">Pierogi, żurek en bol à pain, rolada de bœuf — la cuisine polonaise comme à la maison, rue Laurent Menager.</p>
+    <p class="sub" data-i18n="hero_sub">Pierogi, żurek en bol à pain, bigos mijoté — la cuisine polonaise comme à la maison, rue Laurent Menager.</p>
     <div class="cta">
       <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
       <a class="btn g" href="#infos" data-i18n="hero_cta2">Nous trouver ↓</a>
@@ -266,8 +259,8 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
       <p data-i18n="house_p2">Une brasserie de quartier, chaleureuse et sans chichis, à deux pas de l'ascenseur du Pfaffenthal — un petit bout de Pologne au creux de Luxembourg.</p>
       <div class="details">
         <div class="detail"><span class="ic">🥟</span><div><h3 data-i18n="d1_h">Les pierogi, à la main</h3><p data-i18n="d1_p">Fromage &amp; pomme de terre, viande, ou chou &amp; cèpes — pliés maison.</p></div></div>
-        <div class="detail"><span class="ic">🍲</span><div><h3 data-i18n="d2_h">Ça mijote</h3><p data-i18n="d2_p">Bigos, rolada de bœuf, żeberka à la bière — les plats qui prennent leur temps.</p></div></div>
-        <div class="detail"><span class="ic">🍰</span><div><h3 data-i18n="d3_h">La douceur polonaise</h3><p data-i18n="d3_p">Sernik, makowiec au pavot, szarlotka aux pommes.</p></div></div>
+        <div class="detail"><span class="ic">🍲</span><div><h3 data-i18n="d2_h">Ça mijote</h3><p data-i18n="d2_p">Bigos et gołąbki — les plats qui prennent leur temps.</p></div></div>
+        <div class="detail"><span class="ic">🍰</span><div><h3 data-i18n="d3_h">La douceur polonaise</h3><p data-i18n="d3_p">Sernik, pączki, szarlotka aux pommes.</p></div></div>
       </div>
     </div>
   </div>
@@ -281,8 +274,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
       <h2 data-i18n="gal_h">De la cuisine polonaise, généreuse</h2>
     </div>
     <div class="gal reveal">
-      <figure class="w2 h2"><img src="assets/rolada.jpg" alt="Rolada de bœuf, chou rouge et kluski" loading="lazy" /><figcaption data-i18n="g_rolada">Rolada wołowa</figcaption></figure>
-      <figure><img src="assets/pierogi.jpg" alt="Pierogi, crème et lardons" loading="lazy" /><figcaption data-i18n="g_pierogi">Pierogi</figcaption></figure>
+      <figure class="w2 h2"><img src="assets/pierogi.jpg" alt="Pierogi, crème et lardons" loading="lazy" /><figcaption data-i18n="g_pierogi">Pierogi</figcaption></figure>
       <figure><img src="assets/placki.jpg" alt="Placki ziemniaczane — galettes de pomme de terre" loading="lazy" /><figcaption data-i18n="g_placki">Placki ziemniaczane</figcaption></figure>
       <figure><img src="assets/golabki.jpg" alt="Gołąbki — choux farcis" loading="lazy" /><figcaption data-i18n="g_golabki">Gołąbki</figcaption></figure>
       <figure><img src="assets/facade.jpg" alt="La rue Laurent Menager au Pfaffenthal" loading="lazy" /><figcaption data-i18n="g_facade">Au Pfaffenthal</figcaption></figure>
@@ -298,39 +290,35 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
     <div class="sec-head">
       <span class="eyebrow" data-i18n="menu_kick">Spécialités polonaises</span>
       <h2 data-i18n="menu_h">La carte</h2>
-      <p data-i18n="menu_p">Relevée sur la carte de la maison — les prix et la disponibilité restent à confirmer.</p>
+      <p data-i18n="menu_p">Plats évoqués dans les annuaires publics — carte complète et prix à confirmer avec la maison.</p>
     </div>
     <div class="cats">
       <div class="cat reveal">
         <h3 data-i18n="cat_start">◆ Les entrées</h3>
-        <div class="mrow"><div class="l"><div class="n">Żurek w chlebie</div><div class="d" data-i18n="m_zurek_d">Soupe de seigle, saucisse polonaise, ail — en bol à pain.</div></div><div class="pr">12&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Barszcz z krokietem</div><div class="d" data-i18n="m_barszcz_d">Bortsch de betterave, crêpe farcie aux cèpes.</div></div><div class="pr">10&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Śledź w dwóch odsłonach</div><div class="d" data-i18n="m_sledz_d">Le hareng, deux variétés.</div></div><div class="pr">9&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Oscypek z żurawiną</div><div class="d" data-i18n="m_oscypek_d">Fromage de brebis fumé, airelles.</div></div><div class="pr">12&nbsp;€</div></div>
+        <div class="mrow"><div class="l"><div class="n">Żurek</div><div class="d" data-i18n="m_zurek_d">Soupe de seigle aigre, saucisse polonaise et œuf.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Barszcz</div><div class="d" data-i18n="m_barszcz_d">Bortsch de betterave.</div></div></div>
       </div>
       <div class="cat reveal">
         <h3 data-i18n="cat_pierogi">◆ Pierogi</h3>
-        <div class="mrow"><div class="l"><div class="n">Z serem i ziemniakami</div><div class="d" data-i18n="m_p1_d">Fromage blanc, pommes de terre, oignons.</div></div><div class="pr">20&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Z kapustą i grzybami</div><div class="d" data-i18n="m_p2_d">Choucroute et cèpes.</div></div><div class="pr">20&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Z mięsem</div><div class="d" data-i18n="m_p3_d">Bœuf, porc, poulet.</div></div><div class="pr">20&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Mixte</div><div class="d" data-i18n="m_p4_d">L'assortiment.</div></div><div class="pr">22&nbsp;€</div></div>
+        <div class="mrow"><div class="l"><div class="n">Ruskie</div><div class="d" data-i18n="m_p1_d">Pomme de terre et fromage blanc.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">À la viande</div><div class="d" data-i18n="m_p3_d">Viande mijotée.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Chou et champignons</div><div class="d" data-i18n="m_p2_d">Chou et champignons.</div></div></div>
       </div>
       <div class="cat reveal">
         <h3 data-i18n="cat_plats">◆ Les plats</h3>
-        <div class="mrow"><div class="l"><div class="n">Rolada wołowa</div><div class="d" data-i18n="m_rolada_d">Roulade de bœuf, chou rouge, kluski.</div></div><div class="pr">25&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Placek z gulaszem</div><div class="d" data-i18n="m_placek_d">Galette de pomme de terre, goulash de porc.</div></div><div class="pr">24&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Golonka</div><div class="d" data-i18n="m_golonka_d">Jarret de porc, choucroute, pommes vapeur.</div></div><div class="pr">24&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Gołąbki</div><div class="d" data-i18n="m_golabki_d">Choux farcis, sauce tomate, purée.</div></div><div class="pr">22&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Schabowy</div><div class="d" data-i18n="m_schab_d">Escalope panée, purée, choucroute.</div></div><div class="pr">22&nbsp;€</div></div>
+        <div class="mrow"><div class="l"><div class="n">Placki ziemniaczane</div><div class="d" data-i18n="m_placek_d">Galettes de pommes de terre.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Bigos</div><div class="d" data-i18n="m_rolada_d">Choucroute mijotée à la viande.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Gołąbki</div><div class="d" data-i18n="m_golabki_d">Choux farcis.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Kotlet schabowy</div><div class="d" data-i18n="m_schab_d">Escalope panée.</div></div></div>
       </div>
       <div class="cat reveal">
         <h3 data-i18n="cat_douceur">◆ Douceurs</h3>
-        <div class="mrow"><div class="l"><div class="n">Sernik</div><div class="d" data-i18n="m_sernik_d">Le cheesecake polonais.</div></div><div class="pr">10&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Makowiec</div><div class="d" data-i18n="m_makowiec_d">Roulé aux graines de pavot.</div></div><div class="pr">9&nbsp;€</div></div>
-        <div class="mrow"><div class="l"><div class="n">Szarlotka</div><div class="d" data-i18n="m_szarlotka_d">La tarte aux pommes polonaise.</div></div><div class="pr">9&nbsp;€</div></div>
+        <div class="mrow"><div class="l"><div class="n">Sernik</div><div class="d" data-i18n="m_sernik_d">Le cheesecake polonais.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Szarlotka</div><div class="d" data-i18n="m_szarlotka_d">La tarte aux pommes polonaise.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Pączki</div><div class="d" data-i18n="m_makowiec_d">Beignets polonais.</div></div></div>
       </div>
     </div>
-    <p class="menu-note" data-i18n="menu_note">Carte et prix relevés sur la carte de la maison — susceptibles d'évoluer, à confirmer sur place.</p>
+    <p class="menu-note" data-i18n="menu_note">Plats évoqués dans les annuaires publics (resto.lu, RestaurantGuru, Facebook) — carte complète, disponibilité et prix à confirmer sur place.</p>
     <div class="food-strip reveal">
       <figure><img src="assets/zurek.jpg" alt="Żurek en bol à pain" loading="lazy" /></figure>
       <figure><img src="assets/schabowy.jpg" alt="Schabowy — escalope panée" loading="lazy" /></figure>
@@ -366,8 +354,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
       <span class="eyebrow" data-i18n="hours_kick">Horaires</span>
       <h2 data-i18n="hours_h">Quand nous ouvrons</h2>
       <div class="icard">
-        <ul class="hours" id="hours"></ul>
-        <p class="s" style="margin-top:12px" data-i18n="hours_note">Service midi &amp; soir (pause l'après-midi). Horaires indicatifs — à confirmer avec la maison.</p>
+        <p class="s" data-i18n="hours_note">Service midi &amp; soir (pause l'après-midi). Horaires indicatifs — à confirmer avec la maison.</p>
       </div>
     </div>
   </div>
@@ -393,7 +380,7 @@ var I18N = {
   fr:{
     brand_sub:"Brasserie Restaurant", nav_zurek:"Le żurek", nav_carte:"La carte", nav_infos:"Infos & accès",
     hero_kick:"Brasserie polonaise · Pfaffenthal", hero_tag:"Un coin de Pologne, au fond de la vallée.",
-    hero_sub:"Pierogi, żurek en bol à pain, rolada de bœuf — la cuisine polonaise comme à la maison, rue Laurent Menager.",
+    hero_sub:"Pierogi, żurek en bol à pain, bigos mijoté — la cuisine polonaise comme à la maison, rue Laurent Menager.",
     hero_cta1:"Voir la carte", hero_cta2:"Nous trouver ↓",
     fact_1:"Cuisine <b>polonaise</b> · faite maison", fact_2:"Le <b>żurek</b> servi en bol à pain", fact_3:"Rue Laurent Menager · <b>Pfaffenthal</b>",
     zu_badge:"◆ La spécialité de la maison", zu_lead:"La soupe de seigle, servie dans un pain.",
@@ -402,20 +389,19 @@ var I18N = {
     house_p1:"Osada — « le hameau », « la maisonnée » en polonais — a posé ses tables au Pfaffenthal, dans la vallée sous la Ville-Haute. On y sert la vraie cuisine polonaise : pierogi pliés à la main, bigos qui mijote, galettes de pomme de terre dorées, choux farcis. Rien de compliqué, tout fait maison.",
     house_p2:"Une brasserie de quartier, chaleureuse et sans chichis, à deux pas de l'ascenseur du Pfaffenthal — un petit bout de Pologne au creux de Luxembourg.",
     d1_h:"Les pierogi, à la main", d1_p:"Fromage & pomme de terre, viande, ou chou & cèpes — pliés maison.",
-    d2_h:"Ça mijote", d2_p:"Bigos, rolada de bœuf, żeberka à la bière — les plats qui prennent leur temps.",
-    d3_h:"La douceur polonaise", d3_p:"Sernik, makowiec au pavot, szarlotka aux pommes.",
+    d2_h:"Ça mijote", d2_p:"Bigos et gołąbki — les plats qui prennent leur temps.",
+    d3_h:"La douceur polonaise", d3_p:"Sernik, pączki, szarlotka aux pommes.",
     gal_kick:"En images", gal_h:"De la cuisine polonaise, généreuse",
-    g_rolada:"Rolada wołowa", g_pierogi:"Pierogi", g_placki:"Placki ziemniaczane", g_golabki:"Gołąbki", g_facade:"Au Pfaffenthal",
+    g_pierogi:"Pierogi", g_placki:"Placki ziemniaczane", g_golabki:"Gołąbki", g_facade:"Au Pfaffenthal",
     gal_note:"Photographies de sources publiques — à remplacer par les visuels de la maison.",
-    menu_kick:"Spécialités polonaises", menu_h:"La carte", menu_p:"Relevée sur la carte de la maison — les prix et la disponibilité restent à confirmer.",
+    menu_kick:"Spécialités polonaises", menu_h:"La carte", menu_p:"Plats évoqués dans les annuaires publics — carte complète et prix à confirmer avec la maison.",
     cat_start:"◆ Les entrées", cat_pierogi:"◆ Pierogi", cat_plats:"◆ Les plats", cat_douceur:"◆ Douceurs",
-    m_zurek_d:"Soupe de seigle, saucisse polonaise, ail — en bol à pain.", m_barszcz_d:"Bortsch de betterave, crêpe farcie aux cèpes.",
-    m_sledz_d:"Le hareng, deux variétés.", m_oscypek_d:"Fromage de brebis fumé, airelles.",
-    m_p1_d:"Fromage blanc, pommes de terre, oignons.", m_p2_d:"Choucroute et cèpes.", m_p3_d:"Bœuf, porc, poulet.", m_p4_d:"L'assortiment.",
-    m_rolada_d:"Roulade de bœuf, chou rouge, kluski.", m_placek_d:"Galette de pomme de terre, goulash de porc.",
-    m_golonka_d:"Jarret de porc, choucroute, pommes vapeur.", m_golabki_d:"Choux farcis, sauce tomate, purée.", m_schab_d:"Escalope panée, purée, choucroute.",
-    m_sernik_d:"Le cheesecake polonais.", m_makowiec_d:"Roulé aux graines de pavot.", m_szarlotka_d:"La tarte aux pommes polonaise.",
-    menu_note:"Carte et prix relevés sur la carte de la maison — susceptibles d'évoluer, à confirmer sur place.",
+    m_zurek_d:"Soupe de seigle aigre, saucisse polonaise et œuf.", m_barszcz_d:"Bortsch de betterave.",
+    m_p1_d:"Pomme de terre et fromage blanc.", m_p2_d:"Chou et champignons.", m_p3_d:"Viande mijotée.",
+    m_rolada_d:"Choucroute mijotée à la viande.", m_placek_d:"Galettes de pommes de terre.",
+    m_golabki_d:"Choux farcis.", m_schab_d:"Escalope panée.",
+    m_sernik_d:"Le cheesecake polonais.", m_makowiec_d:"Beignets polonais.", m_szarlotka_d:"La tarte aux pommes polonaise.",
+    menu_note:"Plats évoqués dans les annuaires publics (resto.lu, RestaurantGuru, Facebook) — carte complète, disponibilité et prix à confirmer sur place.",
     info_kick:"Infos & accès", info_h:"Nous trouver", info_addr_k:"Adresse", info_addr_s:"Dans la vallée, sous la Ville-Haute — près de l'ascenseur du Pfaffenthal.", info_map:"Itinéraire ↗",
     info_tel_k:"Réserver", info_tel_s:"Réservation conseillée le soir — numéro à confirmer.",
     hours_kick:"Horaires", hours_h:"Quand nous ouvrons", hours_note:"Service midi & soir (pause l'après-midi). Horaires indicatifs — à confirmer avec la maison.",
@@ -426,7 +412,7 @@ var I18N = {
   de:{
     brand_sub:"Brasserie Restaurant", nav_zurek:"Der Żurek", nav_carte:"Die Karte", nav_infos:"Infos & Anfahrt",
     hero_kick:"Polnische Brasserie · Pfaffenthal", hero_tag:"Ein Stück Polen, unten im Tal.",
-    hero_sub:"Pierogi, Żurek im Brotlaib, Rindsroulade — polnische Küche wie zu Hause, Rue Laurent Menager.",
+    hero_sub:"Pierogi, Żurek im Brotlaib, geschmorter Bigos — polnische Küche wie zu Hause, Rue Laurent Menager.",
     hero_cta1:"Zur Karte", hero_cta2:"So finden Sie uns ↓",
     fact_1:"Küche <b>polnisch</b> · hausgemacht", fact_2:"Der <b>Żurek</b> im Brotlaib serviert", fact_3:"Rue Laurent Menager · <b>Pfaffenthal</b>",
     zu_badge:"◆ Die Spezialität des Hauses", zu_lead:"Die Sauerroggensuppe, serviert im Brot.",
@@ -435,20 +421,19 @@ var I18N = {
     house_p1:"Osada — auf Polnisch „der Weiler“, „das Gehöft“ — hat seine Tische im Pfaffenthal aufgestellt, im Tal unter der Oberstadt. Serviert wird echte polnische Küche: handgefaltete Pierogi, langsam geschmorter Bigos, goldene Kartoffelpuffer, gefüllte Krautrouladen. Nichts Kompliziertes, alles hausgemacht.",
     house_p2:"Eine herzliche Nachbarschaftsbrasserie ohne Chichi, zwei Schritte vom Pfaffenthal-Aufzug — ein kleines Stück Polen mitten in Luxemburg.",
     d1_h:"Pierogi, von Hand", d1_p:"Quark & Kartoffel, Fleisch oder Kraut & Steinpilze — hausgemacht gefaltet.",
-    d2_h:"Es köchelt", d2_p:"Bigos, Rindsroulade, Rippchen in Bier — Gerichte, die sich Zeit nehmen.",
-    d3_h:"Die polnische Süße", d3_p:"Sernik, Mohnkuchen (Makowiec), Apfelkuchen (Szarlotka).",
+    d2_h:"Es köchelt", d2_p:"Bigos und Kohlrouladen (Gołąbki) — Gerichte, die sich Zeit nehmen.",
+    d3_h:"Die polnische Süße", d3_p:"Sernik, Pączki (Krapfen), Apfelkuchen (Szarlotka).",
     gal_kick:"In Bildern", gal_h:"Polnische Küche, großzügig",
-    g_rolada:"Rolada wołowa", g_pierogi:"Pierogi", g_placki:"Placki ziemniaczane", g_golabki:"Gołąbki", g_facade:"Im Pfaffenthal",
+    g_pierogi:"Pierogi", g_placki:"Placki ziemniaczane", g_golabki:"Gołąbki", g_facade:"Im Pfaffenthal",
     gal_note:"Fotos aus öffentlichen Quellen — durch eigene Bilder des Hauses zu ersetzen.",
-    menu_kick:"Polnische Spezialitäten", menu_h:"Die Karte", menu_p:"Von der Karte des Hauses abgelesen — Preise und Verfügbarkeit bleiben zu bestätigen.",
+    menu_kick:"Polnische Spezialitäten", menu_h:"Die Karte", menu_p:"Gerichte aus öffentlichen Verzeichnissen — vollständige Karte und Preise beim Haus zu bestätigen.",
     cat_start:"◆ Vorspeisen", cat_pierogi:"◆ Pierogi", cat_plats:"◆ Hauptgerichte", cat_douceur:"◆ Süßes",
-    m_zurek_d:"Roggensuppe, polnische Wurst, Knoblauch — im Brotlaib.", m_barszcz_d:"Rote-Bete-Suppe, Krokette mit Steinpilzen.",
-    m_sledz_d:"Hering, zwei Varianten.", m_oscypek_d:"Geräucherter Schafskäse, Preiselbeeren.",
-    m_p1_d:"Quark, Kartoffeln, Zwiebeln.", m_p2_d:"Sauerkraut und Steinpilze.", m_p3_d:"Rind, Schwein, Huhn.", m_p4_d:"Die Auswahl.",
-    m_rolada_d:"Rindsroulade, Rotkohl, Kluski.", m_placek_d:"Kartoffelpuffer, Schweinegulasch.",
-    m_golonka_d:"Eisbein, Sauerkraut, Salzkartoffeln.", m_golabki_d:"Krautrouladen, Tomatensauce, Püree.", m_schab_d:"Paniertes Schnitzel, Püree, Sauerkraut.",
-    m_sernik_d:"Der polnische Käsekuchen.", m_makowiec_d:"Mohnrolle.", m_szarlotka_d:"Der polnische Apfelkuchen.",
-    menu_note:"Karte und Preise von der Karte des Hauses abgelesen — Änderungen möglich, vor Ort zu bestätigen.",
+    m_zurek_d:"Saure Roggensuppe, polnische Wurst und Ei.", m_barszcz_d:"Rote-Bete-Suppe.",
+    m_p1_d:"Quark und Kartoffeln.", m_p2_d:"Sauerkraut und Pilze.", m_p3_d:"Geschmortes Fleisch.",
+    m_rolada_d:"Geschmortes Sauerkraut mit Fleisch.", m_placek_d:"Kartoffelpuffer.",
+    m_golabki_d:"Krautrouladen.", m_schab_d:"Paniertes Schnitzel.",
+    m_sernik_d:"Der polnische Käsekuchen.", m_makowiec_d:"Polnische Krapfen.", m_szarlotka_d:"Der polnische Apfelkuchen.",
+    menu_note:"Gerichte aus öffentlichen Verzeichnissen (resto.lu, RestaurantGuru, Facebook) — vollständige Karte, Verfügbarkeit und Preise vor Ort zu bestätigen.",
     info_kick:"Infos & Anfahrt", info_h:"So finden Sie uns", info_addr_k:"Adresse", info_addr_s:"Im Tal unter der Oberstadt — nahe dem Pfaffenthal-Aufzug.", info_map:"Route ↗",
     info_tel_k:"Reservieren", info_tel_s:"Abends Reservierung empfohlen — Nummer zu bestätigen.",
     hours_kick:"Öffnungszeiten", hours_h:"Wann wir öffnen", hours_note:"Mittags & abends (Pause am Nachmittag). Zeiten als Richtwert — mit dem Haus zu bestätigen.",
@@ -459,7 +444,7 @@ var I18N = {
   en:{
     brand_sub:"Brasserie Restaurant", nav_zurek:"The żurek", nav_carte:"The menu", nav_infos:"Find us",
     hero_kick:"Polish brasserie · Pfaffenthal", hero_tag:"A corner of Poland, down in the valley.",
-    hero_sub:"Pierogi, żurek in a bread bowl, beef roulade — Polish home cooking, on Rue Laurent Menager.",
+    hero_sub:"Pierogi, żurek in a bread bowl, slow-simmered bigos — Polish home cooking, on Rue Laurent Menager.",
     hero_cta1:"See the menu", hero_cta2:"Find us ↓",
     fact_1:"Cuisine <b>Polish</b> · homemade", fact_2:"The <b>żurek</b> served in a bread bowl", fact_3:"Rue Laurent Menager · <b>Pfaffenthal</b>",
     zu_badge:"◆ The house speciality", zu_lead:"The rye soup, served inside a loaf.",
@@ -468,20 +453,19 @@ var I18N = {
     house_p1:"Osada — “the hamlet”, “the homestead” in Polish — set its tables in Pfaffenthal, the valley below the Old Town. It serves real Polish cooking: hand-folded pierogi, slow-simmered bigos, golden potato pancakes, stuffed cabbage rolls. Nothing fussy, all homemade.",
     house_p2:"A warm, no-frills neighbourhood brasserie, steps from the Pfaffenthal lift — a little piece of Poland in the hollow of Luxembourg.",
     d1_h:"Pierogi, by hand", d1_p:"Cheese & potato, meat, or cabbage & mushroom — folded in-house.",
-    d2_h:"It simmers", d2_p:"Bigos, beef roulade, ribs in beer — the dishes that take their time.",
-    d3_h:"The Polish sweet", d3_p:"Sernik, poppy-seed roll (makowiec), apple cake (szarlotka).",
+    d2_h:"It simmers", d2_p:"Bigos and gołąbki (stuffed cabbage) — the dishes that take their time.",
+    d3_h:"The Polish sweet", d3_p:"Sernik, pączki (Polish doughnuts), apple cake (szarlotka).",
     gal_kick:"In pictures", gal_h:"Polish cooking, generous",
-    g_rolada:"Rolada wołowa", g_pierogi:"Pierogi", g_placki:"Placki ziemniaczane", g_golabki:"Gołąbki", g_facade:"In Pfaffenthal",
+    g_pierogi:"Pierogi", g_placki:"Placki ziemniaczane", g_golabki:"Gołąbki", g_facade:"In Pfaffenthal",
     gal_note:"Public-source photographs — to be replaced with the venue's own visuals.",
-    menu_kick:"Polish specialities", menu_h:"The menu", menu_p:"Read off the venue's own menu — prices and availability remain to be confirmed.",
+    menu_kick:"Polish specialities", menu_h:"The menu", menu_p:"Dishes mentioned in public directories — full menu and prices to be confirmed with the venue.",
     cat_start:"◆ Starters", cat_pierogi:"◆ Pierogi", cat_plats:"◆ Mains", cat_douceur:"◆ Sweets",
-    m_zurek_d:"Rye soup, Polish sausage, garlic — in a bread bowl.", m_barszcz_d:"Beetroot borscht, croquette with ceps.",
-    m_sledz_d:"Herring, two ways.", m_oscypek_d:"Smoked sheep's cheese, cranberries.",
-    m_p1_d:"Curd cheese, potato, onion.", m_p2_d:"Sauerkraut and ceps.", m_p3_d:"Beef, pork, chicken.", m_p4_d:"The assortment.",
-    m_rolada_d:"Beef roulade, red cabbage, kluski.", m_placek_d:"Potato pancake, pork goulash.",
-    m_golonka_d:"Pork knuckle, sauerkraut, boiled potatoes.", m_golabki_d:"Stuffed cabbage, tomato sauce, purée.", m_schab_d:"Breaded cutlet, purée, sauerkraut.",
-    m_sernik_d:"The Polish cheesecake.", m_makowiec_d:"Poppy-seed roll.", m_szarlotka_d:"The Polish apple cake.",
-    menu_note:"Menu and prices read off the venue's own card — subject to change, to be confirmed on site.",
+    m_zurek_d:"Sour rye soup, Polish sausage and egg.", m_barszcz_d:"Beetroot borscht.",
+    m_p1_d:"Curd cheese and potato.", m_p2_d:"Cabbage and mushrooms.", m_p3_d:"Simmered meat.",
+    m_rolada_d:"Braised sauerkraut with meat.", m_placek_d:"Potato pancakes.",
+    m_golabki_d:"Stuffed cabbage.", m_schab_d:"Breaded cutlet.",
+    m_sernik_d:"The Polish cheesecake.", m_makowiec_d:"Polish doughnuts.", m_szarlotka_d:"The Polish apple cake.",
+    menu_note:"Dishes mentioned in public directories (resto.lu, RestaurantGuru, Facebook) — full menu, availability and prices to be confirmed on site.",
     info_kick:"Find us", info_h:"Find us", info_addr_k:"Address", info_addr_s:"In the valley below the Old Town — near the Pfaffenthal lift.", info_map:"Directions ↗",
     info_tel_k:"Book a table", info_tel_s:"Booking advised in the evening — number to be confirmed.",
     hours_kick:"Opening hours", hours_h:"When we open", hours_note:"Lunch & dinner (afternoon break). Hours indicative — to be confirmed with the venue.",
@@ -490,26 +474,12 @@ var I18N = {
     days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], closed:"Closed", svc:"lunch & evening"
   }
 };
-/* Hours by getDay() (0=Sun..6=Sat) — indicative: open Tue–Sun midday & evening, closed Monday (à confirmer) */
-function hoursFor(i){ return i===1 ? null : I18N[lang].svc; }
-
 var lang="fr";
 function t(k){return (I18N[lang] && I18N[lang][k]!=null)?I18N[lang][k]:I18N.fr[k];}
 function applyLang(l){
   lang=l; document.documentElement.lang=l;
   document.querySelectorAll("[data-i18n]").forEach(function(el){var v=t(el.getAttribute("data-i18n")); if(v!=null) el.innerHTML=v;});
   document.querySelectorAll(".langs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-lang")===l);});
-  buildHours();
-}
-function buildHours(){
-  var ul=document.getElementById("hours"); if(!ul) return;
-  var D=I18N[lang].days, todayIdx=(new Date().getDay()), order=[1,2,3,4,5,6,0]; ul.innerHTML="";
-  order.forEach(function(i){
-    var h=hoursFor(i), li=document.createElement("li");
-    if(i===todayIdx) li.className="today";
-    var val=h?h:('<span class="cl">'+I18N[lang].closed+'</span>');
-    li.innerHTML='<span class="day">'+D[i]+'</span><span>'+val+'</span>'; ul.appendChild(li);
-  });
 }
 document.querySelectorAll(".langs button").forEach(function(b){b.addEventListener("click",function(){applyLang(b.getAttribute("data-lang"));});});
 
