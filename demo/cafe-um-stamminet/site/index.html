@@ -76,8 +76,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(246,241,228,.92);backdro
 .hero .tag{font-family:var(--disp);font-weight:600;font-size:clamp(20px,3.2vw,32px);color:#ffd9e8;margin:8px 0 0}
 .hero .sub{font-size:1.04rem;color:#eef2ea;margin:16px 0 0;max-width:52ch;line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.35)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
-.hero .rate{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:.9rem;color:#e9efe6}
-.hero .rate b{color:#fff}.hero .rate .star{color:var(--pink)}
 .btn{font-family:var(--disp);font-weight:600;font-size:1rem;border:0;border-radius:999px;padding:13px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
 .btn.p{background:var(--pink);color:#3a1224}
 .btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(248,123,170,.4)}
@@ -202,7 +200,6 @@ footer{background:#15201d;color:#a9b4ad;padding:44px 0 40px;font-size:.86rem;lin
         <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
         <a href="tel:+35226458961" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 26 45 89 61</a>
       </div>
-      <div class="rate"><span class="star">★</span> <b>4,0</b> · 109 <span data-i18n="rate_word">avis Google</span></div>
     </div>
   </section>
 
@@ -302,7 +299,7 @@ footer{background:#15201d;color:#a9b4ad;padding:44px 0 40px;font-size:.86rem;lin
       <span class="bt"><svg class="pin" viewBox="0 0 100 92"><use href="#skittle"/></svg>Um Stamminet</span>
       <span>294 Route de Longwy, L-1940 Belair · <a href="tel:+35226458961" style="color:#f2dbe6">26 45 89 61</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps), à remplacer par vos propres visuels. La maison n'a pas de logo indépendant (l'enseigne est co-marquée avec la brasserie Bofferding) — identité proposée ; le nom apparaît aussi « Staminet ». Carte sans prix : plats relevés en photo, carte et prix en salle. Horaires à confirmer. Note 4,0/5 : Google.</p>
+    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps), à remplacer par vos propres visuels. La maison n'a pas de logo indépendant (l'enseigne est co-marquée avec la brasserie Bofferding) — identité proposée ; le nom apparaît aussi « Staminet ». Carte sans prix : plats relevés en photo, carte et prix en salle. Horaires à confirmer.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -313,7 +310,7 @@ const I18N = {
   brand_sub:"Café · Belair", n_story:"Le stamminet", n_quilles:"Les quilles", n_carte:"La carte", n_visit:"Infos",
   hero_eyebrow:"Café · Brasserie · Belair", hero_tag:"Le stamminet du quartier.",
   hero_sub:"Le café le matin, la table et les quilles le soir. Cuisine portugaise et classiques de brasserie, la Bofferding en pression, un vrai jeu de quilles au fond.",
-  hero_cta1:"Voir la carte", hero_cta2:"Appeler", rate_word:"avis Google",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler",
   s_eyebrow:"Le stamminet", s_head:"Le café du quartier, du matin à tard le soir.",
   s_lede:"Un vrai « stamminet » — le café de quartier à la portugaise, sur la Route de Longwy : on y vient pour un café le matin, un plat le midi, un verre et une partie le soir.",
   s_p1:"Banquettes, amphores portugaises et souvenirs de brasserie, la Bofferding en pression, les soirs de match sous la terrasse couverte, drapeaux au vent. Une adresse de quartier, sans chichi.",
@@ -328,14 +325,14 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Ouvert tard — jusqu'à 1h du matin · horaires détaillés à confirmer",
   l_serv:"Services", serv_val:"Sur place · à emporter · café · quilles · fléchettes",
   vi_call:"Appeler", vi_dir:"Itinéraire",
-  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps), à remplacer par vos propres visuels. La maison n'a pas de logo indépendant (l'enseigne est co-marquée avec la brasserie Bofferding) — identité proposée ; le nom apparaît aussi « Staminet ». Carte sans prix : plats relevés en photo, carte et prix en salle. Horaires à confirmer. Note 4,0/5 : Google.",
+  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps), à remplacer par vos propres visuels. La maison n'a pas de logo indépendant (l'enseigne est co-marquée avec la brasserie Bofferding) — identité proposée ; le nom apparaît aussi « Staminet ». Carte sans prix : plats relevés en photo, carte et prix en salle. Horaires à confirmer.",
   foot_made:"Un aperçu"
  },
  de:{
   brand_sub:"Café · Belair", n_story:"Das Stamminet", n_quilles:"Das Kegeln", n_carte:"Die Karte", n_visit:"Infos",
   hero_eyebrow:"Café · Brasserie · Belair", hero_tag:"Das Stamminet des Viertels.",
   hero_sub:"Morgens Kaffee, abends Tisch und Kegeln. Portugiesische Küche und Brasserie-Klassiker, Bofferding vom Fass, hinten eine echte Kegelbahn.",
-  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", rate_word:"Google-Bewertungen",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen",
   s_eyebrow:"Das Stamminet", s_head:"Das Viertelcafé, von morgens bis spät.",
   s_lede:"Ein echtes „Stamminet“ — das portugiesische Viertelcafé an der Route de Longwy: morgens ein Kaffee, mittags ein Teller, abends ein Glas und eine Runde.",
   s_p1:"Bänke, portugiesische Amphoren und Brasserie-Andenken, Bofferding vom Fass, Spielabende unter der überdachten Terrasse, Fahnen im Wind. Eine Adresse fürs Viertel, ohne Schnickschnack.",
@@ -350,14 +347,14 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Lange geöffnet — bis 1 Uhr nachts · genaue Zeiten zu bestätigen",
   l_serv:"Services", serv_val:"Vor Ort · zum Mitnehmen · Café · Kegeln · Darts",
   vi_call:"Anrufen", vi_dir:"Route",
-  foot_disc:"Demo-Vorschau von Webwerk aus öffentlichen Fotos (Google Maps), durch eigene Bilder zu ersetzen. Das Haus hat kein eigenständiges Logo (das Schild ist mit der Brauerei Bofferding co-gebrandet) — Identität als Vorschlag; der Name erscheint auch als „Staminet“. Karte ohne Preise: Gerichte aus Fotos, Karte und Preise vor Ort. Öffnungszeiten zu bestätigen. Bewertung 4,0/5: Google.",
+  foot_disc:"Demo-Vorschau von Webwerk aus öffentlichen Fotos (Google Maps), durch eigene Bilder zu ersetzen. Das Haus hat kein eigenständiges Logo (das Schild ist mit der Brauerei Bofferding co-gebrandet) — Identität als Vorschlag; der Name erscheint auch als „Staminet”. Karte ohne Preise: Gerichte aus Fotos, Karte und Preise vor Ort. Öffnungszeiten zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
  en:{
   brand_sub:"Café · Belair", n_story:"The stamminet", n_quilles:"The skittles", n_carte:"The menu", n_visit:"Find us",
   hero_eyebrow:"Café · Brasserie · Belair", hero_tag:"The neighbourhood stamminet.",
   hero_sub:"Coffee in the morning, a table and skittles at night. Portuguese cooking and brasserie classics, Bofferding on tap, and a real skittle alley at the back.",
-  hero_cta1:"See the menu", hero_cta2:"Call", rate_word:"Google reviews",
+  hero_cta1:"See the menu", hero_cta2:"Call",
   s_eyebrow:"The stamminet", s_head:"The neighbourhood café, morning to late.",
   s_lede:"A real “stamminet” — the Portuguese neighbourhood café on the Route de Longwy: a coffee in the morning, a plate at noon, a drink and a game at night.",
   s_p1:"Banquettes, Portuguese amphorae and brasserie mementos, Bofferding on tap, match nights under the covered terrace with flags flying. A local address, no fuss.",
@@ -372,7 +369,7 @@ const I18N = {
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Open late — until 1am · detailed hours to be confirmed",
   l_serv:"Services", serv_val:"Dine-in · takeaway · café · skittles · darts",
   vi_call:"Call", vi_dir:"Directions",
-  foot_disc:"Demonstration preview composed by Webwerk from public photos (Google Maps), to be replaced with your own visuals. The venue has no standalone logo (the sign is co-branded with the Bofferding brewery) — identity proposed; the name also appears as “Staminet”. Menu without prices: dishes noted from photos, menu and prices in-house. Hours to be confirmed. 4.0/5 rating: Google.",
+  foot_disc:"Demonstration preview composed by Webwerk from public photos (Google Maps), to be replaced with your own visuals. The venue has no standalone logo (the sign is co-branded with the Bofferding brewery) — identity proposed; the name also appears as “Staminet”. Menu without prices: dishes noted from photos, menu and prices in-house. Hours to be confirmed.",
   foot_made:"A preview by"
  }
 };
