@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23E30613'/><path d='M50 12 C66 12 76 26 76 42 C76 58 63 70 58 82 L50 94 L42 82 C37 70 24 58 24 42 C24 26 34 12 50 12 Z' fill='none' stroke='%23fff' stroke-width='5'/><text x='50' y='53' font-family='Arial,sans-serif' font-size='32' font-weight='800' fill='%23fff' text-anchor='middle'>B</text></svg>" />
+<title>Café Benfica — Cuisine portugaise, Dudelange</title>
+<meta name="description" content="Café Restaurant Benfica — cuisine portugaise à Dudelange, buffet de midi, banquets et soirs de match. Aperçu de site composé par Webwerk." />
+<style>
+/* ===== FONTS (self-hosted, 0 external) ===== */
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/anton-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/anton-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:swap;src:url('assets/fonts/karla-var-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Karla';font-style:normal;font-weight:400 800;font-display:swap;src:url('assets/fonts/karla-var-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+
+/* ===== TOKENS ===== */
+:root{
+  --red:#E30613; --red2:#a8040e; --redglow:rgba(227,6,19,.28);
+  --paper:#f7f4ee; --cream:#fffaf2; --card:#ffffff;
+  --ink:#1c1a17; --ink2:#4a453d; --muted:#8a8274;
+  --charcoal:#211d1a; --wood:#7a5c3e;
+  --line:#e4dccb;
+  --maxw:1200px; --disp:'Anton',Impact,sans-serif; --body:'Karla',system-ui,-apple-system,sans-serif;
+  --sh:0 24px 50px rgba(20,14,10,.22); --sh-s:0 10px 26px rgba(20,14,10,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,46px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:.94;letter-spacing:.01em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:400;font-size:.98rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.eyebrow::before{content:'';width:24px;height:3px;background:var(--red)}
+.blk{padding:clamp(56px,8vw,104px) 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:60;background:rgba(247,244,238,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink)}
+.brand .mark{height:34px;width:34px}
+.brand .bt{font-family:var(--disp);font-weight:400;font-size:1.44rem;letter-spacing:.01em;line-height:.82;text-transform:uppercase}
+.brand .bt small{display:block;font-family:var(--body);font-weight:700;font-size:.5rem;letter-spacing:.2em;color:var(--muted);margin-top:6px;text-transform:uppercase}
+.navright{display:flex;align-items:center;gap:20px}
+.menu{display:flex;align-items:center;gap:24px}
+.menu a{font-family:var(--disp);font-weight:400;font-size:.94rem;letter-spacing:.02em;color:var(--ink2);text-transform:uppercase}
+.menu a:hover{color:var(--red)}
+.langs{display:flex;gap:2px;background:#ece4d3;border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--ink2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--ink);color:#fff}
+.burger{display:none;background:transparent;border:0;color:var(--ink);cursor:pointer;padding:6px}
+@media(max-width:860px){
+  .menu{position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 0;transform:translateY(-140%);transition:transform .32s ease;box-shadow:var(--sh-s)}
+  .menu.open{transform:none}
+  .menu a{padding:15px clamp(20px,5vw,46px);width:100%;border-top:1px solid var(--line)}
+  .burger{display:block}
+}
+@media(max-width:520px){.brand .bt{font-size:1.2rem}.navright{gap:10px}}
+
+/* ===== HERO — red editorial panel + real-photo wall ===== */
+.hero{position:relative;background:var(--charcoal);color:#fff;overflow:hidden}
+.hgrid{display:grid;grid-template-columns:1.05fr .95fr;min-height:clamp(560px,88vh,820px)}
+.hero .txt{position:relative;z-index:2;padding:clamp(90px,10vw,130px) clamp(24px,5vw,56px) clamp(48px,6vw,72px);display:flex;flex-direction:column;justify-content:center;background:linear-gradient(160deg,var(--red) 0%,var(--red2) 100%)}
+.hero .crest{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.hero .crest .mark{height:52px;width:52px}
+.hero .crest span{font-family:var(--body);font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.hero h1{color:#fff;font-size:clamp(46px,7.4vw,84px);text-shadow:0 3px 30px rgba(0,0,0,.3)}
+.hero .tag{font-family:var(--body);font-weight:700;font-size:clamp(15px,1.7vw,18px);letter-spacing:.04em;text-transform:uppercase;color:#ffe1c9;margin:12px 0 0}
+.hero .sub{font-family:var(--body);font-size:1.03rem;color:#fbe4e4;margin:18px 0 0;max-width:44ch;line-height:1.62}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+.hero .chip{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--body);font-size:.86rem;color:#ffd9d9}
+.btn{font-family:var(--disp);font-weight:400;font-size:.98rem;letter-spacing:.02em;text-transform:uppercase;border:0;border-radius:7px;padding:13px 24px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn.p{background:#fff;color:var(--red2)}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.28)}
+.btn.g{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.55)}
+.btn.g:hover{background:rgba(255,255,255,.24)}
+.hwall{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:#000}
+.hwall a{position:relative;overflow:hidden;display:block}
+.hwall img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02) contrast(1.03)}
+.hwall .big{grid-row:1 / 3}
+.hwall .cap{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent);font-family:var(--body);font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+@media(max-width:940px){.hgrid{grid-template-columns:1fr}.hwall{min-height:320px}}
+@media(max-width:520px){.hwall{grid-template-columns:1fr 1fr}}
+
+/* ===== NOM (identity story) ===== */
+.nom{background:var(--cream)}
+.ngrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);align-items:center}
+.ngrid img{border-radius:14px;box-shadow:var(--sh)}
+.nom h2{font-size:clamp(30px,4.4vw,48px);margin:14px 0 0;color:var(--ink)}
+.nom p{color:var(--ink2);margin:16px 0 0;max-width:56ch}
+.nom .fact{margin-top:20px;display:inline-flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--sh-s)}
+.nom .fact b{font-family:var(--disp);font-weight:400;color:var(--red2);font-size:1.02rem;display:block}
+.nom .fact span{color:var(--ink2);font-size:.92rem}
+@media(max-width:860px){.ngrid{grid-template-columns:1fr}.ngrid .pic{order:-1}}
+
+/* ===== DEUX TEMPS (duality) ===== */
+.duo{background:var(--charcoal);color:#f0e8de}
+.dgrid{display:grid;grid-template-columns:1fr 1fr}
+.dcard{position:relative;padding:clamp(48px,6vw,80px) clamp(24px,5vw,48px);min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.dcard .bg{position:absolute;inset:0;z-index:0}
+.dcard .bg img{width:100%;height:100%;object-fit:cover;opacity:.34}
+.dcard.a .bg{background:var(--red2)}
+.dcard.b{background:#141210}
+.dcard .body{position:relative;z-index:1}
+.dcard .eyebrow{color:#ffd9d9}.dcard .eyebrow::before{background:#ffd9d9}
+.dcard.b .eyebrow{color:#e8b98a}.dcard.b .eyebrow::before{background:#e8b98a}
+.dcard h3{color:#fff;font-size:clamp(28px,3.6vw,40px);margin-top:12px}
+.dcard p{margin-top:14px;max-width:40ch;color:#e7ded2;font-size:1rem}
+.dcard ul{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.dcard li{font-family:var(--body);font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 13px}
+@media(max-width:860px){.dgrid{grid-template-columns:1fr}}
+
+/* ===== CARTE (menu) ===== */
+.carte{background:var(--paper)}
+.carte .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.carte .head-c .eyebrow{justify-content:center}
+.carte h2{font-size:clamp(30px,4.4vw,46px);margin:12px 0 0}
+.carte .intro{color:var(--ink2);max-width:60ch;margin:14px auto 0;text-align:center}
+.cwrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,50px);margin-top:clamp(34px,4.5vw,52px);align-items:start}
+.menu-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(26px,4vw,36px);box-shadow:var(--sh-s)}
+.menu-card .dateline{text-align:center;font-family:var(--disp);font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--red2);font-size:.9rem;padding-bottom:15px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.mgroup{margin-bottom:20px}
+.mgroup h3{font-size:1.1rem;font-family:var(--disp);font-weight:400;color:var(--red2);margin-bottom:9px;text-transform:uppercase}
+.item{display:flex;gap:10px;align-items:baseline;margin:7px 0}
+.item .nm{font-weight:600;color:var(--ink);font-family:var(--body)}
+.item .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:12px}
+.item .pr{font-family:var(--disp);font-weight:400;font-size:.98rem;color:var(--red2);white-space:nowrap}
+.pricenote{margin-top:20px;font-size:.84rem;color:var(--muted);text-align:center}
+.cpics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cpics img{border-radius:12px;box-shadow:var(--sh-s);aspect-ratio:3/4;object-fit:cover;width:100%;height:100%}
+@media(max-width:860px){.cwrap{grid-template-columns:1fr}.cpics{order:-1;grid-template-columns:1fr 1fr}}
+
+/* ===== DOCE & BEBIDAS ===== */
+.doce{background:var(--cream)}
+.doce .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.doce .head-c .eyebrow{justify-content:center}
+.doce h2{font-size:clamp(28px,4vw,42px);margin:12px 0 0}
+.drow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:clamp(30px,4vw,44px)}
+.dtile{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--sh-s);border:1px solid var(--line)}
+.dtile .ph{aspect-ratio:4/5;overflow:hidden}
+.dtile img{width:100%;height:100%;object-fit:cover}
+.dtile .lb{padding:12px 14px;font-family:var(--disp);font-weight:400;letter-spacing:.02em;font-size:1rem;text-transform:uppercase;color:var(--ink)}
+@media(max-width:700px){.drow{grid-template-columns:1fr 1fr}}
+
+/* ===== VISIT ===== */
+.visit{background:var(--paper)}
+.visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+.info{margin-top:24px}
+.info .row{padding:15px 0;border-top:1px solid var(--line)}
+.info .row:last-child{border-bottom:1px solid var(--line)}
+.info .k{font-family:var(--disp);font-weight:400;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red2)}
+.info .v{margin-top:5px;color:var(--ink)}
+.info .v a{border-bottom:1px solid var(--line)}
+.hours{margin-top:24px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+.hours .hr{display:flex;justify-content:space-between;padding:11px 16px;font-size:.92rem;border-bottom:1px solid var(--line)}
+.hours .hr:last-child{border-bottom:0}
+.hours .hr .d{font-weight:700;color:var(--ink)}
+.hours .hr .h{color:var(--ink2)}
+.hours .hr .flag{color:var(--muted);font-size:.78rem;margin-left:6px}
+.visit .cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px}
+.visit .cta .btn.p{background:var(--red);color:#fff}
+.visit .cta .btn.g{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.pay{margin-top:22px;display:flex;flex-wrap:wrap;gap:9px}
+.pay span{font-family:var(--body);font-weight:700;font-size:.76rem;letter-spacing:.03em;text-transform:uppercase;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 13px;color:var(--ink2)}
+.deadsite{margin-top:24px;padding:18px 20px;background:var(--card);border:1px dashed var(--muted);border-radius:12px}
+.deadsite .k{font-family:var(--disp);font-weight:400;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--red2)}
+.deadsite p{margin-top:6px;color:var(--ink2);font-size:.9rem}
+.mapcard{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start;min-height:300px}
+.mapcard svg{width:100%;height:100%;display:block;min-height:300px}
+.mapcta{position:absolute;left:18px;bottom:16px;font-family:var(--disp);font-weight:400;font-size:.84rem;color:#fff;background:rgba(28,20,16,.6);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:8px 14px}
+@media(max-width:860px){.visit .vgrid2{grid-template-columns:1fr}}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;line-height:1.6}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-top .bt{font-family:var(--disp);font-weight:400;font-size:1.34rem;color:#f2ece0;display:flex;align-items:center;gap:11px;text-transform:uppercase}
+.foot-top .bt .mark{height:28px;width:28px}
+.disc{margin-top:22px;color:#8e8571;max-width:82ch}
+.madeby{margin-top:14px;color:#ffb0ac}
+.madeby a{color:#f2c9c6;border-bottom:1px solid rgba(242,201,198,.4)}
+</style>
+</head>
+<body id="top">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="crest">
+  <path d="M50 12 C66 12 76 26 76 42 C76 58 63 70 58 82 L50 94 L42 82 C37 70 24 58 24 42 C24 26 34 12 50 12 Z" fill="none" stroke="currentColor" stroke-width="5"/>
+  <text x="50" y="52" font-family="Anton,Impact,sans-serif" font-size="34" font-weight="400" fill="currentColor" text-anchor="middle">B</text>
+</g>
+</defs></svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Café Benfica">
+      <svg class="mark" viewBox="0 0 100 100" style="color:#E30613"><use href="#crest"/></svg>
+      <span class="bt">Benfica<small data-i18n="brand_sub">Dudelange · Cuisine portugaise</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#nom" data-i18n="n_nom">Le nom</a>
+        <a href="#duo" data-i18n="n_duo">La maison</a>
+        <a href="#carte" data-i18n="n_carte">La carte</a>
+        <a href="#visit" data-i18n="n_visit">Infos</a>
+      </nav>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 32 22" width="22" height="16"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M1 2H31M1 11H31M1 20H31"/></g></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hgrid">
+      <div class="txt">
+        <div class="crest"><svg class="mark" viewBox="0 0 100 100" style="color:#fff"><use href="#crest"/></svg><span data-i18n="hero_est">Quartier des Terres Rouges · Dudelange</span></div>
+        <h1>Café Benfica</h1>
+        <p class="tag" data-i18n="hero_tag">Cuisine portugaise · Dudelange</p>
+        <p class="sub" data-i18n="hero_sub">Une salle rouge et blanc au nom d'un club de Lisbonne, un buffet de midi et une cuisine familiale — la maison portugaise du quartier des Terres Rouges.</p>
+        <div class="cta">
+          <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
+          <a href="tel:+352518255" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 51 82 55</a>
+        </div>
+        <div class="chip" data-i18n="hero_chip">179 rue de la Libération, Dudelange</div>
+      </div>
+      <div class="hwall" role="group" aria-label="Photos du café">
+        <a class="big"><img src="assets/img/dining-room.jpg" alt="La salle du Café Benfica, murs blancs et cadres rouges" /><span class="cap" data-i18n="hw_1">La salle</span></a>
+        <a><img src="assets/img/food-cozido.jpg" alt="Cozido à Portuguesa, plat de viandes et légumes bouillis" /><span class="cap" data-i18n="hw_2">Cuisine maison</span></a>
+        <a><img src="assets/img/exterior.jpg" alt="La terrasse couverte du Café Benfica, rue de la Libération" /><span class="cap" data-i18n="hw_3">La terrasse</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LE NOM -->
+  <section class="nom blk" id="nom">
+    <div class="wrap ngrid">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="no_eyebrow">Le nom</span>
+        <h2 data-i18n="no_head">Pourquoi « Benfica » à Dudelange ?</h2>
+        <p data-i18n="no_p1">La maison porte le nom du club de Lisbonne — un repère pour la communauté portugaise des Terres Rouges, dans une ville qui compte parmi les plus fortes proportions d'habitants portugais du pays. Les matches passent sur écran, les murs de la salle portent des cadres rouges, et les tables se remplissent de supporters comme de voisins venus déjeuner.</p>
+        <p data-i18n="no_p2">Un « café » au sens portugais du mot : on y vient pour un express au comptoir comme pour un plat du jour, une bière locale ou un repas de famille.</p>
+        <div class="fact reveal">
+          <div>
+            <b data-i18n="no_fact_b">As Águias</b>
+            <span data-i18n="no_fact_s">Le surnom du Sport Lisboa e Benfica — « les Aigles » — le club dont la maison a repris le nom. Aucune affiliation officielle avec le club n'est revendiquée.</span>
+          </div>
+        </div>
+      </div>
+      <div class="pic reveal"><img src="assets/img/dining-room.jpg" alt="Salle à manger du Café Benfica, cadres rouges et lampes globe" /></div>
+    </div>
+  </section>
+
+  <!-- DEUX TEMPS -->
+  <section class="duo" id="duo">
+    <div class="dgrid">
+      <div class="dcard a">
+        <div class="bg"><img src="assets/img/exterior.jpg" alt="" aria-hidden="true" /></div>
+        <div class="body reveal">
+          <span class="eyebrow" data-i18n="d1_eyebrow">En semaine</span>
+          <h3 data-i18n="d1_head">Le buffet de midi.</h3>
+          <p data-i18n="d1_p">Du lundi au samedi, un buffet à volonté — froid et chaud, dessert compris — pensé pour les employés du quartier. Chèque-repas et Ticket Restaurant acceptés.</p>
+          <ul>
+            <li data-i18n="d1_t1">Buffet à volonté</li>
+            <li data-i18n="d1_t2">Chèque-repas</li>
+            <li data-i18n="d1_t3">12h–14h</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dcard b">
+        <div class="bg"><img src="assets/img/banquet-glass.jpg" alt="" aria-hidden="true" /></div>
+        <div class="body reveal">
+          <span class="eyebrow" data-i18n="d2_eyebrow">Le soir &amp; le week-end</span>
+          <h3 data-i18n="d2_head">Matches, banquets et fêtes.</h3>
+          <p data-i18n="d2_p">Carte à la carte le soir et le week-end, grande salle pour mariages et banquets, musique live et animations le week-end — la maison devient salle de fête sans changer d'adresse.</p>
+          <ul>
+            <li data-i18n="d2_t1">Salle de banquet</li>
+            <li data-i18n="d2_t2">Mariages</li>
+            <li data-i18n="d2_t3">Musique live</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTE -->
+  <section class="carte blk" id="carte">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow" data-i18n="ca_eyebrow">La carte</span>
+        <h2 data-i18n="ca_head">Cuisine portugaise, portions généreuses.</h2>
+        <p class="intro" data-i18n="ca_intro">Les plats et prix ci-dessous sont recensés à partir d'annuaires publics (gastronomie.lu, RestaurantGuru) — à confirmer en salle, la carte réelle n'a pas encore été partagée par l'établissement.</p>
+      </div>
+      <div class="cwrap">
+        <div class="menu-card reveal">
+          <div class="dateline" data-i18n="ca_date">Buffet &amp; à la carte</div>
+          <div class="mgroup">
+            <h3 data-i18n="g_buffet">Buffet de midi (lun.–sam., 12h–14h)</h3>
+            <div class="item"><span class="nm" data-i18n="i_buffet">Buffet froid &amp; chaud, dessert compris</span><span class="dots"></span><span class="pr">14,50 €*</span></div>
+          </div>
+          <div class="mgroup">
+            <h3 data-i18n="g_plats">Spécialités portugaises</h3>
+            <div class="item"><span class="nm" data-i18n="i_bacalhau">Bacalhau (morue)</span></div>
+            <div class="item"><span class="nm" data-i18n="i_cozido">Cozido à Portuguesa (viandes &amp; légumes bouillis)</span></div>
+            <div class="item"><span class="nm" data-i18n="i_cataplana">Cataplana de fruits de mer</span></div>
+            <div class="item"><span class="nm" data-i18n="i_porco">Porco preto (porc ibérique noir)</span></div>
+            <div class="item"><span class="nm" data-i18n="i_prego">Prego (sandwich à la viande)</span></div>
+            <div class="item"><span class="nm" data-i18n="i_gambas">Pâtes aux gambas</span></div>
+          </div>
+          <div class="mgroup" style="margin-bottom:0">
+            <h3 data-i18n="g_boissons">Boissons</h3>
+            <div class="item"><span class="nm" data-i18n="i_vinho">Vinho Verde, vins portugais</span></div>
+            <div class="item"><span class="nm" data-i18n="i_bieres">Super Bock, Bofferding</span></div>
+          </div>
+        </div>
+        <div class="cpics reveal">
+          <img src="assets/img/food-cozido.jpg" alt="Cozido à Portuguesa avec palourdes et légumes" />
+          <img src="assets/img/food-gambas.jpg" alt="Pâtes aux gambas et frites" />
+        </div>
+      </div>
+      <p class="pricenote" data-i18n="ca_pricenote">*Prix relevé sur deux annuaires publics indépendants — non confirmé directement par l'établissement. Carte du soir, prix et horaires de service à confirmer en salle.</p>
+    </div>
+  </section>
+
+  <!-- DOCE & BEBIDAS -->
+  <section class="doce blk" id="doce">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow" data-i18n="do_eyebrow">Desserts &amp; boissons</span>
+        <h2 data-i18n="do_head">Pudim, bolo et une pression locale.</h2>
+      </div>
+      <div class="drow reveal">
+        <div class="dtile"><div class="ph"><img src="assets/img/dessert-bolo.jpg" alt="Bolo, dessert portugais aux couches caramélisées" /></div><div class="lb" data-i18n="do_bolo">Bolo maison</div></div>
+        <div class="dtile"><div class="ph"><img src="assets/img/dessert-pudim.jpg" alt="Pudim, flan portugais" /></div><div class="lb" data-i18n="do_pudim">Pudim</div></div>
+        <div class="dtile"><div class="ph"><img src="assets/img/drink-bofferding.jpg" alt="Une Bofferding pression, bière luxembourgeoise" /></div><div class="lb" data-i18n="do_biere">Bofferding pression</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit blk" id="visit">
+    <div class="wrap vgrid2">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="v_eyebrow">Infos pratiques</span>
+        <h2 data-i18n="v_head">179 rue de la Libération, Dudelange.</h2>
+        <div class="info">
+          <div class="row"><div class="k" data-i18n="l_addr">Adresse</div><div class="v">179 rue de la Libération, L-3512 Dudelange</div></div>
+          <div class="row"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+352518255">51 82 55</a></div></div>
+        </div>
+        <div class="hours reveal">
+          <div class="hr"><span class="d" data-i18n="h_sun">Dimanche</span><span class="h">09:00–18:00</span></div>
+          <div class="hr"><span class="d" data-i18n="h_mon">Lundi</span><span class="h">09:00–18:00</span></div>
+          <div class="hr"><span class="d" data-i18n="h_tue">Mardi</span><span class="h">09:00–01:00</span></div>
+          <div class="hr"><span class="d" data-i18n="h_wed">Mercredi</span><span class="h">09:00–23:00</span></div>
+          <div class="hr"><span class="d" data-i18n="h_thu">Jeudi</span><span class="h">09:00–23:00</span></div>
+          <div class="hr"><span class="d" data-i18n="h_fri">Vendredi</span><span class="h">09:00–01:00</span></div>
+          <div class="hr"><span class="d" data-i18n="h_sat">Samedi</span><span class="h">09:00–01:00</span></div>
+        </div>
+        <p class="pricenote" style="text-align:left;margin-top:10px" data-i18n="h_note">Horaires relevés sur des annuaires publics, qui ne s'accordent pas tous sur l'heure de fermeture en soirée — à confirmer avec l'établissement.</p>
+        <div class="pay reveal">
+          <span data-i18n="p_1">Ticket Restaurant</span><span data-i18n="p_2">Chèque Repas</span><span data-i18n="p_3">Visa / Mastercard</span><span data-i18n="p_4">Parking gratuit</span><span data-i18n="p_5">Accès fauteuil roulant</span>
+        </div>
+        <div class="cta">
+          <a href="tel:+352518255" class="btn p" data-i18n="v_call">Appeler</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Benfica+179+rue+de+la+Lib%C3%A9ration+Dudelange" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
+        </div>
+        <div class="deadsite reveal">
+          <span class="k" data-i18n="ds_k">Ancien site</span>
+          <p data-i18n="ds_p">cafe-benfica.lu ne répond plus (erreur 410) — le café n'a pas de site à lui aujourd'hui, seulement Facebook. Ceci est une proposition de nouveau site, à partir de vos photos.</p>
+        </div>
+      </div>
+      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Benfica+179+rue+de+la+Lib%C3%A9ration+Dudelange" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
+        <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
+          <rect width="400" height="300" fill="#211d1a"/>
+          <g stroke="#3a332a" stroke-width="10" opacity=".6">
+            <path d="M30 60 H140"/><path d="M220 40 H340"/><path d="M50 230 H160"/><path d="M210 250 H330"/><path d="M60 140 H150"/><path d="M240 150 H360"/>
+          </g>
+          <g transform="translate(200,150)">
+            <circle r="34" fill="rgba(227,6,19,.22)"/>
+            <path d="M0 -22 C12 -22 20 -13 20 -2 C20 12 0 30 0 30 C0 30 -20 12 -20 -2 C-20 -13 -12 -22 0 -22 Z" fill="#E30613"/>
+            <circle r="6" fill="#211d1a"/>
+          </g>
+          <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#d8cbab" letter-spacing="1">RUE DE LA LIBÉRATION · DUDELANGE</text>
+        </svg>
+        <span class="mapcta" data-i18n="v_dir2">Ouvrir l'itinéraire ↗</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="bt"><svg class="mark" viewBox="0 0 100 100" style="color:#E30613"><use href="#crest"/></svg>Café Benfica</span>
+      <span>179 rue de la Libération, L-3512 Dudelange · <a href="tel:+352518255" style="color:#f2c9c6">51 82 55</a></span>
+    </div>
+    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (gastronomie.lu, editus.lu, RestaurantGuru, resto.lu, Facebook). Emblème redessiné pour cette maison, sans affiliation officielle avec le Sport Lisboa e Benfica. Carte, prix et horaires de service à confirmer en salle.</p>
+    <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+ fr:{
+  brand_sub:"Dudelange · Cuisine portugaise", n_nom:"Le nom", n_duo:"La maison", n_carte:"La carte", n_visit:"Infos",
+  hero_est:"Quartier des Terres Rouges · Dudelange",
+  hero_tag:"Cuisine portugaise · Dudelange",
+  hero_sub:"Une salle rouge et blanc au nom d'un club de Lisbonne, un buffet de midi et une cuisine familiale — la maison portugaise du quartier des Terres Rouges.",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler", hero_chip:"179 rue de la Libération, Dudelange",
+  hw_1:"La salle", hw_2:"Cuisine maison", hw_3:"La terrasse",
+  no_eyebrow:"Le nom", no_head:"Pourquoi « Benfica » à Dudelange ?",
+  no_p1:"La maison porte le nom du club de Lisbonne — un repère pour la communauté portugaise des Terres Rouges, dans une ville qui compte parmi les plus fortes proportions d'habitants portugais du pays. Les matches passent sur écran, les murs de la salle portent des cadres rouges, et les tables se remplissent de supporters comme de voisins venus déjeuner.",
+  no_p2:"Un « café » au sens portugais du mot : on y vient pour un express au comptoir comme pour un plat du jour, une bière locale ou un repas de famille.",
+  no_fact_b:"As Águias", no_fact_s:"Le surnom du Sport Lisboa e Benfica — « les Aigles » — le club dont la maison a repris le nom. Aucune affiliation officielle avec le club n'est revendiquée.",
+  d1_eyebrow:"En semaine", d1_head:"Le buffet de midi.",
+  d1_p:"Du lundi au samedi, un buffet à volonté — froid et chaud, dessert compris — pensé pour les employés du quartier. Chèque-repas et Ticket Restaurant acceptés.",
+  d1_t1:"Buffet à volonté", d1_t2:"Chèque-repas", d1_t3:"12h–14h",
+  d2_eyebrow:"Le soir & le week-end", d2_head:"Matches, banquets et fêtes.",
+  d2_p:"Carte à la carte le soir et le week-end, grande salle pour mariages et banquets, musique live et animations le week-end — la maison devient salle de fête sans changer d'adresse.",
+  d2_t1:"Salle de banquet", d2_t2:"Mariages", d2_t3:"Musique live",
+  ca_eyebrow:"La carte", ca_head:"Cuisine portugaise, portions généreuses.",
+  ca_intro:"Les plats et prix ci-dessous sont recensés à partir d'annuaires publics (gastronomie.lu, RestaurantGuru) — à confirmer en salle, la carte réelle n'a pas encore été partagée par l'établissement.",
+  ca_date:"Buffet & à la carte",
+  g_buffet:"Buffet de midi (lun.–sam., 12h–14h)", i_buffet:"Buffet froid & chaud, dessert compris",
+  g_plats:"Spécialités portugaises", i_bacalhau:"Bacalhau (morue)", i_cozido:"Cozido à Portuguesa (viandes & légumes bouillis)", i_cataplana:"Cataplana de fruits de mer", i_porco:"Porco preto (porc ibérique noir)", i_prego:"Prego (sandwich à la viande)", i_gambas:"Pâtes aux gambas",
+  g_boissons:"Boissons", i_vinho:"Vinho Verde, vins portugais", i_bieres:"Super Bock, Bofferding",
+  ca_pricenote:"*Prix relevé sur deux annuaires publics indépendants — non confirmé directement par l'établissement. Carte du soir, prix et horaires de service à confirmer en salle.",
+  do_eyebrow:"Desserts & boissons", do_head:"Pudim, bolo et une pression locale.",
+  do_bolo:"Bolo maison", do_pudim:"Pudim", do_biere:"Bofferding pression",
+  v_eyebrow:"Infos pratiques", v_head:"179 rue de la Libération, Dudelange.",
+  l_addr:"Adresse", l_tel:"Téléphone",
+  h_sun:"Dimanche", h_mon:"Lundi", h_tue:"Mardi", h_wed:"Mercredi", h_thu:"Jeudi", h_fri:"Vendredi", h_sat:"Samedi",
+  h_note:"Horaires relevés sur des annuaires publics, qui ne s'accordent pas tous sur l'heure de fermeture en soirée — à confirmer avec l'établissement.",
+  p_1:"Ticket Restaurant", p_2:"Chèque Repas", p_3:"Visa / Mastercard", p_4:"Parking gratuit", p_5:"Accès fauteuil roulant",
+  v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
+  ds_k:"Ancien site", ds_p:"cafe-benfica.lu ne répond plus (erreur 410) — le café n'a pas de site à lui aujourd'hui, seulement Facebook. Ceci est une proposition de nouveau site, à partir de vos photos.",
+  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (gastronomie.lu, editus.lu, RestaurantGuru, resto.lu, Facebook). Emblème redessiné pour cette maison, sans affiliation officielle avec le Sport Lisboa e Benfica. Carte, prix et horaires de service à confirmer en salle.",
+  foot_made:"Un aperçu"
+ },
+ de:{
+  brand_sub:"Düdelingen · Portugiesische Küche", n_nom:"Der Name", n_duo:"Das Haus", n_carte:"Die Karte", n_visit:"Infos",
+  hero_est:"Terres-Rouges-Viertel · Düdelingen",
+  hero_tag:"Portugiesische Küche · Düdelingen",
+  hero_sub:"Ein rot-weißer Saal, benannt nach einem Lissabonner Fußballklub, ein Mittagsbuffet und Hausmannskost — das portugiesische Haus im Terres-Rouges-Viertel.",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", hero_chip:"179 rue de la Libération, Düdelingen",
+  hw_1:"Der Saal", hw_2:"Hausküche", hw_3:"Die Terrasse",
+  no_eyebrow:"Der Name", no_head:"Warum „Benfica” in Düdelingen?",
+  no_p1:"Das Haus trägt den Namen des Lissabonner Klubs — ein Bezugspunkt für die portugiesische Gemeinschaft in Terres Rouges, einer Stadt mit einem der höchsten Anteile portugiesischer Bewohner des Landes. Spiele laufen auf dem Bildschirm, an den Wänden hängen rote Rahmen, und die Tische füllen sich mit Fans wie mit Nachbarn zum Mittagessen.",
+  no_p2:"Ein „Café” im portugiesischen Sinn: man kommt für einen Espresso am Tresen ebenso wie für ein Tagesgericht, ein lokales Bier oder ein Familienessen.",
+  no_fact_b:"As Águias", no_fact_s:"Der Spitzname von Sport Lisboa e Benfica — „die Adler” — der Klub, dessen Namen das Haus trägt. Es besteht keine offizielle Verbindung zum Klub.",
+  d1_eyebrow:"Werktags", d1_head:"Das Mittagsbuffet.",
+  d1_p:"Von Montag bis Samstag ein Buffet nach Belieben — kalt und warm, Dessert inklusive — gedacht für die Angestellten der Umgebung. Chèque-Repas und Ticket Restaurant werden angenommen.",
+  d1_t1:"Buffet nach Belieben", d1_t2:"Chèque-Repas", d1_t3:"12–14 Uhr",
+  d2_eyebrow:"Abends & am Wochenende", d2_head:"Spiele, Banketts und Feste.",
+  d2_p:"Abends und am Wochenende à la carte, ein großer Saal für Hochzeiten und Bankette, Livemusik und Unterhaltung am Wochenende — das Haus wird zum Festsaal, ohne die Adresse zu wechseln.",
+  d2_t1:"Bankettsaal", d2_t2:"Hochzeiten", d2_t3:"Livemusik",
+  ca_eyebrow:"Die Karte", ca_head:"Portugiesische Küche, großzügige Portionen.",
+  ca_intro:"Die untenstehenden Gerichte und Preise stammen aus öffentlichen Verzeichnissen (gastronomie.lu, RestaurantGuru) — im Restaurant zu bestätigen, die tatsächliche Karte wurde vom Betrieb noch nicht mitgeteilt.",
+  ca_date:"Buffet & à la carte",
+  g_buffet:"Mittagsbuffet (Mo.–Sa., 12–14 Uhr)", i_buffet:"Kaltes & warmes Buffet, Dessert inklusive",
+  g_plats:"Portugiesische Spezialitäten", i_bacalhau:"Bacalhau (Kabeljau)", i_cozido:"Cozido à Portuguesa (gekochtes Fleisch & Gemüse)", i_cataplana:"Cataplana mit Meeresfrüchten", i_porco:"Porco preto (iberisches Schwarzschwein)", i_prego:"Prego (Fleisch-Sandwich)", i_gambas:"Nudeln mit Garnelen",
+  g_boissons:"Getränke", i_vinho:"Vinho Verde, portugiesische Weine", i_bieres:"Super Bock, Bofferding",
+  ca_pricenote:"*Preis aus zwei unabhängigen öffentlichen Verzeichnissen — nicht direkt vom Betrieb bestätigt. Abendkarte, Preise und Öffnungszeiten im Restaurant zu bestätigen.",
+  do_eyebrow:"Desserts & Getränke", do_head:"Pudim, Bolo und ein lokales Bier vom Fass.",
+  do_bolo:"Hausgemachtes Bolo", do_pudim:"Pudim", do_biere:"Bofferding vom Fass",
+  v_eyebrow:"Praktische Infos", v_head:"179 rue de la Libération, Düdelingen.",
+  l_addr:"Adresse", l_tel:"Telefon",
+  h_sun:"Sonntag", h_mon:"Montag", h_tue:"Dienstag", h_wed:"Mittwoch", h_thu:"Donnerstag", h_fri:"Freitag", h_sat:"Samstag",
+  h_note:"Öffnungszeiten aus öffentlichen Verzeichnissen — diese stimmen nicht immer bei der abendlichen Schließzeit überein, im Restaurant zu bestätigen.",
+  p_1:"Ticket Restaurant", p_2:"Chèque Repas", p_3:"Visa / Mastercard", p_4:"Kostenlose Parkplätze", p_5:"Rollstuhlzugang",
+  v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
+  ds_k:"Alte Webseite", ds_p:"cafe-benfica.lu antwortet nicht mehr (Fehler 410) — das Café hat derzeit keine eigene Webseite, nur Facebook. Dies ist ein Vorschlag für eine neue Webseite, aus Ihren eigenen Fotos.",
+  foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (gastronomie.lu, editus.lu, RestaurantGuru, resto.lu, Facebook). Emblem für dieses Haus neu gestaltet, ohne offizielle Verbindung zu Sport Lisboa e Benfica. Karte, Preise und Öffnungszeiten im Restaurant zu bestätigen.",
+  foot_made:"Eine Vorschau von"
+ },
+ en:{
+  brand_sub:"Dudelange · Portuguese cuisine", n_nom:"The name", n_duo:"The house", n_carte:"The menu", n_visit:"Find us",
+  hero_est:"Terres Rouges neighbourhood · Dudelange",
+  hero_tag:"Portuguese cuisine · Dudelange",
+  hero_sub:"A red-and-white room named after a Lisbon football club, a midday buffet and home cooking — the Portuguese house of the Terres Rouges neighbourhood.",
+  hero_cta1:"See the menu", hero_cta2:"Call", hero_chip:"179 rue de la Libération, Dudelange",
+  hw_1:"The room", hw_2:"Home cooking", hw_3:"The terrace",
+  no_eyebrow:"The name", no_head:"Why \"Benfica\" in Dudelange?",
+  no_p1:"The house carries the name of the Lisbon club — an anchor for the Portuguese community of Terres Rouges, in a town with one of the country's highest shares of Portuguese residents. Matches play on screen, red frames line the dining-room walls, and the tables fill with supporters as much as with neighbours in for lunch.",
+  no_p2:"A \"café\" in the Portuguese sense of the word: people come for an espresso at the counter as much as for a daily dish, a local beer or a family meal.",
+  no_fact_b:"As Águias", no_fact_s:"The nickname of Sport Lisboa e Benfica — \"the Eagles\" — the club whose name the house took. No official affiliation with the club is claimed.",
+  d1_eyebrow:"On weekdays", d1_head:"The midday buffet.",
+  d1_p:"Monday to Saturday, an all-you-can-eat buffet — cold and hot, dessert included — built for workers from the neighbourhood. Luncheon vouchers and Ticket Restaurant accepted.",
+  d1_t1:"All-you-can-eat buffet", d1_t2:"Luncheon vouchers", d1_t3:"12–2pm",
+  d2_eyebrow:"Evenings & weekends", d2_head:"Matches, banquets and parties.",
+  d2_p:"An à la carte menu in the evenings and at weekends, a large room for weddings and banquets, live music and entertainment at weekends — the house becomes a party hall without changing address.",
+  d2_t1:"Banquet room", d2_t2:"Weddings", d2_t3:"Live music",
+  ca_eyebrow:"The menu", ca_head:"Portuguese cooking, generous portions.",
+  ca_intro:"The dishes and prices below are compiled from public directories (gastronomie.lu, RestaurantGuru) — to be confirmed in person, the actual menu has not yet been shared by the venue.",
+  ca_date:"Buffet & à la carte",
+  g_buffet:"Midday buffet (Mon.–Sat., 12–2pm)", i_buffet:"Cold & hot buffet, dessert included",
+  g_plats:"Portuguese specialities", i_bacalhau:"Bacalhau (salt cod)", i_cozido:"Cozido à Portuguesa (boiled meats & vegetables)", i_cataplana:"Seafood cataplana", i_porco:"Porco preto (Iberian black pork)", i_prego:"Prego (steak sandwich)", i_gambas:"Shrimp pasta",
+  g_boissons:"Drinks", i_vinho:"Vinho Verde, Portuguese wines", i_bieres:"Super Bock, Bofferding",
+  ca_pricenote:"*Price recorded from two independent public directories — not directly confirmed by the venue. Evening menu, prices and service hours to be confirmed in person.",
+  do_eyebrow:"Desserts & drinks", do_head:"Pudim, bolo and a local beer on tap.",
+  do_bolo:"House bolo", do_pudim:"Pudim", do_biere:"Bofferding on tap",
+  v_eyebrow:"Find us", v_head:"179 rue de la Libération, Dudelange.",
+  l_addr:"Address", l_tel:"Phone",
+  h_sun:"Sunday", h_mon:"Monday", h_tue:"Tuesday", h_wed:"Wednesday", h_thu:"Thursday", h_fri:"Friday", h_sat:"Saturday",
+  h_note:"Hours recorded from public directories, which don't all agree on the evening closing time — to confirm with the venue.",
+  p_1:"Ticket Restaurant", p_2:"Luncheon vouchers", p_3:"Visa / Mastercard", p_4:"Free parking", p_5:"Wheelchair access",
+  v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
+  ds_k:"Old website", ds_p:"cafe-benfica.lu no longer responds (error 410) — the café has no own website today, only Facebook. This is a proposal for a new site, built from your own photos.",
+  foot_disc:"Demonstration preview composed by Webwerk from public photos and information (gastronomie.lu, editus.lu, RestaurantGuru, resto.lu, Facebook). Emblem redrawn for this house, with no official affiliation to Sport Lisboa e Benfica. Menu, prices and service hours to be confirmed in person.",
+  foot_made:"A preview by"
+ }
+};
+function applyLang(l){
+  const d = I18N[l] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ const k=el.getAttribute('data-i18n'); if(d[k]!=null) el.textContent=d[k]; });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  try{ localStorage.setItem('benfica_lang', l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
+(function(){ let l='fr'; try{ l=localStorage.getItem('benfica_lang')||'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
