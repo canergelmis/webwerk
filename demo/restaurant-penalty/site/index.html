@@ -71,8 +71,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(25,21,18,.9);backdrop-fi
 .hero .tag{font-family:var(--disp);font-size:clamp(22px,3.4vw,36px);color:var(--ember);margin:6px 0 0}
 .hero .sub{font-family:var(--body);font-size:1.05rem;color:#e9e0d0;margin:16px 0 0;max-width:52ch;line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.5)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
-.hero .rate{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:.9rem;color:#e2d8c6}
-.hero .rate b{color:#fff}.hero .rate .star{color:var(--ember)}
 .btn{font-family:var(--body);font-weight:700;font-size:.96rem;letter-spacing:.02em;border:0;border-radius:5px;padding:14px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
 .btn.p{background:var(--red);color:#fff}
 .btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(209,80,42,.45)}
@@ -200,7 +198,6 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
         <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
         <a href="tel:+352586984" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 58 69 84</a>
       </div>
-      <div class="rate"><span class="star">★</span> <b>4,5</b> · 537 <span data-i18n="rate_word">avis Google</span></div>
     </div>
   </section>
 
@@ -269,7 +266,7 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
         <span class="k" data-i18n="w_k">Cave croate</span>
         <p data-i18n="w_p">Des vins de Croatie à la carte — Dingač, Plavac Mali — pour accompagner la grillade.</p>
       </div>
-      <p class="pricenote reveal" data-i18n="c_pricenote">Plats d'après nos photos ; les plats « populaires » sont signalés par Google. Carte et prix en salle — comptez environ 30–40 € par personne (source Google).</p>
+      <p class="pricenote reveal" data-i18n="c_pricenote">Plats d'après nos photos ; les plats « populaires » sont signalés par Google. Carte et prix en salle — à confirmer avec la maison.</p>
     </div>
   </section>
 
@@ -316,7 +313,7 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
       <span class="bt"><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg>Restaurant Penalty</span>
       <span>22 Rue de la Gare, L-4571 Oberkorn · <a href="tel:+352586984" style="color:#e9c3ad">58 69 84</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps ; façade Google Street View, 2023), à remplacer par vos propres visuels. La maison n'a pas de logo — seulement son nom ; identité proposée. Carte sans prix : plats d'après photos, plats « populaires » signalés par Google, carte et prix en salle. Note 4,5/5 et plats populaires : Google. À revérifier avant tout contact.</p>
+    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps ; façade Google Street View, 2023), à remplacer par vos propres visuels. La maison n'a pas de logo — seulement son nom ; identité proposée. Carte sans prix : plats d'après photos, plats « populaires » signalés par Google, carte et prix en salle. À revérifier avant tout contact.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -327,7 +324,7 @@ const I18N = {
   brand_sub:"Grill croate · Oberkorn", n_grill:"Le grill", n_carte:"La carte", n_salle:"La salle", n_visit:"Infos",
   hero_eyebrow:"Grill croate · Oberkorn", hero_tag:"Grillades généreuses.",
   hero_sub:"Le grill croate d'Oberkorn : mix grill, ćevapi et pljeskavica, viande soignée et portions généreuses, dans une salle sombre, tout en bois. Une adresse du quartier.",
-  hero_cta1:"Voir la carte", hero_cta2:"Appeler", rate_word:"avis Google", sear_lbl:"Sur le grill",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler", sear_lbl:"Sur le grill",
   g_eyebrow:"Le grill", g_head:"Toute la grillade croate, sur une assiette.",
   g_lede:"Le mix grill réunit les spécialités : ćevapčići, pljeskavica, brochettes et viandes grillées, servis avec ajvar et oignons.",
   g_p1:"On vient pour la grillade et la générosité de l'assiette. Une cuisine des Balkans franche, sans esbroufe, dans une salle en bois sombre et lumière basse — un vrai restaurant de quartier.",
@@ -339,21 +336,21 @@ const I18N = {
   d_dessert:"Fraises chantilly & profiterole",
   pop:"populaire · Google", pop2:"populaire · Google", pop3:"populaire · Google",
   w_k:"Cave croate", w_p:"Des vins de Croatie à la carte — Dingač, Plavac Mali — pour accompagner la grillade.",
-  c_pricenote:"Plats d'après nos photos ; les plats « populaires » sont signalés par Google. Carte et prix en salle — comptez environ 30–40 € par personne (source Google).",
+  c_pricenote:"Plats d'après nos photos ; les plats « populaires » sont signalés par Google. Carte et prix en salle — à confirmer avec la maison.",
   s_eyebrow:"La salle", s_head:"Bois sombre, lumière basse.",
   s_p:"Une salle chaleureuse et feutrée, à deux pas de la gare d'Oberkorn — pour un dîner tranquille ou une tablée qui s'attarde. Repas sur place ou à emporter.",
   vi_eyebrow:"Infos", vi_head:"Rue de la Gare, Oberkorn.",
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_days:"Lun · Mer–Dim : 11h30–14h & 18h–21h30", h_tue:"Mardi : fermé",
   l_serv:"Services", serv_val:"Sur place · à emporter",
   vi_call:"Appeler pour réserver", vi_dir:"Itinéraire",
-  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps ; façade Google Street View, 2023), à remplacer par vos propres visuels. La maison n'a pas de logo — seulement son nom ; identité proposée. Carte sans prix : plats d'après photos, plats « populaires » signalés par Google, carte et prix en salle. Note 4,5/5 et plats populaires : Google. À revérifier avant tout contact.",
+  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps ; façade Google Street View, 2023), à remplacer par vos propres visuels. La maison n'a pas de logo — seulement son nom ; identité proposée. Carte sans prix : plats d'après photos, plats « populaires » signalés par Google, carte et prix en salle. À revérifier avant tout contact.",
   foot_made:"Un aperçu"
  },
  de:{
   brand_sub:"Kroatischer Grill · Oberkorn", n_grill:"Der Grill", n_carte:"Die Karte", n_salle:"Der Saal", n_visit:"Infos",
   hero_eyebrow:"Kroatischer Grill · Oberkorn", hero_tag:"Großzügige Grillteller.",
   hero_sub:"Der kroatische Grill in Oberkorn: Mixed Grill, Ćevapi und Pljeskavica, sorgfältiges Fleisch und großzügige Portionen, in einem dunklen Saal aus Holz. Eine Adresse des Viertels.",
-  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", rate_word:"Google-Bewertungen", sear_lbl:"Auf dem Grill",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", sear_lbl:"Auf dem Grill",
   g_eyebrow:"Der Grill", g_head:"Der ganze kroatische Grill auf einem Teller.",
   g_lede:"Der Mixed Grill vereint die Spezialitäten: Ćevapčići, Pljeskavica, Spieße und gegrilltes Fleisch, serviert mit Ajvar und Zwiebeln.",
   g_p1:"Man kommt für den Grill und die großzügige Portion. Ehrliche Balkanküche ohne Schnickschnack, in einem Saal aus dunklem Holz bei gedämpftem Licht — ein echtes Viertelrestaurant.",
@@ -365,21 +362,21 @@ const I18N = {
   d_dessert:"Erdbeeren mit Sahne & Profiterole",
   pop:"beliebt · Google", pop2:"beliebt · Google", pop3:"beliebt · Google",
   w_k:"Kroatischer Weinkeller", w_p:"Kroatische Weine auf der Karte — Dingač, Plavac Mali — zum Grill.",
-  c_pricenote:"Gerichte nach unseren Fotos; die „beliebten“ Gerichte sind von Google markiert. Karte und Preise im Restaurant — rechnen Sie mit etwa 30–40 € pro Person (Quelle: Google).",
+  c_pricenote:"Gerichte nach unseren Fotos; die „beliebten“ Gerichte sind von Google markiert. Karte und Preise im Restaurant — vor Ort zu bestätigen.",
   s_eyebrow:"Der Saal", s_head:"Dunkles Holz, gedämpftes Licht.",
   s_p:"Ein warmer, gemütlicher Saal, wenige Schritte vom Bahnhof Oberkorn — für ein ruhiges Abendessen oder eine Runde, die bleibt. Vor Ort oder zum Mitnehmen.",
   vi_eyebrow:"Infos", vi_head:"Rue de la Gare, Oberkorn.",
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_days:"Mo · Mi–So: 11:30–14 & 18–21:30", h_tue:"Dienstag: geschlossen",
   l_serv:"Services", serv_val:"Vor Ort · zum Mitnehmen",
   vi_call:"Zum Reservieren anrufen", vi_dir:"Route",
-  foot_disc:"Demo-Vorschau von Webwerk aus öffentlichen Fotos (Google Maps; Fassade Google Street View, 2023), durch eigene Bilder zu ersetzen. Das Haus hat kein Logo — nur den Namen; Identität als Vorschlag. Karte ohne Preise: Gerichte nach Fotos, „beliebte“ Gerichte von Google markiert, Karte und Preise im Restaurant. Bewertung 4,5/5 und beliebte Gerichte: Google. Vor Kontakt zu prüfen.",
+  foot_disc:"Demo-Vorschau von Webwerk aus öffentlichen Fotos (Google Maps; Fassade Google Street View, 2023), durch eigene Bilder zu ersetzen. Das Haus hat kein Logo — nur den Namen; Identität als Vorschlag. Karte ohne Preise: Gerichte nach Fotos, „beliebte” Gerichte von Google markiert, Karte und Preise im Restaurant. Vor Kontakt zu prüfen.",
   foot_made:"Eine Vorschau von"
  },
  en:{
   brand_sub:"Croatian grill · Oberkorn", n_grill:"The grill", n_carte:"The menu", n_salle:"The room", n_visit:"Find us",
   hero_eyebrow:"Croatian grill · Oberkorn", hero_tag:"Generous grills.",
   hero_sub:"The Croatian grill in Oberkorn: mixed grill, ćevapi and pljeskavica, carefully-cooked meat and generous plates, in a dark, wood-lined room. A neighbourhood address.",
-  hero_cta1:"See the menu", hero_cta2:"Call", rate_word:"Google reviews", sear_lbl:"On the grill",
+  hero_cta1:"See the menu", hero_cta2:"Call", sear_lbl:"On the grill",
   g_eyebrow:"The grill", g_head:"The whole Croatian grill, on one plate.",
   g_lede:"The mixed grill brings the specialities together: ćevapčići, pljeskavica, skewers and grilled meats, served with ajvar and onions.",
   g_p1:"You come for the grill and the generosity of the plate. Honest Balkan cooking, no fuss, in a dark-wood room under low light — a real neighbourhood restaurant.",
@@ -391,14 +388,14 @@ const I18N = {
   d_dessert:"Strawberries & cream, profiterole",
   pop:"popular · Google", pop2:"popular · Google", pop3:"popular · Google",
   w_k:"Croatian cellar", w_p:"Croatian wines on the list — Dingač, Plavac Mali — to go with the grill.",
-  c_pricenote:"Dishes from our photos; the “popular” dishes are flagged by Google. Menu and prices in-house — reckon on about €30–40 per person (source: Google).",
+  c_pricenote:"Dishes from our photos; the “popular” dishes are flagged by Google. Menu and prices in-house — to be confirmed with the venue.",
   s_eyebrow:"The room", s_head:"Dark wood, low light.",
   s_p:"A warm, snug room a step from the Oberkorn station — for a quiet dinner or a table that lingers. Dine-in or takeaway.",
   vi_eyebrow:"Find us", vi_head:"Rue de la Gare, Oberkorn.",
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_days:"Mon · Wed–Sun: 11:30–14 & 18–21:30", h_tue:"Tuesday: closed",
   l_serv:"Services", serv_val:"Dine-in · takeaway",
   vi_call:"Call to reserve", vi_dir:"Directions",
-  foot_disc:"Demonstration preview composed by Webwerk from public photos (Google Maps; facade Google Street View, 2023), to be replaced with your own visuals. The venue has no logo — only its name; identity proposed. Menu without prices: dishes from photos, “popular” dishes flagged by Google, menu and prices in-house. 4.5/5 rating and popular dishes: Google. To be re-verified before any contact.",
+  foot_disc:"Demonstration preview composed by Webwerk from public photos (Google Maps; facade Google Street View, 2023), to be replaced with your own visuals. The venue has no logo — only its name; identity proposed. Menu without prices: dishes from photos, “popular” dishes flagged by Google, menu and prices in-house. To be re-verified before any contact.",
   foot_made:"A preview by"
  }
 };
