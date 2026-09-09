@@ -299,8 +299,6 @@
     animation:pulse 2.4s ease-out infinite;
     flex:none;
   }
-  .dot.open{background:#5bbf78;box-shadow:0 0 0 0 rgba(91,191,120,.6);}
-  .dot.closed{background:#c76a6a;animation:none;}
   @keyframes pulse{
     0%{box-shadow:0 0 0 0 rgba(120,180,140,.55);}
     70%{box-shadow:0 0 0 9px rgba(120,180,140,0);}
@@ -811,43 +809,36 @@
               <span class="sheen" aria-hidden="true" data-i18n="ardPlatName">Menu du jour</span>
             </h3>
             <p class="plat-desc" data-i18n="ardPlatDesc">Une assiette différente chaque jour — mijotée maison, généreuse. Le plat exact est annoncé le matin même.</p>
-            <div class="plat-price">€16,50 <small data-i18n="ardPlatPriceNote">· indicatif</small></div>
           </div>
           <div class="ardoise-cats">
             <div class="cat-row">
               <span class="c-cat">Burger</span>
               <span class="c-name">Cheese Burger</span>
-              <span class="c-price mono">€17,00</span>
             </div>
             <div class="cat-row">
               <span class="c-cat" data-i18n="catPasta">Pâtes</span>
               <span class="c-name">Tagliatelle Carbonara</span>
-              <span class="c-price mono">€16,50</span>
             </div>
             <div class="cat-row">
               <span class="c-cat" data-i18n="catSalad">Salade</span>
               <span class="c-name">Salade César</span>
-              <span class="c-price mono">€18,00</span>
             </div>
             <div class="cat-row">
               <span class="c-cat" data-i18n="catFish">Poisson</span>
               <span class="c-name" data-i18n="dishSalmon">Saumon grillé</span>
-              <span class="c-price mono">€21,00</span>
             </div>
             <div class="cat-row">
               <span class="c-cat" data-i18n="catMeat">Viande</span>
               <span class="c-name">Pavé de rumsteak · 250 g</span>
-              <span class="c-price mono">€23,00</span>
             </div>
             <div class="cat-row">
               <span class="c-cat" data-i18n="catDessert">Dessert</span>
               <span class="c-name" data-i18n="dishDessert">Dessert du jour</span>
-              <span class="c-price mono">€3,50</span>
             </div>
           </div>
         </div>
         <div class="ardoise-note">
-          <span><span class="price-flag" data-i18n="priceFlag">Prix indicatifs — à confirmer</span> <span data-i18n="ardNoteText">· la carte change chaque jour</span></span>
+          <span><span class="price-flag" data-i18n="priceFlag">Prix non affichés — à confirmer en salle</span> <span data-i18n="ardNoteText">· la carte change chaque jour</span></span>
           <span><span data-i18n="ardFbText">Le plat exact du jour est publié sur</span> <a href="https://www.facebook.com/110576048529388" target="_blank" rel="noopener">Facebook</a>.</span>
         </div>
       </div>
@@ -986,10 +977,9 @@ const I18N = {
     ardEyebrow:"Ce qui se cuisine — au premier regard", ardTitle:"L'ardoise du jour", ardTodayWord:"Aujourd'hui",
     ardPlatKicker:"Le plat du jour", ardPlatName:"Menu du jour",
     ardPlatDesc:"Une assiette différente chaque jour — mijotée maison, généreuse. Le plat exact est annoncé le matin même.",
-    ardPlatPriceNote:"· indicatif",
     catPasta:"Pâtes", catSalad:"Salade", catFish:"Poisson", catMeat:"Viande", catDessert:"Dessert",
     dishSalmon:"Saumon grillé", dishDessert:"Dessert du jour",
-    priceFlag:"Prix indicatifs — à confirmer", ardNoteText:"· la carte change chaque jour", ardFbText:"Le plat exact du jour est publié sur",
+    priceFlag:"Prix non affichés — à confirmer en salle", ardNoteText:"· la carte change chaque jour", ardFbText:"Le plat exact du jour est publié sur",
     palmEyebrow:"L'ambiance", palmTitle:'Sous les <span>palmiers</span>',
     palmP1:"Une verrière lumineuse, des palmiers et de la verdure : on déjeune comme dans une petite oasis, à l'abri du business-park. Le matin pour un café, le midi pour un plat chaud, et dès qu'il fait beau, la terrasse ouvre.",
     palmP2:"Décontracté et sans chichis — une vraie brasserie de jour, pas un club.",
@@ -1002,7 +992,6 @@ const I18N = {
     footHours:"Lun–Sam 08:00–20:00 · dimanche fermé · <em>horaires à confirmer</em>", footCta:"Appelez pour réserver",
     footLegal:"Site de démonstration — contenu proposé à valider par l'établissement. Prix et horaires indicatifs et à confirmer. Photographies d'archives de l'établissement.",
     mCall:"Appeler · 26 70 14 90", mDir:"Itinéraire",
-    stOpen:"Probablement ouvert", stClosed:"Probablement fermé", stCap:"Indicatif — appelez pour confirmer",
     locale:"fr-FR"
   },
   de:{
@@ -1017,10 +1006,9 @@ const I18N = {
     ardEyebrow:"Was heute gekocht wird — auf einen Blick", ardTitle:"Die Tagestafel", ardTodayWord:"Heute",
     ardPlatKicker:"Das Tagesgericht", ardPlatName:"Tagesmenü",
     ardPlatDesc:"Jeden Tag ein anderes Gericht — hausgemacht und großzügig. Das genaue Gericht wird am Morgen bekanntgegeben.",
-    ardPlatPriceNote:"· Richtpreis",
     catPasta:"Pasta", catSalad:"Salat", catFish:"Fisch", catMeat:"Fleisch", catDessert:"Dessert",
     dishSalmon:"Gegrillter Lachs", dishDessert:"Dessert des Tages",
-    priceFlag:"Richtpreise — zu bestätigen", ardNoteText:"· die Karte wechselt täglich", ardFbText:"Das genaue Tagesgericht steht auf",
+    priceFlag:"Preise nicht angezeigt — vor Ort zu bestätigen", ardNoteText:"· die Karte wechselt täglich", ardFbText:"Das genaue Tagesgericht steht auf",
     palmEyebrow:"Das Ambiente", palmTitle:'Unter den <span>Palmen</span>',
     palmP1:"Ein helles Glasdach, Palmen und Grün: Man isst wie in einer kleinen Oase, geschützt vom Gewerbepark. Morgens ein Kaffee, mittags ein warmes Gericht, und bei schönem Wetter öffnet die Terrasse.",
     palmP2:"Entspannt und unkompliziert — eine echte Tages-Brasserie, kein Club.",
@@ -1033,7 +1021,6 @@ const I18N = {
     footHours:"Mo–Sa 08:00–20:00 · Sonntag geschlossen · <em>Zeiten unbestätigt</em>", footCta:"Anrufen & reservieren",
     footLegal:"Demo-Website — vorgeschlagener Inhalt, vom Betrieb zu bestätigen. Preise und Öffnungszeiten sind Richtwerte und zu bestätigen. Archivfotos des Betriebs.",
     mCall:"Anrufen · 26 70 14 90", mDir:"Route",
-    stOpen:"Wahrscheinlich geöffnet", stClosed:"Wahrscheinlich geschlossen", stCap:"Richtwert — bitte anrufen",
     locale:"de-DE"
   },
   en:{
@@ -1048,10 +1035,9 @@ const I18N = {
     ardEyebrow:"What's cooking — at a glance", ardTitle:"Today's board", ardTodayWord:"Today",
     ardPlatKicker:"Plate of the day", ardPlatName:"Menu of the day",
     ardPlatDesc:"A different plate every day — home-cooked and generous. The exact dish is announced the same morning.",
-    ardPlatPriceNote:"· indicative",
     catPasta:"Pasta", catSalad:"Salad", catFish:"Fish", catMeat:"Meat", catDessert:"Dessert",
     dishSalmon:"Grilled salmon", dishDessert:"Dessert of the day",
-    priceFlag:"Indicative prices — to confirm", ardNoteText:"· the menu changes daily", ardFbText:"The exact dish of the day is posted on",
+    priceFlag:"Prices not shown — confirm in person", ardNoteText:"· the menu changes daily", ardFbText:"The exact dish of the day is posted on",
     palmEyebrow:"The atmosphere", palmTitle:'Under the <span>palms</span>',
     palmP1:"A bright glass roof, palms and greenery: lunch feels like a little oasis, sheltered from the business park. A coffee in the morning, a hot plate at midday, and the terrace opens as soon as the sun is out.",
     palmP2:"Relaxed and unfussy — a genuine daytime brasserie, not a club.",
@@ -1064,7 +1050,6 @@ const I18N = {
     footHours:"Mon–Sat 08:00–20:00 · Sunday closed · <em>hours to confirm</em>", footCta:"Call to book",
     footLegal:"Demonstration site — proposed content, to be validated by the establishment. Prices and hours are indicative and to be confirmed. Archive photographs of the establishment.",
     mCall:"Call · 26 70 14 90", mDir:"Directions",
-    stOpen:"Likely open", stClosed:"Likely closed", stCap:"Indicative — please call to confirm",
     locale:"en-GB"
   }
 };
@@ -1101,22 +1086,18 @@ function renderDates(){
   if(el2) el2.textContent = short;
 }
 
-/* ---------------- live status pill (honest / indicative) ---------------- */
+/* ---------------- status pill ----------------
+   No confirmed hours exist for this venue (sources disagree — see content.md),
+   so this deliberately does NOT compute a live open/closed verdict from a
+   guessed schedule. It only ever shows the honest static default already in
+   the HTML/I18N: "Call us to confirm" / "Hours to be confirmed". */
 function renderStatus(){
   const d = I18N[CURRENT];
-  const now = new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Luxembourg'}));
-  const day = now.getDay();            // 0 = Sun
-  const h = now.getHours()+now.getMinutes()/60;
-  // Placeholder schedule (UNCONFIRMED): Mon–Sat 08:00–20:00, Sun closed
-  const openNow = (day!==0) && (h>=8 && h<20);
-  const dot = document.getElementById("statusDot");
   const main = document.getElementById("statusMain");
   const sub = document.getElementById("statusSub");
-  if(!dot) return;
-  dot.classList.remove("open","closed");
-  if(openNow){ dot.classList.add("open"); main.textContent = d.stOpen; }
-  else { dot.classList.add("closed"); main.textContent = d.stClosed; }
-  sub.textContent = d.stCap;   // always keeps the "call to confirm" honesty flag
+  if(!main) return;
+  main.textContent = d.statusMain;
+  sub.textContent = d.statusSub;
 }
 
 /* init (HTML already French — this only sets dates + status without reflow flash) */
