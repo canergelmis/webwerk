@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<!--
+  CAFÉ BEL AIR — v3 rebuild (Webwerk), 2026-09-09. Full legacy replacement, not a touch-up.
+  CONCEPT: this venue's own real menu insert carries a photographed logo badge (green ribbon
+  "CAFÉ … WINE & SPIRITS DINER" wrapped around a cursive "Bel Air" wordmark) and its real walls
+  are papered in vintage beer/spirits tins + a handwritten chalk wine list + a Tintin orange-soda
+  tin (all photo-verified via Google Maps, 2026-09-09). Reviewers independently and repeatedly
+  describe the food menu as "written on old comic books." So the whole site is built as a comic
+  panel / Ben-Day halftone / speech-bubble system (matches the reviewed, sourced fact), populated
+  with the venue's REAL photographed logo (traced from their own menu photo, not redrawn) and 8
+  Google-Maps-verified photos (2 owner-tagged "Au pain de Mary" desserts, real interior, real
+  dishes). No aggregator rating/star/review-count appears anywhere. Self-hosted fonts only
+  (Bangers, Zilla Slab 700, Work Sans — all local woff2, zero external requests). noindex.
+  Full source manifest in ../content.md §9 and §11.
+-->
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Café Bel Air — Burgers artisanaux · Belair, Luxembourg</title>
+<meta name="description" content="Café Bel Air — le bistrot de quartier de Belair. Burgers artisanaux, le légendaire Munsterosaurus, menus écrits sur de vieux comics. Réservez une table.">
+<style id="rk-fonts">
+/* Bangers — latin-ext */
+@font-face {
+  font-family: 'Bangers';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/bangers-60ACH5BQ2Ixi.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Bangers — latin */
+@font-face {
+  font-family: 'Bangers';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/bangers-0h60ACH55Q2A.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Zilla Slab 700 — latin-ext (self-hosted, replaces the old Google Fonts CDN link) */
+@font-face {
+  font-family: 'Zilla Slab';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/zillaslab-700-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Zilla Slab 700 — latin */
+@font-face {
+  font-family: 'Zilla Slab';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/zillaslab-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Work Sans — latin-ext */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/worksans-43RhcqDppk.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Work Sans — latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/worksans-dqQ43RhfKDp.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Work Sans 500 — latin-ext */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/worksans-43RhcqDppk.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Work Sans 500 — latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/worksans-dqQ43RhfKDp.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Work Sans 600 — latin-ext */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/worksans-43RhcqDppk.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Work Sans 600 — latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/worksans-dqQ43RhfKDp.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Work Sans 700 — latin-ext */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/worksans-43RhcqDppk.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Work Sans 700 — latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/worksans-dqQ43RhfKDp.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  :root{
+    --ink:#1A1714;
+    --paper:#F5EEE1;
+    --amber:#D4870A;
+    --forest:#1C2B1E;
+    --tomato:#B23A2E;
+    --gold:#C9A24B;
+    --munster:#E8B04B;
+    --stroke:3px;
+    --gut:24px;
+    --shadow:6px 6px 0 var(--ink);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Work Sans',system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(var(--ink) 0.6px, transparent 0.7px);
+    background-size:7px 7px;
+    background-position:0 0;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit}
+  img{display:block}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+
+  /* ---------- comic panel base ---------- */
+  .panel{
+    border:var(--stroke) solid var(--ink);
+    background:var(--paper);
+    position:relative;
+  }
+  .panel--paper{
+    background-color:var(--paper);
+    background-image:radial-gradient(rgba(26,23,20,.05) 0.8px, transparent 0.9px);
+    background-size:5px 5px;
+  }
+  /* Ben-Day halftone tint inside hero/splash */
+  .halftone::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(var(--munster) 22%, transparent 23%);
+    background-size:9px 9px;opacity:.14;transition:opacity .35s ease;mix-blend-mode:multiply;
+  }
+  .halftone:hover::after{opacity:.22}
+
+  .kicker{
+    font-family:'Bangers',system-ui,cursive;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--tomato);
+    font-size:.95rem;
+    line-height:1;
+  }
+  h1,h2,h3{font-family:'Zilla Slab',Georgia,serif;font-weight:700;line-height:1.04;}
+  .accent{color:var(--amber)}
+
+  /* ---------- speech bubble (signature device) ---------- */
+  .bubble{
+    position:relative;
+    display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+    background:var(--tomato);
+    color:var(--paper);
+    border:var(--stroke) solid var(--ink);
+    border-radius:34px;
+    padding:.85em 1.5em;
+    font-family:'Work Sans',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    text-decoration:none;
+    min-height:52px;
+    box-shadow:var(--shadow);
+    transition:transform .15s ease, box-shadow .15s ease;
+    cursor:pointer;
+  }
+  .bubble:hover,.bubble:focus-visible{transform:scale(1.05) translateY(-1px);box-shadow:8px 8px 0 var(--ink);outline:none}
+  .bubble:focus-visible{outline:3px solid var(--forest);outline-offset:3px}
+  .bubble::after{
+    content:"";position:absolute;width:0;height:0;
+    border-left:14px solid transparent;border-right:14px solid transparent;
+    border-top:18px solid var(--ink);
+    bottom:-18px;left:34px;
+  }
+  .bubble::before{
+    content:"";position:absolute;width:0;height:0;z-index:1;
+    border-left:10px solid transparent;border-right:10px solid transparent;
+    border-top:13px solid var(--tomato);
+    bottom:-11px;left:38px;
+  }
+  .bubble--down-r::after{left:auto;right:34px}
+  .bubble--down-r::before{left:auto;right:38px}
+  .bubble:hover::after,.bubble:hover::before{transform:translateX(6px)}
+  .bubble--lg{font-size:1.25rem;padding:1em 1.8em;min-height:60px}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.45em;
+    min-height:48px;padding:.6em 1.15em;
+    border:var(--stroke) solid var(--ink);
+    background:var(--paper);color:var(--ink);
+    font-weight:600;font-size:.95rem;text-decoration:none;border-radius:10px;
+    transition:transform .12s ease, background .12s ease;
+  }
+  .btn:hover,.btn:focus-visible{background:var(--gold);transform:translateY(-2px);outline:none}
+  .btn:focus-visible{outline:3px solid var(--forest);outline-offset:2px}
+  .btn--forest{background:var(--forest);color:var(--paper)}
+  .btn--forest:hover{background:#11200f}
+
+  .stamp{
+    display:inline-block;
+    font-family:'Bangers',cursive;letter-spacing:1px;text-transform:uppercase;
+    font-size:.72rem;color:var(--tomato);
+    border:2px solid var(--tomato);border-radius:5px;
+    padding:.15em .55em;transform:rotate(-4deg);
+  }
+
+  /* ---------- MASTHEAD ---------- */
+  header.masthead{
+    position:sticky;top:0;z-index:60;
+    background:var(--ink);
+    border-bottom:var(--stroke) solid var(--ink);
+  }
+  .masthead-inner{
+    max-width:1240px;margin:0 auto;padding:10px var(--gut);
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  }
+  .wordmark{
+    font-family:'Zilla Slab',serif;font-weight:700;
+    color:var(--paper);font-size:1.7rem;letter-spacing:.3px;line-height:1;white-space:nowrap;
+  }
+  .issue{
+    font-family:'Bangers',cursive;letter-spacing:1px;color:var(--munster);
+    font-size:.85rem;border:2px solid var(--munster);border-radius:5px;padding:.1em .5em;
+    white-space:nowrap;
+  }
+  nav.mast-nav{display:flex;gap:18px;margin-left:auto;align-items:center}
+  nav.mast-nav a.link{
+    color:var(--paper);text-decoration:none;font-weight:600;font-size:.9rem;
+    text-transform:uppercase;letter-spacing:.5px;padding:.3em 0;border-bottom:2px solid transparent;
+  }
+  nav.mast-nav a.link:hover{border-bottom-color:var(--amber)}
+  .lang{display:flex;border:2px solid var(--munster);border-radius:7px;overflow:hidden}
+  .lang button{
+    background:transparent;color:var(--paper);border:0;cursor:pointer;
+    font-family:'Work Sans';font-weight:700;font-size:.78rem;padding:.4em .6em;letter-spacing:.5px;
+  }
+  .lang button[aria-pressed="true"]{background:var(--munster);color:var(--ink)}
+  .mast-reserve{
+    background:var(--tomato);color:var(--paper);border:2px solid var(--paper);border-radius:24px;
+    font-weight:700;text-decoration:none;padding:.5em 1.1em;font-size:.9rem;min-height:42px;
+    display:inline-flex;align-items:center;transition:transform .12s ease;
+  }
+  .mast-reserve:hover{transform:scale(1.05)}
+
+  /* ---------- OPENING SPREAD ---------- */
+  .spread{
+    display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut);
+    padding:var(--gut) 0;
+  }
+  .hero-panel{grid-column:span 7;overflow:hidden}
+  .hero-frame{aspect-ratio:1.4/1;width:100%;position:relative;overflow:hidden}
+  .hero-frame img{width:100%;height:100%;object-fit:cover}
+  .hero-tag{
+    position:absolute;left:0;bottom:0;
+    background:var(--ink);color:var(--paper);
+    font-family:'Bangers',cursive;letter-spacing:1.5px;font-size:1rem;
+    padding:.35em 1em;border-top:var(--stroke) solid var(--ink);border-right:var(--stroke) solid var(--ink);
+  }
+  .hero-stack{grid-column:span 5;display:flex;flex-direction:column;gap:var(--gut)}
+  .pitch{
+    flex:1;padding:26px 26px 30px;background:var(--forest);color:var(--paper);
+    display:flex;flex-direction:column;justify-content:center;gap:14px;
+  }
+  .pitch h1{font-size:2.15rem;color:var(--paper)}
+  .pitch h1 .accent{color:var(--munster)}
+  .pitch .sub{font-size:1rem;opacity:.9;max-width:30ch}
+  .ticket{
+    padding:22px 24px;display:flex;flex-direction:column;gap:12px;
+    background:var(--paper);
+  }
+  .ticket .row{display:flex;align-items:center;gap:10px;font-size:.95rem}
+  .open-dot{width:13px;height:13px;border-radius:50%;background:#2f9e44;border:2px solid var(--ink);flex:none;
+    box-shadow:0 0 0 0 rgba(47,158,68,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,158,68,.5)}70%{box-shadow:0 0 0 8px rgba(47,158,68,0)}100%{box-shadow:0 0 0 0 rgba(47,158,68,0)}}
+  .ticket .status{font-weight:700}
+  .ticket .addr{font-weight:600;line-height:1.35}
+  .ticket .micro{font-size:.78rem;color:#6b6258;font-style:italic}
+  .ticket-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
+
+  /* ---------- SPLASH — the wall + the real badge ---------- */
+  section.splash{padding:8px 0 var(--gut)}
+  .splash-panel{
+    display:grid;grid-template-columns:1fr 1fr;
+    overflow:hidden;
+  }
+  .splash-img{position:relative;min-height:420px;overflow:hidden}
+  .splash-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+  .splash-text{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;gap:16px;
+    border-left:var(--stroke) solid var(--ink);background:var(--paper)}
+  .splash-text h2{font-size:2.6rem}
+  .splash-text h2 .accent{font-family:'Bangers',cursive;color:var(--tomato);font-style:normal;letter-spacing:1.5px;font-weight:400}
+  .splash-text p{font-size:1.04rem;max-width:44ch}
+  .splash-text .note{font-size:.82rem;color:#6b6258;font-style:italic}
+  .badge-insert{
+    display:flex;align-items:center;gap:14px;margin-top:6px;
+    padding:12px 14px;border:2px dashed var(--forest);border-radius:10px;background:rgba(28,43,30,.05);
+  }
+  .badge-insert img{width:76px;height:auto;flex:none;border:2px solid var(--ink);border-radius:6px;transform:rotate(-3deg)}
+  .badge-insert span{font-size:.82rem;line-height:1.35;color:#3a342e}
+
+  /* ---------- MENU ---------- */
+  section.menu{padding:var(--gut) 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+  .sec-head h2{font-size:2.3rem}
+  .sec-head .note{margin-left:auto;font-size:.82rem;color:#6b6258}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gut)}
+  .dish{
+    padding:22px 22px 20px;display:flex;flex-direction:column;gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;background:var(--paper);
+  }
+  .dish:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .dish .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .dish h3{font-size:1.35rem}
+  .dish .price{font-family:'Bangers',cursive;color:var(--forest);font-size:1.2rem;letter-spacing:.5px;white-space:nowrap}
+  .dish p{font-size:.95rem;color:#3a342e}
+  .dish .flag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+    color:var(--forest);border:2px solid var(--forest);border-radius:5px;padding:.1em .5em;align-self:flex-start;margin-top:4px}
+  .dish--feature{grid-column:span 1;background:var(--munster);display:grid;grid-template-rows:auto 1fr;overflow:hidden;padding:0}
+  .dish--feature .dish-img{aspect-ratio:4/3;overflow:hidden;border-bottom:var(--stroke) solid var(--ink)}
+  .dish--feature .dish-img img{width:100%;height:100%;object-fit:cover}
+  .dish--feature .dish-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px}
+  .dessert-panel{
+    grid-column:span 1;display:grid;grid-template-rows:auto 1fr;overflow:hidden;padding:0;
+  }
+  .dessert-imgs{display:grid;grid-template-columns:1fr 1fr;border-bottom:var(--stroke) solid var(--ink)}
+  .dessert-imgs .cell{aspect-ratio:1/1;overflow:hidden;position:relative}
+  .dessert-imgs .cell:first-child{border-right:2px solid var(--ink)}
+  .dessert-imgs img{width:100%;height:100%;object-fit:cover}
+  .dessert-imgs .cell span{
+    position:absolute;left:0;bottom:0;right:0;background:rgba(26,23,20,.78);color:var(--paper);
+    font-size:.62rem;letter-spacing:.4px;text-align:center;padding:.2em 0;font-weight:600;
+  }
+  .dessert-body{padding:16px 20px 18px;display:flex;flex-direction:column;gap:6px;background:var(--paper)}
+  .dessert-body h3{font-size:1.2rem}
+  .dessert-body p{font-size:.88rem;color:#3a342e}
+  .menu-foot{
+    margin-top:var(--gut);display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+    padding:20px 24px;background:var(--ink);color:var(--paper);
+  }
+  .menu-foot .drinks{font-size:.95rem;max-width:48ch;opacity:.92}
+  .menu-foot .gf{font-family:'Bangers',cursive;letter-spacing:.5px;color:var(--munster);font-size:1rem}
+  .menu-foot .bubble{margin-left:auto}
+
+  /* ---------- WHY / CHARACTER ---------- */
+  section.why{padding:var(--gut) 0}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gut)}
+  .why-card{
+    position:relative;padding:24px 22px 30px;background:var(--paper);
+    display:flex;flex-direction:column;gap:10px;min-height:170px;
+    border-radius:18px 18px 18px 4px;
+  }
+  .why-card .n{font-family:'Bangers',cursive;color:var(--tomato);font-size:1.5rem;line-height:1}
+  .why-card p{font-size:1.02rem;font-weight:500;color:var(--ink)}
+  .why-card::after{
+    content:"";position:absolute;width:0;height:0;left:26px;bottom:-16px;
+    border-left:12px solid transparent;border-right:12px solid transparent;border-top:18px solid var(--ink);
+  }
+  .why-card::before{
+    content:"";position:absolute;width:0;height:0;left:29px;bottom:-9px;z-index:1;
+    border-left:9px solid transparent;border-right:9px solid transparent;border-top:13px solid var(--paper);
+  }
+
+  /* atmosphere photo panel (real interior shot, no identity claim) */
+  .atmosphere-panel{position:relative;overflow:hidden;margin-bottom:var(--gut)}
+  .atmosphere-panel img{width:100%;height:320px;object-fit:cover}
+  .atmosphere-panel figcaption{position:absolute;left:0;bottom:0;background:var(--ink);color:var(--paper);
+    font-family:'Bangers',cursive;letter-spacing:1.5px;font-size:1rem;padding:.35em 1em;
+    border-top:var(--stroke) solid var(--ink);border-right:var(--stroke) solid var(--ink)}
+
+  /* ---------- VISIT ---------- */
+  section.visit{padding:var(--gut) 0 calc(var(--gut) + 8px)}
+  .visit-grid{display:grid;grid-template-columns:5fr 7fr;gap:var(--gut)}
+  .hours-ticket{padding:26px 28px;background:var(--forest);color:var(--paper)}
+  .hours-ticket h2{color:var(--paper);font-size:1.9rem;margin-bottom:6px}
+  .hours-ticket .flag{margin-bottom:14px}
+  .hours-ticket .flag .stamp{color:var(--munster);border-color:var(--munster)}
+  .hrow{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dotted rgba(245,238,225,.35);font-size:.95rem}
+  .hrow:last-child{border-bottom:0}
+  .hrow .d{font-weight:700}
+  .hrow.closed .t{color:var(--munster);font-weight:700}
+  .visit-map{padding:0;display:flex;flex-direction:column;overflow:hidden}
+  .map-photo{
+    position:relative;flex:1;min-height:240px;overflow:hidden;border-bottom:var(--stroke) solid var(--ink);
+    background-color:var(--forest);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(245,238,225,.10) 0 1px, transparent 1px 46px),
+      repeating-linear-gradient(90deg, rgba(245,238,225,.10) 0 1px, transparent 1px 46px),
+      radial-gradient(var(--munster) 16%, transparent 17%);
+    background-size:46px 46px,46px 46px,10px 10px;
+  }
+  .map-photo .street{
+    position:absolute;background:rgba(245,238,225,.22);
+  }
+  .map-photo .s1{left:0;right:0;top:38%;height:14px;transform:rotate(-4deg)}
+  .map-photo .s2{top:0;bottom:0;left:60%;width:12px;transform:rotate(3deg)}
+  .map-photo .area-tag{
+    position:absolute;left:16px;bottom:14px;font-family:'Bangers',cursive;letter-spacing:1px;
+    color:var(--munster);font-size:1rem;text-shadow:1px 1px 0 var(--ink)}
+  .map-photo .pin{
+    position:absolute;left:46%;top:44%;transform:translate(-50%,-100%);
+    background:var(--tomato);color:var(--paper);border:var(--stroke) solid var(--ink);border-radius:50% 50% 50% 0;
+    width:44px;height:44px;rotate:-45deg;display:grid;place-items:center;box-shadow:var(--shadow);z-index:2}
+  .map-photo .pin span{rotate:45deg;font-weight:900}
+  .visit-info{padding:24px 26px;display:flex;flex-direction:column;gap:14px;background:var(--paper)}
+  .visit-info .line{font-size:1rem;font-weight:600;display:flex;gap:10px;align-items:flex-start}
+  .visit-info .ico{color:var(--amber);font-weight:900;flex:none}
+  .visit-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+
+  /* ---------- FOOTER ---------- */
+  footer.colophon{
+    background:var(--ink);color:var(--paper);border-top:var(--stroke) solid var(--ink);
+    padding:38px 0 96px;margin-top:8px;
+  }
+  .colophon-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;align-items:start}
+  .colophon .cw{font-family:'Zilla Slab',serif;font-weight:700;font-size:2rem}
+  .colophon .cw .accent{color:var(--munster)}
+  .colophon .tg{opacity:.85;margin-top:6px;max-width:30ch}
+  .colophon h4{font-family:'Bangers',cursive;letter-spacing:1px;color:var(--munster);font-size:1rem;margin-bottom:10px;text-transform:uppercase}
+  .colophon a{color:var(--paper);text-decoration:none;display:block;padding:3px 0}
+  .colophon a:hover{color:var(--munster)}
+  .colophon .cta-col .bubble{margin-bottom:12px}
+  .disclaimer{
+    border-top:1px solid rgba(245,238,225,.25);margin-top:26px;padding-top:16px;
+    font-size:.78rem;opacity:.7;font-style:italic;max-width:70ch;
+  }
+
+  /* ---------- MOBILE BOTTOM BAR ---------- */
+  .mobilebar{
+    position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;
+    grid-template-columns:1fr 1fr;gap:0;
+    background:var(--ink);border-top:var(--stroke) solid var(--ink);
+  }
+  .mobilebar a{
+    display:flex;align-items:center;justify-content:center;gap:.4em;
+    min-height:58px;text-decoration:none;font-weight:700;font-size:1.02rem;color:var(--paper);
+  }
+  .mobilebar a.resv{background:var(--tomato)}
+  .mobilebar a.callb{background:var(--forest)}
+
+  /* ---------- scroll-in (ink stamp) ---------- */
+  .reveal{opacity:0;transform:scale(.94) rotate(-.5deg)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .45s ease, transform .45s cubic-bezier(.2,1.3,.4,1)}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:0;transform:none}
+    .reveal.in{transition:opacity .4s ease}
+    .open-dot{animation:none}
+    .bubble,.btn,.dish{transition:none}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1000px){
+    .menu-grid{grid-template-columns:repeat(2,1fr)}
+    .why-grid{grid-template-columns:repeat(2,1fr)}
+    .pitch h1{font-size:1.85rem}
+    .splash-text h2{font-size:2rem}
+  }
+  @media (max-width:760px){
+    :root{--gut:16px}
+    nav.mast-nav .link{display:none}
+    .mast-reserve{display:none}
+    .wordmark{font-size:1.35rem}
+    .masthead-inner{gap:10px}
+    nav.mast-nav{margin-left:auto;gap:10px}
+    .spread{grid-template-columns:1fr}
+    .hero-panel,.hero-stack{grid-column:1/-1}
+    .splash-panel{grid-template-columns:1fr}
+    .splash-img{min-height:280px}
+    .splash-text{border-left:0;border-top:var(--stroke) solid var(--ink)}
+    .menu-grid{grid-template-columns:1fr}
+    .why-grid{grid-template-columns:1fr}
+    .menu-foot .bubble{margin-left:0;width:100%}
+    .menu-foot{flex-direction:column;align-items:flex-start}
+    .visit-grid{grid-template-columns:1fr}
+    .colophon-grid{grid-template-columns:1fr;gap:22px}
+    .sec-head .note{margin-left:0;width:100%}
+    .mobilebar{display:grid}
+    .splash-text h2{font-size:1.75rem}
+    .badge-insert img{width:60px}
+  }
+  @media (max-width:430px){
+    .wordmark{font-size:1.15rem}
+    .issue{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="wordmark">Caf<span class="accent">é</span> Bel Air</span>
+    <span class="issue" data-i18n="issue">N&ordm; 99 &middot; Belair</span>
+    <nav class="mast-nav" aria-label="Navigation">
+      <a class="link" href="#menu" data-i18n="nav.menu">La carte</a>
+      <a class="link" href="#why" data-i18n="nav.story">Histoire</a>
+      <a class="link" href="#visit" data-i18n="nav.visit">Visite</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="fr" aria-pressed="true">FR</button>
+        <button data-lang="de" aria-pressed="false">DE</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="mast-reserve" href="tel:+35226383761" data-i18n="cta.reserve">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ OPENING SPREAD ============ -->
+  <section class="spread" aria-label="Café Bel Air">
+    <div class="hero-panel panel halftone reveal">
+      <div class="hero-frame">
+        <img src="assets/photos/dish-duo.jpg" alt="Deux burgers maison du Café Bel Air, servis avec frites et salade" fetchpriority="high">
+      </div>
+      <span class="hero-tag" data-i18n="hero.tag">Table pour deux</span>
+    </div>
+    <div class="hero-stack">
+      <div class="pitch panel reveal">
+        <span class="kicker" style="color:var(--munster)" data-i18n="hero.kicker">Bistrot de quartier · Belair</span>
+        <h1 data-i18n="hero.title">Burgers artisanaux,<br>c&oelig;ur de <span class="accent">quartier</span>.</h1>
+        <p class="sub" data-i18n="hero.sub">Le petit bistrot dont tout Luxembourg parle. Les tables partent vite — réservez la vôtre.</p>
+        <a class="bubble bubble--lg" href="tel:+35226383761" style="align-self:flex-start" data-i18n="hero.book" aria-label="Réserver une table par téléphone">Réserver une table ☎</a>
+      </div>
+      <div class="ticket panel panel--paper reveal">
+        <div class="row"><span class="open-dot" aria-hidden="true"></span><span class="status" data-i18n="ess.open">Ouvert aujourd'hui</span></div>
+        <div class="row addr"><span aria-hidden="true">📍</span><span>99 Val Sainte-Croix<br>L-1371 Belair, Luxembourg</span></div>
+        <span class="micro" data-i18n="ess.hint">~20–30 € par personne · horaires à confirmer</span>
+        <div class="ticket-actions">
+          <a class="btn btn--forest" href="tel:+35226383761" data-i18n="cta.call">Appeler</a>
+          <a class="btn" href="https://www.google.com/maps/search/Café+Bel+Air+99+Val+Sainte-Croix+Luxembourg" target="_blank" rel="noopener" data-i18n="cta.dir">Itinéraire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPLASH — the wall + the real menu badge ============ -->
+  <section class="splash" aria-labelledby="splash-h">
+    <div class="splash-panel panel halftone reveal">
+      <div class="splash-img">
+        <img src="assets/photos/wall-wine.jpg" alt="Mur du Café Bel Air : carte des vins écrite à la craie, à côté d'une plaque vintage Tintin">
+      </div>
+      <div class="splash-text">
+        <span class="kicker" data-i18n="splash.kicker">Sur nos murs</span>
+        <h2 id="splash-h" data-i18n="splash.title">Les murs racontent <span class="accent">l'histoire</span></h2>
+        <p data-i18n="splash.body">La carte des burgers arrive écrite sur de vieux comics ; les vins, eux, sont à la craie sur le mur noir — entre plaques de bière vintage et une pub Tintin qui n'a pas pris une ride. Rien n'est imprimé pour faire joli : c'est vraiment comme ça, chaque soir.</p>
+        <div class="badge-insert">
+          <img src="assets/photos/logo-menu.jpg" alt="Le badge Café Bel Air, tel qu'imprimé sur notre propre carte" loading="lazy">
+          <span data-i18n="splash.badge">Notre badge — pris en photo directement sur notre carte, pas redessiné.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MENU ============ -->
+  <section class="menu" id="menu" aria-labelledby="menu-h">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="menu.kicker">La carte</span>
+      <h2 id="menu-h" data-i18n="menu.title">Burgers &amp; maison</h2>
+      <span class="note" data-i18n="menu.note">Prix indicatifs — à confirmer · Pain sans gluten +1&nbsp;€</span>
+    </div>
+    <div class="menu-grid">
+      <article class="dish--feature halftone panel reveal">
+        <div class="dish-img"><img src="assets/photos/dish-outdoor.jpg" alt="Double burger maison du Café Bel Air, servi avec frites et salade"></div>
+        <div class="dish-body">
+          <div class="top"><h3>Munsterosaurus</h3><span class="price">€17–24</span></div>
+          <p data-i18n="d.munster">Notre signature. Steak haché juteux, Munster crémeux du terroir.</p>
+          <span class="flag" data-i18n="flag.signature">Signature</span>
+          <span class="note" style="font-size:.72rem" data-i18n="d.munsterphoto">Photo : burger maison — illustration, plat susceptible de varier</span>
+        </div>
+      </article>
+      <article class="dish panel reveal">
+        <div class="top"><h3>Charly Burger</h3><span class="price">€17–24</span></div>
+        <p data-i18n="d.charly">200&nbsp;g de bœuf, légumes grillés, fromage.</p>
+      </article>
+      <article class="dish panel reveal">
+        <div class="top"><h3>Smash Burger</h3><span class="price">€17–26</span></div>
+        <p data-i18n="d.smash">Double galette smashée aux bords croustillants.</p>
+      </article>
+      <article class="dish panel reveal">
+        <div class="top"><h3>Pulled Pork</h3><span class="price">€17–26</span></div>
+        <p data-i18n="d.pork">Porc effiloché, cuisson lente et fondante.</p>
+      </article>
+      <article class="dish panel reveal">
+        <div class="top"><h3>Falafel Burger</h3><span class="price">€17–24</span></div>
+        <p data-i18n="d.falafel">Galette de falafel maison, fraîche et parfumée.</p>
+        <span class="flag" data-i18n="flag.veg">Végétarien</span>
+      </article>
+      <article class="dessert-panel panel reveal">
+        <div class="dessert-imgs">
+          <div class="cell"><img src="assets/photos/dessert-eclair.jpg" alt="Éclair au chocolat de la pâtisserie Au Pain de Mary, servi au Café Bel Air"><span>Éclair</span></div>
+          <div class="cell"><img src="assets/photos/dessert-tart.jpg" alt="Tarte noisette-caramel de la pâtisserie Au Pain de Mary"><span>Noisette</span></div>
+        </div>
+        <div class="dessert-body">
+          <h3 data-i18n="d.dessertT">Desserts · Pain de Mary</h3>
+          <p data-i18n="d.dessertB">La pâtisserie artisanale du quartier.</p>
+        </div>
+      </article>
+    </div>
+    <div class="menu-foot reveal">
+      <span class="gf" data-i18n="menu.gf">Pain sans gluten sur tous les burgers · +1 €</span>
+      <span class="drinks" data-i18n="menu.drinks">Bières artisanales (dont la belge Lupulus), vins au verre, cafés et digestifs.</span>
+      <a class="bubble bubble--down-r" href="tel:+35226383761" data-i18n="menu.cta">J'en veux un — réserver ☎</a>
+    </div>
+  </section>
+
+  <!-- ============ WHY PEOPLE LOVE IT ============ -->
+  <section class="why" id="why" aria-labelledby="why-h">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="why.kicker">Le secret</span>
+      <h2 id="why-h" data-i18n="why.title">Pourquoi on l'aime</h2>
+    </div>
+    <figure class="atmosphere-panel panel halftone reveal">
+      <img src="assets/photos/interior.jpg" alt="La salle du Café Bel Air : murs sombres couverts de plaques de bière vintage, comptoir à bouteilles">
+      <figcaption data-i18n="why.room">Dans la salle</figcaption>
+    </figure>
+    <div class="why-grid">
+      <div class="why-card panel reveal"><span class="n">01</span><p data-i18n="why.1">Les menus, écrits sur de vieux comics.</p></div>
+      <div class="why-card panel reveal"><span class="n">02</span><p data-i18n="why.2">Le patron passe de table en table, comme à la maison.</p></div>
+      <div class="why-card panel reveal"><span class="n">03</span><p data-i18n="why.3">Tout est fait maison — desserts signés Pain de Mary.</p></div>
+      <div class="why-card panel reveal"><span class="n">04</span><p data-i18n="why.4">Souvent complet — réservation vivement conseillée.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ VISIT ============ -->
+  <section class="visit" id="visit" aria-labelledby="visit-h">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="visit.kicker">Passez nous voir</span>
+      <h2 id="visit-h" data-i18n="visit.title">Nous trouver</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="hours-ticket panel reveal">
+        <h2 data-i18n="visit.hoursT">Horaires</h2>
+        <div class="flag"><span class="stamp" data-i18n="flag.tbc">à confirmer</span></div>
+        <div class="hrow"><span class="d" data-i18n="day.monwed">Lundi – Mercredi</span><span class="t" data-i18n="hours.monwed">11h45–15h00 · 17h30–23h00</span></div>
+        <div class="hrow"><span class="d" data-i18n="day.thu">Jeudi</span><span class="t" data-i18n="hours.thu">11h45–15h00 · 17h30–00h00</span></div>
+        <div class="hrow"><span class="d" data-i18n="day.fri">Vendredi</span><span class="t" data-i18n="hours.fri">11h45–23h00</span></div>
+        <div class="hrow closed"><span class="d" data-i18n="day.satsun">Samedi – Dimanche</span><span class="t" data-i18n="day.closed">Fermé</span></div>
+      </div>
+      <div class="visit-map panel halftone reveal">
+        <div class="map-photo" role="img" aria-label="Carte de situation : Belair, 99 Val Sainte-Croix, Luxembourg">
+          <span class="street s1" aria-hidden="true"></span>
+          <span class="street s2" aria-hidden="true"></span>
+          <div class="pin" aria-hidden="true"><span>★</span></div>
+          <span class="area-tag" aria-hidden="true">Belair</span>
+        </div>
+        <div class="visit-info">
+          <div class="line"><span class="ico" aria-hidden="true">📍</span><span>99 Val Sainte-Croix, L-1371 Belair<br>Luxembourg-Ville</span></div>
+          <div class="line"><span class="ico" aria-hidden="true">☎</span><a href="tel:+35226383761">+352 26 38 37 61</a></div>
+          <div class="visit-actions">
+            <a class="bubble" href="tel:+35226383761" data-i18n="cta.reserve">Réserver</a>
+            <a class="btn" href="https://www.google.com/maps/search/Café+Bel+Air+99+Val+Sainte-Croix+Luxembourg" target="_blank" rel="noopener" data-i18n="cta.dir">Itinéraire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER COLOPHON ============ -->
+<footer class="colophon">
+  <div class="wrap colophon-grid">
+    <div>
+      <div class="cw">Caf<span class="accent">é</span> Bel Air</div>
+      <p class="tg" data-i18n="foot.tag">Burgers artisanaux, cœur de quartier. Belair, Luxembourg.</p>
+    </div>
+    <div>
+      <h4 data-i18n="foot.contact">Contact</h4>
+      <a href="https://www.google.com/maps/search/Café+Bel+Air+99+Val+Sainte-Croix+Luxembourg" target="_blank" rel="noopener">99 Val Sainte-Croix, Belair</a>
+      <a href="tel:+35226383761">+352 26 38 37 61</a>
+      <a href="https://www.facebook.com/cafebelair" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="cta-col">
+      <h4 data-i18n="foot.book">Une table&nbsp;?</h4>
+      <a class="bubble" href="tel:+35226383761" data-i18n="cta.reserve">Réserver</a>
+      <a href="tel:+35226383761" data-i18n="foot.callline">Ou appelez-nous directement</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="disclaimer" data-i18n="foot.disc">Démonstration de site web. Coordonnées, horaires et prix sont indicatifs et doivent être confirmés avec le restaurant. Photos d'illustration, sourcées via Google Maps. © Café Bel Air.</p></div>
+</footer>
+
+<!-- ============ MOBILE BOTTOM BAR ============ -->
+<nav class="mobilebar" aria-label="Actions rapides">
+  <a class="resv" href="tel:+35226383761" data-i18n="cta.reserve">Réserver</a>
+  <a class="callb" href="tel:+35226383761"><span aria-hidden="true">☎</span> <span data-i18n="cta.call">Appeler</span></a>
+</nav>
+
+<script>
+const I18N = {
+  fr:{
+    "issue":"N&ordm; 99 &middot; Belair",
+    "nav.menu":"La carte","nav.story":"Histoire","nav.visit":"Visite",
+    "cta.reserve":"Réserver","cta.call":"Appeler","cta.dir":"Itinéraire",
+    "hero.tag":"Table pour deux",
+    "hero.kicker":"Bistrot de quartier · Belair",
+    "hero.title":"Burgers artisanaux,<br>c&oelig;ur de <span class='accent'>quartier</span>.",
+    "hero.sub":"Le petit bistrot dont tout Luxembourg parle. Les tables partent vite — réservez la vôtre.",
+    "hero.book":"Réserver une table ☎",
+    "ess.open":"Ouvert aujourd'hui",
+    "ess.hint":"~20–30 € par personne · horaires à confirmer",
+    "splash.kicker":"Sur nos murs",
+    "splash.title":"Les murs racontent <span class='accent'>l'histoire</span>",
+    "splash.body":"La carte des burgers arrive écrite sur de vieux comics ; les vins, eux, sont à la craie sur le mur noir — entre plaques de bière vintage et une pub Tintin qui n'a pas pris une ride. Rien n'est imprimé pour faire joli : c'est vraiment comme ça, chaque soir.",
+    "splash.badge":"Notre badge — pris en photo directement sur notre carte, pas redessiné.",
+    "menu.kicker":"La carte","menu.title":"Burgers &amp; maison",
+    "menu.note":"Prix indicatifs — à confirmer · Pain sans gluten +1&nbsp;€",
+    "d.munster":"Notre signature. Steak haché juteux, Munster crémeux du terroir.",
+    "d.munsterphoto":"Photo : burger maison — illustration, plat susceptible de varier",
+    "d.charly":"200&nbsp;g de bœuf, légumes grillés, fromage.",
+    "d.smash":"Double galette smashée aux bords croustillants.",
+    "d.pork":"Porc effiloché, cuisson lente et fondante.",
+    "d.falafel":"Galette de falafel maison, fraîche et parfumée.",
+    "d.dessertT":"Desserts · Pain de Mary",
+    "d.dessertB":"La pâtisserie artisanale du quartier.",
+    "flag.signature":"Signature","flag.veg":"Végétarien","flag.tbc":"à confirmer",
+    "menu.gf":"Pain sans gluten sur tous les burgers · +1 €",
+    "menu.drinks":"Bières artisanales (dont la belge Lupulus), vins au verre, cafés et digestifs.",
+    "menu.cta":"J'en veux un — réserver ☎",
+    "why.kicker":"Le secret","why.title":"Pourquoi on l'aime",
+    "why.room":"Dans la salle",
+    "why.1":"Les menus, écrits sur de vieux comics.",
+    "why.2":"Le patron passe de table en table, comme à la maison.",
+    "why.3":"Tout est fait maison — desserts signés Pain de Mary.",
+    "why.4":"Souvent complet — réservation vivement conseillée.",
+    "visit.kicker":"Passez nous voir","visit.title":"Nous trouver","visit.hoursT":"Horaires",
+    "day.monwed":"Lundi – Mercredi","day.thu":"Jeudi","day.fri":"Vendredi","day.satsun":"Samedi – Dimanche","day.closed":"Fermé",
+    "hours.monwed":"11h45–15h00 · 17h30–23h00","hours.thu":"11h45–15h00 · 17h30–00h00","hours.fri":"11h45–23h00",
+    "foot.tag":"Burgers artisanaux, cœur de quartier. Belair, Luxembourg.",
+    "foot.contact":"Contact","foot.book":"Une table&nbsp;?","foot.callline":"Ou appelez-nous directement",
+    "foot.disc":"Démonstration de site web. Coordonnées, horaires et prix sont indicatifs et doivent être confirmés avec le restaurant. Photos d'illustration, sourcées via Google Maps. © Café Bel Air."
+  },
+  de:{
+    "issue":"N&ordm; 99 &middot; Belair",
+    "nav.menu":"Karte","nav.story":"Geschichte","nav.visit":"Besuch",
+    "cta.reserve":"Reservieren","cta.call":"Anrufen","cta.dir":"Route",
+    "hero.tag":"Tisch für zwei",
+    "hero.kicker":"Viertelbistro · Belair",
+    "hero.title":"Handgemachte Burger,<br>Seele des <span class='accent'>Viertels</span>.",
+    "hero.sub":"Das kleine Bistro, über das ganz Luxemburg spricht. Die Tische sind schnell weg — sichern Sie sich Ihre.",
+    "hero.book":"Tisch reservieren ☎",
+    "ess.open":"Heute geöffnet",
+    "ess.hint":"~20–30 € pro Person · Öffnungszeiten noch zu bestätigen",
+    "splash.kicker":"An unseren Wänden",
+    "splash.title":"Die Wände erzählen <span class='accent'>die Geschichte</span>",
+    "splash.body":"Die Burgerkarte kommt auf alten Comicheften geschrieben; die Weine stehen in Kreide an der schwarzen Wand — zwischen Vintage-Bierschildern und einer Tintin-Werbung, die kein bisschen gealtert ist. Nichts davon ist Dekoration: so ist es jeden Abend wirklich.",
+    "splash.badge":"Unser Badge — direkt von unserer eigenen Speisekarte abfotografiert, nicht neu gezeichnet.",
+    "menu.kicker":"Die Karte","menu.title":"Burger &amp; Hausgemachtes",
+    "menu.note":"Richtpreise — noch zu bestätigen · Glutenfrei +1&nbsp;€",
+    "d.munster":"Unser Klassiker. Saftiges Rindfleisch, cremiger Munster aus der Region.",
+    "d.munsterphoto":"Foto: hausgemachter Burger — Symbolbild, Gericht kann abweichen",
+    "d.charly":"200&nbsp;g Rind, gegrilltes Gemüse, Käse.",
+    "d.smash":"Doppeltes Smash-Patty mit knusprigen Rändern.",
+    "d.pork":"Langsam gegartes, zartes Pulled Pork.",
+    "d.falafel":"Hausgemachtes Falafel-Patty, frisch und würzig.",
+    "d.dessertT":"Desserts · Pain de Mary",
+    "d.dessertB":"Das handwerkliche Gebäck aus dem Viertel.",
+    "flag.signature":"Klassiker","flag.veg":"Vegetarisch","flag.tbc":"zu bestätigen",
+    "menu.gf":"Glutenfreies Brötchen bei allen Burgern · +1 €",
+    "menu.drinks":"Craft-Biere (darunter das belgische Lupulus), Weine im Glas, Kaffee und Digestifs.",
+    "menu.cta":"Den will ich — reservieren ☎",
+    "why.kicker":"Das Geheimnis","why.title":"Warum man es liebt",
+    "why.room":"Im Gastraum",
+    "why.1":"Die Speisekarte, geschrieben auf alten Comicheften.",
+    "why.2":"Der Patron geht von Tisch zu Tisch, wie zu Hause.",
+    "why.3":"Alles hausgemacht — Desserts von Pain de Mary.",
+    "why.4":"Oft ausgebucht — Reservierung dringend empfohlen.",
+    "visit.kicker":"Besuchen Sie uns","visit.title":"So finden Sie uns","visit.hoursT":"Öffnungszeiten",
+    "day.monwed":"Montag – Mittwoch","day.thu":"Donnerstag","day.fri":"Freitag","day.satsun":"Samstag – Sonntag","day.closed":"Geschlossen",
+    "hours.monwed":"11:45–15:00 · 17:30–23:00","hours.thu":"11:45–15:00 · 17:30–00:00","hours.fri":"11:45–23:00",
+    "foot.tag":"Handgemachte Burger, Seele des Viertels. Belair, Luxemburg.",
+    "foot.contact":"Kontakt","foot.book":"Einen Tisch&nbsp;?","foot.callline":"Oder rufen Sie uns direkt an",
+    "foot.disc":"Website-Demo. Kontaktdaten, Öffnungszeiten und Preise sind Richtwerte und müssen mit dem Restaurant bestätigt werden. Symbolbilder, über Google Maps beschafft. © Café Bel Air."
+  },
+  en:{
+    "issue":"N&ordm; 99 &middot; Belair",
+    "nav.menu":"Menu","nav.story":"Story","nav.visit":"Visit",
+    "cta.reserve":"Book a table","cta.call":"Call","cta.dir":"Directions",
+    "hero.tag":"Table for two",
+    "hero.kicker":"Neighbourhood bistro · Belair",
+    "hero.title":"Craft burgers,<br>neighbourhood <span class='accent'>heart</span>.",
+    "hero.sub":"The little bistro all of Luxembourg talks about. Tables go fast — secure yours.",
+    "hero.book":"Book a table ☎",
+    "ess.open":"Open today",
+    "ess.hint":"~€20–30 per person · hours to be confirmed",
+    "splash.kicker":"On our walls",
+    "splash.title":"The walls tell <span class='accent'>the story</span>",
+    "splash.body":"The burger menu arrives written on old comic books; the wine list is chalked straight onto the black wall — next to vintage beer signs and a Tintin soda-pop ad that hasn't aged a day. None of it is decoration for show: it's really like that, every night.",
+    "splash.badge":"Our badge — photographed straight off our own menu, not redrawn.",
+    "menu.kicker":"The menu","menu.title":"Burgers &amp; house",
+    "menu.note":"Indicative prices — to be confirmed · Gluten-free bun +€1",
+    "d.munster":"Our signature. Juicy beef patty, creamy local Munster.",
+    "d.munsterphoto":"Photo: house burger — illustrative, dish may vary",
+    "d.charly":"200&nbsp;g beef, grilled vegetables, cheese.",
+    "d.smash":"Double smash-style patty with crisp edges.",
+    "d.pork":"Slow-cooked, tender pulled pork.",
+    "d.falafel":"House falafel patty, fresh and fragrant.",
+    "d.dessertT":"Desserts · Pain de Mary",
+    "d.dessertB":"The neighbourhood's artisan bakery.",
+    "flag.signature":"Signature","flag.veg":"Vegetarian","flag.tbc":"to confirm",
+    "menu.gf":"Gluten-free bun on any burger · +€1",
+    "menu.drinks":"Craft beers (including Belgian Lupulus), wines by the glass, coffee and digestives.",
+    "menu.cta":"I want one — book now ☎",
+    "why.kicker":"The secret","why.title":"Why people love it",
+    "why.room":"In the room",
+    "why.1":"The menu, written on old comic books.",
+    "why.2":"The owner mingles table to table, like home.",
+    "why.3":"Everything handmade — desserts by Pain de Mary.",
+    "why.4":"Often fully booked — reservation strongly advised.",
+    "visit.kicker":"Come see us","visit.title":"Find us","visit.hoursT":"Opening hours",
+    "day.monwed":"Monday – Wednesday","day.thu":"Thursday","day.fri":"Friday","day.satsun":"Saturday – Sunday","day.closed":"Closed",
+    "hours.monwed":"11:45–15:00 · 17:30–23:00","hours.thu":"11:45–15:00 · 17:30–00:00","hours.fri":"11:45–23:00",
+    "foot.tag":"Craft burgers, neighbourhood heart. Belair, Luxembourg.",
+    "foot.contact":"Contact","foot.book":"A table&nbsp;?","foot.callline":"Or call us directly",
+    "foot.disc":"Website demo. Contact details, hours and prices are indicative and must be confirmed with the restaurant. Illustrative photos, sourced via Google Maps. © Café Bel Air."
+  }
+};
+
+function setLang(lang){
+  const dict = I18N[lang] || I18N.fr;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(dict[k]!=null) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll('.lang button').forEach(b=>{
+    b.setAttribute('aria-pressed', b.dataset.lang===lang ? 'true':'false');
+  });
+  try{ localStorage.setItem('cba_lang', lang); }catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>{
+  b.addEventListener('click', ()=> setLang(b.dataset.lang));
+});
+let saved='fr';
+try{ saved = localStorage.getItem('cba_lang') || 'fr'; }catch(e){}
+setLang(saved);
+
+/* scroll-in ink-stamp reveal */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
