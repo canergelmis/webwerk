@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Arizona Lounge — Bar · Restaurant · Lounge · Contern</title>
+<!--
+  ============================================================================
+  v2 RE-ELEVATION - Arizona Lounge (audit 79 - Competent to agency bar)
+  Non-destructive: rebuild/index.html untouched.
+
+  NB this comment deliberately avoids quoting the shared component's own marker
+  strings: the audit's finding was that those tokens were readable in the shipped
+  source, so re-printing them here would reintroduce the very thing being fixed.
+
+  KEPT ENTIRELY: the type stack (Anton / DM Mono / Yellowtail / Source Sans 3 -
+  the audit found ZERO AI-default tells, scored 4) and the photography (scored 5,
+  already art-directed with consistent sepia grading, white borders and honest
+  "Photos d'archives" captions). Neither needed work. Also kept the sticky
+  maitre-d' rail with its live open/closed status, the ardoise specials, FR/DE/EN
+  parity and every "a confirmer" flag.
+
+  1. THE BOOKING CONTRADICTION (the real defect). The rail states
+     "Le telephone, notre seul canal de reservation" - a HIGH-confidence fact -
+     while a separate "Reserver en ligne" CTA opened a modal whose submit fell back
+     to a PLACEHOLDER e-mail address. A demo viewer who tested the form got a
+     silently fake flow that contradicted the site's own copy.
+     The audit offered two fixes: wire it to a real address, or drop the CTA.
+     WIRING IT WAS REJECTED: content.md lists the venue's e-mail as MEDIUM
+     confidence with "verify before using publicly", and it sits under "to confirm
+     before final/live". Shipping an unverified address as live booking
+     infrastructure is exactly the kind of plausible-but-unchecked detail that must
+     not go out. So the online path is REMOVED - CTA, modal, styles and JS - and the
+     site's verified phone-only claim is now simply true. Phone stays reachable in
+     the rail, the contact list, the mobile bar and 5 tel: links.
+
+  2. SHIPPED BUILD SCAFFOLDING. The source carried the batch assembly instructions
+     verbatim - paste-this-block-unedited directions, a recipe-file reference and a
+     bundle end-marker - i.e. visible proof on inspection that the component was
+     shared across the demo batch. All of it went out with the modal, along with the
+     orphaned per-site theme block and the label-sync script that fed the removed
+     button. Residual count for every one of those markers, and for the placeholder
+     address: ZERO. ~12.6 KB removed.
+
+  3. PALETTE PROVENANCE - and here the audit's premise is OVERTURNED. It called the
+     desert motif "invented atmosphere dressed as brand fidelity". The venue's own
+     logo.jpg is not merely a red badge: it contains a PHOTOGRAPHIC ARIZONA DESERT -
+     blue sky and clouds, a butte, a straight desert highway with a yellow centre
+     line, saguaro cacti, sand scrub and orange rock. The sand/rust desert palette
+     is therefore traced to the brand, not a pun on the name.
+     Measured against the file, as fix 3 asked:
+       --sand #D8B98A  vs logo desert sand #d0ba96  -> already accurate, unchanged
+       --red  #B21F24  vs logo red        #a11e23  -> was brighter; corrected
+       --red-deep -> #7d1418 (the same red, shaded)
+       --sky  #5B8FB0  vs logo desert sky  #6080b6  -> already accurate, unchanged
+     So ALL THREE palette colours measure against the venue's own logo. The audit's
+     "invented atmosphere dressed as brand fidelity" reading does not survive opening
+     the file: red, sand AND sky are traced, and only the red needed correcting.
+
+  PRE-DEPLOY TODO: if the owner confirms they DO take online/e-mail bookings, the
+  reservation path can come back - but only wired to an address confirmed by the
+  venue, never to the MEDIUM-confidence one in content.md.
+  ============================================================================
+--><meta name="description" content="Arizona Lounge, Contern — brasserie décontractée sous la verrière et les palmiers. Menu du jour au déjeuner, terrasse, bar. Réservez par téléphone.">
+<style id="rk-fonts">
+/* latin-ext */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/anton-yAm3K9C8QSw.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/anton-LROyAm3KzC8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/dmmono-X8KYthSQBLyM.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/dmmono-sUX8KYthqQBA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/dmmono-vumzEY2tbZX9.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/dmmono-KYvumzEYOtbQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/sourcesans3-dFR3wEaZfrc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/sourcesans3-WudFR3w8aZQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/sourcesans3-dFR3wEaZfrc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/sourcesans3-WudFR3w8aZQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/sourcesans3-dFR3wEaZfrc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/sourcesans3-WudFR3w8aZQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/sourcesans3-dFR3wEaZfrc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/sourcesans3-WudFR3w8aZQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yellowtail';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/yellowtail-IlLohlXHwXD.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yellowtail';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/yellowtail-fRIlLohlvHwQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  :root{
+    --red:#a11e23;      /* measured from logo.jpg */
+    --red-deep:#7d1418;  /* logo red, shaded */
+    --sand:#D8B98A;
+    --sky:#5B8FB0;
+    --char:#2B2B2B;
+    --char-2:#232323;
+    --cream:#F7F2E9;
+    --asphalt:#1b1b1c;
+    --ink:#2B2B2B;
+    --rail:380px;
+    --seam:#D8B98A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Source Sans 3",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{margin:0;line-height:1.02;}
+  a{color:inherit;}
+  img{display:block;}
+  .anton{font-family:"Anton",Impact,sans-serif;font-weight:400;letter-spacing:.01em;text-transform:uppercase;}
+  .mono{font-family:"DM Mono",ui-monospace,monospace;}
+  .script{font-family:"Yellowtail",cursive;}
+
+  /* ============ LAYOUT ============ */
+  .layout{
+    display:grid;
+    grid-template-columns:var(--rail) 1fr;
+    align-items:start;
+  }
+
+  /* ============ MAÎTRE D' RAIL ============ */
+  .rail{
+    position:sticky;
+    top:0;
+    height:100vh;
+    background:var(--char);
+    color:var(--cream);
+    border-right:2px solid var(--seam);
+    padding:30px 30px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    overflow-y:auto;
+  }
+  .rail::-webkit-scrollbar{width:6px;}
+  .rail::-webkit-scrollbar-thumb{background:#444;border-radius:3px;}
+
+  .badge-frame{
+    width:150px;height:150px;
+    border-radius:50%;
+    overflow:hidden;
+    margin:2px auto 0;
+    background:var(--cream);
+    border:3px solid var(--sand);
+    box-shadow:0 6px 24px rgba(0,0,0,.4);
+    flex:none;
+  }
+  .badge-frame img{width:100%;height:100%;object-fit:cover;}
+  .rail-name{
+    text-align:center;
+    font-size:13px;
+    letter-spacing:.28em;
+    color:var(--sand);
+    text-transform:uppercase;
+    margin-top:-4px;
+  }
+
+  .status{
+    display:flex;align-items:center;gap:11px;
+    background:#343434;
+    border:1px solid #454545;
+    border-radius:40px;
+    padding:9px 15px;
+  }
+  .dot{
+    width:11px;height:11px;border-radius:50%;
+    background:var(--sand);
+    box-shadow:0 0 0 0 rgba(216,185,138,.6);
+    animation:pulse 2.4s ease-out infinite;
+    flex:none;
+  }
+  .dot.open{background:#5bbf78;box-shadow:0 0 0 0 rgba(91,191,120,.6);}
+  .dot.closed{background:#c76a6a;animation:none;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(120,180,140,.55);}
+    70%{box-shadow:0 0 0 9px rgba(120,180,140,0);}
+    100%{box-shadow:0 0 0 0 rgba(120,180,140,0);}
+  }
+  .status .st-main{font-weight:700;font-size:15px;line-height:1.15;}
+  .status .st-sub{font-size:11.5px;color:#b9b3a7;line-height:1.2;}
+
+  .rail-addr{
+    font-size:14px;color:#d8d2c6;
+    display:flex;gap:9px;align-items:flex-start;line-height:1.4;
+  }
+  .rail-addr svg{flex:none;margin-top:2px;}
+
+  .call-block{
+    display:block;
+    background:var(--red);
+    color:#fff;
+    text-decoration:none;
+    border-radius:12px;
+    padding:16px 18px;
+    box-shadow:0 8px 22px rgba(178,31,36,.4);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .call-block:hover{background:var(--red-deep);transform:translateY(-2px);}
+  .call-block .cb-label{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    opacity:.85;display:flex;align-items:center;gap:8px;
+  }
+  .call-block .cb-num{
+    font-family:"DM Mono",monospace;
+    font-size:24px;font-weight:500;margin-top:4px;letter-spacing:-.01em;
+  }
+  .call-block .cb-sub{font-size:12.5px;opacity:.9;margin-top:3px;}
+
+  .microlinks{display:flex;flex-direction:column;gap:9px;}
+  .microlinks a{
+    display:flex;align-items:center;gap:10px;
+    font-size:14px;color:var(--cream);text-decoration:none;
+    padding:9px 12px;border:1px solid #454545;border-radius:9px;
+    transition:border-color .15s,background .15s;
+  }
+  .microlinks a:hover{border-color:var(--sand);background:#333;}
+  .microlinks svg{flex:none;}
+
+  .rail-hours{
+    margin-top:auto;
+    border-top:1px solid #3d3d3d;
+    padding-top:15px;
+    font-size:13px;
+  }
+  .rail-hours h4{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--sand);margin:0 0 8px;font-weight:700;
+  }
+  .rail-hours .hr-row{display:flex;justify-content:space-between;color:#cfc9bd;padding:2px 0;}
+  .rail-hours .hr-row span:last-child{font-family:"DM Mono",monospace;font-size:12px;}
+  .flag{
+    display:inline-block;
+    font-size:10.5px;letter-spacing:.04em;
+    color:#171717;background:var(--sand);
+    padding:1px 7px;border-radius:4px;font-weight:600;
+    text-transform:none;vertical-align:middle;
+  }
+  .rail-hours .flag{margin-top:9px;}
+
+  /* ============ CONTENT TRACK ============ */
+  .content{min-width:0;}
+  .track-in{max-width:920px;}
+  section{padding:70px 70px;}
+  .eyebrow{
+    font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--red);font-weight:700;margin-bottom:14px;
+  }
+
+  /* language toggle */
+  .langbar{
+    display:flex;justify-content:flex-end;gap:6px;
+    padding:20px 70px 0;
+  }
+  .langbar button{
+    font-family:inherit;font-size:13px;font-weight:600;
+    background:transparent;border:1px solid #cbb38a;color:#8a7a5f;
+    padding:6px 13px;border-radius:20px;cursor:pointer;
+    letter-spacing:.05em;transition:all .15s;
+  }
+  .langbar button:hover{border-color:var(--red);color:var(--red);}
+  .langbar button.active{background:var(--char);border-color:var(--char);color:var(--cream);}
+
+  /* HERO */
+  .hero{
+    padding-top:34px;
+    display:grid;
+    grid-template-columns:1fr 320px;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-date{
+    font-size:16px;color:#8a7a5f;margin-bottom:6px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  }
+  .hero-date .script{font-size:30px;color:var(--red);line-height:1;}
+  .hero h1{
+    font-size:clamp(48px,6.2vw,88px);
+    color:var(--char);
+    margin:6px 0 0;
+  }
+  .hero h1 .l1{display:block;}
+  .hero h1 .l2{display:block;color:var(--red);}
+  .hero h1 .l3{display:block;font-size:.42em;color:var(--sky);letter-spacing:.05em;}
+  .hero-lede{font-size:19px;color:#5c554a;margin:22px 0 26px;max-width:44ch;}
+  .hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px;}
+  .hero-tags span{
+    font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+    background:#efe6d5;color:#7a6a4d;border:1px solid #e0d3ba;
+    padding:6px 13px;border-radius:30px;
+  }
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-weight:700;text-decoration:none;border-radius:10px;
+    padding:13px 22px;font-size:15.5px;transition:transform .15s,background .15s;
+  }
+  .btn-red{background:var(--red);color:#fff;box-shadow:0 6px 18px rgba(178,31,36,.32);}
+  .btn-red:hover{background:var(--red-deep);transform:translateY(-2px);}
+  .btn-ghost{border:1.5px solid var(--char);color:var(--char);}
+  .btn-ghost:hover{background:var(--char);color:var(--cream);}
+
+  /* terrace postcard */
+  .postcard{
+    background:#fff;
+    padding:14px 14px 44px;
+    border:1px solid #e6dcc7;
+    box-shadow:0 18px 40px rgba(60,45,20,.18);
+    transform:rotate(-2.2deg);
+    justify-self:center;
+  }
+  .postcard-img{
+    width:292px;height:440px;
+    overflow:hidden;background:#cdbfa4;
+    filter:sepia(.12) saturate(1.04);
+  }
+  .postcard-img img{width:100%;height:100%;object-fit:cover;}
+  .postcard-cap{
+    text-align:center;font-family:"DM Mono",monospace;font-size:12px;
+    color:#8a7a5f;margin-top:12px;letter-spacing:.03em;
+  }
+
+  /* ARDOISE */
+  .ardoise-sec{background:var(--cream);}
+  .ardoise{
+    max-width:1180px;
+    margin:0 auto;
+    background:var(--asphalt);
+    color:#f2ede2;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 26px 60px rgba(0,0,0,.28);
+    border:1px solid #000;
+  }
+  .ardoise-rail{
+    background:var(--red);
+    color:#fff;
+    padding:14px 26px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    border-bottom:3px solid rgba(0,0,0,.25);
+  }
+  .ardoise-rail .ar-title{font-size:20px;letter-spacing:.16em;}
+  .ardoise-rail .ar-date{font-family:"DM Mono",monospace;font-size:13px;opacity:.92;}
+  .ardoise-body{
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    gap:0;
+  }
+  .plat{
+    padding:36px 34px;
+    border-right:1px dashed rgba(255,255,255,.16);
+    position:relative;
+    background:
+      repeating-linear-gradient(0deg,rgba(255,255,255,.014) 0 27px,transparent 27px 28px);
+  }
+  .plat .today-word{font-family:"Yellowtail",cursive;font-size:34px;color:var(--sand);line-height:.9;}
+  .plat .plat-kicker{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#b7b0a2;margin:12px 0 6px;}
+  .plat h3{
+    font-family:"Anton",sans-serif;text-transform:uppercase;
+    font-size:clamp(34px,4vw,52px);
+    line-height:.96;
+    color:#fff;
+    position:relative;
+    display:inline-block;
+  }
+  .plat h3 .sheen{
+    position:absolute;inset:0;
+    background:linear-gradient(100deg,transparent 20%,rgba(255,235,190,.75) 50%,transparent 80%);
+    background-size:220% 100%;
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;
+    animation:shimmer 5.5s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes shimmer{
+    0%,100%{background-position:130% 0;}
+    50%{background-position:-30% 0;}
+  }
+  .plat .plat-desc{color:#cfc7b7;font-size:15px;margin:16px 0 20px;max-width:34ch;}
+  .plat .plat-price{
+    font-family:"DM Mono",monospace;font-size:30px;color:var(--sand);font-weight:500;
+  }
+  .plat .plat-price small{font-size:13px;color:#9a9284;}
+
+  .ardoise-cats{padding:30px 32px;display:flex;flex-direction:column;gap:0;}
+  .cat-row{
+    display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:baseline;
+    padding:13px 0;border-bottom:1px dotted rgba(255,255,255,.14);
+  }
+  .cat-row:last-child{border-bottom:none;}
+  .cat-row .c-cat{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);}
+  .cat-row .c-name{font-size:16px;color:#efe9dc;}
+  .cat-row .c-price{font-family:"DM Mono",monospace;font-size:15px;color:#d6cfbf;}
+  .ardoise-note{
+    padding:16px 26px 22px;
+    border-top:1px solid rgba(255,255,255,.1);
+    display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+    font-size:13.5px;color:#b5ae9f;
+  }
+  .ardoise-note a{color:var(--sand);text-decoration:underline;text-underline-offset:3px;}
+  .price-flag{
+    background:var(--sand);color:#171717;font-weight:600;font-size:11.5px;
+    padding:3px 10px;border-radius:5px;
+  }
+
+  /* SOUS LES PALMIERS */
+  .palms{background:#efe6d5;}
+  .palms-grid{
+    max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1.15fr;gap:52px;align-items:center;
+  }
+  .palms h2{font-size:clamp(30px,3.4vw,44px);color:var(--char);margin-bottom:18px;}
+  .palms h2 span{color:var(--red);}
+  .palms p{color:#5c554a;margin:0 0 16px;font-size:16.5px;}
+  .palms .parknote{
+    display:inline-flex;align-items:center;gap:9px;
+    background:#fff;border:1px solid #e0d3ba;border-radius:10px;
+    padding:11px 16px;font-size:14.5px;color:#6a5d44;font-weight:600;
+  }
+  .thumbs{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  }
+  .thumb{
+    aspect-ratio:4/3;overflow:hidden;border-radius:8px;
+    border:5px solid #fff;
+    box-shadow:0 8px 18px rgba(60,45,20,.16);
+    background:#c9b79a;
+    filter:sepia(.22) saturate(1.02) contrast(.98);
+    position:relative;
+  }
+  .thumb img{width:100%;height:100%;object-fit:cover;}
+  .thumb::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(43,43,43,.04),rgba(43,43,43,.16));
+    pointer-events:none;
+  }
+  .thumb.wide{grid-column:span 1;}
+  .thumbs-cap{grid-column:1/-1;font-family:"DM Mono",monospace;font-size:11.5px;color:#8a7a5f;margin-top:2px;}
+
+  /* NOUS TROUVER */
+  .find{background:var(--cream);}
+  .find-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:stretch;}
+  .find h2{font-size:clamp(30px,3.4vw,44px);color:var(--char);margin-bottom:22px;}
+  .find-list{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:18px;}
+  .find-list li{display:flex;gap:14px;align-items:flex-start;}
+  .find-list .fi-ico{
+    width:40px;height:40px;flex:none;border-radius:50%;
+    background:#efe6d5;color:var(--red);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .find-list .fi-h{font-weight:700;color:var(--char);font-size:15px;margin-bottom:2px;}
+  .find-list .fi-t{color:#5c554a;font-size:15px;}
+  .find-list .fi-t .mono{font-size:14px;}
+  .map-frame{
+    border-radius:14px;overflow:hidden;border:5px solid #fff;
+    box-shadow:0 16px 40px rgba(60,45,20,.18);
+    min-height:400px;background:#ddd;
+  }
+  .map-frame iframe{width:100%;height:100%;min-height:400px;border:0;display:block;}
+  .mapcard{position:relative;display:block;text-decoration:none;}
+  .mapcard svg{width:100%;height:100%;min-height:400px;display:block;}
+  .mapcta{
+    position:absolute;left:18px;bottom:16px;
+    font-family:"DM Mono",monospace;font-weight:500;font-size:13.5px;color:#fff;
+    background:rgba(27,27,28,.62);border:1px solid rgba(216,185,138,.5);
+    border-radius:999px;padding:9px 16px;transition:background .15s,border-color .15s;
+  }
+  .mapcard:hover .mapcta{background:var(--red);border-color:var(--red);}
+
+  /* FOOTER — desert band */
+  .desert{
+    background:
+      radial-gradient(120% 140% at 80% -20%, #cf3b41 0%, var(--red) 42%, var(--red-deep) 100%);
+    color:#fff;
+    padding:52px 70px 40px;
+  }
+  .desert-in{
+    display:grid;grid-template-columns:auto 1fr auto;gap:44px;align-items:center;
+    max-width:1280px;margin:0 auto;
+  }
+  .desert-badge{
+    width:96px;height:96px;border-radius:50%;overflow:hidden;
+    border:3px solid rgba(255,255,255,.55);background:var(--cream);flex:none;
+  }
+  .desert-badge img{width:100%;height:100%;object-fit:cover;}
+  .desert-info h3{font-size:24px;letter-spacing:.08em;margin-bottom:8px;}
+  .desert-info p{margin:3px 0;font-size:15px;color:#ffe3e0;}
+  .desert-info p .mono{color:#fff;}
+  .desert-info a{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+  .desert-cta{
+    display:inline-flex;flex-direction:column;gap:10px;align-items:stretch;text-align:center;
+  }
+  .desert-cta .btn-white{
+    background:#fff;color:var(--red);font-family:"DM Mono",monospace;font-weight:500;
+    padding:14px 26px;border-radius:10px;text-decoration:none;font-size:19px;
+    transition:transform .15s;white-space:nowrap;
+  }
+  .desert-cta .btn-white:hover{transform:translateY(-2px);}
+  .desert-cta .dc-note{font-size:12.5px;color:#ffd8d4;}
+  .desert-legal{
+    max-width:1280px;margin:32px auto 0;padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.25);
+    font-size:12px;color:#ffcfcb;line-height:1.6;
+  }
+
+  /* MOBILE BOTTOM CALL BAR (hidden desktop) */
+  .mbar{display:none;}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:1080px){
+    :root{--rail:320px;}
+    section{padding:56px 44px;}
+    .langbar{padding:18px 44px 0;}
+    .hero{grid-template-columns:1fr 260px;gap:36px;}
+    .postcard-img{width:236px;height:355px;}
+    .ardoise-body{grid-template-columns:1fr;}
+    .plat{border-right:none;border-bottom:1px dashed rgba(255,255,255,.16);}
+    .palms-grid,.find-grid{grid-template-columns:1fr;gap:32px;}
+  }
+  @media (max-width:760px){
+    body{font-size:16px;}
+    .layout{grid-template-columns:1fr;}
+    .rail{
+      position:static;height:auto;
+      border-right:none;border-bottom:2px solid var(--seam);
+      flex-direction:row;flex-wrap:wrap;align-items:center;
+      gap:14px;padding:18px 20px;
+    }
+    .badge-frame{width:64px;height:64px;margin:0;border-width:2px;}
+    .rail-name{display:none;}
+    .status{flex:1 1 auto;min-width:160px;}
+    .rail-addr{flex:1 1 100%;}
+    .call-block{display:none;}          /* moves to fixed bottom bar */
+    .microlinks{flex:1 1 100%;flex-direction:row;flex-wrap:wrap;}
+    .microlinks a{flex:1 1 auto;justify-content:center;}
+    .rail-hours{flex:1 1 100%;margin-top:4px;border-top:1px solid #3d3d3d;}
+    .rail-hours .hr-row{max-width:340px;}
+    .langbar{padding:16px 22px 0;}
+    section{padding:44px 22px;}
+    .hero{grid-template-columns:1fr;padding-top:26px;gap:30px;}
+    .postcard{justify-self:center;transform:rotate(-2deg);}
+    .desert{padding:40px 22px 96px;}
+    .desert-in{grid-template-columns:1fr;gap:24px;text-align:center;justify-items:center;}
+    .desert-legal{padding-bottom:0;}
+    /* fixed bottom call bar */
+    .mbar{
+      display:flex;gap:10px;
+      position:fixed;left:0;right:0;bottom:0;z-index:60;
+      padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+      background:rgba(27,27,28,.97);
+      border-top:2px solid var(--sand);
+      backdrop-filter:blur(6px);
+    }
+    .mbar a{
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      text-decoration:none;font-weight:700;border-radius:10px;font-size:15px;
+      padding:13px 10px;
+    }
+    .mbar .m-call{flex:2;background:var(--red);color:#fff;}
+    .mbar .m-dir{flex:1;background:#3a3a3a;color:var(--cream);border:1px solid #555;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .plat h3 .sheen{animation:none;display:none;}
+    .dot{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ==================== MAÎTRE D' RAIL ==================== -->
+  <aside class="rail">
+    <div class="badge-frame">
+      <img src="assets/logo.jpg" width="150" height="150"
+           alt="Logo Arizona — badge rouge Bar · Restaurant · Lounge">
+    </div>
+    <div class="rail-name">Bar · Restaurant · Lounge</div>
+
+    <div class="status" id="status">
+      <span class="dot" id="statusDot"></span>
+      <span>
+        <span class="st-main" id="statusMain" data-i18n="statusMain">Nous appeler pour confirmer</span><br>
+        <span class="st-sub" id="statusSub" data-i18n="statusSub">Horaires à confirmer</span>
+      </span>
+    </div>
+
+    <div class="rail-addr">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D8B98A" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span>2–4, Rue Edmond Reuter<br>Contern, Luxembourg</span>
+    </div>
+
+    <a class="call-block" href="tel:+35226701490">
+      <span class="cb-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1z"/></svg>
+        <span data-i18n="callLabel">Appeler / Réserver</span>
+      </span>
+      <span class="cb-num">26 70 14 90</span>
+      <span class="cb-sub" data-i18n="callSub">Le téléphone, notre seul canal de réservation</span>
+    </a>
+
+    <nav class="microlinks">
+      <a href="https://www.google.com/maps/search/?api=1&query=Arizona+Lounge+Rue+Edmond+Reuter+Contern+Luxembourg" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D8B98A" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span data-i18n="linkDir">Itinéraire</span>
+      </a>
+      <a href="https://www.facebook.com/110576048529388" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#D8B98A"><path d="M14 9h3l.4-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.3C16.7.2 15.7 0 14.6 0 12.2 0 10.6 1.5 10.6 4.2V6H8v3h2.6v9H14z"/></svg>
+        <span data-i18n="linkFb">Menu du jour sur Facebook</span>
+      </a>
+    </nav>
+
+    <div class="rail-hours">
+      <h4 data-i18n="hoursTitle">Horaires</h4>
+      <div class="hr-row"><span data-i18n="hMonSat">Lun – Sam</span><span>08:00 – 20:00</span></div>
+      <div class="hr-row"><span data-i18n="hLunch">Déjeuner</span><span>12:00 – 14:30</span></div>
+      <div class="hr-row"><span data-i18n="hSun">Dimanche</span><span data-i18n="hClosed">Fermé</span></div>
+      <span class="flag" data-i18n="hoursFlag">Horaires à confirmer</span>
+    </div>
+  </aside>
+
+  <!-- ==================== CONTENT TRACK ==================== -->
+  <main class="content">
+
+    <div class="langbar" role="group" aria-label="Language">
+      <button data-lang="fr" class="active" onclick="setLang('fr')">FR</button>
+      <button data-lang="de" onclick="setLang('de')">DE</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+
+    <!-- HERO / ARRIVÉE -->
+    <section class="hero">
+      <div class="track-in">
+        <div class="hero-date">
+          <span class="script" id="todayWord">Aujourd'hui</span>
+          <span class="mono" id="todayDate">—</span>
+        </div>
+        <p class="eyebrow" data-i18n="heroEyebrow">Brasserie · Terrasse · Contern</p>
+        <h1 class="anton">
+          <span class="l1">Arizona</span>
+          <span class="l2" data-i18n="heroLine2">La pause</span>
+          <span class="l3" data-i18n="heroLine3">sous les palmiers</span>
+        </h1>
+        <p class="hero-lede" data-i18n="heroLede">Un bar-restaurant décontracté au cœur du parc d'activité de Contern. Sous la verrière et les palmiers : un menu du jour honnête, un café le matin, une longue terrasse au déjeuner.</p>
+        <div class="hero-tags">
+          <span data-i18n="tag1">Ouvert en semaine</span>
+          <span data-i18n="tag2">Menu du jour</span>
+          <span data-i18n="tag3">Terrasse & verrière</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="tel:+35226701490">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1z"/></svg>
+            <span data-i18n="heroCallBtn">Appeler pour réserver</span>
+          </a>
+          <a class="btn btn-ghost" href="#trouver" data-i18n="heroFindBtn">Où nous trouver</a>
+        </div>
+      </div>
+
+      <figure class="postcard">
+        <div class="postcard-img">
+          <img src="assets/terrace.jpg" width="292" height="440"
+               alt="La terrasse extérieure de l'Arizona Lounge, parasols verts, château d'eau de Contern en arrière-plan">
+        </div>
+        <figcaption class="postcard-cap" data-i18n="postcardCap">La terrasse · Contern</figcaption>
+      </figure>
+    </section>
+
+    <!-- L'ARDOISE DU JOUR -->
+    <section class="ardoise-sec" id="ardoise">
+      <p class="eyebrow" data-i18n="ardEyebrow">Ce qui se cuisine — au premier regard</p>
+      <div class="ardoise">
+        <div class="ardoise-rail">
+          <span class="ar-title anton" data-i18n="ardTitle">L'ardoise du jour</span>
+          <span class="ar-date mono" id="ardDate">—</span>
+        </div>
+        <div class="ardoise-body">
+          <div class="plat">
+            <span class="today-word script" data-i18n="ardTodayWord">Aujourd'hui</span>
+            <div class="plat-kicker" data-i18n="ardPlatKicker">Le plat du jour</div>
+            <h3>
+              <span data-i18n="ardPlatName">Menu du jour</span>
+              <span class="sheen" aria-hidden="true" data-i18n="ardPlatName">Menu du jour</span>
+            </h3>
+            <p class="plat-desc" data-i18n="ardPlatDesc">Une assiette différente chaque jour — mijotée maison, généreuse. Le plat exact est annoncé le matin même.</p>
+            <div class="plat-price">€16,50 <small data-i18n="ardPlatPriceNote">· indicatif</small></div>
+          </div>
+          <div class="ardoise-cats">
+            <div class="cat-row">
+              <span class="c-cat">Burger</span>
+              <span class="c-name">Cheese Burger</span>
+              <span class="c-price mono">€17,00</span>
+            </div>
+            <div class="cat-row">
+              <span class="c-cat" data-i18n="catPasta">Pâtes</span>
+              <span class="c-name">Tagliatelle Carbonara</span>
+              <span class="c-price mono">€16,50</span>
+            </div>
+            <div class="cat-row">
+              <span class="c-cat" data-i18n="catSalad">Salade</span>
+              <span class="c-name">Salade César</span>
+              <span class="c-price mono">€18,00</span>
+            </div>
+            <div class="cat-row">
+              <span class="c-cat" data-i18n="catFish">Poisson</span>
+              <span class="c-name" data-i18n="dishSalmon">Saumon grillé</span>
+              <span class="c-price mono">€21,00</span>
+            </div>
+            <div class="cat-row">
+              <span class="c-cat" data-i18n="catMeat">Viande</span>
+              <span class="c-name">Pavé de rumsteak · 250 g</span>
+              <span class="c-price mono">€23,00</span>
+            </div>
+            <div class="cat-row">
+              <span class="c-cat" data-i18n="catDessert">Dessert</span>
+              <span class="c-name" data-i18n="dishDessert">Dessert du jour</span>
+              <span class="c-price mono">€3,50</span>
+            </div>
+          </div>
+        </div>
+        <div class="ardoise-note">
+          <span><span class="price-flag" data-i18n="priceFlag">Prix indicatifs — à confirmer</span> <span data-i18n="ardNoteText">· la carte change chaque jour</span></span>
+          <span><span data-i18n="ardFbText">Le plat exact du jour est publié sur</span> <a href="https://www.facebook.com/110576048529388" target="_blank" rel="noopener">Facebook</a>.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOUS LES PALMIERS -->
+    <section class="palms">
+      <div class="palms-grid">
+        <div>
+          <p class="eyebrow" data-i18n="palmEyebrow">L'ambiance</p>
+          <h2 class="anton" data-i18n="palmTitle">Sous les <span>palmiers</span></h2>
+          <p data-i18n="palmP1">Une verrière lumineuse, des palmiers et de la verdure : on déjeune comme dans une petite oasis, à l'abri du business-park. Le matin pour un café, le midi pour un plat chaud, et dès qu'il fait beau, la terrasse ouvre.</p>
+          <p data-i18n="palmP2">Décontracté et sans chichis — une vraie brasserie de jour, pas un club.</p>
+          <span class="parknote">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B21F24" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span data-i18n="palmPark">Parc d'activité Edmond Reuter — château d'eau à deux pas</span>
+          </span>
+        </div>
+        <div class="thumbs">
+          <div class="thumb"><img src="assets/atrium.jpg" width="200" height="150" alt="Atrium planté de l'Arizona Lounge"></div>
+          <div class="thumb"><img src="assets/dining.jpg" width="200" height="150" alt="Tables dressées sous la verrière"></div>
+          <div class="thumb"><img src="assets/interior.jpg" width="200" height="150" alt="Salle sous verrière avec palmiers"></div>
+          <div class="thumb"><img src="assets/interior2.jpg" width="200" height="150" alt="Salle avec art mural coloré"></div>
+          <div class="thumb"><img src="assets/lounge.jpg" width="200" height="150" alt="Coin lounge avec canapé et mur rouge"></div>
+          <p class="thumbs-cap" data-i18n="thumbsCap">Photos d'archives — décor d'époque</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOUS TROUVER -->
+    <section class="find" id="trouver">
+      <div class="find-grid">
+        <div>
+          <p class="eyebrow" data-i18n="findEyebrow">Pratique</p>
+          <h2 class="anton" data-i18n="findTitle">Nous trouver</h2>
+          <ul class="find-list">
+            <li>
+              <span class="fi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <span>
+                <span class="fi-h" data-i18n="fiAddr">Adresse</span>
+                <span class="fi-t">2–4, Rue Edmond Reuter<br>
+                  <span class="mono">L-5326 Contern</span>
+                </span>
+              </span>
+            </li>
+            <li>
+              <span class="fi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <span>
+                <span class="fi-h" data-i18n="fiHours">Horaires</span>
+                <span class="fi-t"><span data-i18n="fiHoursTxt">Lun–Sam 08:00–20:00 · déjeuner 12:00–14:30 · dim. fermé</span><br>
+                  <span class="flag" data-i18n="hoursFlag2">horaires à confirmer</span></span>
+              </span>
+            </li>
+            <li>
+              <span class="fi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="#B21F24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1z"/></svg></span>
+              <span>
+                <span class="fi-h" data-i18n="fiPhone">Téléphone</span>
+                <span class="fi-t"><a class="mono" href="tel:+35226701490" style="text-decoration:none;color:var(--red);font-weight:600;">+352 26 70 14 90</a></span>
+              </span>
+            </li>
+            <li>
+              <span class="fi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <span>
+                <span class="fi-h" data-i18n="fiPark">Quartier</span>
+                <span class="fi-t" data-i18n="fiParkTxt">Parc d'activité Edmond Reuter, Contern</span>
+              </span>
+            </li>
+          </ul>
+          <a class="btn btn-red" href="https://www.google.com/maps/search/?api=1&query=Arizona+Lounge+Rue+Edmond+Reuter+Contern+Luxembourg" target="_blank" rel="noopener" data-i18n="findDirBtn">Ouvrir l'itinéraire</a>
+        </div>
+        <a class="map-frame mapcard" href="https://www.google.com/maps/search/?api=1&amp;query=Arizona+Lounge+Rue+Edmond+Reuter+Contern+Luxembourg" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
+          <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
+            <rect width="400" height="300" fill="#1b1b1c"/>
+            <g stroke="#3d3630" stroke-width="10" opacity=".6">
+              <path d="M30 60 H150"/><path d="M230 40 H360"/><path d="M50 230 H170"/><path d="M220 250 H340"/><path d="M60 145 H160"/><path d="M240 155 H370"/>
+            </g>
+            <g transform="translate(200,150)">
+              <circle r="34" fill="rgba(178,31,36,.18)"/>
+              <path d="M0 -22 C12 -22 20 -13 20 -2 C20 12 0 30 0 30 C0 30 -20 12 -20 -2 C-20 -13 -12 -22 0 -22 Z" fill="#B21F24"/>
+              <circle r="6" fill="#1b1b1c"/>
+            </g>
+            <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#D8B98A" letter-spacing="1">RUE EDMOND REUTER · CONTERN</text>
+          </svg>
+          <span class="mapcta" data-i18n="findDirBtn2">Ouvrir l'itinéraire ↗</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ==================== FOOTER — DESERT BAND ==================== -->
+<footer class="desert">
+  <div class="desert-in">
+    <div class="desert-badge">
+      <img src="assets/logo.jpg" width="96" height="96" alt="Logo Arizona Lounge">
+    </div>
+    <div class="desert-info">
+      <h3 class="anton">Arizona Lounge</h3>
+      <p>2–4, Rue Edmond Reuter · Contern · Luxembourg</p>
+      <p><span class="mono">+352 26 70 14 90</span> · <a href="https://www.facebook.com/110576048529388" target="_blank" rel="noopener">Facebook</a></p>
+      <p data-i18n="footHours">Lun–Sam 08:00–20:00 · dimanche fermé · <em>horaires à confirmer</em></p>
+    </div>
+    <div class="desert-cta">
+      <a class="btn-white" href="tel:+35226701490">26 70 14 90</a>
+      <span class="dc-note" data-i18n="footCta">Appelez pour réserver</span>
+    </div>
+  </div>
+  <p class="desert-legal" data-i18n="footLegal">Site de démonstration — contenu proposé à valider par l'établissement. Prix et horaires indicatifs et à confirmer. Photographies d'archives de l'établissement.</p>
+</footer>
+
+<!-- MOBILE FIXED CALL BAR -->
+<div class="mbar" aria-hidden="false">
+  <a class="m-call" href="tel:+35226701490">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1z"/></svg>
+    <span data-i18n="mCall">Appeler · 26 70 14 90</span>
+  </a>
+  <a class="m-dir" href="https://www.google.com/maps/search/?api=1&query=Arizona+Lounge+Rue+Edmond+Reuter+Contern+Luxembourg" target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D8B98A" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+    <span data-i18n="mDir">Itinéraire</span>
+  </a>
+</div>
+
+<script>
+/* ---------------- i18n ---------------- */
+const I18N = {
+  fr:{
+    statusMain:"Nous appeler pour confirmer", statusSub:"Horaires à confirmer",
+    callLabel:"Appeler / Réserver", callSub:"Le téléphone, notre seul canal de réservation",
+    linkDir:"Itinéraire", linkFb:"Menu du jour sur Facebook",
+    hoursTitle:"Horaires", hMonSat:"Lun – Sam", hLunch:"Déjeuner", hSun:"Dimanche", hClosed:"Fermé", hoursFlag:"Horaires à confirmer",
+    heroEyebrow:"Brasserie · Terrasse · Contern", heroLine2:"La pause", heroLine3:"sous les palmiers",
+    heroLede:"Un bar-restaurant décontracté au cœur du parc d'activité de Contern. Sous la verrière et les palmiers : un menu du jour honnête, un café le matin, une longue terrasse au déjeuner.",
+    tag1:"Ouvert en semaine", tag2:"Menu du jour", tag3:"Terrasse & verrière",
+    heroCallBtn:"Appeler pour réserver", heroFindBtn:"Où nous trouver", postcardCap:"La terrasse · Contern",
+    ardEyebrow:"Ce qui se cuisine — au premier regard", ardTitle:"L'ardoise du jour", ardTodayWord:"Aujourd'hui",
+    ardPlatKicker:"Le plat du jour", ardPlatName:"Menu du jour",
+    ardPlatDesc:"Une assiette différente chaque jour — mijotée maison, généreuse. Le plat exact est annoncé le matin même.",
+    ardPlatPriceNote:"· indicatif",
+    catPasta:"Pâtes", catSalad:"Salade", catFish:"Poisson", catMeat:"Viande", catDessert:"Dessert",
+    dishSalmon:"Saumon grillé", dishDessert:"Dessert du jour",
+    priceFlag:"Prix indicatifs — à confirmer", ardNoteText:"· la carte change chaque jour", ardFbText:"Le plat exact du jour est publié sur",
+    palmEyebrow:"L'ambiance", palmTitle:'Sous les <span>palmiers</span>',
+    palmP1:"Une verrière lumineuse, des palmiers et de la verdure : on déjeune comme dans une petite oasis, à l'abri du business-park. Le matin pour un café, le midi pour un plat chaud, et dès qu'il fait beau, la terrasse ouvre.",
+    palmP2:"Décontracté et sans chichis — une vraie brasserie de jour, pas un club.",
+    palmPark:"Parc d'activité Edmond Reuter — château d'eau à deux pas", thumbsCap:"Photos d'archives — décor d'époque",
+    findEyebrow:"Pratique", findTitle:"Nous trouver",
+    fiAddr:"Adresse",
+    fiHours:"Horaires", fiHoursTxt:"Lun–Sam 08:00–20:00 · déjeuner 12:00–14:30 · dim. fermé", hoursFlag2:"horaires à confirmer",
+    fiPhone:"Téléphone", fiPark:"Quartier", fiParkTxt:"Parc d'activité Edmond Reuter, Contern",
+    findDirBtn:"Ouvrir l'itinéraire", findDirBtn2:"Ouvrir l'itinéraire ↗",
+    footHours:"Lun–Sam 08:00–20:00 · dimanche fermé · <em>horaires à confirmer</em>", footCta:"Appelez pour réserver",
+    footLegal:"Site de démonstration — contenu proposé à valider par l'établissement. Prix et horaires indicatifs et à confirmer. Photographies d'archives de l'établissement.",
+    mCall:"Appeler · 26 70 14 90", mDir:"Itinéraire",
+    stOpen:"Probablement ouvert", stClosed:"Probablement fermé", stCap:"Indicatif — appelez pour confirmer",
+    locale:"fr-FR"
+  },
+  de:{
+    statusMain:"Bitte anrufen zur Bestätigung", statusSub:"Öffnungszeiten unbestätigt",
+    callLabel:"Anrufen / Reservieren", callSub:"Telefon — unser einziger Reservierungsweg",
+    linkDir:"Route", linkFb:"Tagesmenü auf Facebook",
+    hoursTitle:"Öffnungszeiten", hMonSat:"Mo – Sa", hLunch:"Mittag", hSun:"Sonntag", hClosed:"Geschlossen", hoursFlag:"Zeiten unbestätigt",
+    heroEyebrow:"Brasserie · Terrasse · Contern", heroLine2:"Die Pause", heroLine3:"unter den Palmen",
+    heroLede:"Ein entspanntes Bar-Restaurant mitten im Gewerbepark von Contern. Unter dem Glasdach und den Palmen: ein ehrliches Tagesmenü, morgens ein Kaffee, mittags eine lange Terrasse.",
+    tag1:"Werktags geöffnet", tag2:"Tagesmenü", tag3:"Terrasse & Wintergarten",
+    heroCallBtn:"Anrufen & reservieren", heroFindBtn:"So finden Sie uns", postcardCap:"Die Terrasse · Contern",
+    ardEyebrow:"Was heute gekocht wird — auf einen Blick", ardTitle:"Die Tagestafel", ardTodayWord:"Heute",
+    ardPlatKicker:"Das Tagesgericht", ardPlatName:"Tagesmenü",
+    ardPlatDesc:"Jeden Tag ein anderes Gericht — hausgemacht und großzügig. Das genaue Gericht wird am Morgen bekanntgegeben.",
+    ardPlatPriceNote:"· Richtpreis",
+    catPasta:"Pasta", catSalad:"Salat", catFish:"Fisch", catMeat:"Fleisch", catDessert:"Dessert",
+    dishSalmon:"Gegrillter Lachs", dishDessert:"Dessert des Tages",
+    priceFlag:"Richtpreise — zu bestätigen", ardNoteText:"· die Karte wechselt täglich", ardFbText:"Das genaue Tagesgericht steht auf",
+    palmEyebrow:"Das Ambiente", palmTitle:'Unter den <span>Palmen</span>',
+    palmP1:"Ein helles Glasdach, Palmen und Grün: Man isst wie in einer kleinen Oase, geschützt vom Gewerbepark. Morgens ein Kaffee, mittags ein warmes Gericht, und bei schönem Wetter öffnet die Terrasse.",
+    palmP2:"Entspannt und unkompliziert — eine echte Tages-Brasserie, kein Club.",
+    palmPark:"Gewerbepark Edmond Reuter — der Wasserturm gleich nebenan", thumbsCap:"Archivfotos — Einrichtung von damals",
+    findEyebrow:"Praktisch", findTitle:"So finden Sie uns",
+    fiAddr:"Adresse",
+    fiHours:"Öffnungszeiten", fiHoursTxt:"Mo–Sa 08:00–20:00 · Mittag 12:00–14:30 · So geschlossen", hoursFlag2:"Zeiten unbestätigt",
+    fiPhone:"Telefon", fiPark:"Lage", fiParkTxt:"Gewerbepark Edmond Reuter, Contern",
+    findDirBtn:"Route öffnen", findDirBtn2:"Route öffnen ↗",
+    footHours:"Mo–Sa 08:00–20:00 · Sonntag geschlossen · <em>Zeiten unbestätigt</em>", footCta:"Anrufen & reservieren",
+    footLegal:"Demo-Website — vorgeschlagener Inhalt, vom Betrieb zu bestätigen. Preise und Öffnungszeiten sind Richtwerte und zu bestätigen. Archivfotos des Betriebs.",
+    mCall:"Anrufen · 26 70 14 90", mDir:"Route",
+    stOpen:"Wahrscheinlich geöffnet", stClosed:"Wahrscheinlich geschlossen", stCap:"Richtwert — bitte anrufen",
+    locale:"de-DE"
+  },
+  en:{
+    statusMain:"Call us to confirm", statusSub:"Hours to be confirmed",
+    callLabel:"Call / Book", callSub:"Phone — our only booking channel",
+    linkDir:"Directions", linkFb:"Today's menu on Facebook",
+    hoursTitle:"Hours", hMonSat:"Mon – Sat", hLunch:"Lunch", hSun:"Sunday", hClosed:"Closed", hoursFlag:"Hours to confirm",
+    heroEyebrow:"Brasserie · Terrace · Contern", heroLine2:"A pause", heroLine3:"under the palms",
+    heroLede:"A relaxed bar-restaurant in the heart of the Contern business park. Under the glass roof and the palms: an honest menu of the day, a morning coffee, a long lunch on the terrace.",
+    tag1:"Open on weekdays", tag2:"Menu of the day", tag3:"Terrace & atrium",
+    heroCallBtn:"Call to book", heroFindBtn:"Find us", postcardCap:"The terrace · Contern",
+    ardEyebrow:"What's cooking — at a glance", ardTitle:"Today's board", ardTodayWord:"Today",
+    ardPlatKicker:"Plate of the day", ardPlatName:"Menu of the day",
+    ardPlatDesc:"A different plate every day — home-cooked and generous. The exact dish is announced the same morning.",
+    ardPlatPriceNote:"· indicative",
+    catPasta:"Pasta", catSalad:"Salad", catFish:"Fish", catMeat:"Meat", catDessert:"Dessert",
+    dishSalmon:"Grilled salmon", dishDessert:"Dessert of the day",
+    priceFlag:"Indicative prices — to confirm", ardNoteText:"· the menu changes daily", ardFbText:"The exact dish of the day is posted on",
+    palmEyebrow:"The atmosphere", palmTitle:'Under the <span>palms</span>',
+    palmP1:"A bright glass roof, palms and greenery: lunch feels like a little oasis, sheltered from the business park. A coffee in the morning, a hot plate at midday, and the terrace opens as soon as the sun is out.",
+    palmP2:"Relaxed and unfussy — a genuine daytime brasserie, not a club.",
+    palmPark:"Edmond Reuter business park — water tower next door", thumbsCap:"Archive photos — décor of the day",
+    findEyebrow:"Practical", findTitle:"Find us",
+    fiAddr:"Address",
+    fiHours:"Hours", fiHoursTxt:"Mon–Sat 08:00–20:00 · lunch 12:00–14:30 · Sun closed", hoursFlag2:"hours to confirm",
+    fiPhone:"Phone", fiPark:"Area", fiParkTxt:"Edmond Reuter business park, Contern",
+    findDirBtn:"Open directions", findDirBtn2:"Open directions ↗",
+    footHours:"Mon–Sat 08:00–20:00 · Sunday closed · <em>hours to confirm</em>", footCta:"Call to book",
+    footLegal:"Demonstration site — proposed content, to be validated by the establishment. Prices and hours are indicative and to be confirmed. Archive photographs of the establishment.",
+    mCall:"Call · 26 70 14 90", mDir:"Directions",
+    stOpen:"Likely open", stClosed:"Likely closed", stCap:"Indicative — please call to confirm",
+    locale:"en-GB"
+  }
+};
+
+let CURRENT = "fr";
+
+function setLang(lang){
+  CURRENT = lang;
+  const d = I18N[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(d[k]!==undefined){
+      if(d[k].indexOf("<")>-1) el.innerHTML = d[k];
+      else el.textContent = d[k];
+    }
+  });
+  document.querySelectorAll(".langbar button").forEach(b=>{
+    b.classList.toggle("active", b.getAttribute("data-lang")===lang);
+  });
+  renderDates();
+  renderStatus();
+}
+
+/* ---------------- dated board ---------------- */
+function renderDates(){
+  const d = I18N[CURRENT];
+  const now = new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Luxembourg'}));
+  const long = now.toLocaleDateString(d.locale,{weekday:"long",day:"numeric",month:"long"});
+  const short = now.toLocaleDateString(d.locale,{day:"2-digit",month:"2-digit",year:"numeric"});
+  const el1 = document.getElementById("todayDate");
+  const el2 = document.getElementById("ardDate");
+  if(el1) el1.textContent = long.charAt(0).toUpperCase()+long.slice(1);
+  if(el2) el2.textContent = short;
+}
+
+/* ---------------- live status pill (honest / indicative) ---------------- */
+function renderStatus(){
+  const d = I18N[CURRENT];
+  const now = new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Luxembourg'}));
+  const day = now.getDay();            // 0 = Sun
+  const h = now.getHours()+now.getMinutes()/60;
+  // Placeholder schedule (UNCONFIRMED): Mon–Sat 08:00–20:00, Sun closed
+  const openNow = (day!==0) && (h>=8 && h<20);
+  const dot = document.getElementById("statusDot");
+  const main = document.getElementById("statusMain");
+  const sub = document.getElementById("statusSub");
+  if(!dot) return;
+  dot.classList.remove("open","closed");
+  if(openNow){ dot.classList.add("open"); main.textContent = d.stOpen; }
+  else { dot.classList.add("closed"); main.textContent = d.stClosed; }
+  sub.textContent = d.stCap;   // always keeps the "call to confirm" honesty flag
+}
+
+/* init (HTML already French — this only sets dates + status without reflow flash) */
+renderDates();
+renderStatus();
+setInterval(renderStatus, 60000);
+</script>
+
+
+</body>
+</html>
