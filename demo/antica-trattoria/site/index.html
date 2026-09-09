@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Antica Trattoria — Belair, Luxembourg · Four à bois &amp; pâtes fraîches</title>
+<meta name="description" content="Antica Trattoria — une trattoria de quartier à Belair, Luxembourg. Le four à bois brûle dès l'entrée : pâtes fraîches faites maison, poissons grillés, cave italienne." />
+<style id="rk-fonts">
+/* Bevan — display face for headings/wordmark (replaces the Playfair+Fraunces "elegant serif + italic accent" default) */
+@font-face {
+  font-family: 'Bevan';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/bevan-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bevan';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/bevan-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/inter-0SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/inter-Cp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/inter-0SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/inter-Cp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/inter-0SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/inter-Cp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+:root{
+  --red:#8E2420; --red-deep:#5F1613; --ochre:#C87941; --ochre-soft:#E0A46E;
+  --cream:#F5EEDB; --cream-2:#ECE0C3; --espresso:#221A15; --espresso-2:#2E241C;
+  --ink:#241C17; --ink-soft:#5B4B3C; --line:rgba(36,28,23,.14);
+  --serif:'Bevan',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.photo-real{filter:saturate(.94) contrast(1.05) brightness(1.02)}
+em{font-style:italic}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* ============ ARCADE DIVIDER — the oven-arch motif, reused as the site's one recurring device ============ */
+.arcade{display:block;width:100%;height:30px}
+.arcade path{fill:currentColor}
+.arcade.flip{transform:scaleY(-1)}
+
+/* ============ RIBBON / NAV ============ */
+.ribbon{
+  position:sticky;top:0;z-index:80;
+  display:flex;align-items:center;gap:20px;
+  padding:12px clamp(18px,4vw,48px);
+  background:var(--espresso);
+  border-bottom:1px solid rgba(224,164,110,.3);
+}
+.ribbon .mark{font-family:var(--serif);font-weight:400;font-size:18px;color:var(--cream);letter-spacing:.02em;white-space:nowrap}
+.ribbon .mark .accent{color:var(--ochre-soft)}
+.ribbon nav{display:flex;gap:26px;margin-left:auto;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-2)}
+.ribbon nav a{opacity:.8;transition:opacity .2s,color .2s}
+.ribbon nav a:hover{opacity:1;color:var(--ochre-soft)}
+.langs{display:flex;gap:3px;border:1px solid rgba(245,238,219,.25);border-radius:999px;padding:3px;background:rgba(0,0,0,.18)}
+.langs button{font:inherit;font-size:11px;font-weight:600;letter-spacing:.08em;cursor:pointer;color:var(--cream-2);background:transparent;border:0;padding:4px 10px;border-radius:999px;text-transform:uppercase;transition:.2s}
+.langs button.on{background:var(--ochre);color:var(--espresso)}
+.callbtn{font-size:12.5px;font-weight:600;letter-spacing:.03em;background:var(--red);color:var(--cream);padding:8px 16px;border-radius:999px;white-space:nowrap;transition:background .2s}
+.callbtn:hover{background:var(--red-deep)}
+@media(max-width:760px){.ribbon nav{display:none}}
+@media(max-width:480px){.ribbon{flex-wrap:wrap;gap:10px}.callbtn{order:3;flex:1 1 100%;text-align:center}}
+
+/* ============ HERO ============ */
+.hero{position:relative;background:var(--espresso);color:var(--cream)}
+.hero-img{position:relative;height:min(88vh,720px);min-height:460px;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:58% 42%}
+.hero-img::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(34,26,21,.15) 0%, rgba(34,26,21,.1) 38%, rgba(34,26,21,.86) 100%),
+    linear-gradient(90deg, rgba(34,26,21,.55) 0%, transparent 42%);
+}
+.hero-copy{
+  position:absolute;left:0;right:0;bottom:0;padding:clamp(28px,5vw,64px) clamp(18px,4vw,48px) clamp(40px,6vw,64px);
+  max-width:920px;
+}
+.hero-copy .kicker{font-size:12.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--ochre-soft);font-weight:600;margin-bottom:14px}
+.hero-copy h1{font-family:var(--serif);font-weight:400;line-height:.96;font-size:clamp(40px,8vw,88px);letter-spacing:.005em}
+.hero-copy h1 .two{display:block;color:var(--ochre-soft);font-weight:400;font-size:.72em;margin-top:2px}
+.hero-copy .lede{margin-top:18px;font-size:clamp(15px,1.6vw,18px);color:var(--cream-2);max-width:54ch;font-weight:400}
+.hero-cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.05em;padding:12px 22px;border-radius:999px;transition:.2s}
+.btn.primary{background:var(--ochre);color:var(--espresso)}
+.btn.primary:hover{background:var(--ochre-soft)}
+.btn.ghost{border:1px solid rgba(245,238,219,.4);color:var(--cream)}
+.btn.ghost:hover{border-color:var(--ochre-soft);color:var(--ochre-soft)}
+.hero .arcade{color:var(--cream);position:relative;z-index:2}
+.story-arcade{color:var(--cream-2)}
+.carta-arcade{color:var(--espresso)}
+.cantina-arcade{color:var(--cream)}
+.famiglia-arcade{color:var(--red-deep)}
+
+/* ============ STORY / SOGLIA (the threshold) ============ */
+.story{background:var(--cream);padding:clamp(56px,9vw,120px) 0 clamp(48px,7vw,88px)}
+.story-inner{max-width:760px;margin:0 auto;text-align:left}
+.story .k{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--red);font-weight:700}
+.story h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4.4vw,44px);line-height:1.14;margin:14px 0 26px;color:var(--espresso)}
+.story h2 em{font-style:normal;color:var(--red)}
+.story p{font-size:16px;color:var(--ink-soft);max-width:62ch;margin-bottom:16px}
+.story p+p{margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.chips span{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--ink-soft);background:rgba(200,121,65,.08)}
+
+/* ============ CARTA ============ */
+.carta{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(48px,7vw,88px) 0}
+.carta-head{max-width:760px;margin:0 auto 44px;text-align:center}
+.carta-head .k{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--ochre);font-weight:700}
+.carta-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.6vw,50px);color:var(--red);margin:10px 0}
+.carta-head p{color:var(--ink-soft);font-style:italic;font-size:14px}
+.carta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3vw,46px);align-items:start}
+.col{display:flex;flex-direction:column;gap:30px}
+.dish-card{background:var(--cream);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(36,28,23,.08)}
+.dish-card figure{height:150px;overflow:hidden}
+.dish-card img{width:100%;height:100%;object-fit:cover}
+.dish-card figcaption{padding:10px 14px;font-size:12px;color:var(--ink-soft);font-style:italic;border-top:1px solid var(--line)}
+.menugroup h3{font-family:var(--serif);font-size:21px;color:var(--espresso);padding-bottom:9px;margin-bottom:12px;border-bottom:2px solid var(--red);display:flex;align-items:baseline;gap:9px}
+.menugroup h3 .it{font-size:11px;font-family:var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);font-weight:700}
+.dish{display:flex;gap:10px;align-items:baseline;padding:5px 0;font-size:14px}
+.dish .nm{font-weight:500}
+.dish .dots{flex:1;border-bottom:1px dotted rgba(36,28,23,.28);transform:translateY(-4px)}
+.dish .pr{font-family:var(--serif);font-weight:400;color:var(--red);white-space:nowrap;font-size:14px}
+.carta-note{max-width:760px;margin:40px auto 0;text-align:center;font-size:12.5px;color:var(--ink-soft);font-style:italic;border-top:1px solid var(--line);padding-top:20px}
+
+/* ============ CANTINA ============ */
+.cantina{position:relative;background:var(--espresso);color:var(--cream);overflow:hidden}
+.cantina-grid{display:grid;grid-template-columns:1fr 1fr;min-height:440px}
+.cantina-img{position:relative;overflow:hidden}
+.cantina-img img{width:100%;height:100%;object-fit:cover;min-height:320px}
+.cantina-txt{padding:clamp(36px,5vw,72px) clamp(24px,4vw,64px);display:flex;flex-direction:column;justify-content:center}
+.cantina-txt .k{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--ochre-soft);font-weight:700}
+.cantina-txt h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,38px);margin:12px 0 16px;line-height:1.14}
+.cantina-txt p{font-size:15px;color:var(--cream-2);max-width:46ch}
+@media(max-width:820px){.cantina-grid{grid-template-columns:1fr}.cantina-img{min-height:280px}}
+
+/* ============ FAMIGLIA ============ */
+.famiglia{background:var(--cream);padding:clamp(48px,7vw,88px) 0}
+.famiglia-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,4vw,56px);align-items:center}
+.famiglia-txt .k{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--red);font-weight:700}
+.famiglia-txt h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.8vw,42px);margin:12px 0 16px;color:var(--espresso)}
+.famiglia-txt p{font-size:15.5px;color:var(--ink-soft);max-width:48ch;margin-bottom:10px}
+.famiglia-img{position:relative;border-radius:8px;overflow:hidden;box-shadow:0 14px 34px rgba(36,28,23,.18)}
+.famiglia-cap{position:absolute;left:0;right:0;bottom:0;padding:9px 14px;font-size:11.5px;font-style:italic;color:var(--cream);background:linear-gradient(180deg,transparent,rgba(34,26,21,.78))}
+.famiglia-img img{width:100%;height:340px;object-fit:cover}
+@media(max-width:820px){.famiglia-grid{grid-template-columns:1fr}.famiglia-img{order:-1}.famiglia-img img{height:240px}}
+
+/* ============ VISIT ============ */
+.visit{background:linear-gradient(180deg,var(--red-deep),#3c0f0d);color:var(--cream);padding:clamp(48px,7vw,88px) 0}
+.visit-head{text-align:center;margin-bottom:40px}
+.visit-head .k{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--ochre-soft);font-weight:700}
+.visit-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4vw,44px);margin-top:10px}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)}
+.vcard{background:rgba(245,238,219,.06);border:1px solid rgba(245,238,219,.16);border-radius:8px;padding:28px clamp(22px,3vw,32px)}
+.vcard h3{font-family:var(--serif);font-size:20px;color:var(--ochre-soft);margin-bottom:16px}
+.vcard p{font-size:14.5px;color:var(--cream-2);margin-bottom:8px}
+.vcard a.big{display:inline-block;margin-top:10px;font-family:var(--serif);font-size:22px;color:var(--cream)}
+.vcard a.big:hover{color:var(--ochre-soft)}
+.vcard .tag{font-size:11px;font-style:italic;color:var(--ochre-soft)}
+.vcard .row{display:flex;justify-content:space-between;gap:14px;font-size:13.5px;padding:6px 0;border-bottom:1px dashed rgba(245,238,219,.15)}
+.vcard .row:last-child{border-bottom:0}
+.vcard .maplink{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ochre-soft);border-bottom:1px solid rgba(224,164,110,.4);padding-bottom:2px}
+@media(max-width:760px){.visit-grid{grid-template-columns:1fr}}
+
+/* ============ FOOTER ============ */
+footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
+.foot-inner{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.foot-inner .fmark{font-family:var(--serif);font-weight:400;color:var(--cream);font-size:16px}
+.foot-inner .fmark .accent{color:var(--ochre-soft)}
+.foot-inner .disc{font-size:11px;color:#96877a;font-style:italic;max-width:52ch}
+.foot-inner .lg{display:flex;gap:14px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .carta-grid{grid-template-columns:1fr 1fr}
+  .col:nth-child(3){grid-column:1/-1}
+}
+@media(max-width:640px){
+  .carta-grid{grid-template-columns:1fr}
+  .hero-img{height:78vh}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== RIBBON ===== -->
+<header class="ribbon">
+  <div class="mark">Antica <span class="accent">Trattoria</span></div>
+  <nav>
+    <a href="#carta" data-i18n="nav.carta">La Carte</a>
+    <a href="#forno" data-i18n="nav.forno">Le Four</a>
+    <a href="#visit" data-i18n="nav.visit">Nous Trouver</a>
+  </nav>
+  <div class="langs" role="group" aria-label="Language">
+    <button data-lang="fr" class="on">FR</button>
+    <button data-lang="de">DE</button>
+    <button data-lang="en">EN</button>
+  </div>
+  <a class="callbtn" href="tel:+35226440944">+352 26 44 09 44</a>
+</header>
+
+<main>
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-img">
+    <img src="assets/pizzaiolo-oven.jpg" class="photo-real" alt="Le pizzaïolo lance la pâte à la main devant le four à bois, juste à l'entrée" />
+    <div class="hero-copy">
+      <div class="kicker" data-i18n="hero.kicker">Belair · Luxembourg-Ville</div>
+      <h1>Antica<span class="two" data-i18n="hero.h1sub">Trattoria</span></h1>
+      <p class="lede" data-i18n="hero.lede">Ici, le four à bois brûle dès l'entrée — on le sent avant même de s'asseoir. Une trattoria de quartier au carrefour de Belair : pâtes fraîches faites maison, poissons grillés, cave italienne.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#carta" data-i18n="hero.cta1">Voir la carte</a>
+        <a class="btn ghost" href="tel:+35226440944" data-i18n="hero.cta2">Réserver par téléphone</a>
+      </div>
+    </div>
+  </div>
+  <svg class="arcade" viewBox="0 0 600 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 C0,11 15,0 37,0 C59,0 75,11 75,30 C75,11 90,0 112,0 C134,0 150,11 150,30 C150,11 165,0 187,0 C209,0 225,11 225,30 C225,11 240,0 262,0 C284,0 300,11 300,30 C300,11 315,0 337,0 C359,0 375,11 375,30 C375,11 390,0 412,0 C434,0 450,11 450,30 C450,11 465,0 487,0 C509,0 525,11 525,30 C525,11 540,0 562,0 C584,0 600,11 600,30 Z"/>
+  </svg>
+</section>
+
+<!-- ===== STORY — LA SOGLIA (the threshold) ===== -->
+<section class="story" id="forno">
+  <div class="wrap story-inner">
+    <div class="k" data-i18n="story.k">L'accueil</div>
+    <h2 data-i18n="story.h">On entre <em>par le feu</em>.</h2>
+    <p data-i18n="story.p1">À l'Antica Trattoria, le four à bois n'est pas caché en cuisine : il brûle à vue, tout près de la porte. Le pizzaïolo y lance la pâte à la main, à chaque service — le premier geste que l'on voit, la première odeur que l'on respire en entrant.</p>
+    <p data-i18n="story.p2">Autour de ce feu : des pâtes fraîches faites maison, des poissons entiers grillés, des antipasti généreux et une cave de vins italiens bien fournie. Une cuisine sincère et sans chichi, pensée pour le quartier — familles, habitués du carrefour de Belair et clients de l'Hôtel Albergo Aida voisin.</p>
+    <div class="chips">
+      <span data-i18n="chip.oven">Four à bois</span>
+      <span data-i18n="chip.pasta">Pâtes fraîches maison</span>
+      <span data-i18n="chip.fish">Poissons grillés</span>
+      <span data-i18n="chip.wine">Cave italienne</span>
+      <span data-i18n="chip.kids">Salle de jeux enfants</span>
+    </div>
+  </div>
+  <svg class="arcade story-arcade" viewBox="0 0 600 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 C0,11 15,0 37,0 C59,0 75,11 75,30 C75,11 90,0 112,0 C134,0 150,11 150,30 C150,11 165,0 187,0 C209,0 225,11 225,30 C225,11 240,0 262,0 C284,0 300,11 300,30 C300,11 315,0 337,0 C359,0 375,11 375,30 C375,11 390,0 412,0 C434,0 450,11 450,30 C450,11 465,0 487,0 C509,0 525,11 525,30 C525,11 540,0 562,0 C584,0 600,11 600,30 Z"/>
+  </svg>
+</section>
+
+<!-- ===== CARTA ===== -->
+<section class="carta" id="carta">
+  <div class="wrap">
+    <div class="carta-head">
+      <div class="k" data-i18n="carta.k">Cucina italiana · fatta in casa</div>
+      <h2 data-i18n="carta.h">La Carta</h2>
+      <p data-i18n="carta.p">Un aperçu de la carte — plats et prix indicatifs, à confirmer avec l'établissement.</p>
+    </div>
+    <div class="carta-grid">
+      <!-- COL 1 -->
+      <div class="col">
+        <div class="menugroup">
+          <h3><span data-i18n="grp.antipasti">Antipasti</span> <span class="it" data-i18n="grp.antipasti.it">Entrées</span></h3>
+          <div class="dish"><span class="nm">Antipasto Trattoria</span><span class="dots"></span><span class="pr">15</span></div>
+          <div class="dish"><span class="nm">Insalata Caprese</span><span class="dots"></span><span class="pr">16,50</span></div>
+          <div class="dish"><span class="nm">Carpaccio di Manzo</span><span class="dots"></span><span class="pr">17,50</span></div>
+          <div class="dish"><span class="nm">Prosciutto Crudo</span><span class="dots"></span><span class="pr">17,50</span></div>
+          <div class="dish"><span class="nm">Bruschette</span><span class="dots"></span><span class="pr">11–14</span></div>
+        </div>
+        <div class="dish-card">
+          <figure><img src="assets/food-fritto-misto.jpg" class="photo-real" alt="Fritto misto — friture de fruits de mer et courgettes grillées" /></figure>
+          <figcaption data-i18n="cap.fritto">Fritto misto</figcaption>
+        </div>
+        <div class="menugroup">
+          <h3><span data-i18n="grp.risotti">Risotti</span></h3>
+          <div class="dish"><span class="nm">Zucchine e Taleggio</span><span class="dots"></span><span class="pr">18,50</span></div>
+          <div class="dish"><span class="nm">alla Calabrese</span><span class="dots"></span><span class="pr">19</span></div>
+          <div class="dish"><span class="nm">del Pescatore</span><span class="dots"></span><span class="pr">20,50</span></div>
+        </div>
+      </div>
+      <!-- COL 2 -->
+      <div class="col">
+        <div class="menugroup">
+          <h3><span data-i18n="grp.pizze">Pizze</span> <span class="it" data-i18n="grp.pizze.it">Four à bois</span></h3>
+          <div class="dish"><span class="nm">Margherita</span><span class="dots"></span><span class="pr">13,50</span></div>
+          <div class="dish"><span class="nm">Diavola</span><span class="dots"></span><span class="pr">16</span></div>
+          <div class="dish"><span class="nm">Capricciosa</span><span class="dots"></span><span class="pr">16,50</span></div>
+          <div class="dish"><span class="nm">Quattro Formaggi</span><span class="dots"></span><span class="pr">16,50</span></div>
+          <div class="dish"><span class="nm">Calzone</span><span class="dots"></span><span class="pr">16,50</span></div>
+          <div class="dish"><span class="nm">Ai Frutti di Mare</span><span class="dots"></span><span class="pr">19</span></div>
+          <div class="dish"><span class="nm">Calabrese</span><span class="dots"></span><span class="pr">19,50</span></div>
+          <div class="dish"><span class="nm">Bufala</span><span class="dots"></span><span class="pr">20</span></div>
+        </div>
+        <div class="dish-card">
+          <figure><img src="assets/food-grilled-dorade.jpg" class="photo-real" alt="Dorade entière grillée, citron et légumes" /></figure>
+          <figcaption data-i18n="cap.dorade">Dorade grillée entière</figcaption>
+        </div>
+        <div class="menugroup">
+          <h3><span data-i18n="grp.paste">Paste Fresche</span> <span class="it" data-i18n="grp.paste.it">Fatte in casa</span></h3>
+          <div class="dish"><span class="nm">Spaghetti alla Carbonara</span><span class="dots"></span><span class="pr">17</span></div>
+          <div class="dish"><span class="nm">Lasagne della Casa al Forno</span><span class="dots"></span><span class="pr">17,50</span></div>
+          <div class="dish"><span class="nm">Ravioli ricotta e spinaci</span><span class="dots"></span><span class="pr">19,50</span></div>
+          <div class="dish"><span class="nm">Tagliolini al Salmone</span><span class="dots"></span><span class="pr">20</span></div>
+          <div class="dish"><span class="nm">Il Tris dell'Antica</span><span class="dots"></span><span class="pr">20</span></div>
+          <div class="dish"><span class="nm">Linguine alle Vongole Veraci</span><span class="dots"></span><span class="pr">20,50</span></div>
+        </div>
+      </div>
+      <!-- COL 3 -->
+      <div class="col">
+        <div class="dish-card">
+          <figure><img src="assets/food-grilled-fish-trio.jpg" class="photo-real" alt="Filets de poisson grillés aux légumes" /></figure>
+          <figcaption data-i18n="cap.trio">Trio de poissons grillés</figcaption>
+        </div>
+        <div class="menugroup">
+          <h3><span data-i18n="grp.pesce">Pesce</span> <span class="it" data-i18n="grp.pesce.it">Poissons</span></h3>
+          <div class="dish"><span class="nm">Fritto di Calamari</span><span class="dots"></span><span class="pr">28</span></div>
+          <div class="dish"><span class="nm">Tranche de Bar Grillé</span><span class="dots"></span><span class="pr">30,50</span></div>
+          <div class="dish"><span class="nm">Scampi alla Griglia</span><span class="dots"></span><span class="pr">31</span></div>
+          <div class="dish"><span class="nm">Grigliata Mista di Pesce</span><span class="dots"></span><span class="pr">33</span></div>
+        </div>
+        <div class="dish-card">
+          <figure><img src="assets/food-seafood-platter.jpg" class="photo-real" alt="Assiette de fruits de mer avec risotto et légumes grillés" /></figure>
+          <figcaption data-i18n="cap.platter">Assiette de la mer</figcaption>
+        </div>
+        <div class="menugroup">
+          <h3><span data-i18n="grp.carne">Carne</span> <span class="it" data-i18n="grp.carne.it">Viandes</span></h3>
+          <div class="dish"><span class="nm">Scaloppina al Limone / Milanese</span><span class="dots"></span><span class="pr">27,50</span></div>
+          <div class="dish"><span class="nm">Saltimbocca alla Romana</span><span class="dots"></span><span class="pr">27,50</span></div>
+          <div class="dish"><span class="nm">Tagliata con Rucola e Parmigiano</span><span class="dots"></span><span class="pr">33</span></div>
+          <div class="dish"><span class="nm">Filetto alla Griglia</span><span class="dots"></span><span class="pr">33</span></div>
+          <div class="dish"><span class="nm">Filetto ai Tre Pepi</span><span class="dots"></span><span class="pr">34</span></div>
+        </div>
+        <div class="dish-card">
+          <figure><img src="assets/food-milanese.jpg" class="photo-real" alt="Scaloppina milanese avec frites et salade" /></figure>
+          <figcaption data-i18n="cap.milanese">Scaloppina Milanese</figcaption>
+        </div>
+      </div>
+    </div>
+    <p class="carta-note" data-i18n="carta.note">Carte non exhaustive. Prix en euros, TVA comprise. Tous les plats, prix et disponibilités sont à confirmer avec l'établissement.</p>
+  </div>
+  <svg class="arcade carta-arcade" viewBox="0 0 600 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 C0,11 15,0 37,0 C59,0 75,11 75,30 C75,11 90,0 112,0 C134,0 150,11 150,30 C150,11 165,0 187,0 C209,0 225,11 225,30 C225,11 240,0 262,0 C284,0 300,11 300,30 C300,11 315,0 337,0 C359,0 375,11 375,30 C375,11 390,0 412,0 C434,0 450,11 450,30 C450,11 465,0 487,0 C509,0 525,11 525,30 C525,11 540,0 562,0 C584,0 600,11 600,30 Z"/>
+  </svg>
+</section>
+
+<!-- ===== CANTINA ===== -->
+<section class="cantina">
+  <div class="cantina-grid">
+    <div class="cantina-img">
+      <img src="assets/interior-wine-cellar.jpg" class="photo-real" alt="Cave à vins en bois avec bouteilles italiennes" />
+    </div>
+    <div class="cantina-txt wrap" style="padding-left:clamp(24px,4vw,64px)">
+      <div class="k" data-i18n="cantina.k">La cave</div>
+      <h2 data-i18n="cantina.h">Une cave italienne, verre après verre.</h2>
+      <p data-i18n="cantina.p">Une sélection de vins italiens — des rouges généreux aux blancs plus légers pour accompagner le poisson grillé.</p>
+    </div>
+  </div>
+  <svg class="arcade cantina-arcade" viewBox="0 0 600 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 C0,11 15,0 37,0 C59,0 75,11 75,30 C75,11 90,0 112,0 C134,0 150,11 150,30 C150,11 165,0 187,0 C209,0 225,11 225,30 C225,11 240,0 262,0 C284,0 300,11 300,30 C300,11 315,0 337,0 C359,0 375,11 375,30 C375,11 390,0 412,0 C434,0 450,11 450,30 C450,11 465,0 487,0 C509,0 525,11 525,30 C525,11 540,0 562,0 C584,0 600,11 600,30 Z"/>
+  </svg>
+</section>
+
+<!-- ===== FAMIGLIA ===== -->
+<section class="famiglia">
+  <div class="wrap famiglia-grid">
+    <div class="famiglia-txt">
+      <div class="k" data-i18n="fam.k">Famille &amp; terrasse</div>
+      <h2 data-i18n="fam.h">Une table pour tous.</h2>
+      <p data-i18n="fam.p1">Salle de jeux pour les enfants, terrasse aux beaux jours, Ticket Restaurant / Chèque Repas bienvenus.</p>
+      <p data-i18n="fam.p2">Pour les plus petits ou les envies plus légères, la maison propose aussi des salades généreuses — à côté du four à bois.</p>
+    </div>
+    <div class="famiglia-img">
+      <img src="assets/food-chicken-salad.jpg" class="photo-real" alt="Salade au poulet grillé, une option plus légère à côté de la carte four à bois" />
+      <span class="famiglia-cap" data-i18n="fam.cap">Une option plus légère, pour toute la famille</span>
+    </div>
+  </div>
+  <svg class="arcade flip famiglia-arcade" viewBox="0 0 600 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 C0,11 15,0 37,0 C59,0 75,11 75,30 C75,11 90,0 112,0 C134,0 150,11 150,30 C150,11 165,0 187,0 C209,0 225,11 225,30 C225,11 240,0 262,0 C284,0 300,11 300,30 C300,11 315,0 337,0 C359,0 375,11 375,30 C375,11 390,0 412,0 C434,0 450,11 450,30 C450,11 465,0 487,0 C509,0 525,11 525,30 C525,11 540,0 562,0 C584,0 600,11 600,30 Z"/>
+  </svg>
+</section>
+
+<!-- ===== VISIT ===== -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-head">
+      <div class="k" data-i18n="visit.k">Nous trouver</div>
+      <h2 data-i18n="visit.h">Belair vous attend.</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="vcard">
+        <h3 data-i18n="visit.contact.t">Réserver &amp; nous joindre</h3>
+        <p data-i18n="visit.contact.addr">166, Avenue du Dix Septembre<br>L-2550 Luxembourg — Belair</p>
+        <a class="big" href="tel:+35226440944">+352 26 44 09 44</a>
+        <p style="margin-top:10px"><a href="mailto:antica@pt.lu">antica@pt.lu</a> <span class="tag" data-i18n="visit.contact.tag">(à confirmer)</span></p>
+        <p class="tag" data-i18n="visit.contact.note">Réservation par téléphone conseillée. Emporter &amp; livraison disponibles.</p>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Antica+Trattoria+166+Avenue+du+Dix+Septembre+L-2550+Luxembourg" target="_blank" rel="noopener" data-i18n="visit.contact.map">Voir sur Google Maps →</a>
+      </div>
+      <div class="vcard">
+        <h3 data-i18n="visit.hours.t">Horaires</h3>
+        <div class="row"><span data-i18n="visit.hours.lunch">Déjeuner · 7j/7</span><span>11h45 – 14h00</span></div>
+        <div class="row"><span data-i18n="visit.hours.dinner">Dîner · 7j/7</span><span>18h30 – 22h00</span></div>
+        <div class="row"><span data-i18n="visit.hours.price">Budget indicatif</span><span>€20–30 pp</span></div>
+        <div class="row"><span data-i18n="visit.hours.pay">Ticket Restaurant</span><span data-i18n="visit.hours.payok">Accepté</span></div>
+        <p class="tag" style="margin-top:14px" data-i18n="visit.hours.note">Horaires, prix et disponibilités à confirmer avec l'établissement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="fmark">Antica <span class="accent">Trattoria</span></div>
+    <div class="disc" data-i18n="foot.disc">Site de démonstration — non officiel. Contenus, photos, horaires et prix à confirmer avec l'établissement. Photos réelles du restaurant, issues de galeries publiques liées à cet établissement (menu.lu, TripAdvisor, Wedely).</div>
+    <div class="lg">
+      <a href="tel:+35226440944">Tél.</a>
+      <a href="#carta" data-i18n="nav.carta">La Carte</a>
+      <a href="#visit" data-i18n="nav.visit">Nous Trouver</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  fr:{
+    "nav.carta":"La Carte","nav.forno":"Le Four","nav.visit":"Nous Trouver",
+    "hero.kicker":"Belair · Luxembourg-Ville","hero.h1sub":"Trattoria",
+    "hero.lede":"Ici, le four à bois brûle dès l'entrée — on le sent avant même de s'asseoir. Une trattoria de quartier au carrefour de Belair : pâtes fraîches faites maison, poissons grillés, cave italienne.",
+    "hero.cta1":"Voir la carte","hero.cta2":"Réserver par téléphone",
+    "story.k":"L'accueil","story.h":"On entre <em>par le feu</em>.",
+    "story.p1":"À l'Antica Trattoria, le four à bois n'est pas caché en cuisine : il brûle à vue, tout près de la porte. Le pizzaïolo y lance la pâte à la main, à chaque service — le premier geste que l'on voit, la première odeur que l'on respire en entrant.",
+    "story.p2":"Autour de ce feu : des pâtes fraîches faites maison, des poissons entiers grillés, des antipasti généreux et une cave de vins italiens bien fournie. Une cuisine sincère et sans chichi, pensée pour le quartier — familles, habitués du carrefour de Belair et clients de l'Hôtel Albergo Aida voisin.",
+    "chip.oven":"Four à bois","chip.pasta":"Pâtes fraîches maison","chip.fish":"Poissons grillés","chip.wine":"Cave italienne","chip.kids":"Salle de jeux enfants",
+    "carta.k":"Cucina italiana · fatta in casa","carta.h":"La Carta","carta.p":"Un aperçu de la carte — plats et prix indicatifs, à confirmer avec l'établissement.",
+    "grp.antipasti":"Antipasti","grp.antipasti.it":"Entrées","grp.risotti":"Risotti","grp.pizze":"Pizze","grp.pizze.it":"Four à bois",
+    "grp.paste":"Paste Fresche","grp.paste.it":"Fatte in casa","grp.pesce":"Pesce","grp.pesce.it":"Poissons",
+    "grp.carne":"Carne","grp.carne.it":"Viandes",
+    "cap.fritto":"Fritto misto","cap.dorade":"Dorade grillée entière","cap.trio":"Trio de poissons grillés","cap.platter":"Assiette de la mer","cap.milanese":"Scaloppina Milanese",
+    "carta.note":"Carte non exhaustive. Prix en euros, TVA comprise. Tous les plats, prix et disponibilités sont à confirmer avec l'établissement.",
+    "cantina.k":"La cave","cantina.h":"Une cave italienne, verre après verre.",
+    "cantina.p":"Une sélection de vins italiens — des rouges généreux aux blancs plus légers pour accompagner le poisson grillé.",
+    "fam.k":"Famille & terrasse","fam.h":"Une table pour tous.",
+    "fam.p1":"Salle de jeux pour les enfants, terrasse aux beaux jours, Ticket Restaurant / Chèque Repas bienvenus.",
+    "fam.p2":"Pour les plus petits ou les envies plus légères, la maison propose aussi des salades généreuses — à côté du four à bois.",
+    "fam.cap":"Une option plus légère, pour toute la famille",
+    "visit.k":"Nous trouver","visit.h":"Belair vous attend.",
+    "visit.contact.t":"Réserver & nous joindre","visit.contact.addr":"166, Avenue du Dix Septembre<br>L-2550 Luxembourg — Belair",
+    "visit.contact.tag":"(à confirmer)","visit.contact.note":"Réservation par téléphone conseillée. Emporter & livraison disponibles.","visit.contact.map":"Voir sur Google Maps →",
+    "visit.hours.t":"Horaires","visit.hours.lunch":"Déjeuner · 7j/7","visit.hours.dinner":"Dîner · 7j/7","visit.hours.price":"Budget indicatif","visit.hours.pay":"Ticket Restaurant","visit.hours.payok":"Accepté",
+    "visit.hours.note":"Horaires, prix et disponibilités à confirmer avec l'établissement.",
+    "foot.disc":"Site de démonstration — non officiel. Contenus, photos, horaires et prix à confirmer avec l'établissement. Photos réelles du restaurant, issues de galeries publiques liées à cet établissement (menu.lu, TripAdvisor, Wedely)."
+  },
+  de:{
+    "nav.carta":"Die Karte","nav.forno":"Der Ofen","nav.visit":"Anfahrt",
+    "hero.kicker":"Belair · Luxemburg-Stadt","hero.h1sub":"Trattoria",
+    "hero.lede":"Hier brennt der Holzofen schon am Eingang — man spürt ihn, bevor man sitzt. Eine Quartier-Trattoria an der Kreuzung von Belair: hausgemachte frische Pasta, gegrillter Fisch, italienischer Weinkeller.",
+    "hero.cta1":"Zur Speisekarte","hero.cta2":"Telefonisch reservieren",
+    "story.k":"Der Empfang","story.h":"Man tritt <em>durchs Feuer</em> ein.",
+    "story.p1":"In der Antica Trattoria ist der Holzofen nicht in der Küche verborgen: Er brennt sichtbar, direkt an der Tür. Der Pizzaiolo wirft dort bei jedem Service den Teig von Hand — die erste Geste, die man sieht, der erste Duft, den man beim Eintreten riecht.",
+    "story.p2":"Rund um dieses Feuer: hausgemachte frische Pasta, ganze gegrillte Fische, großzügige Antipasti und ein gut sortierter Keller italienischer Weine. Eine ehrliche, unkomplizierte Küche — gedacht für das Viertel, Stammgäste an der Kreuzung von Belair und Gäste des benachbarten Hotels Albergo Aida.",
+    "chip.oven":"Holzofen","chip.pasta":"Hausgemachte frische Pasta","chip.fish":"Gegrillter Fisch","chip.wine":"Italienischer Weinkeller","chip.kids":"Spielzimmer für Kinder",
+    "carta.k":"Italienische Küche · hausgemacht","carta.h":"Die Karte","carta.p":"Ein Auszug aus der Karte — Gerichte und Preise als Richtwert, mit dem Restaurant zu bestätigen.",
+    "grp.antipasti":"Antipasti","grp.antipasti.it":"Vorspeisen","grp.risotti":"Risotti","grp.pizze":"Pizze","grp.pizze.it":"Holzofen",
+    "grp.paste":"Frische Pasta","grp.paste.it":"Hausgemacht","grp.pesce":"Fisch","grp.pesce.it":"Fisch",
+    "grp.carne":"Fleisch","grp.carne.it":"Fleisch",
+    "cap.fritto":"Fritto misto","cap.dorade":"Ganze gegrillte Dorade","cap.trio":"Trio gegrillter Fische","cap.platter":"Teller vom Meer","cap.milanese":"Scaloppina Milanese",
+    "carta.note":"Karte nicht vollständig. Preise in Euro, inkl. MwSt. Alle Gerichte, Preise und Verfügbarkeiten sind mit dem Restaurant zu bestätigen.",
+    "cantina.k":"Der Weinkeller","cantina.h":"Ein italienischer Keller, Glas für Glas.",
+    "cantina.p":"Eine Auswahl italienischer Weine — von kräftigen Roten bis zu leichteren Weißen zum gegrillten Fisch.",
+    "fam.k":"Familie & Terrasse","fam.h":"Für alle gedeckt.",
+    "fam.p1":"Spielzimmer für Kinder, Terrasse bei schönem Wetter, Ticket Restaurant / Chèque Repas willkommen.",
+    "fam.p2":"Für die Kleinen oder für leichtere Lust bietet das Haus auch großzügige Salate an — neben dem Holzofen.",
+    "fam.cap":"Eine leichtere Option, für die ganze Familie",
+    "visit.k":"Anfahrt","visit.h":"Belair erwartet Sie.",
+    "visit.contact.t":"Reservieren & Kontakt","visit.contact.addr":"166, Avenue du Dix Septembre<br>L-2550 Luxemburg — Belair",
+    "visit.contact.tag":"(zu bestätigen)","visit.contact.note":"Telefonische Reservierung empfohlen. Abholung & Lieferung möglich.","visit.contact.map":"Auf Google Maps ansehen →",
+    "visit.hours.t":"Öffnungszeiten","visit.hours.lunch":"Mittag · 7/7","visit.hours.dinner":"Abend · 7/7","visit.hours.price":"Richtpreis","visit.hours.pay":"Ticket Restaurant","visit.hours.payok":"Akzeptiert",
+    "visit.hours.note":"Öffnungszeiten, Preise und Verfügbarkeiten mit dem Restaurant zu bestätigen.",
+    "foot.disc":"Demo-Website — inoffiziell. Inhalte, Fotos, Öffnungszeiten und Preise mit dem Restaurant zu bestätigen. Echte Fotos des Restaurants, aus öffentlichen Galerien dieses Betriebs (menu.lu, TripAdvisor, Wedely)."
+  },
+  en:{
+    "nav.carta":"The Menu","nav.forno":"The Oven","nav.visit":"Find Us",
+    "hero.kicker":"Belair · Luxembourg City","hero.h1sub":"Trattoria",
+    "hero.lede":"Here, the wood oven burns right at the entrance — you feel it before you even sit down. A neighbourhood trattoria at the Belair crossroads: homemade fresh pasta, grilled fish, Italian cellar.",
+    "hero.cta1":"See the menu","hero.cta2":"Reserve by phone",
+    "story.k":"The welcome","story.h":"You walk in <em>through the fire</em>.",
+    "story.p1":"At Antica Trattoria, the wood-fired oven isn't tucked away in the kitchen — it burns in full view, right by the door. The pizzaiolo tosses the dough there by hand at every service — the first thing you see, the first smell you catch on the way in.",
+    "story.p2":"Around that fire: homemade fresh pasta, whole grilled fish, generous antipasti and a well-stocked Italian wine cellar. Honest, unfussy cooking — built for the neighbourhood, regulars at the Belair crossroads, and guests of the Hôtel Albergo Aida next door.",
+    "chip.oven":"Wood-fired oven","chip.pasta":"Homemade fresh pasta","chip.fish":"Grilled fish","chip.wine":"Italian cellar","chip.kids":"Children's playroom",
+    "carta.k":"Italian cooking · homemade","carta.h":"The Menu","carta.p":"A taste of the menu — dishes and prices are indicative, to be confirmed with the restaurant.",
+    "grp.antipasti":"Antipasti","grp.antipasti.it":"Starters","grp.risotti":"Risotti","grp.pizze":"Pizze","grp.pizze.it":"Wood-fired",
+    "grp.paste":"Fresh Pasta","grp.paste.it":"Homemade","grp.pesce":"Pesce","grp.pesce.it":"Fish",
+    "grp.carne":"Carne","grp.carne.it":"Meat",
+    "cap.fritto":"Fritto misto","cap.dorade":"Whole grilled sea bream","cap.trio":"Trio of grilled fish","cap.platter":"Plate from the sea","cap.milanese":"Scaloppina Milanese",
+    "carta.note":"Menu not exhaustive. Prices in euros, VAT included. All dishes, prices and availability are to be confirmed with the restaurant.",
+    "cantina.k":"The cellar","cantina.h":"An Italian cellar, glass by glass.",
+    "cantina.p":"A wine list chosen with care — from full-bodied reds to lighter whites for the grilled fish.",
+    "fam.k":"Family & terrace","fam.h":"Set for everyone.",
+    "fam.p1":"Children's playroom, terrace in fine weather, Ticket Restaurant / Chèque Repas welcome.",
+    "fam.p2":"For younger guests or lighter appetites, the house also offers generous salads — alongside the wood-fired menu.",
+    "fam.cap":"A lighter option, for the whole family",
+    "visit.k":"Find us","visit.h":"Belair is waiting.",
+    "visit.contact.t":"Reserve & get in touch","visit.contact.addr":"166, Avenue du Dix Septembre<br>L-2550 Luxembourg — Belair",
+    "visit.contact.tag":"(to confirm)","visit.contact.note":"Phone reservations recommended. Takeaway & delivery available.","visit.contact.map":"View on Google Maps →",
+    "visit.hours.t":"Hours","visit.hours.lunch":"Lunch · 7 days","visit.hours.dinner":"Dinner · 7 days","visit.hours.price":"Indicative budget","visit.hours.pay":"Ticket Restaurant","visit.hours.payok":"Accepted",
+    "visit.hours.note":"Hours, prices and availability to be confirmed with the restaurant.",
+    "foot.disc":"Demo website — unofficial. Content, photos, hours and prices to be confirmed with the restaurant. Real photos of the restaurant, from public galleries tied to this venue (menu.lu, TripAdvisor, Wedely)."
+  }
+};
+
+function applyLang(lang){
+  const dict = I18N[lang] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.documentElement.setAttribute('lang', lang);
+  document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('on', b.getAttribute('data-lang')===lang));
+}
+document.querySelectorAll('.langs button').forEach(btn=>{
+  btn.addEventListener('click', ()=> applyLang(btn.getAttribute('data-lang')));
+});
+</script>
+</body>
+</html>
