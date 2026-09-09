@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="midi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>L'Annexe — Brasserie gastronomique · Luxembourg Ville-Haute</title>
+<!--
+  TYPE: Cormorant Garamond (display/wordmark/menu) + Marcellus (laurel badge) retired — the
+  audit named them the AI-default serif set in the penalised "big serif + italic accent" hero
+  pattern. Replaced across wordmark, headlines, menu and badge with BODONI MODA: a high-contrast
+  didone reads as fashion-editorial rather than the soft humanist default, fits the venue's
+  velvet + tropical-wallpaper room, and ships real weights + real italics. The oversized
+  italic-accent line under the wordmark is de-italicised to an upright motto so the hero no
+  longer reproduces the flagged pattern. Bodoni Moda is a variable font (wght axis) — the four
+  woff2 files below (normal/italic × latin/latin-ext) are self-hosted and each is referenced by
+  several @font-face weight declarations; Chromium/Firefox/Safari all instantiate the correct
+  weight from the variable font's axis per declaration, so one file legitimately serves 400–700.
+-->
+<style id="rk-fonts">
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(./assets/fonts/bodonimoda-normal-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(./assets/fonts/bodonimoda-normal-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(./assets/fonts/bodonimoda-italic-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(./assets/fonts/bodonimoda-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(./assets/fonts/inter-0SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(./assets/fonts/inter-Cp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/inter-0SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/inter-Cp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/inter-0SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/inter-Cp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/inter-0SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/inter-Cp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+/* ============================================================
+   L'ANNEXE — "Midi / Soir" dial concept
+   A jewel-box botanical brasserie that lives two lives.
+   Palette drawn from the real room: petrol-teal, amber,
+   dusty-pink & cobalt velvet, cream linen, lavender ink.
+   ============================================================ */
+
+/* ---- Theme: MIDI (day) — default ---- */
+:root{
+  --bg:#F1EBDD;          /* cream linen */
+  --bg-2:#E9DFC9;
+  --panel:#FBF7EE;
+  --ink:#12435A;         /* petrol */
+  --ink-2:#3B5C6B;
+  --accent:#C67A22;      /* burnt amber */
+  --accent-2:#B45E74;    /* dusty pink */
+  --cobalt:#274C8C;
+  --lav:#8E88A8;         /* logo ink */
+  --line:rgba(18,67,90,.16);
+  --line-strong:rgba(18,67,90,.30);
+  --shadow:0 24px 60px -30px rgba(18,67,90,.45);
+  --frond:rgba(18,67,90,.10);
+  --tag:#12435A;
+  color-scheme:light;
+}
+/* ---- Theme: SOIR (night) ---- */
+html[data-theme="soir"]{
+  --bg:#0C2A38;          /* deep petrol */
+  --bg-2:#103A4C;
+  --panel:#123E51;
+  --ink:#F1EBDD;         /* cream */
+  --ink-2:#B9CAD0;
+  --accent:#E39A3C;      /* amber glow */
+  --accent-2:#D79AAA;    /* orchid */
+  --cobalt:#6C8AD6;
+  --lav:#BEB6DC;
+  --line:rgba(241,235,221,.16);
+  --line-strong:rgba(241,235,221,.30);
+  --shadow:0 30px 70px -30px rgba(0,0,0,.7);
+  --frond:rgba(227,154,60,.12);
+  --tag:#E39A3C;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .7s ease,color .7s ease;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.02;letter-spacing:.005em}
+/* Bodoni ships real weights + italics, but guard the display roles against any synthesised cut */
+h1,h2,h3,h4,.wordmark,.tagline,.laurel .lx{font-synthesis:none}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+.wrap{max-width:1440px;margin:0 auto;padding:0 48px}
+.serif{font-family:'Bodoni Moda',Georgia,serif}
+.eyebrow{
+  font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--accent);
+}
+.mono-label{
+  font-family:'Inter',sans-serif;font-size:.68rem;font-weight:500;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--ink-2);
+}
+
+/* ============ TOP UTILITY BAR ============ */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  transition:background-color .7s ease,border-color .7s ease;
+}
+.topbar-inner{
+  max-width:1440px;margin:0 auto;padding:0 48px;
+  height:72px;display:flex;align-items:center;gap:32px;
+}
+.tb-brand{font-family:'Bodoni Moda',serif;font-size:1.5rem;letter-spacing:.14em;font-weight:600}
+.tb-brand .ap{color:var(--accent)}
+.tb-nav{display:flex;gap:28px;margin-left:8px}
+.tb-nav a{
+  font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  color:var(--ink-2);position:relative;padding:4px 0;transition:color .25s;
+}
+.tb-nav a:hover{color:var(--ink)}
+.tb-nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--accent);transition:width .3s}
+.tb-nav a:hover::after{width:100%}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:18px}
+
+/* dial */
+.dial{
+  display:inline-flex;align-items:center;border:1px solid var(--line-strong);
+  border-radius:100px;padding:3px;position:relative;background:transparent;
+}
+.dial button{
+  font-family:'Inter',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;background:none;border:none;color:var(--ink-2);
+  padding:6px 14px;border-radius:100px;cursor:pointer;position:relative;z-index:2;
+  transition:color .35s;display:flex;align-items:center;gap:6px;
+}
+.dial button.active{color:var(--bg)}
+html[data-theme="soir"] .dial button.active{color:#0C2A38}
+.dial-thumb{
+  position:absolute;top:3px;left:3px;height:calc(100% - 6px);
+  border-radius:100px;background:var(--accent);z-index:1;
+  transition:transform .45s cubic-bezier(.65,.05,.36,1),width .45s,background-color .5s;
+}
+.dial .ic{width:12px;height:12px}
+
+.lang{display:flex;gap:2px;align-items:center}
+.lang button{
+  font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;
+  background:none;border:none;color:var(--ink-2);cursor:pointer;padding:4px 5px;transition:color .2s;
+}
+.lang button.active{color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent)}
+.lang span{opacity:.4;font-size:.7rem}
+
+.btn-book{
+  font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--bg);background:var(--ink);
+  padding:11px 20px;border-radius:2px;transition:background-color .3s,transform .2s;
+  white-space:nowrap;
+}
+html[data-theme="soir"] .btn-book{background:var(--accent);color:#0C2A38}
+.btn-book:hover{transform:translateY(-1px);background:var(--accent);color:#0C2A38}
+
+/* ============ SALLE (front composition) ============ */
+.salle{
+  display:grid;grid-template-columns:1.12fr .88fr;
+  min-height:86vh;border-bottom:1px solid var(--line);
+}
+.salle-photo{position:relative;overflow:hidden;background:#0C2A38}
+.salle-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.salle-photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(12,42,56,.15) 0%,rgba(12,42,56,.05) 40%,rgba(12,42,56,.55) 100%)}
+.addr-rail{
+  position:absolute;left:0;top:0;bottom:0;width:44px;z-index:3;
+  display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--ink) 85%,transparent);
+}
+.addr-rail span{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  color:var(--bg);font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500;
+}
+.laurel{
+  position:absolute;top:26px;right:26px;z-index:3;text-align:center;color:#F1EBDD;
+  display:flex;align-items:center;gap:10px;
+}
+.laurel svg{width:26px;height:36px;fill:none;stroke:#D9B36A;stroke-width:1.4}
+.laurel .lx{font-family:'Bodoni Moda',serif;font-size:.7rem;letter-spacing:.2em;line-height:1.3;text-transform:uppercase}
+.laurel .lx b{color:#D9B36A;font-weight:400;font-size:.82rem}
+.salle-cap{
+  position:absolute;left:64px;bottom:30px;z-index:3;color:#F1EBDD;
+  font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.4rem;
+  text-shadow:0 2px 20px rgba(0,0,0,.5);
+}
+
+.salle-panel{
+  background:var(--panel);padding:64px 60px 54px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;
+  transition:background-color .7s ease;
+}
+.salle-panel .frond-tl{position:absolute;top:-10px;right:-20px;width:220px;opacity:.5;color:var(--frond)}
+.salle-panel .kick{margin-bottom:22px}
+.wordmark{
+  font-family:'Bodoni Moda',serif;font-weight:500;
+  font-size:clamp(3.4rem,7vw,6rem);line-height:.86;letter-spacing:.02em;
+  color:var(--ink);position:relative;z-index:2;
+}
+.wordmark .ap{color:var(--accent)}
+/* italic-accent hero device retired: an upright, letterspaced motto instead */
+.tagline{
+  font-family:'Bodoni Moda',serif;font-style:normal;font-weight:500;
+  font-size:1.32rem;color:var(--lav);margin:16px 0 26px;letter-spacing:.14em;text-transform:uppercase;
+}
+.tagline .dot{color:var(--accent);font-style:normal}
+.salle-intro{max-width:44ch;color:var(--ink-2);font-size:1.02rem;margin-bottom:30px}
+
+.dial-big{margin-bottom:30px}
+.dial-big .mono-label{margin-bottom:10px;display:block}
+.dial-lg{
+  display:inline-flex;border:1px solid var(--line-strong);border-radius:100px;padding:4px;position:relative;
+}
+.dial-lg button{
+  font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  background:none;border:none;color:var(--ink-2);padding:11px 30px;border-radius:100px;cursor:pointer;
+  position:relative;z-index:2;transition:color .35s;display:flex;align-items:center;gap:8px;
+}
+.dial-lg button.active{color:var(--bg)}
+html[data-theme="soir"] .dial-lg button.active{color:#0C2A38}
+.dial-lg .ic{width:15px;height:15px}
+.dial-lg-thumb{
+  position:absolute;top:4px;left:4px;height:calc(100% - 8px);border-radius:100px;
+  background:var(--accent);z-index:1;transition:transform .45s cubic-bezier(.65,.05,.36,1),width .45s,background-color .5s;
+}
+.salle-hours{font-size:.82rem;color:var(--ink-2);margin-top:4px}
+.salle-hours b{color:var(--ink);font-weight:600}
+.aconf{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);font-weight:600}
+
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-ghost{
+  font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  padding:13px 26px;border:1px solid var(--ink);color:var(--ink);border-radius:2px;
+  transition:background-color .3s,color .3s;
+}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.btn-solid{
+  font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  padding:14px 30px;background:var(--accent);color:#0C2A38;border-radius:2px;transition:transform .2s,filter .2s;
+}
+.btn-solid:hover{transform:translateY(-1px);filter:brightness(1.06)}
+
+/* ============ DEUX SERVICES (diptych) ============ */
+.services{padding:96px 0 40px}
+.services-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:44px;flex-wrap:wrap}
+.services-head h2{font-size:clamp(2.4rem,4vw,3.6rem)}
+.services-head p{max-width:40ch;color:var(--ink-2);font-size:.98rem}
+.diptych{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.svc{
+  position:relative;border-radius:4px;overflow:hidden;padding:44px 42px;min-height:420px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  border:1px solid var(--line);transition:transform .4s,box-shadow .4s,opacity .5s;
+}
+.svc-midi{background:linear-gradient(150deg,#F3E6CE 0%,#E7C489 120%);color:#5A3A12}
+.svc-soir{background:linear-gradient(150deg,#123E51 0%,#0C2A38 120%);color:#F1EBDD}
+.svc .badge{position:absolute;top:30px;left:42px;display:flex;align-items:center;gap:9px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+.svc-midi .badge{color:#B45E20}
+.svc-soir .badge{color:#E39A3C}
+.svc .badge svg{width:18px;height:18px}
+.svc h3{font-size:2.7rem;margin-bottom:6px}
+.svc .svc-sub{font-style:italic;font-family:'Bodoni Moda',serif;font-size:1.3rem;opacity:.85;margin-bottom:14px}
+.svc p{font-size:.96rem;max-width:42ch;opacity:.92}
+.svc .svc-taste{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:.72rem;letter-spacing:.06em;padding:5px 12px;border-radius:100px;border:1px solid currentColor;opacity:.85}
+/* active service accent by theme */
+html[data-theme="midi"] .svc-midi{box-shadow:0 30px 60px -34px rgba(180,94,32,.6);transform:translateY(-6px)}
+html[data-theme="midi"] .svc-soir{opacity:.62}
+html[data-theme="soir"] .svc-soir{box-shadow:0 30px 60px -30px rgba(0,0,0,.6);transform:translateY(-6px)}
+html[data-theme="soir"] .svc-midi{opacity:.62}
+.svc .now-tag{position:absolute;top:30px;right:38px;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;opacity:0;transition:opacity .4s}
+html[data-theme="midi"] .svc-midi .now-tag{opacity:1;color:#B45E20}
+html[data-theme="soir"] .svc-soir .now-tag{opacity:1;color:#E39A3C}
+
+/* ============ LA CARTE ============ */
+.carte{padding:90px 0;position:relative;overflow:hidden;border-top:1px solid var(--line);margin-top:56px}
+.carte-frond{position:absolute;top:40px;left:-40px;width:280px;color:var(--frond);pointer-events:none}
+.carte-frond.r{left:auto;right:-50px;top:auto;bottom:20px;transform:scaleX(-1)}
+.carte-head{text-align:center;margin-bottom:14px}
+.carte-head h2{font-size:clamp(2.6rem,5vw,4.4rem);line-height:1}
+.carte-head .tl{display:inline-flex;align-items:center;gap:16px;margin:12px 0 6px;color:var(--ink-2)}
+.carte-head .tl::before,.carte-head .tl::after{content:"";width:56px;height:1px;background:var(--line-strong)}
+.carte-note{text-align:center;font-size:.74rem;letter-spacing:.06em;color:var(--accent-2);margin-bottom:8px;font-style:italic;font-family:'Bodoni Moda',serif;font-size:1rem}
+.carte-lang{text-align:center;font-family:'Inter',sans-serif;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);opacity:.7;margin-bottom:50px}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:54px;position:relative;z-index:2}
+.mcol{min-width:0}
+.mcol h3{font-size:1.9rem;margin-bottom:4px;color:var(--ink)}
+.mcol .mcol-sub{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;font-weight:600}
+.dish{display:flex;align-items:baseline;gap:8px;margin-bottom:18px}
+.dish .dn{font-family:'Bodoni Moda',serif;font-size:1.1rem;color:var(--ink);line-height:1.2;overflow-wrap:anywhere}
+.dish .dn small{display:block;font-family:'Inter',sans-serif;font-size:.72rem;color:var(--ink-2);letter-spacing:.02em;white-space:normal;margin-top:2px}
+.dish .lead{flex:1;border-bottom:1px dotted var(--line-strong);position:relative;top:-4px;min-width:12px}
+.dish .dp{font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--accent);white-space:nowrap}
+.dtag{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:100px;vertical-align:middle;margin-left:6px}
+.dtag.midi{background:rgba(198,122,34,.16);color:var(--accent)}
+.dtag.soir{background:rgba(180,94,116,.18);color:var(--accent-2)}
+.dtag.new{background:var(--tag);color:var(--bg)}
+.mfood{margin:6px 0 26px;border-radius:4px;overflow:hidden;height:180px;position:relative}
+.mfood img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mfood figcaption{position:absolute;left:0;bottom:0;right:0;padding:20px 14px 10px;color:#fff;
+  font-family:'Bodoni Moda',serif;font-style:italic;font-size:1rem;
+  background:linear-gradient(0deg,rgba(0,0,0,.6),transparent)}
+
+/* ============ L'ECRIN (decor band) ============ */
+.ecrin{position:relative;background:var(--bg-2);padding:0;overflow:hidden;transition:background-color .7s}
+.ecrin-grid{display:grid;grid-template-columns:1.4fr 1fr;min-height:560px}
+.ecrin-photo{position:relative;overflow:hidden}
+.ecrin-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ecrin-side{padding:70px 60px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.ecrin-side .eyebrow{margin-bottom:20px}
+.ecrin-side h2{font-size:clamp(2.4rem,3.6vw,3.4rem);margin-bottom:20px}
+.ecrin-side .quote{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.6rem;line-height:1.35;color:var(--ink);margin-bottom:22px}
+.ecrin-side p{color:var(--ink-2);font-size:.98rem;max-width:44ch}
+.ecrin-mini{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.ecrin-mini .m{position:relative;height:280px;overflow:hidden}
+.ecrin-mini .m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.palette-row{display:flex;gap:0;margin-top:30px;border:1px solid var(--line);border-radius:3px;overflow:hidden;max-width:420px}
+.sw{flex:1;height:46px;position:relative}
+.sw span{position:absolute;bottom:4px;left:6px;font-size:.52rem;letter-spacing:.1em;color:rgba(255,255,255,.85);font-weight:600}
+
+/* ============ LA MAISON (story) ============ */
+.maison{padding:96px 0}
+.maison-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.maison-num{font-family:'Bodoni Moda',serif;font-size:8rem;line-height:.8;color:var(--accent);opacity:.9}
+.maison-l h2{font-size:clamp(2.6rem,4vw,3.8rem);margin:10px 0 20px}
+.maison-l .lead-p{font-size:1.08rem;color:var(--ink-2);margin-bottom:24px;max-width:42ch}
+.maison-team{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:10px}
+.tcard{border-left:2px solid var(--accent);padding:4px 0 4px 16px}
+.tcard .r{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:3px}
+.tcard .n{font-family:'Bodoni Moda',serif;font-size:1.35rem;color:var(--ink)}
+.maison-r{position:relative}
+.maison-photo{position:relative;height:560px;border-radius:4px;overflow:hidden;box-shadow:var(--shadow)}
+.maison-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.maison-badge{
+  position:absolute;bottom:-26px;left:-26px;background:var(--panel);border:1px solid var(--line);
+  padding:22px 26px;border-radius:3px;box-shadow:var(--shadow);max-width:230px;
+}
+.maison-badge .r{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
+.maison-badge .n{font-family:'Bodoni Moda',serif;font-size:1.5rem;line-height:1.1;color:var(--ink)}
+.maison-badge .s{font-size:.78rem;color:var(--ink-2);margin-top:4px}
+
+/* ============ VISITE ============ */
+.visite{background:var(--panel);border-top:1px solid var(--line);transition:background-color .7s}
+.visite-grid{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.visite-info{padding:78px 60px}
+.visite-info .eyebrow{margin-bottom:18px}
+.visite-info h2{font-size:clamp(2.4rem,3.6vw,3.4rem);margin-bottom:34px}
+.info-block{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px;margin-bottom:36px}
+.info-item .k{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px}
+.info-item .v{font-size:1rem;color:var(--ink);line-height:1.5}
+.info-item .v a:hover{color:var(--accent)}
+.hours-list{list-style:none;font-size:.94rem}
+.hours-list li{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dotted var(--line);gap:20px}
+.hours-list li span:first-child{color:var(--ink-2)}
+.hours-list li span:last-child{color:var(--ink);font-weight:500;text-align:right}
+.visite-map{
+  position:relative;min-height:400px;background:
+    radial-gradient(circle at 30% 30%,var(--frond) 0%,transparent 55%),
+    radial-gradient(circle at 75% 70%,var(--frond) 0%,transparent 50%),var(--bg-2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  text-align:center;transition:background-color .7s;
+}
+.visite-map .vm-pin{width:44px;height:44px;color:var(--accent)}
+.visite-map .vm-addr{font-family:'Bodoni Moda',serif;font-size:1.3rem;color:var(--ink);line-height:1.3}
+.visite-map .vm-cta{
+  font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px;transition:opacity .2s;
+}
+.visite-map:hover .vm-cta{opacity:.7}
+
+/* ============ FOOTER ============ */
+footer{background:var(--ink);color:var(--bg);padding:66px 0 30px;transition:background-color .7s}
+html[data-theme="soir"] footer{background:#081E29}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;margin-bottom:44px}
+.foot-brand .wm{font-family:'Bodoni Moda',serif;font-size:2.6rem;letter-spacing:.1em;margin-bottom:8px}
+.foot-brand .wm .ap{color:var(--accent)}
+.foot-brand .tg{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.2rem;color:var(--accent-2)}
+.foot-col h4{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-family:'Inter',sans-serif;font-weight:600}
+.foot-col a,.foot-col p{display:block;color:rgba(241,235,221,.78);font-size:.9rem;margin-bottom:9px;transition:color .2s}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{border-top:1px solid rgba(241,235,221,.16);padding-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot-bottom p{font-size:.74rem;color:rgba(241,235,221,.55);letter-spacing:.02em}
+.disclaimer{font-size:.72rem;color:rgba(241,235,221,.5);border:1px solid rgba(241,235,221,.2);padding:6px 12px;border-radius:100px}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1100px){
+  .wrap{padding:0 30px}
+  .topbar-inner{padding:0 30px}
+  .tb-nav{display:none}
+  .salle{grid-template-columns:1fr}
+  .salle-photo{min-height:52vh}
+  .diptych{grid-template-columns:1fr}
+  html[data-theme="midi"] .svc-soir,html[data-theme="soir"] .svc-midi{opacity:1}
+  .menu-grid{grid-template-columns:1fr 1fr;gap:38px}
+  .ecrin-grid{grid-template-columns:1fr}
+  .ecrin-photo{min-height:360px}
+  .maison-grid{grid-template-columns:1fr;gap:40px}
+  .maison-photo{height:420px}
+  .maison-badge{left:0}
+  .visite-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .topbar-inner{padding:0 20px;gap:14px;height:64px}
+  .tb-right{gap:10px}
+  .btn-book{display:none}
+  .salle-panel{padding:44px 26px 40px}
+  .menu-grid{grid-template-columns:1fr;gap:30px}
+  .info-block{grid-template-columns:1fr}
+  .ecrin-mini{grid-template-columns:1fr}
+  .ecrin-side{padding:48px 26px}
+  .visite-info{padding:48px 26px}
+  .foot-grid{grid-template-columns:1fr}
+  .maison-team{grid-template-columns:1fr}
+  .services-head h2{font-size:2.2rem}
+  /* header cluster + hero dial fit narrow screens (mode stays togglable via the hero dial) */
+  .tb-right .dial{display:none}
+  .dial-lg{display:flex}
+  .dial-lg button{padding:10px 14px;letter-spacing:.06em;font-size:.7rem;flex:1;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="tb-brand">L<span class="ap">'</span>ANNEXE</a>
+    <nav class="tb-nav">
+      <a href="#salle" data-i18n="nav_table">La table</a>
+      <a href="#carte" data-i18n="nav_carte">La carte</a>
+      <a href="#ecrin" data-i18n="nav_ecrin">L'écrin</a>
+      <a href="#maison" data-i18n="nav_maison">La maison</a>
+      <a href="#visite" data-i18n="nav_visite">Visite</a>
+    </nav>
+    <div class="tb-right">
+      <div class="dial" role="group" aria-label="Midi / Soir">
+        <span class="dial-thumb" id="thumbSm"></span>
+        <button data-mode="midi" class="active" onclick="setMode('midi')">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+          <span data-i18n="dial_midi">Midi</span>
+        </button>
+        <button data-mode="soir" onclick="setMode('soir')">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <span data-i18n="dial_soir">Soir</span>
+        </button>
+      </div>
+      <div class="lang">
+        <button data-lang="fr" class="active" onclick="setLang('fr')">FR</button><span>/</span>
+        <button data-lang="de" onclick="setLang('de')">DE</button><span>/</span>
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="https://www.tablebooker.lu/restaurant/52625427/LAnnexe" target="_blank" rel="noopener" class="btn-book" data-i18n="cta_reserve">Réserver</a>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+<!-- ================= SALLE — front composition ================= -->
+<section class="salle" id="salle">
+  <div class="salle-photo">
+    <img src="assets/interior-1.jpg" alt="Salle de L'Annexe — murs bleu pétrole, plafond ambré, fauteuils en velours">
+    <div class="addr-rail"><span>7 rue du Saint-Esprit · Luxembourg</span></div>
+    <div class="laurel">
+      <svg viewBox="0 0 40 56"><path d="M20 54c0-14-9-22-14-26 6 1 11 4 14 9 3-5 8-8 14-9-5 4-14 12-14 26z"/><path d="M8 20c-3-4-3-9-1-14 3 3 5 8 4 13M32 20c3-4 3-9 1-14-3 3-5 8-4 13"/></svg>
+      <div class="lx"><span data-i18n="laurel_top">Prix du Public</span><br><b>Explorator 2018</b><br><span style="font-size:.56rem;opacity:.75;letter-spacing:.14em" data-i18n="laurel_era">Ancienne direction</span></div>
+    </div>
+    <div class="salle-cap" data-i18n="salle_cap">Un écrin tropical au cœur de la Vieille Ville</div>
+  </div>
+
+  <div class="salle-panel">
+    <svg class="frond-tl" viewBox="0 0 200 200" fill="currentColor"><path d="M100 190C100 120 60 70 20 50c30 4 55 20 70 45C105 70 130 54 160 50c-40 20-60 70-60 140z"/></svg>
+    <span class="eyebrow kick" data-i18n="hero_kicker">Brasserie gastronomique · Luxembourg Ville-Haute</span>
+    <div class="wordmark">L<span class="ap">'</span>Annexe</div>
+    <div class="tagline">Aimer<span class="dot">,</span> boire &amp; manger</div>
+    <p class="salle-intro" data-i18n="hero_intro">Une institution du plateau du Saint-Esprit rouverte en janvier 2026 sous une nouvelle direction. Le midi, les classiques de brasserie revisités ; le soir, un voyage gastronomique aux accents du monde.</p>
+
+    <div class="dial-big">
+      <span class="mono-label" data-i18n="dial_label">Choisissez votre heure</span>
+      <div class="dial-lg" role="group" aria-label="Midi / Soir">
+        <span class="dial-lg-thumb" id="thumbLg"></span>
+        <button data-mode="midi" class="active" onclick="setMode('midi')">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+          <span data-i18n="dial_midi_long">Le Midi · Brasserie</span>
+        </button>
+        <button data-mode="soir" onclick="setMode('soir')">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <span data-i18n="dial_soir_long">Le Soir · Gastronomie</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="https://www.tablebooker.lu/restaurant/52625427/LAnnexe" target="_blank" rel="noopener" class="btn-solid" data-i18n="cta_reserve_table">Réserver une table</a>
+      <a href="#carte" class="btn-ghost" data-i18n="cta_menu">Voir la carte</a>
+    </div>
+    <p class="salle-hours" style="margin-top:22px"><b data-i18n="hours_inline">Midi &amp; soir, du lundi au vendredi</b> · <span class="aconf" data-i18n="aconf">horaires à confirmer</span></p>
+  </div>
+</section>
+
+<!-- ================= DEUX SERVICES ================= -->
+<div class="wrap">
+<section class="services">
+  <div class="services-head">
+    <div>
+      <span class="eyebrow" data-i18n="svc_eyebrow">Deux services, deux âmes</span>
+      <h2 data-i18n="svc_title">La maison qui vit deux fois</h2>
+    </div>
+    <p data-i18n="svc_lead">Une même salle, deux cuisines. Actionnez le cadran Midi / Soir dans l'en-tête — la maison change de lumière avec l'heure.</p>
+  </div>
+  <div class="diptych">
+    <article class="svc svc-midi">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+        <span data-i18n="midi_badge">Le Midi</span>
+      </span>
+      <span class="now-tag" data-i18n="now_serving">· service en cours</span>
+      <h3 data-i18n="midi_h">Brasserie revisitée</h3>
+      <div class="svc-sub" data-i18n="midi_sub">Conviviale, généreuse, bien née</div>
+      <p data-i18n="midi_p">Les grands classiques français au meilleur de leur forme, pensés pour la pause déjeuner des quartiers d'affaires et de la Cité Judiciaire.</p>
+      <div class="svc-taste">
+        <span class="chip">Bouchée à la reine</span>
+        <span class="chip">Tartare de bavette</span>
+        <span class="chip">Cordon bleu</span>
+      </div>
+    </article>
+    <article class="svc svc-soir">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <span data-i18n="soir_badge">Le Soir</span>
+      </span>
+      <span class="now-tag" data-i18n="now_serving">· service en cours</span>
+      <h3 data-i18n="soir_h">Voyage gastronomique</h3>
+      <div class="svc-sub" style="font-size:.95rem;font-style:normal;letter-spacing:.06em;text-transform:uppercase" data-i18n="soir_sub">Carte 2026 — à confirmer</div>
+      <p data-i18n="soir_p">Le soir, la cuisine s'annonce ouverte au monde — bouillon thaï, ceviche, canard péruvien évoqués en presse — et les desserts créatifs de Dorian Molina, aux options véganes et sans lactose.</p>
+      <div class="svc-taste">
+        <span class="chip">Bouillon thaï</span>
+        <span class="chip">Ceviche</span>
+        <span class="chip">Canard péruvien</span>
+      </div>
+    </article>
+  </div>
+</section>
+</div>
+
+<!-- ================= LA CARTE ================= -->
+<div class="wrap">
+<section class="carte" id="carte">
+  <svg class="carte-frond" viewBox="0 0 200 200" fill="currentColor"><path d="M100 190C100 120 60 70 20 50c30 4 55 20 70 45C105 70 130 54 160 50c-40 20-60 70-60 140z"/></svg>
+  <svg class="carte-frond r" viewBox="0 0 200 200" fill="currentColor"><path d="M100 190C100 120 60 70 20 50c30 4 55 20 70 45C105 70 130 54 160 50c-40 20-60 70-60 140z"/></svg>
+  <div class="carte-head">
+    <span class="eyebrow" data-i18n="carte_eyebrow">Une sélection</span>
+    <h2 data-i18n="carte_title">La Carte</h2>
+    <div class="tl serif"><span data-i18n="carte_tl">Produits soigneusement sélectionnés</span></div>
+  </div>
+  <p class="carte-note" data-i18n="carte_note">Sélection indicative — <span style="color:var(--accent-2)">†</span> prix relevés avant la reprise de janvier 2026, à confirmer avec l'établissement (carte du soir renouvelée en 2026).</p>
+  <p class="carte-lang" data-i18n="carte_lang">Intitulés conservés en français, comme au restaurant.</p>
+
+  <div class="menu-grid">
+    <div class="mcol">
+      <h3 data-i18n="cat_entrees">Entrées</h3>
+      <div class="mcol-sub" data-i18n="cat_entrees_sub">Pour commencer</div>
+      <div class="dish"><span class="dn">Macaron de foie gras aux épices</span><span class="lead"></span><span class="dp">21 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Ris de veau sautés, sauce foie gras</span><span class="lead"></span><span class="dp">22 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Carpaccio de bœuf au pistou, olives &amp; parmesan</span><span class="lead"></span><span class="dp">17 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Gambas croustillantes &amp; huître crémeuse</span><span class="lead"></span><span class="dp">19 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Maki de saumon d'Écosse mariné</span><span class="lead"></span><span class="dp">17 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Risotto d'écrevisses</span><span class="lead"></span><span class="dp">17 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+
+      <figure class="mfood">
+        <img src="assets/v2/food-2.jpg" alt="Assiette gastronomique dressée sur céramique bleue">
+        <figcaption data-i18n="food2_cap">Le dressage, en signature</figcaption>
+      </figure>
+    </div>
+
+    <div class="mcol">
+      <h3 data-i18n="cat_plats">Plats</h3>
+      <div class="mcol-sub" data-i18n="cat_plats_sub">Midi &amp; soir</div>
+      <div class="dish"><span class="dn">Bouchée à la reine &amp; champignons<span class="dtag midi" data-i18n="tag_midi">Midi</span></span><span class="lead"></span><span class="dp">18 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Cordon bleu de volaille<span class="dtag midi" data-i18n="tag_midi">Midi</span></span><span class="lead"></span><span class="dp">20 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Tartare de bavette de bœuf<span class="dtag midi" data-i18n="tag_midi">Midi</span></span><span class="lead"></span><span class="dp">21 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Mignon de veau en médaillon<span class="dtag soir" data-i18n="tag_soir">Soir</span></span><span class="lead"></span><span class="dp">28 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Filet de maigre en écailles croustillantes<span class="dtag soir" data-i18n="tag_soir">Soir</span></span><span class="lead"></span><span class="dp">28 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Pavé de thon rouge façon Rossini<span class="dtag soir" data-i18n="tag_soir">Soir</span></span><span class="lead"></span><span class="dp">26 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Farandole de légumes<small data-i18n="veg">végétarien</small></span><span class="lead"></span><span class="dp">17 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+    </div>
+
+    <div class="mcol">
+      <h3 data-i18n="cat_desserts">Desserts &amp; Fromages</h3>
+      <div class="mcol-sub" data-i18n="cat_desserts_sub">Signés Dorian Molina</div>
+      <div class="dish"><span class="dn">Variation autour du chocolat</span><span class="lead"></span><span class="dp">9,50 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Aumônière de poires flambées</span><span class="lead"></span><span class="dp">7,50 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Dame blanche façon L'Annexe</span><span class="lead"></span><span class="dp">8,50 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Crème brûlée à la vanille</span><span class="lead"></span><span class="dp">7 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+      <div class="dish"><span class="dn">Assiette de fromages affinés</span><span class="lead"></span><span class="dp">8,50 €<sup style="font-size:.62em;color:var(--accent-2);margin-left:1px">†</sup></span></div>
+
+      <figure class="mfood">
+        <img src="assets/v2/food-1-dessert.jpg" alt="Dessert au chocolat et feuille d'or, sur la nappe siglée L'Annexe">
+        <figcaption data-i18n="food1_cap">La pâtisserie, en signature</figcaption>
+      </figure>
+
+      <div class="mcol-sub" style="margin-top:24px" data-i18n="cat_new">Les nouveautés 2026</div>
+      <div class="dish"><span class="dn">Œuf, bouillon thaï<span class="dtag new" data-i18n="tag_new">Nouveau</span></span><span class="lead"></span><span class="dp aconf" data-i18n="aconf_short">à conf.</span></div>
+      <div class="dish"><span class="dn">Ceviche du moment<span class="dtag new" data-i18n="tag_new">Nouveau</span></span><span class="lead"></span><span class="dp aconf" data-i18n="aconf_short">à conf.</span></div>
+      <div class="dish"><span class="dn">Canard péruvien<span class="dtag new" data-i18n="tag_new">Nouveau</span></span><span class="lead"></span><span class="dp aconf" data-i18n="aconf_short">à conf.</span></div>
+      <div class="dish"><span class="dn">Mont-Blanc revisité<span class="dtag new" data-i18n="tag_new">Nouveau</span></span><span class="lead"></span><span class="dp aconf" data-i18n="aconf_short">à conf.</span></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ================= L'ECRIN (decor) ================= -->
+<section class="ecrin" id="ecrin">
+  <div class="ecrin-grid">
+    <div class="ecrin-photo">
+      <img src="assets/interior-2.jpg" alt="Papier peint tropical, fauteuils en velours bleu et rose, tables dressées">
+    </div>
+    <div class="ecrin-side">
+      <span class="eyebrow" data-i18n="ecrin_eyebrow">Le décor</span>
+      <h2 data-i18n="ecrin_title">Un jardin d'hiver en pleine ville</h2>
+      <p class="quote" data-i18n="ecrin_quote">Palmiers et orchidées sur les murs, velours bleu pétrole et rose poudré, lumière ambrée — la salle a le charme d'une serre habitée.</p>
+      <p data-i18n="ecrin_p">Dès les beaux jours, la grande terrasse s'ouvre sur un panorama exceptionnel vers le Grund. À l'intérieur, un papier peint botanique signature et des fauteuils bijou composent un cadre à part sur le plateau du Saint-Esprit.</p>
+      <div class="palette-row" aria-hidden="true">
+        <div class="sw" style="background:#12435A"><span>Pétrole</span></div>
+        <div class="sw" style="background:#C67A22"><span>Ambre</span></div>
+        <div class="sw" style="background:#B45E74"><span>Rose</span></div>
+        <div class="sw" style="background:#274C8C"><span>Cobalt</span></div>
+        <div class="sw" style="background:#F1EBDD"><span style="color:#12435A">Lin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LA MAISON (story) ================= -->
+<div class="wrap">
+<section class="maison" id="maison">
+  <div class="maison-grid">
+    <div class="maison-l">
+      <div class="maison-num serif">01<span style="font-size:.28em;letter-spacing:.1em;display:block;color:var(--ink-2);opacity:.8" data-i18n="maison_chapter">Nouveau chapitre · 2026</span></div>
+      <h2 data-i18n="maison_title">Une institution, réécrite</h2>
+      <p class="lead-p" data-i18n="maison_p1">Le 1er janvier 2026, Kim Mathekowitsch et Jörg Flohr ont repris L'Annexe ; la maison a rouvert le 14 janvier avec une nouvelle identité, sans rien perdre de l'âme conviviale qui a fait sa réputation à deux pas de la Cité Judiciaire.</p>
+      <p class="lead-p" data-i18n="maison_p2">En cuisine, une carte du soir annoncée ouverte sur le monde ; en pâtisserie, Dorian Molina signe des desserts créatifs et inclusifs. La maison elle-même reste lauréate du Prix du Public Explorator 2018, obtenu sous l'ancienne direction — et entame aujourd'hui sa propre renaissance.</p>
+      <div class="maison-team">
+        <div class="tcard"><div class="r" data-i18n="role_direction">Direction</div><div class="n">Kim Mathekowitsch &amp; Jörg Flohr</div></div>
+        <div class="tcard"><div class="r" data-i18n="role_chef">Chef de cuisine</div><div class="n" style="font-style:italic;font-size:1.05rem;color:var(--accent-2)" data-i18n="tbc_name">à confirmer</div></div>
+        <div class="tcard"><div class="r" data-i18n="role_pastry">Chef pâtissier</div><div class="n">Dorian Molina</div></div>
+        <div class="tcard"><div class="r" data-i18n="role_award">Distinction (2018)</div><div class="n" style="font-size:1.1rem">Explorator <span style="font-size:.6rem;opacity:.7;letter-spacing:.1em;text-transform:uppercase;display:block;margin-top:2px" data-i18n="laurel_era">Ancienne direction</span></div></div>
+      </div>
+    </div>
+    <div class="maison-r">
+      <div class="maison-photo">
+        <img src="assets/interior-1.jpg" alt="La salle de L'Annexe baignée de lumière ambrée">
+      </div>
+      <div class="maison-badge">
+        <div class="r" data-i18n="badge_since">Rouvert le</div>
+        <div class="n">14 · 01 · 2026</div>
+        <div class="s" data-i18n="badge_sub">Nouvelle direction, nouvelle carte</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ================= VISITE ================= -->
+<section class="visite" id="visite">
+  <div class="visite-grid">
+    <div class="visite-info">
+      <span class="eyebrow" data-i18n="visite_eyebrow">Nous trouver</span>
+      <h2 data-i18n="visite_title">Réserver &amp; venir</h2>
+      <div class="info-block">
+        <div class="info-item">
+          <div class="k" data-i18n="k_address">Adresse</div>
+          <div class="v">7 rue du Saint-Esprit<br>L-1475 Luxembourg<br><span style="color:var(--ink-2)">Ville-Haute · Plateau du Saint-Esprit</span></div>
+        </div>
+        <div class="info-item">
+          <div class="k" data-i18n="k_contact">Contact</div>
+          <div class="v">
+            <a href="tel:+35226262507">+352 26 26 25 07</a><br>
+            <a href="mailto:contact@lannexe.lu">contact@lannexe.lu</a><br>
+            <span class="aconf" data-i18n="aconf_contact">numéro &amp; adresse à reconfirmer</span>
+          </div>
+        </div>
+        <div class="info-item" style="grid-column:1 / -1">
+          <div class="k" data-i18n="k_hours">Horaires <span style="text-transform:none;letter-spacing:0;font-weight:400;color:var(--accent-2)">— à confirmer</span></div>
+          <ul class="hours-list">
+            <li><span data-i18n="d_monfri">Lundi – Vendredi</span><span>12:00–14:00 · 18:30–22:00</span></li>
+            <li><span data-i18n="d_sat">Samedi</span><span data-i18n="sat_h">18:30–22:00 (dîner)</span></li>
+            <li><span data-i18n="d_sun">Dimanche</span><span data-i18n="closed">Fermé</span></li>
+          </ul>
+        </div>
+      </div>
+      <a href="https://www.tablebooker.lu/restaurant/52625427/LAnnexe" target="_blank" rel="noopener" class="btn-solid" data-i18n="cta_reserve_online">Réserver en ligne</a>
+    </div>
+    <a class="visite-map" href="https://www.google.com/maps/search/?api=1&query=L%27Annexe+7+Rue+du+Saint-Esprit+Luxembourg" target="_blank" rel="noopener" aria-label="Ouvrir L'Annexe dans Google Maps">
+      <svg class="vm-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s7-7.58 7-13A7 7 0 0 0 5 9c0 5.42 7 13 7 13z"/><circle cx="12" cy="9" r="2.6"/></svg>
+      <span class="vm-addr">7 rue du Saint-Esprit<br>L-1475 Luxembourg</span>
+      <span class="vm-cta" data-i18n="map_open">Ouvrir dans Google Maps</span>
+    </a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="wm">L<span class="ap">'</span>Annexe</div>
+        <div class="tg">Aimer, boire &amp; manger</div>
+        <p style="color:rgba(241,235,221,.6);font-size:.85rem;margin-top:14px;max-width:34ch" data-i18n="foot_blurb">Brasserie gastronomique au cœur de Luxembourg-Ville, plateau du Saint-Esprit.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="foot_visit">Visite</h4>
+        <p>7 rue du Saint-Esprit<br>L-1475 Luxembourg</p>
+        <a href="tel:+35226262507">+352 26 26 25 07</a>
+        <a href="mailto:contact@lannexe.lu">contact@lannexe.lu</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="foot_follow">Suivre &amp; réserver</h4>
+        <a href="https://www.tablebooker.lu/restaurant/52625427/LAnnexe" target="_blank" rel="noopener" data-i18n="foot_reserve">Réservation en ligne</a>
+        <a href="https://www.facebook.com/lannexeLuxembourg/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/lannexeluxembourg/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tripadvisor.com/Restaurant_Review-g190356-d1027661-Reviews-Restaurant_L_Annexe-Luxembourg_City.html" target="_blank" rel="noopener">TripAdvisor</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Restaurant L'Annexe · Luxembourg</p>
+      <span class="disclaimer" data-i18n="disclaimer">Site de démonstration — contenu et prix à confirmer avec l'établissement.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ MODE (Midi / Soir) ============ */
+function positionThumb(container, thumbId){
+  const active = container.querySelector('button.active');
+  const thumb = document.getElementById(thumbId);
+  if(!active || !thumb) return;
+  thumb.style.width = active.offsetWidth + 'px';
+  thumb.style.transform = 'translateX(' + (active.offsetLeft - active.parentElement.querySelector('button').offsetLeft) + 'px)';
+}
+function setMode(mode){
+  document.documentElement.dataset.theme = mode;
+  document.querySelectorAll('.dial, .dial-lg').forEach(d=>{
+    d.querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.mode===mode));
+  });
+  positionThumb(document.querySelector('.dial'),'thumbSm');
+  positionThumb(document.querySelector('.dial-lg'),'thumbLg');
+}
+
+/* ============ LANGUAGE (FR / DE / EN) ============ */
+const I18N={
+  nav_table:{de:'Der Tisch',en:'The table'},
+  nav_carte:{de:'Die Karte',en:'The menu'},
+  nav_ecrin:{de:'Das Ambiente',en:'The room'},
+  nav_maison:{de:'Das Haus',en:'The house'},
+  nav_visite:{de:'Besuch',en:'Visit'},
+  dial_midi:{de:'Mittag',en:'Day'},
+  dial_soir:{de:'Abend',en:'Night'},
+  dial_midi_long:{de:'Mittags · Brasserie',en:'Lunch · Brasserie'},
+  dial_soir_long:{de:'Abends · Gastronomie',en:'Dinner · Fine dining'},
+  dial_label:{de:'Wählen Sie Ihre Stunde',en:'Choose your hour'},
+  cta_reserve:{de:'Reservieren',en:'Book'},
+  cta_reserve_table:{de:'Tisch reservieren',en:'Book a table'},
+  cta_reserve_online:{de:'Online reservieren',en:'Book online'},
+  cta_menu:{de:'Zur Karte',en:'View the menu'},
+  laurel_top:{de:'Publikumspreis',en:'Public Award'},
+  laurel_era:{de:'Frühere Leitung',en:'Prior ownership'},
+  salle_cap:{de:'Ein tropisches Schmuckkästchen im Herzen der Altstadt',en:'A tropical jewel-box in the heart of the Old Town'},
+  hero_kicker:{de:'Gastronomische Brasserie · Luxemburg Oberstadt',en:'Gastronomic brasserie · Luxembourg Ville-Haute'},
+  hero_intro:{de:'Eine Institution des Saint-Esprit-Plateaus, seit Januar 2026 unter neuer Leitung wiedereröffnet. Mittags neu interpretierte Brasserie-Klassiker; abends eine gastronomische Weltreise.',en:'An institution of the Saint-Esprit plateau, reopened in January 2026 under new ownership. By day, revisited brasserie classics; by night, a gastronomic journey around the world.'},
+  hours_inline:{de:'Mittags & abends, Montag bis Freitag',en:'Lunch & dinner, Monday to Friday'},
+  aconf:{de:'Öffnungszeiten zu bestätigen',en:'hours to be confirmed'},
+  aconf_contact:{de:'Telefon & E-Mail zu bestätigen',en:'phone & email to be reconfirmed'},
+  aconf_short:{de:'auf Anfrage',en:'on request'},
+  svc_eyebrow:{de:'Zwei Services, zwei Seelen',en:'Two services, two souls'},
+  svc_title:{de:'Das Haus, das zweimal lebt',en:'The house that lives twice'},
+  svc_lead:{de:'Ein Saal, zwei Küchen. Betätigen Sie den Mittag/Abend-Regler oben — das Haus wechselt mit der Stunde sein Licht.',en:'One room, two kitchens. Flip the Day / Night dial in the header — the house changes its light with the hour.'},
+  midi_badge:{de:'Mittags',en:'By day'},
+  soir_badge:{de:'Abends',en:'By night'},
+  now_serving:{de:'· jetzt im Service',en:'· now serving'},
+  midi_h:{de:'Neu gedachte Brasserie',en:'Brasserie, revisited'},
+  midi_sub:{de:'Gesellig, großzügig, gut geboren',en:'Convivial, generous, well-born'},
+  midi_p:{de:'Die großen französischen Klassiker in Bestform, gedacht für die Mittagspause der Geschäftsviertel und der Cité Judiciaire.',en:'The great French classics at their best, made for the lunch break of the business district and the Cité Judiciaire.'},
+  soir_h:{de:'Gastronomische Weltreise',en:'A gastronomic journey'},
+  soir_sub:{de:'Karte 2026 — noch zu bestätigen',en:'2026 menu — to be confirmed'},
+  soir_p:{de:'Abends soll sich die Küche laut Presseberichten zur Welt öffnen: Thai-Bouillon, Ceviche, peruanische Ente — dazu die kreativen Desserts von Dorian Molina, mit veganen und laktosefreien Optionen.',en:'By night, the kitchen is reported to open to the world — Thai broth, ceviche, Peruvian duck — plus Dorian Molina’s creative desserts, with vegan and lactose-free options.'},
+  carte_eyebrow:{de:'Eine Auswahl',en:'A selection'},
+  carte_title:{de:'Die Karte',en:'The Menu'},
+  carte_tl:{de:'Sorgfältig ausgewählte Produkte',en:'Carefully sourced produce'},
+  carte_note:{de:'Beispielauswahl — † Preise vor der Übernahme im Januar 2026 erhoben, mit dem Haus zu bestätigen (Abendkarte 2026 erneuert).',en:'Sample selection — † prices recorded before the January 2026 takeover, to be confirmed with the venue (dinner menu renewed in 2026).'},
+  carte_lang:{de:'Gerichtnamen im französischen Original belassen — wie im Restaurant.',en:'Dish names kept in the original French, as in the restaurant.'},
+  cat_entrees:{de:'Vorspeisen',en:'Starters'},
+  cat_entrees_sub:{de:'Zum Auftakt',en:'To begin'},
+  cat_plats:{de:'Hauptgerichte',en:'Mains'},
+  cat_plats_sub:{de:'Mittags & abends',en:'Lunch & dinner'},
+  cat_desserts:{de:'Desserts & Käse',en:'Desserts & Cheese'},
+  cat_desserts_sub:{de:'Von Dorian Molina',en:'By Dorian Molina'},
+  cat_new:{de:'Die Neuheiten 2026',en:'New for 2026'},
+  tag_midi:{de:'Mittag',en:'Day'},
+  tag_soir:{de:'Abend',en:'Night'},
+  tag_new:{de:'Neu',en:'New'},
+  veg:{de:'vegetarisch',en:'vegetarian'},
+  food1_cap:{de:'Das Dessert, als Signatur',en:'Pastry, as signature'},
+  food2_cap:{de:'Der Teller, als Signatur',en:'The plating, as signature'},
+  ecrin_eyebrow:{de:'Das Ambiente',en:'The room'},
+  ecrin_title:{de:'Ein Wintergarten mitten in der Stadt',en:'A winter garden in the middle of the city'},
+  ecrin_quote:{de:'Palmen und Orchideen an den Wänden, petrolblauer und altrosa Samt, bernsteinfarbenes Licht — der Saal hat den Charme eines bewohnten Gewächshauses.',en:'Palms and orchids on the walls, petrol-blue and dusty-pink velvet, amber light — the room has the charm of a lived-in greenhouse.'},
+  ecrin_p:{de:'Bei schönem Wetter öffnet sich die große Terrasse zu einem außergewöhnlichen Blick auf den Grund. Innen prägen eine botanische Signaturtapete und Schmuck-Sessel einen unverwechselbaren Rahmen auf dem Saint-Esprit-Plateau.',en:'When the weather turns fine, the large terrace opens onto an exceptional view over the Grund. Inside, a signature botanical wallpaper and jewel-toned armchairs create a setting unlike any other on the Saint-Esprit plateau.'},
+  maison_chapter:{de:'Neues Kapitel · 2026',en:'New chapter · 2026'},
+  maison_title:{de:'Eine Institution, neu geschrieben',en:'An institution, rewritten'},
+  maison_p1:{de:'Am 1. Januar 2026 übernahmen Kim Mathekowitsch und Jörg Flohr L’Annexe; am 14. Januar eröffnete das Haus mit neuer Identität wieder, ohne die gesellige Seele zu verlieren, die seinen Ruf unweit der Cité Judiciaire begründete.',en:'On 1 January 2026, Kim Mathekowitsch and Jörg Flohr took over L’Annexe; the house reopened on 14 January with a new identity, without losing the convivial soul that built its reputation steps from the Cité Judiciaire.'},
+  maison_p2:{de:'In der Küche entsteht eine weltoffene Abendkarte; in der Patisserie signiert Dorian Molina kreative und inklusive Desserts. Das Haus selbst trägt weiterhin den Explorator-Publikumspreis 2018, verliehen unter der früheren Leitung — und beginnt heute seine eigene Renaissance.',en:'In the kitchen, a world-facing dinner menu is taking shape; in pastry, Dorian Molina signs creative and inclusive desserts. The house itself still carries the 2018 Explorator Public Award, won under prior ownership — and now begins its own renaissance.'},
+  role_direction:{de:'Leitung',en:'Ownership'},
+  role_chef:{de:'Küchenchef',en:'Head chef'},
+  tbc_name:{de:'noch zu bestätigen',en:'to be confirmed'},
+  role_pastry:{de:'Chef-Patissier',en:'Pastry chef'},
+  role_award:{de:'Auszeichnung (2018)',en:'Distinction (2018)'},
+  badge_since:{de:'Wiedereröffnet am',en:'Reopened on'},
+  badge_sub:{de:'Neue Leitung, neue Karte',en:'New ownership, new menu'},
+  map_open:{de:'In Google Maps öffnen',en:'Open in Google Maps'},
+  visite_eyebrow:{de:'So finden Sie uns',en:'Find us'},
+  visite_title:{de:'Reservieren & kommen',en:'Book & visit'},
+  k_address:{de:'Adresse',en:'Address'},
+  k_contact:{de:'Kontakt',en:'Contact'},
+  k_hours:{de:'Öffnungszeiten',en:'Hours'},
+  d_monfri:{de:'Montag – Freitag',en:'Monday – Friday'},
+  d_sat:{de:'Samstag',en:'Saturday'},
+  d_sun:{de:'Sonntag',en:'Sunday'},
+  sat_h:{de:'18:30–22:00 (Abendessen)',en:'18:30–22:00 (dinner)'},
+  closed:{de:'Geschlossen',en:'Closed'},
+  foot_blurb:{de:'Gastronomische Brasserie im Herzen der Luxemburger Oberstadt, Saint-Esprit-Plateau.',en:'Gastronomic brasserie in the heart of Luxembourg City, Saint-Esprit plateau.'},
+  foot_visit:{de:'Besuch',en:'Visit'},
+  foot_follow:{de:'Folgen & reservieren',en:'Follow & book'},
+  foot_reserve:{de:'Online-Reservierung',en:'Online booking'},
+  disclaimer:{de:'Demo-Website — Inhalte und Preise mit dem Haus zu bestätigen.',en:'Demonstration site — content and prices to be confirmed with the venue.'}
+};
+const FR_CACHE={};
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.getAttribute('data-i18n');
+    if(!(key in FR_CACHE)) FR_CACHE[key]=el.innerHTML;   // capture French default once
+    if(lang==='fr'){ el.innerHTML=FR_CACHE[key]; return; }
+    const entry=I18N[key];
+    if(entry && entry[lang]) el.textContent=entry[lang];
+  });
+  positionThumb(document.querySelector('.dial'),'thumbSm');
+  positionThumb(document.querySelector('.dial-lg'),'thumbLg');
+}
+
+window.addEventListener('load',()=>{
+  positionThumb(document.querySelector('.dial'),'thumbSm');
+  positionThumb(document.querySelector('.dial-lg'),'thumbLg');
+});
+window.addEventListener('resize',()=>{
+  positionThumb(document.querySelector('.dial'),'thumbSm');
+  positionThumb(document.querySelector('.dial-lg'),'thumbLg');
+});
+</script>
+</body>
+</html>
