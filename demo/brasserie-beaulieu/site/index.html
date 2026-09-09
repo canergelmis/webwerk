@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Brasserie Beaulieu — Bistro de quartier · Bonnevoie, Luxembourg</title>
+<meta name="description" content="Brasserie Beaulieu — cuisine canaille, ambiance de quartier. Bistro parisien à Bonnevoie, Luxembourg. Nappes vichy rouge, terrasse ensoleillée, vins bio.">
+<!--
+  Concept: the venue's own cursive "Beaulieu" enseigne (traced from assets/exterior.jpg,
+  daylight — core tube blue #2a4661) is the wordmark colour; red gingham + honey wood +
+  cream stays the dominant palette (content.md L41). Alegreya (warm humanist serif, real
+  italics) for editorial type; Yellowtail (1930s connected sign-script) for the wordmark,
+  echoing the real enseigne's looping cursive. All fonts self-hosted below, zero external
+  requests. "(env.) 1959" and hours stay flagged "à confirmer" — aggregator-only, no
+  primary source.
+-->
+<style id="rk-fonts">
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/caveat-YB2Q7aDYYmg8.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/caveat-bAfYB2Q7ZjYY.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/caveat-YB2Q7aDYYmg8.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/caveat-bAfYB2Q7ZjYY.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Alegreya';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(./assets/fonts/alegreya-italic-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Alegreya';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(./assets/fonts/alegreya-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Alegreya';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(./assets/fonts/alegreya-normal-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Alegreya';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url(./assets/fonts/alegreya-normal-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Yellowtail';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/yellowtail-latinext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Yellowtail';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/yellowtail-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Mulish';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-SKeOfF5Q6HTY.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Mulish';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-0FsSKeOfGZQ6.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-Ghgqk0QotcqA.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-XSGhgqk3wot.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-Ghgqk0QotcqA.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-XSGhgqk3wot.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-Ghgqk0QotcqA.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-XSGhgqk3wot.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-Ghgqk0QotcqA.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./assets/fonts/mulish-XSGhgqk3wot.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  :root{
+    --red:#C0392B;
+    --burgundy:#6E2230;
+    --honey:#B5824A;
+    --darkwood:#5E3E28;
+    --cream:#F6F1E7;
+    --paper:#FBF8F0;
+    --chalk:#232323;
+    --olive:#6F7D3A;
+    --ink:#2b2320;
+    /* Sampled from the venue's OWN cursive enseigne in assets/exterior.jpg (daylight).
+       core tube #2a4661 · highlight #3d5368 · deep #1d3448 */
+    --enseigne:#2a4661;
+    --enseigne-deep:#1d3448;
+    --enseigne-lt:#3d5368;
+    --line:rgba(94,62,40,.22);
+    --maxw:1240px;
+    --gutter:clamp(18px,4vw,56px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Mulish',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Alegreya',Georgia,serif;line-height:1.08;font-weight:700;color:var(--chalk)}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+
+  /* ---------- Gingham weave (the signature device) ---------- */
+  .gingham{
+    background-color:var(--cream);
+    background-image:
+      linear-gradient(90deg, transparent 0 14px, rgba(192,57,43,.52) 14px 28px),
+      linear-gradient(0deg,  transparent 0 14px, rgba(192,57,43,.52) 14px 28px);
+    background-size:28px 28px;
+  }
+  /* thin woven ribbon between bands */
+  .ribbon{height:14px;width:100%;
+    background-color:var(--red);
+    background-image:
+      linear-gradient(90deg, rgba(255,255,255,.85) 0 7px, transparent 7px 14px),
+      linear-gradient(0deg,  rgba(255,255,255,.35) 0 7px, transparent 7px 14px);
+    background-size:14px 14px;
+  }
+
+  /* ---------- Top nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.94);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-top:12px;padding-bottom:12px}
+  .brand{display:flex;align-items:baseline;gap:9px;text-decoration:none;line-height:1}
+  .brand .b-small{font-family:'Alegreya',serif;font-weight:600;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--darkwood)}
+  .brand .b-script{font-family:'Yellowtail',cursive;font-size:2rem;color:var(--chalk);line-height:.8}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.92rem;color:var(--darkwood);position:relative;padding:4px 0}
+  .nav-links a:hover{color:var(--red)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--red);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;
+    border-radius:999px;padding:11px 20px;font-size:.9rem;transition:transform .15s,box-shadow .2s,background .2s;cursor:pointer;border:none}
+  .btn-red{background:var(--red);color:#fff;box-shadow:0 4px 14px rgba(192,57,43,.28)}
+  .btn-red:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(192,57,43,.36)}
+  .btn-ghost{background:transparent;color:var(--chalk);border:1.5px solid var(--darkwood)}
+  .btn-ghost:hover{background:var(--chalk);color:var(--cream);border-color:var(--chalk)}
+  .lang{display:flex;gap:2px;margin-left:6px;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--paper)}
+  .lang button{border:none;background:transparent;font-family:inherit;font-weight:700;font-size:.72rem;letter-spacing:.05em;
+    padding:5px 9px;border-radius:999px;cursor:pointer;color:var(--darkwood)}
+  .lang button.active{background:var(--chalk);color:var(--cream)}
+
+  /* dateline strip (masthead) */
+  .dateline{border-bottom:1px solid var(--line);background:var(--paper)}
+  .dateline-inner{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;justify-content:center;text-align:center;
+    padding:8px var(--gutter);font-size:.74rem;letter-spacing:.04em;color:var(--darkwood);font-weight:600}
+  .dateline-inner .sep{color:var(--red);font-weight:800}
+  .dateline-inner .dl-em{font-family:'Alegreya',serif;font-style:italic;font-weight:500}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;background:var(--cream)}
+  .hero-grid{display:grid;grid-template-columns:58% 42%;min-height:min(78vh,660px)}
+  .hero-photo{position:relative;overflow:hidden}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;min-height:340px}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,35,35,.12),transparent 40%)}
+  /* vertical woven runner down the seam */
+  .hero-runner{position:absolute;top:0;right:-1px;width:26px;height:100%;z-index:3;
+    box-shadow:-2px 0 8px rgba(0,0,0,.18), 2px 0 8px rgba(0,0,0,.18)}
+  .hero-card{background:var(--cream);display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(28px,3.4vw,56px);position:relative}
+  .hero-card .kicker{font-family:'Alegreya',serif;font-weight:600;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
+  .hero-wordmark{font-family:'Yellowtail',cursive;color:var(--chalk);font-size:clamp(3.4rem,7vw,5.6rem);line-height:.85;margin:.12em 0 .05em}
+  .chalk-underline{display:block;width:210px;max-width:72%;height:20px;margin:2px 0 18px}
+  .tagline{font-family:'Alegreya',serif;font-style:italic;font-size:clamp(1.15rem,1.9vw,1.5rem);color:var(--burgundy);font-weight:500;margin-bottom:20px}
+  .hero-meta{font-size:.96rem;color:var(--darkwood);margin-bottom:8px}
+  .hero-meta a{color:var(--red);text-decoration:none;font-weight:700}
+  .hero-meta a:hover{text-decoration:underline}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+
+  /* time-aware ardoise chip */
+  .ardoise{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
+    background:var(--chalk);color:#f3efe6;border-radius:8px;padding:9px 15px 10px;margin-bottom:20px;
+    box-shadow:0 6px 0 -2px rgba(94,62,40,.35),0 10px 18px rgba(0,0,0,.22);
+    border:1px solid rgba(255,255,255,.08);position:relative;font-family:'Caveat',cursive;font-size:1.25rem}
+  .ardoise::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+    width:2px;height:10px;background:var(--darkwood)}
+  .ardoise .dot{width:11px;height:11px;border-radius:50%;background:var(--olive);box-shadow:0 0 9px var(--olive);flex:none}
+  .ardoise.closed .dot{background:var(--red);box-shadow:0 0 9px rgba(192,57,43,.8)}
+  .ardoise .st{font-weight:700;letter-spacing:.02em}
+  .ardoise .hrs{font-family:'Mulish',sans-serif;font-size:.78rem;opacity:.82;letter-spacing:.02em}
+
+  /* ---------- Section scaffolding ---------- */
+  section{position:relative}
+  .band{padding:clamp(48px,6vw,86px) 0}
+  .eyebrow{font-family:'Alegreya',serif;font-weight:600;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+  .band-title{font-size:clamp(1.9rem,3.6vw,3rem);margin-bottom:6px}
+
+  /* ---------- Ambiance collage ---------- */
+  .ambiance{background:var(--paper)}
+  .amb-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:22px;align-items:start;margin-top:30px}
+  .amb-intro{grid-column:1 / -1;display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:end;margin-bottom:6px}
+  .pull-quote{font-family:'Alegreya',serif;font-style:italic;font-weight:500;font-size:clamp(1.4rem,2.6vw,2.1rem);
+    color:var(--burgundy);line-height:1.2;border-left:4px solid var(--red);padding-left:20px}
+  .amb-lead{color:var(--ink);font-size:1.02rem}
+  figure.cut{margin:0;background:#fff;padding:10px 10px 0;border:1px solid var(--line);
+    box-shadow:0 8px 24px rgba(94,62,40,.12);transition:transform .25s}
+  figure.cut:hover{transform:translateY(-4px) rotate(-.4deg)}
+  figure.cut:nth-of-type(3){transform:rotate(.5deg)}
+  figure.cut:nth-of-type(3):hover{transform:translateY(-4px) rotate(0)}
+  figure.cut .ph{height:0;padding-bottom:118%;position:relative;overflow:hidden}
+  figure.cut:first-of-type .ph{padding-bottom:132%}
+  figure.cut .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  figure.cut figcaption{font-family:'Alegreya',serif;font-style:italic;font-size:.82rem;color:var(--darkwood);
+    padding:9px 4px 12px;border-top:1px dashed var(--line);margin-top:9px;letter-spacing:.01em}
+
+  /* ---------- Chalkboard menu ---------- */
+  .menu{background:var(--chalk);color:#efe9dd;position:relative;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.05), transparent 45%),
+      radial-gradient(ellipse at 85% 80%, rgba(255,255,255,.045), transparent 40%);
+    border-top:6px solid var(--darkwood);border-bottom:6px solid var(--darkwood)}
+  .menu .eyebrow{color:#e7c8a0}
+  .menu .band-title{color:#fff;text-shadow:0 1px 0 rgba(255,255,255,.25),0 0 14px rgba(255,255,255,.06)}
+  .menu-sub{color:#cdbfa9;font-style:italic;font-family:'Alegreya',serif;margin-bottom:34px}
+  .menu-layout{display:grid;grid-template-columns:1fr 1fr 320px;gap:34px;align-items:start}
+  .menu-col h3{font-family:'Alegreya',serif;color:#fff;font-size:1.35rem;margin-bottom:4px;
+    text-shadow:0 0 12px rgba(255,255,255,.12)}
+  .menu-col .chalk-rule{height:16px;width:120px;margin:2px 0 16px;opacity:.9}
+  .placemat{padding:14px 16px;border-radius:6px;margin-bottom:16px;
+    background-image:
+      linear-gradient(90deg, transparent 0 9px, rgba(192,57,43,.34) 9px 18px),
+      linear-gradient(0deg,  transparent 0 9px, rgba(192,57,43,.34) 9px 18px);
+    background-size:18px 18px;background-color:rgba(246,241,231,.10);
+    border:1px solid rgba(246,241,231,.14)}
+  .dish{display:flex;align-items:baseline;gap:6px;margin:9px 0;font-size:1rem}
+  .dish .nm{color:#f2ede2;font-weight:600}
+  .dish .lead{flex:1;border-bottom:2px dotted rgba(242,237,226,.45);transform:translateY(-4px);min-width:14px}
+  .dish .pr{color:#e7c8a0;font-weight:700;white-space:nowrap;font-family:'Alegreya',serif}
+  .dish small{display:block;font-weight:400;color:#b9ac97;font-size:.78rem;font-style:italic}
+  .platdujour{background:var(--red);color:#fff;border-radius:10px;padding:20px 22px;position:relative;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);transform:rotate(-1.2deg);border:2px solid rgba(255,255,255,.25)}
+  .platdujour::before{content:"";position:absolute;top:-11px;left:22px;width:14px;height:14px;border-radius:50%;
+    background:#f3efe6;box-shadow:0 0 0 3px var(--chalk)}
+  .platdujour .pj-k{font-family:'Alegreya',serif;font-style:italic;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;opacity:.9}
+  .platdujour .pj-t{font-family:'Caveat',cursive;font-size:2.1rem;line-height:1;margin:4px 0 8px}
+  .platdujour .pj-d{font-size:.94rem;line-height:1.45}
+  .menu-note{margin-top:26px;font-family:'Caveat',cursive;font-size:1.3rem;color:#cdbfa9;text-align:center}
+
+  /* ---------- Story (depuis 1959) ---------- */
+  .story{position:relative;background:var(--cream)}
+  .story::before{content:"";position:absolute;inset:0;opacity:.10;pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(94,62,40,.5) 0 1px, transparent 1px 5px),
+      repeating-linear-gradient(90deg, rgba(94,62,40,.35) 0 1px, transparent 1px 8px)}
+  .story-grid{display:grid;grid-template-columns:40% 60%;gap:clamp(28px,4vw,56px);align-items:center;position:relative}
+  .portrait{background:#fff;padding:14px;border:1px solid var(--line);box-shadow:0 16px 40px rgba(94,62,40,.20);transform:rotate(-1.3deg);margin:0}
+  .portrait .ph{height:0;padding-bottom:112%;position:relative;overflow:hidden}
+  .portrait .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) sepia(.12)}
+  .portrait figcaption{font-family:'Alegreya',serif;font-style:italic;text-align:center;color:var(--darkwood);padding:12px 4px 4px;font-size:.9rem}
+  .story-text p{margin-bottom:16px;font-size:1.06rem;max-width:56ch}
+  .story-text .lead-p::first-letter{font-family:'Alegreya',serif;font-weight:900;float:left;font-size:3.6rem;line-height:.72;
+    padding:6px 10px 0 0;color:var(--red)}
+  .story-text .est{display:inline-block;font-family:'Alegreya',serif;font-weight:700;color:var(--burgundy);font-size:.8rem;
+    letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;border-bottom:2px solid var(--red);padding-bottom:3px}
+
+  /* ---------- Terrasse & practical ---------- */
+  .terrasse{background:var(--paper)}
+  .terr-grid{display:grid;grid-template-columns:55% 45%;gap:clamp(26px,3.5vw,48px);align-items:stretch;margin-top:14px}
+  .terr-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .terr-photos figure{margin:0;position:relative;overflow:hidden;border-radius:10px;box-shadow:0 12px 30px rgba(94,62,40,.16)}
+  .terr-photos .ph{height:0;padding-bottom:128%;position:relative}
+  .terr-photos .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .terr-photos figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(35,35,35,.78));
+    color:#fff;font-family:'Alegreya',serif;font-style:italic;font-size:.82rem;padding:22px 12px 10px}
+  .practical{display:flex;flex-direction:column;gap:18px}
+  .hours-ardoise{background:var(--chalk);color:#efe9dd;border-radius:12px;padding:20px 22px;position:relative;
+    box-shadow:0 12px 30px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08)}
+  .hours-ardoise::before,.hours-ardoise::after{content:"";position:absolute;top:-10px;width:2px;height:12px;background:var(--darkwood)}
+  .hours-ardoise::before{left:26px}.hours-ardoise::after{right:26px}
+  .hours-ardoise h3{font-family:'Caveat',cursive;color:#fff;font-size:1.9rem;margin-bottom:10px}
+  .hours-ardoise .row{display:flex;justify-content:space-between;gap:10px;font-size:.95rem;padding:4px 0;border-bottom:1px dotted rgba(242,237,226,.28)}
+  .hours-ardoise .row:last-of-type{border-bottom:none}
+  .hours-ardoise .row .d{color:#e7c8a0}
+  .hours-ardoise .today{color:#fff;font-weight:700}
+  .hours-ardoise .today .d{color:#fff}
+  .hrs-flag{margin-top:10px;font-size:.76rem;color:#b9ac97;font-style:italic}
+  .contact-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 8px 24px rgba(94,62,40,.10)}
+  .contact-card h3{font-size:1.2rem;margin-bottom:8px}
+  .contact-card p{font-size:.98rem;margin-bottom:6px}
+  .contact-card a{color:var(--red);font-weight:700;text-decoration:none}
+  .contact-card a:hover{text-decoration:underline}
+  .map-embed{border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 8px 24px rgba(94,62,40,.12);line-height:0}
+  .map-embed iframe{width:100%;height:200px;border:0}
+  .bynight{display:flex;align-items:center;gap:14px;background:var(--chalk);border-radius:12px;padding:12px 16px;color:#efe9dd}
+  .bynight .thumb{width:66px;height:66px;border-radius:50%;overflow:hidden;flex:none;border:2px solid var(--olive);box-shadow:0 0 14px rgba(168,212,0,.35)}
+  .bynight .thumb img{width:100%;height:100%;object-fit:cover}
+  .bynight .t{font-family:'Alegreya',serif;font-style:italic;font-size:.92rem}
+  .bynight .t small{display:block;font-family:'Mulish';font-style:normal;color:#b9ac97;font-size:.76rem}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--cream);padding:clamp(40px,5vw,64px) 0 0;position:relative}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;align-items:start}
+  .foot-brand .b-script{font-family:'Yellowtail',cursive;font-size:2.6rem;color:var(--chalk);line-height:.9}
+  .foot-brand .b-small{font-family:'Alegreya',serif;font-weight:600;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--darkwood);display:block}
+  .foot-brand p{margin-top:10px;color:var(--darkwood);font-size:.92rem;max-width:34ch}
+  .foot-col h4{font-family:'Alegreya',serif;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+  .foot-col a,.foot-col p{display:block;color:var(--ink);text-decoration:none;font-size:.95rem;margin-bottom:8px}
+  .foot-col a:hover{color:var(--red)}
+  .foot-bottom{margin-top:34px;padding:14px var(--gutter);text-align:center;font-size:.76rem;color:var(--darkwood)}
+  .foot-hem{margin-top:20px}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero-photo{min-height:300px}
+    .hero-runner{display:none}
+    .menu-layout{grid-template-columns:1fr 1fr}
+    .platdujour{grid-column:1 / -1;transform:none;margin-top:6px}
+    .terr-grid{grid-template-columns:1fr}
+    .story-grid{grid-template-columns:1fr}
+    .portrait{max-width:420px}
+    .amb-grid{grid-template-columns:1fr 1fr}
+    figure.cut:first-of-type{grid-column:1 / -1}
+    figure.cut:first-of-type .ph{padding-bottom:60%}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    body{font-size:16px}
+    .nav-links{display:none}
+    .dateline-inner{font-size:.68rem}
+    .amb-intro{grid-template-columns:1fr}
+    .amb-grid{grid-template-columns:1fr}
+    figure.cut:first-of-type .ph{padding-bottom:78%}
+    .menu-layout{grid-template-columns:1fr}
+    .terr-photos{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+  }
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:12px;top:10px;z-index:99;background:var(--chalk);color:#fff;padding:8px 14px;border-radius:6px}
+
+  /* ===================== v2 RE-ELEVATION ===================== */
+  /* Yellowtail is a single-weight (400) script with no italic cut. Without this,
+     any inherited bold/italic would be rendered as a browser-SYNTHESISED fake
+     (a smeared faux-bold / slanted oblique) rather than simply not applying. */
+  .hero-wordmark,.brand .b-script{font-synthesis:none;font-weight:400;font-style:normal}
+
+  /* BRAND TRACE: the venue's real enseigne is a BLUE CURSIVE script, so the
+     wordmark now is one too — colour sampled from assets/exterior.jpg, letterforms
+     matched by Yellowtail. Previously near-black in a stock Google cursive. */
+  .hero-wordmark{color:var(--enseigne)}
+  .brand .b-script{color:var(--enseigne)}
+  .brand .b-small{color:var(--enseigne-deep)}
+
+  /* Thread the traced blue as a quiet secondary so it reads as a chosen brand
+     colour, not a one-off: eyebrow rule + dateline emphasis. Warm red/honey/cream
+     stays the dominant, Can-approved mood. */
+  .eyebrow{position:relative;padding-bottom:8px}
+  .eyebrow::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:2px;background:var(--enseigne);opacity:.75}
+  .dateline-inner .dl-em{color:var(--enseigne-lt)}
+
+  /* Owner's sign-off — Cyrille Schneider is CONFIRMED (Delano + Paperjam).
+     Set in the same chalk hand as the ardoise so it reads as a hand-written
+     note on the board, not a corporate byline. */
+  .story-sig{
+    font-family:'Caveat',cursive;font-size:1.6rem;line-height:1.1;
+    color:var(--enseigne);margin-top:18px;
+    display:flex;align-items:center;gap:12px}
+  .story-sig::before{content:"";width:38px;height:1px;background:var(--enseigne);opacity:.5;flex:none}
+
+  /* PRE-EXISTING BUG (present in index.html too, not introduced here): once
+     .nav-links hides at 640px, brand + "Réserver" + the FR/DE/EN group still
+     measured ~447px against a 390px viewport, so the whole page scrolled
+     sideways on a standard phone. Tighten the three header items at that
+     breakpoint. Own media query so it can't outrank the desktop rules. */
+  @media(max-width:640px){
+    .nav-inner{gap:10px}
+    .brand{gap:6px}
+    .brand .b-script{font-size:1.5rem}
+    .brand .b-small{font-size:.54rem;letter-spacing:.2em}
+    .nav-inner .btn-red{padding:8px 12px;font-size:.78rem}
+    .lang{margin-left:0;padding:2px}
+    .lang button{padding:4px 7px;font-size:.66rem;letter-spacing:.02em}
+  }
+</style>
+</head>
+<body>
+<a href="#menu" class="skip" data-i18n="skip">Aller au menu</a>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand" aria-label="Brasserie Beaulieu">
+      <span class="b-small">Brasserie</span>
+      <span class="b-script">Beaulieu</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#ambiance" data-i18n="nav_amb">Ambiance</a>
+      <a href="#menu" data-i18n="nav_menu">La carte</a>
+      <a href="#histoire" data-i18n="nav_story">Notre histoire</a>
+      <a href="#terrasse" data-i18n="nav_terr">Terrasse & infos</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a class="btn btn-red" href="tel:+35226483302" data-i18n="nav_book">Réserver</a>
+      <div class="lang" role="group" aria-label="Langue">
+        <button data-lang="fr" class="active">FR</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- DATELINE -->
+<div class="dateline" id="top">
+  <div class="dateline-inner">
+    <span data-i18n="dl_place">Bonnevoie · Luxembourg</span>
+    <span class="sep">·</span>
+    <span class="dl-em" data-i18n="dl_since">depuis (env.) 1959</span>
+    <span class="sep">·</span>
+    <span>25 Rue Félix de Blochausen, 1243 Bonnevoie</span>
+    <span class="sep">·</span>
+    <a href="tel:+35226483302" style="text-decoration:none;color:inherit">+352 26 48 33 02</a>
+    <span class="sep">·</span>
+    <span class="dl-em" data-i18n="dl_motto">Cuisine canaille · Ambiance de quartier</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Brasserie Beaulieu">
+  <div class="hero-grid">
+    <div class="hero-photo">
+      <img src="assets/interior-1.jpg" alt="Salle de la Brasserie Beaulieu : nappes vichy rouge, chaises chinées dépareillées, mur en papier journal, portrait de chef en noir et blanc" loading="eager">
+      <div class="hero-runner gingham" aria-hidden="true"></div>
+    </div>
+    <div class="hero-card">
+      <span class="kicker" data-i18n="hero_kicker">Bistro de quartier — Bonnevoie</span>
+      <div class="hero-wordmark">Beaulieu</div>
+      <svg class="chalk-underline" viewBox="0 0 210 20" aria-hidden="true">
+        <path d="M4 13 C 40 6, 80 6, 120 11 S 190 15, 206 7" fill="none" stroke="#232323" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+      </svg>
+      <p class="tagline" data-i18n="hero_tagline">Cuisine canaille. Ambiance de quartier.</p>
+
+      <div class="ardoise" id="statusChip" role="status" aria-live="polite">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="st" id="statusText">Ouvert</span>
+        <span class="hrs" id="statusHours">10:00 – 01:00</span>
+      </div>
+
+      <p class="hero-meta"><span data-i18n="hero_addr">25 Rue Félix de Blochausen, 1243 Bonnevoie, Luxembourg</span></p>
+      <p class="hero-meta"><a href="tel:+35226483302">+352 26 48 33 02</a></p>
+
+      <div class="hero-actions">
+        <a class="btn btn-red" href="tel:+35226483302" data-i18n="hero_cta1">Réserver une table</a>
+        <a class="btn btn-ghost" href="#menu" data-i18n="hero_cta2">Voir la carte</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ribbon" aria-hidden="true"></div>
+
+<!-- AMBIANCE -->
+<section class="band ambiance" id="ambiance">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="amb_eyebrow">L'ambiance</span>
+    <h2 class="band-title" data-i18n="amb_title">Comme à la maison, en plus parisien</h2>
+    <div class="amb-grid">
+      <div class="amb-intro">
+        <p class="pull-quote" data-i18n="amb_quote">« Pure ambiance de quartier et plats canailles. »</p>
+        <p class="amb-lead" data-i18n="amb_lead">Nappes vichy rouge et blanc sur bois miel, chaises chinées dépareillées, murs crème en papier journal et posters de Paris, une grande ardoise à la craie au-dessus du bar. On vient en famille, entre voisins, entre amis.</p>
+      </div>
+
+      <figure class="cut">
+        <div class="ph"><img src="assets/interior-2.jpg" alt="Table ronde ensoleillée nappée de vichy rouge avec candélabre en laiton et chaises dépareillées" loading="eager"></div>
+        <figcaption data-i18n="amb_cap1">La table dressée — vichy rouge, laiton, lumière du jour.</figcaption>
+      </figure>
+      <figure class="cut">
+        <div class="ph"><img src="assets/food-board.jpg" alt="Planche apéritif : charcuterie, fromage, bouchées panées, pastèque et sauce moutarde" loading="lazy"></div>
+        <figcaption data-i18n="amb_cap2">La planche apéritif, à partager sur bois brut.</figcaption>
+      </figure>
+      <figure class="cut">
+        <div class="ph"><img src="assets/wine-rack.jpg" alt="Mur de vins : une cinquantaine de bouteilles avec étiquettes de prix" loading="lazy"></div>
+        <figcaption data-i18n="amb_cap3">La cave — une belle sélection, dont des vins bio.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+<div class="ribbon" aria-hidden="true"></div>
+
+<!-- MENU (chalkboard) -->
+<section class="band menu" id="menu">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="menu_eyebrow">Au menu</span>
+    <h2 class="band-title" data-i18n="menu_title">La carte, à l'ardoise</h2>
+    <p class="menu-sub" data-i18n="menu_sub">Cuisine de brasserie généreuse et de saison. Carte tournante — demandez les suggestions du jour.</p>
+
+    <div class="menu-layout">
+      <!-- col 1 -->
+      <div class="menu-col">
+        <h3 data-i18n="menu_c1">Entrées & à partager</h3>
+        <svg class="chalk-rule" viewBox="0 0 120 16" aria-hidden="true"><path d="M2 9 C30 3,80 3,118 8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/></svg>
+        <div class="placemat">
+          <div class="dish"><span class="nm" data-i18n="d_board">Plateau apéritif</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_leeks">Poireaux sauce gribiche</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_salad">Salade composée</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+        </div>
+
+        <h3 data-i18n="menu_c3">Vins & boissons</h3>
+        <svg class="chalk-rule" viewBox="0 0 120 16" aria-hidden="true"><path d="M2 9 C30 3,80 3,118 8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/></svg>
+        <div class="placemat">
+          <div class="dish"><span class="nm" data-i18n="d_wine">Sélection de vins <small data-i18n="d_wine_s">dont vins bio & nature</small></span><span class="lead"></span><span class="pr" data-i18n="pr_carte">à la carte</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_beer">Bière pression <small data-i18n="d_beer_s">Bofferding / Jupiler</small></span><span class="lead"></span><span class="pr" data-i18n="pr_carte">à la carte</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_menuj">Menu du jour <small data-i18n="d_menuj_s">midi en semaine</small></span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+        </div>
+      </div>
+
+      <!-- col 2 -->
+      <div class="menu-col">
+        <h3 data-i18n="menu_c2">Les plats</h3>
+        <svg class="chalk-rule" viewBox="0 0 120 16" aria-hidden="true"><path d="M2 9 C30 3,80 3,118 8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/></svg>
+        <div class="placemat">
+          <div class="dish"><span class="nm">Cordon Bleu</span><span class="lead"></span><span class="pr">~27&nbsp;€</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_entrecote">Entrecôte, beurre maître d'hôtel</span><span class="lead"></span><span class="pr">~30&nbsp;€</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_tartare">Tartare de bœuf</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm">Cassoulet</span><span class="lead"></span><span class="pr">~30&nbsp;€</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_blanquette">Blanquette de veau</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm">Hachis Parmentier</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_burgerc">Burger poulet</span><span class="lead"></span><span class="pr">~20&nbsp;€</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_burgerv">Burger végétarien</span><span class="lead"></span><span class="pr">~20&nbsp;€</span></div>
+        </div>
+      </div>
+
+      <!-- plat du jour -->
+      <div class="menu-col">
+        <div class="platdujour">
+          <div class="pj-k" data-i18n="pj_k">Suggestion</div>
+          <div class="pj-t" data-i18n="pj_t">Le plat du jour</div>
+          <p class="pj-d" data-i18n="pj_d">Le marché du jour, écrit à la craie sur l'ardoise. Demandez à votre serveur la suggestion du chef.</p>
+        </div>
+        <p class="menu-note" data-i18n="menu_note">Prix indicatifs · carte de saison · à confirmer</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ribbon" aria-hidden="true"></div>
+
+<!-- STORY -->
+<section class="band story" id="histoire">
+  <div class="wrap">
+    <div class="story-grid">
+      <figure class="portrait">
+        <div class="ph"><img src="assets/interior-1-detail.jpg" alt="Portrait de chef en noir et blanc et affiche de la Tour Eiffel, accrochés sur le mur en papier journal de la salle" loading="lazy"></div>
+        <figcaption data-i18n="story_cap">Le portrait du chef, sur le mur en papier journal.</figcaption>
+      </figure>
+      <div class="story-text">
+        <span class="est" data-i18n="story_est">Depuis (env.) 1959 — à confirmer</span>
+        <h2 class="band-title" style="margin-bottom:16px" data-i18n="story_title">Notre histoire</h2>
+        <p class="lead-p" data-i18n="story_p1">Depuis (environ) 1959, la Brasserie Beaulieu est l'adresse incontournable du quartier Bonnevoie. Reprise avec passion par Cyrille Schneider et son équipe enthousiaste, elle propose une cuisine de brasserie généreuse et sincère — cordons bleus, entrecôtes, cassoulet, tartares et plats du marché tournants.</p>
+        <p data-i18n="story_p2">Le tout dans une atmosphère chaleureuse, sans chichi, entre famille et fête. Une belle terrasse ensoleillée et une sélection de vins soignée (dont des vins biologiques) complètent ce bistrot de quartier devenu une référence pour toute la ville.</p>
+        <p class="story-sig" data-i18n="story_sig">Cyrille Schneider &amp; l'équipe</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ribbon" aria-hidden="true"></div>
+
+<!-- TERRASSE & PRACTICAL -->
+<section class="band terrasse" id="terrasse">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="terr_eyebrow">La terrasse & infos pratiques</span>
+    <h2 class="band-title" data-i18n="terr_title">Au soleil, rue Félix de Blochausen</h2>
+    <div class="terr-grid">
+      <div class="terr-photos">
+        <figure>
+          <div class="ph"><img src="assets/exterior.jpg" alt="Façade crème de la Brasserie Beaulieu, enseigne cursive bleue et parasols verts Bofferding, terrasse animée" loading="lazy"></div>
+          <figcaption data-i18n="terr_cap1">La façade et ses parasols verts, côté rue.</figcaption>
+        </figure>
+        <figure>
+          <div class="ph"><img src="assets/terrace.jpg" alt="Terrasse de rue : muret en pierre, herbes en pot, chaises bistrot et verre gravé « Brasserie Beaulieu »" loading="lazy"></div>
+          <figcaption data-i18n="terr_cap2">La terrasse : muret, herbes et verre gravé.</figcaption>
+        </figure>
+      </div>
+
+      <div class="practical">
+        <div class="hours-ardoise">
+          <h3 data-i18n="hours_title">Horaires</h3>
+          <div class="row" data-day="1"><span class="d" data-i18n="day_mon">Lundi</span><span>10:00 – 01:00</span></div>
+          <div class="row" data-day="2"><span class="d" data-i18n="day_tue">Mardi</span><span>10:00 – 01:00</span></div>
+          <div class="row" data-day="3"><span class="d" data-i18n="day_wed">Mercredi</span><span>10:00 – 01:00</span></div>
+          <div class="row" data-day="4"><span class="d" data-i18n="day_thu">Jeudi</span><span>10:00 – 01:00</span></div>
+          <div class="row" data-day="5"><span class="d" data-i18n="day_fri">Vendredi</span><span>10:00 – 01:00</span></div>
+          <div class="row" data-day="6"><span class="d" data-i18n="day_sat">Samedi</span><span>10:00 – 01:00</span></div>
+          <div class="row" data-day="0"><span class="d" data-i18n="day_sun">Dimanche</span><span>10:00 – 01:00</span></div>
+          <p class="hrs-flag" data-i18n="hours_flag">Cuisine env. jusqu'à 21:45 · horaires à confirmer (jeudi variable)</p>
+        </div>
+
+        <div class="contact-card">
+          <h3 data-i18n="contact_title">Nous trouver</h3>
+          <p><strong>25 Rue Félix de Blochausen</strong><br>1243 Bonnevoie, Luxembourg</p>
+          <p><a href="tel:+35226483302">+352 26 48 33 02</a></p>
+          <p class="rk-resv-line">
+            <span class="rk-resv-k" data-cas-resvk>Réserver en ligne</span>
+            <button type="button" class="rk-resv-trigger" data-rk-resv-open><span data-cas-resv>Réserver une table</span></button>
+          </p>
+          <div class="map-embed" style="margin-top:12px">
+            <iframe title="Carte — Brasserie Beaulieu" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=Brasserie%20Beaulieu%2025%20Rue%20Felix%20de%20Blochausen%201243%20Luxembourg&output=embed"></iframe>
+          </div>
+        </div>
+
+        <div class="bynight">
+          <div class="thumb"><img src="assets/signage-neon.jpg" alt="L'enseigne « Beaulieu » illuminée le soir" loading="lazy"></div>
+          <div class="t"><span data-i18n="night_t">Beaulieu, le soir</span><small data-i18n="night_s">Soirées à thème & ambiance conviviale.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <span class="b-small">Brasserie</span>
+      <span class="b-script">Beaulieu</span>
+      <p data-i18n="foot_tag">Bistro de quartier à Bonnevoie. Cuisine canaille, ambiance de quartier — venez comme vous êtes.</p>
+    </div>
+    <div class="foot-col">
+      <h4 data-i18n="foot_visit">Nous rendre visite</h4>
+      <p>25 Rue Félix de Blochausen<br>1243 Bonnevoie, Luxembourg</p>
+      <a href="tel:+35226483302">+352 26 48 33 02</a>
+      <a href="#terrasse" data-i18n="foot_hours">Voir les horaires</a>
+    </div>
+    <div class="foot-col">
+      <h4 data-i18n="foot_follow">Suivez-nous</h4>
+      <a href="https://www.facebook.com/BrasserieBeaulieu/" target="_blank" rel="noopener">Facebook</a>
+      <a href="tel:+35226483302" data-i18n="foot_book">Réserver une table</a>
+    </div>
+  </div>
+  <div class="ribbon foot-hem" aria-hidden="true"></div>
+  <div class="foot-bottom">
+    <span data-i18n="foot_demo">Site de démonstration — Brasserie Beaulieu. Contenu à confirmer avec l'établissement. Le bleu de la charte est relevé sur l'enseigne cursive de la maison ; année de fondation (env. 1959) non confirmée.</span>
+  </div>
+</footer>
+
+<script>
+/* ---------------- i18n ---------------- */
+const I18N = {
+  fr:{
+    skip:"Aller au menu",
+    nav_amb:"Ambiance", nav_menu:"La carte", nav_story:"Notre histoire", nav_terr:"Terrasse & infos", nav_book:"Réserver",
+    dl_place:"Bonnevoie · Luxembourg", dl_since:"depuis (env.) 1959", dl_motto:"Cuisine canaille · Ambiance de quartier",
+    hero_kicker:"Bistro de quartier — Bonnevoie",
+    hero_tagline:"Cuisine canaille. Ambiance de quartier.",
+    hero_addr:"25 Rue Félix de Blochausen, 1243 Bonnevoie, Luxembourg",
+    hero_cta1:"Réserver une table", hero_cta2:"Voir la carte",
+    amb_eyebrow:"L'ambiance", amb_title:"Comme à la maison, en plus parisien",
+    amb_quote:"« Pure ambiance de quartier et plats canailles. »",
+    amb_lead:"Nappes vichy rouge et blanc sur bois miel, chaises chinées dépareillées, murs crème en papier journal et posters de Paris, une grande ardoise à la craie au-dessus du bar. On vient en famille, entre voisins, entre amis.",
+    amb_cap1:"La table dressée — vichy rouge, laiton, lumière du jour.",
+    amb_cap2:"La planche apéritif, à partager sur bois brut.",
+    amb_cap3:"La cave — une belle sélection, dont des vins bio.",
+    menu_eyebrow:"Au menu", menu_title:"La carte, à l'ardoise",
+    menu_sub:"Cuisine de brasserie généreuse et de saison. Carte tournante — demandez les suggestions du jour.",
+    menu_c1:"Entrées & à partager", menu_c2:"Les plats", menu_c3:"Vins & boissons",
+    d_board:"Plateau apéritif", d_leeks:"Poireaux sauce gribiche", d_salad:"Salade composée",
+    d_entrecote:"Entrecôte, beurre maître d'hôtel", d_tartare:"Tartare de bœuf", d_blanquette:"Blanquette de veau",
+    d_burgerc:"Burger poulet", d_burgerv:"Burger végétarien",
+    d_wine:"Sélection de vins", d_wine_s:"dont vins bio & nature", d_beer:"Bière pression", d_beer_s:"Bofferding / Jupiler",
+    d_menuj:"Menu du jour", d_menuj_s:"midi en semaine",
+    pr_confirm:"à confirmer", pr_carte:"à la carte",
+    pj_k:"Suggestion", pj_t:"Le plat du jour",
+    pj_d:"Le marché du jour, écrit à la craie sur l'ardoise. Demandez à votre serveur la suggestion du chef.",
+    menu_note:"Prix indicatifs · carte de saison · à confirmer",
+    story_cap:"Le portrait du chef, sur le mur en papier journal.",
+    story_est:"Depuis (env.) 1959 — à confirmer", story_title:"Notre histoire",
+    story_p1:"Depuis (environ) 1959, la Brasserie Beaulieu est l'adresse incontournable du quartier Bonnevoie. Reprise avec passion par Cyrille Schneider et son équipe enthousiaste, elle propose une cuisine de brasserie généreuse et sincère — cordons bleus, entrecôtes, cassoulet, tartares et plats du marché tournants.",
+    story_p2:"Le tout dans une atmosphère chaleureuse, sans chichi, entre famille et fête. Une belle terrasse ensoleillée et une sélection de vins soignée (dont des vins biologiques) complètent ce bistrot de quartier devenu une référence pour toute la ville.",
+    story_sig:"Cyrille Schneider & l'équipe",
+    terr_eyebrow:"La terrasse & infos pratiques", terr_title:"Au soleil, rue Félix de Blochausen",
+    terr_cap1:"La façade et ses parasols verts, côté rue.",
+    terr_cap2:"La terrasse : muret, herbes et verre gravé.",
+    hours_title:"Horaires",
+    day_mon:"Lundi", day_tue:"Mardi", day_wed:"Mercredi", day_thu:"Jeudi", day_fri:"Vendredi", day_sat:"Samedi", day_sun:"Dimanche",
+    hours_flag:"Cuisine env. jusqu'à 21:45 · horaires à confirmer (jeudi variable)",
+    contact_title:"Nous trouver",
+    night_t:"Beaulieu, le soir", night_s:"Soirées à thème & ambiance conviviale.",
+    foot_tag:"Bistro de quartier à Bonnevoie. Cuisine canaille, ambiance de quartier — venez comme vous êtes.",
+    foot_visit:"Nous rendre visite", foot_hours:"Voir les horaires",
+    foot_follow:"Suivez-nous", foot_book:"Réserver une table",
+    foot_demo:"Site de démonstration — Brasserie Beaulieu. Contenu à confirmer avec l'établissement. Le bleu de la charte est relevé sur l'enseigne cursive de la maison ; année de fondation (env. 1959) non confirmée.",
+    st_open:"Ouvert", st_closed:"Fermé", st_hours:"10:00 – 01:00"
+  },
+  de:{
+    skip:"Zur Karte springen",
+    nav_amb:"Ambiente", nav_menu:"Die Karte", nav_story:"Geschichte", nav_terr:"Terrasse & Infos", nav_book:"Reservieren",
+    dl_place:"Bonnevoie · Luxemburg", dl_since:"seit (etwa) 1959", dl_motto:"Herzhafte Küche · Nachbarschaftliches Flair",
+    hero_kicker:"Quartiersbistro — Bonnevoie",
+    hero_tagline:"Herzhafte Küche. Nachbarschaftliches Flair.",
+    hero_addr:"25 Rue Félix de Blochausen, 1243 Bonnevoie, Luxemburg",
+    hero_cta1:"Tisch reservieren", hero_cta2:"Zur Karte",
+    amb_eyebrow:"Das Ambiente", amb_title:"Wie zu Hause, nur ein bisschen pariserisch",
+    amb_quote:"„Echtes Quartiersflair und herzhafte Gerichte.“",
+    amb_lead:"Rot-weiße Vichy-Tischdecken auf honigfarbenem Holz, bunt zusammengewürfelte Vintage-Stühle, cremefarbene Wände mit Zeitungspapier und Paris-Postern, eine große Kreidetafel über der Bar. Man kommt mit der Familie, mit Nachbarn, mit Freunden.",
+    amb_cap1:"Der gedeckte Tisch — rotes Vichy, Messing, Tageslicht.",
+    amb_cap2:"Die Aperitif-Platte, zum Teilen auf rohem Holz.",
+    amb_cap3:"Der Keller — eine schöne Auswahl, auch Bio-Weine.",
+    menu_eyebrow:"Auf der Karte", menu_title:"Die Karte, auf der Tafel",
+    menu_sub:"Großzügige, saisonale Brasserie-Küche. Wechselnde Karte — fragen Sie nach den Tagesempfehlungen.",
+    menu_c1:"Vorspeisen & zum Teilen", menu_c2:"Die Gerichte", menu_c3:"Weine & Getränke",
+    d_board:"Aperitif-Platte", d_leeks:"Lauch mit Sauce Gribiche", d_salad:"Gemischter Salat",
+    d_entrecote:"Entrecôte, Kräuterbutter", d_tartare:"Rindertartar", d_blanquette:"Kalbsragout (Blanquette)",
+    d_burgerc:"Hähnchen-Burger", d_burgerv:"Vegetarischer Burger",
+    d_wine:"Weinauswahl", d_wine_s:"auch Bio- & Naturweine", d_beer:"Bier vom Fass", d_beer_s:"Bofferding / Jupiler",
+    d_menuj:"Tagesmenü", d_menuj_s:"mittags unter der Woche",
+    pr_confirm:"auf Anfrage", pr_carte:"nach Karte",
+    pj_k:"Empfehlung", pj_t:"Das Tagesgericht",
+    pj_d:"Das Beste vom Markt, mit Kreide auf die Tafel geschrieben. Fragen Sie Ihr Serviceteam nach der Empfehlung des Küchenchefs.",
+    menu_note:"Richtpreise · saisonale Karte · zu bestätigen",
+    story_cap:"Das Chef-Porträt an der Zeitungspapier-Wand.",
+    story_est:"Seit (ca.) 1959 — zu bestätigen", story_title:"Unsere Geschichte",
+    story_p1:"Seit (etwa) 1959 ist die Brasserie Beaulieu die unverzichtbare Adresse im Viertel Bonnevoie. Von Cyrille Schneider und seinem begeisterten Team mit Leidenschaft weitergeführt, bietet sie eine großzügige, ehrliche Brasserie-Küche — Cordon bleu, Entrecôte, Cassoulet, Tartar und wechselnde Marktgerichte.",
+    story_p2:"Und das in einer herzlichen, ungezwungenen Atmosphäre, mal familiär, mal ausgelassen. Eine sonnige Terrasse und eine sorgsam ausgewählte Weinkarte (mit Naturweinen) machen dieses Quartiersbistro zur Adresse für ganz Luxemburg.",
+    story_sig:"Cyrille Schneider & das Team",
+    terr_eyebrow:"Terrasse & praktische Infos", terr_title:"In der Sonne, Rue Félix de Blochausen",
+    terr_cap1:"Die Fassade mit den grünen Schirmen, zur Straße.",
+    terr_cap2:"Die Terrasse: Mäuerchen, Kräuter und graviertes Glas.",
+    hours_title:"Öffnungszeiten",
+    day_mon:"Montag", day_tue:"Dienstag", day_wed:"Mittwoch", day_thu:"Donnerstag", day_fri:"Freitag", day_sat:"Samstag", day_sun:"Sonntag",
+    hours_flag:"Küche ca. bis 21:45 · Zeiten zu bestätigen (Donnerstag variabel)",
+    contact_title:"So finden Sie uns",
+    night_t:"Beaulieu, am Abend", night_s:"Themenabende & gesellige Stimmung.",
+    foot_tag:"Quartiersbistro in Bonnevoie. Herzhafte Küche, nachbarschaftliches Flair — kommen Sie, wie Sie sind.",
+    foot_visit:"Besuchen Sie uns", foot_hours:"Öffnungszeiten ansehen",
+    foot_follow:"Folgen Sie uns", foot_book:"Tisch reservieren",
+    foot_demo:"Demo-Website — Brasserie Beaulieu. Inhalte mit dem Lokal zu bestätigen. Das Blau der Gestaltung stammt vom eigenen Schriftzug des Hauses; Gründungsjahr (ca. 1959) unbestätigt.",
+    st_open:"Geöffnet", st_closed:"Geschlossen", st_hours:"10:00 – 01:00"
+  },
+  en:{
+    skip:"Skip to menu",
+    nav_amb:"Ambiance", nav_menu:"The menu", nav_story:"Our story", nav_terr:"Terrace & info", nav_book:"Book",
+    dl_place:"Bonnevoie · Luxembourg", dl_since:"since (approx.) 1959", dl_motto:"Hearty food · Neighbourhood soul",
+    hero_kicker:"Neighbourhood bistro — Bonnevoie",
+    hero_tagline:"Hearty food. Neighbourhood soul.",
+    hero_addr:"25 Rue Félix de Blochausen, 1243 Bonnevoie, Luxembourg",
+    hero_cta1:"Book a table", hero_cta2:"See the menu",
+    amb_eyebrow:"The ambiance", amb_title:"Like home, only a little more Parisian",
+    amb_quote:"“Pure neighbourhood soul and hearty, unpretentious plates.”",
+    amb_lead:"Red-and-white gingham cloths on honey wood, mismatched vintage chairs, cream walls in newsprint and Paris posters, a big chalkboard above the bar. People come with family, with neighbours, with friends.",
+    amb_cap1:"The table set — red gingham, brass, daylight.",
+    amb_cap2:"The aperitif board, to share on bare wood.",
+    amb_cap3:"The cellar — a fine selection, organic wines too.",
+    menu_eyebrow:"On the menu", menu_title:"The menu, on the board",
+    menu_sub:"Generous, seasonal brasserie cooking. Rotating menu — ask for today's specials.",
+    menu_c1:"Starters & to share", menu_c2:"Mains", menu_c3:"Wine & drinks",
+    d_board:"Aperitif board", d_leeks:"Leeks, gribiche sauce", d_salad:"Mixed salad",
+    d_entrecote:"Entrecôte, herb butter", d_tartare:"Beef tartare", d_blanquette:"Veal blanquette",
+    d_burgerc:"Chicken burger", d_burgerv:"Vegetarian burger",
+    d_wine:"Wine selection", d_wine_s:"organic & natural wines too", d_beer:"Draught beer", d_beer_s:"Bofferding / Jupiler",
+    d_menuj:"Menu of the day", d_menuj_s:"weekday lunch",
+    pr_confirm:"to confirm", pr_carte:"à la carte",
+    pj_k:"Special", pj_t:"Dish of the day",
+    pj_d:"The pick of the market, chalked on the board. Ask your server for the chef's suggestion.",
+    menu_note:"Indicative prices · seasonal menu · to confirm",
+    story_cap:"The chef's portrait, on the newsprint wall.",
+    story_est:"Since (approx.) 1959 — to confirm", story_title:"Our story",
+    story_p1:"Since (approximately) 1959, Brasserie Beaulieu has been the unmissable address in Bonnevoie. Brought forward with passion by Cyrille Schneider and his enthusiastic team, it serves generous, honest French food — cordon bleu, entrecôte, cassoulet, tartare and rotating market specials.",
+    story_p2:"All in a warm, unpretentious setting that swings between family lunch and festive evening. A sunny terrace and a thoughtful wine list (including organic options) complete this neighbourhood bistro that has become a reference for all of Luxembourg City.",
+    story_sig:"Cyrille Schneider & the team",
+    terr_eyebrow:"Terrace & practical info", terr_title:"In the sun, on Rue Félix de Blochausen",
+    terr_cap1:"The facade and its green umbrellas, streetside.",
+    terr_cap2:"The terrace: low wall, herbs and etched glass.",
+    hours_title:"Opening hours",
+    day_mon:"Monday", day_tue:"Tuesday", day_wed:"Wednesday", day_thu:"Thursday", day_fri:"Friday", day_sat:"Saturday", day_sun:"Sunday",
+    hours_flag:"Kitchen approx. until 21:45 · hours to confirm (Thursday varies)",
+    contact_title:"Find us",
+    night_t:"Beaulieu, after dark", night_s:"Themed nights & a convivial mood.",
+    foot_tag:"Neighbourhood bistro in Bonnevoie. Hearty food, neighbourhood soul — come as you are.",
+    foot_visit:"Visit us", foot_hours:"See opening hours",
+    foot_follow:"Follow us", foot_book:"Book a table",
+    foot_demo:"Demo website — Brasserie Beaulieu. Content to be confirmed with the establishment. The accent blue is sampled from the venue's own cursive sign; founding year (approx. 1959) unconfirmed.",
+    st_open:"Open", st_closed:"Closed", st_hours:"10:00 – 01:00"
+  }
+};
+
+let currentLang = "fr";
+function applyLang(lang){
+  const dict = I18N[lang]; if(!dict) return;
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(dict[k] === undefined) return;
+    // preserve inner <small> sub-labels where present
+    const small = el.querySelector("small");
+    if(small){
+      const skey = small.getAttribute("data-i18n");
+      el.childNodes[0].nodeValue = dict[k] + " ";
+      if(skey && dict[skey]!==undefined) small.textContent = dict[skey];
+    } else {
+      el.textContent = dict[k];
+    }
+  });
+  document.querySelectorAll(".lang button").forEach(b=>{
+    b.classList.toggle("active", b.dataset.lang===lang);
+  });
+  updateStatus();
+}
+document.querySelectorAll(".lang button").forEach(b=>{
+  b.addEventListener("click", ()=>applyLang(b.dataset.lang));
+});
+
+/* ---------- time-aware Ouvert/Fermé (Europe/Luxembourg) ---------- */
+/* Hours: daily 10:00 – 01:00 (closes 1am next day). */
+function luxNow(){
+  try{
+    const s = new Date().toLocaleString("en-US",{timeZone:"Europe/Luxembourg"});
+    return new Date(s);
+  }catch(e){ return new Date(); }
+}
+function isOpen(d){
+  const h = d.getHours();
+  return (h >= 10) || (h < 1); // open 10:00 -> 01:00
+}
+function updateStatus(){
+  const dict = I18N[currentLang];
+  const d = luxNow();
+  const open = isOpen(d);
+  const chip = document.getElementById("statusChip");
+  const txt = document.getElementById("statusText");
+  const hrs = document.getElementById("statusHours");
+  if(chip){ chip.classList.toggle("closed", !open); }
+  if(txt){ txt.textContent = open ? dict.st_open : dict.st_closed; }
+  if(hrs){ hrs.textContent = dict.st_hours; }
+  const today = d.getDay();
+  document.querySelectorAll(".hours-ardoise .row").forEach(r=>{
+    r.classList.toggle("today", parseInt(r.dataset.day,10)===today);
+  });
+}
+
+applyLang("fr");
+setInterval(updateStatus, 60000);
+</script>
+
+<!-- ============ resto-kit · WS2 conversion path (reservation + sticky CTA) ============ -->
+<style>
+.rk-resv{
+  --rk-accent:#7a2521; --rk-ink:#1c1a17; --rk-bg:#fbf7ef; --rk-muted:#6b6459;
+  --rk-line:#d9cfbf; --rk-font:inherit; --rk-radius:10px;
+}
+.rk-resv[hidden]{ display:none; }
+.rk-resv{
+  position:fixed; inset:0; z-index:1000; display:flex; align-items:center; justify-content:center;
+  padding:1rem; font-family:var(--rk-font);
+}
+.rk-resv__scrim{ position:absolute; inset:0; background:rgba(20,18,15,.55); backdrop-filter:saturate(.9) blur(1px); }
+.rk-resv__panel{
+  position:relative; width:min(30rem,100%); max-height:calc(100dvh - 2rem); overflow:auto;
+  background:var(--rk-bg); color:var(--rk-ink); border:1px solid var(--rk-line);
+  border-radius:var(--rk-radius); box-shadow:0 18px 50px rgba(20,18,15,.28); padding:1.4rem 1.4rem 1.5rem;
+}
+@media (prefers-reduced-motion: no-preference){ .rk-resv__panel{ animation:rk-resv-in .18s ease-out; } }
+@keyframes rk-resv-in{ from{ transform:translateY(8px); opacity:0 } to{ transform:none; opacity:1 } }
+.rk-resv__close{
+  position:absolute; top:.55rem; right:.55rem; width:2rem; height:2rem; border:0; border-radius:50%;
+  background:transparent; color:var(--rk-muted); font-size:1.4rem; line-height:1; cursor:pointer;
+}
+.rk-resv__close:hover{ color:var(--rk-ink); }
+.rk-resv__title{ margin:.1rem 0 .1rem; font-size:1.15rem; letter-spacing:.01em; }
+.rk-resv__sub{ margin:0 0 1rem; color:var(--rk-muted); font-size:.85rem; }
+.rk-resv__row{ display:flex; gap:.7rem; }
+.rk-resv__row > *{ flex:1; }
+.rk-resv label{ display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--rk-muted); margin:.7rem 0 .28rem; }
+.rk-resv input, .rk-resv select, .rk-resv textarea{
+  width:100%; padding:.6rem .65rem; font:inherit; color:var(--rk-ink); background:#fff;
+  border:1px solid var(--rk-line); border-radius:8px;
+}
+.rk-resv input:focus-visible, .rk-resv select:focus-visible, .rk-resv textarea:focus-visible,
+.rk-resv button:focus-visible{ outline:3px solid var(--rk-accent); outline-offset:2px; }
+.rk-resv__submit{
+  margin-top:1.1rem; width:100%; padding:.8rem 1rem; border:0; border-radius:8px; cursor:pointer;
+  background:var(--rk-accent); color:#fff; font:600 .95rem/1 var(--rk-font); letter-spacing:.02em;
+}
+.rk-resv__alt{ margin:.8rem 0 0; text-align:center; font-size:.8rem; color:var(--rk-muted); }
+.rk-resv__alt a{ color:var(--rk-accent); }
+.rk-resv__note{ margin:.9rem 0 0; font-size:.72rem; color:var(--rk-muted); line-height:1.4; }
+.rk-resv__ok{ padding:1rem 0; text-align:center; }
+.rk-resv__ok strong{ display:block; font-size:1.05rem; margin-bottom:.3rem; }
+</style>
+
+<div class="rk-resv" id="rkResv" role="dialog" aria-modal="true" aria-labelledby="rkResvTitle" hidden>
+  <div class="rk-resv__scrim" data-rk-resv-close></div>
+  <div class="rk-resv__panel">
+    <button class="rk-resv__close" type="button" data-rk-resv-close aria-label="Fermer">&times;</button>
+    <h2 class="rk-resv__title" id="rkResvTitle" data-rk-i="title">Réserver une table</h2>
+    <p class="rk-resv__sub" data-rk-i="sub">Nous confirmons par téléphone ou e-mail.</p>
+
+    <form class="rk-resv__form" id="rkResvForm" novalidate>
+      <label for="rkResvName" data-rk-i="name">Nom</label>
+      <input id="rkResvName" name="name" type="text" autocomplete="name" required />
+      <div class="rk-resv__row">
+        <div>
+          <label for="rkResvDate" data-rk-i="date">Date</label>
+          <input id="rkResvDate" name="date" type="date" required />
+        </div>
+        <div>
+          <label for="rkResvTime" data-rk-i="time">Heure</label>
+          <input id="rkResvTime" name="time" type="time" required />
+        </div>
+        <div>
+          <label for="rkResvGuests" data-rk-i="guests">Couverts</label>
+          <input id="rkResvGuests" name="guests" type="number" min="1" max="30" value="2" required />
+        </div>
+      </div>
+      <div class="rk-resv__row">
+        <div>
+          <label for="rkResvPhone" data-rk-i="phone">Téléphone</label>
+          <input id="rkResvPhone" name="phone" type="tel" autocomplete="tel" required />
+        </div>
+        <div>
+          <label for="rkResvEmail" data-rk-i="email">E-mail</label>
+          <input id="rkResvEmail" name="email" type="email" autocomplete="email" />
+        </div>
+      </div>
+      <label for="rkResvMsg" data-rk-i="msg">Message (facultatif)</label>
+      <textarea id="rkResvMsg" name="message" rows="2"></textarea>
+      <button class="rk-resv__submit" type="submit" data-rk-i="submit">Envoyer la demande</button>
+      <p class="rk-resv__alt" data-rk-i="callAlt">ou appelez-nous : <a class="rk-resv__tel" href="#">—</a></p>
+      <p class="rk-resv__note" data-rk-i="note">Demande de réservation — non confirmée tant que la maison ne vous a pas répondu.</p>
+    </form>
+
+    <div class="rk-resv__ok" id="rkResvOk" hidden>
+      <strong data-rk-i="okTitle">Demande envoyée.</strong>
+      <span data-rk-i="okBody">La maison vous confirmera sous peu.</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function (w, d) {
+  "use strict";
+  var RK = (w.RK = w.RK || {});
+  var I = {
+    fr:{ title:"Réserver une table", sub:"Nous confirmons par téléphone ou e-mail.", name:"Nom", date:"Date", time:"Heure", guests:"Couverts", phone:"Téléphone", email:"E-mail", msg:"Message (facultatif)", submit:"Envoyer la demande", callAlt:"ou appelez-nous :", note:"Demande de réservation — non confirmée tant que la maison ne vous a pas répondu.", okTitle:"Demande envoyée.", okBody:"La maison vous confirmera sous peu.", close:"Fermer" },
+    de:{ title:"Tisch reservieren", sub:"Wir bestätigen telefonisch oder per E-Mail.", name:"Name", date:"Datum", time:"Uhrzeit", guests:"Personen", phone:"Telefon", email:"E-Mail", msg:"Nachricht (optional)", submit:"Anfrage senden", callAlt:"oder rufen Sie an:", note:"Reservierungsanfrage — erst nach Rückmeldung des Hauses bestätigt.", okTitle:"Anfrage gesendet.", okBody:"Das Haus meldet sich in Kürze.", close:"Schließen" },
+    en:{ title:"Book a table", sub:"We confirm by phone or e-mail.", name:"Name", date:"Date", time:"Time", guests:"Guests", phone:"Phone", email:"E-mail", msg:"Message (optional)", submit:"Send request", callAlt:"or call us:", note:"Reservation request — not confirmed until the house replies.", okTitle:"Request sent.", okBody:"The house will confirm shortly.", close:"Close" }
+  };
+  function lang(){ var l=(d.documentElement.getAttribute("lang")||"fr").slice(0,2).toLowerCase(); return I[l]?l:"fr"; }
+
+  RK.reservation = function (cfg) {
+    cfg = cfg || {};
+    var root = d.getElementById("rkResv"); if (!root || root.getAttribute("data-rk-done")) return;
+    root.setAttribute("data-rk-done","1");
+    var form = d.getElementById("rkResvForm"), ok = d.getElementById("rkResvOk");
+    var tel = root.querySelector(".rk-resv__tel"), lastFocus = null;
+
+    function apply(){
+      var t = I[lang()];
+      root.querySelectorAll("[data-rk-i]").forEach(function(el){
+        var k = el.getAttribute("data-rk-i");
+        if (k === "callAlt"){ el.childNodes[0].nodeValue = t.callAlt + " "; return; }
+        if (t[k] != null) el.textContent = t[k];
+      });
+      root.querySelector(".rk-resv__close").setAttribute("aria-label", t.close);
+      if (cfg.phone){ tel.textContent = cfg.phone; tel.setAttribute("href","tel:"+cfg.phone.replace(/[^+\d]/g,"")); }
+      else { tel.parentNode.style.display = "none"; }
+    }
+
+    function open(){
+      lastFocus = d.activeElement; apply();
+      form.hidden = false; ok.hidden = true;
+      root.hidden = false; d.documentElement.style.overflow = "hidden";
+      var f = root.querySelector("#rkResvName"); if (f) f.focus();
+      d.addEventListener("keydown", onKey);
+    }
+    function close(){
+      root.hidden = true; d.documentElement.style.overflow = "";
+      d.removeEventListener("keydown", onKey);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    function onKey(e){
+      if (e.key === "Escape"){ close(); return; }
+      if (e.key !== "Tab") return;
+      var f = root.querySelectorAll('button,[href],input,select,textarea');
+      f = Array.prototype.filter.call(f, function(el){ return !el.disabled && el.offsetParent !== null; });
+      if (!f.length) return;
+      var first = f[0], last = f[f.length-1];
+      if (e.shiftKey && d.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && d.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+
+    apply(); // set initial labels + tel on the closed dialog too
+    // Keep an open dialog in sync if the page toggles language client-side.
+    if (w.MutationObserver){ new MutationObserver(function(){ if (!root.hidden) apply(); }).observe(d.documentElement,{ attributes:true, attributeFilter:["lang"] }); }
+
+    d.addEventListener("click", function(e){
+      if (e.target.closest("[data-rk-resv-open]")){ e.preventDefault(); open(); }
+      else if (e.target.closest("[data-rk-resv-close]")){ e.preventDefault(); close(); }
+    });
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      var data = new FormData(form);
+      if (cfg.endpoint){
+        fetch(cfg.endpoint, { method:"POST", body:data, headers:{ Accept:"application/json" } })
+          .then(function(r){ if (!r.ok) throw 0; done(); })
+          .catch(function(){ mailtoFallback(data); });
+      } else {
+        mailtoFallback(data);
+      }
+    });
+
+    function mailtoFallback(data){
+      if (!cfg.email){ done(); return; }
+      var t = I[lang()];
+      var body = [t.name+": "+data.get("name"), t.date+": "+data.get("date")+" "+data.get("time"),
+                  t.guests+": "+data.get("guests"), t.phone+": "+data.get("phone"),
+                  "E-mail: "+(data.get("email")||"—"), "", data.get("message")||""].join("\n");
+      w.location.href = "mailto:"+cfg.email+"?subject="+encodeURIComponent(t.title+" — "+(data.get("name")||""))+"&body="+encodeURIComponent(body);
+      done();
+    }
+    function done(){ form.hidden = true; ok.hidden = false; }
+
+    RK.reservation.open = open; RK.reservation.close = close;
+  };
+})(window, document);
+</script>
+
+<nav class="rk-sticky" id="rkSticky" aria-label="Contact rapide">
+  <a class="rk-sticky__btn rk-sticky__btn--call" id="rkStickyCall" href="#">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4.5 5.5c0 7.7 6.3 14 14 14 .8 0 1.5-.3 2-.9l-2.7-2.7c-.5-.5-1.3-.6-1.9-.2l-1.3.9c-2.1-1-3.8-2.7-4.8-4.8l.9-1.3c.4-.6.3-1.4-.2-1.9L7.9 3.9c-.6-.6-1.6-.5-2.1.2-.6.7-1.3 1.6-1.3 1.4z"/></svg>
+    <span data-rk-i="call">Appeler</span>
+  </a>
+  <button class="rk-sticky__btn rk-sticky__btn--resv" id="rkStickyResv" type="button" data-rk-resv-open>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg>
+    <span data-rk-i="reserve">Réserver</span>
+  </button>
+</nav>
+
+<style>
+.rk-sticky{
+  --rk-accent:#7a2521; --rk-on-accent:#fff; --rk-bg:#fff; --rk-ink:#1c1a17;
+  --rk-line:#e2d9c9; --rk-font:inherit; --rk-bp:640px;
+  position:fixed; left:0; right:0; bottom:0; z-index:900;
+  display:none; gap:.5rem; padding:.55rem .7rem calc(.55rem + env(safe-area-inset-bottom,0px));
+  background:var(--rk-bg); border-top:1px solid var(--rk-line);
+  box-shadow:0 -6px 20px rgba(20,18,15,.10); font-family:var(--rk-font);
+}
+@media (max-width:639.98px){ .rk-sticky{ display:flex; } body{ scroll-padding-bottom:4.5rem; } }
+.rk-sticky__btn{
+  flex:1; display:inline-flex; align-items:center; justify-content:center; gap:.45em;
+  min-height:2.9rem; padding:.6rem .8rem; border-radius:8px; text-decoration:none;
+  font:600 .92rem/1 var(--rk-font); letter-spacing:.01em; cursor:pointer; border:1px solid transparent;
+}
+.rk-sticky__btn--call{ background:transparent; color:var(--rk-ink); border-color:var(--rk-line); }
+.rk-sticky__btn--resv{ background:var(--rk-accent); color:var(--rk-on-accent); }
+.rk-sticky__btn:focus-visible{ outline:3px solid var(--rk-accent); outline-offset:2px; }
+.rk-sticky__btn svg{ width:1.05em; height:1.05em; flex:none; }
+</style>
+
+<script>
+(function (w, d) {
+  "use strict";
+  var RK = (w.RK = w.RK || {});
+  var I = { fr:{ call:"Appeler", reserve:"Réserver" }, de:{ call:"Anrufen", reserve:"Reservieren" }, en:{ call:"Call", reserve:"Book" } };
+  function lang(){ var l=(d.documentElement.getAttribute("lang")||"fr").slice(0,2).toLowerCase(); return I[l]?l:"fr"; }
+
+  RK.stickyCta = function (cfg) {
+    cfg = cfg || {};
+    var bar = d.getElementById("rkSticky"); if (!bar || bar.getAttribute("data-rk-done")) return;
+    bar.setAttribute("data-rk-done","1");
+    function applyLabels(){
+      var t = I[lang()];
+      bar.querySelectorAll("[data-rk-i]").forEach(function(el){ var k=el.getAttribute("data-rk-i"); if(t[k]) el.textContent=t[k]; });
+    }
+    applyLabels();
+    // Re-translate if the page toggles language client-side (no reload).
+    if (w.MutationObserver){ new MutationObserver(applyLabels).observe(d.documentElement,{ attributes:true, attributeFilter:["lang"] }); }
+
+    var call = d.getElementById("rkStickyCall");
+    if (cfg.phone){ call.setAttribute("href","tel:"+cfg.phone.replace(/[^+\d]/g,"")); }
+    else { call.style.display = "none"; }
+
+    // If no reservation modal exists on the page, make "Réserver" call instead.
+    var resv = d.getElementById("rkStickyResv");
+    if (!d.getElementById("rkResv") && cfg.phone){
+      var a = d.createElement("a");
+      a.className = resv.className; a.href = "tel:"+cfg.phone.replace(/[^+\d]/g,"");
+      a.innerHTML = resv.innerHTML; resv.parentNode.replaceChild(a, resv);
+    }
+  };
+})(window, document);
+</script>
+<!-- ============ end ws2-bundle ============ -->
+
+<!-- ---- Brasserie Beaulieu theme mapping + config (per-site) ---- -->
+<style id="bb-kit-theme">
+  .rk-resv{ --rk-accent:var(--red); --rk-ink:var(--ink); --rk-bg:var(--paper);
+            --rk-muted:color-mix(in srgb, var(--ink) 60%, var(--paper));
+            --rk-line:color-mix(in srgb, var(--ink) 16%, var(--paper));
+            --rk-font:'Mulish',system-ui,sans-serif; --rk-radius:6px; }
+  /* woven gingham ribbon at the top of the reservation panel — same device as the section dividers */
+  .rk-resv__panel{ padding-top:1.9rem; }
+  .rk-resv__panel::before{ content:""; position:absolute; top:0; left:0; right:0; height:12px;
+    border-radius:var(--rk-radius) var(--rk-radius) 0 0;
+    background-color:var(--red);
+    background-image:
+      linear-gradient(90deg, rgba(255,255,255,.85) 0 6px, transparent 6px 12px),
+      linear-gradient(0deg,  rgba(255,255,255,.35) 0 6px, transparent 6px 12px);
+    background-size:12px 12px; }
+  .rk-resv__title{ font-family:'Alegreya',Georgia,serif; font-weight:700;
+    font-variant:small-caps; letter-spacing:.02em; }
+  .rk-resv__close{ top:1.35rem; }
+  .rk-resv__ok strong{ font-family:'Caveat',cursive; font-weight:700; font-size:1.7rem; color:var(--burgundy); }
+  .rk-sticky{ --rk-accent:var(--red); --rk-on-accent:#fff; --rk-bg:var(--chalk); --rk-ink:#f3efe6;
+              --rk-line:rgba(255,255,255,.14); --rk-font:'Mulish',system-ui,sans-serif; }
+  .rk-sticky__btn--call{ color:#f3efe6; }
+  .rk-resv-line{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:12px; }
+  .rk-resv-k{ font-family:'Alegreya',serif; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--red); }
+  .rk-resv-trigger{ font:600 .8rem/1 'Mulish',system-ui,sans-serif; letter-spacing:.05em; text-transform:uppercase; color:#fff; background:var(--red); border:0; border-radius:6px; padding:.7rem 1.15rem; cursor:pointer; }
+  .rk-resv-trigger:hover{ filter:brightness(1.08); }
+  .rk-resv-trigger:focus-visible{ outline:3px solid var(--ink); outline-offset:2px; }
+</style>
+<script>
+  // WS1: replace `email` with the venue’s real reservation address before go-live.
+  RK.reservation({ email:"contact@example.lu", phone:"+352 26 48 33 02" });
+  RK.stickyCta({ phone:"+352 26 48 33 02" });
+  (function(){
+    var K={ fr:"Réserver en ligne", de:"Online reservieren", en:"Book online" };
+    var B={ fr:"Réserver une table", de:"Tisch reservieren", en:"Book a table" };
+    function sync(){
+      var l=(document.documentElement.lang||"fr").slice(0,2).toLowerCase();
+      var k=document.querySelector("[data-cas-resvk]"), b=document.querySelector("[data-cas-resv]");
+      if(k) k.textContent=K[l]||K.fr; if(b) b.textContent=B[l]||B.fr;
+    }
+    sync();
+    if(window.MutationObserver) new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+  })();
+</script>
+</body>
+</html>
