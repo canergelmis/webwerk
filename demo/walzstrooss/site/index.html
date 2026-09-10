@@ -289,9 +289,9 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
         </div>
         <div class="mgroup" style="margin-bottom:0">
           <h3 data-i18n="g_prix">Formules (exemple)</h3>
-          <div class="item"><span class="nm" data-i18n="i_p1">Menu complet</span><span class="dots"></span><span class="pr">15,50€</span></div>
-          <div class="item"><span class="nm" data-i18n="i_p2">Entrée + plat ou plat + dessert</span><span class="dots"></span><span class="pr">13,50€</span></div>
-          <div class="item"><span class="nm" data-i18n="i_p3">Plat seul</span><span class="dots"></span><span class="pr">11,50€</span></div>
+          <div class="item"><span class="nm" data-i18n="i_p1">Menu complet</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_p2">Entrée + plat ou plat + dessert</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_p3">Plat seul</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
         </div>
       </div>
       <p class="pricenote" data-i18n="ca_pricenote">Exemple d'un menu déjà servi (avril 2023), carte mensuelle — plats et prix actuels à confirmer en salle.</p>
@@ -369,7 +369,7 @@ const I18N = {
   g_entrees:"Entrées", i_veloute:"Velouté de légumes au bouillon de poule", i_rillettes:"Rillettes de truite à l'estragon et moutarde",
   g_plats:"Plats", i_spaghetti:"Spaghettis bolognaise", i_cabillaud:"Filet de cabillaud, sauce gingembre citronnée, riz trois couleurs", i_omelette:"Omelette aux herbes, purée de carotte, salade verte",
   g_desserts:"Desserts", i_cake:"Cake aux ananas", i_creme:"Crème caramel",
-  g_prix:"Formules (exemple)", i_p1:"Menu complet", i_p2:"Entrée + plat ou plat + dessert", i_p3:"Plat seul",
+  g_prix:"Formules (exemple)", i_p1:"Menu complet", i_p2:"Entrée + plat ou plat + dessert", i_p3:"Plat seul", ac:"à conf.",
   ca_pricenote:"Exemple d'un menu déjà servi (avril 2023), carte mensuelle — plats et prix actuels à confirmer en salle.",
   v_eyebrow:"Infos pratiques", v_head:"51 rue J.-F. Kennedy, Differdange.",
   l_addr:"Adresse", l_tel:"Téléphone", l_mail:"E-mail", l_hours:"Horaires", h_val:"Horaires à confirmer",
@@ -396,7 +396,7 @@ const I18N = {
   g_entrees:"Vorspeisen", i_veloute:"Gemüsecremesuppe mit Hühnerbrühe", i_rillettes:"Forellenrillette mit Estragon und Senf",
   g_plats:"Hauptgerichte", i_spaghetti:"Spaghetti Bolognese", i_cabillaud:"Kabeljaufilet mit Ingwer-Zitronen-Sauce, dreifarbigem Reis", i_omelette:"Kräuteromelette mit Karottenpüree und grünem Salat",
   g_desserts:"Desserts", i_cake:"Ananaskuchen", i_creme:"Crème Caramel",
-  g_prix:"Menüs (Beispiel)", i_p1:"Komplettmenü", i_p2:"Vorspeise + Hauptgericht oder Hauptgericht + Dessert", i_p3:"Nur Hauptgericht",
+  g_prix:"Menüs (Beispiel)", i_p1:"Komplettmenü", i_p2:"Vorspeise + Hauptgericht oder Hauptgericht + Dessert", i_p3:"Nur Hauptgericht", ac:"auf Anfrage",
   ca_pricenote:"Beispiel eines bereits servierten Menüs (April 2023), monatliche Karte — aktuelle Gerichte und Preise im Restaurant zu bestätigen.",
   v_eyebrow:"Praktische Infos", v_head:"51 rue J.-F. Kennedy, Differdingen.",
   l_addr:"Adresse", l_tel:"Telefon", l_mail:"E-Mail", l_hours:"Öffnungszeiten", h_val:"Öffnungszeiten zu bestätigen",
@@ -423,7 +423,7 @@ const I18N = {
   g_entrees:"Starters", i_veloute:"Vegetable velouté with chicken broth", i_rillettes:"Trout rillettes with tarragon and mustard",
   g_plats:"Mains", i_spaghetti:"Spaghetti bolognese", i_cabillaud:"Cod filet, lemon-ginger sauce, three-colour rice", i_omelette:"Herb omelette, carrot purée, green salad",
   g_desserts:"Desserts", i_cake:"Pineapple cake", i_creme:"Crème caramel",
-  g_prix:"Set menus (example)", i_p1:"Full menu", i_p2:"Starter + main or main + dessert", i_p3:"Main only",
+  g_prix:"Set menus (example)", i_p1:"Full menu", i_p2:"Starter + main or main + dessert", i_p3:"Main only", ac:"tbc",
   ca_pricenote:"Example of a menu already served (April 2023), monthly changing — current dishes and prices to be confirmed in-house.",
   v_eyebrow:"Find us", v_head:"51 rue J.-F. Kennedy, Differdange.",
   l_addr:"Address", l_tel:"Phone", l_mail:"Email", l_hours:"Hours", h_val:"Hours to be confirmed",
