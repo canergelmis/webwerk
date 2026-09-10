@@ -398,28 +398,28 @@ footer a.wk{color:var(--mustard);font-weight:700}
     <div class="menu-wrap">
       <div class="mcol">
         <h3><span class="p" style="background:var(--red)"></span> <span data-i18n="menu_meat">Avec viande</span></h3>
-        <div class="mrow"><span class="nm">Komutan</span><span class="dsh"></span><span class="pr">17,00 €</span></div>
-        <div class="mrow"><span class="nm">Querido</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
-        <div class="mrow"><span class="nm">Chikeria</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
-        <div class="mrow"><span class="nm">Istanbull</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
-        <div class="mrow"><span class="nm">Max</span><span class="dsh"></span><span class="pr">15,00 €</span></div>
+        <div class="mrow"><span class="nm">Komutan</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+        <div class="mrow"><span class="nm">Querido</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+        <div class="mrow"><span class="nm">Chikeria</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+        <div class="mrow"><span class="nm">Istanbull</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+        <div class="mrow"><span class="nm">Max</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
       </div>
       <div class="mcol">
         <h3><span class="p" style="background:var(--sage)"></span> <span data-i18n="menu_veg">Végétarien</span></h3>
-        <div class="mrow"><span class="nm">Athena</span><span class="dsh"></span><span class="pr">16,00 €</span></div>
-        <div class="mrow"><span class="nm">Belly Dance</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
-        <div class="mrow"><span class="nm">Sultan</span><span class="dsh"></span><span class="pr">15,70 €</span></div>
-        <div class="mrow"><span class="nm">Bibi Habibi</span><span class="dsh"></span><span class="pr">14,70 €</span></div>
-        <div class="mrow"><span class="nm">Parvati Sunrise</span><span class="dsh"></span><span class="pr">14,70 €</span></div>
-        <div class="mrow"><span class="nm">Ortaköy</span> <span class="vg" data-i18n="menu_cold">froid</span><span class="dsh"></span><span class="pr">14,70 €</span></div>
+        <div class="mrow"><span class="nm">Athena</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+        <div class="mrow"><span class="nm">Belly Dance</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+        <div class="mrow"><span class="nm">Sultan</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+        <div class="mrow"><span class="nm">Bibi Habibi</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+        <div class="mrow"><span class="nm">Parvati Sunrise</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+        <div class="mrow"><span class="nm">Ortaköy</span> <span class="vg" data-i18n="menu_cold">froid</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
       </div>
     </div>
 
     <div class="drinks">
       <h3 style="font-size:1.1rem;color:var(--brown);display:flex;align-items:center;gap:9px"><span class="p" style="width:12px;height:12px;border-radius:50%;background:var(--mustard)"></span> <span data-i18n="menu_drinks">Boissons</span></h3>
       <div class="dl">
-        <span>Coca-Cola · 3,50 €</span><span>Coca Zero · 3,50 €</span><span>Pepsi Max · 3,50 €</span>
-        <span data-i18n="dr_gloriette">Limonades Gloriette · 3,50–3,90 €</span><span data-i18n="dr_bio">Limonades bio · 4,50 €</span>
+        <span>Coca-Cola · à conf.</span><span>Coca Zero · à conf.</span><span>Pepsi Max · à conf.</span>
+        <span data-i18n="dr_gloriette">Limonades Gloriette · à conf.</span><span data-i18n="dr_bio">Limonades bio · à conf.</span>
       </div>
     </div>
 
@@ -511,7 +511,7 @@ var I18N = {
     menu_kick:"La carte",menu_h:"Les kumpirs de la maison",
     menu_p:"Onze recettes signature, chacune bâtie sur la grande pomme de terre — puis garnie au comptoir. Version viande ou 100 % végé.",
     menu_meat:"Avec viande",menu_veg:"Végétarien",menu_cold:"froid",menu_drinks:"Boissons",
-    dr_gloriette:"Limonades Gloriette · 3,50–3,90 €",dr_bio:"Limonades bio · 4,50 €",
+    dr_gloriette:"Limonades Gloriette · à conf.",dr_bio:"Limonades bio · à conf.",ac:"à conf.",
     menu_note:"Tarifs indicatifs relevés en livraison — à confirmer en salle avec la maison. La composition exacte de chaque kumpir se choisit au comptoir.",
     house_kick:"La maison",house_h:"La happy potato, Place du Théâtre",
     house_p1:"Sous la fresque pop, les parasols rouges et les grandes tables en bois, on s'installe, on discute, on choisit ses garnitures une à une. Le patron explique volontiers chaque option — et vous fait goûter avant de choisir.",
@@ -542,7 +542,7 @@ var I18N = {
     menu_kick:"Die Karte",menu_h:"Die Kumpirs des Hauses",
     menu_p:"Elf Signature-Rezepte, jedes auf der großen Kartoffel aufgebaut — dann am Tresen belegt. Mit Fleisch oder 100 % vegetarisch.",
     menu_meat:"Mit Fleisch",menu_veg:"Vegetarisch",menu_cold:"kalt",menu_drinks:"Getränke",
-    dr_gloriette:"Gloriette-Limonaden · 3,50–3,90 €",dr_bio:"Bio-Limonaden · 4,50 €",
+    dr_gloriette:"Gloriette-Limonaden · auf Anfrage",dr_bio:"Bio-Limonaden · auf Anfrage",ac:"auf Anfrage",
     menu_note:"Richtpreise aus dem Lieferdienst — im Lokal mit dem Haus zu bestätigen. Die genaue Zusammenstellung jedes Kumpir wählen Sie am Tresen.",
     house_kick:"Das Haus",house_h:"Die Happy Potato, Place du Théâtre",
     house_p1:"Unter der Pop-Wandmalerei, den roten Sonnenschirmen und an den großen Holztischen setzt man sich, plaudert und wählt seine Toppings eins nach dem anderen. Der Inhaber erklärt gern jede Option — und lässt Sie vorher probieren.",
@@ -573,7 +573,7 @@ var I18N = {
     menu_kick:"The menu",menu_h:"The house kumpirs",
     menu_p:"Eleven signature recipes, each built on the big potato — then loaded at the counter. With meat, or fully vegetarian.",
     menu_meat:"With meat",menu_veg:"Vegetarian",menu_cold:"cold",menu_drinks:"Drinks",
-    dr_gloriette:"Gloriette lemonades · €3.50–3.90",dr_bio:"Organic lemonades · €4.50",
+    dr_gloriette:"Gloriette lemonades · tbc",dr_bio:"Organic lemonades · tbc",ac:"tbc",
     menu_note:"Prices shown are indicative, taken from delivery — to be confirmed in-house. Each kumpir's exact toppings are chosen at the counter.",
     house_kick:"The place",house_h:"The happy potato, Place du Théâtre",
     house_p1:"Under the pop mural, the red parasols and the big wooden tables, you sit down, you chat, you pick your toppings one by one. The owner is happy to explain every option — and lets you taste before you choose.",
