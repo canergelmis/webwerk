@@ -157,15 +157,11 @@
     background:var(--charcoal);border-radius:14px 0 0 14px;
     box-shadow:-6px 0 30px rgba(0,0,0,.25);overflow:hidden;
   }
-  .rail a,.rail .rail-dial{display:flex;flex-direction:column;align-items:center;gap:4px;
+  .rail a{display:flex;flex-direction:column;align-items:center;gap:4px;
     padding:14px 16px;color:#fff;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;
     text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.1);transition:background .2s}
   .rail a:hover{background:var(--red)}
   .rail a svg{width:20px;height:20px;fill:var(--amber)}
-  .rail .rail-dial{cursor:default;gap:2px;padding:12px 10px}
-  .rail-dot{width:9px;height:9px;border-radius:50%;background:#888}
-  .rail-dial.open .rail-dot{background:var(--amber);box-shadow:0 0 0 3px rgba(212,148,30,.25)}
-  .rail-dial .rd-state{font-weight:500}
 
   /* ---------- HERO ---------- */
   .hero{position:relative;min-height:100vh;display:grid;grid-template-columns:60% 40%}
@@ -197,32 +193,6 @@
   .btn-call:hover{border-color:var(--amber);color:var(--amber)}
   .btn-call:hover svg{fill:var(--amber)}
 
-  /* hero dial */
-  .hero-dial{position:absolute;top:clamp(40px,6vw,110px);right:clamp(40px,6vw,80px);
-    display:flex;align-items:center;gap:12px;
-    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
-    padding:10px 16px 10px 12px;border-radius:40px}
-  .dial-ring{width:44px;height:44px;border-radius:50%;position:relative;flex:none;
-    background:conic-gradient(var(--amber) var(--seg,0%),rgba(255,255,255,.13) 0)}
-  .dial-ring::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--charcoal)}
-  .dial-ring .dot{position:absolute;inset:0;margin:auto;width:11px;height:11px;border-radius:50%;
-    background:#888;z-index:2}
-  .hero-dial.open .dial-ring .dot{background:var(--amber);box-shadow:0 0 0 4px rgba(212,148,30,.28)}
-  .dial-txt{display:flex;flex-direction:column;line-height:1.15}
-  .dial-state{font-family:var(--mono);font-weight:500;font-size:.82rem;letter-spacing:.12em;color:var(--cream)}
-  .hero-dial.open .dial-state{color:var(--amber)}
-  .dial-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:rgba(250,250,248,.55)}
-
-  /* seam pill */
-  .seam-pill{position:absolute;top:50%;right:0;transform:translate(50%,-50%);z-index:12;
-    display:flex;align-items:center;gap:9px;background:var(--amber);color:var(--charcoal);
-    font-family:var(--mono);font-weight:500;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
-    padding:11px 20px;border-radius:40px;white-space:nowrap;box-shadow:0 8px 26px rgba(0,0,0,.3)}
-  .seam-pill .blink{width:9px;height:9px;border-radius:50%;background:var(--red);animation:blink 1.6s infinite}
-  .seam-pill.closed{background:var(--slate);color:var(--cream)}
-  .seam-pill.closed .blink{background:#c05}
-  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-
   .hero-right{position:relative;overflow:hidden;background:var(--charcoal)}
   .hero-right img{width:100%;height:100%;object-fit:cover;object-position:center}
   .hero-right::after{content:"";position:absolute;inset:0;
@@ -251,19 +221,10 @@
   .axis .tick:last-child{transform:translateX(-100%)}
   .axis .tick::after{content:"";position:absolute;left:50%;top:15px;width:1px;height:8px;background:rgba(250,250,248,.2)}
   .rows{position:relative}
-  .now-overlay{position:absolute;top:0;bottom:0;left:104px;right:0;pointer-events:none;z-index:6}
-  .now-line{position:absolute;top:-4px;bottom:2px;width:2px;background:var(--amber)}
-  .now-line::before{content:"";position:absolute;top:-7px;left:-4px;width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(212,148,30,.25)}
-  .now-line .nl-lbl{position:absolute;top:-28px;left:50%;transform:translateX(-50%);
-    background:var(--amber);color:var(--charcoal);font-family:var(--mono);font-size:.62rem;font-weight:500;
-    padding:2px 7px;border-radius:4px;white-space:nowrap}
   .drow{display:grid;grid-template-columns:104px 1fr;align-items:center;gap:0;padding:5px 0}
   .drow .dl{font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;color:rgba(250,250,248,.62);text-transform:uppercase}
   .drow .track{position:relative;height:20px;background:rgba(255,255,255,.05);border-radius:5px}
   .drow .bar{position:absolute;top:0;bottom:0;background:linear-gradient(90deg,var(--amber),var(--amber-soft));border-radius:5px;opacity:.85}
-  .drow.today .dl{color:var(--amber);font-weight:500}
-  .drow.today .track{background:rgba(212,148,30,.1);outline:1px solid rgba(212,148,30,.4)}
-  .drow.today .bar{opacity:1}
   .drow .bt{position:absolute;top:50%;transform:translateY(-50%);left:10px;
     font-family:var(--mono);font-size:.62rem;color:var(--charcoal);font-weight:500;letter-spacing:.06em}
   .hours-note{margin-top:22px;font-family:var(--mono);font-size:.66rem;color:rgba(250,250,248,.4);letter-spacing:.06em}
@@ -273,13 +234,6 @@
   .menu-head{text-align:left;max-width:56ch;margin-bottom:14px}
   .menu-head h2{font-size:clamp(2.1rem,4vw,3.4rem)}
   .menu-head .lead{margin-top:12px;color:var(--slate);font-size:1.02rem}
-  /* price ticker */
-  .price-ticker{margin:26px 0 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
-  .pt-track{display:inline-flex;white-space:nowrap;padding:12px 0;font-family:var(--mono);font-size:.82rem;
-    letter-spacing:.05em;color:var(--slate);animation:scroll-l 30s linear infinite}
-  .pt-track span{padding:0 22px;border-right:1px solid var(--line)}
-  .pt-track b{color:var(--red);font-weight:500}
-  .pt-track .cr{color:var(--amber)}
 
   .ledger{display:grid;grid-template-columns:1fr 64px 1fr;gap:0 40px;margin-top:38px;position:relative}
   .ledger-col{display:flex;flex-direction:column;gap:44px}
@@ -392,10 +346,9 @@
 
   /* ---------- REDUCED MOTION ---------- */
   @media (prefers-reduced-motion: reduce){
-    .ticker-track,.pt-track{animation:none;white-space:normal;display:block;text-align:center}
-    .ticker-track span,.pt-track span{padding:2px 14px;border:none}
+    .ticker-track{animation:none;white-space:normal;display:block;text-align:center}
+    .ticker-track span{padding:2px 14px;border:none}
     .spit{animation:none;background-position:50% 0}
-    .seam-pill .blink{animation:none}
     html{scroll-behavior:auto}
   }
 
@@ -417,8 +370,6 @@
     .hero-left{order:3;padding:48px 24px 70px}
     .hero-right{order:1;height:42vh;min-height:270px}
     .hero-right::after{background:linear-gradient(0deg,rgba(26,26,26,.55),rgba(26,26,26,0) 40%)}
-    .hero-dial{position:static;margin-bottom:26px;align-self:flex-start}
-    .seam-pill{display:none}
     .hero-ticker{position:static;order:2}
     .cta-cluster .btn{flex:1 1 auto;justify-content:center}
     .clock{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -449,10 +400,6 @@
 
 <!-- DESKTOP ORDER RAIL -->
 <nav class="rail" aria-label="Commander">
-  <div class="rail-dial" id="railDial">
-    <span class="rail-dot"></span>
-    <span class="rd-state" id="railState">—</span>
-  </div>
   <a href="https://wolt.com/en/lux/luxembourg/restaurant/brasserie-duc" target="_blank" rel="noopener" aria-label="Wolt">
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3l2 6 2-6h2l-3 9h-2l-1-5-1 5H9L6 5h2l2 6 2-6z"/></svg>
     <span>Wolt</span>
@@ -470,13 +417,6 @@
 <!-- HERO -->
 <header class="hero">
   <div class="hero-left">
-    <div class="hero-dial" id="heroDial">
-      <span class="dial-ring"><span class="dot"></span></span>
-      <span class="dial-txt">
-        <span class="dial-state" id="dialState">—</span>
-        <span class="dial-sub" id="dialSub">—</span>
-      </span>
-    </div>
     <div class="hero-brand">
       <span class="wordmark">Duc<span class="cr coronet"></span></span>
     </div>
@@ -501,7 +441,6 @@
   <div class="hero-right">
     <img src="assets/storefront_2025.jpg" alt="Devanture Duc Café &amp; Snack, 422 route de Thionville, Hesperange" style="object-position:center 30%">
   </div>
-  <div class="seam-pill" id="seamPill"><span class="blink"></span><span id="seamTxt">OUVERT · OPEN NOW</span></div>
   <div class="hero-ticker" aria-hidden="true">
     <div class="ticker-track" id="ticker">
       <span>06:00 → 22:00</span><span class="hi">·</span><span data-i18n="tk1">FRAÎCHEMENT DÉCOUPÉ</span><span class="hi">·</span><span>HESPERANGE</span><span class="hi">·</span><span data-i18n="tk2">WOLT &amp; UBER EATS</span><span class="hi">·</span>
@@ -536,7 +475,6 @@
           </div>
         </div>
         <div class="rows">
-          <div class="now-overlay"><div class="now-line" id="nowLine" style="display:none"><span class="nl-lbl" id="nlLbl"></span></div></div>
           <div class="drow" data-day="1"><span class="dl" data-day-label="1">Lun</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
           <div class="drow" data-day="2"><span class="dl" data-day-label="2">Mar</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
           <div class="drow" data-day="3"><span class="dl" data-day-label="3">Mer</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
@@ -560,50 +498,32 @@
       <p class="lead" data-i18n="menuLead">Menus avec frites et boisson, sandwichs généreux, assiettes grillades et boxes à partager.</p>
     </div>
 
-    <!-- price ticker -->
-    <div class="price-ticker" aria-hidden="true">
-      <div class="pt-track">
-        <span>Menu Kebab <b>€14,50</b></span>
-        <span>Sandwich Kebab <b>€10,00</b></span>
-        <span>Assiette Kebab <b>€17,00</b></span>
-        <span>Box Kebab <b>€11,00</b></span>
-        <span>Menu Durum <b>€15,50</b></span>
-        <span>Sandwich Falafel <b>€9,00</b></span>
-        <span>Menu Kebab <b>€14,50</b></span>
-        <span>Sandwich Kebab <b>€10,00</b></span>
-        <span>Assiette Kebab <b>€17,00</b></span>
-        <span>Box Kebab <b>€11,00</b></span>
-        <span>Menu Durum <b>€15,50</b></span>
-        <span>Sandwich Falafel <b>€9,00</b></span>
-      </div>
-    </div>
-
     <div class="ledger">
       <!-- COLUMN 1 -->
       <div class="ledger-col">
         <div class="cat">
           <div class="cat-head"><h3 data-i18n="catMenus">Menus</h3><span class="cr coronet"></span><span class="cnote" data-i18n="catMenusNote">frites &amp; boisson</span></div>
-          <div class="item"><span class="nm">Menu Kebab</span><span class="dots"></span><span class="pr">€14,50</span></div>
-          <div class="item"><span class="nm">Menu Durum</span><span class="dots"></span><span class="pr">€15,50</span></div>
-          <div class="item"><span class="nm">Menu Köfte</span><span class="dots"></span><span class="pr">€15,50</span></div>
-          <div class="item"><span class="nm">Menu Brochette</span><span class="dots"></span><span class="pr">€16,50</span></div>
-          <div class="item"><span class="nm">Menu Lahmacun</span><span class="dots"></span><span class="pr">€16,50</span></div>
-          <div class="item"><span class="nm">Menu Escalope</span><span class="dots"></span><span class="pr">€14,50</span></div>
-          <div class="item"><span class="nm">Menu Falafel</span><span class="dots"></span><span class="pr">€14,50</span></div>
-          <div class="item"><span class="nm">Menu Végétarien</span><span class="dots"></span><span class="pr">€14,00</span></div>
-          <div class="item"><span class="nm">Menu Cheeseburger</span><span class="dots"></span><span class="pr">€14,50</span></div>
-          <div class="item"><span class="nm">Menu Hamburger</span><span class="dots"></span><span class="pr">€14,00</span></div>
-          <div class="item"><span class="nm">Menu Wraps du Duc</span><span class="dots"></span><span class="pr">€14,50</span></div>
-          <div class="item"><span class="nm">Menu Chicken Nuggets</span><span class="dots"></span><span class="pr">€14,50</span></div>
-          <div class="item"><span class="nm">Menu Saucisse Turc</span><span class="dots"></span><span class="pr">€14,50</span></div>
+          <div class="item"><span class="nm">Menu Kebab</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Durum</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Köfte</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Brochette</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Lahmacun</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Escalope</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Falafel</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Végétarien</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Cheeseburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Hamburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Wraps du Duc</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Chicken Nuggets</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Menu Saucisse Turc</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
         </div>
         <div class="cat">
           <div class="cat-head"><h3 data-i18n="catBoxes">Box &amp; Accompagnements</h3><span class="cr coronet"></span></div>
-          <div class="item"><span class="nm">Box Kebab</span><span class="dots"></span><span class="pr">€11,00</span></div>
-          <div class="item"><span class="nm">Box Chicken Nuggets (7x)</span><span class="dots"></span><span class="pr">€11,00</span></div>
-          <div class="item"><span class="nm">Box Mozzarella Sticks (6x)</span><span class="dots"></span><span class="pr">€10,02</span></div>
-          <div class="item"><span class="nm">Box Petite Frites</span><span class="dots"></span><span class="pr">€5,50</span></div>
-          <div class="item"><span class="nm">Coca-Cola Zero 33cl</span><span class="dots"></span><span class="pr">€4,00</span></div>
+          <div class="item"><span class="nm">Box Kebab</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Box Chicken Nuggets (7x)</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Box Mozzarella Sticks (6x)</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Box Petite Frites</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Coca-Cola Zero 33cl</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
         </div>
       </div>
 
@@ -617,33 +537,33 @@
       <div class="ledger-col">
         <div class="cat">
           <div class="cat-head"><h3 data-i18n="catSand">Sandwichs</h3><span class="cr coronet"></span></div>
-          <div class="item"><span class="nm">Sandwich Kebab</span><span class="dots"></span><span class="pr">€10,00</span></div>
-          <div class="item"><span class="nm">Sandwich Durüm</span><span class="dots"></span><span class="pr">€10,50</span></div>
-          <div class="item"><span class="nm">Sandwich Lahmacun</span><span class="dots"></span><span class="pr">€11,00</span></div>
-          <div class="item"><span class="nm">Sandwich Escalope</span><span class="dots"></span><span class="pr">€10,00</span></div>
-          <div class="item"><span class="nm">Sandwich Falafel</span><span class="dots"></span><span class="pr">€9,00</span></div>
-          <div class="item"><span class="nm">Sandwich Cheeseburger</span><span class="dots"></span><span class="pr">€10,00</span></div>
-          <div class="item"><span class="nm">Sandwich Hamburger</span><span class="dots"></span><span class="pr">€9,50</span></div>
-          <div class="item"><span class="nm">Sandwich Saucisse Turc</span><span class="dots"></span><span class="pr">€10,00</span></div>
-          <div class="item"><span class="nm">Sandwich Bruschette</span><span class="dots"></span><span class="pr">€10,00</span></div>
+          <div class="item"><span class="nm">Sandwich Kebab</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Sandwich Durüm</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Sandwich Lahmacun</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Sandwich Escalope</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Sandwich Falafel</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Sandwich Cheeseburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Sandwich Hamburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Sandwich Saucisse Turc</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Sandwich Bruschette</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
         </div>
         <div class="cat">
           <div class="cat-head"><h3 data-i18n="catPlates">Assiettes</h3><span class="cr coronet"></span></div>
-          <div class="item"><span class="nm">Assiette Köfte</span><span class="dots"></span><span class="pr">€19,00</span></div>
-          <div class="item"><span class="nm">Assiette Brochette de Poulet</span><span class="dots"></span><span class="pr">€19,00</span></div>
-          <div class="item"><span class="nm">Assiette Kebab</span><span class="dots"></span><span class="pr">€17,00</span></div>
-          <div class="item"><span class="nm">Assiette Saucisse Turc</span><span class="dots"></span><span class="pr">€17,00</span></div>
-          <div class="item"><span class="nm">Assiette Crispy</span><span class="dots"></span><span class="pr">€17,00</span></div>
-          <div class="item"><span class="nm">Assiette Cheeseburger</span><span class="dots"></span><span class="pr">€16,00</span></div>
-          <div class="item"><span class="nm">Assiette Falafel</span><span class="dots"></span><span class="pr">€16,00</span></div>
-          <div class="item"><span class="nm">Assiette Hamburger</span><span class="dots"></span><span class="pr">€15,00</span></div>
-          <div class="item"><span class="nm">Assiette Chicken Nuggets</span><span class="dots"></span><span class="pr">€15,00</span></div>
+          <div class="item"><span class="nm">Assiette Köfte</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Assiette Brochette de Poulet</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Assiette Kebab</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Assiette Saucisse Turc</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Assiette Crispy</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Assiette Cheeseburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Assiette Falafel</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Assiette Hamburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm">Assiette Chicken Nuggets</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
         </div>
       </div>
     </div>
 
     <div class="menu-foot">
-      <p class="price-note" data-i18n="priceNote">Prix indicatifs (plateforme de livraison Wolt) — le tarif sur place/à emporter peut différer ; à confirmer au comptoir.</p>
+      <p class="price-note" data-i18n="priceNote">Plats relevés sur la carte de livraison Wolt — prix non affichés, carte complète et tarifs à confirmer avec l'établissement.</p>
       <div class="cta-cluster">
         <a class="btn btn-wolt" href="https://wolt.com/en/lux/luxembourg/restaurant/brasserie-duc" target="_blank" rel="noopener"><span data-i18n="ctaWolt2">Commander sur Wolt</span></a>
         <a class="btn btn-uber" href="https://www.ubereats.com/lu/store/snack-kebab-duc/-00GjSUEXtyV1ANFSv8jEg" target="_blank" rel="noopener"><span data-i18n="ctaUber2">Uber Eats</span></a>
@@ -779,7 +699,8 @@
       menuLead:"Menus avec frites et boisson, sandwichs généreux, assiettes grillades et boxes à partager.",
       catMenus:"Menus", catMenusNote:"frites & boisson", catBoxes:"Box & Accompagnements",
       catSand:"Sandwichs", catPlates:"Assiettes",
-      priceNote:"Prix indicatifs (plateforme de livraison Wolt) — le tarif sur place/à emporter peut différer ; à confirmer au comptoir.",
+      priceNote:"Plats relevés sur la carte de livraison Wolt — prix non affichés, carte complète et tarifs à confirmer avec l'établissement.",
+      ac:"à conf.",
       ctaWolt2:"Commander sur Wolt", ctaUber2:"Uber Eats", ctaCall2:"Appeler",
       whyKick:"Le snack de quartier", whyTitle:"Pourquoi Duc",
       whyBody:"Un petit snack familial tenu par un couple passionné qui prépare chaque repas avec soin et le sourire. Döner découpé frais, portions généreuses, terrasse pour s'installer — on repart toujours le ventre bien rempli.",
@@ -796,8 +717,7 @@
       ctaWolt3:"Commander", ctaCall3:"Appeler",
       confirmNote:"* Téléphone, horaires et prix à confirmer avec l'établissement. Aperçu de démonstration.",
       mCall:"Appeler",
-      stOpen:"OUVERT", stClosed:"FERMÉ", nowWord:"maintenant",
-      subOpenTo:"ouvert jusqu'à", subOpensAt:"ouvre à", days:["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
+      days:["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
     },
     de:{
       railCall:"Anrufen",
@@ -811,7 +731,8 @@
       menuLead:"Menüs mit Pommes und Getränk, herzhafte Sandwiches, Grillteller und Boxen zum Teilen.",
       catMenus:"Menüs", catMenusNote:"inkl. Pommes & Getränk", catBoxes:"Boxen & Beilagen",
       catSand:"Sandwiches", catPlates:"Teller",
-      priceNote:"Richtpreise (Lieferplattform Wolt) — der Preis vor Ort kann abweichen; bitte an der Theke bestätigen.",
+      priceNote:"Gerichte laut Wolt-Lieferkarte — keine Preise angezeigt, vollständige Karte und Preise beim Betrieb zu bestätigen.",
+      ac:"auf Anfrage",
       ctaWolt2:"Auf Wolt bestellen", ctaUber2:"Uber Eats", ctaCall2:"Anrufen",
       whyKick:"Der Snack im Viertel", whyTitle:"Warum Duc",
       whyBody:"Ein kleines Familienrestaurant, geführt von einem engagierten Paar, das jedes Gericht mit Sorgfalt und einem Lächeln zubereitet. Frisch geschnittener Döner, großzügige Portionen, Terrasse zum Verweilen — man geht immer satt nach Hause.",
@@ -828,8 +749,7 @@
       ctaWolt3:"Bestellen", ctaCall3:"Anrufen",
       confirmNote:"* Telefon, Öffnungszeiten und Preise mit dem Betrieb bestätigen. Demo-Vorschau.",
       mCall:"Anrufen",
-      stOpen:"GEÖFFNET", stClosed:"GESCHLOSSEN", nowWord:"jetzt",
-      subOpenTo:"geöffnet bis", subOpensAt:"öffnet um", days:["So","Mo","Di","Mi","Do","Fr","Sa"]
+      days:["So","Mo","Di","Mi","Do","Fr","Sa"]
     },
     en:{
       railCall:"Call",
@@ -843,7 +763,8 @@
       menuLead:"Menus with fries and a drink, generous sandwiches, grilled plates and boxes to share.",
       catMenus:"Menus", catMenusNote:"fries & drink", catBoxes:"Boxes & Sides",
       catSand:"Sandwiches", catPlates:"Plates",
-      priceNote:"Indicative prices (Wolt delivery platform) — the in-store price may differ; confirm at the counter.",
+      priceNote:"Dishes drawn from the Wolt delivery menu — no prices shown, full menu and prices to be confirmed with the venue.",
+      ac:"tbc",
       ctaWolt2:"Order on Wolt", ctaUber2:"Uber Eats", ctaCall2:"Call",
       whyKick:"The neighbourhood snack", whyTitle:"Why Duc",
       whyBody:"A small, family-run snack bar led by a dedicated couple who prepare every dish with care and a smile. Freshly carved döner, generous portions, a terrace to settle in — you always leave well fed.",
@@ -860,8 +781,7 @@
       ctaWolt3:"Order", ctaCall3:"Call",
       confirmNote:"* Phone, hours and prices to be confirmed with the venue. Demo preview.",
       mCall:"Call",
-      stOpen:"OPEN", stClosed:"CLOSED", nowWord:"now",
-      subOpenTo:"open until", subOpensAt:"opens at", days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+      days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
     }
   };
 
@@ -885,86 +805,13 @@
       b.classList.toggle("active",on);
       b.setAttribute("aria-pressed", on?"true":"false");
     });
-    updateStatus();
   }
 
   document.querySelectorAll(".lang button").forEach(function(b){
     b.addEventListener("click",function(){ applyLang(b.getAttribute("data-lang")); });
   });
 
-  /* ---------- live open/closed + clock ---------- */
-  // minutes since midnight [open, close] — sourced from in-window signage (Sept 2026): café 06:00-22:00 daily
-  var SCHED = {0:[360,1320],1:[360,1320],2:[360,1320],3:[360,1320],4:[360,1320],5:[360,1320],6:[360,1320]};
-  var SCALE_START=360, SCALE_END=1320, SCALE_RANGE=960; // 06:00 -> 22:00
-
-  function pad(n){return (n<10?"0":"")+n;}
-
-  function updateStatus(){
-    var d = I18N[current];
-    var now = new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Luxembourg'}));
-    var day = now.getDay();
-    var mins = now.getHours()*60 + now.getMinutes();
-    var sched = SCHED[day];
-    var isOpen = mins >= sched[0] && mins < sched[1];
-
-    var stateWord = isOpen ? d.stOpen : d.stClosed;
-    var timeStr = pad(now.getHours())+":"+pad(now.getMinutes());
-
-    // sub line
-    var sub;
-    if(isOpen){
-      var ch = pad(Math.floor(sched[1]/60))+":"+pad(sched[1]%60);
-      sub = d.subOpenTo+" "+ch;
-    } else {
-      // find next opening (today if before open, else next day)
-      var nOpen;
-      if(mins < sched[0]){ nOpen = sched[0]; }
-      else {
-        var nd = (day+1)%7; nOpen = SCHED[nd][0];
-      }
-      sub = d.subOpensAt+" "+pad(Math.floor(nOpen/60))+":"+pad(nOpen%60);
-    }
-
-    // hero dial
-    var heroDial = document.getElementById("heroDial");
-    var dialState = document.getElementById("dialState");
-    var dialSub = document.getElementById("dialSub");
-    heroDial.classList.toggle("open",isOpen);
-    dialState.textContent = stateWord;
-    dialSub.textContent = sub;
-    // ring segment = progress through today's open window (only when open)
-    var seg = 0;
-    if(isOpen){ seg = Math.round((mins - sched[0])/(sched[1]-sched[0])*100); }
-    document.querySelector("#heroDial .dial-ring").style.setProperty("--seg", seg+"%");
-
-    // seam pill
-    var seam = document.getElementById("seamPill");
-    seam.classList.toggle("closed",!isOpen);
-    document.getElementById("seamTxt").textContent = stateWord+" · "+timeStr;
-
-    // rail dial
-    var rail = document.getElementById("railDial");
-    rail.classList.toggle("open",isOpen);
-    document.getElementById("railState").textContent = stateWord;
-
-    // today highlight + now line
-    document.querySelectorAll(".drow").forEach(function(r){
-      r.classList.toggle("today", parseInt(r.getAttribute("data-day"),10)===day);
-    });
-    var nl = document.getElementById("nowLine");
-    if(mins>=SCALE_START && mins<=SCALE_END){
-      var pct = (mins-SCALE_START)/SCALE_RANGE*100;
-      nl.style.display="block";
-      nl.style.left = pct + "%";
-      document.getElementById("nlLbl").textContent = d.nowWord+" "+timeStr;
-    } else {
-      nl.style.display="none";
-    }
-  }
-
   applyLang("fr");
-  updateStatus();
-  setInterval(updateStatus, 30000);
 })();
 </script>
 </body>
