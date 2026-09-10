@@ -486,8 +486,6 @@
     padding:18px 0;margin:6px 0 18px;position:relative;
   }
   .pull .stars{color:var(--gold);font-size:1.05rem;letter-spacing:.05em;display:block;margin-bottom:8px;}
-  .pull cite{display:block;font-family:var(--cond);font-style:normal;text-transform:uppercase;
-    letter-spacing:.12em;font-size:.64rem;color:var(--grey);margin-top:10px;}
   .side-note{font-size:.92rem;}
   .side-note h4{font-family:var(--cond);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;
     color:var(--red);margin:0 0 6px;}
@@ -508,7 +506,8 @@
   .social-row a:hover{background:var(--ink);color:var(--paper);}
   .social-row a svg{width:15px;height:15px;}
   .carnet-map{padding:18px 0 26px 30px;}
-  .map-frame{border:var(--rule);width:100%;height:340px;display:block;filter:grayscale(.25) sepia(.12);}
+  .map-frame{border:var(--rule);width:100%;height:340px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;background:var(--paper-2);color:var(--ink);font-family:var(--body);font-weight:600;font-size:.95rem;text-decoration:none;transition:background .2s ease,color .2s ease;}
+  .map-frame:hover{background:var(--ink);color:var(--paper);}
   .map-cap{font-family:var(--cond);text-transform:uppercase;letter-spacing:.1em;font-size:.64rem;
     color:var(--grey);margin-top:8px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
 
@@ -750,7 +749,7 @@
     <section id="menu" aria-labelledby="menuTitle" class="menu-wrap" tabindex="-1">
       <div class="sec-head">
         <h2 id="menuTitle" data-i18n="menu_title">Le Menu</h2>
-        <p class="sec-note" data-i18n="menu_note">La carte — prix indicatifs, à confirmer (source Wolt)</p>
+        <p class="sec-note" data-i18n="menu_note">La carte — prix à confirmer avec la maison (source Wolt)</p>
       </div>
 
       <div class="menu-cols" id="menuCols">
@@ -758,27 +757,27 @@
         <div class="menu-group">
           <h3><span class="star">✶</span> <span data-i18n="grp_lux">Spécialités luxembourgeoises</span></h3>
           <div class="item-wrap">
-            <p class="item"><span class="nm">Bouneschlupp</span><span class="leader" aria-hidden="true"></span><span class="pr">€19,00</span></p>
+            <p class="item"><span class="nm">Bouneschlupp</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p>
             <span class="gloss" data-i18n="g_boune">Soupe paysanne aux haricots verts &amp; lard</span>
           </div>
           <div class="item-wrap">
-            <p class="item"><span class="nm">Kniddelen mat Speck</span><span class="leader" aria-hidden="true"></span><span class="pr">€23,00</span></p>
+            <p class="item"><span class="nm">Kniddelen mat Speck</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p>
             <span class="gloss" data-i18n="g_kniddel">Quenelles luxembourgeoises au lard</span>
           </div>
           <div class="item-wrap">
-            <p class="item"><span class="nm">Vegetaresch Kniddelen</span><span class="leader" aria-hidden="true"></span><span class="pr">€21,00</span></p>
+            <p class="item"><span class="nm">Vegetaresch Kniddelen</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p>
             <span class="gloss" data-i18n="g_kniddel_veg">Quenelles, version végétarienne</span>
           </div>
           <div class="item-wrap">
-            <p class="item"><span class="nm">Judd mat Gaardebounen</span><span class="leader" aria-hidden="true"></span><span class="pr">€35,00</span></p>
+            <p class="item"><span class="nm">Judd mat Gaardebounen</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p>
             <span class="gloss" data-i18n="g_judd">Collet de porc fumé &amp; fèves des marais — le plat national</span>
           </div>
           <div class="item-wrap">
-            <p class="item"><span class="nm">Gromperenkichelcher</span><span class="leader" aria-hidden="true"></span><span class="pr">€21,00</span></p>
+            <p class="item"><span class="nm">Gromperenkichelcher</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p>
             <span class="gloss" data-i18n="g_gromp">Galettes de pommes de terre croustillantes</span>
           </div>
           <div class="item-wrap">
-            <p class="item"><span class="nm">Paschtéit</span><span class="leader" aria-hidden="true"></span><span class="pr">€28,90</span></p>
+            <p class="item"><span class="nm">Paschtéit</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p>
             <span class="gloss" data-i18n="g_pascht">Bouchée à la reine luxembourgeoise</span>
           </div>
         </div>
@@ -786,33 +785,33 @@
         <!-- Group 2: Brasserie / mains -->
         <div class="menu-group">
           <h3><span data-i18n="grp_brass">Brasserie &amp; plats</span></h3>
-          <div class="item-wrap"><p class="item"><span class="nm">Tartare de Bœuf</span><span class="leader" aria-hidden="true"></span><span class="pr">€30,50</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Cordon Bleu de Veau</span><span class="leader" aria-hidden="true"></span><span class="pr">€28,90</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Escalope de Veau Panée</span><span class="leader" aria-hidden="true"></span><span class="pr">€29,90</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Filet Mignon</span><span class="leader" aria-hidden="true"></span><span class="pr">€42,00</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Saumon grillé</span><span class="leader" aria-hidden="true"></span><span class="pr">€31,80</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Fish &amp; Chips</span><span class="leader" aria-hidden="true"></span><span class="pr">€28,90</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Tartare de Bœuf</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Cordon Bleu de Veau</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Escalope de Veau Panée</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Filet Mignon</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Saumon grillé</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Fish &amp; Chips</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
         </div>
 
         <!-- Group 3: Burgers, pinsa & salads -->
         <div class="menu-group">
           <h3><span data-i18n="grp_burg">Burgers, pinsa &amp; salades</span></h3>
-          <div class="item-wrap"><p class="item"><span class="nm">Beef Burger</span><span class="leader" aria-hidden="true"></span><span class="pr">€23,90</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Chicken Burger</span><span class="leader" aria-hidden="true"></span><span class="pr">€21,00</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Vegetarian Burger</span><span class="leader" aria-hidden="true"></span><span class="pr">€19,00</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Pinsa Margherita</span><span class="leader" aria-hidden="true"></span><span class="pr">€15,00</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Pinsa San Daniele</span><span class="leader" aria-hidden="true"></span><span class="pr">€23,00</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Pinsa Bufala</span><span class="leader" aria-hidden="true"></span><span class="pr">€22,90</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Grand Duke Salad</span><span class="leader" aria-hidden="true"></span><span class="pr">€24,00</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Cesar Salad</span><span class="leader" aria-hidden="true"></span><span class="pr">€23,00</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Beef Burger</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Chicken Burger</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Vegetarian Burger</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Pinsa Margherita</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Pinsa San Daniele</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Pinsa Bufala</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Grand Duke Salad</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Cesar Salad</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
         </div>
 
         <!-- Group 4: Desserts -->
         <div class="menu-group">
           <h3><span data-i18n="grp_dess">Desserts</span></h3>
-          <div class="item-wrap"><p class="item"><span class="nm">Gâteau au Chocolat</span><span class="leader" aria-hidden="true"></span><span class="pr">€10,90</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Gâteau au Fromage</span><span class="leader" aria-hidden="true"></span><span class="pr">€10,90</span></p></div>
-          <div class="item-wrap"><p class="item"><span class="nm">Charcuterie &amp; Fromage</span><span class="leader" aria-hidden="true"></span><span class="pr">€26,50</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Gâteau au Chocolat</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Gâteau au Fromage</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
+          <div class="item-wrap"><p class="item"><span class="nm">Charcuterie &amp; Fromage</span><span class="leader" aria-hidden="true"></span><span class="pr" data-i18n="ac">à conf.</span></p></div>
         </div>
       </div>
 
@@ -840,7 +839,6 @@
       <aside class="feature-side">
         <blockquote class="pull">
           <span data-i18n="pull_q">Face au Palais grand-ducal, au cœur de la Ville-Haute.</span>
-          <cite data-i18n="pull_cite">4,6 / 5 · 469 avis Google</cite>
         </blockquote>
         <div class="side-note">
           <h4 data-i18n="side_h">Bon à savoir</h4>
@@ -911,9 +909,7 @@
           </dl>
         </div>
         <div class="carnet-map">
-          <iframe class="map-frame" title="Carte — 24 Rue du Marché-aux-Herbes, Luxembourg"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Bistrot%20de%20la%20Presse%2024%20Rue%20du%20March%C3%A9-aux-Herbes%20Luxembourg&output=embed"></iframe>
+          <a class="map-frame" href="https://www.google.com/maps/search/?api=1&amp;query=Bistrot+de+la+Presse+24+Rue+du+March%C3%A9-aux-Herbes+Luxembourg" target="_blank" rel="noopener" data-i18n="map_open">Ouvrir dans Google Maps →</a>
           <div class="map-cap">
             <span data-i18n="map_cap">Ville-Haute · à 2 min à pied du Palais</span>
             <a href="https://www.google.com/maps/search/Bistrot+de+la+Presse+24+Rue+du+March%C3%A9-aux-Herbes+Luxembourg" target="_blank" rel="noopener" data-i18n="map_dir">Itinéraire ↗</a>
@@ -1021,7 +1017,7 @@
       alm_confirm:"Horaires sous réserve — à confirmer avec la maison.",
       day_mon:"Lundi", day_tue:"Mardi", day_wed:"Mercredi", day_thu:"Jeudi", day_fri:"Vendredi", day_sat:"Samedi", day_sun:"Dimanche",
       closed:"fermé",
-      menu_title:"Le Menu", menu_note:"La carte — prix indicatifs, à confirmer (source Wolt)",
+      menu_title:"Le Menu", menu_note:"La carte — prix à confirmer avec la maison (source Wolt)", ac:"à conf.",
       grp_lux:"Spécialités luxembourgeoises", grp_brass:"Brasserie & plats", grp_burg:"Burgers, pinsa & salades", grp_dess:"Desserts & planches",
       g_boune:"Soupe paysanne aux haricots verts & lard", g_kniddel:"Quenelles luxembourgeoises au lard",
       g_kniddel_veg:"Quenelles, version végétarienne", g_judd:"Collet de porc fumé & fèves des marais — le plat national",
@@ -1033,13 +1029,12 @@
       feat_p2:"Les grands classiques luxembourgeois — Bouneschlupp, Kniddelen mat Speck, Judd mat Gaardebounen — y réchauffent habitués et parlementaires, à deux pas du Palais. Ici, point de prétention : juste des portions copieuses, des prix justes et un accueil inimitable.",
       feat_p3:"C’est cet accueil, signé Heidi qui salue chaque table en personne, qui vaut à la maison son surnom affectueux — Beim Heidi. On ne réserve pas : on pousse la porte, en face du Palais, et l’on s’attable.",
       pull_q:"Face au Palais grand-ducal, au cœur de la Ville-Haute.",
-      pull_cite:"4,6 / 5 · 469 avis Google",
       side_h:"Bon à savoir",
       side_p:"Pas de réservation en ligne ni de formulaire. La maison se visite à pied, ou se commande sur Wolt. Le téléphone reste le contact direct (numéro à confirmer).",
       carnet_title:"Carnet d’adresses", carnet_note:"Nous trouver, nous appeler, commander",
       c_addr:"Adresse", c_addr_note:"Face au Palais grand-ducal", c_phone:"Téléphone", c_phone_note:"Numéro à confirmer avec la maison",
       c_order:"Commander", c_wolt:"Livraison sur Wolt", c_social:"Réseaux",
-      map_cap:"Ville-Haute · à 2 min à pied du Palais", map_dir:"Itinéraire ↗",
+      map_cap:"Ville-Haute · à 2 min à pied du Palais", map_dir:"Itinéraire ↗", map_open:"Ouvrir dans Google Maps →",
       col_hours:"Horaires", col_hours_1:"Mar.–Sam. : 11:30–21:30 (bar ~01:00)", col_hours_2:"Lun. & Dim. : fermé", col_hours_3:"Horaires à confirmer",
       col_find:"Adresse", col_dir:"Itinéraire ↗", col_contact:"Contact", col_phone_note:"numéro à confirmer", col_wolt:"Commander sur Wolt",
       col_follow:"Suivre",
@@ -1075,7 +1070,7 @@
       alm_confirm:"Zeiten unter Vorbehalt — mit dem Haus bestätigen.",
       day_mon:"Montag", day_tue:"Dienstag", day_wed:"Mittwoch", day_thu:"Donnerstag", day_fri:"Freitag", day_sat:"Samstag", day_sun:"Sonntag",
       closed:"geschlossen",
-      menu_title:"Die Karte", menu_note:"Speisekarte — Richtpreise, zu bestätigen (Quelle Wolt)",
+      menu_title:"Die Karte", menu_note:"Speisekarte — Preise auf Anfrage (Quelle Wolt)", ac:"auf Anfrage",
       grp_lux:"Luxemburger Spezialitäten", grp_brass:"Brasserie & Hauptgerichte", grp_burg:"Burger, Pinsa & Salate", grp_dess:"Desserts & Platten",
       g_boune:"Bäuerliche Suppe mit grünen Bohnen & Speck", g_kniddel:"Luxemburger Klöße mit Speck",
       g_kniddel_veg:"Klöße, vegetarisch", g_judd:"Geräucherter Schweinekamm & Saubohnen — das Nationalgericht",
@@ -1087,13 +1082,12 @@
       feat_p2:"Klassiker wie Bouneschlupp, Kniddelen mat Speck und Judd mat Gaardebounen wärmen Stammgäste und Parlamentarier, gegenüber dem Palais. Keine Allüren — nur üppige Portionen, faire Preise und ein unnachahmlicher Empfang.",
       feat_p3:"Es ist dieser Empfang von Heidi, die jeden Tisch persönlich begrüßt, der dem Haus den liebevollen Spitznamen Beim Heidi eingebracht hat. Man reserviert nicht — man tritt ein, gegenüber dem Palais, und setzt sich.",
       pull_q:"Gegenüber dem großherzoglichen Palais, mitten in der Oberstadt.",
-      pull_cite:"4,6 / 5 · 469 Google-Bewertungen",
       side_h:"Gut zu wissen",
       side_p:"Keine Online-Reservierung, kein Formular. Man besucht das Haus zu Fuß oder bestellt über Wolt. Das Telefon ist der direkte Kontakt (Nummer zu bestätigen).",
       carnet_title:"Adressbuch", carnet_note:"Finden, anrufen, bestellen",
       c_addr:"Adresse", c_addr_note:"Gegenüber dem Großherzoglichen Palais", c_phone:"Telefon", c_phone_note:"Nummer mit dem Haus bestätigen",
       c_order:"Bestellen", c_wolt:"Lieferung über Wolt", c_social:"Soziale Medien",
-      map_cap:"Oberstadt · 2 Min. zu Fuß vom Palais", map_dir:"Route ↗",
+      map_cap:"Oberstadt · 2 Min. zu Fuß vom Palais", map_dir:"Route ↗", map_open:"In Google Maps öffnen →",
       col_hours:"Öffnungszeiten", col_hours_1:"Di.–Sa.: 11:30–21:30 (Bar ~01:00)", col_hours_2:"Mo. & So.: geschlossen", col_hours_3:"Zeiten zu bestätigen",
       col_find:"Adresse", col_dir:"Route ↗", col_contact:"Kontakt", col_phone_note:"Nummer zu bestätigen", col_wolt:"Auf Wolt bestellen",
       col_follow:"Folgen",
@@ -1129,7 +1123,7 @@
       alm_confirm:"Hours subject to confirmation with the house.",
       day_mon:"Monday", day_tue:"Tuesday", day_wed:"Wednesday", day_thu:"Thursday", day_fri:"Friday", day_sat:"Saturday", day_sun:"Sunday",
       closed:"closed",
-      menu_title:"The Menu", menu_note:"The bill of fare — prices indicative, to be confirmed (source Wolt)",
+      menu_title:"The Menu", menu_note:"The bill of fare — prices tbc (source Wolt)", ac:"tbc",
       grp_lux:"Luxembourgish specialities", grp_brass:"Brasserie & mains", grp_burg:"Burgers, pinsa & salads", grp_dess:"Desserts & boards",
       g_boune:"Hearty green-bean & bacon soup", g_kniddel:"Luxembourgish dumplings with bacon",
       g_kniddel_veg:"Dumplings, vegetarian", g_judd:"Smoked pork collar & broad beans — the national dish",
@@ -1141,13 +1135,12 @@
       feat_p2:"Hearty Luxembourgish classics — Bouneschlupp, Kniddelen mat Speck, Judd mat Gaardebounen — warm locals and parliamentarians alike, opposite the Palace. Nothing pretentious here: just generous portions, fair prices and an inimitable welcome.",
       feat_p3:"It is that welcome — Heidi greeting every table in person — that earns the house its affectionate nickname, Beim Heidi. You don’t book: you push open the door, opposite the Palace, and take a table.",
       pull_q:"Opposite the Grand Ducal Palace, in the heart of the Ville-Haute.",
-      pull_cite:"4.6 / 5 · 469 Google reviews",
       side_h:"Good to know",
       side_p:"No online booking, no contact form. Visit on foot, or order on Wolt. The phone is the direct line (number to be confirmed).",
       carnet_title:"Address book", carnet_note:"Find us, call us, order",
       c_addr:"Address", c_addr_note:"Opposite the Grand Ducal Palace", c_phone:"Telephone", c_phone_note:"Number to be confirmed with the house",
       c_order:"Order", c_wolt:"Delivery on Wolt", c_social:"Social",
-      map_cap:"Ville-Haute · a 2-min walk from the Palace", map_dir:"Directions ↗",
+      map_cap:"Ville-Haute · a 2-min walk from the Palace", map_dir:"Directions ↗", map_open:"Open in Google Maps →",
       col_hours:"Hours", col_hours_1:"Tue–Sat: 11:30–21:30 (bar ~01:00)", col_hours_2:"Mon & Sun: closed", col_hours_3:"Hours to be confirmed",
       col_find:"Address", col_dir:"Directions ↗", col_contact:"Contact", col_phone_note:"number to be confirmed", col_wolt:"Order on Wolt",
       col_follow:"Follow",

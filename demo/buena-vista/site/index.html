@@ -96,8 +96,6 @@ nav.main a:hover::after{right:0}
 .hero .eyebrow{color:#fff;text-shadow:0 1px 8px rgba(33,48,57,.35)}
 .hero h1{color:#fff;font-size:clamp(34px,6vw,64px);text-shadow:0 2px 14px rgba(33,48,57,.32);margin:12px auto 0;max-width:16ch}
 .hero .sub{color:#fff;max-width:52ch;margin:16px auto 0;font-weight:600;text-shadow:0 1px 8px rgba(33,48,57,.3)}
-.hero .rating{display:inline-flex;align-items:center;gap:8px;background:rgba(251,243,233,.94);color:var(--navy);font-family:var(--disp);font-weight:700;font-size:.92rem;padding:7px 16px;border-radius:999px;margin:16px auto 0;box-shadow:var(--shadow-sm)}
-.hero .rating .st{color:var(--orange)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:22px 0 0}
 .btn{font-family:var(--disp);font-weight:700;font-size:1rem;border:0;border-radius:999px;padding:14px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease}
 .btn.p{background:var(--navy);color:#fff;box-shadow:0 12px 26px -12px rgba(33,48,57,.6)}
@@ -283,22 +281,22 @@ footer a.wk{color:var(--orange2);font-weight:700}
       <div class="menu-wrap reveal">
         <div class="mcol">
           <h3><span class="p" style="background:var(--orange)"></span> <span data-i18n="menu_wraps">Wraps &amp; street food</span></h3>
-          <div class="mrow"><span class="nm" data-i18n="d_burrito">Burrito poulet</span><span class="dsh"></span><span class="pr">13,00 €</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_quesa">Quesadilla poulet</span><span class="dsh"></span><span class="pr">13,50 €</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_tacos">Crispy tacos (x3)</span><span class="dsh"></span><span class="pr">14,00 €</span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_burrito">Burrito poulet</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_quesa">Quesadilla poulet</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_tacos">Crispy tacos (x3)</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
         </div>
         <div class="mcol">
           <h3><span class="p" style="background:var(--teal)"></span> <span data-i18n="menu_plates">Buena Plates</span></h3>
-          <div class="mrow"><span class="nm">Buena Chili</span><span class="dsh"></span><span class="pr">18,00 €</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_cesar">Salade César</span><span class="dsh"></span><span class="pr">15,00 €</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_cuisse">Assiette cuisse de poulet</span><span class="dsh"></span><span class="pr">15,00 €</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_wings">Assiette wings</span><span class="dsh"></span><span class="pr">15,00 €</span></div>
-          <div class="mrow"><span class="nm">Double legs</span><span class="dsh"></span><span class="pr">18,00 €</span></div>
+          <div class="mrow"><span class="nm">Buena Chili</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_cesar">Salade César</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_cuisse">Assiette cuisse de poulet</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_wings">Assiette wings</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="mrow"><span class="nm">Double legs</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
         </div>
       </div>
       <div class="drinks reveal">
         <h3 style="font-size:1.1rem;color:var(--navy);display:flex;align-items:center;gap:9px"><span style="width:12px;height:12px;border-radius:50%;background:var(--coral)"></span> <span data-i18n="menu_drinks">Boissons</span></h3>
-        <div class="dl"><span>Pepsi</span><span>7up</span><span>Mirinda</span><span>Ice Tea</span><span data-i18n="dr_price">3,00 € chacune</span></div>
+        <div class="dl"><span>Pepsi</span><span>7up</span><span>Mirinda</span><span>Ice Tea</span><span data-i18n="dr_price">à l'unité, à conf.</span></div>
       </div>
       <p class="alsobar reveal" data-i18n="menu_also">Aussi connu pour ses <b>pizzas maison</b> et le <b>barbecue du vendredi</b> — à confirmer avec la maison.</p>
       <p class="menu-note reveal" data-i18n="menu_note">Tarifs indicatifs relevés en ligne (fin 2025) — carte, prix et disponibilité à confirmer avec la maison.</p>
@@ -355,13 +353,13 @@ var I18N={
     nav_menu:"La carte",nav_house:"La maison",nav_gal:"En images",nav_info:"Infos",
     hero_kick:"Street food · saveurs latines · Bonnevoie",hero_h:"Un coin de soleil à Bonnevoie",
     hero_sub:"Burritos, quesadillas, tacos croustillants — et le barbecue du vendredi. La cuisine latine, généreuse et bon marché, au sud de la ville.",
-    hero_cta1:"Voir la carte",hero_cta2:"Commander en ligne ↗",rating_txt:"93 avis Google",
+    hero_cta1:"Voir la carte",hero_cta2:"Commander en ligne ↗",ac:"à conf.",
     menu_kick:"La carte",menu_h:"Généreux, latin, bon marché",
     menu_p:"La street food latine à emporter ou sur place — préparée maison. Voici les incontournables.",
     menu_wraps:"Wraps & street food",menu_plates:"Buena Plates",menu_drinks:"Boissons",
     d_burrito:"Burrito poulet",d_quesa:"Quesadilla poulet",d_tacos:"Crispy tacos (x3)",
     d_cesar:"Salade César",d_cuisse:"Assiette cuisse de poulet",d_wings:"Assiette wings",
-    dr_price:"3,00 € chacune",
+    dr_price:"à l'unité, à conf.",
     menu_also:"Aussi connu pour ses <b>pizzas maison</b> et le <b>barbecue du vendredi</b> — à confirmer avec la maison.",
     menu_note:"Tarifs indicatifs relevés en ligne (fin 2025) — carte, prix et disponibilité à confirmer avec la maison.",
     house_kick:"La maison",house_h:"Une adresse de quartier, tenue avec le sourire",
@@ -381,13 +379,13 @@ var I18N={
     nav_menu:"Die Karte",nav_house:"Das Haus",nav_gal:"In Bildern",nav_info:"Infos",
     hero_kick:"Street Food · latino Aromen · Bonneweg",hero_h:"Ein Sonnenfleck in Bonneweg",
     hero_sub:"Burritos, Quesadillas, knusprige Tacos — und der Freitags-Grill. Latino-Küche, großzügig und günstig, im Süden der Stadt.",
-    hero_cta1:"Zur Karte",hero_cta2:"Online bestellen ↗",rating_txt:"93 Google-Bewertungen",
+    hero_cta1:"Zur Karte",hero_cta2:"Online bestellen ↗",ac:"auf Anfrage",
     menu_kick:"Die Karte",menu_h:"Großzügig, latino, günstig",
     menu_p:"Latino-Street-Food zum Mitnehmen oder vor Ort — hausgemacht. Das sind die Klassiker.",
     menu_wraps:"Wraps & Street Food",menu_plates:"Buena Plates",menu_drinks:"Getränke",
     d_burrito:"Hähnchen-Burrito",d_quesa:"Hähnchen-Quesadilla",d_tacos:"Crispy Tacos (x3)",
     d_cesar:"Caesar Salad",d_cuisse:"Hähnchenschenkel-Teller",d_wings:"Wings-Teller",
-    dr_price:"3,00 € je",
+    dr_price:"je Stück, auf Anfrage",
     menu_also:"Bekannt auch für <b>hausgemachte Pizzen</b> und den <b>Freitags-Grill</b> — mit dem Haus zu bestätigen.",
     menu_note:"Richtpreise aus dem Netz (Ende 2025) — Karte, Preise und Verfügbarkeit mit dem Haus zu bestätigen.",
     house_kick:"Das Haus",house_h:"Eine Adresse im Viertel, mit einem Lächeln geführt",
@@ -407,13 +405,13 @@ var I18N={
     nav_menu:"The menu",nav_house:"The place",nav_gal:"In pictures",nav_info:"Info",
     hero_kick:"Street food · Latin flavours · Bonnevoie",hero_h:"A little corner of sunshine in Bonnevoie",
     hero_sub:"Burritos, quesadillas, crispy tacos — and the Friday barbecue. Latin cooking, generous and easy on the wallet, in the south of the city.",
-    hero_cta1:"See the menu",hero_cta2:"Order online ↗",rating_txt:"93 Google reviews",
+    hero_cta1:"See the menu",hero_cta2:"Order online ↗",ac:"tbc",
     menu_kick:"The menu",menu_h:"Generous, Latin, great value",
     menu_p:"Latin street food to take away or eat in — made in-house. Here are the essentials.",
     menu_wraps:"Wraps & street food",menu_plates:"Buena Plates",menu_drinks:"Drinks",
     d_burrito:"Chicken burrito",d_quesa:"Chicken quesadilla",d_tacos:"Crispy tacos (x3)",
     d_cesar:"Caesar salad",d_cuisse:"Chicken-leg plate",d_wings:"Wings plate",
-    dr_price:"€3.00 each",
+    dr_price:"each, tbc",
     menu_also:"Also known for its <b>homemade pizzas</b> and the <b>Friday barbecue</b> — to be confirmed with the venue.",
     menu_note:"Prices are indicative, taken online (late 2025) — menu, prices and availability to be confirmed with the venue.",
     house_kick:"The place",house_h:"A neighbourhood spot, run with a smile",

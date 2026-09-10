@@ -84,9 +84,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(244,239,227,.9);backdrop
 .hero .tag{font-family:var(--disp);font-weight:500;font-style:italic;font-size:clamp(20px,3.3vw,33px);color:#f0ecc2;margin:14px 0 0;max-width:22ch}
 .hero .sub{font-size:1.04rem;color:#efe9d8;margin:16px 0 0;max-width:50ch;line-height:1.56;text-shadow:0 1px 12px rgba(0,0,0,.35)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px;align-items:center}
-.hero .rate{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:.9rem;color:#eae4d0}
-.hero .rate b{color:#fff;font-weight:700}
-.hero .rate .star{color:#f2c14e}
 .btn{font-family:var(--body);font-weight:700;font-size:.96rem;border:0;border-radius:9px;padding:14px 25px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
 .btn.p{background:var(--terra);color:#fff}
 .btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(162,66,31,.4)}
@@ -220,7 +217,6 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
         <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
         <a href="tel:+35226560550" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 26 56 05 50</a>
       </div>
-      <div class="rate"><span class="star">★</span> <b>4,4</b> · 341 <span data-i18n="rate_word">avis Google</span></div>
     </div>
   </section>
 
@@ -270,7 +266,7 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
       </div>
 
       <div class="formule reveal">
-        <span class="big">15,50 €</span>
+        <span class="big" data-i18n="ac">à conf.</span>
         <span class="lbl" data-i18n="c_formule">Menu du jour</span>
         <span class="nt" data-i18n="c_formule_nt">le midi · l'entrée et le plat changent chaque jour</span>
       </div>
@@ -304,14 +300,14 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
           </div>
           <div class="mgroup">
             <h3><svg class="sprig" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg>Dolci</h3>
-            <div class="item"><span class="nm" data-i18n="do_tira">Tiramisu maison</span><span class="dots"></span><span class="pr">8,00 €</span></div>
-            <div class="item"><span class="nm" data-i18n="do_panna">Panna cotta maison</span><span class="dots"></span><span class="pr">7,00 €</span></div>
-            <div class="item"><span class="nm" data-i18n="do_fondant">Fondant au chocolat maison</span><span class="dots"></span><span class="pr">9,00 €</span></div>
-            <div class="item"><span class="nm">Profiteroles</span><span class="dots"></span><span class="pr">8,00 €</span></div>
+            <div class="item"><span class="nm" data-i18n="do_tira">Tiramisu maison</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm" data-i18n="do_panna">Panna cotta maison</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm" data-i18n="do_fondant">Fondant au chocolat maison</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm">Profiteroles</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
         </div>
       </div>
-      <p class="pricenote reveal" data-i18n="c_pricenote">Menu du jour, desserts et digestifs : prix confirmés. Plats à la carte : prix en salle — sélection donnée à titre indicatif.</p>
+      <p class="pricenote reveal" data-i18n="c_pricenote">Menu du jour, desserts et plats à la carte : prix à confirmer en salle — sélection donnée à titre indicatif.</p>
     </div>
   </section>
 
@@ -358,7 +354,7 @@ const I18N = {
   brand_sub:"Pizzeria · Kayl", n_valley:"La vallée", n_carte:"La carte", n_visit:"Nous trouver",
   hero_eyebrow:"Cuisine italienne · Kayl", hero_tag:"À table, dans la vallée.",
   hero_sub:"Pizze, pâtes et grillades italiennes — servies sur une terrasse ouverte sur la vallée boisée du vieux Kayl.",
-  hero_cta1:"Voir la carte", hero_cta2:"Appeler", rate_word:"avis Google",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler", ac:"à conf.",
   f1:"Cuisine italienne", f2:"7 j/7, midi & soir", f3:"Terrasse sur la vallée", f4:"Sur place · à emporter · livraison", f4b:"Sur place · à emporter · livraison",
   v_eyebrow:"La vallée", v_head:"Une table italienne au creux du vieux Kayl.",
   v_lede:"On vient d'abord pour la terrasse : les tables sous les parasols, la lumière qui tombe entre les arbres, et la vallée boisée qui descend juste en contrebas.",
@@ -374,7 +370,7 @@ const I18N = {
   g_pasta:"Pâtes & risotto", pa_salmon:"Tagliatelle au saumon", pa_riso:"Risotto aux légumes",
   g_grill:"Grillades & poissons", gr_entre:"Entrecôte grillée", gr_sea:"Fruits de mer grillés",
   do_tira:"Tiramisu maison", do_panna:"Panna cotta maison", do_fondant:"Fondant au chocolat maison",
-  c_pricenote:"Menu du jour, desserts et digestifs : prix confirmés. Plats à la carte : prix en salle — sélection donnée à titre indicatif.",
+  c_pricenote:"Menu du jour, desserts et plats à la carte : prix à confirmer en salle — sélection donnée à titre indicatif.",
   vi_eyebrow:"Nous trouver", vi_head:"Au bord de la vallée, à Kayl.",
   l_addr:"Adresse", l_tel:"Téléphone", vi_resa:"réservation & renseignements", l_hours:"Horaires",
   h_all:"Tous les jours", h_wed:"Mercredi", h_wed_v:"soir fermé", l_serv:"Services",
@@ -386,7 +382,7 @@ const I18N = {
   brand_sub:"Pizzeria · Kayl", n_valley:"Das Tal", n_carte:"Die Karte", n_visit:"Anfahrt",
   hero_eyebrow:"Italienische Küche · Kayl", hero_tag:"Zu Tisch, im Tal.",
   hero_sub:"Italienische Pizza, Pasta und Grillgerichte — serviert auf einer Terrasse mit Blick ins bewaldete Tal des alten Kayl.",
-  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", rate_word:"Google-Bewertungen",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", ac:"auf Anfrage",
   f1:"Italienische Küche", f2:"7 Tage, mittags & abends", f3:"Terrasse zum Tal", f4:"Vor Ort · zum Mitnehmen · Lieferung", f4b:"Vor Ort · zum Mitnehmen · Lieferung",
   v_eyebrow:"Das Tal", v_head:"Ein italienischer Tisch im alten Kayl.",
   v_lede:"Man kommt zuerst wegen der Terrasse: die Tische unter den Sonnenschirmen, das Licht, das zwischen den Bäumen fällt, und das bewaldete Tal, das gleich darunter abfällt.",
@@ -402,7 +398,7 @@ const I18N = {
   g_pasta:"Pasta & Risotto", pa_salmon:"Tagliatelle mit Lachs", pa_riso:"Risotto mit Gemüse",
   g_grill:"Grill & Fisch", gr_entre:"Gegrilltes Entrecôte", gr_sea:"Gegrillte Meeresfrüchte",
   do_tira:"Hausgemachtes Tiramisu", do_panna:"Hausgemachte Panna cotta", do_fondant:"Hausgemachter Schokoladenfondant",
-  c_pricenote:"Tagesmenü, Desserts und Digestifs: bestätigte Preise. Gerichte à la carte: Preise im Restaurant — Auswahl beispielhaft.",
+  c_pricenote:"Tagesmenü, Desserts und Gerichte à la carte: Preise auf Anfrage im Restaurant — Auswahl beispielhaft.",
   vi_eyebrow:"Anfahrt", vi_head:"Am Rand des Tals, in Kayl.",
   l_addr:"Adresse", l_tel:"Telefon", vi_resa:"Reservierung & Auskunft", l_hours:"Öffnungszeiten",
   h_all:"Täglich", h_wed:"Mittwoch", h_wed_v:"abends geschlossen", l_serv:"Services",
@@ -414,7 +410,7 @@ const I18N = {
   brand_sub:"Pizzeria · Kayl", n_valley:"The valley", n_carte:"The menu", n_visit:"Find us",
   hero_eyebrow:"Italian kitchen · Kayl", hero_tag:"To the table, in the valley.",
   hero_sub:"Italian pizza, pasta and grills — served on a terrace opening onto the wooded valley of old Kayl.",
-  hero_cta1:"See the menu", hero_cta2:"Call", rate_word:"Google reviews",
+  hero_cta1:"See the menu", hero_cta2:"Call", ac:"tbc",
   f1:"Italian cuisine", f2:"7 days, lunch & dinner", f3:"Valley-view terrace", f4:"Dine-in · takeaway · delivery", f4b:"Dine-in · takeaway · delivery",
   v_eyebrow:"The valley", v_head:"An Italian table in old Kayl.",
   v_lede:"People come first for the terrace: tables under the parasols, light falling between the trees, and the wooded valley dropping away just below.",
@@ -430,7 +426,7 @@ const I18N = {
   g_pasta:"Pasta & risotto", pa_salmon:"Tagliatelle with salmon", pa_riso:"Vegetable risotto",
   g_grill:"Grills & fish", gr_entre:"Grilled entrecôte", gr_sea:"Grilled seafood",
   do_tira:"House tiramisu", do_panna:"House panna cotta", do_fondant:"House chocolate fondant",
-  c_pricenote:"Lunch menu, desserts and digestifs: confirmed prices. À-la-carte dishes: prices in-house — selection indicative.",
+  c_pricenote:"Lunch menu, desserts and à-la-carte dishes: prices tbc in-house — selection indicative.",
   vi_eyebrow:"Find us", vi_head:"On the edge of the valley, in Kayl.",
   l_addr:"Address", l_tel:"Phone", vi_resa:"reservations & enquiries", l_hours:"Hours",
   h_all:"Every day", h_wed:"Wednesday", h_wed_v:"closed in the evening", l_serv:"Services",
