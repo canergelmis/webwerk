@@ -79,8 +79,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(242,239,232,.92);backdro
 .hero .tag{font-family:var(--disp);font-weight:500;font-size:clamp(21px,3.4vw,36px);letter-spacing:.04em;text-transform:uppercase;color:#e7c99b;margin:8px 0 0}
 .hero .sub{font-family:var(--body);font-size:1.05rem;color:#eee7d8;margin:16px 0 0;max-width:52ch;line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.4)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
-.hero .rate{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--body);font-size:.9rem;color:#e6ddca}
-.hero .rate b{color:#fff}.hero .rate .star{color:#e7c99b}
 .btn{font-family:var(--disp);font-weight:600;font-size:1.06rem;letter-spacing:.06em;text-transform:uppercase;border:0;border-radius:8px;padding:13px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
 .btn.p{background:var(--copper);color:#fff}
 .btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(176,118,60,.42)}
@@ -208,7 +206,6 @@ footer{background:#161310;color:#b4ab98;padding:44px 0 40px;font-size:.86rem;lin
         <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
         <a href="tel:+35226511156" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 26 51 11 56</a>
       </div>
-      <div class="rate"><span class="star">★</span> <b>4,2</b> · 446 <span data-i18n="rate_word">avis Google</span></div>
     </div>
   </section>
 
@@ -250,30 +247,30 @@ footer{background:#161310;color:#b4ab98;padding:44px 0 40px;font-size:.86rem;lin
         <div>
           <div class="mgroup">
             <h3><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg>Pinsa Romana</h3>
-            <div class="item"><span class="nm">Margherita</span><span class="dots"></span><span class="pr">12,90 €</span></div>
-            <div class="item"><span class="nm">Burrata</span> <span class="ds" data-i18n="d_burrata">tomate, mozzarella, roquette</span><span class="dots"></span><span class="pr">18,90 €</span></div>
-            <div class="item"><span class="nm">Prosciutto &amp; funghi</span><span class="dots"></span><span class="pr">17,90 €</span></div>
-            <div class="item"><span class="nm">Pinsa Chalet</span> <span class="ds" data-i18n="d_chalet">saumon fumé, stracciatella, pistache</span><span class="dots"></span><span class="pr">19,90 €</span></div>
+            <div class="item"><span class="nm">Margherita</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm">Burrata</span> <span class="ds" data-i18n="d_burrata">tomate, mozzarella, roquette</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm">Prosciutto &amp; funghi</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm">Pinsa Chalet</span> <span class="ds" data-i18n="d_chalet">saumon fumé, stracciatella, pistache</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
           <div class="mgroup">
             <h3><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg><span data-i18n="g_salads">Salades</span></h3>
-            <div class="item"><span class="nm" data-i18n="s_cesar">César au poulet</span><span class="dots"></span><span class="pr">18,90 €</span></div>
-            <div class="item"><span class="nm">Burrata &amp; betterave</span><span class="dots"></span><span class="pr">18,90 €</span></div>
+            <div class="item"><span class="nm" data-i18n="s_cesar">César au poulet</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm">Burrata &amp; betterave</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
         </div>
         <div>
           <div class="mgroup">
             <h3><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg><span data-i18n="g_burgers">Burgers &amp; tartines</span></h3>
-            <div class="item"><span class="nm">Croque-Monsieur</span><span class="dots"></span><span class="pr">14,90 €</span></div>
-            <div class="item"><span class="nm" data-i18n="b_beef">Burger bœuf effiloché</span><span class="dots"></span><span class="pr">25,90 €</span></div>
-            <div class="item"><span class="nm" data-i18n="b_chicken">Burger poulet</span><span class="dots"></span><span class="pr">23,90 €</span></div>
-            <div class="item"><span class="nm" data-i18n="b_veg">Burger végétarien</span><span class="dots"></span><span class="pr">24,90 €</span></div>
+            <div class="item"><span class="nm">Croque-Monsieur</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm" data-i18n="b_beef">Burger bœuf effiloché</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm" data-i18n="b_chicken">Burger poulet</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm" data-i18n="b_veg">Burger végétarien</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
           <div class="mgroup">
             <h3><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg><span data-i18n="g_share">À partager · Dolci</span></h3>
-            <div class="item"><span class="nm" data-i18n="sh_planche">Planche charcuterie &amp; fromage</span> <span class="ds" data-i18n="sh_planche_d">2 pers.</span><span class="dots"></span><span class="pr">16,90 €</span></div>
-            <div class="item"><span class="nm" data-i18n="do_cheese">Cheesecake pistache</span><span class="dots"></span><span class="pr">10,50 €</span></div>
-            <div class="item"><span class="nm">Carrot cake</span><span class="dots"></span><span class="pr">9,90 €</span></div>
+            <div class="item"><span class="nm" data-i18n="sh_planche">Planche charcuterie &amp; fromage</span> <span class="ds" data-i18n="sh_planche_d">2 pers.</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm" data-i18n="do_cheese">Cheesecake pistache</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm">Carrot cake</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
         </div>
       </div>
@@ -329,7 +326,7 @@ footer{background:#161310;color:#b4ab98;padding:44px 0 40px;font-size:.86rem;lin
       <span class="bt"><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg>MontChalet</span>
       <span>6 Am Duerf, L-3436 Dudelange · <a href="tel:+35226511156" style="color:#e7dcc3">26 51 11 56</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, Wolt), à remplacer par vos propres visuels. Identité typographique proposée — aucun logo officiel ; le nom apparaît aussi sous la forme « Mont Chalet ». Carte et prix relevés sur la carte de livraison, à confirmer en salle. Horaires détaillés à confirmer. Note 4,2/5 : Google.</p>
+    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, Wolt), à remplacer par vos propres visuels. Identité typographique proposée — aucun logo officiel ; le nom apparaît aussi sous la forme « Mont Chalet ». Carte et prix à confirmer en salle. Horaires détaillés à confirmer.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -340,7 +337,7 @@ const I18N = {
   brand_sub:"Bistro · Brasserie · Dudelange", n_chalet:"Le chalet", n_carte:"La carte", n_terr:"La terrasse", n_visit:"Infos",
   hero_eyebrow:"Bistro · Brasserie · Biergarten", hero_tag:"Un chalet au cœur de Dudelange.",
   hero_sub:"Un décor de montagne — bois, cerf blanc et vert sapin — pour une cuisine bistro généreuse : pinsa romana, burgers, planches, et une belle carte de bières et de vins.",
-  hero_cta1:"Voir la carte", hero_cta2:"Appeler", rate_word:"avis Google",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler", ac:"à conf.",
   c_eyebrow:"Le chalet", c_head:"Le décor de montagne, en pleine ville.",
   c_lede:"Un cerf blanc, du bois clair et un vert sapin profond — l'esprit chalet posé au milieu de la place Am Duerf, entre les façades de verre de Dudelange.",
   c_p1:"On s'y installe au chaud, dans une salle chaleureuse et un peu éclectique — mur de photos en noir et blanc, étagères de livres, chaises drapées de peau de mouton.",
@@ -359,14 +356,14 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Ouvert jusqu'à minuit · horaires détaillés à confirmer",
   l_serv:"Services", serv_val:"Sur place · à emporter · livraison (Wolt)",
   vi_call:"Appeler pour réserver", vi_dir:"Itinéraire",
-  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, Wolt), à remplacer par vos propres visuels. Identité typographique proposée — aucun logo officiel ; le nom apparaît aussi sous la forme « Mont Chalet ». Carte et prix relevés sur la carte de livraison, à confirmer en salle. Horaires détaillés à confirmer. Note 4,2/5 : Google.",
+  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, Wolt), à remplacer par vos propres visuels. Identité typographique proposée — aucun logo officiel ; le nom apparaît aussi sous la forme « Mont Chalet ». Carte et prix à confirmer en salle. Horaires détaillés à confirmer.",
   foot_made:"Un aperçu"
  },
  de:{
   brand_sub:"Bistro · Brasserie · Dudelange", n_chalet:"Das Chalet", n_carte:"Die Karte", n_terr:"Die Terrasse", n_visit:"Infos",
   hero_eyebrow:"Bistro · Brasserie · Biergarten", hero_tag:"Ein Chalet mitten in Düdelingen.",
   hero_sub:"Ein Bergdekor — Holz, weißer Hirsch und tiefes Tannengrün — für eine großzügige Bistroküche: Pinsa Romana, Burger, Platten und eine schöne Bier- und Weinkarte.",
-  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", rate_word:"Google-Bewertungen",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", ac:"auf Anfrage",
   c_eyebrow:"Das Chalet", c_head:"Bergdekor, mitten in der Stadt.",
   c_lede:"Ein weißer Hirsch, helles Holz und ein tiefes Tannengrün — Chalet-Stimmung mitten auf dem Platz Am Duerf, zwischen den Glasfassaden von Düdelingen.",
   c_p1:"Man sitzt hier warm, in einem gemütlichen, leicht eklektischen Raum — eine Schwarz-Weiß-Fotowand, Bücherregale, mit Schaffell bezogene Stühle.",
@@ -385,14 +382,14 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Bis Mitternacht geöffnet · genaue Zeiten zu bestätigen",
   l_serv:"Services", serv_val:"Vor Ort · zum Mitnehmen · Lieferung (Wolt)",
   vi_call:"Zum Reservieren anrufen", vi_dir:"Route",
-  foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (Google Maps, Wolt), durch eigene Bilder zu ersetzen. Typografische Identität als Vorschlag — kein offizielles Logo; der Name erscheint auch als „Mont Chalet“. Karte und Preise aus der Lieferkarte, im Restaurant zu bestätigen. Genaue Öffnungszeiten zu bestätigen. Bewertung 4,2/5: Google.",
+  foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (Google Maps, Wolt), durch eigene Bilder zu ersetzen. Typografische Identität als Vorschlag — kein offizielles Logo; der Name erscheint auch als „Mont Chalet“. Karte und Preise im Restaurant zu bestätigen. Genaue Öffnungszeiten zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
  en:{
   brand_sub:"Bistro · Brasserie · Dudelange", n_chalet:"The chalet", n_carte:"The menu", n_terr:"The terrace", n_visit:"Find us",
   hero_eyebrow:"Bistro · Brasserie · Biergarten", hero_tag:"A chalet in the heart of Dudelange.",
   hero_sub:"A mountain-lodge setting — timber, a white stag and deep fir-green — for hearty bistro cooking: pinsa romana, burgers, sharing boards, and a proper beer and wine list.",
-  hero_cta1:"See the menu", hero_cta2:"Call", rate_word:"Google reviews",
+  hero_cta1:"See the menu", hero_cta2:"Call", ac:"tbc",
   c_eyebrow:"The chalet", c_head:"A mountain lodge, in the middle of town.",
   c_lede:"A white stag, pale timber and a deep fir-green — the chalet spirit set in the middle of the Am Duerf square, among the glass fronts of Dudelange.",
   c_p1:"You settle in warm, in a cosy, slightly eclectic room — a black-and-white photo wall, shelves of books, sheepskin-draped chairs.",
@@ -411,7 +408,7 @@ const I18N = {
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Open until midnight · detailed hours to be confirmed",
   l_serv:"Services", serv_val:"Dine-in · takeaway · delivery (Wolt)",
   vi_call:"Call to reserve", vi_dir:"Directions",
-  foot_disc:"Demonstration preview composed by Webwerk from public photos and information (Google Maps, Wolt), to be replaced with your own visuals. Typographic identity proposed — no official logo; the name also appears as “Mont Chalet”. Menu and prices taken from the delivery carte, to be confirmed in-house. Detailed hours to be confirmed. 4.2/5 rating: Google.",
+  foot_disc:"Demonstration preview composed by Webwerk from public photos and information (Google Maps, Wolt), to be replaced with your own visuals. Typographic identity proposed — no official logo; the name also appears as “Mont Chalet”. Menu and prices to be confirmed in-house. Detailed hours to be confirmed.",
   foot_made:"A preview by"
  }
 };
