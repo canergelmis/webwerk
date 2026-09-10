@@ -293,20 +293,20 @@ footer .made a{color:var(--gold)}
     <div>
      <div class="mgroup">
       <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg1">Les classiques</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Escalope de volaille panée</div></div><span class="dots"></span><span class="pr">22,50 €</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Cordon bleu de volaille</div><div class="ds" data-i18n="i2d">Sauce champignons</div></div><span class="dots"></span><span class="pr">24,50 €</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Bouchée à la reine</div></div><span class="dots"></span><span class="pr">25,50 €</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Francesinha</div></div><span class="dots"></span><span class="pr">25,00 €</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Rognons de veau à la moutarde</div></div><span class="dots"></span><span class="pr">23,50 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Escalope de volaille panée</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Cordon bleu de volaille</div><div class="ds" data-i18n="i2d">Sauce champignons</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Bouchée à la reine</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Francesinha</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Rognons de veau à la moutarde</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg2">Le grill</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Spareribs sauce barbecue</div></div><span class="dots"></span><span class="pr">21,00 €</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Côtes d'agneau grillées</div></div><span class="dots"></span><span class="pr">35,50 €</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Filet de bœuf (Argentine)</div></div><span class="dots"></span><span class="pr">36,00 €</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Maminha de bœuf black angus</div><div class="ds" data-i18n="i9d">Cuit à basse température</div></div><span class="dots"></span><span class="pr">33,00 €</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Spareribs sauce barbecue</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Côtes d'agneau grillées</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Filet de bœuf (Argentine)</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Maminha de bœuf black angus</div><div class="ds" data-i18n="i9d">Cuit à basse température</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
      </div>
      <div class="mgroup">
       <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg3">Les à-côtés</span></h3>
@@ -365,6 +365,7 @@ footer .made a{color:var(--gold)}
 <script>
 const I18N={
  fr:{
+  ac:"à conf.",
   nav_table:"La table",nav_carte:"La carte",nav_ech:"Echternach",nav_infos:"Infos & accès",
   hero_eyebrow:"Hôtel · Café · Restaurant · Echternach",
   hero_tag:"À la table du poète, au cœur d'Echternach — brasserie et grillades dans la plus vieille ville du pays.",
@@ -400,6 +401,7 @@ const I18N={
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison ; les prix « viandes » sont relevés sur sa carte. Adresse exacte, téléphone, horaires et le reste de la carte sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
  de:{
+  ac:"auf Anfrage",
   nav_table:"Der Tisch",nav_carte:"Karte",nav_ech:"Echternach",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Hotel · Café · Restaurant · Echternach",
   hero_tag:"Am Tisch des Poeten, im Herzen Echternachs — Brasserie und Grill in der ältesten Stadt des Landes.",
@@ -435,6 +437,7 @@ const I18N={
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus; die Fleischpreise sind von seiner Karte übernommen. Genaue Adresse, Telefon, Zeiten und die übrige Karte sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
  en:{
+  ac:"tbc",
   nav_table:"The table",nav_carte:"Menu",nav_ech:"Echternach",nav_infos:"Find us",
   hero_eyebrow:"Hotel · Café · Restaurant · Echternach",
   hero_tag:"At the poet's table, in the heart of Echternach — brasserie and grill in the country's oldest town.",
