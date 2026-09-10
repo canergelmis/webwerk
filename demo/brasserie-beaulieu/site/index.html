@@ -299,18 +299,6 @@
   .hero-meta a:hover{text-decoration:underline}
   .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 
-  /* time-aware ardoise chip */
-  .ardoise{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
-    background:var(--chalk);color:#f3efe6;border-radius:8px;padding:9px 15px 10px;margin-bottom:20px;
-    box-shadow:0 6px 0 -2px rgba(94,62,40,.35),0 10px 18px rgba(0,0,0,.22);
-    border:1px solid rgba(255,255,255,.08);position:relative;font-family:'Caveat',cursive;font-size:1.25rem}
-  .ardoise::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%);
-    width:2px;height:10px;background:var(--darkwood)}
-  .ardoise .dot{width:11px;height:11px;border-radius:50%;background:var(--olive);box-shadow:0 0 9px var(--olive);flex:none}
-  .ardoise.closed .dot{background:var(--red);box-shadow:0 0 9px rgba(192,57,43,.8)}
-  .ardoise .st{font-weight:700;letter-spacing:.02em}
-  .ardoise .hrs{font-family:'Mulish',sans-serif;font-size:.78rem;opacity:.82;letter-spacing:.02em}
-
   /* ---------- Section scaffolding ---------- */
   section{position:relative}
   .band{padding:clamp(48px,6vw,86px) 0}
@@ -562,12 +550,6 @@
       </svg>
       <p class="tagline" data-i18n="hero_tagline">Cuisine canaille. Ambiance de quartier.</p>
 
-      <div class="ardoise" id="statusChip" role="status" aria-live="polite">
-        <span class="dot" aria-hidden="true"></span>
-        <span class="st" id="statusText">Ouvert</span>
-        <span class="hrs" id="statusHours">10:00 – 01:00</span>
-      </div>
-
       <p class="hero-meta"><span data-i18n="hero_addr">25 Rue Félix de Blochausen, 1243 Bonnevoie, Luxembourg</span></p>
       <p class="hero-meta"><a href="tel:+35226483302">+352 26 48 33 02</a></p>
 
@@ -640,14 +622,14 @@
         <h3 data-i18n="menu_c2">Les plats</h3>
         <svg class="chalk-rule" viewBox="0 0 120 16" aria-hidden="true"><path d="M2 9 C30 3,80 3,118 8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/></svg>
         <div class="placemat">
-          <div class="dish"><span class="nm">Cordon Bleu</span><span class="lead"></span><span class="pr">~27&nbsp;€</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_entrecote">Entrecôte, beurre maître d'hôtel</span><span class="lead"></span><span class="pr">~30&nbsp;€</span></div>
+          <div class="dish"><span class="nm">Cordon Bleu</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_entrecote">Entrecôte, beurre maître d'hôtel</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
           <div class="dish"><span class="nm" data-i18n="d_tartare">Tartare de bœuf</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm">Cassoulet</span><span class="lead"></span><span class="pr">~30&nbsp;€</span></div>
+          <div class="dish"><span class="nm">Cassoulet</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
           <div class="dish"><span class="nm" data-i18n="d_blanquette">Blanquette de veau</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
           <div class="dish"><span class="nm">Hachis Parmentier</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_burgerc">Burger poulet</span><span class="lead"></span><span class="pr">~20&nbsp;€</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_burgerv">Burger végétarien</span><span class="lead"></span><span class="pr">~20&nbsp;€</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_burgerc">Burger poulet</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_burgerv">Burger végétarien</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
         </div>
       </div>
 
@@ -809,8 +791,7 @@ const I18N = {
     foot_tag:"Bistro de quartier à Bonnevoie. Cuisine canaille, ambiance de quartier — venez comme vous êtes.",
     foot_visit:"Nous rendre visite", foot_hours:"Voir les horaires",
     foot_follow:"Suivez-nous", foot_book:"Réserver une table",
-    foot_demo:"Site de démonstration — Brasserie Beaulieu. Contenu à confirmer avec l'établissement. Le bleu de la charte est relevé sur l'enseigne cursive de la maison ; année de fondation (env. 1959) non confirmée.",
-    st_open:"Ouvert", st_closed:"Fermé", st_hours:"10:00 – 01:00"
+    foot_demo:"Site de démonstration — Brasserie Beaulieu. Contenu à confirmer avec l'établissement. Le bleu de la charte est relevé sur l'enseigne cursive de la maison ; année de fondation (env. 1959) non confirmée."
   },
   de:{
     skip:"Zur Karte springen",
@@ -854,8 +835,7 @@ const I18N = {
     foot_tag:"Quartiersbistro in Bonnevoie. Herzhafte Küche, nachbarschaftliches Flair — kommen Sie, wie Sie sind.",
     foot_visit:"Besuchen Sie uns", foot_hours:"Öffnungszeiten ansehen",
     foot_follow:"Folgen Sie uns", foot_book:"Tisch reservieren",
-    foot_demo:"Demo-Website — Brasserie Beaulieu. Inhalte mit dem Lokal zu bestätigen. Das Blau der Gestaltung stammt vom eigenen Schriftzug des Hauses; Gründungsjahr (ca. 1959) unbestätigt.",
-    st_open:"Geöffnet", st_closed:"Geschlossen", st_hours:"10:00 – 01:00"
+    foot_demo:"Demo-Website — Brasserie Beaulieu. Inhalte mit dem Lokal zu bestätigen. Das Blau der Gestaltung stammt vom eigenen Schriftzug des Hauses; Gründungsjahr (ca. 1959) unbestätigt."
   },
   en:{
     skip:"Skip to menu",
@@ -899,8 +879,7 @@ const I18N = {
     foot_tag:"Neighbourhood bistro in Bonnevoie. Hearty food, neighbourhood soul — come as you are.",
     foot_visit:"Visit us", foot_hours:"See opening hours",
     foot_follow:"Follow us", foot_book:"Book a table",
-    foot_demo:"Demo website — Brasserie Beaulieu. Content to be confirmed with the establishment. The accent blue is sampled from the venue's own cursive sign; founding year (approx. 1959) unconfirmed.",
-    st_open:"Open", st_closed:"Closed", st_hours:"10:00 – 01:00"
+    foot_demo:"Demo website — Brasserie Beaulieu. Content to be confirmed with the establishment. The accent blue is sampled from the venue's own cursive sign; founding year (approx. 1959) unconfirmed."
   }
 };
 
@@ -925,42 +904,21 @@ function applyLang(lang){
   document.querySelectorAll(".lang button").forEach(b=>{
     b.classList.toggle("active", b.dataset.lang===lang);
   });
-  updateStatus();
 }
 document.querySelectorAll(".lang button").forEach(b=>{
   b.addEventListener("click", ()=>applyLang(b.dataset.lang));
 });
 
-/* ---------- time-aware Ouvert/Fermé (Europe/Luxembourg) ---------- */
-/* Hours: daily 10:00 – 01:00 (closes 1am next day). */
-function luxNow(){
-  try{
-    const s = new Date().toLocaleString("en-US",{timeZone:"Europe/Luxembourg"});
-    return new Date(s);
-  }catch(e){ return new Date(); }
-}
-function isOpen(d){
-  const h = d.getHours();
-  return (h >= 10) || (h < 1); // open 10:00 -> 01:00
-}
-function updateStatus(){
-  const dict = I18N[currentLang];
-  const d = luxNow();
-  const open = isOpen(d);
-  const chip = document.getElementById("statusChip");
-  const txt = document.getElementById("statusText");
-  const hrs = document.getElementById("statusHours");
-  if(chip){ chip.classList.toggle("closed", !open); }
-  if(txt){ txt.textContent = open ? dict.st_open : dict.st_closed; }
-  if(hrs){ hrs.textContent = dict.st_hours; }
-  const today = d.getDay();
+/* ---------- static "today" row highlight on the hours table (no open/closed state) ---------- */
+function highlightToday(){
+  const today = new Date().getDay();
   document.querySelectorAll(".hours-ardoise .row").forEach(r=>{
     r.classList.toggle("today", parseInt(r.dataset.day,10)===today);
   });
 }
 
 applyLang("fr");
-setInterval(updateStatus, 60000);
+highlightToday();
 </script>
 
 <!-- ============ resto-kit · WS2 conversion path (reservation + sticky CTA) ============ -->
