@@ -57,10 +57,6 @@ nav.links a:hover{color:var(--amber);opacity:1}
 .hero .eyebrow{color:var(--amber);margin-bottom:16px;display:block}
 .hero h1{color:#fff;font-size:clamp(56px,11vw,138px);text-transform:uppercase;letter-spacing:-.01em;text-shadow:0 6px 44px rgba(0,0,0,.5);line-height:.9}
 .hero .tag{font-family:'Body',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,26px);color:#f2e6cf;max-width:24ch;margin:18px 0 0;line-height:1.4}
-.pill{display:inline-flex;align-items:center;gap:9px;margin-top:24px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 15px;font-family:'Body';font-weight:700;font-size:13.5px;color:#f2e6cf}
-.pill .dot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex:none;box-shadow:0 0 0 0 rgba(0,0,0,0)}
-.pill.on .dot{background:var(--green);box-shadow:0 0 10px rgba(79,158,84,.8)}
-.pill.off .dot{background:var(--red-l)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:22px}
 .btn{font-family:'Body',sans-serif;font-weight:800;letter-spacing:.01em;font-size:14.5px;padding:14px 27px;border-radius:4px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px;text-transform:uppercase}
 .btn.p{background:var(--red);color:#fff}
@@ -221,7 +217,6 @@ footer .ct{font-family:'Body';font-weight:800;letter-spacing:.14em;text-transfor
    <span class="eyebrow" data-i18n="hero_eyebrow">Döner · dürüm · grillades · Clausen</span>
    <h1>Best Grill</h1>
    <p class="tag" data-i18n="hero_tag">Le döner de Clausen, à la broche — tranché à la minute. Frais, rapide, généreux.</p>
-   <div class="pill" id="statusPill"><span class="dot"></span><span id="stWord" data-i18n="st_open">Ouvert</span></div>
    <div class="cta">
     <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
     <a class="btn o" href="#broche" data-i18n="hero_cta2">La broche ↓</a>
@@ -391,7 +386,6 @@ const I18N={
   nav_broche:"À la broche",nav_carte:"La carte",nav_gal:"En images",nav_infos:"Infos & accès",
   hero_eyebrow:"Döner · dürüm · grillades · Clausen",
   hero_tag:"Le döner de Clausen, à la broche — tranché à la minute. Frais, rapide, généreux.",
-  st_open:"Ouvert",st_closed:"Fermé",pill_until:"ferme à",
   hero_cta1:"Voir la carte",hero_cta2:"La broche ↓",
   ib_hours_k:"Horaires",ib_hours_v:"Lun–Sam 11:00–22:30<small>Dimanche 16:30–22:00</small>",
   ib_addr_k:"Adresse",ib_tel_k:"Commander",ib_tel_v:"Sur place ou à emporter",
@@ -426,7 +420,6 @@ const I18N={
   nav_broche:"Vom Spieß",nav_carte:"Karte",nav_gal:"Bilder",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Döner · Dürüm · Grill · Clausen",
   hero_tag:"Der Döner von Clausen, vom Spieß — frisch geschnitten. Frisch, schnell, großzügig.",
-  st_open:"Geöffnet",st_closed:"Geschlossen",pill_until:"schließt um",
   hero_cta1:"Zur Karte",hero_cta2:"Der Spieß ↓",
   ib_hours_k:"Öffnungszeiten",ib_hours_v:"Mo–Sa 11:00–22:30<small>Sonntag 16:30–22:00</small>",
   ib_addr_k:"Adresse",ib_tel_k:"Bestellen",ib_tel_v:"Vor Ort oder zum Mitnehmen",
@@ -461,7 +454,6 @@ const I18N={
   nav_broche:"On the spit",nav_carte:"Menu",nav_gal:"In pictures",nav_infos:"Find us",
   hero_eyebrow:"Döner · dürüm · grill · Clausen",
   hero_tag:"The döner of Clausen, on the spit — sliced to order. Fresh, fast, generous.",
-  st_open:"Open",st_closed:"Closed",pill_until:"closes at",
   hero_cta1:"See the menu",hero_cta2:"The spit ↓",
   ib_hours_k:"Hours",ib_hours_v:"Mon–Sat 11:00–22:30<small>Sunday 16:30–22:00</small>",
   ib_addr_k:"Address",ib_tel_k:"Order",ib_tel_v:"Dine in or take away",
@@ -495,21 +487,10 @@ const I18N={
 };
 let lang="fr";
 function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
-const HRS={0:[16.5,22],1:[11,22.5],2:[11,22.5],3:[11,22.5],4:[11,22.5],5:[11,22.5],6:[11,22.5]};
-function fmt(h){const H=Math.floor(h),M=Math.round((h-H)*60);return (H<10?"0":"")+H+":"+(M<10?"0":"")+M;}
-function updateStatus(){
-  const el=document.getElementById("stWord"),pill=document.getElementById("statusPill");
-  if(!el||!pill)return;
-  const d=new Date(),day=d.getDay(),cur=d.getHours()+d.getMinutes()/60,w=HRS[day];
-  const open=w&&cur>=w[0]&&cur<w[1];
-  if(open){el.textContent=t("st_open")+" · "+t("pill_until")+" "+fmt(w[1]);pill.classList.add("on");pill.classList.remove("off");}
-  else{el.textContent=t("st_closed");pill.classList.add("off");pill.classList.remove("on");}
-}
 function applyLang(l){
   lang=l; document.documentElement.lang=l;
   document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
   document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
-  updateStatus();
   try{localStorage.setItem("bgr_lang",l);}catch(e){}
 }
 document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
@@ -520,7 +501,6 @@ const hd=document.getElementById("hd");
 const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("bgr_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
-setInterval(updateStatus,60000);
 
 /* THE WOW — a vertical döner cone rotating under a heat lamp: turning meat, char flecks, a falling shaving, heat haze */
 (function(){
