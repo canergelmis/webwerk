@@ -336,7 +336,7 @@ footer .made a{color:var(--gold)}
     <div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">2, quai de la Moselle<br>L-5553 Remich · sur l'esplanade</div></div></div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><a href="tel:+35223698685">+352 23 69 86 85</a> <span class="fl" data-i18n="ino_fl2">(à confirmer)</span></div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" id="today">—</span><br><span class="fl" data-i18n="ino_fl3">Ouvert à la belle saison · souvent fermé le mardi · horaires à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" data-i18n="ino_hours">11h30 – 21h00, sauf le mardi (fermé)</span><br><span class="fl" data-i18n="ino_fl3">Ouvert à la belle saison · souvent fermé le mardi · horaires à confirmer</span></div></div></div>
     </div>
     <div class="mapcard">
      <div class="field"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#terr)"/></svg></div>
@@ -397,7 +397,7 @@ const I18N={
   chip1:"Au bord de la rivière",chip2:"Face aux coteaux",chip3:"Les bateaux de la Moselle",
   infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
   ino_k1:"Adresse",ino_k2:"Réserver",ino_fl2:"(à confirmer)",
-  ino_k3:"Horaires",ino_fl3:"Ouvert à la belle saison · souvent fermé le mardi · horaires à confirmer",
+  ino_k3:"Horaires",ino_hours:"11h30 – 21h00, sauf le mardi (fermé)",ino_fl3:"Ouvert à la belle saison · souvent fermé le mardi · horaires à confirmer",
   map_big:"Remich",map_sub:"Sur l'esplanade, au bord de la Moselle",map_btn:"Ouvrir dans Maps ↗",
   foot_p:"La friture de la Moselle, en terrasse au bord de la rivière, à Remich. Poissons frits, moules-frites et Riesling, à la belle saison.",
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
@@ -431,7 +431,7 @@ const I18N={
   chip1:"Direkt am Fluss",chip2:"Blick auf die Hänge",chip3:"Die Mosel-Boote",
   infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
   ino_k1:"Adresse",ino_k2:"Reservieren",ino_fl2:"(zu bestätigen)",
-  ino_k3:"Öffnungszeiten",ino_fl3:"Zur schönen Jahreszeit geöffnet · oft dienstags geschlossen · Zeiten zu bestätigen",
+  ino_k3:"Öffnungszeiten",ino_hours:"11:30 – 21:00, außer dienstags (geschlossen)",ino_fl3:"Zur schönen Jahreszeit geöffnet · oft dienstags geschlossen · Zeiten zu bestätigen",
   map_big:"Remich",map_sub:"Auf der Esplanade, direkt an der Mosel",map_btn:"In Maps öffnen ↗",
   foot_p:"Die Friture de la Moselle, auf der Terrasse am Fluss, in Remich. Frittierter Fisch, Muscheln & Pommes und Riesling, zur schönen Jahreszeit.",
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
@@ -465,24 +465,19 @@ const I18N={
   chip1:"Right by the river",chip2:"Facing the slopes",chip3:"The Moselle boats",
   infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
   ino_k1:"Address",ino_k2:"Book",ino_fl2:"(to be confirmed)",
-  ino_k3:"Opening hours",ino_fl3:"Open in the fine season · often closed on Tuesdays · hours to be confirmed",
+  ino_k3:"Opening hours",ino_hours:"11:30 – 21:00, except Tuesdays (closed)",ino_fl3:"Open in the fine season · often closed on Tuesdays · hours to be confirmed",
   map_big:"Remich",map_sub:"On the esplanade, by the Moselle",map_btn:"Open in Maps ↗",
   foot_p:"The Moselle friture, on the terrace by the river, in Remich. Fried fish, mussels & chips and Riesling, in the fine season.",
   foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
   disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand and dishes belong to the house. Menu, prices, hours, season and phone are to be confirmed — an unofficial proposal, not affiliated to date."
  }
 };
-const HOURS={fr:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],de:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
-const SCHED={0:"11:30–21:00",1:"11:30–21:00",2:null,3:"11:30–21:00",4:"11:30–21:00",5:"11:30–21:00",6:"11:30–21:00"};
 let lang="fr";
 function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
 function applyLang(l){
   lang=l; document.documentElement.lang=l;
   document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
   document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
-  const d=new Date(); const day=d.getDay(); const s=SCHED[day];
-  const closed={fr:"Fermé (mardi)",de:"Geschlossen (Dienstag)",en:"Closed (Tuesday)"}[l];
-  const el=document.getElementById("today"); if(el) el.textContent=HOURS[l][day]+" · "+(s?s:closed);
   try{localStorage.setItem("fm_lang",l);}catch(e){}
 }
 document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
