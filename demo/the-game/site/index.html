@@ -190,20 +190,8 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
 }
 .wm-kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.3em;color:var(--amber);margin-top:4px;padding-left:2px}
 
-.status{margin-top:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0}
-.pill{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--mono);font-weight:700;font-size:.74rem;letter-spacing:.08em;
-  padding:7px 13px;border-radius:40px;background:rgba(43,217,107,.12);color:var(--green);
-  border:1px solid rgba(43,217,107,.4);text-transform:uppercase;
-}
-.pill.closed{background:rgba(154,155,166,.1);color:var(--muted);border-color:rgba(154,155,166,.3)}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(43,217,107,.7);animation:pulse 1.8s infinite}
-.pill.closed .dot{background:var(--muted);animation:none;box-shadow:none}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(43,217,107,.6)}70%{box-shadow:0 0 0 9px rgba(43,217,107,0)}100%{box-shadow:0 0 0 0 rgba(43,217,107,0)}}
-.clock{display:flex;align-items:baseline;gap:9px;margin-top:14px}
-.clock-now{font-family:var(--mono);font-size:1.5rem;font-weight:700;color:var(--paper);letter-spacing:.04em}
-.clock-lbl{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
 
 .rail-call{
   margin-top:auto;display:flex;flex-direction:column;gap:6px;
@@ -354,11 +342,9 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
 .fixture-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px}
 .hours-table{width:100%;border-collapse:collapse}
 .hours-table tr{border-bottom:1px solid var(--line)}
-.hours-table tr.live{background:rgba(43,217,107,.07)}
 .hours-table td{padding:13px 4px;font-family:var(--mono);font-size:.9rem}
 .hours-table td:first-child{color:#e4e4ea;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
 .hours-table td:last-child{text-align:right;color:var(--green);font-weight:700}
-.hours-table tr.live td:first-child::after{content:"● LIVE";color:var(--green);font-size:.6rem;margin-left:10px;letter-spacing:.1em}
 .contact-block{margin-top:0}
 .cline{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
 .cline .ck{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;width:88px;flex-shrink:0;padding-top:3px}
@@ -403,7 +389,6 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
   .mobar .mwm{font-family:var(--disp);font-size:1.5rem;color:var(--paper);letter-spacing:.02em}
   .mobar .mwm b{color:var(--red)}
   .mobar .mright{display:flex;align-items:center;gap:8px}
-  .mobar .pill{font-size:.6rem;padding:5px 9px}
   .mobar .mcall{background:var(--red);color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:1.2rem}
   .molang{display:flex;gap:4px}
   .molang .langbtn{padding:4px 7px;font-size:.58rem}
@@ -452,7 +437,6 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
 <header class="mobar">
   <div class="mwm">THE&nbsp;<b>GAME</b></div>
   <div class="mright">
-    <span class="pill" id="pillMob"><span class="dot"></span><span id="pillMobTxt">OPEN</span></span>
     <a class="mcall" href="tel:+35226683026" aria-label="Call The Game">☎</a>
   </div>
 </header>
@@ -466,14 +450,6 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
     </span>
     <div class="wm-strap">SPORTS BAR · STEAKHOUSE</div>
     <div class="wm-kicker">LIFE IS A GAME</div>
-  </div>
-
-  <div class="status">
-    <span class="pill" id="pill"><span class="dot"></span><span id="pillTxt">OPEN</span></span>
-    <div class="clock">
-      <span class="clock-now" id="clockNow">--:--</span>
-      <span class="clock-lbl" id="clockLbl" data-i18n="clockLbl">Luxembourg</span>
-    </div>
   </div>
 
   <ul class="rail-nav">
@@ -582,17 +558,17 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
           <div class="sheet-card">
             <h3 data-i18n="luWings">Ailes légendaires</h3>
             <div class="csub" data-i18n="luWingsSub">Sauces audacieuses · à partager</div>
-            <div class="row"><span class="it" data-i18n="luW1">Snack <small>x6</small></span><span class="pr">€10.95</span></div>
-            <div class="row"><span class="it" data-i18n="luW2">Small <small>x12</small></span><span class="pr">€16.95</span></div>
-            <div class="row"><span class="it" data-i18n="luW3">Regular <small>x18</small></span><span class="pr">€22.45</span></div>
-            <div class="row"><span class="it" data-i18n="luW4">Team <small>x24</small></span><span class="pr">€27.95</span></div>
+            <div class="row"><span class="it" data-i18n="luW1">Snack <small>x6</small></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it" data-i18n="luW2">Small <small>x12</small></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it" data-i18n="luW3">Regular <small>x18</small></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it" data-i18n="luW4">Team <small>x24</small></span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
           <div class="sheet-card">
             <h3 data-i18n="luStart">Entrées</h3>
             <div class="csub" data-i18n="luStartSub">Pour ouvrir le score</div>
-            <div class="row"><span class="it">Mozzarella Sticks</span><span class="pr">€11.95</span></div>
-            <div class="row"><span class="it">Angus Tacos</span><span class="pr">€14.95</span></div>
-            <div class="row"><span class="it" data-i18n="luS3">Churros · chocolat belge</span><span class="pr">€9.95</span></div>
+            <div class="row"><span class="it">Mozzarella Sticks</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it">Angus Tacos</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it" data-i18n="luS3">Churros · chocolat belge</span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
         </div>
 
@@ -601,10 +577,10 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
           <div class="sheet-card">
             <h3 data-i18n="luBurg">Smash Burgers</h3>
             <div class="csub" data-i18n="luBurgSub">Steaks Angus smashés</div>
-            <div class="row"><span class="it" data-i18n="luB1">Medium <small>2 steaks</small></span><span class="pr">€16.95</span></div>
-            <div class="row"><span class="it" data-i18n="luB2">Large <small>3 steaks</small></span><span class="pr">€19.95</span></div>
-            <div class="row"><span class="it" data-i18n="luB3">Beast <small>4 steaks</small></span><span class="pr">€22.95</span></div>
-            <div class="row"><span class="it">Steak Burger</span><span class="pr">€23.95</span></div>
+            <div class="row"><span class="it" data-i18n="luB1">Medium <small>2 steaks</small></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it" data-i18n="luB2">Large <small>3 steaks</small></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it" data-i18n="luB3">Beast <small>4 steaks</small></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it">Steak Burger</span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
           <div class="menu-photo">
             <img src="assets/food1.jpg" alt="Gros plan d'ailes de poulet buffalo trempées dans une sauce au bleu">
@@ -619,16 +595,16 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
           <div class="sheet-card">
             <h3 data-i18n="luPizza">Pizzas</h3>
             <div class="csub" data-i18n="luPizzaSub">Cuites à la pierre</div>
-            <div class="row"><span class="it">Queen Margherita</span><span class="pr">€14.45</span></div>
-            <div class="row"><span class="it">Pepperoni</span><span class="pr">€20.45</span></div>
-            <div class="row"><span class="it">Quattro Stagioni</span><span class="pr">€21.95</span></div>
+            <div class="row"><span class="it">Queen Margherita</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it">Pepperoni</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it">Quattro Stagioni</span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
           <div class="sheet-card">
             <h3 data-i18n="luBar">Au bar</h3>
             <div class="csub" data-i18n="luBarSub">Pression &amp; bouteille</div>
-            <div class="row"><span class="it">Guinness</span><span class="pr">€5.30</span></div>
-            <div class="row"><span class="it">Duvel</span><span class="pr">€4.70</span></div>
-            <div class="row"><span class="it">Corona</span><span class="pr">€4.90</span></div>
+            <div class="row"><span class="it">Guinness</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it">Duvel</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="row"><span class="it">Corona</span><span class="pr" data-i18n="ac">à conf.</span></div>
           </div>
         </div>
       </div>
@@ -791,9 +767,9 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
 /* ===================== TRANSLATIONS ===================== */
 const I18N = {
   fr:{
-    clockLbl:"Luxembourg",
     navMatch:"Soir de match",navMenu:"La compo",navReserve:"Réserver",navGameroom:"Game Room",navVisit:"Nous trouver",
     ctaBook:"Réservez votre table",
+    ac:"à conf.",
     heroKick:"Kirchberg · Au sein de Kinepolis",
     heroH1a:"Chaque match",heroH1b:"se vit ici.",
     heroSub:"Le bar sportif et steakhouse de référence du Luxembourg — plus de 40 écrans, ailes légendaires, steaks Angus et un bar complet.",
@@ -831,12 +807,11 @@ const I18N = {
     ftVisit:"Visite",ftHours:"Horaires",ftHours1:"Lun–jeu &amp; dim · 11:00 – 23:45",ftHours2:"Ven–sam · 11:00 – 00:00",
     ftNote:"MAQUETTE DE DÉMO — Le logo, les couleurs et les polices sont des espaces réservés proposés, remplaçables dès que le propriétaire fournit sa charte officielle. Numéro de rue (45) et prix sur place à confirmer.",
     ftMade:"Démo de concept · site non officiel",
-    sOpen:"OUVERT",sClosed:"FERMÉ",sTill:"jusqu'à",sOpens:"OUVRE",
   },
   de:{
-    clockLbl:"Luxemburg",
     navMatch:"Spieltag",navMenu:"Die Aufstellung",navReserve:"Reservieren",navGameroom:"Game Room",navVisit:"Standort",
     ctaBook:"Tisch reservieren",
+    ac:"auf Anfrage",
     heroKick:"Kirchberg · Im Kinepolis",
     heroH1a:"Jedes Spiel",heroH1b:"lebt hier.",
     heroSub:"Luxemburgs führende Sportsbar &amp; Steakhouse — über 40 Bildschirme, legendäre Wings, Angus-Steaks und eine volle Bar.",
@@ -874,12 +849,11 @@ const I18N = {
     ftVisit:"Besuch",ftHours:"Öffnungszeiten",ftHours1:"Mo–Do &amp; So · 11:00 – 23:45",ftHours2:"Fr–Sa · 11:00 – 00:00",
     ftNote:"DEMO-PLATZHALTER — Wortmarke, Farben und Schriften sind ein vorgeschlagener Platzhalter, austauschbar sobald der Inhaber offizielles Branding liefert. Hausnummer (45) und Preise vor Ort zu bestätigen.",
     ftMade:"Konzept-Demo · keine offizielle Seite",
-    sOpen:"GEÖFFNET",sClosed:"GESCHLOSSEN",sTill:"bis",sOpens:"ÖFFNET",
   },
   en:{
-    clockLbl:"Luxembourg",
     navMatch:"Match Night",navMenu:"The Line-up",navReserve:"Reserve",navGameroom:"Game Room",navVisit:"Find Us",
     ctaBook:"Book your table",
+    ac:"tbc",
     heroKick:"Kirchberg · Inside Kinepolis",
     heroH1a:"Every match",heroH1b:"lives here.",
     heroSub:"Luxembourg's ultimate sports bar &amp; steakhouse — 40+ screens, legendary wings, Angus steaks and a full bar.",
@@ -917,7 +891,6 @@ const I18N = {
     ftVisit:"Visit",ftHours:"Hours",ftHours1:"Mon–Thu &amp; Sun · 11:00 – 23:45",ftHours2:"Fri–Sat · 11:00 – 00:00",
     ftNote:"DEMO PLACEHOLDER — Wordmark, colours and fonts are a proposed placeholder, swappable once the owner supplies official branding. Street number (No. 45) and dine-in prices to be confirmed with the venue.",
     ftMade:"Concept demo · not an official site",
-    sOpen:"OPEN",sClosed:"CLOSED",sTill:"till",sOpens:"OPENS",
   }
 };
 
@@ -935,7 +908,6 @@ function applyLang(lang){
     b.classList.toggle("active", b.dataset.lang===lang);
   });
   buildTicker();
-  updateStatus();
 }
 
 document.querySelectorAll(".langbtn").forEach(b=>{
@@ -953,54 +925,8 @@ function buildTicker(){
   document.getElementById("ticker").innerHTML = one + one;
 }
 
-/* ===================== LIVE STATUS / CLOCK ===================== */
-const OPEN_MIN = 11*60; // 11:00
-
-function luxNow(){
-  const fmt = new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Luxembourg",hour12:false,weekday:"short",hour:"2-digit",minute:"2-digit"});
-  const parts = {};
-  fmt.formatToParts(new Date()).forEach(p=>parts[p.type]=p.value);
-  const dayMap = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
-  let h = parseInt(parts.hour,10); if(h===24) h=0;
-  return {day:dayMap[parts.weekday], min:h*60+parseInt(parts.minute,10), hh:String(h).padStart(2,"0"), mm:parts.minute};
-}
-
-function statusInfo(){
-  const {day,min} = luxNow();
-  const lateDay = (day===5||day===6);          // Fri / Sat close at midnight
-  const todayClose = lateDay ? 1440 : 1425;    // 24:00 or 23:45
-  let open=false, closeLbl="";
-  if(min>=OPEN_MIN && min<todayClose){ open=true; closeLbl = lateDay ? "00:00" : "23:45"; }
-  return {open, closeLbl};
-}
-
-function updateStatus(){
-  const dict = I18N[curLang];
-  const {hh,mm} = luxNow();
-  const {open,closeLbl} = statusInfo();
-  document.getElementById("clockNow").textContent = hh+":"+mm;
-
-  const txt = open ? `${dict.sOpen} · ${dict.sTill} ${closeLbl}` : `${dict.sClosed} · ${dict.sOpens} 11:00`;
-  ["pill","pillMob"].forEach(id=>{
-    const el = document.getElementById(id);
-    if(!el) return;
-    el.classList.toggle("closed", !open);
-  });
-  document.getElementById("pillTxt").textContent = txt;
-  const pm = document.getElementById("pillMobTxt");
-  if(pm) pm.textContent = open ? `${dict.sOpen} · ${closeLbl}` : `${dict.sClosed}`;
-
-  // highlight today's row in the fixture table
-  const today = luxNow().day;
-  document.querySelectorAll("#hoursBody tr").forEach(tr=>{
-    tr.classList.toggle("live", open && parseInt(tr.dataset.day,10)===today);
-  });
-}
-
 /* ===================== INIT ===================== */
 applyLang("fr");
-updateStatus();
-setInterval(updateStatus, 30000);
 </script>
 
 <!-- ============ resto-kit · WS2 conversion path (reservation + sticky CTA) ============ -->
