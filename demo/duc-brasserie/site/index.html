@@ -208,35 +208,28 @@
   @keyframes scroll-l{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ---------- HOURS BAND ---------- */
-  .hours{background:#141414;color:var(--cream);padding:72px 0 82px}
-  .hours-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:40px}
+  .hours{background:#141414;color:var(--cream);padding:64px 0 68px}
+  .hours-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px}
   .hours-head h2{color:var(--cream);font-size:clamp(1.9rem,3.4vw,3rem)}
-  .hours-head p{color:rgba(250,250,248,.6);max-width:34ch;font-size:.95rem}
-  .clock{position:relative}
-  .axis{display:grid;grid-template-columns:104px 1fr;margin-bottom:6px}
-  .axis-inner{position:relative;height:20px}
-  .axis .tick{position:absolute;top:0;transform:translateX(-50%);
-    font-family:var(--mono);font-size:.66rem;color:rgba(250,250,248,.45);letter-spacing:.08em}
-  .axis .tick:first-child{transform:none}
-  .axis .tick:last-child{transform:translateX(-100%)}
-  .axis .tick::after{content:"";position:absolute;left:50%;top:15px;width:1px;height:8px;background:rgba(250,250,248,.2)}
-  .rows{position:relative}
-  .drow{display:grid;grid-template-columns:104px 1fr;align-items:center;gap:0;padding:5px 0}
-  .drow .dl{font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;color:rgba(250,250,248,.62);text-transform:uppercase}
-  .drow .track{position:relative;height:20px;background:rgba(255,255,255,.05);border-radius:5px}
-  .drow .bar{position:absolute;top:0;bottom:0;background:linear-gradient(90deg,var(--amber),var(--amber-soft));border-radius:5px;opacity:.85}
-  .drow .bt{position:absolute;top:50%;transform:translateY(-50%);left:10px;
-    font-family:var(--mono);font-size:.62rem;color:var(--charcoal);font-weight:500;letter-spacing:.06em}
-  .hours-note{margin-top:22px;font-family:var(--mono);font-size:.66rem;color:rgba(250,250,248,.4);letter-spacing:.06em}
+  .hours-head p{color:rgba(250,250,248,.72);max-width:36ch;font-size:.95rem}
+  .hours-block{display:flex;flex-wrap:wrap;border:1px solid rgba(212,148,30,.34);border-radius:14px;overflow:hidden}
+  .hb-days{display:flex;align-items:center;flex:1 1 200px;padding:24px 28px;
+    background:rgba(212,148,30,.12);font-family:var(--mono);font-size:.74rem;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--amber)}
+  .hb-slot{display:flex;flex-direction:column;gap:7px;flex:1 1 240px;padding:22px 28px;
+    border-left:1px solid rgba(212,148,30,.24)}
+  .hb-k{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,250,248,.62)}
+  .hb-v{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.1vw,2.3rem);color:var(--cream);line-height:1}
 
   /* ---------- MENU LEDGER ---------- */
   .menu{background:var(--cream);padding:84px 0 90px;position:relative}
   .menu-head{text-align:left;max-width:56ch;margin-bottom:14px}
   .menu-head h2{font-size:clamp(2.1rem,4vw,3.4rem)}
   .menu-head .lead{margin-top:12px;color:var(--slate);font-size:1.02rem}
+  .menu-note{margin-top:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--slate);opacity:.72}
 
-  .ledger{display:grid;grid-template-columns:1fr 64px 1fr;gap:0 40px;margin-top:38px;position:relative}
-  .ledger-col{display:flex;flex-direction:column;gap:44px}
+  .ledger{display:grid;grid-template-columns:64px 1fr;gap:0 40px;margin-top:38px;position:relative}
+  .ledger-main{min-width:0}
   /* spit gutter */
   .gutter{position:relative;display:flex;justify-content:center}
   .spit{position:sticky;top:120px;width:22px;height:340px;border-radius:11px;
@@ -259,18 +252,29 @@
     color:var(--slate);opacity:.7;text-transform:lowercase}
   .item{display:flex;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px dotted var(--line)}
   .item .nm{font-size:.98rem;color:var(--charcoal)}
-  .item .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:14px}
-  .item .pr{font-family:var(--mono);font-size:.92rem;font-weight:500;color:var(--red);white-space:nowrap}
-  .menu-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;margin-top:46px}
+
+  /* format matrix */
+  .fmt{width:100%;border-collapse:collapse;table-layout:fixed}
+  .fmt col.c-nm{width:auto}
+  .fmt col.c-f{width:16%}
+  .fmt th,.fmt td{padding:9px 6px;border-bottom:1px dotted var(--line);text-align:center}
+  .fmt thead th{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--slate);vertical-align:bottom;padding-bottom:11px;border-bottom:2px solid var(--charcoal)}
+  .fmt th.h-nm{text-align:left}
+  .fmt td.rn{text-align:left;font-size:.98rem;color:var(--charcoal)}
+  .fmt td.on::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--amber)}
+  .fmt td.off::before{content:"–";color:rgba(26,26,26,.26);font-size:.9rem}
+  .fmt tbody tr:hover td{background:rgba(212,148,30,.07)}
+  .subs{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:46px}
+  .menu-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:20px;margin-top:46px}
   .menu-foot .cta-cluster .btn-call{color:var(--charcoal);border-color:var(--line)}
   .menu-foot .cta-cluster .btn-call svg{fill:var(--charcoal)}
   .menu-foot .cta-cluster .btn-call:hover{border-color:var(--amber);color:var(--amber)}
   .menu-foot .cta-cluster .btn-call:hover svg{fill:var(--amber)}
-  .price-note{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--slate);opacity:.75;max-width:40ch}
 
   /* ---------- WHY DUC ---------- */
   .why{background:#f2efe8;padding:88px 0}
-  .why-grid{display:grid;grid-template-columns:45% 55%;gap:56px;align-items:center}
+  .why-grid{display:grid;grid-template-columns:minmax(0,45fr) minmax(0,55fr);gap:56px;align-items:center}
   .why-media{display:grid;grid-template-rows:1.55fr 1fr;gap:16px;height:520px}
   .why-media .frame{position:relative;overflow:hidden;border-radius:14px;background:#ddd}
   .why-media .frame img{width:100%;height:100%;object-fit:cover}
@@ -304,9 +308,15 @@
     color:var(--slate);padding:5px 11px;border-radius:20px}
   .map-embed{margin-top:22px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
   .map-embed iframe{display:block;width:100%;height:180px;border:0;filter:grayscale(.2)}
+  .map-card{margin-top:22px;display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:12px;border:1px solid var(--line);background:var(--cream);text-decoration:none;transition:border-color .15s,background .15s}
+  .map-card:hover{border-color:var(--red);background:#fff}
+  .map-card-pin{width:26px;height:26px;fill:var(--red);flex:none}
+  .map-card-text{display:flex;flex-direction:column;gap:4px}
+  .map-card-addr{color:var(--charcoal);font-size:.94rem}
+  .map-card-cta{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
 
   /* ---------- FOOTER ---------- */
-  footer{background:#0f0f0f;color:rgba(250,250,248,.72);padding:64px 0 130px}
+  footer{background:#0f0f0f;color:rgba(250,250,248,.72);padding:64px 0 40px}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
   .foot-brand .fw{font-family:var(--display);font-weight:800;font-size:2.4rem;color:var(--cream);line-height:1}
   .foot-brand .fw .cr{color:var(--amber);font-size:.4em;vertical-align:top}
@@ -317,10 +327,13 @@
   footer a:hover{color:var(--amber)}
   .foot-hours span{display:block;font-family:var(--mono);font-size:.82rem;margin-bottom:6px;color:rgba(250,250,248,.6)}
   .foot-cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-  .foot-bottom{max-width:var(--shell);margin:44px auto 0;padding:22px 32px 0;border-top:1px solid rgba(255,255,255,.1);
-    display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
-    font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:rgba(250,250,248,.4)}
-  .confirm-note{color:rgba(250,250,248,.4)}
+  .foot-bottom{max-width:var(--shell);margin:40px auto 0;padding:20px 32px 0;border-top:1px solid rgba(255,255,255,.1);
+    display:flex;flex-wrap:wrap;gap:10px 28px;align-items:baseline;justify-content:space-between;
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:rgba(250,250,248,.62)}
+  .confirm-note{font-family:var(--sans);font-size:.82rem;letter-spacing:0;line-height:1.55;
+    color:rgba(250,250,248,.72);max-width:66ch}
+  .confirm-note a{border-bottom:1px solid rgba(250,250,248,.35)}
+  .confirm-note a:hover{color:var(--amber);border-bottom-color:var(--amber)}
 
   /* ---------- LANG SWITCHER ---------- */
   .lang{position:fixed;top:20px;left:20px;z-index:70;display:flex;gap:2px;
@@ -331,9 +344,15 @@
   .lang button:hover:not(.active){color:var(--cream)}
 
   /* ---------- STICKY MOBILE BAR ---------- */
-  .mbar{position:fixed;left:0;bottom:0;width:100%;z-index:80;display:none;
+  .mbar{position:fixed;left:14px;right:14px;bottom:14px;width:auto;z-index:80;display:none;
     grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--charcoal);
-    box-shadow:0 -4px 20px rgba(0,0,0,.3)}
+    border-top:1px solid rgba(212,148,30,.5);border-radius:13px;overflow:hidden;
+    box-shadow:0 -12px 30px rgba(0,0,0,.38),0 2px 10px rgba(0,0,0,.3);
+    visibility:hidden;opacity:0;transform:translateY(18px);pointer-events:none;
+    transition:opacity .26s ease,transform .26s ease,visibility 0s linear .26s}
+  .mbar.is-visible{visibility:visible;opacity:1;transform:none;pointer-events:auto;
+    transition:opacity .26s ease,transform .26s ease,visibility 0s}
+  @media (prefers-reduced-motion: reduce){.mbar,.mbar.is-visible{transition:none}}
   .mbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:11px 4px;
     font-family:var(--sans);font-weight:700;font-size:.74rem;color:#fff}
   .mbar a svg{width:19px;height:19px}
@@ -356,7 +375,7 @@
   @media (max-width:1080px){
     .rail{display:none}
     .hero{grid-template-columns:55% 45%}
-    .ledger{grid-template-columns:1fr 48px 1fr;gap:0 28px}
+    .ledger{grid-template-columns:48px 1fr;gap:0 28px}
   }
   @media (max-width:860px){
     .why-grid{grid-template-columns:1fr;gap:32px}
@@ -372,20 +391,21 @@
     .hero-right::after{background:linear-gradient(0deg,rgba(26,26,26,.55),rgba(26,26,26,0) 40%)}
     .hero-ticker{position:static;order:2}
     .cta-cluster .btn{flex:1 1 auto;justify-content:center}
-    .clock{overflow-x:auto;-webkit-overflow-scrolling:touch}
-    .clock-inner{min-width:660px}
-    .drow{grid-template-columns:104px 1fr}
-    .drow .dl{font-size:.72rem}
+    .hb-slot{flex-basis:100%;border-left:none;border-top:1px solid rgba(212,148,30,.24)}
+    .hb-days{flex-basis:100%}
     .ledger{grid-template-columns:1fr;gap:0}
     .gutter{display:none}
-    .ledger-col{gap:40px;margin-top:8px}
+    .fmt col.c-f{width:19%}
+    .fmt td.rn{font-size:.92rem}
+    .fmt thead th{font-size:.56rem;letter-spacing:.08em}
+    .subs{grid-template-columns:1fr;gap:36px}
     .why-media{grid-template-columns:1fr}
     .why-media .frame{height:220px}
     .find-card{width:100%}
     .foot-grid{grid-template-columns:1fr}
-    footer{padding-bottom:110px}
+    body{padding-bottom:92px}
     .mbar{display:grid}
-    .foot-bottom{flex-direction:column}
+    .foot-bottom{flex-direction:column;align-items:flex-start}
   }
 </style>
 </head>
@@ -454,38 +474,23 @@
   <div class="shell">
     <div class="hours-head">
       <div>
-        <div class="kicker" data-i18n="hoursKick">Le jour-horloge</div>
+        <div class="kicker" data-i18n="hoursKick">Horaires</div>
         <h2 data-i18n="hoursTitle">Café 06h–22h · Cuisine 11h–22h</h2>
       </div>
-      <p data-i18n="hoursLead">Affiché en vitrine : le café ouvre à 6h, la cuisine sert de 11h à 22h. C'est ouvert, maintenant ? Voici la journée-type, en un coup d'œil.</p>
+      <p data-i18n="hoursLead">Affiché en vitrine : le café ouvre à 6h, la cuisine sert de 11h à 22h — sept jours sur sept.</p>
     </div>
 
-    <div class="clock">
-      <div class="clock-inner">
-        <div class="axis">
-          <div></div>
-          <div class="axis-inner">
-            <span class="tick" style="left:0%">06:00</span>
-            <span class="tick" style="left:18.75%">09:00</span>
-            <span class="tick" style="left:37.5%">12:00</span>
-            <span class="tick" style="left:56.25%">15:00</span>
-            <span class="tick" style="left:75%">18:00</span>
-            <span class="tick" style="left:93.75%">21:00</span>
-            <span class="tick" style="left:100%">22:00</span>
-          </div>
-        </div>
-        <div class="rows">
-          <div class="drow" data-day="1"><span class="dl" data-day-label="1">Lun</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
-          <div class="drow" data-day="2"><span class="dl" data-day-label="2">Mar</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
-          <div class="drow" data-day="3"><span class="dl" data-day-label="3">Mer</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
-          <div class="drow" data-day="4"><span class="dl" data-day-label="4">Jeu</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
-          <div class="drow" data-day="5"><span class="dl" data-day-label="5">Ven</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
-          <div class="drow" data-day="6"><span class="dl" data-day-label="6">Sam</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
-          <div class="drow" data-day="0"><span class="dl" data-day-label="0">Dim</span><span class="track"><span class="bar" style="left:0;width:100%"></span><span class="bt">06:00 – 22:00</span></span></div>
-        </div>
+    <div class="hours-block">
+      <div class="hb-days" data-i18n="hbDays">Tous les jours</div>
+      <div class="hb-slot">
+        <span class="hb-k" data-i18n="hbCafe">Café</span>
+        <span class="hb-v">06:00 – 22:00</span>
+      </div>
+      <div class="hb-slot">
+        <span class="hb-k" data-i18n="hbCuisine">Cuisine</span>
+        <span class="hb-v">11:00 – 22:00</span>
       </div>
     </div>
-    <p class="hours-note" data-i18n="hoursNote">* Horaires relevés en vitrine (sept. 2026) ; à confirmer avec l'établissement — certaines sources en ligne indiquent des variations selon le jour.</p>
   </div>
 </section>
 
@@ -496,74 +501,66 @@
       <div class="kicker">Snack · Kebab · Duc</div>
       <h2 data-i18n="menuTitle">La carte</h2>
       <p class="lead" data-i18n="menuLead">Menus avec frites et boisson, sandwichs généreux, assiettes grillades et boxes à partager.</p>
+      <p class="menu-note" data-i18n="menuNote">Carte complète et tarifs disponibles sur place.</p>
     </div>
 
     <div class="ledger">
-      <!-- COLUMN 1 -->
-      <div class="ledger-col">
-        <div class="cat">
-          <div class="cat-head"><h3 data-i18n="catMenus">Menus</h3><span class="cr coronet"></span><span class="cnote" data-i18n="catMenusNote">frites &amp; boisson</span></div>
-          <div class="item"><span class="nm">Menu Kebab</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Durum</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Köfte</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Brochette</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Lahmacun</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Escalope</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Falafel</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Végétarien</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Cheeseburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Hamburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Wraps du Duc</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Chicken Nuggets</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Menu Saucisse Turc</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        </div>
-        <div class="cat">
-          <div class="cat-head"><h3 data-i18n="catBoxes">Box &amp; Accompagnements</h3><span class="cr coronet"></span></div>
-          <div class="item"><span class="nm">Box Kebab</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Box Chicken Nuggets (7x)</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Box Mozzarella Sticks (6x)</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Box Petite Frites</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Coca-Cola Zero 33cl</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        </div>
-      </div>
-
       <!-- SPIT GUTTER -->
       <div class="gutter" aria-hidden="true">
         <div class="spit"></div>
         <div class="spit-cap">Döner · Duc · Döner</div>
       </div>
 
-      <!-- COLUMN 2 -->
-      <div class="ledger-col">
+      <div class="ledger-main">
         <div class="cat">
-          <div class="cat-head"><h3 data-i18n="catSand">Sandwichs</h3><span class="cr coronet"></span></div>
-          <div class="item"><span class="nm">Sandwich Kebab</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Sandwich Durüm</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Sandwich Lahmacun</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Sandwich Escalope</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Sandwich Falafel</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Sandwich Cheeseburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Sandwich Hamburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Sandwich Saucisse Turc</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Sandwich Bruschette</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="cat-head"><h3 data-i18n="catFormats">Trois formats</h3><span class="cr coronet"></span><span class="cnote" data-i18n="catFormatsNote">le menu comprend frites &amp; boisson</span></div>
+          <table class="fmt">
+            <colgroup><col class="c-nm"><col class="c-f"><col class="c-f"><col class="c-f"></colgroup>
+            <thead>
+              <tr>
+                <th class="h-nm" scope="col" data-i18n="hNm">Au choix</th>
+                <th scope="col" data-i18n="hSand">Sandwich</th>
+                <th scope="col" data-i18n="hMenu">Menu</th>
+                <th scope="col" data-i18n="hPlate">Assiette</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="rn">Kebab</td><td class="on"></td><td class="on"></td><td class="on"></td></tr>
+              <tr><td class="rn">Durum</td><td class="on"></td><td class="on"></td><td class="off"></td></tr>
+              <tr><td class="rn">Köfte</td><td class="off"></td><td class="on"></td><td class="on"></td></tr>
+              <tr><td class="rn">Brochette de poulet</td><td class="off"></td><td class="on"></td><td class="on"></td></tr>
+              <tr><td class="rn">Lahmacun</td><td class="on"></td><td class="on"></td><td class="off"></td></tr>
+              <tr><td class="rn">Escalope</td><td class="on"></td><td class="on"></td><td class="off"></td></tr>
+              <tr><td class="rn">Crispy</td><td class="off"></td><td class="off"></td><td class="on"></td></tr>
+              <tr><td class="rn">Chicken Nuggets</td><td class="off"></td><td class="on"></td><td class="on"></td></tr>
+              <tr><td class="rn">Saucisse Turc</td><td class="on"></td><td class="on"></td><td class="on"></td></tr>
+              <tr><td class="rn">Cheeseburger</td><td class="on"></td><td class="on"></td><td class="on"></td></tr>
+              <tr><td class="rn">Hamburger</td><td class="on"></td><td class="on"></td><td class="on"></td></tr>
+              <tr><td class="rn">Falafel</td><td class="on"></td><td class="on"></td><td class="on"></td></tr>
+              <tr><td class="rn" data-i18n="rowVeg">Végétarien</td><td class="off"></td><td class="on"></td><td class="off"></td></tr>
+              <tr><td class="rn">Wraps du Duc</td><td class="off"></td><td class="on"></td><td class="off"></td></tr>
+              <tr><td class="rn">Bruschette</td><td class="on"></td><td class="off"></td><td class="off"></td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="cat">
-          <div class="cat-head"><h3 data-i18n="catPlates">Assiettes</h3><span class="cr coronet"></span></div>
-          <div class="item"><span class="nm">Assiette Köfte</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Assiette Brochette de Poulet</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Assiette Kebab</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Assiette Saucisse Turc</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Assiette Crispy</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Assiette Cheeseburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Assiette Falafel</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Assiette Hamburger</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm">Assiette Chicken Nuggets</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+
+        <div class="subs">
+          <div class="cat">
+            <div class="cat-head"><h3 data-i18n="catBoxes">Box &amp; Accompagnements</h3><span class="cr coronet"></span></div>
+            <div class="item"><span class="nm">Box Kebab</span></div>
+            <div class="item"><span class="nm">Box Chicken Nuggets (7x)</span></div>
+            <div class="item"><span class="nm">Box Mozzarella Sticks (6x)</span></div>
+            <div class="item"><span class="nm">Box Petite Frites</span></div>
+          </div>
+          <div class="cat">
+            <div class="cat-head"><h3 data-i18n="catDrinks">Boissons</h3><span class="cr coronet"></span><span class="cnote" data-i18n="catDrinksNote">incluse dans les menus</span></div>
+            <div class="item"><span class="nm">Coca-Cola Zero 33cl</span></div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="menu-foot">
-      <p class="price-note" data-i18n="priceNote">Plats relevés sur la carte de livraison Wolt — prix non affichés, carte complète et tarifs à confirmer avec l'établissement.</p>
       <div class="cta-cluster">
         <a class="btn btn-wolt" href="https://wolt.com/en/lux/luxembourg/restaurant/brasserie-duc" target="_blank" rel="noopener"><span data-i18n="ctaWolt2">Commander sur Wolt</span></a>
         <a class="btn btn-uber" href="https://www.ubereats.com/lu/store/snack-kebab-duc/-00GjSUEXtyV1ANFSv8jEg" target="_blank" rel="noopener"><span data-i18n="ctaUber2">Uber Eats</span></a>
@@ -607,12 +604,12 @@
       </div>
       <div class="find-row">
         <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .5 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.5-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>
-        <div><div class="rl" data-i18n="lblPhone">Téléphone *</div>
+        <div><div class="rl" data-i18n="lblPhone">Téléphone</div>
           <a class="rv" href="tel:+35226959853">+352 26 95 98 53</a></div>
       </div>
       <div class="find-row">
         <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v5l4 2-.75 1.5L11 13V7z"/></svg>
-        <div><div class="rl" data-i18n="lblHours">Horaires *</div>
+        <div><div class="rl" data-i18n="lblHours">Horaires</div>
           <div class="rv" data-i18n="findHours">Tous les jours 06:00–22:00 · cuisine dès 11:00</div></div>
       </div>
       <div class="find-row">
@@ -622,9 +619,13 @@
             <span data-i18n="mode1">Sur place</span><span data-i18n="mode2">À emporter</span><span data-i18n="mode3">Terrasse</span><span data-i18n="mode4">Livraison</span>
           </div></div>
       </div>
-      <div class="map-embed">
-        <iframe title="Carte — Duc Café &amp; Snack" loading="lazy" src="https://maps.google.com/maps?q=422+Route+de+Thionville+5884+Hesperange+Luxembourg&output=embed"></iframe>
-      </div>
+      <a class="map-card" href="https://www.google.com/maps/search/?api=1&query=Duc+Caf%C3%A9+Kebab+422+Route+de+Thionville+5884+Hesperange+Luxembourg" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" class="map-card-pin"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+        <span class="map-card-text">
+          <span class="map-card-addr">422 Route de Thionville, L-5884 Hesperange</span>
+          <span class="map-card-cta" data-i18n="mapCta">Ouvrir dans Google Maps →</span>
+        </span>
+      </a>
     </div>
   </div>
 </section>
@@ -641,7 +642,7 @@
       <h4 data-i18n="footContact">Contact</h4>
       <ul>
         <li><a href="https://maps.google.com/?q=Duc+Caf%C3%A9+Kebab+422+Route+de+Thionville+5884+Hesperange+Luxembourg" target="_blank" rel="noopener">422 Route de Thionville<br>L-5884 Hesperange</a></li>
-        <li><a href="tel:+35226959853">+352 26 95 98 53 *</a></li>
+        <li><a href="tel:+35226959853">+352 26 95 98 53</a></li>
       </ul>
     </div>
     <div>
@@ -653,7 +654,7 @@
       </ul>
     </div>
     <div>
-      <h4 data-i18n="footHours">Horaires *</h4>
+      <h4 data-i18n="footHours">Horaires</h4>
       <div class="foot-hours">
         <span data-i18n="fh1">Café · 06:00–22:00</span>
         <span data-i18n="fh2">Cuisine · 11:00–22:00</span>
@@ -667,7 +668,7 @@
   </div>
   <div class="foot-bottom">
     <span>© 2026 Duc Café &amp; Snack · Snack Kebab Duc · Hesperange</span>
-    <span class="confirm-note" data-i18n="confirmNote">* Téléphone, horaires et prix à confirmer avec l'établissement. Aperçu de démonstration.</span>
+    <span class="confirm-note"><span data-i18n="confirmNote">Aperçu de site composé par Webwerk à partir d'informations publiques — ce n'est pas le site officiel de l'établissement.</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">webwerk.lu</a></span>
   </div>
 </footer>
 
@@ -692,15 +693,15 @@
       appetite:"Kebab frais, portions généreuses, à Hesperange de 6h à 22h.",
       ctaWolt:"Commander sur Wolt", ctaUber:"Commander sur Uber Eats", ctaCall:"Appeler pour emporter",
       tk1:"FRAÎCHEMENT DÉCOUPÉ", tk2:"WOLT & UBER EATS",
-      hoursKick:"Le jour-horloge", hoursTitle:"Café 06h–22h · Cuisine 11h–22h",
-      hoursLead:"Affiché en vitrine : le café ouvre à 6h, la cuisine sert de 11h à 22h. C'est ouvert, maintenant ? Voici la journée-type, en un coup d'œil.",
-      hoursNote:"* Horaires relevés en vitrine (sept. 2026) ; à confirmer avec l'établissement — certaines sources en ligne indiquent des variations selon le jour.",
+      hoursKick:"Horaires", hoursTitle:"Café 06h–22h · Cuisine 11h–22h",
+      hoursLead:"Affiché en vitrine : le café ouvre à 6h, la cuisine sert de 11h à 22h — sept jours sur sept.",
+      hbDays:"Tous les jours", hbCafe:"Café", hbCuisine:"Cuisine",
       menuTitle:"La carte",
       menuLead:"Menus avec frites et boisson, sandwichs généreux, assiettes grillades et boxes à partager.",
-      catMenus:"Menus", catMenusNote:"frites & boisson", catBoxes:"Box & Accompagnements",
-      catSand:"Sandwichs", catPlates:"Assiettes",
-      priceNote:"Plats relevés sur la carte de livraison Wolt — prix non affichés, carte complète et tarifs à confirmer avec l'établissement.",
-      ac:"à conf.",
+      menuNote:"Carte complète et tarifs disponibles sur place.",
+      catFormats:"Trois formats", catFormatsNote:"le menu comprend frites & boisson",
+      hNm:"Au choix", hSand:"Sandwich", hMenu:"Menu", hPlate:"Assiette", rowVeg:"Végétarien",
+      catBoxes:"Box & Accompagnements", catDrinks:"Boissons", catDrinksNote:"incluse dans les menus",
       ctaWolt2:"Commander sur Wolt", ctaUber2:"Uber Eats", ctaCall2:"Appeler",
       whyKick:"Le snack de quartier", whyTitle:"Pourquoi Duc",
       whyBody:"Un petit snack familial tenu par un couple passionné qui prépare chaque repas avec soin et le sourire. Döner découpé frais, portions généreuses, terrasse pour s'installer — on repart toujours le ventre bien rempli.",
@@ -708,31 +709,31 @@
       stat2big:"En famille", stat2:"Tenu par un couple, avec le sourire",
       stat3big:"Frais", stat3:"Döner découpé, portions généreuses",
       findKick:"Hesperange", findTitle:"Nous trouver",
-      lblAddr:"Adresse", lblPhone:"Téléphone *", lblHours:"Horaires *", lblModes:"Services",
+      lblAddr:"Adresse", lblPhone:"Téléphone", lblHours:"Horaires", lblModes:"Services",
       findHours:"Tous les jours 06:00–22:00 · cuisine dès 11:00",
+      mapCta:"Ouvrir dans Google Maps →",
       mode1:"Sur place", mode2:"À emporter", mode3:"Terrasse", mode4:"Livraison",
       footTag:"Le snack familial de Hesperange — döner frais, accueil chaleureux, café dès 6h.",
-      footContact:"Contact", footOrder:"Commander", footHours:"Horaires *",
+      footContact:"Contact", footOrder:"Commander", footHours:"Horaires",
       fh1:"Café · 06:00–22:00", fh2:"Cuisine · 11:00–22:00", fh3:"Tous les jours",
       ctaWolt3:"Commander", ctaCall3:"Appeler",
-      confirmNote:"* Téléphone, horaires et prix à confirmer avec l'établissement. Aperçu de démonstration.",
-      mCall:"Appeler",
-      days:["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
+      confirmNote:"Aperçu de site composé par Webwerk à partir d'informations publiques — ce n'est pas le site officiel de l'établissement.",
+      mCall:"Appeler"
     },
     de:{
       railCall:"Anrufen",
       appetite:"Frischer Kebab, großzügige Portionen — in Hesperange von 6 bis 22 Uhr.",
       ctaWolt:"Auf Wolt bestellen", ctaUber:"Auf Uber Eats bestellen", ctaCall:"Anrufen für Abholung",
       tk1:"FRISCH GESCHNITTEN", tk2:"WOLT & UBER EATS",
-      hoursKick:"Die Tag-Uhr", hoursTitle:"Café 6–22 Uhr · Küche 11–22 Uhr",
-      hoursLead:"Laut Schaufenster: das Café öffnet um 6 Uhr, die Küche von 11 bis 22 Uhr. Ist gerade geöffnet? Hier der Tagesablauf auf einen Blick.",
-      hoursNote:"* Öffnungszeiten laut Schaufenster (Sept. 2026); mit dem Betrieb bestätigen — einige Online-Quellen weichen je nach Wochentag ab.",
+      hoursKick:"Öffnungszeiten", hoursTitle:"Café 6–22 Uhr · Küche 11–22 Uhr",
+      hoursLead:"Laut Schaufenster: das Café öffnet um 6 Uhr, die Küche serviert von 11 bis 22 Uhr — sieben Tage die Woche.",
+      hbDays:"Täglich", hbCafe:"Café", hbCuisine:"Küche",
       menuTitle:"Die Karte",
       menuLead:"Menüs mit Pommes und Getränk, herzhafte Sandwiches, Grillteller und Boxen zum Teilen.",
-      catMenus:"Menüs", catMenusNote:"inkl. Pommes & Getränk", catBoxes:"Boxen & Beilagen",
-      catSand:"Sandwiches", catPlates:"Teller",
-      priceNote:"Gerichte laut Wolt-Lieferkarte — keine Preise angezeigt, vollständige Karte und Preise beim Betrieb zu bestätigen.",
-      ac:"auf Anfrage",
+      menuNote:"Vollständige Karte und Preise vor Ort.",
+      catFormats:"Drei Formate", catFormatsNote:"Menü inkl. Pommes & Getränk",
+      hNm:"Zur Wahl", hSand:"Sandwich", hMenu:"Menü", hPlate:"Teller", rowVeg:"Vegetarisch",
+      catBoxes:"Boxen & Beilagen", catDrinks:"Getränke", catDrinksNote:"im Menü inbegriffen",
       ctaWolt2:"Auf Wolt bestellen", ctaUber2:"Uber Eats", ctaCall2:"Anrufen",
       whyKick:"Der Snack im Viertel", whyTitle:"Warum Duc",
       whyBody:"Ein kleines Familienrestaurant, geführt von einem engagierten Paar, das jedes Gericht mit Sorgfalt und einem Lächeln zubereitet. Frisch geschnittener Döner, großzügige Portionen, Terrasse zum Verweilen — man geht immer satt nach Hause.",
@@ -740,31 +741,31 @@
       stat2big:"Familie", stat2:"Von einem Paar geführt, mit einem Lächeln",
       stat3big:"Frisch", stat3:"Döner geschnitten, großzügige Portionen",
       findKick:"Hesperange", findTitle:"So finden Sie uns",
-      lblAddr:"Adresse", lblPhone:"Telefon *", lblHours:"Öffnungszeiten *", lblModes:"Service",
+      lblAddr:"Adresse", lblPhone:"Telefon", lblHours:"Öffnungszeiten", lblModes:"Service",
       findHours:"Täglich 06:00–22:00 · Küche ab 11:00",
+      mapCta:"In Google Maps öffnen →",
       mode1:"Vor Ort", mode2:"Mitnahme", mode3:"Terrasse", mode4:"Lieferung",
       footTag:"Der Familien-Snack in Hesperange — frischer Döner, herzlicher Empfang, Café ab 6 Uhr.",
-      footContact:"Kontakt", footOrder:"Bestellen", footHours:"Öffnungszeiten *",
+      footContact:"Kontakt", footOrder:"Bestellen", footHours:"Öffnungszeiten",
       fh1:"Café · 06:00–22:00", fh2:"Küche · 11:00–22:00", fh3:"Täglich",
       ctaWolt3:"Bestellen", ctaCall3:"Anrufen",
-      confirmNote:"* Telefon, Öffnungszeiten und Preise mit dem Betrieb bestätigen. Demo-Vorschau.",
-      mCall:"Anrufen",
-      days:["So","Mo","Di","Mi","Do","Fr","Sa"]
+      confirmNote:"Website-Vorschau, von Webwerk aus öffentlich zugänglichen Informationen erstellt — dies ist nicht die offizielle Website des Betriebs.",
+      mCall:"Anrufen"
     },
     en:{
       railCall:"Call",
       appetite:"Fresh kebab, generous portions — in Hesperange from 6am to 10pm.",
       ctaWolt:"Order on Wolt", ctaUber:"Order on Uber Eats", ctaCall:"Call for takeaway",
       tk1:"FRESHLY CARVED", tk2:"WOLT & UBER EATS",
-      hoursKick:"The day-clock", hoursTitle:"Café 6am–10pm · Kitchen 11am–10pm",
-      hoursLead:"Posted in the window: the café opens at 6am, the kitchen serves 11am to 10pm. Is it open right now? Here's the day at a glance.",
-      hoursNote:"* Hours as posted in the window (Sept 2026); confirm with the venue — some online sources vary by day.",
+      hoursKick:"Opening hours", hoursTitle:"Café 6am–10pm · Kitchen 11am–10pm",
+      hoursLead:"Posted in the window: the café opens at 6am, the kitchen serves 11am to 10pm — seven days a week.",
+      hbDays:"Every day", hbCafe:"Café", hbCuisine:"Kitchen",
       menuTitle:"The menu",
       menuLead:"Menus with fries and a drink, generous sandwiches, grilled plates and boxes to share.",
-      catMenus:"Menus", catMenusNote:"fries & drink", catBoxes:"Boxes & Sides",
-      catSand:"Sandwiches", catPlates:"Plates",
-      priceNote:"Dishes drawn from the Wolt delivery menu — no prices shown, full menu and prices to be confirmed with the venue.",
-      ac:"tbc",
+      menuNote:"Full menu and prices available in person.",
+      catFormats:"Three formats", catFormatsNote:"the menu comes with fries & a drink",
+      hNm:"Take your pick", hSand:"Sandwich", hMenu:"Menu", hPlate:"Plate", rowVeg:"Vegetarian",
+      catBoxes:"Boxes & Sides", catDrinks:"Drinks", catDrinksNote:"included with the menus",
       ctaWolt2:"Order on Wolt", ctaUber2:"Uber Eats", ctaCall2:"Call",
       whyKick:"The neighbourhood snack", whyTitle:"Why Duc",
       whyBody:"A small, family-run snack bar led by a dedicated couple who prepare every dish with care and a smile. Freshly carved döner, generous portions, a terrace to settle in — you always leave well fed.",
@@ -772,16 +773,16 @@
       stat2big:"Family-run", stat2:"Run by a couple, with a smile",
       stat3big:"Fresh", stat3:"Döner carved to order, generous portions",
       findKick:"Hesperange", findTitle:"Find us",
-      lblAddr:"Address", lblPhone:"Phone *", lblHours:"Hours *", lblModes:"Service",
+      lblAddr:"Address", lblPhone:"Phone", lblHours:"Hours", lblModes:"Service",
       findHours:"Every day 06:00–22:00 · kitchen from 11:00",
+      mapCta:"Open in Google Maps →",
       mode1:"Dine-in", mode2:"Takeaway", mode3:"Terrace", mode4:"Delivery",
       footTag:"Hesperange's family kebab spot — fresh döner, a warm welcome, café from 6am.",
-      footContact:"Contact", footOrder:"Order", footHours:"Hours *",
+      footContact:"Contact", footOrder:"Order", footHours:"Hours",
       fh1:"Café · 06:00–22:00", fh2:"Kitchen · 11:00–22:00", fh3:"Every day",
       ctaWolt3:"Order", ctaCall3:"Call",
-      confirmNote:"* Phone, hours and prices to be confirmed with the venue. Demo preview.",
-      mCall:"Call",
-      days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+      confirmNote:"Site preview composed by Webwerk from publicly available information — this is not the venue's official website.",
+      mCall:"Call"
     }
   };
 
@@ -795,11 +796,6 @@
       var k = el.getAttribute("data-i18n");
       if(d[k] !== undefined) el.textContent = d[k];
     });
-    // day labels in clock
-    document.querySelectorAll("[data-day-label]").forEach(function(el){
-      var idx = parseInt(el.getAttribute("data-day-label"),10);
-      el.textContent = d.days[idx];
-    });
     document.querySelectorAll(".lang button").forEach(function(b){
       var on = b.getAttribute("data-lang")===lang;
       b.classList.toggle("active",on);
@@ -812,6 +808,17 @@
   });
 
   applyLang("fr");
+
+  /* ---------- sticky order bar: stay out of the hero CTA's way ---------- */
+  var mbar = document.querySelector(".mbar");
+  var heroCta = document.querySelector(".hero .cta-cluster");
+  if(mbar && heroCta && "IntersectionObserver" in window){
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ mbar.classList.toggle("is-visible", !e.isIntersecting); });
+    }, {threshold:0}).observe(heroCta);
+  } else if(mbar){
+    mbar.classList.add("is-visible");
+  }
 })();
 </script>
 </body>

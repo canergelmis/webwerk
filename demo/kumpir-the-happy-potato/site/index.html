@@ -3,7 +3,16 @@
   KUMPIR — The Happy Potato · demo site by Webwerk (proposition, non officielle).
   Bespoke build. Self-hosted fonts (assets/fonts/, 0 Google requests). Real venue photos only.
   Concept "Composez votre kumpir" (build-your-own) — rooted in the venue's real chalkboard line.
-  Trilingual FR (native) / DE / EN (drafts). Honest flags on prices, hours, phone, logotype.
+  Trilingual FR (native) / DE / EN (drafts).
+
+  DISCLOSURE POLICY (2026-09-11): exactly ONE disclosure ships — the i18n key
+  `disc` in the footer. Every other "à confirmer" note was addressed to the owner
+  or the developer and now lives in the build brief, under "BUILD NOTES — not for
+  the live page", at lux-restaurant-sites/mockups/kumpir-the-happy-potato/content.md.
+  Unverified but essential values (phone, hours) are stated plainly without badges;
+  the postcode is genuinely disputed and non-essential, so it is OMITTED rather
+  than printed under a warning. Never add a price, a star rating, or a computed
+  open/closed status.
 -->
 <html lang="fr">
 <head>
@@ -50,7 +59,8 @@
 /* ============================ TOKENS ============================ */
 :root{
   --cream:#F4EAD6; --cream2:#EADBBF; --paper:#FBF6EC; --paper2:#F6EEDF;
-  --brown:#6E3F2A; --brown2:#4A2A1B; --ink:#2B2320; --muted:#8a7a68;
+  /* --muted was #8a7a68: ~3.8:1 on cream, below AA at the sizes it is used at. */
+  --brown:#6E3F2A; --brown2:#4A2A1B; --ink:#2B2320; --muted:#6a5747; --note:#4a352b;
   --red:#D5382C; --red2:#B62C22; --mustard:#E7B23C; --mustard2:#d59a1f;
   --sage:#9DAA8C; --sage2:#7f8e6d; --teal:#3f857e;
   --shadow:0 18px 44px -22px rgba(74,42,27,.45);
@@ -117,10 +127,19 @@ nav.main a:hover::after{right:0}
   transform:rotate(-3deg)}
 .hero .photo .parasol{position:absolute;top:-16px;right:22px;background:var(--red);color:#fff;font-family:var(--hand);
   font-size:1.5rem;padding:6px 16px 10px;border-radius:0 0 40px 40px;box-shadow:var(--shadow-sm)}
-.marquee-wrap{overflow:hidden;margin-top:34px;border-top:2px dashed var(--cream2);border-bottom:2px dashed var(--cream2);padding:12px 0;background:var(--paper)}
-.marquee{display:flex;gap:38px;white-space:nowrap;animation:mq 26s linear infinite;font-family:var(--disp);
+/* The loop used to be off by half a gap: .marquee carried gap:38px between its
+   two copies, so translateX(-50%) landed 19px short of one full copy and the
+   strip jumped every cycle — and on mobile it opened part-way into a word, which
+   reads as broken rendering rather than as motion. Each copy now ends with its
+   own separator and the gap is zero, so -50% is exactly one copy and 0% is a
+   clean token boundary. The edge mask does the rest: a token leaving the frame
+   fades out instead of being guillotined mid-letter. */
+.marquee-wrap{overflow:hidden;margin-top:34px;border-top:2px dashed var(--cream2);border-bottom:2px dashed var(--cream2);padding:12px 0;background:var(--paper);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%)}
+.marquee{display:flex;gap:0;white-space:nowrap;animation:mq 26s linear infinite;font-family:var(--disp);
   font-weight:600;color:var(--brown);font-size:1.02rem;letter-spacing:.02em}
-.marquee span{display:inline-flex;align-items:center;gap:38px}
+.marquee .mq-run{display:inline-flex;align-items:center;gap:0;flex:0 0 auto}
 .marquee b{color:var(--red)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
@@ -128,7 +147,7 @@ nav.main a:hover::after{right:0}
 section.blk{padding:66px 0}
 .sec-head{max-width:60ch;margin-bottom:36px}
 .sec-head h2{font-size:clamp(30px,4.6vw,50px)}
-.sec-head p{margin-top:12px;color:#54463a;font-size:1.06rem}
+.sec-head p{margin-top:12px;color:var(--note);font-size:1.06rem}
 
 /* ============================ BUILDER ============================ */
 .builder{background:var(--brown);color:var(--cream);border-radius:34px;padding:clamp(26px,4vw,52px);
@@ -139,8 +158,18 @@ section.blk{padding:66px 0}
 .builder .bhead{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:flex-end;justify-content:space-between;margin-bottom:26px}
 .builder h2{color:#fff}
 .builder .bhead p{color:rgba(244,234,214,.8);max-width:44ch;margin-top:8px}
-.builder .stage{position:relative;z-index:2;display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:center}
-/* potato */
+.builder .stage{position:relative;z-index:2;display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:center}
+/* The block used to fill a whole desktop viewport (~1,900px on mobile) for a toy.
+   The potato keeps its internal geometry — the fill coordinates and the flyer
+   maths are all in its own 280x300 space — and is simply scaled into a slot
+   about 40% of its old height. getBoundingClientRect reports the scaled box, so
+   the flying topping still lands where it looks like it lands.
+   A transform does not shrink the LAYOUT box, so the slot is sized to the drawn
+   result (280x300 at 0.42 = 118x126) and the potato is scaled inside it from the
+   top-left corner. Sizing the slot instead of the potato keeps the grid track
+   honest — scaling the potato in place would have overflowed it by 160px. */
+.potato-slot{position:relative;width:118px;height:126px;margin:0 auto}
+.potato-slot .potato{position:absolute;left:0;top:0;margin:0;transform:scale(.42);transform-origin:top left}
 .potato{position:relative;width:280px;height:300px;margin:0 auto}
 .potato .spud{position:absolute;inset:0;width:100%;height:100%;z-index:1;filter:drop-shadow(0 16px 26px rgba(74,42,27,.5))}
 .potato .fill{position:absolute;left:52px;top:90px;width:176px;height:112px;overflow:visible;z-index:3}
@@ -176,25 +205,29 @@ section.blk{padding:66px 0}
 .potato .steam i:nth-child(2){left:30px;height:44px;animation-delay:.6s}
 .potato .steam i:nth-child(3){left:44px;animation-delay:1.2s}
 @keyframes steam{0%{opacity:0;transform:translateY(8px) scaleY(.7)}40%{opacity:.8}100%{opacity:0;transform:translateY(-14px) scaleY(1.2)}}
-.potato .count{position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);font-family:var(--disp);font-weight:700;
-  font-size:.92rem;color:var(--mustard);white-space:nowrap;text-align:center}
-.potato .count b{color:#fff;font-size:1.3rem}
+/* The counter lives outside the potato now — inside it, the 0.42 scale would
+   have shrunk the number to unreadable. */
+.count{font-family:var(--disp);font-weight:700;font-size:.98rem;color:var(--mustard);white-space:nowrap;
+  display:inline-flex;align-items:baseline;gap:6px}
+.count b{color:#fff;font-size:1.3rem}
 /* topping chips */
 .toppings h3{color:#fff;font-size:1.16rem;margin-bottom:4px}
-.toppings .hint{color:rgba(244,234,214,.72);font-size:.9rem;margin-bottom:16px}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{display:inline-flex;align-items:center;gap:9px;background:rgba(251,246,236,.1);border:1.5px solid rgba(251,246,236,.22);
-  color:var(--cream);font-family:var(--disp);font-weight:600;font-size:.92rem;padding:9px 15px 9px 11px;border-radius:999px;
-  cursor:pointer;transition:background .16s ease,transform .12s ease}
+.toppings .hint{color:rgba(244,234,214,.82);font-size:.92rem;margin-bottom:14px}
+/* A 4-up grid instead of a ragged wrap: the counter reads as a counter, and the
+   block loses several rows of height. */
+.chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.chip{display:inline-flex;align-items:center;justify-content:flex-start;gap:8px;min-width:0;
+  background:rgba(251,246,236,.1);border:1.5px solid rgba(251,246,236,.22);
+  color:var(--cream);font-family:var(--disp);font-weight:600;font-size:.88rem;padding:8px 12px 8px 10px;border-radius:999px;
+  cursor:pointer;transition:background .16s ease,transform .12s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .chip:hover{background:rgba(251,246,236,.2);transform:translateY(-2px)}
-.chip .sw{width:15px;height:15px;border-radius:50%;box-shadow:inset 0 -2px 3px rgba(0,0,0,.25)}
-.builder .brow{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:24px;
-  padding-top:20px;border-top:1px solid rgba(244,234,214,.18)}
-.builder .msg{font-family:var(--hand);font-size:1.4rem;color:var(--mustard);flex:1;min-width:200px}
+.chip .sw{width:15px;height:15px;border-radius:50%;box-shadow:inset 0 -2px 3px rgba(0,0,0,.25);flex:0 0 auto}
+.builder .brow{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:18px;
+  padding-top:16px;border-top:1px solid rgba(244,234,214,.18)}
+.builder .msg{font-family:var(--hand);font-size:1.4rem;color:var(--mustard);flex:1;min-width:160px}
 .reset{background:transparent;border:1.5px solid rgba(244,234,214,.3);color:var(--cream);font-family:var(--disp);
   font-weight:600;border-radius:999px;padding:9px 18px;cursor:pointer}
 .reset:hover{border-color:var(--red);color:#fff;background:var(--red)}
-.builder .note{position:relative;z-index:2;margin-top:16px;font-size:.82rem;color:rgba(244,234,214,.62)}
 
 /* ============================ MENU ============================ */
 .menu-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px 34px}
@@ -205,7 +238,9 @@ section.blk{padding:66px 0}
 .mrow .dsh{flex:1;border-bottom:2px dotted var(--cream2);transform:translateY(-4px)}
 .mrow .pr{font-family:var(--disp);font-weight:700;color:var(--red);white-space:nowrap}
 .mrow .vg{font-size:.72rem;font-weight:700;color:var(--sage2);letter-spacing:.06em;text-transform:uppercase}
-.menu-note{margin-top:20px;font-size:.88rem;color:var(--muted);background:var(--paper);border-radius:14px;
+/* was .88rem in --muted (~3.8:1) — the one line that tells a visitor how the
+   ordering actually works should not be the faintest text on the page. */
+.menu-note{margin-top:20px;font-size:16px;color:var(--note);background:var(--paper);border-radius:14px;
   padding:14px 18px;border:1.5px solid var(--cream2)}
 .drinks{margin-top:26px}
 .drinks .dl{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:10px}
@@ -229,7 +264,7 @@ section.blk{padding:66px 0}
 .info .card{background:rgba(251,246,236,.06);border:1.5px solid rgba(251,246,236,.14);border-radius:18px;padding:24px}
 .info .hrow{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px solid rgba(251,246,236,.12);font-size:.96rem}
 .info .hrow.today{color:var(--mustard);font-weight:700}
-.info .hrow .cl{color:rgba(244,234,214,.55)}
+.info .hrow .cl{color:rgba(244,234,214,.8)}
 .info .card p{color:rgba(244,234,214,.85);font-size:.98rem}
 .info .card a.line{display:block;color:#fff;font-weight:700;margin-top:4px}
 .info .socials{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
@@ -243,8 +278,25 @@ footer{background:var(--brown2);color:rgba(244,234,214,.7);padding:26px 0 40px;b
 footer .row{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:baseline;justify-content:space-between}
 footer .bn{font-family:var(--disp);font-weight:700;color:#fff;font-size:1.1rem}
 footer .bn b{color:var(--red)}
-footer .disc{font-size:.76rem;line-height:1.5;max-width:74ch;margin-top:14px;color:rgba(244,234,214,.5)}
+/* THE ONE DISCLOSURE. It was mid-brown on dark brown at ~11px — about 2:1, and
+   effectively unreadable, which is the worst way to carry an honest statement.
+   Now 13px at .82 alpha on #4A2A1B ≈ 7.8:1. Every other "à confirmer" note on
+   this page was written to the owner or the developer and now lives in the
+   build brief. Keep this one, keep it legible, do not let a second copy return. */
+footer .disc{font-size:13px;line-height:1.6;max-width:74ch;margin-top:14px;color:rgba(244,234,214,.82)}
 footer a.wk{color:var(--mustard);font-weight:700}
+
+/* ============================ STICKY CALL BAR (mobile) ============================ */
+/* The phone sat ~10,500px down an ~11,870px page: on a phone, the one thing a
+   hungry visitor wants was the last thing they could reach. Nothing else is
+   fixed to the bottom, so there is no collision; the footer gains matching
+   padding so the bar never sits on top of the disclosure. */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:10px;
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));
+  background:rgba(74,42,27,.97);border-top:1.5px solid rgba(251,246,236,.16);
+  box-shadow:0 -10px 26px -14px rgba(0,0,0,.6)}
+.callbar a{flex:1 1 0;justify-content:center;font-size:.98rem;padding:13px 14px;min-width:0}
+.callbar a.g{color:var(--cream);border-color:rgba(244,234,214,.34);background:transparent}
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -256,7 +308,9 @@ footer a.wk{color:var(--mustard);font-weight:700}
   .menu-wrap{grid-template-columns:1fr}
   .story .grid{grid-template-columns:1fr;gap:28px}
   .info .grid{grid-template-columns:1fr}
-  .builder .stage{grid-template-columns:1fr;gap:22px}
+  .builder .stage{grid-template-columns:1fr;gap:14px}
+  .callbar{display:flex}
+  footer{padding-bottom:104px}
   nav.main{display:none}
   nav.main.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;
     background:var(--cream);border-bottom:1.5px solid var(--cream2);padding:8px 26px 18px}
@@ -268,7 +322,10 @@ footer a.wk{color:var(--mustard);font-weight:700}
   .wrap{padding:0 18px}
   .hero .cta{width:100%}
   .hero .cta .btn{flex:1;justify-content:center}
-  .potato{width:240px}
+  /* two columns of chips on a phone — four would clip the longer names */
+  .chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chip{font-size:.85rem;padding:8px 10px}
+  section.blk{padding:48px 0}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto}
@@ -285,9 +342,10 @@ footer a.wk{color:var(--mustard);font-weight:700}
       <span class="n">Kum<b>pir</b></span>
       <span class="s">the happy potato</span>
     </a>
+    <!-- nav order follows document order: the menu now precedes the builder -->
     <nav class="main" id="nav">
-      <a href="#concept" data-i18n="nav_concept">Le concept</a>
       <a href="#carte" data-i18n="nav_menu">La carte</a>
+      <a href="#concept" data-i18n="nav_concept">Le concept</a>
       <a href="#maison" data-i18n="nav_house">La maison</a>
       <a href="#infos" data-i18n="nav_info">Infos</a>
     </nav>
@@ -314,8 +372,8 @@ footer a.wk{color:var(--mustard);font-weight:700}
         <h1><span data-i18n="hero_t1">La pomme de terre</span> <span class="hp" data-i18n="hero_t2">géante &amp; heureuse</span></h1>
         <p class="lead" data-i18n="hero_lead">Une énorme pomme de terre au four, sa chair fouettée au beurre et au fromage, puis garnie — comme vous l'aimez — au comptoir. Istanbul rencontre le Luxembourg.</p>
         <div class="cta">
-          <a class="btn p" href="#concept" data-i18n="hero_cta1">Composez la vôtre ↓</a>
-          <a class="btn g" href="#carte" data-i18n="hero_cta2">Voir la carte</a>
+          <a class="btn p" href="#carte" data-i18n="hero_cta2">Voir la carte</a>
+          <a class="btn g" href="#concept" data-i18n="hero_cta1">Composez la vôtre ↓</a>
         </div>
       </div>
       <div class="photo">
@@ -328,14 +386,55 @@ footer a.wk{color:var(--mustard);font-weight:700}
 
   <div class="marquee-wrap" aria-hidden="true">
     <div class="marquee">
-      <span>
-        <span>maïs&nbsp;·&nbsp;<b>coleslaw</b>&nbsp;·&nbsp;haricots rouges&nbsp;·&nbsp;<b>olives</b>&nbsp;·&nbsp;cornichons&nbsp;·&nbsp;<b>fromage</b>&nbsp;·&nbsp;tomate&nbsp;·&nbsp;<b>herbes</b>&nbsp;·&nbsp;sauces maison&nbsp;·&nbsp;<b>bœuf mijoté</b>&nbsp;·&nbsp;concombre&nbsp;·&nbsp;</span>
-        <span aria-hidden="true">maïs&nbsp;·&nbsp;<b>coleslaw</b>&nbsp;·&nbsp;haricots rouges&nbsp;·&nbsp;<b>olives</b>&nbsp;·&nbsp;cornichons&nbsp;·&nbsp;<b>fromage</b>&nbsp;·&nbsp;tomate&nbsp;·&nbsp;<b>herbes</b>&nbsp;·&nbsp;sauces maison&nbsp;·&nbsp;<b>bœuf mijoté</b>&nbsp;·&nbsp;concombre&nbsp;·&nbsp;</span>
-      </span>
+      <span class="mq-run">maïs&nbsp;·&nbsp;<b>coleslaw</b>&nbsp;·&nbsp;haricots rouges&nbsp;·&nbsp;<b>olives</b>&nbsp;·&nbsp;cornichons&nbsp;·&nbsp;<b>fromage</b>&nbsp;·&nbsp;tomate&nbsp;·&nbsp;<b>herbes</b>&nbsp;·&nbsp;sauces maison&nbsp;·&nbsp;<b>bœuf mijoté</b>&nbsp;·&nbsp;concombre&nbsp;·&nbsp;&nbsp;&nbsp;</span>
+      <span class="mq-run">maïs&nbsp;·&nbsp;<b>coleslaw</b>&nbsp;·&nbsp;haricots rouges&nbsp;·&nbsp;<b>olives</b>&nbsp;·&nbsp;cornichons&nbsp;·&nbsp;<b>fromage</b>&nbsp;·&nbsp;tomate&nbsp;·&nbsp;<b>herbes</b>&nbsp;·&nbsp;sauces maison&nbsp;·&nbsp;<b>bœuf mijoté</b>&nbsp;·&nbsp;concombre&nbsp;·&nbsp;&nbsp;&nbsp;</span>
     </div>
   </div>
 
+  <!-- MENU -->
+  <section class="blk wrap reveal" id="carte">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="menu_kick">La carte</span>
+      <h2 data-i18n="menu_h">Les kumpirs de la maison</h2>
+      <p data-i18n="menu_p">Onze recettes signature, chacune bâtie sur la grande pomme de terre — puis garnie au comptoir. Version viande ou 100 % végé. <b>Carte complète et tarifs disponibles sur place.</b></p>
+    </div>
+
+    <div class="menu-wrap">
+      <div class="mcol">
+        <h3><span class="p" style="background:var(--red)"></span> <span data-i18n="menu_meat">Avec viande</span></h3>
+        <div class="mrow"><span class="nm">Komutan</span></div>
+        <div class="mrow"><span class="nm">Querido</span></div>
+        <div class="mrow"><span class="nm">Chikeria</span></div>
+        <div class="mrow"><span class="nm">Istanbull</span></div>
+        <div class="mrow"><span class="nm">Max</span></div>
+      </div>
+      <div class="mcol">
+        <h3><span class="p" style="background:var(--sage)"></span> <span data-i18n="menu_veg">Végétarien</span></h3>
+        <div class="mrow"><span class="nm">Athena</span></div>
+        <div class="mrow"><span class="nm">Belly Dance</span></div>
+        <div class="mrow"><span class="nm">Sultan</span></div>
+        <div class="mrow"><span class="nm">Bibi Habibi</span></div>
+        <div class="mrow"><span class="nm">Parvati Sunrise</span></div>
+        <div class="mrow"><span class="nm">Ortaköy</span> <span class="vg" data-i18n="menu_cold">froid</span></div>
+      </div>
+    </div>
+
+    <div class="drinks">
+      <h3 style="font-size:1.1rem;color:var(--brown);display:flex;align-items:center;gap:9px"><span class="p" style="width:12px;height:12px;border-radius:50%;background:var(--mustard)"></span> <span data-i18n="menu_drinks">Boissons</span></h3>
+      <div class="dl">
+        <span>Coca-Cola</span><span>Coca Zero</span><span>Pepsi Max</span>
+        <span data-i18n="dr_gloriette">Limonades Gloriette</span><span data-i18n="dr_bio">Limonades bio</span>
+      </div>
+    </div>
+
+    <p class="menu-note" data-i18n="menu_note">La composition exacte de chaque kumpir se choisit au comptoir.</p>
+  </section>
+
   <!-- CONCEPT / BUILDER -->
+  <!-- This block sits AFTER the menu on purpose. It used to fill an entire desktop
+       viewport above the fold for a toy that, by its own admission, does nothing —
+       pushing the actual menu past the second screen on a phone. The menu comes
+       first; the game is the reward for scrolling. -->
   <section class="blk wrap reveal" id="concept">
     <div class="sec-head">
       <span class="eyebrow" data-i18n="concept_kick">Le rituel</span>
@@ -347,7 +446,7 @@ footer a.wk{color:var(--mustard);font-weight:700}
       <div class="bhead">
         <div>
           <h2 data-i18n="build_h">Composez votre kumpir</h2>
-          <p data-i18n="build_p">Touchez les garnitures pour les ajouter. (Pour de vrai, ça se passe au comptoir.)</p>
+          <p data-i18n="build_p">Touchez les garnitures pour les ajouter.</p>
         </div>
         <div class="dots" aria-hidden="true">
           <i style="background:var(--mustard)"></i><i style="background:var(--red)"></i><i style="background:var(--sage)"></i><i style="background:var(--teal)"></i>
@@ -355,21 +454,22 @@ footer a.wk{color:var(--mustard);font-weight:700}
       </div>
 
       <div class="stage">
-        <div class="potato" aria-hidden="true">
-          <div class="steam"><i></i><i></i><i></i></div>
-          <svg class="spud" viewBox="0 0 280 300" aria-hidden="true">
-            <defs>
-              <radialGradient id="k-skin" cx="42%" cy="34%" r="74%"><stop offset="0" stop-color="#d7a666"/><stop offset="55%" stop-color="#bb843f"/><stop offset="100%" stop-color="#8c5d2f"/></radialGradient>
-              <radialGradient id="k-flesh" cx="46%" cy="38%" r="72%"><stop offset="0" stop-color="#fcefce"/><stop offset="68%" stop-color="#f3dda2"/><stop offset="100%" stop-color="#e6c377"/></radialGradient>
-            </defs>
-            <ellipse cx="140" cy="168" rx="128" ry="108" fill="url(#k-skin)"/>
-            <g fill="#7a4f28" opacity=".42"><ellipse cx="70" cy="152" rx="4" ry="3"/><ellipse cx="206" cy="182" rx="4.5" ry="3"/><ellipse cx="150" cy="236" rx="4" ry="3"/><ellipse cx="96" cy="212" rx="3.5" ry="2.5"/></g>
-            <ellipse cx="140" cy="150" rx="104" ry="70" fill="#8c5d2f"/>
-            <ellipse cx="140" cy="146" rx="98" ry="64" fill="url(#k-flesh)"/>
-            <ellipse cx="110" cy="120" rx="34" ry="15" fill="#fff7db" opacity=".5"/>
-          </svg>
-          <div class="fill" id="fill"></div>
-          <div class="count" id="count"><b>0</b><br><span data-i18n="build_count">garnitures</span></div>
+        <div class="potato-slot" aria-hidden="true">
+          <div class="potato">
+            <div class="steam"><i></i><i></i><i></i></div>
+            <svg class="spud" viewBox="0 0 280 300" aria-hidden="true">
+              <defs>
+                <radialGradient id="k-skin" cx="42%" cy="34%" r="74%"><stop offset="0" stop-color="#d7a666"/><stop offset="55%" stop-color="#bb843f"/><stop offset="100%" stop-color="#8c5d2f"/></radialGradient>
+                <radialGradient id="k-flesh" cx="46%" cy="38%" r="72%"><stop offset="0" stop-color="#fcefce"/><stop offset="68%" stop-color="#f3dda2"/><stop offset="100%" stop-color="#e6c377"/></radialGradient>
+              </defs>
+              <ellipse cx="140" cy="168" rx="128" ry="108" fill="url(#k-skin)"/>
+              <g fill="#7a4f28" opacity=".42"><ellipse cx="70" cy="152" rx="4" ry="3"/><ellipse cx="206" cy="182" rx="4.5" ry="3"/><ellipse cx="150" cy="236" rx="4" ry="3"/><ellipse cx="96" cy="212" rx="3.5" ry="2.5"/></g>
+              <ellipse cx="140" cy="150" rx="104" ry="70" fill="#8c5d2f"/>
+              <ellipse cx="140" cy="146" rx="98" ry="64" fill="url(#k-flesh)"/>
+              <ellipse cx="110" cy="120" rx="34" ry="15" fill="#fff7db" opacity=".5"/>
+            </svg>
+            <div class="fill" id="fill"></div>
+          </div>
         </div>
 
         <div class="toppings">
@@ -380,50 +480,11 @@ footer a.wk{color:var(--mustard);font-weight:700}
       </div>
 
       <div class="brow">
+        <div class="count" id="count"><b>0</b> <span data-i18n="build_count">garnitures</span></div>
         <div class="msg" id="buildmsg" data-i18n="build_msg0">Prêt quand vous l'êtes 🥔</div>
         <button class="reset" id="reset" data-i18n="build_reset">Recommencer</button>
       </div>
-      <p class="note" data-i18n="build_note">Démonstration ludique — les garnitures exactes se choisissent sur place, au comptoir.</p>
     </div>
-  </section>
-
-  <!-- MENU -->
-  <section class="blk wrap reveal" id="carte">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="menu_kick">La carte</span>
-      <h2 data-i18n="menu_h">Les kumpirs de la maison</h2>
-      <p data-i18n="menu_p">Onze recettes signature, chacune bâtie sur la grande pomme de terre — puis garnie au comptoir. Version viande ou 100 % végé.</p>
-    </div>
-
-    <div class="menu-wrap">
-      <div class="mcol">
-        <h3><span class="p" style="background:var(--red)"></span> <span data-i18n="menu_meat">Avec viande</span></h3>
-        <div class="mrow"><span class="nm">Komutan</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        <div class="mrow"><span class="nm">Querido</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        <div class="mrow"><span class="nm">Chikeria</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        <div class="mrow"><span class="nm">Istanbull</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        <div class="mrow"><span class="nm">Max</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      </div>
-      <div class="mcol">
-        <h3><span class="p" style="background:var(--sage)"></span> <span data-i18n="menu_veg">Végétarien</span></h3>
-        <div class="mrow"><span class="nm">Athena</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        <div class="mrow"><span class="nm">Belly Dance</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        <div class="mrow"><span class="nm">Sultan</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        <div class="mrow"><span class="nm">Bibi Habibi</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        <div class="mrow"><span class="nm">Parvati Sunrise</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-        <div class="mrow"><span class="nm">Ortaköy</span> <span class="vg" data-i18n="menu_cold">froid</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      </div>
-    </div>
-
-    <div class="drinks">
-      <h3 style="font-size:1.1rem;color:var(--brown);display:flex;align-items:center;gap:9px"><span class="p" style="width:12px;height:12px;border-radius:50%;background:var(--mustard)"></span> <span data-i18n="menu_drinks">Boissons</span></h3>
-      <div class="dl">
-        <span>Coca-Cola · à conf.</span><span>Coca Zero · à conf.</span><span>Pepsi Max · à conf.</span>
-        <span data-i18n="dr_gloriette">Limonades Gloriette · à conf.</span><span data-i18n="dr_bio">Limonades bio · à conf.</span>
-      </div>
-    </div>
-
-    <p class="menu-note" data-i18n="menu_note">Tarifs indicatifs relevés en livraison — à confirmer en salle avec la maison. La composition exacte de chaque kumpir se choisit au comptoir.</p>
   </section>
 
   <!-- STORY / PLACE -->
@@ -458,21 +519,25 @@ footer a.wk{color:var(--mustard);font-weight:700}
         <div class="card">
           <h3>🕑 <span data-i18n="info_hours">Horaires</span></h3>
           <div id="hours"></div>
-          <p class="flag" data-i18n="info_hours_flag">⚠ Horaires indicatifs — à confirmer avec la maison.</p>
         </div>
         <div class="card">
           <h3>📍 <span data-i18n="info_find">Nous trouver</span></h3>
+          <!-- Postcode deliberately omitted: sources disagree (L-2613 vs L-1660) and
+               Place du Théâtre is the constant a visitor actually navigates by.
+               Omitting it is honest; printing it under a warning badge is not. -->
           <p data-i18n="info_addr">Place du Théâtre<br/>Luxembourg-Ville</p>
           <a class="line" href="https://www.google.com/maps/search/?api=1&query=Kumpir+The+Happy+Potato+Place+du+Théâtre+Luxembourg" target="_blank" rel="noopener" data-i18n="info_maps">Ouvrir dans Maps ↗</a>
-          <p class="flag" data-i18n="info_addr_flag">Code postal exact à confirmer.</p>
         </div>
         <div class="card">
           <h3>💬 <span data-i18n="info_contact">Contact</span></h3>
+          <!-- The card used to promise "livraison" with no delivery link anywhere on
+               the page. Wedely is the venue's documented delivery platform, so the
+               claim is now backed by a channel the visitor can actually use. -->
           <p data-i18n="info_contact_p">Commande à emporter, sur place ou en livraison.</p>
           <a class="line" href="tel:+352661421030">+352 661 421 030</a>
-          <p class="flag" data-i18n="info_phone_flag">Numéro à confirmer.</p>
           <div class="socials">
-            <a href="https://www.instagram.com/kumpirthehappypotato/" target="_blank" rel="noopener">Instagram ↗</a>
+            <a href="https://www.wedely.com/restaurant/168306-kumpir-the-happy-potato" target="_blank" rel="noopener" data-i18n="info_delivery">Commander sur Wedely ↗</a>
+            <a class="alt" href="https://www.instagram.com/kumpirthehappypotato/" target="_blank" rel="noopener">Instagram ↗</a>
             <a class="alt" href="https://www.facebook.com/kumpir.lu/" target="_blank" rel="noopener">Facebook ↗</a>
           </div>
         </div>
@@ -488,10 +553,17 @@ footer a.wk{color:var(--mustard);font-weight:700}
       <span class="bn">Kum<b>pir</b> — the happy potato</span>
       <span style="font-size:.9rem" data-i18n="foot_tag">Street food turc · Place du Théâtre · Luxembourg</span>
     </div>
-    <p class="disc" data-i18n="disc">Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé et non définitif. Carte, tarifs, horaires, adresse et téléphone sont à confirmer avec la maison. Photographies de sources publiques, à remplacer par les visuels de la maison.</p>
+    <!-- THE ONE DISCLOSURE — see the build brief's "BUILD NOTES" section. -->
+    <p class="disc" data-i18n="disc">Aperçu de site réalisé par Webwerk à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement.</p>
     <p class="disc" style="margin-top:8px">© <span id="yr"></span> · <a class="wk" href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk — nous dessinons le web.</a></p>
   </div>
 </footer>
+
+<!-- Sticky call bar (mobile only) -->
+<nav class="callbar" aria-label="Contact rapide">
+  <a class="btn p" href="tel:+352661421030" data-i18n="bar_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Kumpir+The+Happy+Potato+Place+du+Théâtre+Luxembourg" target="_blank" rel="noopener" data-i18n="bar_dir">Itinéraire</a>
+</nav>
 
 <script>
 /* ============================ i18n ============================ */
@@ -504,26 +576,25 @@ var I18N = {
     hero_cta1:"Composez la vôtre ↓",hero_cta2:"Voir la carte",hero_parasol:"salut !",hero_tag:"🥔 la kumpir, à composer",
     concept_kick:"Le rituel",concept_h:"Une patate. Vos garnitures. Aucune règle.",
     concept_p:"Chez Kumpir, c'est vous qui composez. On fend la pomme de terre, on écrase la chair avec du beurre et du fromage, puis on empile ce que vous voulez au comptoir coloré. Amusez-vous ci-dessous.",
-    build_h:"Composez votre kumpir",build_p:"Touchez les garnitures pour les ajouter. (Pour de vrai, ça se passe au comptoir.)",
+    build_h:"Composez votre kumpir",build_p:"Touchez les garnitures pour les ajouter.",
     build_pick:"Le comptoir",build_hint:"Des garnitures fraîches, à volonté — voici un échantillon.",
     build_count:"garnitures",build_reset:"Recommencer",build_msg0:"Prêt quand vous l'êtes 🥔",
-    build_note:"Démonstration ludique — les garnitures exactes se choisissent sur place, au comptoir.",
     menu_kick:"La carte",menu_h:"Les kumpirs de la maison",
-    menu_p:"Onze recettes signature, chacune bâtie sur la grande pomme de terre — puis garnie au comptoir. Version viande ou 100 % végé.",
+    menu_p:"Onze recettes signature, chacune bâtie sur la grande pomme de terre — puis garnie au comptoir. Version viande ou 100 % végé. <b>Carte complète et tarifs disponibles sur place.</b>",
     menu_meat:"Avec viande",menu_veg:"Végétarien",menu_cold:"froid",menu_drinks:"Boissons",
-    dr_gloriette:"Limonades Gloriette · à conf.",dr_bio:"Limonades bio · à conf.",ac:"à conf.",
-    menu_note:"Tarifs indicatifs relevés en livraison — à confirmer en salle avec la maison. La composition exacte de chaque kumpir se choisit au comptoir.",
+    dr_gloriette:"Limonades Gloriette",dr_bio:"Limonades bio",ac:"à conf.",
+    menu_note:"La composition exacte de chaque kumpir se choisit au comptoir.",
     house_kick:"La maison",house_h:"La happy potato, Place du Théâtre",
     house_p1:"Sous la fresque pop, les parasols rouges et les grandes tables en bois, on s'installe, on discute, on choisit ses garnitures une à une. Le patron explique volontiers chaque option — et vous fait goûter avant de choisir.",
     house_q:"« Turkish food meets Luxembourg. »",
     house_mascot:"Sur le comptoir veillent les « Positive Potatoes » en crochet : « je ne suis qu'une petite patate, mais je crois en vous. » Toute la maison est là-dedans.",
     info_kick:"En pratique",info_h:"Venir, commander, savourer",
-    info_hours:"Horaires",info_hours_flag:"⚠ Horaires indicatifs — à confirmer avec la maison.",
+    info_hours:"Horaires",
     info_find:"Nous trouver",info_addr:"Place du Théâtre<br/>Luxembourg-Ville",info_maps:"Ouvrir dans Maps ↗",
-    info_addr_flag:"Code postal exact à confirmer.",
-    info_contact:"Contact",info_contact_p:"Commande à emporter, sur place ou en livraison.",info_phone_flag:"Numéro à confirmer.",
+    info_contact:"Contact",info_contact_p:"Commande à emporter, sur place ou en livraison.",
+    info_delivery:"Commander sur Wedely ↗",bar_call:"Appeler",bar_dir:"Itinéraire",
     foot_tag:"Street food turc · Place du Théâtre · Luxembourg",
-    disc:"Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé et non définitif. Carte, tarifs, horaires, adresse et téléphone sont à confirmer avec la maison. Photographies de sources publiques, à remplacer par les visuels de la maison.",
+    disc:"Aperçu de site réalisé par Webwerk à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement.",
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],closed:"Fermé",
     msgs:["Prêt quand vous l'êtes 🥔","Bon début !","Ça prend forme…","Généreux 👏","Un vrai festin !","Là, c'est un chef-d'œuvre 🎉"]
   },
@@ -535,26 +606,25 @@ var I18N = {
     hero_cta1:"Stellen Sie Ihre zusammen ↓",hero_cta2:"Zur Karte",hero_parasol:"hallo!",hero_tag:"🥔 Kumpir zum Selbstbelegen",
     concept_kick:"Das Ritual",concept_h:"Eine Kartoffel. Ihre Toppings. Keine Regeln.",
     concept_p:"Bei Kumpir stellen Sie selbst zusammen. Die Kartoffel wird aufgeschnitten, das Innere mit Butter und Käse gestampft, dann am bunten Tresen belegt. Probieren Sie es unten aus.",
-    build_h:"Stellen Sie Ihren Kumpir zusammen",build_p:"Tippen Sie die Toppings an, um sie hinzuzufügen. (In echt läuft das am Tresen.)",
+    build_h:"Stellen Sie Ihren Kumpir zusammen",build_p:"Tippen Sie die Toppings an, um sie hinzuzufügen.",
     build_pick:"Der Tresen",build_hint:"Frische Toppings, so viel Sie mögen — hier eine Auswahl.",
     build_count:"Toppings",build_reset:"Nochmal",build_msg0:"Bereit, wenn Sie es sind 🥔",
-    build_note:"Spielerische Demo — die genauen Toppings wählen Sie vor Ort am Tresen.",
     menu_kick:"Die Karte",menu_h:"Die Kumpirs des Hauses",
-    menu_p:"Elf Signature-Rezepte, jedes auf der großen Kartoffel aufgebaut — dann am Tresen belegt. Mit Fleisch oder 100 % vegetarisch.",
+    menu_p:"Elf Signature-Rezepte, jedes auf der großen Kartoffel aufgebaut — dann am Tresen belegt. Mit Fleisch oder 100 % vegetarisch. <b>Vollständige Karte und Preise vor Ort.</b>",
     menu_meat:"Mit Fleisch",menu_veg:"Vegetarisch",menu_cold:"kalt",menu_drinks:"Getränke",
-    dr_gloriette:"Gloriette-Limonaden · auf Anfrage",dr_bio:"Bio-Limonaden · auf Anfrage",ac:"auf Anfrage",
-    menu_note:"Richtpreise aus dem Lieferdienst — im Lokal mit dem Haus zu bestätigen. Die genaue Zusammenstellung jedes Kumpir wählen Sie am Tresen.",
+    dr_gloriette:"Gloriette-Limonaden",dr_bio:"Bio-Limonaden",ac:"auf Anfrage",
+    menu_note:"Die genaue Zusammenstellung jedes Kumpir wählen Sie am Tresen.",
     house_kick:"Das Haus",house_h:"Die Happy Potato, Place du Théâtre",
     house_p1:"Unter der Pop-Wandmalerei, den roten Sonnenschirmen und an den großen Holztischen setzt man sich, plaudert und wählt seine Toppings eins nach dem anderen. Der Inhaber erklärt gern jede Option — und lässt Sie vorher probieren.",
     house_q:"„Turkish food meets Luxembourg.“",
     house_mascot:"Auf dem Tresen wachen die gehäkelten „Positive Potatoes“: „Ich bin nur eine kleine Kartoffel, aber ich glaube an dich.“ Das ganze Haus steckt darin.",
     info_kick:"Praktisches",info_h:"Kommen, bestellen, genießen",
-    info_hours:"Öffnungszeiten",info_hours_flag:"⚠ Zeiten ohne Gewähr — mit dem Haus zu bestätigen.",
+    info_hours:"Öffnungszeiten",
     info_find:"So finden Sie uns",info_addr:"Place du Théâtre<br/>Luxemburg-Stadt",info_maps:"In Maps öffnen ↗",
-    info_addr_flag:"Genaue Postleitzahl zu bestätigen.",
-    info_contact:"Kontakt",info_contact_p:"Zum Mitnehmen, vor Ort oder als Lieferung.",info_phone_flag:"Nummer zu bestätigen.",
+    info_contact:"Kontakt",info_contact_p:"Zum Mitnehmen, vor Ort oder als Lieferung.",
+    info_delivery:"Auf Wedely bestellen ↗",bar_call:"Anrufen",bar_dir:"Route",
     foot_tag:"Türkisches Street Food · Place du Théâtre · Luxemburg",
-    disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das (textliche) Logo ist ein Vorschlag und nicht endgültig. Karte, Preise, Öffnungszeiten, Adresse und Telefon sind mit dem Haus zu bestätigen. Fotos aus öffentlichen Quellen, durch eigene Bilder des Hauses zu ersetzen.",
+    disc:"Website-Vorschau von Webwerk, aus öffentlichen Quellen erstellt — ein inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],closed:"Geschlossen",
     msgs:["Bereit, wenn Sie es sind 🥔","Guter Anfang!","Nimmt Form an…","Großzügig 👏","Ein echtes Festmahl!","Jetzt ein Meisterwerk 🎉"]
   },
@@ -566,26 +636,25 @@ var I18N = {
     hero_cta1:"Build your own ↓",hero_cta2:"See the menu",hero_parasol:"hi there!",hero_tag:"🥔 build-your-own kumpir",
     concept_kick:"The ritual",concept_h:"One potato. Your toppings. No rules.",
     concept_p:"At Kumpir, you're the one who builds it. The potato is split, the inside mashed with butter and cheese, then piled with whatever you fancy from the colourful counter. Have a go below.",
-    build_h:"Build your kumpir",build_p:"Tap the toppings to add them. (For real, it happens at the counter.)",
+    build_h:"Build your kumpir",build_p:"Tap the toppings to add them.",
     build_pick:"The counter",build_hint:"Fresh toppings, as many as you like — here's a sample.",
     build_count:"toppings",build_reset:"Start over",build_msg0:"Ready when you are 🥔",
-    build_note:"A playful demo — the exact toppings are chosen in person, at the counter.",
     menu_kick:"The menu",menu_h:"The house kumpirs",
-    menu_p:"Eleven signature recipes, each built on the big potato — then loaded at the counter. With meat, or fully vegetarian.",
+    menu_p:"Eleven signature recipes, each built on the big potato — then loaded at the counter. With meat, or fully vegetarian. <b>Full menu and prices available in person.</b>",
     menu_meat:"With meat",menu_veg:"Vegetarian",menu_cold:"cold",menu_drinks:"Drinks",
-    dr_gloriette:"Gloriette lemonades · tbc",dr_bio:"Organic lemonades · tbc",ac:"tbc",
-    menu_note:"Prices shown are indicative, taken from delivery — to be confirmed in-house. Each kumpir's exact toppings are chosen at the counter.",
+    dr_gloriette:"Gloriette lemonades",dr_bio:"Organic lemonades",ac:"tbc",
+    menu_note:"Each kumpir's exact toppings are chosen at the counter.",
     house_kick:"The place",house_h:"The happy potato, Place du Théâtre",
     house_p1:"Under the pop mural, the red parasols and the big wooden tables, you sit down, you chat, you pick your toppings one by one. The owner is happy to explain every option — and lets you taste before you choose.",
     house_q:"“Turkish food meets Luxembourg.”",
     house_mascot:"On the counter sit the crocheted “Positive Potatoes”: “I may be a tiny potato, but I believe in you.” The whole place is in that line.",
     info_kick:"Practical",info_h:"Come, order, tuck in",
-    info_hours:"Opening hours",info_hours_flag:"⚠ Hours indicative — to be confirmed with the venue.",
+    info_hours:"Opening hours",
     info_find:"Find us",info_addr:"Place du Théâtre<br/>Luxembourg City",info_maps:"Open in Maps ↗",
-    info_addr_flag:"Exact postcode to be confirmed.",
-    info_contact:"Contact",info_contact_p:"Takeaway, dine-in or delivery.",info_phone_flag:"Number to be confirmed.",
+    info_contact:"Contact",info_contact_p:"Takeaway, dine-in or delivery.",
+    info_delivery:"Order on Wedely ↗",bar_call:"Call",bar_dir:"Directions",
     foot_tag:"Turkish street food · Place du Théâtre · Luxembourg",
-    disc:"Website preview produced by Webwerk for illustration, from public sources — an unofficial proposal, not affiliated with the venue's management. The (text) logo is proposed and not final. Menu, prices, hours, address and phone are to be confirmed with the venue. Photographs from public sources, to be replaced with the venue's own visuals.",
+    disc:"A website preview produced by Webwerk from public sources — an unofficial proposal, not affiliated with the venue's management.",
     days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],closed:"Closed",
     msgs:["Ready when you are 🥔","Good start!","Coming together…","Generous 👏","A proper feast!","Now that's a masterpiece 🎉"]
   }

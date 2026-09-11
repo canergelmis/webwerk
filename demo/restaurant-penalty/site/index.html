@@ -155,6 +155,18 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
 .madeby{margin-top:14px;color:var(--red2)}
 .madeby a{color:#e9c3ad;border-bottom:1px solid rgba(233,195,173,.4)}
 @media(max-width:860px){.ggrid{grid-template-columns:1fr;gap:34px}}
+
+/* ===== MOBILE STICKY CTA BAR ===== */
+.mobile-cta{display:none}
+@media(max-width:860px){
+  body{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+  .mobile-cta{
+    display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:70;
+    padding:10px clamp(14px,4vw,20px) calc(10px + env(safe-area-inset-bottom));
+    background:rgba(20,15,12,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  }
+  .mobile-cta a{flex:1;justify-content:center;padding:13px 14px;font-size:.9rem}
+}
 </style>
 </head>
 <body id="top">
@@ -318,6 +330,11 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
   </div>
 </footer>
 
+<div class="mobile-cta" role="group" aria-label="Actions rapides">
+  <a href="tel:+352586984" class="btn p" data-i18n="mob_call">Appeler</a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+Penalty+22+Rue+de+la+Gare+Oberkorn" target="_blank" rel="noopener" class="btn g" data-i18n="mob_dir">Itinéraire</a>
+</div>
+
 <script>
 const I18N = {
  fr:{
@@ -344,7 +361,8 @@ const I18N = {
   l_serv:"Services", serv_val:"Sur place · à emporter",
   vi_call:"Appeler pour réserver", vi_dir:"Itinéraire",
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps ; façade Google Street View, 2023), à remplacer par vos propres visuels. La maison n'a pas de logo — seulement son nom ; identité proposée. Carte sans prix : plats d'après photos, plats « populaires » signalés par Google, carte et prix en salle. À revérifier avant tout contact.",
-  foot_made:"Un aperçu"
+  foot_made:"Un aperçu",
+  mob_call:"Appeler", mob_dir:"Itinéraire"
  },
  de:{
   brand_sub:"Kroatischer Grill · Oberkorn", n_grill:"Der Grill", n_carte:"Die Karte", n_salle:"Der Saal", n_visit:"Infos",
@@ -370,7 +388,8 @@ const I18N = {
   l_serv:"Services", serv_val:"Vor Ort · zum Mitnehmen",
   vi_call:"Zum Reservieren anrufen", vi_dir:"Route",
   foot_disc:"Demo-Vorschau von Webwerk aus öffentlichen Fotos (Google Maps; Fassade Google Street View, 2023), durch eigene Bilder zu ersetzen. Das Haus hat kein Logo — nur den Namen; Identität als Vorschlag. Karte ohne Preise: Gerichte nach Fotos, „beliebte” Gerichte von Google markiert, Karte und Preise im Restaurant. Vor Kontakt zu prüfen.",
-  foot_made:"Eine Vorschau von"
+  foot_made:"Eine Vorschau von",
+  mob_call:"Anrufen", mob_dir:"Route"
  },
  en:{
   brand_sub:"Croatian grill · Oberkorn", n_grill:"The grill", n_carte:"The menu", n_salle:"The room", n_visit:"Find us",
@@ -396,7 +415,8 @@ const I18N = {
   l_serv:"Services", serv_val:"Dine-in · takeaway",
   vi_call:"Call to reserve", vi_dir:"Directions",
   foot_disc:"Demonstration preview composed by Webwerk from public photos (Google Maps; facade Google Street View, 2023), to be replaced with your own visuals. The venue has no logo — only its name; identity proposed. Menu without prices: dishes from photos, “popular” dishes flagged by Google, menu and prices in-house. To be re-verified before any contact.",
-  foot_made:"A preview by"
+  foot_made:"A preview by",
+  mob_call:"Call", mob_dir:"Directions"
  }
 };
 function applyLang(l){

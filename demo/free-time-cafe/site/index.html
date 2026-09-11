@@ -325,7 +325,7 @@ blockquote.real cite{display:block;font-family:var(--mono);font-style:normal;fon
 .burg-top h2{color:var(--cream);font-size:clamp(1.9rem,4.4vw,2.9rem);max-width:14ch}
 .burg-note{max-width:36ch;color:#cfc6ab;font-size:.92rem;font-family:var(--mono)}
 .burg-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:34px}
-.burg-photos img{border-radius:6px;aspect-ratio:4/3;object-fit:cover;box-shadow:var(--sh-s)}
+.burg-photos img{width:100%;height:auto;border-radius:6px;aspect-ratio:4/3;object-fit:cover;box-shadow:var(--sh-s)}
 .burg-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 32px}
 .burg-item{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(244,236,216,.14)}
 .burg-item .nm{font-family:var(--disp);font-weight:700;font-size:1.06rem;color:var(--cream)}
@@ -371,7 +371,7 @@ blockquote.real cite{display:block;font-family:var(--mono);font-style:normal;fon
 .gal-top h2{color:var(--cream);font-size:clamp(1.7rem,4vw,2.4rem)}
 .gal-top p{margin-top:10px;color:#a89e80;font-family:var(--mono);font-size:.84rem}
 .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.gal-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:5px}
+.gal-grid img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:5px}
 @media(max-width:760px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* ===== VISIT ===== */
@@ -386,10 +386,11 @@ blockquote.real cite{display:block;font-family:var(--mono);font-style:normal;fon
 .contact-list{margin-top:22px;display:flex;flex-direction:column;gap:10px}
 .contact-list a,.contact-list span{font-size:.98rem}
 .contact-list .lbl{font-family:var(--mono);font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:2px}
-.map-card{background:var(--navy);border-radius:8px;padding:28px;color:var(--cream);position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
-.map-card svg{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.5}
-.map-addr{position:relative;z-index:2;font-family:var(--disp);font-size:1.2rem;margin-bottom:6px}
-.map-links{position:relative;z-index:2;display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.map-card{background:var(--navy);border-radius:8px;padding:28px;color:var(--cream);min-height:280px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px}
+.map-pin{width:42px;height:42px;flex:none}
+.map-addr{font-family:var(--disp);font-size:1.2rem}
+.map-gmaps{display:inline-flex;align-items:center;gap:8px}
+.map-links{display:flex;gap:10px;margin-top:2px;flex-wrap:wrap}
 .visit-cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
 @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
 
@@ -626,16 +627,12 @@ footer{background:var(--navy3);color:#cfc6ab;padding:50px 0 36px}
       </div>
     </div>
     <div class="map-card">
-      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <rect width="400" height="300" fill="#16233a"/>
-        <g stroke="#f4ecd8" stroke-opacity=".18" stroke-width="1.5">
-          <path d="M0 60 H400 M0 130 H400 M0 200 H400 M0 250 H400"/>
-          <path d="M60 0 V300 M150 0 V300 M260 0 V300 M340 0 V300"/>
-        </g>
-        <circle cx="200" cy="150" r="14" fill="#b0332a"/>
-        <circle cx="200" cy="150" r="26" fill="none" stroke="#b0332a" stroke-opacity=".5" stroke-width="2"/>
+      <svg class="map-pin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.63 6.24 11.53 6.5 11.78a1.4 1.4 0 0 0 2 0c.26-.25 6.5-6.15 6.5-11.78C19.5 5.36 16.14 2 12 2Z" fill="#b0332a"/>
+        <circle cx="12" cy="9.5" r="3.1" fill="#f4ecd8"/>
       </svg>
       <div class="map-addr" data-i18n="map_addr">90, rue de la Gare<br>L-4460 Belvaux</div>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Free+Time+Caf%C3%A9+90+Rue+de+la+Gare+Belvaux" target="_blank" rel="noopener" class="btn p map-gmaps" data-i18n="map_gmaps">Ouvrir dans Google Maps ↗</a>
       <div class="map-links">
         <a href="https://www.instagram.com/freetimecafe_belvaux/" target="_blank" rel="noopener" class="btn g" style="padding:9px 16px;font-size:.84rem">Instagram</a>
         <a href="https://www.facebook.com/freetimecafebelvaux/" target="_blank" rel="noopener" class="btn g" style="padding:9px 16px;font-size:.84rem">Facebook</a>
@@ -728,6 +725,7 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Téléphone", l_mobile:"Réservations",
   v_call:"Appeler", v_dir:"Itinéraire ↗",
   map_addr:"90, rue de la Gare<br>L-4460 Belvaux",
+  map_gmaps:"Ouvrir dans Google Maps ↗",
   foot_addr:"90, rue de la Gare, L-4460 Belvaux · <a href=\"tel:+35228203684\" style=\"color:var(--gold)\">28 20 36 84</a>",
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et informations publiques : le site freetimecafe.lu et Google Maps. Logo recréé à partir de l'enseigne réelle de la maison, telle qu'elle figure sur sa propre carte. Horaires, carte et prix repris du site freetimecafe.lu (2026) — non-contractuels, à confirmer en salle.",
   foot_made:"Un aperçu par"
@@ -781,6 +779,7 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Telefon", l_mobile:"Reservierungen",
   v_call:"Anrufen", v_dir:"Route ↗",
   map_addr:"90, rue de la Gare<br>L-4460 Belvaux",
+  map_gmaps:"In Google Maps öffnen ↗",
   foot_addr:"90, rue de la Gare, L-4460 Belvaux · <a href=\"tel:+35228203684\" style=\"color:var(--gold)\">28 20 36 84</a>",
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Informationen: der Website freetimecafe.lu und Google Maps. Logo neu erstellt nach dem echten Zeichen des Hauses, wie es auf dessen eigener Speisekarte erscheint. Öffnungszeiten, Karte und Preise von freetimecafe.lu (2026) übernommen — unverbindlich, im Restaurant zu bestätigen.",
   foot_made:"Eine Vorschau von"
@@ -834,6 +833,7 @@ const I18N = {
   l_addr:"Address", l_tel:"Phone", l_mobile:"Reservations",
   v_call:"Call", v_dir:"Directions ↗",
   map_addr:"90, rue de la Gare<br>L-4460 Belvaux",
+  map_gmaps:"Open in Google Maps ↗",
   foot_addr:"90, rue de la Gare, L-4460 Belvaux · <a href=\"tel:+35228203684\" style=\"color:var(--gold)\">28 20 36 84</a>",
   foot_disc:"Demonstration preview composed by Webwerk from public photos and information: the freetimecafe.lu website and Google Maps. Logo recreated from the house's real sign, as it appears on its own menu. Hours, menu and prices taken from freetimecafe.lu (2026) — non-binding, to be confirmed in-house.",
   foot_made:"A preview by"

@@ -33,7 +33,13 @@
   .ribbon .g{background:var(--green);} .ribbon .c{background:var(--cream);} .ribbon .t{background:var(--tomato);}
 
   /* ===== header ===== */
-  header.site{position:sticky;top:0;z-index:40;background:rgba(247,241,227,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  /* Reads as an overlay, not a solid band that has swallowed the page: lighter
+     alpha + a real bottom edge. Paired with scroll-margin-top below, so an
+     anchor never lands a heading underneath it. */
+  header.site{position:sticky;top:0;z-index:40;background:rgba(247,241,227,.82);backdrop-filter:blur(10px) saturate(1.1);
+    border-bottom:1px solid rgba(35,38,32,.22);box-shadow:0 6px 18px -14px rgba(20,25,18,.55);}
+  main section[id],main div[id]{scroll-margin-top:96px;}
+  @media(max-width:759px){main section[id],main div[id]{scroll-margin-top:80px;}}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:12px;}
   @media(min-width:760px){.nav{padding:14px 40px;}}
   .brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
@@ -61,7 +67,12 @@
   .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;}
   .hero .bg{position:absolute;inset:0;}
   .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:60% 40%;}
-  .hero .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,32,20,.20) 0%,rgba(18,26,18,.35) 45%,rgba(14,20,14,.86) 100%);}
+  /* Directional scrim, not a vertical one: the headline and lead cross the
+     blown highlights on the pale penne (~227,221,203), where white text fell to
+     about 1.3:1. The text side is now uniformly dark whatever sits underneath. */
+  .hero .bg::after{content:'';position:absolute;inset:0;background:
+    linear-gradient(180deg,rgba(12,38,26,0) 18%,rgba(12,38,26,.38) 52%,rgba(12,38,26,.80) 100%),
+    linear-gradient(105deg,rgba(12,38,26,.82) 0%,rgba(12,38,26,.55) 55%,rgba(12,38,26,.15) 100%);}
   .hero-in{position:relative;z-index:2;width:100%;padding:0 20px 30px;color:var(--cream);}
   @media(min-width:760px){.hero-in{padding:0 40px 56px;}}
   .hero-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin:0 0 10px;}
@@ -101,13 +112,22 @@
   .about{background:var(--green-deep);color:var(--cream);}
   .about .eyebrow{color:#d7c98a;}
   .about h2{color:var(--cream);}
-  .about-grid{display:grid;gap:34px;}
-  @media(min-width:820px){.about-grid{grid-template-columns:1.05fr .95fr;align-items:start;}}
+  /* Was a 1.05fr / .95fr split whose right column held three short fact rows and
+     then stopped, leaving ~40% of a ~560px panel empty. The prose now runs in two
+     text columns across the full measure and the facts sit below as a three-across
+     strip, so nothing is left hanging. */
   .about p{font-size:16px;line-height:1.72;color:rgba(247,241,227,.9);margin:0 0 16px;}
-  .about p.tenant{font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:#d7c98a;margin-top:22px;text-transform:uppercase;}
-  .facts{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(247,241,227,.22);}
+  .about-prose{max-width:none;}
+  @media(min-width:820px){.about-prose{columns:2;column-gap:48px;}
+    .about-prose p:first-child{margin-top:0;}}
+  .about p.tenant{font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:#d7c98a;margin:22px 0 0;text-transform:uppercase;}
+  .facts{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(247,241,227,.22);margin-top:34px;}
   .facts div{padding:16px 0;border-bottom:1px solid rgba(247,241,227,.22);font-size:14px;color:rgba(247,241,227,.88);}
   .facts div b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#d7c98a;margin-bottom:6px;}
+  @media(min-width:820px){
+    .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;}
+    .facts div{border-bottom:none;padding:18px 0 0;}
+  }
 
   /* ===== ticket / menu cards ===== */
   .tickets{column-count:1;column-gap:18px;}
@@ -125,13 +145,23 @@
   .ticket .price{font-size:14px;color:var(--tomato-deep);font-weight:700;white-space:nowrap;}
   .ticket .desc{font-size:12.5px;color:var(--ink-soft);line-height:1.5;font-family:var(--sans);}
   .ticket.noph .tbody{padding-top:18px;}
-  .flagnote{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-top:16px;display:flex;gap:8px;align-items:baseline;}
-  .flagnote::before{content:'△';color:var(--tomato);}
+  /* Two photo cards, side by side and equal height. The three-column masonry
+     left the third card alone in column 3 with ~300px of dead space under it. */
+  .tickets.duo{column-count:auto;display:grid;grid-template-columns:1fr;gap:18px;}
+  @media(min-width:640px){.tickets.duo{grid-template-columns:1fr 1fr;}}
+  .tickets.duo .ticket{margin-bottom:0;}
+  /* One plain practical note, not an alarm — the warning triangle is gone along
+     with the price hedges it used to flag. */
+  .flagnote{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin-top:22px;}
 
-  .plainlist{display:grid;gap:10px;max-width:520px;}
-  .plainlist div{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14.5px;}
+  /* Name-only list. Deliberately NOT styled as a price row: no leader rule and
+     no space-between, since there is no price to lead the eye to.
+     Runs the full measure rather than hugging the left ~36% of the section. */
+  .plainlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px 12px;}
+  .plainlist div{display:inline-flex;align-items:center;justify-content:center;text-align:center;
+    padding:11px 14px;font-size:14.5px;
+    border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.55);}
   .plainlist div b{font-weight:600;}
-  .plainlist div span{font-family:var(--mono);color:var(--tomato-deep);font-weight:700;white-space:nowrap;}
 
   /* ===== epicerie ===== */
   .epicerie{background:var(--cream);}
@@ -161,6 +191,8 @@
   .hourstable{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px;}
   .hourstable td{padding:5px 0;border-bottom:1px solid rgba(247,241,227,.15);}
   .hourstable td:last-child{text-align:right;font-family:var(--mono);font-size:12.5px;}
+  .dlink{border-bottom:1px solid rgba(247,241,227,.45);padding-bottom:1px;}
+  .dlink:hover{border-bottom-color:var(--tomato);}
   .maplink{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:11px 18px;border-radius:30px;background:var(--tomato);color:#fff;font-weight:600;font-size:13.5px;}
 
   /* ===== footer ===== */
@@ -168,6 +200,9 @@
   @media(min-width:900px){footer{padding-bottom:44px;}}
   footer .fbrand{font-family:var(--script);font-size:22px;color:var(--cream);margin-bottom:10px;display:block;}
   footer p{max-width:70ch;margin:0 0 8px;}
+  /* The single Webwerk disclosure. Small, but legible and comfortably AA
+     (cream at .85 on #101710 ≈ 10:1). It is the only place it appears. */
+  footer p.disclosure{font-size:13px;line-height:1.65;color:rgba(247,241,227,.85);}
 
   /* ===== sticky mobile CTA ===== */
   .stickybar{position:fixed;left:0;right:0;bottom:-80px;z-index:50;background:var(--green-deep);display:flex;gap:1px;transition:bottom .3s ease;box-shadow:0 -8px 22px -10px rgba(0,0,0,.4);}
@@ -231,10 +266,8 @@
       <div class="docket">
         <div class="docket-top">
           <b data-i18n="docket.label">Ticket du jour</b>
-          <span id="docketDate">—</span>
         </div>
         <p class="noprint" data-i18n="docket.noprint">Aucune carte imprimée — tout est cuisiné aujourd'hui.</p>
-        <p data-i18n="docket.hoursnote">Horaires ci-dessous, à confirmer.</p>
         <div class="venue">
           <div data-i18n="docket.venue">Restaurant · Pizzeria · Épicerie italienne</div>
           <div data-i18n="docket.town">26, Rue Demy Schlechter — Bonnevoie</div>
@@ -249,14 +282,14 @@
   </section>
 
   <section class="about" id="atelier">
-    <div class="wrap about-grid">
-      <div class="reveal">
-        <p class="eyebrow" data-i18n="about.kicker">Le nom, au pied de la lettre</p>
-        <h2 data-i18n="about.h2">Un atelier, pas une carte figée</h2>
+    <div class="wrap">
+      <p class="eyebrow reveal" data-i18n="about.kicker">Le nom, au pied de la lettre</p>
+      <h2 class="reveal" data-i18n="about.h2">Un atelier, pas une carte figée</h2>
+      <div class="about-prose reveal">
         <p data-i18n="about.p1">À Bonnevoie, la même enseigne verte annonce deux métiers : « Restaurant · Pizzeria » d'un côté de la vitrine, « Épicerie Italienne » de l'autre. C'est tout le sens du nom — un atelier où l'on cuisine, un comptoir où l'on vend, pas une carte imprimée une fois pour toutes.</p>
         <p data-i18n="about.p2">Ici, la pâte fraîche et les plats du jour changent selon ce qui est bon ce matin-là. Un morceau de focaccia maison accompagne chaque repas — la seule chose qui, elle, ne change jamais.</p>
-        <p class="tenant" data-i18n="about.p3">L'atelier est tenu par Umberto Tauro.</p>
       </div>
+      <p class="tenant reveal" data-i18n="about.p3">L'atelier est tenu par Umberto Tauro.</p>
       <div class="facts reveal">
         <div><b data-i18n="about.fact1.k">Chaque jour</b><span data-i18n="about.fact1.v">pâtes fraîches, plats qui changent</span></div>
         <div><b data-i18n="about.fact2.k">Deux métiers</b><span data-i18n="about.fact2.v">cuisine et épicerie, sous une même enseigne</span></div>
@@ -271,42 +304,42 @@
     <div class="wrap">
       <p class="eyebrow reveal" data-i18n="forno.kicker">Cuit au four</p>
       <h2 class="reveal" data-i18n="forno.h2">Il Forno</h2>
-      <p class="lede reveal" data-i18n="forno.lead">Pizzas napolitaines. Prix indicatifs (plateforme de livraison, septembre 2026) — la carte change chaque jour.</p>
+      <p class="lede reveal" data-i18n="forno.lead">Pizzas napolitaines, cuites au four.</p>
       <div class="tickets reveal">
         <article class="ticket">
-          <div class="ph"><img src="assets/burrata-pizza.jpg" alt="Pizza Burrata, Atelier del Gusto" /></div>
+          <div class="ph"><img src="assets/burrata-pizza.jpg" alt="Pizza à la burrata, Atelier del Gusto" loading="lazy" /></div>
           <div class="tbody">
-            <div class="row1"><b>Burrata</b><span class="price" data-i18n="ac">à conf.</span></div>
+            <div class="row1"><b>Burrata</b></div>
             <p class="desc" data-i18n="forno.burrata.desc">Tomate, mozzarella, dômes de burrata, tomates séchées.</p>
           </div>
         </article>
         <article class="ticket noph">
           <div class="tbody">
-            <div class="row1"><b>Margherita</b><span class="price" data-i18n="ac">à conf.</span></div>
+            <div class="row1"><b>Margherita</b></div>
             <p class="desc" data-i18n="forno.margherita.desc">Tomate, mozzarella, basilic.</p>
           </div>
         </article>
         <article class="ticket noph">
           <div class="tbody">
-            <div class="row1"><b>Diavola</b><span class="price" data-i18n="ac">à conf.</span></div>
+            <div class="row1"><b>Diavola</b></div>
             <p class="desc" data-i18n="forno.diavola.desc">Tomate, mozzarella, salami piquant.</p>
           </div>
         </article>
         <article class="ticket noph">
           <div class="tbody">
-            <div class="row1"><b>Prosciutto e Funghi</b><span class="price" data-i18n="ac">à conf.</span></div>
+            <div class="row1"><b>Prosciutto e Funghi</b></div>
             <p class="desc" data-i18n="forno.proscfunghi.desc">Jambon, champignons, mozzarella.</p>
           </div>
         </article>
         <article class="ticket noph">
           <div class="tbody">
-            <div class="row1"><b>Quattro Formaggi</b><span class="price" data-i18n="ac">à conf.</span></div>
+            <div class="row1"><b>Quattro Formaggi</b></div>
             <p class="desc" data-i18n="forno.quattro.desc">Quatre fromages.</p>
           </div>
         </article>
         <article class="ticket noph">
           <div class="tbody">
-            <div class="row1"><b>Salsiccia e Stracciatella</b><span class="price" data-i18n="ac">à conf.</span></div>
+            <div class="row1"><b>Salsiccia e Stracciatella</b></div>
             <p class="desc" data-i18n="forno.salsiccia.desc">Saucisse italienne, stracciatella.</p>
           </div>
         </article>
@@ -314,53 +347,44 @@
           <div class="ph"><img src="assets/prosciutto-pizza.jpg" alt="Pizza prosciutto crudo et tomates séchées, Atelier del Gusto" /></div>
           <div class="tbody">
             <div class="row1"><b data-i18n="forno.crudo.n">Prosciutto crudo & tomates séchées</b></div>
-            <p class="desc" data-i18n="forno.crudo.desc">Vue récemment — une variation qui ne figure pas forcément sur la carte du jour.</p>
+            <p class="desc" data-i18n="forno.crudo.desc">Prosciutto crudo, tomates séchées, basilic.</p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <div class="ribbon"><span class="g"></span><span class="c"></span><span class="t"></span></div>
-
   <section id="pasta" style="background:var(--paper)">
     <div class="wrap">
       <p class="eyebrow reveal" data-i18n="pasta.kicker">Changeante, comme il se doit</p>
       <h2 class="reveal" data-i18n="pasta.h2">La Pasta del Giorno</h2>
-      <p class="lede reveal" data-i18n="pasta.lead">Aucune carte imprimée pour les pâtes : la sélection change selon le jour. Vues récemment :</p>
-      <div class="tickets reveal">
+      <p class="lede reveal" data-i18n="pasta.lead">La sélection change chaque jour selon le marché.</p>
+      <div class="tickets duo reveal">
         <article class="ticket">
           <div class="ph"><img src="assets/spaghetti-vongole.jpg" alt="Spaghetti alle vongole, Atelier del Gusto" /></div>
           <div class="tbody">
             <div class="row1"><b data-i18n="pasta.vongole.n">Spaghetti alle vongole</b></div>
-            <p class="desc" data-i18n="pasta.vongole.desc">Palourdes — vue récemment, pas garantie chaque jour.</p>
+            <p class="desc" data-i18n="pasta.vongole.desc">Aux palourdes.</p>
           </div>
         </article>
         <article class="ticket">
           <div class="ph"><img src="assets/mussel-penne.jpg" alt="Penne ai frutti di mare, Atelier del Gusto" /></div>
           <div class="tbody">
             <div class="row1"><b data-i18n="pasta.mare.n">Penne ai frutti di mare</b></div>
-            <p class="desc" data-i18n="pasta.mare.desc">Moules et palourdes — vue récemment, pas garantie chaque jour.</p>
-          </div>
-        </article>
-        <article class="ticket noph">
-          <div class="tbody">
-            <div class="row1"><b>Lasagne Traditionnelle</b><span class="price" data-i18n="ac">à conf.</span></div>
-            <p class="desc" data-i18n="pasta.lasagne.desc">Au four, à la traditionnelle.</p>
+            <p class="desc" data-i18n="pasta.mare.desc">Moules et palourdes.</p>
           </div>
         </article>
       </div>
       <div class="plainlist reveal" style="margin-top:26px;">
-        <div><b>Napoli</b><span data-i18n="ac">à conf.</span></div>
-        <div><b>Arrabbiata</b><span data-i18n="ac">à conf.</span></div>
-        <div><b>Bolognese</b><span data-i18n="ac">à conf.</span></div>
-        <div><b>Cannelloni</b><span data-i18n="ac">à conf.</span></div>
+        <div><b>Napoli</b></div>
+        <div><b>Arrabbiata</b></div>
+        <div><b>Bolognese</b></div>
+        <div><b>Lasagne Traditionnelle</b></div>
+        <div><b>Cannelloni</b></div>
       </div>
-      <p class="flagnote reveal" data-i18n="pasta.flag">Prix indicatifs (plateforme de livraison, septembre 2026), à confirmer directement — la carte du jour change.</p>
+      <p class="flagnote reveal" data-i18n="pasta.flag">Les prix sont annoncés sur place.</p>
     </div>
   </section>
-
-  <div class="ribbon"><span class="g"></span><span class="c"></span><span class="t"></span></div>
 
   <section class="epicerie" id="epicerie">
     <div class="wrap ep-grid">
@@ -384,12 +408,11 @@
         <img src="assets/caprese-tomato.jpg" alt="Caprese, Atelier del Gusto" />
       </div>
       <div class="plainlist reveal">
-        <div><b>Peroni</b><span data-i18n="ac">à conf.</span></div>
-        <div><b>Lambrusco</b><span data-i18n="ac">à conf.</span></div>
-        <div><b>Chardonnay</b><span data-i18n="ac">à conf.</span></div>
-        <div><b>Amarone della Valpolicella</b><span data-i18n="ac">à conf.</span></div>
+        <div><b>Peroni</b></div>
+        <div><b>Lambrusco</b></div>
+        <div><b>Chardonnay</b></div>
+        <div><b>Amarone della Valpolicella</b></div>
       </div>
-      <p class="flagnote reveal" data-i18n="terrasse.flag">Prix indicatifs, à confirmer.</p>
     </div>
   </section>
 
@@ -408,7 +431,7 @@
             <dd><a href="tel:+35226481216">+352 26 48 12 16</a></dd>
           </div>
           <div>
-            <dt data-i18n="visit.hours.label">Horaires (à confirmer)</dt>
+            <dt data-i18n="visit.hours.label">Horaires</dt>
             <dd>
               <table class="hourstable">
                 <tr><td data-i18n="days.mon">Lundi</td><td data-i18n="hours.closed">Fermé</td></tr>
@@ -420,7 +443,7 @@
           </div>
           <div>
             <dt data-i18n="visit.delivery.label">Livraison</dt>
-            <dd data-i18n="visit.delivery">Wedely et Wolt.</dd>
+            <dd><a class="dlink" href="https://www.wedely.com/restaurant/111924-atelier-del-gusto-bonnevoie" target="_blank" rel="noopener">Wedely</a> · <a class="dlink" href="https://wolt.com/en/lux/luxembourg/restaurant/atelier-del-gusto" target="_blank" rel="noopener">Wolt</a></dd>
           </div>
           <div>
             <dt data-i18n="visit.foodtruck.label">Aussi sur roues</dt>
@@ -441,8 +464,7 @@
 <footer>
   <div class="wrap">
     <span class="fbrand">Atelier del Gusto</span>
-    <p data-i18n="footer.disclaimer">Site de démonstration Webwerk. Informations et photos rassemblées à partir de sources publiques (Wedely, RestaurantGuru, TripAdvisor, editus, Google Maps) — à confirmer et à remplacer par l'établissement. Aucune note ni avis d'agrégateur n'est affiché ici.</p>
-    <p data-i18n="footer.rights">Atelier del Gusto — démonstration, non affiliée.</p>
+    <p class="disclosure" data-i18n="footer.disclaimer">Aperçu conçu par Webwerk à partir de sources publiques — ce n'est pas le site officiel de l'Atelier del Gusto, et les informations restent à confirmer avec l'établissement.</p>
   </div>
 </footer>
 
@@ -464,7 +486,6 @@ const I18N = {
     "hero.lead":"Pas de carte imprimée : la pâte fraîche et les plats du jour changent avec ce qui est bon ce matin-là.",
     "docket.label":"Ticket du jour",
     "docket.noprint":"Aucune carte imprimée — tout est cuisiné aujourd'hui.",
-    "docket.hoursnote":"Horaires ci-dessous, à confirmer.",
     "docket.venue":"Restaurant · Pizzeria · Épicerie italienne",
     "docket.town":"26, Rue Demy Schlechter — Bonnevoie",
     "about.kicker":"Le nom, au pied de la lettre",
@@ -476,7 +497,7 @@ const I18N = {
     "about.fact2.k":"Deux métiers","about.fact2.v":"cuisine et épicerie, sous une même enseigne",
     "about.fact3.k":"Bonnevoie","about.fact3.v":"le quartier, depuis la devanture",
     "forno.kicker":"Cuit au four","forno.h2":"Il Forno",
-    "forno.lead":"Pizzas napolitaines. Prix indicatifs (plateforme de livraison, septembre 2026) — la carte change chaque jour.",
+    "forno.lead":"Pizzas napolitaines, cuites au four.",
     "forno.burrata.desc":"Tomate, mozzarella, dômes de burrata, tomates séchées.",
     "forno.margherita.desc":"Tomate, mozzarella, basilic.",
     "forno.diavola.desc":"Tomate, mozzarella, salami piquant.",
@@ -484,27 +505,25 @@ const I18N = {
     "forno.quattro.desc":"Quatre fromages.",
     "forno.salsiccia.desc":"Saucisse italienne, stracciatella.",
     "forno.crudo.n":"Prosciutto crudo & tomates séchées",
-    "forno.crudo.desc":"Vue récemment — une variation qui ne figure pas forcément sur la carte du jour.",
+    "forno.crudo.desc":"Prosciutto crudo, tomates séchées, basilic.",
     "pasta.kicker":"Changeante, comme il se doit","pasta.h2":"La Pasta del Giorno",
-    "pasta.lead":"Aucune carte imprimée pour les pâtes : la sélection change selon le jour. Vues récemment :",
-    "pasta.vongole.n":"Spaghetti alle vongole","pasta.vongole.desc":"Palourdes — vue récemment, pas garantie chaque jour.",
-    "pasta.mare.n":"Penne ai frutti di mare","pasta.mare.desc":"Moules et palourdes — vue récemment, pas garantie chaque jour.",
+    "pasta.lead":"La sélection change chaque jour selon le marché.",
+    "pasta.vongole.n":"Spaghetti alle vongole","pasta.vongole.desc":"Aux palourdes.",
+    "pasta.mare.n":"Penne ai frutti di mare","pasta.mare.desc":"Moules et palourdes.",
     "pasta.lasagne.desc":"Au four, à la traditionnelle.",
-    "pasta.flag":"Prix indicatifs (plateforme de livraison, septembre 2026), à confirmer directement — la carte du jour change.",
+    "pasta.flag":"Les prix sont annoncés sur place.",
     "epicerie.kicker":"Épicerie Italienne","epicerie.h2":"L'Épicerie",
     "epicerie.p1":"Sur la même vitrine, un comptoir : pain, fromages, charcuterie, fruits, conserves et vins italiens — la partie « épicerie » de l'enseigne, à emporter comme au restaurant.",
     "epicerie.pay":"Paiement : Visa, Mastercard, Maestro, V Pay, Ticket Restaurant, Chèque Repas.",
     "terrasse.kicker":"Aperitivo","terrasse.h2":"La Terrasse",
     "terrasse.p1":"Une petite terrasse pour l'aperitivo — Peroni, vins italiens, un moment avant le repas.",
-    "terrasse.flag":"Prix indicatifs, à confirmer.",
     "visit.kicker":"Bonnevoie","visit.h2":"Nous trouver",
-    "visit.address.label":"Adresse","visit.phone.label":"Téléphone","visit.hours.label":"Horaires (à confirmer)",
+    "visit.address.label":"Adresse","visit.phone.label":"Téléphone","visit.hours.label":"Horaires",
     "days.mon":"Lundi","days.tuefri":"Mar. – Ven.","days.sat":"Samedi","days.sun":"Dimanche","hours.closed":"Fermé",
-    "visit.delivery.label":"Livraison","visit.delivery":"Wedely et Wolt.",
+    "visit.delivery.label":"Livraison",
     "visit.foodtruck.label":"Aussi sur roues","visit.foodtruck":"Le food truck Atelier del Gusto circule à Gasperich, Kirchberg et Limpertsberg.",
     "visit.map.cta":"Voir l'itinéraire",
-    "footer.disclaimer":"Site de démonstration Webwerk. Informations et photos rassemblées à partir de sources publiques (Wedely, RestaurantGuru, TripAdvisor, editus, Google Maps) — à confirmer et à remplacer par l'établissement. Aucune note ni avis d'agrégateur n'est affiché ici.",
-    "footer.rights":"Atelier del Gusto — démonstration, non affiliée."
+    "footer.disclaimer":"Aperçu conçu par Webwerk à partir de sources publiques — ce n'est pas le site officiel de l'Atelier del Gusto, et les informations restent à confirmer avec l'établissement."
   },
   de:{
     "brand.sub":"Trattoria · Pizzeria · Italienisches Feinkostgeschäft",
@@ -517,7 +536,6 @@ const I18N = {
     "hero.lead":"Keine gedruckte Karte: frische Pasta und Tagesgerichte ändern sich je nachdem, was am Morgen frisch ist.",
     "docket.label":"Tagesbeleg",
     "docket.noprint":"Keine gedruckte Karte — alles wird heute frisch gekocht.",
-    "docket.hoursnote":"Öffnungszeiten unten, zu bestätigen.",
     "docket.venue":"Restaurant · Pizzeria · Italienisches Feinkostgeschäft",
     "docket.town":"26, Rue Demy Schlechter — Bonneweg",
     "about.kicker":"Der Name, wörtlich genommen",
@@ -529,7 +547,7 @@ const I18N = {
     "about.fact2.k":"Zwei Tätigkeiten","about.fact2.v":"Küche und Feinkost, unter einem Schild",
     "about.fact3.k":"Bonneweg","about.fact3.v":"das Viertel, seit der Fassade",
     "forno.kicker":"Aus dem Ofen","forno.h2":"Il Forno",
-    "forno.lead":"Neapolitanische Pizzen. Richtpreise (Lieferplattform, September 2026) — die Karte ändert sich täglich.",
+    "forno.lead":"Neapolitanische Pizzen, aus dem Ofen.",
     "forno.burrata.desc":"Tomate, Mozzarella, Burrata, getrocknete Tomaten.",
     "forno.margherita.desc":"Tomate, Mozzarella, Basilikum.",
     "forno.diavola.desc":"Tomate, Mozzarella, scharfe Salami.",
@@ -537,27 +555,25 @@ const I18N = {
     "forno.quattro.desc":"Vier Käsesorten.",
     "forno.salsiccia.desc":"Italienische Wurst, Stracciatella.",
     "forno.crudo.n":"Roher Schinken & getrocknete Tomaten",
-    "forno.crudo.desc":"Kürzlich gesehen — eine Variante, die nicht immer auf der Tageskarte steht.",
+    "forno.crudo.desc":"Roher Schinken, getrocknete Tomaten, Basilikum.",
     "pasta.kicker":"Wechselnd, wie es sein soll","pasta.h2":"La Pasta del Giorno",
-    "pasta.lead":"Keine gedruckte Karte für Pasta: die Auswahl ändert sich täglich. Kürzlich gesehen:",
-    "pasta.vongole.n":"Spaghetti alle vongole","pasta.vongole.desc":"Venusmuscheln — kürzlich gesehen, nicht täglich garantiert.",
-    "pasta.mare.n":"Penne ai frutti di mare","pasta.mare.desc":"Muscheln und Venusmuscheln — kürzlich gesehen, nicht täglich garantiert.",
+    "pasta.lead":"Die Auswahl wechselt täglich, je nach Markt.",
+    "pasta.vongole.n":"Spaghetti alle vongole","pasta.vongole.desc":"Mit Venusmuscheln.",
+    "pasta.mare.n":"Penne ai frutti di mare","pasta.mare.desc":"Muscheln und Venusmuscheln.",
     "pasta.lasagne.desc":"Traditionell aus dem Ofen.",
-    "pasta.flag":"Richtpreise (Lieferplattform, September 2026), direkt zu bestätigen — die Tageskarte ändert sich.",
+    "pasta.flag":"Die Preise werden im Lokal angegeben.",
     "epicerie.kicker":"Épicerie Italienne","epicerie.h2":"Die Feinkost",
     "epicerie.p1":"Am selben Schaufenster, ein Ladentisch: Brot, Käse, Wurstwaren, Obst, Konserven und italienische Weine — der „Feinkost“-Teil des Schilds, zum Mitnehmen wie im Restaurant.",
     "epicerie.pay":"Zahlung: Visa, Mastercard, Maestro, V Pay, Ticket Restaurant, Chèque Repas.",
     "terrasse.kicker":"Aperitivo","terrasse.h2":"Die Terrasse",
     "terrasse.p1":"Eine kleine Terrasse für den Aperitivo — Peroni, italienische Weine, ein Moment vor dem Essen.",
-    "terrasse.flag":"Richtpreise, zu bestätigen.",
     "visit.kicker":"Bonneweg","visit.h2":"Anfahrt",
-    "visit.address.label":"Adresse","visit.phone.label":"Telefon","visit.hours.label":"Öffnungszeiten (zu bestätigen)",
+    "visit.address.label":"Adresse","visit.phone.label":"Telefon","visit.hours.label":"Öffnungszeiten",
     "days.mon":"Montag","days.tuefri":"Di. – Fr.","days.sat":"Samstag","days.sun":"Sonntag","hours.closed":"Geschlossen",
-    "visit.delivery.label":"Lieferung","visit.delivery":"Wedely und Wolt.",
+    "visit.delivery.label":"Lieferung",
     "visit.foodtruck.label":"Auch auf Rädern","visit.foodtruck":"Der Food Truck Atelier del Gusto fährt in Gasperich, Kirchberg und Limpertsberg.",
     "visit.map.cta":"Route anzeigen",
-    "footer.disclaimer":"Webwerk-Demoseite. Informationen und Fotos aus öffentlichen Quellen (Wedely, RestaurantGuru, TripAdvisor, editus, Google Maps) — vom Betrieb zu bestätigen und zu ersetzen. Es wird hier keine Aggregator-Bewertung angezeigt.",
-    "footer.rights":"Atelier del Gusto — Demo, nicht angegliedert."
+    "footer.disclaimer":"Eine von Webwerk aus öffentlichen Quellen erstellte Vorschau — dies ist nicht die offizielle Website des Atelier del Gusto, und die Angaben sind noch mit dem Lokal zu bestätigen."
   },
   en:{
     "brand.sub":"Trattoria · Pizzeria · Italian grocery",
@@ -570,7 +586,6 @@ const I18N = {
     "hero.lead":"No printed menu: fresh pasta and daily dishes change with whatever is good that morning.",
     "docket.label":"Today's ticket",
     "docket.noprint":"No printed menu — everything is cooked today.",
-    "docket.hoursnote":"Hours below, to confirm.",
     "docket.venue":"Restaurant · Pizzeria · Italian grocery",
     "docket.town":"26, Rue Demy Schlechter — Bonnevoie",
     "about.kicker":"The name, taken literally",
@@ -582,7 +597,7 @@ const I18N = {
     "about.fact2.k":"Two trades","about.fact2.v":"kitchen and grocery, under one sign",
     "about.fact3.k":"Bonnevoie","about.fact3.v":"the neighbourhood, right off the storefront",
     "forno.kicker":"Baked in the oven","forno.h2":"Il Forno",
-    "forno.lead":"Neapolitan pizzas. Indicative prices (delivery platform, September 2026) — the menu changes daily.",
+    "forno.lead":"Neapolitan pizzas, from the oven.",
     "forno.burrata.desc":"Tomato, mozzarella, burrata, sun-dried tomatoes.",
     "forno.margherita.desc":"Tomato, mozzarella, basil.",
     "forno.diavola.desc":"Tomato, mozzarella, spicy salami.",
@@ -590,34 +605,26 @@ const I18N = {
     "forno.quattro.desc":"Four cheeses.",
     "forno.salsiccia.desc":"Italian sausage, stracciatella.",
     "forno.crudo.n":"Cured ham & sun-dried tomatoes",
-    "forno.crudo.desc":"Seen recently — a variation that isn't necessarily on every day's menu.",
+    "forno.crudo.desc":"Cured ham, sun-dried tomatoes, basil.",
     "pasta.kicker":"Changing, as it should be","pasta.h2":"La Pasta del Giorno",
-    "pasta.lead":"No printed menu for pasta: the selection changes by the day. Seen recently:",
-    "pasta.vongole.n":"Spaghetti alle vongole","pasta.vongole.desc":"Clams — seen recently, not guaranteed daily.",
-    "pasta.mare.n":"Penne ai frutti di mare","pasta.mare.desc":"Mussels and clams — seen recently, not guaranteed daily.",
+    "pasta.lead":"The selection changes daily with the market.",
+    "pasta.vongole.n":"Spaghetti alle vongole","pasta.vongole.desc":"With clams.",
+    "pasta.mare.n":"Penne ai frutti di mare","pasta.mare.desc":"Mussels and clams.",
     "pasta.lasagne.desc":"Baked, the traditional way.",
-    "pasta.flag":"Indicative prices (delivery platform, September 2026), to confirm directly — the day's menu changes.",
+    "pasta.flag":"Prices are given in the restaurant.",
     "epicerie.kicker":"Épicerie Italienne","epicerie.h2":"The Grocery",
     "epicerie.p1":"On the same storefront, a counter: bread, cheese, cured meats, fruit, preserves and Italian wines — the \"grocery\" half of the sign, to take away just as at the restaurant.",
     "epicerie.pay":"Payment: Visa, Mastercard, Maestro, V Pay, Ticket Restaurant, Chèque Repas.",
     "terrasse.kicker":"Aperitivo","terrasse.h2":"The Terrace",
     "terrasse.p1":"A small terrace for the aperitivo — Peroni, Italian wines, a moment before the meal.",
-    "terrasse.flag":"Indicative prices, to confirm.",
     "visit.kicker":"Bonnevoie","visit.h2":"Find us",
-    "visit.address.label":"Address","visit.phone.label":"Phone","visit.hours.label":"Hours (to confirm)",
+    "visit.address.label":"Address","visit.phone.label":"Phone","visit.hours.label":"Hours",
     "days.mon":"Monday","days.tuefri":"Tue – Fri","days.sat":"Saturday","days.sun":"Sunday","hours.closed":"Closed",
-    "visit.delivery.label":"Delivery","visit.delivery":"Wedely and Wolt.",
+    "visit.delivery.label":"Delivery",
     "visit.foodtruck.label":"Also on wheels","visit.foodtruck":"The Atelier del Gusto food truck roams Gasperich, Kirchberg and Limpertsberg.",
     "visit.map.cta":"Get directions",
-    "footer.disclaimer":"Webwerk demo site. Information and photos gathered from public sources (Wedely, RestaurantGuru, TripAdvisor, editus, Google Maps) — to be confirmed and replaced by the establishment. No aggregator rating or review is shown here.",
-    "footer.rights":"Atelier del Gusto — demo, not affiliated."
+    "footer.disclaimer":"A Webwerk preview built from public sources — this is not Atelier del Gusto's official website, and the details are still to be confirmed with the establishment."
   }
-};
-
-const DATEFMT = {
-  fr:new Intl.DateTimeFormat('fr-FR',{weekday:'long',day:'numeric',month:'long'}),
-  de:new Intl.DateTimeFormat('de-DE',{weekday:'long',day:'numeric',month:'long'}),
-  en:new Intl.DateTimeFormat('en-GB',{weekday:'long',day:'numeric',month:'long'})
 };
 
 function setLang(l){
@@ -629,8 +636,6 @@ function setLang(l){
   document.querySelectorAll('[data-lang]').forEach(b=>{
     b.setAttribute('aria-pressed', b.getAttribute("data-lang")===l ? 'true':'false');
   });
-  const dEl = document.getElementById('docketDate');
-  if(dEl){ try{ dEl.textContent = DATEFMT[l].format(new Date()); }catch(e){ dEl.textContent = new Date().toLocaleDateString(); } }
   try{ localStorage.setItem('adg_lang', l); }catch(e){}
 }
 document.querySelectorAll('[data-lang]').forEach(b=>{

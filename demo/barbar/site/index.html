@@ -167,6 +167,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(13,15,18,.88);backdrop-f
 /* ===== VISIT ===== */
 .visit{background:var(--paper);color:var(--ink)}
 .visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+@media(max-width:760px){.visit .vgrid2{grid-template-columns:1fr}.mapcard{min-height:260px}.mapcard-in{min-height:260px}}
 .info{margin-top:22px}
 .info .row{padding:14px 0;border-top:1px solid #e3dcc9}
 .info .row:last-child{border-bottom:1px solid #e3dcc9}
@@ -178,9 +179,39 @@ header{position:sticky;top:0;z-index:60;background:rgba(13,15,18,.88);backdrop-f
 .nosite{margin-top:24px;padding:16px 18px;background:#fff;border:1px dashed #c8beA8;border-radius:12px}
 .nosite .k{font-family:var(--disp);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt-d)}
 .nosite p{margin-top:6px;color:#4c4738;font-size:.92rem}
-.mapcard{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start;min-height:300px}
-.mapcard svg{width:100%;height:100%;display:block;min-height:300px}
-.mapcta{position:absolute;left:18px;bottom:16px;font-family:var(--disp);font-weight:700;font-size:.84rem;color:#fff;background:rgba(13,15,18,.6);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 14px}
+.mapcard{position:relative;display:flex;border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start;min-height:300px;text-decoration:none}
+.mapcard-in{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;padding:40px 30px;text-align:center;
+  background:
+    radial-gradient(rgba(47,107,255,.16) 1.5px,transparent 1.5px) 0 0/22px 22px,
+    linear-gradient(160deg,#171a1f 0%,#0d0f12 100%);
+  transition:background-color .2s ease;
+}
+.mapcard:hover .mapcard-in{background-color:#12151a}
+.mapcard-pin{
+  width:58px;height:58px;border-radius:50%;
+  background:#fff;border:3px solid var(--cobalt2);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.4);
+  margin-bottom:2px;
+}
+.mapcard-addr{font-family:var(--disp);font-weight:800;font-size:1.28rem;color:#fff;line-height:1.2}
+.mapcard-sub{font-size:.86rem;color:var(--txt2);letter-spacing:.01em}
+.mapcard-tag{
+  display:inline-flex;align-items:center;
+  font-family:var(--disp);font-weight:700;font-size:.76rem;letter-spacing:.04em;
+  color:var(--amber);background:rgba(244,185,62,.1);border:1px solid rgba(244,185,62,.3);
+  border-radius:30px;padding:7px 14px;margin-top:2px;
+}
+.mapcard-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--disp);font-weight:700;font-size:.86rem;color:#fff;
+  background:var(--cobalt);border-radius:999px;padding:11px 22px;margin-top:8px;
+  box-shadow:0 10px 22px rgba(47,107,255,.3);
+  transition:background .15s,transform .15s;
+}
+.mapcard:hover .mapcard-cta{background:var(--cobalt-d);transform:translateY(-2px)}
 
 /* ===== FOOTER ===== */
 footer{background:var(--ink);color:var(--muted);padding:44px 0 84px;font-size:.86rem;line-height:1.6}
@@ -339,20 +370,16 @@ footer{background:var(--ink);color:var(--muted);padding:44px 0 84px;font-size:.8
           <p data-i18n="ns_p">Pas de site à ce jour — juste une page Facebook et quelques répertoires. Ceci est un aperçu de ce que pourrait être le vôtre, composé à partir de vos propres photos.</p>
         </div>
       </div>
-      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=BAR%3ABAR+14+rue+de+la+Boucherie+Luxembourg" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
-        <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
-          <rect width="400" height="300" fill="#0d0f12"/>
-          <g stroke="#2a2f38" stroke-width="10" opacity=".6">
-            <path d="M30 60 H150"/><path d="M220 40 H340"/><path d="M50 230 H160"/><path d="M210 250 H330"/><path d="M60 140 H150"/><path d="M240 150 H360"/>
-          </g>
-          <g transform="translate(200,150)">
-            <circle r="36" fill="rgba(47,107,255,.18)"/>
-            <path d="M0 -22 C12 -22 20 -13 20 -2 C20 12 0 30 0 30 C0 30 -20 12 -20 -2 C-20 -13 -12 -22 0 -22 Z" fill="#2f6bff"/>
-            <circle r="6" fill="#0d0f12"/>
-          </g>
-          <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#b7bfcc" letter-spacing="1">RUE DE LA BOUCHERIE · VILLE HAUTE</text>
-        </svg>
-        <span class="mapcta" data-i18n="v_dir2">Ouvrir l'itinéraire ↗</span>
+      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=BAR%3ABAR+14+rue+de+la+Boucherie+Luxembourg" target="_blank" rel="noopener" aria-label="Ouvrir BAR:BAR dans Google Maps">
+        <span class="mapcard-in">
+          <span class="mapcard-pin">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2f6bff" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </span>
+          <span class="mapcard-addr">14, rue de la Boucherie</span>
+          <span class="mapcard-sub">L-1247 Luxembourg · Ville Haute</span>
+          <span class="mapcard-tag" data-i18n="v_transport">Tram 1, arrêt Hamilius — env. 550 m</span>
+          <span class="mapcard-cta" data-i18n="mapsCta">Ouvrir dans Google Maps →</span>
+        </span>
       </a>
     </div>
   </section>
@@ -405,7 +432,7 @@ const I18N = {
   v_eyebrow:"Infos pratiques", v_head:"14, rue de la Boucherie.",
   l_addr:"Adresse", l_tel:"Téléphone", l_tel_note:"(numéro repéré en ligne, à confirmer)", l_hours:"Horaires", h_val:"Mar–Jeu 16h–00h · Ven–Sam 17h–01h · Dim–Lun fermé (à confirmer)",
   l_transport:"Accès", v_transport:"Tram 1, arrêt Hamilius — env. 550 m",
-  v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
+  v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗", mapsCta:"Ouvrir dans Google Maps →",
   ns_k:"En ligne aujourd'hui", ns_p:"Pas de site à ce jour — juste une page Facebook et quelques répertoires. Ceci est un aperçu de ce que pourrait être le vôtre, composé à partir de vos propres photos.",
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Facebook, TripAdvisor, Google Maps, répertoires locaux). Aucune note ni évaluation d'agrégateur n'est reprise sur ce site. Numéro de téléphone, carte, prix, horaires et distinction citée sont tous repérés en ligne — à confirmer avec l'établissement.",
   foot_echo:"BAR:BAR — le même mot, deux fois, une seule adresse.",
@@ -439,7 +466,7 @@ const I18N = {
   v_eyebrow:"Praktische Infos", v_head:"14, rue de la Boucherie.",
   l_addr:"Adresse", l_tel:"Telefon", l_tel_note:"(online gefunden, zu bestätigen)", l_hours:"Öffnungszeiten", h_val:"Di–Do 16–00 Uhr · Fr–Sa 17–01 Uhr · So–Mo geschlossen (zu bestätigen)",
   l_transport:"Anfahrt", v_transport:"Straßenbahn 1, Halt Hamilius — ca. 550 m",
-  v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
+  v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗", mapsCta:"In Google Maps öffnen →",
   ns_k:"Heute online", ns_p:"Bisher keine eigene Webseite — nur eine Facebook-Seite und einige Verzeichnisse. Dies ist eine Vorschau, wie Ihre eigene Seite aussehen könnte, aus Ihren eigenen Fotos zusammengestellt.",
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Informationen (Facebook, TripAdvisor, Google Maps, lokale Verzeichnisse). Keine Bewertung oder Sternebewertung eines Verzeichnisses wird auf dieser Seite gezeigt. Telefonnummer, Karte, Preise, Öffnungszeiten und genannte Auszeichnung sind alle online gefunden — mit dem Betrieb zu bestätigen.",
   foot_echo:"BAR:BAR — dasselbe Wort, zweimal, eine einzige Adresse.",
@@ -473,7 +500,7 @@ const I18N = {
   v_eyebrow:"Practical info", v_head:"14, rue de la Boucherie.",
   l_addr:"Address", l_tel:"Phone", l_tel_note:"(found online, to be confirmed)", l_hours:"Hours", h_val:"Tue–Thu 4pm–midnight · Fri–Sat 5pm–1am · Sun–Mon closed (to be confirmed)",
   l_transport:"Getting there", v_transport:"Tram 1, Hamilius stop — approx. 550 m",
-  v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
+  v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗", mapsCta:"Open in Google Maps →",
   ns_k:"Online today", ns_p:"No website so far — just a Facebook page and a few directories. This is a preview of what yours could look like, built from your own photos.",
   foot_disc:"Demonstration preview composed by Webwerk from public photos and information (Facebook, TripAdvisor, Google Maps, local directories). No aggregator rating or star score of any kind is shown on this site. Phone number, menu, prices, hours and the award mentioned are all found online — to be confirmed with the venue.",
   foot_echo:"BAR:BAR — the same word, twice, one single address.",
