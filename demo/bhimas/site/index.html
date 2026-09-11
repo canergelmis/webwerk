@@ -163,6 +163,11 @@ footer .made b{color:#eadfc9}
 footer .made a{color:var(--gold)}
 .disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6c624c;line-height:1.55;max-width:82ch}
 
+/* mobile sticky CTA — call / directions, thumb-reachable on a phone */
+.mobile-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:65;gap:10px;padding:10px clamp(14px,4vw,20px) calc(10px + env(safe-area-inset-bottom,0px));background:var(--char);border-top:1px solid rgba(255,255,255,.1);box-shadow:0 -10px 26px rgba(0,0,0,.35)}
+.mobile-cta a{flex:1;justify-content:center;text-align:center;padding:13px 16px;font-size:14.5px}
+.mobile-cta a.o{border-color:rgba(246,239,226,.4)}
+
 @media(max-width:900px){
  .spot .grid,.maison .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
@@ -177,6 +182,8 @@ footer .made a{color:var(--gold)}
  header{background:var(--green-d)}
  .hero h1{font-size:clamp(54px,17vw,100px)}
  .hero .kolam{right:-8vw;left:auto;top:14%;transform:none;width:min(62vw,280px);height:min(62vw,280px)}
+ .mobile-cta{display:flex}
+ body{padding-bottom:calc(70px + env(safe-area-inset-bottom,0px))}
 }
 @media(prefers-reduced-motion:reduce){
  *{scroll-behavior:auto!important;transition:none!important}
@@ -314,40 +321,40 @@ footer .made a{color:var(--gold)}
    <div class="sect-h">
     <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
     <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
-    <p data-i18n="carte_p">La cuisine télougou d'Andhra et le biryani d'Hyderabad. Voici les plats — la carte complète et les prix se confirment à la maison.</p>
+    <p data-i18n="carte_p">La cuisine télougou d'Andhra et le biryani d'Hyderabad. Voici un aperçu des plats — <b>carte complète et tarifs disponibles sur place.</b></p>
    </div>
    <div class="cols">
     <div>
      <div class="mgroup">
       <h3><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span data-i18n="mg1">Le thali &amp; le riz</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Thali sud-indien végétarien</div><div class="ds" data-i18n="i1d">À volonté, le midi — riz, sambar, curries, caillé, pain</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Thali non-végétarien</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Biryani hyderabadi</div><div class="ds" data-i18n="i3d">Riz basmati au dum, épices, raïta</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Dosa masala</div><div class="ds" data-i18n="i4d">Crêpe croustillante, pomme de terre, chutneys</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Thali sud-indien végétarien</div><div class="ds" data-i18n="i1d">À volonté, le midi — riz, sambar, curries, caillé, pain</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Thali non-végétarien</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Biryani hyderabadi</div><div class="ds" data-i18n="i3d">Riz basmati au dum, épices, raïta</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Dosa masala</div><div class="ds" data-i18n="i4d">Crêpe croustillante, pomme de terre, chutneys</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span data-i18n="mg2">Du tandoor &amp; le bar</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Brochettes tandoori</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Chicken 65</div><div class="ds" data-i18n="i6d">Poulet frit épicé</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Lassi / chaas</div><div class="ds" data-i18n="i7d">Yaourt frais, doux ou salé</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Brochettes tandoori</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Chicken 65</div><div class="ds" data-i18n="i6d">Poulet frit épicé</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Lassi / chaas</div><div class="ds" data-i18n="i7d">Yaourt frais, doux ou salé</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span data-i18n="mg3">Only in Bhimas · Andhra</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Raagi mudda &amp; curry de poulet</div><div class="ds" data-i18n="i8d">Boulette de millet, curry télougou</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Raagi mudda &amp; curry de mouton</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Nellore chepala pulusu</div><div class="ds" data-i18n="i10d">Curry de poisson aigre-épicé de Nellore</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Raagi mudda &amp; curry de poulet</div><div class="ds" data-i18n="i8d">Boulette de millet, curry télougou</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Raagi mudda &amp; curry de mouton</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Nellore chepala pulusu</div><div class="ds" data-i18n="i10d">Curry de poisson aigre-épicé de Nellore</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span data-i18n="mg4">À côté</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i11n">Naan &amp; pains</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i12n">Dal &amp; légumes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i13n">Samosa</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Naan &amp; pains</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Dal &amp; légumes</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i13n">Samosa</div></div></div>
      </div>
     </div>
    </div>
-   <p class="note" data-i18n="carte_note">Plats relevés à partir de sources publiques (la carte de la maison, avis, Instagram) ; carte complète et prix à confirmer avec la maison.</p>
+   <p class="note" data-i18n="carte_note">Plats relevés à partir de sources publiques (la carte de la maison, avis, Instagram).</p>
   </div>
  </section>
 
@@ -390,6 +397,11 @@ footer .made a{color:var(--gold)}
  </section>
 </main>
 
+<div class="mobile-cta" role="group" aria-label="Actions rapides">
+ <a class="btn p" href="tel:+35227532549" data-i18n="cta_call">Appeler</a>
+ <a class="btn o" href="https://www.google.com/maps/search/Bhimas+Indian+Kitchen+Dernier+Sol+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="cta_dir">Itinéraire ↗</a>
+</div>
+
 <footer>
  <div class="wrap band"><span class="ln"></span><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span class="ln"></span></div>
  <div class="wrap in">
@@ -403,7 +415,7 @@ footer .made a{color:var(--gold)}
    <p style="margin-top:10px">4b, Dernier Sol<br>L-2543 Bonnevoie<br><a href="tel:+35227532549" style="border-bottom:1px solid var(--gold)">+352 27 53 25 49</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires, d'avis et des réseaux sociaux). La marque et les plats sont ceux de la maison. Hors le thali affiché, la carte, les prix, les horaires et le téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires, d'avis et des réseaux sociaux). La marque et les plats sont ceux de la maison. La carte, les prix, les horaires et le téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
 </footer>
 
 <script>
@@ -424,14 +436,14 @@ const I18N={
   gal_p:"Biryani hyderabadi, curries épicés, dosa et idli, grillades du tandoor, et un lassi frais pour apaiser le piment.",
   cap_rag:"Raagi mudda · Andhra",cap_bir:"Biryani hyderabadi",cap_tan:"Grillades du tandoor",cap_cur:"Curry & naan",cap_c65:"Chicken 65",cap_las:"Lassi",cap_mar:"L'accueil, aux soucis",
   carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
-  carte_p:"La cuisine télougou d'Andhra et le biryani d'Hyderabad. Voici les plats — la carte complète et les prix se confirment à la maison.",
+  carte_p:"La cuisine télougou d'Andhra et le biryani d'Hyderabad. Voici un aperçu des plats — <b>carte complète et tarifs disponibles sur place.</b>",
   mg1:"Le thali & le riz",mg2:"Du tandoor & le bar",mg3:"Only in Bhimas · Andhra",mg4:"À côté",
   i1n:"Thali sud-indien végétarien",i1d:"À volonté, le midi — riz, sambar, curries, caillé, pain",i2n:"Thali non-végétarien",
   i3n:"Biryani hyderabadi",i3d:"Riz basmati au dum, épices, raïta",i4n:"Dosa masala",i4d:"Crêpe croustillante, pomme de terre, chutneys",
   i5n:"Brochettes tandoori",i6n:"Chicken 65",i6d:"Poulet frit épicé",i7n:"Lassi / chaas",i7d:"Yaourt frais, doux ou salé",
   i8n:"Raagi mudda & curry de poulet",i8d:"Boulette de millet, curry télougou",i9n:"Raagi mudda & curry de mouton",i10n:"Nellore chepala pulusu",i10d:"Curry de poisson aigre-épicé de Nellore",
   i11n:"Naan & pains",i12n:"Dal & légumes",i13n:"Samosa",ac:"à conf.",
-  carte_note:"Plats relevés à partir de sources publiques (la carte de la maison, avis, Instagram) ; carte complète et prix à confirmer avec la maison.",
+  carte_note:"Plats relevés à partir de sources publiques (la carte de la maison, avis, Instagram).",
   maison_eyebrow:"La maison",maison_h:"Une cuisine<span>télougou, à Bonnevoie.</span>",
   maison_lead:"Bhimas, c'est la cuisine de l'Andhra et de Hyderabad — celle des maisons télougou du sud de l'Inde — installée à Bonnevoie, à deux pas de la gare.",
   maison_body:"On y accueille avec les guirlandes de soucis, on y sert le biryani au dum et les curries au piment de Guntur. Végétarien ou non, à midi ou le soir : la vraie table du Sud, sans détour.",
@@ -441,7 +453,8 @@ const I18N={
   map_big:"Bonnevoie",map_sub:"Dernier Sol, à 3 min de la Gare",map_btn:"Ouvrir dans Maps ↗",
   foot_p:"Cuisine indienne du Sud à Bonnevoie — Andhra & Hyderabad. Biryani, thali à volonté, spécialités télougou.",
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
-  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires, d'avis et des réseaux sociaux). La marque et les plats sont ceux de la maison. Hors le thali affiché, la carte, les prix, les horaires et le téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+  cta_call:"Appeler",cta_dir:"Itinéraire ↗",
+  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires, d'avis et des réseaux sociaux). La marque et les plats sont ceux de la maison. La carte, les prix, les horaires et le téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
  de:{
   nav_thali:"Das Thali",nav_carte:"Karte",nav_maison:"Das Haus",nav_infos:"Infos & Anfahrt",
@@ -459,14 +472,14 @@ const I18N={
   gal_p:"Hyderabad-Biryani, würzige Currys, Dosa und Idli, Gegrilltes aus dem Tandoor und ein frisches Lassi gegen die Schärfe.",
   cap_rag:"Raagi Mudda · Andhra",cap_bir:"Hyderabad-Biryani",cap_tan:"Aus dem Tandoor",cap_cur:"Curry & Naan",cap_c65:"Chicken 65",cap_las:"Lassi",cap_mar:"Der Empfang, mit Ringelblumen",
   carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
-  carte_p:"Die Telugu-Küche Andhras und das Biryani aus Hyderabad. Das sind die Gerichte — die vollständige Karte und die Preise bestätigt das Haus.",
+  carte_p:"Die Telugu-Küche Andhras und das Biryani aus Hyderabad. Hier ein Einblick in die Gerichte — <b>vollständige Karte und Preise vor Ort.</b>",
   mg1:"Das Thali & der Reis",mg2:"Aus dem Tandoor & die Bar",mg3:"Only in Bhimas · Andhra",mg4:"Dazu",
   i1n:"Vegetarisches Südindien-Thali",i1d:"Nach Belieben, mittags — Reis, Sambar, Currys, Quark, Brot",i2n:"Nicht-vegetarisches Thali",
   i3n:"Hyderabad-Biryani",i3d:"Basmatireis im Dum, Gewürze, Raita",i4n:"Masala Dosa",i4d:"Knusprige Crêpe, Kartoffel, Chutneys",
   i5n:"Tandoori-Spieße",i6n:"Chicken 65",i6d:"Würzig frittiertes Hähnchen",i7n:"Lassi / Chaas",i7d:"Frischer Joghurt, süß oder salzig",
   i8n:"Raagi Mudda & Hähnchen-Curry",i8d:"Hirsekloß, Telugu-Curry",i9n:"Raagi Mudda & Hammel-Curry",i10n:"Nellore Chepala Pulusu",i10d:"Säuerlich-scharfes Fischcurry aus Nellore",
   i11n:"Naan & Brote",i12n:"Dal & Gemüse",i13n:"Samosa",ac:"auf Anfrage",
-  carte_note:"Gerichte aus öffentlichen Quellen (Karte des Hauses, Bewertungen, Instagram); vollständige Karte und Preise beim Haus zu bestätigen.",
+  carte_note:"Gerichte aus öffentlichen Quellen (Karte des Hauses, Bewertungen, Instagram).",
   maison_eyebrow:"Das Haus",maison_h:"Eine Telugu-Küche,<span>in Bonnevoie.</span>",
   maison_lead:"Bhimas ist die Küche Andhras und Hyderabads — die der Telugu-Haushalte Südindiens — in Bonnevoie, ein paar Schritte vom Bahnhof.",
   maison_body:"Empfangen wird mit Ringelblumen-Girlanden, serviert werden Dum-Biryani und Currys mit Guntur-Chili. Vegetarisch oder nicht, mittags oder abends: die echte Tafel des Südens, ohne Umwege.",
@@ -476,7 +489,8 @@ const I18N={
   map_big:"Bonnevoie",map_sub:"Dernier Sol, 3 Min. vom Bahnhof",map_btn:"In Maps öffnen ↗",
   foot_p:"Südindische Küche in Bonnevoie — Andhra & Hyderabad. Biryani, Thali nach Belieben, Telugu-Spezialitäten.",
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
-  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen, Bewertungen und sozialen Netzwerken). Marke und Gerichte gehören dem Haus. Außer dem ausgewiesenen Thali sind Karte, Preise, Zeiten und Telefon zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+  cta_call:"Anrufen",cta_dir:"Route ↗",
+  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen, Bewertungen und sozialen Netzwerken). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
  en:{
   nav_thali:"The thali",nav_carte:"Menu",nav_maison:"The house",nav_infos:"Find us",
@@ -494,14 +508,14 @@ const I18N={
   gal_p:"Hyderabad biryani, spiced curries, dosa and idli, tandoor grills, and a fresh lassi to cool the chilli.",
   cap_rag:"Raagi mudda · Andhra",cap_bir:"Hyderabad biryani",cap_tan:"From the tandoor",cap_cur:"Curry & naan",cap_c65:"Chicken 65",cap_las:"Lassi",cap_mar:"The welcome, in marigolds",
   carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
-  carte_p:"The Telugu cooking of Andhra and the biryani of Hyderabad. Here are the dishes — the full menu and prices are confirmed by the house.",
+  carte_p:"The Telugu cooking of Andhra and the biryani of Hyderabad. Here's a look at the dishes — <b>full menu and prices available in person.</b>",
   mg1:"The thali & rice",mg2:"From the tandoor & the bar",mg3:"Only in Bhimas · Andhra",mg4:"On the side",
   i1n:"Vegetarian South Indian thali",i1d:"All you can eat, at lunch — rice, sambar, curries, curd, bread",i2n:"Non-vegetarian thali",
   i3n:"Hyderabad biryani",i3d:"Dum basmati rice, spices, raita",i4n:"Masala dosa",i4d:"Crisp crêpe, potato, chutneys",
   i5n:"Tandoori skewers",i6n:"Chicken 65",i6d:"Spiced fried chicken",i7n:"Lassi / chaas",i7d:"Fresh yogurt, sweet or salted",
   i8n:"Raagi mudda & chicken curry",i8d:"Millet ball, Telugu curry",i9n:"Raagi mudda & mutton curry",i10n:"Nellore chepala pulusu",i10d:"Tangy-spiced Nellore fish curry",
   i11n:"Naan & breads",i12n:"Dal & vegetables",i13n:"Samosa",ac:"tbc",
-  carte_note:"Dishes drawn from public sources (the house's own menu, reviews, Instagram); full menu and prices to be confirmed with the house.",
+  carte_note:"Dishes drawn from public sources (the house's own menu, reviews, Instagram).",
   maison_eyebrow:"The house",maison_h:"A Telugu kitchen,<span>in Bonnevoie.</span>",
   maison_lead:"Bhimas is the cooking of Andhra and Hyderabad — that of the Telugu households of South India — in Bonnevoie, a stone's throw from the station.",
   maison_body:"You're welcomed with marigold garlands, served dum biryani and curries with Guntur chilli. Vegetarian or not, at lunch or in the evening: the real table of the South, no detour.",
@@ -511,7 +525,8 @@ const I18N={
   map_big:"Bonnevoie",map_sub:"Dernier Sol, 3 min from the station",map_btn:"Open in Maps ↗",
   foot_p:"South Indian kitchen in Bonnevoie — Andhra & Hyderabad. Biryani, all-you-can-eat thali, Telugu specialities.",
   foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
-  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories, reviews and social media). The brand and dishes belong to the house. Apart from the posted thali, the menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+  cta_call:"Call",cta_dir:"Directions ↗",
+  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories, reviews and social media). The brand and dishes belong to the house. The menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
  }
 };
 let lang="fr";

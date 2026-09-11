@@ -12,8 +12,9 @@
   cream stays the dominant palette (content.md L41). Alegreya (warm humanist serif, real
   italics) for editorial type; Yellowtail (1930s connected sign-script) for the wordmark,
   echoing the real enseigne's looping cursive. All fonts self-hosted below, zero external
-  requests. "(env.) 1959" and hours stay flagged "à confirmer" — aggregator-only, no
-  primary source.
+  requests. The founding year (c.1959) is aggregator-only with no primary source,
+  so it is NOT printed anywhere on the page — see the BUILD NOTES section of
+  mockups/brasserie-beaulieu/content.md. One Webwerk disclosure, in the footer.
 -->
 <style id="rk-fonts">
 /* latin-ext */
@@ -307,7 +308,7 @@
 
   /* ---------- Ambiance collage ---------- */
   .ambiance{background:var(--paper)}
-  .amb-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:22px;align-items:start;margin-top:30px}
+  .amb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start;margin-top:30px}
   .amb-intro{grid-column:1 / -1;display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:end;margin-bottom:6px}
   .pull-quote{font-family:'Alegreya',serif;font-style:italic;font-weight:500;font-size:clamp(1.4rem,2.6vw,2.1rem);
     color:var(--burgundy);line-height:1.2;border-left:4px solid var(--red);padding-left:20px}
@@ -317,8 +318,10 @@
   figure.cut:hover{transform:translateY(-4px) rotate(-.4deg)}
   figure.cut:nth-of-type(3){transform:rotate(.5deg)}
   figure.cut:nth-of-type(3):hover{transform:translateY(-4px) rotate(0)}
-  figure.cut .ph{height:0;padding-bottom:118%;position:relative;overflow:hidden}
-  figure.cut:first-of-type .ph{padding-bottom:132%}
+  /* One aspect ratio across the whole collage so the three cards end at the same
+     baseline. Previously card 1 sat in a 1.35fr column at 132% and cards 2–3 in
+     1fr columns at 118%, which left ~230px of dead cream under the right pair. */
+  figure.cut .ph{aspect-ratio:3/4;position:relative;overflow:hidden}
   figure.cut .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   figure.cut figcaption{font-family:'Alegreya',serif;font-style:italic;font-size:.82rem;color:var(--darkwood);
     padding:9px 4px 12px;border-top:1px dashed var(--line);margin-top:9px;letter-spacing:.01em}
@@ -336,17 +339,20 @@
   .menu-col h3{font-family:'Alegreya',serif;color:#fff;font-size:1.35rem;margin-bottom:4px;
     text-shadow:0 0 12px rgba(255,255,255,.12)}
   .menu-col .chalk-rule{height:16px;width:120px;margin:2px 0 16px;opacity:.9}
+  /* Gingham woven over near-black rather than over a cream wash: the old card
+     put ~#B9A373 italics on a light-red check at ~3.2:1, and the check running
+     through the letterforms made it read worse than the number. */
   .placemat{padding:14px 16px;border-radius:6px;margin-bottom:16px;
     background-image:
-      linear-gradient(90deg, transparent 0 9px, rgba(192,57,43,.34) 9px 18px),
-      linear-gradient(0deg,  transparent 0 9px, rgba(192,57,43,.34) 9px 18px);
-    background-size:18px 18px;background-color:rgba(246,241,231,.10);
-    border:1px solid rgba(246,241,231,.14)}
-  .dish{display:flex;align-items:baseline;gap:6px;margin:9px 0;font-size:1rem}
+      linear-gradient(90deg, transparent 0 9px, rgba(192,57,43,.35) 9px 18px),
+      linear-gradient(0deg,  transparent 0 9px, rgba(192,57,43,.35) 9px 18px);
+    background-size:18px 18px;background-color:#181818;
+    border:1px solid rgba(246,241,231,.16)}
+  /* Name-only rows. No price cell and therefore no leader rule: a dotted leader
+     running into empty space reads as a value that failed to load. */
+  .dish{margin:9px 0;font-size:1rem}
   .dish .nm{color:#f2ede2;font-weight:600}
-  .dish .lead{flex:1;border-bottom:2px dotted rgba(242,237,226,.45);transform:translateY(-4px);min-width:14px}
-  .dish .pr{color:#e7c8a0;font-weight:700;white-space:nowrap;font-family:'Alegreya',serif}
-  .dish small{display:block;font-weight:400;color:#b9ac97;font-size:.78rem;font-style:italic}
+  .dish small{display:block;font-weight:400;color:#E8DCC8;font-size:.8rem;font-style:italic}
   .platdujour{background:var(--red);color:#fff;border-radius:10px;padding:20px 22px;position:relative;
     box-shadow:0 12px 30px rgba(0,0,0,.35);transform:rotate(-1.2deg);border:2px solid rgba(255,255,255,.25)}
   .platdujour::before{content:"";position:absolute;top:-11px;left:22px;width:14px;height:14px;border-radius:50%;
@@ -356,7 +362,7 @@
   .platdujour .pj-d{font-size:.94rem;line-height:1.45}
   .menu-note{margin-top:26px;font-family:'Caveat',cursive;font-size:1.3rem;color:#cdbfa9;text-align:center}
 
-  /* ---------- Story (depuis 1959) ---------- */
+  /* ---------- Story ---------- */
   .story{position:relative;background:var(--cream)}
   .story::before{content:"";position:absolute;inset:0;opacity:.10;pointer-events:none;
     background-image:
@@ -375,10 +381,14 @@
 
   /* ---------- Terrasse & practical ---------- */
   .terrasse{background:var(--paper)}
-  .terr-grid{display:grid;grid-template-columns:55% 45%;gap:clamp(26px,3.5vw,48px);align-items:stretch;margin-top:14px}
-  .terr-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  /* align-items:start, not stretch: the two columns must size independently.
+     With stretch, the photo column was pulled to the height of the taller
+     practical column, the image stopped at its own aspect ratio and ~500px of
+     empty cream followed with the caption gradient stranded at the bottom. */
+  .terr-grid{display:grid;grid-template-columns:55% 45%;gap:clamp(26px,3.5vw,48px);align-items:start;margin-top:14px}
+  .terr-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
   .terr-photos figure{margin:0;position:relative;overflow:hidden;border-radius:10px;box-shadow:0 12px 30px rgba(94,62,40,.16)}
-  .terr-photos .ph{height:0;padding-bottom:128%;position:relative}
+  .terr-photos .ph{aspect-ratio:4/5;position:relative}
   .terr-photos .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .terr-photos figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(35,35,35,.78));
     color:#fff;font-family:'Alegreya',serif;font-style:italic;font-size:.82rem;padding:22px 12px 10px}
@@ -399,8 +409,28 @@
   .contact-card p{font-size:.98rem;margin-bottom:6px}
   .contact-card a{color:var(--red);font-weight:700;text-decoration:none}
   .contact-card a:hover{text-decoration:underline}
-  .map-embed{border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 8px 24px rgba(94,62,40,.12);line-height:0}
-  .map-embed iframe{width:100%;height:200px;border:0}
+  /* A real "how to find us" block, not a decorative placeholder. The gingham
+     wash and the fake map pin are gone — the address carries the card, with one
+     line of genuine orientation detail from the venue's own photos. */
+  /* Scoped under .contact-card: the card's own `a` and `p` rules are more
+     specific than a bare class would be, and would otherwise paint the CTA
+     label red-on-red and flatten the address back to body size. */
+  .contact-card p.find-addr{font-family:'Alegreya',serif;font-weight:700;font-size:1.5rem;
+    line-height:1.15;color:var(--chalk);margin-bottom:2px}
+  .contact-card p.find-city{font-size:.98rem;color:var(--darkwood);margin-bottom:14px}
+  .contact-card p.find-look{display:flex;gap:10px;align-items:flex-start;
+    border-top:1px solid var(--line);padding-top:14px;margin-bottom:14px}
+  .find-look svg{flex:none;margin-top:3px}
+  .find-look span{font-family:'Alegreya',serif;font-style:italic;font-size:.96rem;
+    line-height:1.45;color:var(--ink)}
+  .contact-card a.find-cta{
+    display:inline-flex;align-items:center;gap:6px;text-decoration:none;
+    font-weight:700;font-size:.86rem;color:#fff;
+    background:var(--red);border-radius:999px;padding:10px 20px;margin-top:4px;
+    box-shadow:0 8px 18px rgba(192,57,43,.28);
+    transition:background .15s,transform .15s;
+  }
+  .contact-card a.find-cta:hover{background:var(--burgundy);transform:translateY(-2px);text-decoration:none}
   .bynight{display:flex;align-items:center;gap:14px;background:var(--chalk);border-radius:12px;padding:12px 16px;color:#efe9dd}
   .bynight .thumb{width:66px;height:66px;border-radius:50%;overflow:hidden;flex:none;border:2px solid var(--olive);box-shadow:0 0 14px rgba(168,212,0,.35)}
   .bynight .thumb img{width:100%;height:100%;object-fit:cover}
@@ -416,7 +446,11 @@
   .foot-col h4{font-family:'Alegreya',serif;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
   .foot-col a,.foot-col p{display:block;color:var(--ink);text-decoration:none;font-size:.95rem;margin-bottom:8px}
   .foot-col a:hover{color:var(--red)}
-  .foot-bottom{margin-top:34px;padding:14px var(--gutter);text-align:center;font-size:.76rem;color:var(--darkwood)}
+  /* The single Webwerk disclosure. Small, but legible and AA-contrasting
+     (#5E3E28 on #F6F1E7 ≈ 8.5:1). It is the only place it appears. */
+  .foot-bottom{margin-top:34px;padding:16px var(--gutter) 20px;text-align:center;
+    font-size:.82rem;line-height:1.5;color:var(--darkwood)}
+  .foot-bottom span{display:block;max-width:76ch;margin:0 auto}
   .foot-hem{margin-top:20px}
 
   /* ---------- Responsive ---------- */
@@ -431,7 +465,7 @@
     .portrait{max-width:420px}
     .amb-grid{grid-template-columns:1fr 1fr}
     figure.cut:first-of-type{grid-column:1 / -1}
-    figure.cut:first-of-type .ph{padding-bottom:60%}
+    figure.cut:first-of-type .ph{aspect-ratio:16/9}
     .foot-grid{grid-template-columns:1fr 1fr}
   }
   @media(max-width:640px){
@@ -440,13 +474,38 @@
     .dateline-inner{font-size:.68rem}
     .amb-intro{grid-template-columns:1fr}
     .amb-grid{grid-template-columns:1fr}
-    figure.cut:first-of-type .ph{padding-bottom:78%}
+    figure.cut:first-of-type .ph{aspect-ratio:4/3}
     .menu-layout{grid-template-columns:1fr}
     .terr-photos{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
   }
   .skip{position:absolute;left:-9999px}
   .skip:focus{left:12px;top:10px;z-index:99;background:var(--chalk);color:#fff;padding:8px 14px;border-radius:6px}
+
+  /* Sticky header clears its own height when an anchor is jumped to. */
+  section[id],div[id]{scroll-margin-top:86px}
+
+  /* ---------- Mobile navigation ----------
+     Below 640px .nav-links hides and the page is ~16,000px tall, so there was
+     no way to skip ahead: only the wordmark, "Réserver" and FR/DE/EN. */
+  .burger{display:none;width:40px;height:40px;flex:none;align-items:center;justify-content:center;
+    border:1.5px solid var(--darkwood);border-radius:8px;background:transparent;cursor:pointer;color:var(--chalk)}
+  .burger svg{width:20px;height:20px}
+  .mnav{position:fixed;inset:0;z-index:80;display:none;flex-direction:column;
+    padding:18px var(--gutter) 28px;background:var(--chalk);color:var(--cream)}
+  .mnav.open{display:flex}
+  .mnav-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+  .mnav-top .b-script{font-family:'Yellowtail',cursive;font-size:2rem;color:#f3efe6;line-height:1}
+  .mnav-close{width:40px;height:40px;border:1px solid rgba(255,255,255,.35);border-radius:8px;
+    background:transparent;color:#f3efe6;font-size:1.5rem;line-height:1;cursor:pointer}
+  .mnav a{font-family:'Alegreya',serif;font-size:1.5rem;font-weight:700;color:#f3efe6;
+    text-decoration:none;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+  .mnav a:last-of-type{border-bottom:none}
+  .burger:focus-visible,.mnav-close:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+  @media(max-width:640px){
+    .burger{display:inline-flex}
+    section[id],div[id]{scroll-margin-top:74px}
+  }
 
   /* ===================== v2 RE-ELEVATION ===================== */
   /* Yellowtail is a single-weight (400) script with no italic cut. Without this,
@@ -487,7 +546,10 @@
     .brand{gap:6px}
     .brand .b-script{font-size:1.5rem}
     .brand .b-small{font-size:.54rem;letter-spacing:.2em}
-    .nav-inner .btn-red{padding:8px 12px;font-size:.78rem}
+    /* The sticky bottom bar already carries Appeler / Réserver on mobile, so the
+       header pill is redundant — dropping it makes room for the menu button
+       without pushing the header past a 390px viewport. */
+    .nav-inner .btn-red{display:none}
     .lang{margin-left:0;padding:2px}
     .lang button{padding:4px 7px;font-size:.66rem;letter-spacing:.02em}
   }
@@ -516,16 +578,29 @@
         <button data-lang="de">DE</button>
         <button data-lang="en">EN</button>
       </div>
+      <button class="burger" id="burgerBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- MOBILE NAV (≤640px, where .nav-links is hidden) -->
+<div class="mnav" id="mnav">
+  <div class="mnav-top">
+    <span class="b-script">Beaulieu</span>
+    <button class="mnav-close" id="mnavClose" type="button" aria-label="Fermer">&times;</button>
+  </div>
+  <a href="#ambiance" data-i18n="nav_amb">Ambiance</a>
+  <a href="#menu" data-i18n="nav_menu">La carte</a>
+  <a href="#histoire" data-i18n="nav_story">Notre histoire</a>
+  <a href="#terrasse" data-i18n="nav_terr">Terrasse &amp; infos</a>
+</div>
 
 <!-- DATELINE -->
 <div class="dateline" id="top">
   <div class="dateline-inner">
     <span data-i18n="dl_place">Bonnevoie · Luxembourg</span>
-    <span class="sep">·</span>
-    <span class="dl-em" data-i18n="dl_since">depuis (env.) 1959</span>
     <span class="sep">·</span>
     <span>25 Rue Félix de Blochausen, 1243 Bonnevoie</span>
     <span class="sep">·</span>
@@ -603,17 +678,17 @@
         <h3 data-i18n="menu_c1">Entrées & à partager</h3>
         <svg class="chalk-rule" viewBox="0 0 120 16" aria-hidden="true"><path d="M2 9 C30 3,80 3,118 8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/></svg>
         <div class="placemat">
-          <div class="dish"><span class="nm" data-i18n="d_board">Plateau apéritif</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_leeks">Poireaux sauce gribiche</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_salad">Salade composée</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_board">Plateau apéritif</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_leeks">Poireaux sauce gribiche</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_salad">Salade composée</span></div>
         </div>
 
         <h3 data-i18n="menu_c3">Vins & boissons</h3>
         <svg class="chalk-rule" viewBox="0 0 120 16" aria-hidden="true"><path d="M2 9 C30 3,80 3,118 8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/></svg>
         <div class="placemat">
-          <div class="dish"><span class="nm" data-i18n="d_wine">Sélection de vins <small data-i18n="d_wine_s">dont vins bio & nature</small></span><span class="lead"></span><span class="pr" data-i18n="pr_carte">à la carte</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_beer">Bière pression <small data-i18n="d_beer_s">Bofferding / Jupiler</small></span><span class="lead"></span><span class="pr" data-i18n="pr_carte">à la carte</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_menuj">Menu du jour <small data-i18n="d_menuj_s">midi en semaine</small></span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_wine">Sélection de vins <small data-i18n="d_wine_s">dont vins bio & nature</small></span></div>
+          <div class="dish"><span class="nm" data-i18n="d_beer">Bière pression <small data-i18n="d_beer_s">Bofferding / Jupiler</small></span></div>
+          <div class="dish"><span class="nm" data-i18n="d_menuj">Menu du jour <small data-i18n="d_menuj_s">midi en semaine</small></span></div>
         </div>
       </div>
 
@@ -622,14 +697,14 @@
         <h3 data-i18n="menu_c2">Les plats</h3>
         <svg class="chalk-rule" viewBox="0 0 120 16" aria-hidden="true"><path d="M2 9 C30 3,80 3,118 8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/></svg>
         <div class="placemat">
-          <div class="dish"><span class="nm">Cordon Bleu</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_entrecote">Entrecôte, beurre maître d'hôtel</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_tartare">Tartare de bœuf</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm">Cassoulet</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_blanquette">Blanquette de veau</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm">Hachis Parmentier</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_burgerc">Burger poulet</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
-          <div class="dish"><span class="nm" data-i18n="d_burgerv">Burger végétarien</span><span class="lead"></span><span class="pr" data-i18n="pr_confirm">à confirmer</span></div>
+          <div class="dish"><span class="nm">Cordon Bleu</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_entrecote">Entrecôte, beurre maître d'hôtel</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_tartare">Tartare de bœuf</span></div>
+          <div class="dish"><span class="nm">Cassoulet</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_blanquette">Blanquette de veau</span></div>
+          <div class="dish"><span class="nm">Hachis Parmentier</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_burgerc">Burger poulet</span></div>
+          <div class="dish"><span class="nm" data-i18n="d_burgerv">Burger végétarien</span></div>
         </div>
       </div>
 
@@ -640,7 +715,7 @@
           <div class="pj-t" data-i18n="pj_t">Le plat du jour</div>
           <p class="pj-d" data-i18n="pj_d">Le marché du jour, écrit à la craie sur l'ardoise. Demandez à votre serveur la suggestion du chef.</p>
         </div>
-        <p class="menu-note" data-i18n="menu_note">Prix indicatifs · carte de saison · à confirmer</p>
+        <p class="menu-note" data-i18n="menu_note">Les prix sont affichés à l'ardoise, en salle.</p>
       </div>
     </div>
   </div>
@@ -656,9 +731,9 @@
         <figcaption data-i18n="story_cap">Le portrait du chef, sur le mur en papier journal.</figcaption>
       </figure>
       <div class="story-text">
-        <span class="est" data-i18n="story_est">Depuis (env.) 1959 — à confirmer</span>
+        <span class="est" data-i18n="story_est">Bistro de quartier · Bonnevoie</span>
         <h2 class="band-title" style="margin-bottom:16px" data-i18n="story_title">Notre histoire</h2>
-        <p class="lead-p" data-i18n="story_p1">Depuis (environ) 1959, la Brasserie Beaulieu est l'adresse incontournable du quartier Bonnevoie. Reprise avec passion par Cyrille Schneider et son équipe enthousiaste, elle propose une cuisine de brasserie généreuse et sincère — cordons bleus, entrecôtes, cassoulet, tartares et plats du marché tournants.</p>
+        <p class="lead-p" data-i18n="story_p1">La Brasserie Beaulieu est l'adresse incontournable du quartier Bonnevoie. Reprise avec passion par Cyrille Schneider et son équipe enthousiaste, elle propose une cuisine de brasserie généreuse et sincère — cordons bleus, entrecôtes, cassoulet, tartares et plats du marché tournants.</p>
         <p data-i18n="story_p2">Le tout dans une atmosphère chaleureuse, sans chichi, entre famille et fête. Une belle terrasse ensoleillée et une sélection de vins soignée (dont des vins biologiques) complètent ce bistrot de quartier devenu une référence pour toute la ville.</p>
         <p class="story-sig" data-i18n="story_sig">Cyrille Schneider &amp; l'équipe</p>
       </div>
@@ -694,21 +769,23 @@
           <div class="row" data-day="5"><span class="d" data-i18n="day_fri">Vendredi</span><span>10:00 – 01:00</span></div>
           <div class="row" data-day="6"><span class="d" data-i18n="day_sat">Samedi</span><span>10:00 – 01:00</span></div>
           <div class="row" data-day="0"><span class="d" data-i18n="day_sun">Dimanche</span><span>10:00 – 01:00</span></div>
-          <p class="hrs-flag" data-i18n="hours_flag">Cuisine env. jusqu'à 21:45 · horaires à confirmer (jeudi variable)</p>
+          <p class="hrs-flag" data-i18n="hours_flag">Cuisine jusqu'à 21:45 · le bar reste ouvert jusqu'à 01:00.</p>
         </div>
 
         <div class="contact-card">
           <h3 data-i18n="contact_title">Nous trouver</h3>
-          <p><strong>25 Rue Félix de Blochausen</strong><br>1243 Bonnevoie, Luxembourg</p>
+          <p class="find-addr">25 Rue Félix de Blochausen</p>
+          <p class="find-city">1243 Bonnevoie, Luxembourg</p>
+          <p class="find-look">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span data-i18n="find_look">À l'angle de la rue : façade crème, « Beaulieu » en cursive bleue au-dessus de la porte, et les parasols verts de la terrasse.</span>
+          </p>
           <p><a href="tel:+35226483302">+352 26 48 33 02</a></p>
           <p class="rk-resv-line">
             <span class="rk-resv-k" data-cas-resvk>Réserver en ligne</span>
             <button type="button" class="rk-resv-trigger" data-rk-resv-open><span data-cas-resv>Réserver une table</span></button>
           </p>
-          <div class="map-embed" style="margin-top:12px">
-            <iframe title="Carte — Brasserie Beaulieu" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=Brasserie%20Beaulieu%2025%20Rue%20Felix%20de%20Blochausen%201243%20Luxembourg&output=embed"></iframe>
-          </div>
+          <a class="find-cta" href="https://www.google.com/maps/search/?api=1&amp;query=Brasserie+Beaulieu+25+Rue+Felix+de+Blochausen+1243+Luxembourg" target="_blank" rel="noopener" data-i18n="mapsCta">Ouvrir dans Google Maps →</a>
         </div>
 
         <div class="bynight">
@@ -733,16 +810,16 @@
       <p>25 Rue Félix de Blochausen<br>1243 Bonnevoie, Luxembourg</p>
       <a href="tel:+35226483302">+352 26 48 33 02</a>
       <a href="#terrasse" data-i18n="foot_hours">Voir les horaires</a>
+      <a href="tel:+35226483302" data-i18n="foot_book">Réserver une table</a>
     </div>
     <div class="foot-col">
       <h4 data-i18n="foot_follow">Suivez-nous</h4>
       <a href="https://www.facebook.com/BrasserieBeaulieu/" target="_blank" rel="noopener">Facebook</a>
-      <a href="tel:+35226483302" data-i18n="foot_book">Réserver une table</a>
     </div>
   </div>
   <div class="ribbon foot-hem" aria-hidden="true"></div>
   <div class="foot-bottom">
-    <span data-i18n="foot_demo">Site de démonstration — Brasserie Beaulieu. Contenu à confirmer avec l'établissement. Le bleu de la charte est relevé sur l'enseigne cursive de la maison ; année de fondation (env. 1959) non confirmée.</span>
+    <span data-i18n="foot_demo">Aperçu conçu par Webwerk à partir de sources publiques — ce n'est pas le site officiel de la Brasserie Beaulieu, et les informations restent à confirmer avec l'établissement.</span>
   </div>
 </footer>
 
@@ -752,7 +829,7 @@ const I18N = {
   fr:{
     skip:"Aller au menu",
     nav_amb:"Ambiance", nav_menu:"La carte", nav_story:"Notre histoire", nav_terr:"Terrasse & infos", nav_book:"Réserver",
-    dl_place:"Bonnevoie · Luxembourg", dl_since:"depuis (env.) 1959", dl_motto:"Cuisine canaille · Ambiance de quartier",
+    dl_place:"Bonnevoie · Luxembourg", dl_motto:"Cuisine canaille · Ambiance de quartier",
     hero_kicker:"Bistro de quartier — Bonnevoie",
     hero_tagline:"Cuisine canaille. Ambiance de quartier.",
     hero_addr:"25 Rue Félix de Blochausen, 1243 Bonnevoie, Luxembourg",
@@ -771,13 +848,12 @@ const I18N = {
     d_burgerc:"Burger poulet", d_burgerv:"Burger végétarien",
     d_wine:"Sélection de vins", d_wine_s:"dont vins bio & nature", d_beer:"Bière pression", d_beer_s:"Bofferding / Jupiler",
     d_menuj:"Menu du jour", d_menuj_s:"midi en semaine",
-    pr_confirm:"à confirmer", pr_carte:"à la carte",
     pj_k:"Suggestion", pj_t:"Le plat du jour",
     pj_d:"Le marché du jour, écrit à la craie sur l'ardoise. Demandez à votre serveur la suggestion du chef.",
-    menu_note:"Prix indicatifs · carte de saison · à confirmer",
+    menu_note:"Les prix sont affichés à l'ardoise, en salle.",
     story_cap:"Le portrait du chef, sur le mur en papier journal.",
-    story_est:"Depuis (env.) 1959 — à confirmer", story_title:"Notre histoire",
-    story_p1:"Depuis (environ) 1959, la Brasserie Beaulieu est l'adresse incontournable du quartier Bonnevoie. Reprise avec passion par Cyrille Schneider et son équipe enthousiaste, elle propose une cuisine de brasserie généreuse et sincère — cordons bleus, entrecôtes, cassoulet, tartares et plats du marché tournants.",
+    story_est:"Bistro de quartier · Bonnevoie", story_title:"Notre histoire",
+    story_p1:"La Brasserie Beaulieu est l'adresse incontournable du quartier Bonnevoie. Reprise avec passion par Cyrille Schneider et son équipe enthousiaste, elle propose une cuisine de brasserie généreuse et sincère — cordons bleus, entrecôtes, cassoulet, tartares et plats du marché tournants.",
     story_p2:"Le tout dans une atmosphère chaleureuse, sans chichi, entre famille et fête. Une belle terrasse ensoleillée et une sélection de vins soignée (dont des vins biologiques) complètent ce bistrot de quartier devenu une référence pour toute la ville.",
     story_sig:"Cyrille Schneider & l'équipe",
     terr_eyebrow:"La terrasse & infos pratiques", terr_title:"Au soleil, rue Félix de Blochausen",
@@ -785,18 +861,19 @@ const I18N = {
     terr_cap2:"La terrasse : muret, herbes et verre gravé.",
     hours_title:"Horaires",
     day_mon:"Lundi", day_tue:"Mardi", day_wed:"Mercredi", day_thu:"Jeudi", day_fri:"Vendredi", day_sat:"Samedi", day_sun:"Dimanche",
-    hours_flag:"Cuisine env. jusqu'à 21:45 · horaires à confirmer (jeudi variable)",
-    contact_title:"Nous trouver",
+    hours_flag:"Cuisine jusqu'à 21:45 · le bar reste ouvert jusqu'à 01:00.",
+    contact_title:"Nous trouver", mapsCta:"Ouvrir dans Google Maps →",
+    find_look:"À l'angle de la rue : façade crème, « Beaulieu » en cursive bleue au-dessus de la porte, et les parasols verts de la terrasse.",
     night_t:"Beaulieu, le soir", night_s:"Soirées à thème & ambiance conviviale.",
     foot_tag:"Bistro de quartier à Bonnevoie. Cuisine canaille, ambiance de quartier — venez comme vous êtes.",
     foot_visit:"Nous rendre visite", foot_hours:"Voir les horaires",
     foot_follow:"Suivez-nous", foot_book:"Réserver une table",
-    foot_demo:"Site de démonstration — Brasserie Beaulieu. Contenu à confirmer avec l'établissement. Le bleu de la charte est relevé sur l'enseigne cursive de la maison ; année de fondation (env. 1959) non confirmée."
+    foot_demo:"Aperçu conçu par Webwerk à partir de sources publiques — ce n'est pas le site officiel de la Brasserie Beaulieu, et les informations restent à confirmer avec l'établissement."
   },
   de:{
     skip:"Zur Karte springen",
     nav_amb:"Ambiente", nav_menu:"Die Karte", nav_story:"Geschichte", nav_terr:"Terrasse & Infos", nav_book:"Reservieren",
-    dl_place:"Bonnevoie · Luxemburg", dl_since:"seit (etwa) 1959", dl_motto:"Herzhafte Küche · Nachbarschaftliches Flair",
+    dl_place:"Bonnevoie · Luxemburg", dl_motto:"Herzhafte Küche · Nachbarschaftliches Flair",
     hero_kicker:"Quartiersbistro — Bonnevoie",
     hero_tagline:"Herzhafte Küche. Nachbarschaftliches Flair.",
     hero_addr:"25 Rue Félix de Blochausen, 1243 Bonnevoie, Luxemburg",
@@ -815,13 +892,12 @@ const I18N = {
     d_burgerc:"Hähnchen-Burger", d_burgerv:"Vegetarischer Burger",
     d_wine:"Weinauswahl", d_wine_s:"auch Bio- & Naturweine", d_beer:"Bier vom Fass", d_beer_s:"Bofferding / Jupiler",
     d_menuj:"Tagesmenü", d_menuj_s:"mittags unter der Woche",
-    pr_confirm:"auf Anfrage", pr_carte:"nach Karte",
     pj_k:"Empfehlung", pj_t:"Das Tagesgericht",
     pj_d:"Das Beste vom Markt, mit Kreide auf die Tafel geschrieben. Fragen Sie Ihr Serviceteam nach der Empfehlung des Küchenchefs.",
-    menu_note:"Richtpreise · saisonale Karte · zu bestätigen",
+    menu_note:"Die Preise stehen auf der Tafel im Lokal.",
     story_cap:"Das Chef-Porträt an der Zeitungspapier-Wand.",
-    story_est:"Seit (ca.) 1959 — zu bestätigen", story_title:"Unsere Geschichte",
-    story_p1:"Seit (etwa) 1959 ist die Brasserie Beaulieu die unverzichtbare Adresse im Viertel Bonnevoie. Von Cyrille Schneider und seinem begeisterten Team mit Leidenschaft weitergeführt, bietet sie eine großzügige, ehrliche Brasserie-Küche — Cordon bleu, Entrecôte, Cassoulet, Tartar und wechselnde Marktgerichte.",
+    story_est:"Quartiersbistro · Bonnevoie", story_title:"Unsere Geschichte",
+    story_p1:"Die Brasserie Beaulieu ist die unverzichtbare Adresse im Viertel Bonnevoie. Von Cyrille Schneider und seinem begeisterten Team mit Leidenschaft weitergeführt, bietet sie eine großzügige, ehrliche Brasserie-Küche — Cordon bleu, Entrecôte, Cassoulet, Tartar und wechselnde Marktgerichte.",
     story_p2:"Und das in einer herzlichen, ungezwungenen Atmosphäre, mal familiär, mal ausgelassen. Eine sonnige Terrasse und eine sorgsam ausgewählte Weinkarte (mit Naturweinen) machen dieses Quartiersbistro zur Adresse für ganz Luxemburg.",
     story_sig:"Cyrille Schneider & das Team",
     terr_eyebrow:"Terrasse & praktische Infos", terr_title:"In der Sonne, Rue Félix de Blochausen",
@@ -829,18 +905,19 @@ const I18N = {
     terr_cap2:"Die Terrasse: Mäuerchen, Kräuter und graviertes Glas.",
     hours_title:"Öffnungszeiten",
     day_mon:"Montag", day_tue:"Dienstag", day_wed:"Mittwoch", day_thu:"Donnerstag", day_fri:"Freitag", day_sat:"Samstag", day_sun:"Sonntag",
-    hours_flag:"Küche ca. bis 21:45 · Zeiten zu bestätigen (Donnerstag variabel)",
-    contact_title:"So finden Sie uns",
+    hours_flag:"Küche bis 21:45 · die Bar bleibt bis 01:00 geöffnet.",
+    contact_title:"So finden Sie uns", mapsCta:"In Google Maps öffnen →",
+    find_look:"An der Straßenecke: cremefarbene Fassade, „Beaulieu“ in blauer Schreibschrift über der Tür und die grünen Sonnenschirme der Terrasse.",
     night_t:"Beaulieu, am Abend", night_s:"Themenabende & gesellige Stimmung.",
     foot_tag:"Quartiersbistro in Bonnevoie. Herzhafte Küche, nachbarschaftliches Flair — kommen Sie, wie Sie sind.",
     foot_visit:"Besuchen Sie uns", foot_hours:"Öffnungszeiten ansehen",
     foot_follow:"Folgen Sie uns", foot_book:"Tisch reservieren",
-    foot_demo:"Demo-Website — Brasserie Beaulieu. Inhalte mit dem Lokal zu bestätigen. Das Blau der Gestaltung stammt vom eigenen Schriftzug des Hauses; Gründungsjahr (ca. 1959) unbestätigt."
+    foot_demo:"Eine von Webwerk aus öffentlichen Quellen erstellte Vorschau — dies ist nicht die offizielle Website der Brasserie Beaulieu, und die Angaben sind noch mit dem Lokal zu bestätigen."
   },
   en:{
     skip:"Skip to menu",
     nav_amb:"Ambiance", nav_menu:"The menu", nav_story:"Our story", nav_terr:"Terrace & info", nav_book:"Book",
-    dl_place:"Bonnevoie · Luxembourg", dl_since:"since (approx.) 1959", dl_motto:"Hearty food · Neighbourhood soul",
+    dl_place:"Bonnevoie · Luxembourg", dl_motto:"Hearty food · Neighbourhood soul",
     hero_kicker:"Neighbourhood bistro — Bonnevoie",
     hero_tagline:"Hearty food. Neighbourhood soul.",
     hero_addr:"25 Rue Félix de Blochausen, 1243 Bonnevoie, Luxembourg",
@@ -859,13 +936,12 @@ const I18N = {
     d_burgerc:"Chicken burger", d_burgerv:"Vegetarian burger",
     d_wine:"Wine selection", d_wine_s:"organic & natural wines too", d_beer:"Draught beer", d_beer_s:"Bofferding / Jupiler",
     d_menuj:"Menu of the day", d_menuj_s:"weekday lunch",
-    pr_confirm:"to confirm", pr_carte:"à la carte",
     pj_k:"Special", pj_t:"Dish of the day",
     pj_d:"The pick of the market, chalked on the board. Ask your server for the chef's suggestion.",
-    menu_note:"Indicative prices · seasonal menu · to confirm",
+    menu_note:"Prices are chalked on the board, in the room.",
     story_cap:"The chef's portrait, on the newsprint wall.",
-    story_est:"Since (approx.) 1959 — to confirm", story_title:"Our story",
-    story_p1:"Since (approximately) 1959, Brasserie Beaulieu has been the unmissable address in Bonnevoie. Brought forward with passion by Cyrille Schneider and his enthusiastic team, it serves generous, honest French food — cordon bleu, entrecôte, cassoulet, tartare and rotating market specials.",
+    story_est:"Neighbourhood bistro · Bonnevoie", story_title:"Our story",
+    story_p1:"Brasserie Beaulieu is the unmissable address in Bonnevoie. Brought forward with passion by Cyrille Schneider and his enthusiastic team, it serves generous, honest French food — cordon bleu, entrecôte, cassoulet, tartare and rotating market specials.",
     story_p2:"All in a warm, unpretentious setting that swings between family lunch and festive evening. A sunny terrace and a thoughtful wine list (including organic options) complete this neighbourhood bistro that has become a reference for all of Luxembourg City.",
     story_sig:"Cyrille Schneider & the team",
     terr_eyebrow:"Terrace & practical info", terr_title:"In the sun, on Rue Félix de Blochausen",
@@ -873,13 +949,14 @@ const I18N = {
     terr_cap2:"The terrace: low wall, herbs and etched glass.",
     hours_title:"Opening hours",
     day_mon:"Monday", day_tue:"Tuesday", day_wed:"Wednesday", day_thu:"Thursday", day_fri:"Friday", day_sat:"Saturday", day_sun:"Sunday",
-    hours_flag:"Kitchen approx. until 21:45 · hours to confirm (Thursday varies)",
-    contact_title:"Find us",
+    hours_flag:"Kitchen until 21:45 · the bar stays open until 01:00.",
+    contact_title:"Find us", mapsCta:"Open in Google Maps →",
+    find_look:"On the street corner: cream facade, “Beaulieu” in blue cursive above the door, and the terrace's green umbrellas.",
     night_t:"Beaulieu, after dark", night_s:"Themed nights & a convivial mood.",
     foot_tag:"Neighbourhood bistro in Bonnevoie. Hearty food, neighbourhood soul — come as you are.",
     foot_visit:"Visit us", foot_hours:"See opening hours",
     foot_follow:"Follow us", foot_book:"Book a table",
-    foot_demo:"Demo website — Brasserie Beaulieu. Content to be confirmed with the establishment. The accent blue is sampled from the venue's own cursive sign; founding year (approx. 1959) unconfirmed."
+    foot_demo:"A Webwerk preview built from public sources — this is not Brasserie Beaulieu's official website, and the details are still to be confirmed with the establishment."
   }
 };
 
@@ -909,16 +986,29 @@ document.querySelectorAll(".lang button").forEach(b=>{
   b.addEventListener("click", ()=>applyLang(b.dataset.lang));
 });
 
-/* ---------- static "today" row highlight on the hours table (no open/closed state) ---------- */
-function highlightToday(){
-  const today = new Date().getDay();
-  document.querySelectorAll(".hours-ardoise .row").forEach(r=>{
-    r.classList.toggle("today", parseInt(r.dataset.day,10)===today);
+/* ---------- mobile navigation ----------
+   Below 640px the four section links are hidden and the page runs to roughly
+   twenty viewport screens, so the overlay is the only way to skip ahead. */
+(function(){
+  const btn = document.getElementById("burgerBtn");
+  const panel = document.getElementById("mnav");
+  const closeBtn = document.getElementById("mnavClose");
+  if(!btn || !panel) return;
+  function setOpen(open){
+    panel.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    document.documentElement.style.overflow = open ? "hidden" : "";
+    if(open) closeBtn.focus(); else btn.focus();
+  }
+  btn.addEventListener("click", ()=>setOpen(true));
+  closeBtn.addEventListener("click", ()=>setOpen(false));
+  panel.querySelectorAll("a").forEach(a=>a.addEventListener("click", ()=>setOpen(false)));
+  document.addEventListener("keydown", e=>{
+    if(e.key==="Escape" && panel.classList.contains("open")) setOpen(false);
   });
-}
+})();
 
 applyLang("fr");
-highlightToday();
 </script>
 
 <!-- ============ resto-kit · WS2 conversion path (reservation + sticky CTA) ============ -->
@@ -972,46 +1062,9 @@ highlightToday();
   <div class="rk-resv__panel">
     <button class="rk-resv__close" type="button" data-rk-resv-close aria-label="Fermer">&times;</button>
     <h2 class="rk-resv__title" id="rkResvTitle" data-rk-i="title">Réserver une table</h2>
-    <p class="rk-resv__sub" data-rk-i="sub">Nous confirmons par téléphone ou e-mail.</p>
-
-    <form class="rk-resv__form" id="rkResvForm" novalidate>
-      <label for="rkResvName" data-rk-i="name">Nom</label>
-      <input id="rkResvName" name="name" type="text" autocomplete="name" required />
-      <div class="rk-resv__row">
-        <div>
-          <label for="rkResvDate" data-rk-i="date">Date</label>
-          <input id="rkResvDate" name="date" type="date" required />
-        </div>
-        <div>
-          <label for="rkResvTime" data-rk-i="time">Heure</label>
-          <input id="rkResvTime" name="time" type="time" required />
-        </div>
-        <div>
-          <label for="rkResvGuests" data-rk-i="guests">Couverts</label>
-          <input id="rkResvGuests" name="guests" type="number" min="1" max="30" value="2" required />
-        </div>
-      </div>
-      <div class="rk-resv__row">
-        <div>
-          <label for="rkResvPhone" data-rk-i="phone">Téléphone</label>
-          <input id="rkResvPhone" name="phone" type="tel" autocomplete="tel" required />
-        </div>
-        <div>
-          <label for="rkResvEmail" data-rk-i="email">E-mail</label>
-          <input id="rkResvEmail" name="email" type="email" autocomplete="email" />
-        </div>
-      </div>
-      <label for="rkResvMsg" data-rk-i="msg">Message (facultatif)</label>
-      <textarea id="rkResvMsg" name="message" rows="2"></textarea>
-      <button class="rk-resv__submit" type="submit" data-rk-i="submit">Envoyer la demande</button>
-      <p class="rk-resv__alt" data-rk-i="callAlt">ou appelez-nous : <a class="rk-resv__tel" href="#">—</a></p>
-      <p class="rk-resv__note" data-rk-i="note">Demande de réservation — non confirmée tant que la maison ne vous a pas répondu.</p>
-    </form>
-
-    <div class="rk-resv__ok" id="rkResvOk" hidden>
-      <strong data-rk-i="okTitle">Demande envoyée.</strong>
-      <span data-rk-i="okBody">La maison vous confirmera sous peu.</span>
-    </div>
+    <p class="rk-resv__sub" data-rk-i="sub">Nous confirmons par téléphone.</p>
+    <p class="rk-resv__alt rk-resv__alt--main" data-rk-i="callAlt">Appelez-nous : <a class="rk-resv__tel" href="#">—</a></p>
+    <p class="rk-resv__note" data-rk-i="note">Aucune réservation en ligne — la maison confirme directement par téléphone.</p>
   </div>
 </div>
 
@@ -1020,9 +1073,9 @@ highlightToday();
   "use strict";
   var RK = (w.RK = w.RK || {});
   var I = {
-    fr:{ title:"Réserver une table", sub:"Nous confirmons par téléphone ou e-mail.", name:"Nom", date:"Date", time:"Heure", guests:"Couverts", phone:"Téléphone", email:"E-mail", msg:"Message (facultatif)", submit:"Envoyer la demande", callAlt:"ou appelez-nous :", note:"Demande de réservation — non confirmée tant que la maison ne vous a pas répondu.", okTitle:"Demande envoyée.", okBody:"La maison vous confirmera sous peu.", close:"Fermer" },
-    de:{ title:"Tisch reservieren", sub:"Wir bestätigen telefonisch oder per E-Mail.", name:"Name", date:"Datum", time:"Uhrzeit", guests:"Personen", phone:"Telefon", email:"E-Mail", msg:"Nachricht (optional)", submit:"Anfrage senden", callAlt:"oder rufen Sie an:", note:"Reservierungsanfrage — erst nach Rückmeldung des Hauses bestätigt.", okTitle:"Anfrage gesendet.", okBody:"Das Haus meldet sich in Kürze.", close:"Schließen" },
-    en:{ title:"Book a table", sub:"We confirm by phone or e-mail.", name:"Name", date:"Date", time:"Time", guests:"Guests", phone:"Phone", email:"E-mail", msg:"Message (optional)", submit:"Send request", callAlt:"or call us:", note:"Reservation request — not confirmed until the house replies.", okTitle:"Request sent.", okBody:"The house will confirm shortly.", close:"Close" }
+    fr:{ title:"Réserver une table", sub:"Nous confirmons par téléphone.", callAlt:"Appelez-nous :", note:"Aucune réservation en ligne — la maison confirme directement par téléphone.", close:"Fermer" },
+    de:{ title:"Tisch reservieren", sub:"Wir bestätigen telefonisch.", callAlt:"Rufen Sie uns an:", note:"Keine Online-Reservierung — das Haus bestätigt direkt am Telefon.", close:"Schließen" },
+    en:{ title:"Book a table", sub:"We confirm by phone.", callAlt:"Call us:", note:"No online booking — the house confirms directly by phone.", close:"Close" }
   };
   function lang(){ var l=(d.documentElement.getAttribute("lang")||"fr").slice(0,2).toLowerCase(); return I[l]?l:"fr"; }
 
@@ -1030,7 +1083,6 @@ highlightToday();
     cfg = cfg || {};
     var root = d.getElementById("rkResv"); if (!root || root.getAttribute("data-rk-done")) return;
     root.setAttribute("data-rk-done","1");
-    var form = d.getElementById("rkResvForm"), ok = d.getElementById("rkResvOk");
     var tel = root.querySelector(".rk-resv__tel"), lastFocus = null;
 
     function apply(){
@@ -1047,9 +1099,8 @@ highlightToday();
 
     function open(){
       lastFocus = d.activeElement; apply();
-      form.hidden = false; ok.hidden = true;
       root.hidden = false; d.documentElement.style.overflow = "hidden";
-      var f = root.querySelector("#rkResvName"); if (f) f.focus();
+      root.querySelector(".rk-resv__close").focus();
       d.addEventListener("keydown", onKey);
     }
     function close(){
@@ -1076,30 +1127,6 @@ highlightToday();
       if (e.target.closest("[data-rk-resv-open]")){ e.preventDefault(); open(); }
       else if (e.target.closest("[data-rk-resv-close]")){ e.preventDefault(); close(); }
     });
-
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      var data = new FormData(form);
-      if (cfg.endpoint){
-        fetch(cfg.endpoint, { method:"POST", body:data, headers:{ Accept:"application/json" } })
-          .then(function(r){ if (!r.ok) throw 0; done(); })
-          .catch(function(){ mailtoFallback(data); });
-      } else {
-        mailtoFallback(data);
-      }
-    });
-
-    function mailtoFallback(data){
-      if (!cfg.email){ done(); return; }
-      var t = I[lang()];
-      var body = [t.name+": "+data.get("name"), t.date+": "+data.get("date")+" "+data.get("time"),
-                  t.guests+": "+data.get("guests"), t.phone+": "+data.get("phone"),
-                  "E-mail: "+(data.get("email")||"—"), "", data.get("message")||""].join("\n");
-      w.location.href = "mailto:"+cfg.email+"?subject="+encodeURIComponent(t.title+" — "+(data.get("name")||""))+"&body="+encodeURIComponent(body);
-      done();
-    }
-    function done(){ form.hidden = true; ok.hidden = false; }
 
     RK.reservation.open = open; RK.reservation.close = close;
   };
@@ -1203,7 +1230,7 @@ highlightToday();
 </style>
 <script>
   // WS1: replace `email` with the venue’s real reservation address before go-live.
-  RK.reservation({ email:"contact@example.lu", phone:"+352 26 48 33 02" });
+  RK.reservation({ phone:"+352 26 48 33 02" });
   RK.stickyCta({ phone:"+352 26 48 33 02" });
   (function(){
     var K={ fr:"Réserver en ligne", de:"Online reservieren", en:"Book online" };

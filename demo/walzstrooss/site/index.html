@@ -25,7 +25,7 @@
 :root{
   --paper:#f2ede4; --paper2:#e6dcc9; --cream:#f8f4ec; --card:#fffdf8;
   --ink:#1a1a1a; --ink2:#4d473e; --muted:#8f8676;
-  --gold:#c98a2e; --gold2:#96631c; --steel:#5a6470; --steel-d:#2a3038;
+  --gold:#c98a2e; --gold2:#8a5a16; --gold-eye:#8a5a16; --steel:#5a6470; --steel-d:#2a3038;
   --line:#ddd2b8;
   --maxw:1180px; --disp:'Big Shoulders Display',Impact,sans-serif; --body:'Work Sans',system-ui,-apple-system,sans-serif;
   --sh:0 22px 48px rgba(20,18,14,.2); --sh-s:0 10px 24px rgba(20,18,14,.14);
@@ -37,8 +37,8 @@ body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:.92;letter-spacing:.01em;text-transform:uppercase}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:1rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.eyebrow::before{content:'';width:22px;height:3px;background:var(--gold)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:1.22rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-eye)}
+.eyebrow::before{content:'';width:24px;height:3px;background:var(--gold-eye)}
 .blk{padding:clamp(58px,8.5vw,108px) 0}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
 .reveal.in{opacity:1;transform:none}
@@ -89,13 +89,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(242,237,228,.94);backdro
 
 /* ===== MAISON ===== */
 .maison{background:var(--cream)}
-.mgrid{display:grid;grid-template-columns:.6fr 1.4fr;gap:clamp(28px,5vw,64px);align-items:center}
-.mbadge{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:clamp(26px,3vw,38px);background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-s)}
-.mbadge .mark{height:80px;width:80px;color:var(--gold2)}
-.mbadge .est{font-family:var(--disp);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2)}
+.mgrid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(26px,5vw,76px);align-items:start}
 .maison h2{font-size:clamp(32px,4.6vw,52px);margin:14px 0 0;color:var(--ink)}
-.maison p{color:var(--ink2);margin:16px 0 0;max-width:58ch}
-@media(max-width:860px){.mgrid{grid-template-columns:1fr}.mbadge{max-width:280px;margin:0 auto}}
+.maison .mcopy p{color:var(--ink2);margin:0 0 20px;max-width:66ch;font-size:1.02rem}
+.maison .mcopy p:last-child{margin-bottom:0}
+.maison .mrule{width:64px;height:3px;background:var(--gold-eye);margin-top:26px}
+@media(max-width:860px){.mgrid{grid-template-columns:1fr;gap:22px}.maison .mrule{display:none}}
 
 /* ===== TERRACE (dark) ===== */
 .floor{position:relative;overflow:hidden}
@@ -114,8 +113,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(242,237,228,.94);backdro
 .spot-card{display:grid;grid-template-columns:.85fr 1fr .95fr .85fr;grid-template-rows:300px;gap:0;border-radius:16px;overflow:hidden;box-shadow:var(--sh);margin-top:clamp(30px,4vw,50px)}
 .spot-card img{width:100%;height:100%;object-fit:cover;display:block}
 .spot-txt{background:var(--ink);color:#f0e6d3;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;justify-content:center}
-.spot-txt .k{font-family:var(--disp);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-size:.92rem}
-.spot-txt p{margin-top:10px;color:#e2d6bd;max-width:34ch;font-size:.96rem}
+.spot-txt .k{font-family:var(--disp);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#e6c88a;font-size:1.08rem}
+.spot-txt p{margin-top:11px;color:#e6dcc6;max-width:34ch;font-size:1rem;line-height:1.6}
 @media(max-width:760px){.spot-card{grid-template-columns:1fr;grid-template-rows:200px auto 200px 200px}}
 
 /* ===== MENU (editorial, not cards) ===== */
@@ -123,43 +122,46 @@ header{position:sticky;top:0;z-index:60;background:rgba(242,237,228,.94);backdro
 .carte .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
 .carte .head-c .eyebrow{justify-content:center}
 .carte h2{font-size:clamp(32px,4.6vw,50px);margin:12px 0 0}
-.carte .intro{color:var(--ink2);max-width:58ch;margin:14px auto 0;text-align:center}
+.carte .intro{color:var(--ink2);max-width:60ch;margin:14px auto 0;text-align:center;font-size:1.02rem}
 .menu-card{max-width:640px;margin:clamp(32px,4vw,48px) auto 0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(28px,4vw,40px);box-shadow:var(--sh-s)}
-.menu-card .dateline{text-align:center;font-family:var(--disp);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);font-size:.86rem;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:16px}
-.mgroup{margin-bottom:22px}
-.mgroup h3{font-size:1.2rem;color:var(--gold2);margin-bottom:10px}
-.item{display:flex;gap:10px;align-items:baseline;margin:8px 0}
-.item .nm{font-weight:600;color:var(--ink);font-family:var(--body)}
-.item .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:12px}
-.item .pr{font-family:var(--disp);font-weight:700;font-size:1rem;color:var(--gold2);white-space:nowrap}
-.pricenote{margin-top:24px;font-size:.86rem;color:var(--muted);text-align:center}
+.mgroup{margin-bottom:24px}
+.mgroup h3{font-size:1.3rem;color:var(--gold-eye);margin-bottom:10px}
+.item{display:flex;gap:10px;align-items:baseline;margin:9px 0}
+.item .nm{font-weight:500;color:var(--ink);font-family:var(--body);font-size:1.02rem}
+.pricenote{margin-top:24px;font-size:.95rem;color:var(--ink2);text-align:center}
 
 /* ===== VISIT ===== */
 .visit{background:var(--paper)}
 .visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
 .info{margin-top:24px}
-.info .row{padding:15px 0;border-top:1px solid var(--line)}
+.info .row{padding:16px 0;border-top:1px solid var(--line)}
 .info .row:last-child{border-bottom:1px solid var(--line)}
-.info .k{font-family:var(--disp);font-weight:700;font-size:.84rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2)}
-.info .v{margin-top:5px;color:var(--ink)}
+.info .k{font-family:var(--disp);font-weight:700;font-size:.98rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-eye)}
+.info .v{margin-top:6px;color:var(--ink);font-size:1.02rem}
 .info .v a{border-bottom:1px solid var(--line)}
-.visit .cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.info .row.tel .v{margin-top:8px}
+.info .row.tel .v a{font-family:var(--disp);font-weight:800;font-size:clamp(30px,4vw,42px);line-height:1;letter-spacing:.015em;color:var(--ink);border-bottom:0}
+.info .row.tel .v a:hover{color:var(--gold-eye)}
+.info .row.mail .v{font-size:.95rem;color:var(--ink2)}
+.visit .cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
 .visit .cta .btn.g{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.deadsite{margin-top:26px;padding:18px 20px;background:var(--card);border:1px dashed var(--muted);border-radius:12px}
-.deadsite .k{font-family:var(--disp);font-weight:700;font-size:.84rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2)}
-.deadsite p{margin-top:6px;color:var(--ink2);font-size:.92rem}
-.mapcard{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start;min-height:300px}
-.mapcard svg{width:100%;height:100%;display:block;min-height:300px}
-.mapcta{position:absolute;left:18px;bottom:16px;font-family:var(--disp);font-weight:700;font-size:.86rem;color:#fff;background:rgba(23,19,16,.55);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 14px}
+.place{align-self:start;padding-top:4px}
+.place-k{display:block;font-family:var(--disp);font-weight:700;font-size:1.02rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-eye)}
+.place-addr{font-family:var(--disp);font-weight:800;text-transform:uppercase;line-height:.96;letter-spacing:.01em;font-size:clamp(32px,4.6vw,50px);color:var(--ink);margin-top:14px}
+.place-addr span{display:block;font-family:var(--body);font-weight:600;font-size:.3em;letter-spacing:.14em;color:var(--ink2);margin-top:14px}
+.place-note{margin-top:20px;color:var(--ink2);max-width:42ch;font-size:1.02rem}
+.place-link{display:inline-block;margin-top:24px;font-family:var(--disp);font-weight:700;font-size:1.06rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--gold-eye);padding-bottom:5px}
+.place-link:hover{color:var(--gold-eye)}
+@media(max-width:860px){.visit .vgrid2{grid-template-columns:1fr}.place{padding-top:8px}}
 
 /* ===== FOOTER ===== */
-footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;line-height:1.6}
+footer{background:var(--ink);color:#c3b9a6;padding:44px 0 40px;font-size:.94rem;line-height:1.6}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
 .foot-top .bt{font-family:var(--disp);font-weight:800;font-size:1.4rem;color:#f2ece0;display:flex;align-items:center;gap:11px;text-transform:uppercase}
 .foot-top .bt .mark{height:28px;width:28px;color:var(--gold)}
-.disc{margin-top:22px;color:#8e8571;max-width:80ch}
-.madeby{margin-top:14px;color:#e6c88a}
-.madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+.disc{margin-top:22px;color:#b8ae9c;max-width:78ch;font-size:.94rem;line-height:1.62}
+.disc a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.45)}
+.disc a:hover{color:#e6c88a;border-bottom-color:#e6c88a}
 </style>
 </head>
 <body id="top">
@@ -214,13 +216,12 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
   <!-- MAISON -->
   <section class="maison blk" id="maison">
     <div class="wrap mgrid">
-      <div class="mbadge reveal">
-        <svg class="mark" viewBox="0 0 100 100"><use href="#mill"/></svg>
-        <span class="est" data-i18n="m_est">Differdange · BistroBar</span>
-      </div>
       <div class="reveal">
         <span class="eyebrow" data-i18n="m_eyebrow">La maison</span>
         <h2 data-i18n="m_head">Sur la rue du laminoir.</h2>
+        <div class="mrule" aria-hidden="true"></div>
+      </div>
+      <div class="reveal mcopy">
         <p data-i18n="m_p1">« Walzstrooss » — la rue du laminoir — porte le nom du vieux Differdange sidérurgique : la ville qui a longtemps vécu de ses aciéries. La maison en a fait son nom et son enseigne, une cheminée dessinée aux couleurs du pays.</p>
         <p data-i18n="m_p2">On y vient pour un verre en terrasse, un cocktail bien fait, ou un plat de bistrot — une adresse de quartier, sans façon.</p>
       </div>
@@ -252,7 +253,7 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
           <img src="assets/img/planche.jpg" alt="Planche de charcuterie et fromages à partager" />
           <div class="spot-txt">
             <span class="k" data-i18n="c_spot_k">Planches, pâtes &amp; plats du jour</span>
-            <p data-i18n="c_spot_p">Une planche à partager, des pâtes du jour, un plat généreux — la cuisine d'une adresse de quartier, pensée pour accompagner un verre entre amis.</p>
+            <p data-i18n="c_spot_p">Charcuterie et fromages à partager, pâtes du jour au saumon, poisson pané et frites — un aperçu de ce qui sort de la cuisine un soir ordinaire.</p>
           </div>
           <img src="assets/img/pasta.jpg" alt="Pâtes du jour, saumon et crème" />
           <img src="assets/img/fishchips.jpg" alt="Poisson pané et frites, plat généreux" />
@@ -266,11 +267,10 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
     <div class="wrap">
       <div class="head-c reveal">
         <span class="eyebrow" data-i18n="ca_eyebrow">La carte</span>
-        <h2 data-i18n="ca_head">Un exemple de menu du jour.</h2>
-        <p class="intro" data-i18n="ca_intro">La carte change chaque mois — voici un menu déjà servi à la maison, à titre d'exemple. La carte actuelle est à confirmer.</p>
+        <h2 data-i18n="ca_head">Une cuisine du marché, qui change chaque mois.</h2>
+        <p class="intro" data-i18n="ca_intro">La carte suit les saisons et tourne au fil des mois. Voici quelques plats représentatifs de ce qui sort de la cuisine.</p>
       </div>
       <div class="menu-card reveal">
-        <div class="dateline" data-i18n="ca_date">Exemple — semaine du 11 au 14 avril 2023</div>
         <div class="mgroup">
           <h3 data-i18n="g_entrees">Entrées</h3>
           <div class="item"><span class="nm" data-i18n="i_veloute">Velouté de légumes au bouillon de poule</span></div>
@@ -288,13 +288,13 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
           <div class="item"><span class="nm" data-i18n="i_creme">Crème caramel</span></div>
         </div>
         <div class="mgroup" style="margin-bottom:0">
-          <h3 data-i18n="g_prix">Formules (exemple)</h3>
-          <div class="item"><span class="nm" data-i18n="i_p1">Menu complet</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_p2">Entrée + plat ou plat + dessert</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_p3">Plat seul</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <h3 data-i18n="g_prix">Formules</h3>
+          <div class="item"><span class="nm" data-i18n="i_p1">Menu complet</span></div>
+          <div class="item"><span class="nm" data-i18n="i_p2">Entrée + plat ou plat + dessert</span></div>
+          <div class="item"><span class="nm" data-i18n="i_p3">Plat seul</span></div>
         </div>
       </div>
-      <p class="pricenote" data-i18n="ca_pricenote">Exemple d'un menu déjà servi (avril 2023), carte mensuelle — plats et prix actuels à confirmer en salle.</p>
+      <p class="pricenote" data-i18n="ca_pricenote">Plats et prix affichés en salle.</p>
     </div>
   </section>
 
@@ -303,37 +303,22 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
     <div class="wrap vgrid2">
       <div class="reveal">
         <span class="eyebrow" data-i18n="v_eyebrow">Infos pratiques</span>
-        <h2 data-i18n="v_head">51 rue J.-F. Kennedy, Differdange.</h2>
+        <h2 data-i18n="v_head">Passer nous voir.</h2>
         <div class="info">
-          <div class="row"><div class="k" data-i18n="l_addr">Adresse</div><div class="v">51 rue J.-F. Kennedy, L-4599 Differdange</div></div>
-          <div class="row"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+35228999996">28 99 99 96</a></div></div>
-          <div class="row"><div class="k" data-i18n="l_mail">E-mail</div><div class="v"><a href="mailto:walzstrooss2022@gmail.com">walzstrooss2022@gmail.com</a></div></div>
-          <div class="row"><div class="k" data-i18n="l_hours">Horaires</div><div class="v" data-i18n="h_val">Horaires à confirmer</div></div>
+          <div class="row tel"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+35228999996">28 99 99 96</a></div></div>
+          <div class="row mail"><div class="k" data-i18n="l_mail">E-mail</div><div class="v"><a href="mailto:walzstrooss2022@gmail.com">walzstrooss2022@gmail.com</a></div></div>
         </div>
         <div class="cta">
           <a href="tel:+35228999996" class="btn p" data-i18n="v_call">Appeler</a>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=D%27Walzstrooss+51+rue+J-F+Kennedy+Differdange" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
         </div>
-        <div class="deadsite reveal">
-          <span class="k" data-i18n="ds_k">Ancien site</span>
-          <p data-i18n="ds_p">cafe-walzstrooss.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.</p>
-        </div>
       </div>
-      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=D%27Walzstrooss+51+rue+J-F+Kennedy+Differdange" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
-        <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
-          <rect width="400" height="300" fill="#171310"/>
-          <g stroke="#3a332a" stroke-width="10" opacity=".6">
-            <path d="M30 60 H140"/><path d="M220 40 H340"/><path d="M50 230 H160"/><path d="M210 250 H330"/><path d="M60 140 H150"/><path d="M240 150 H360"/>
-          </g>
-          <g transform="translate(200,150)">
-            <circle r="34" fill="rgba(201,138,46,.16)"/>
-            <path d="M0 -22 C12 -22 20 -13 20 -2 C20 12 0 30 0 30 C0 30 -20 12 -20 -2 C-20 -13 -12 -22 0 -22 Z" fill="#c98a2e"/>
-            <circle r="6" fill="#171310"/>
-          </g>
-          <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#d8cbab" letter-spacing="1">RUE J.-F. KENNEDY · DIFFERDANGE</text>
-        </svg>
-        <span class="mapcta" data-i18n="v_dir2">Ouvrir l'itinéraire ↗</span>
-      </a>
+      <div class="place reveal">
+        <span class="place-k" data-i18n="v_place_k">Où nous trouver</span>
+        <p class="place-addr">51, rue J.-F. Kennedy<span>L-4599 Differdange</span></p>
+        <p class="place-note" data-i18n="v_place_note">La terrasse donne directement sur la rue J.-F. Kennedy, entre les façades du vieux Differdange.</p>
+        <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=D%27Walzstrooss+51+rue+J-F+Kennedy+Differdange" target="_blank" rel="noopener" data-i18n="v_dir2">Ouvrir dans Google Maps →</a>
+      </div>
     </div>
   </section>
 </main>
@@ -344,8 +329,7 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
       <span class="bt"><svg class="mark" viewBox="0 0 100 100"><use href="#mill"/></svg>D'Walzstrooss</span>
       <span>51 rue J.-F. Kennedy, L-4599 Differdange · <a href="tel:+35228999996" style="color:#e7dcc3">28 99 99 96</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, votre carte affichée en salle, editus.lu). Logotype recréé d'après votre enseigne. Le menu affiché est un exemple déjà servi (avril 2023) — carte et prix actuels à confirmer en salle. Horaires à confirmer.</p>
-    <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
+    <p class="disc"><span data-i18n="foot_disc">Aperçu de site composé par Webwerk à partir de photos et d'informations publiques — ce n'est pas le site officiel de la maison.</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">webwerk.lu</a></p>
   </div>
 </footer>
 
@@ -356,81 +340,75 @@ const I18N = {
   hero_tag:"BistroBar · Differdange",
   hero_sub:"Bar, terrasse et cuisine bistrot au cœur de Differdange — sur la Walzstrooss, la rue du laminoir, là où l'acier a fait la ville.",
   hero_cta1:"Voir la carte", hero_cta2:"Appeler", hero_chip:"51 rue J.-F. Kennedy, Differdange",
-  m_eyebrow:"La maison", m_est:"Differdange · BistroBar", m_head:"Sur la rue du laminoir.",
+  m_eyebrow:"La maison", m_head:"Sur la rue du laminoir.",
   m_p1:"« Walzstrooss » — la rue du laminoir — porte le nom du vieux Differdange sidérurgique : la ville qui a longtemps vécu de ses aciéries. La maison en a fait son nom et son enseigne, une cheminée dessinée aux couleurs du pays.",
   m_p2:"On y vient pour un verre en terrasse, un cocktail bien fait, ou un plat de bistrot — une adresse de quartier, sans façon.",
   t_eyebrow:"La terrasse", t_head:"Une Battin, à l'ombre.",
   t_p:"La terrasse donne sur la rue J.-F. Kennedy — un verre de Battin, une bière luxembourgeoise servie depuis 1937, ou un cocktail bien fait (Gin Mum, Jack Daniels Honey), entre les façades du vieux Differdange.",
   c_eyebrow:"En cuisine", c_head:"De la cuisine bistrot, sans chichi.",
   c_p:"Planches à partager, pâtes du jour, plats généreux — une cuisine simple, pensée pour accompagner un verre entre amis.",
-  c_spot_k:"Planches, pâtes & plats du jour", c_spot_p:"Une planche à partager, des pâtes du jour, un plat généreux — la cuisine d'une adresse de quartier, pensée pour accompagner un verre entre amis.",
-  ca_eyebrow:"La carte", ca_head:"Un exemple de menu du jour.", ca_intro:"La carte change chaque mois — voici un menu déjà servi à la maison, à titre d'exemple. La carte actuelle est à confirmer.",
-  ca_date:"Exemple — semaine du 11 au 14 avril 2023",
+  c_spot_k:"Planches, pâtes & plats du jour", c_spot_p:"Charcuterie et fromages à partager, pâtes du jour au saumon, poisson pané et frites — un aperçu de ce qui sort de la cuisine un soir ordinaire.",
+  ca_eyebrow:"La carte", ca_head:"Une cuisine du marché, qui change chaque mois.", ca_intro:"La carte suit les saisons et tourne au fil des mois. Voici quelques plats représentatifs de ce qui sort de la cuisine.",
   g_entrees:"Entrées", i_veloute:"Velouté de légumes au bouillon de poule", i_rillettes:"Rillettes de truite à l'estragon et moutarde",
   g_plats:"Plats", i_spaghetti:"Spaghettis bolognaise", i_cabillaud:"Filet de cabillaud, sauce gingembre citronnée, riz trois couleurs", i_omelette:"Omelette aux herbes, purée de carotte, salade verte",
   g_desserts:"Desserts", i_cake:"Cake aux ananas", i_creme:"Crème caramel",
-  g_prix:"Formules (exemple)", i_p1:"Menu complet", i_p2:"Entrée + plat ou plat + dessert", i_p3:"Plat seul", ac:"à conf.",
-  ca_pricenote:"Exemple d'un menu déjà servi (avril 2023), carte mensuelle — plats et prix actuels à confirmer en salle.",
-  v_eyebrow:"Infos pratiques", v_head:"51 rue J.-F. Kennedy, Differdange.",
-  l_addr:"Adresse", l_tel:"Téléphone", l_mail:"E-mail", l_hours:"Horaires", h_val:"Horaires à confirmer",
-  v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  ds_k:"Ancien site", ds_p:"cafe-walzstrooss.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.",
-  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, votre carte affichée en salle, editus.lu). Logotype recréé d'après votre enseigne. Le menu affiché est un exemple déjà servi (avril 2023) — carte et prix actuels à confirmer en salle. Horaires à confirmer.",
-  foot_made:"Un aperçu"
+  g_prix:"Formules", i_p1:"Menu complet", i_p2:"Entrée + plat ou plat + dessert", i_p3:"Plat seul",
+  ca_pricenote:"Plats et prix affichés en salle.",
+  v_eyebrow:"Infos pratiques", v_head:"Passer nous voir.",
+  l_tel:"Téléphone", l_mail:"E-mail",
+  v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir dans Google Maps →",
+  v_place_k:"Où nous trouver", v_place_note:"La terrasse donne directement sur la rue J.-F. Kennedy, entre les façades du vieux Differdange.",
+  foot_disc:"Aperçu de site composé par Webwerk à partir de photos et d'informations publiques — ce n'est pas le site officiel de la maison."
  },
  de:{
   brand_sub:"Differdingen · BistroBar", n_maison:"Das Haus", n_terrasse:"Die Terrasse", n_carte:"Die Karte", n_visit:"Infos",
   hero_tag:"BistroBar · Differdingen",
   hero_sub:"Bar, Terrasse und Bistroküche mitten in Differdingen — an der Walzstrooss, der Straße des Walzwerks, dort wo der Stahl die Stadt geprägt hat.",
   hero_cta1:"Zur Karte", hero_cta2:"Anrufen", hero_chip:"51 rue J.-F. Kennedy, Differdingen",
-  m_eyebrow:"Das Haus", m_est:"Differdingen · BistroBar", m_head:"An der Straße des Walzwerks.",
+  m_eyebrow:"Das Haus", m_head:"An der Straße des Walzwerks.",
   m_p1:"„Walzstrooss“ — die Straße des Walzwerks — trägt den Namen des alten, stahlgeprägten Differdingen: der Stadt, die lange von ihren Hütten lebte. Das Haus hat daraus seinen Namen und sein Zeichen gemacht — ein Schornstein in den Farben des Landes.",
   m_p2:"Man kommt hierher für ein Glas auf der Terrasse, einen guten Cocktail oder ein Bistrogericht — eine Adresse aus der Nachbarschaft, ohne viel Aufhebens.",
   t_eyebrow:"Die Terrasse", t_head:"Eine Battin, im Schatten.",
   t_p:"Die Terrasse liegt an der Rue J.-F. Kennedy — ein Glas Battin, ein luxemburgisches Bier seit 1937, oder ein gut gemachter Cocktail (Gin Mum, Jack Daniels Honey), zwischen den Fassaden des alten Differdingen.",
   c_eyebrow:"In der Küche", c_head:"Bistroküche, ohne viel Federlesens.",
   c_p:"Platten zum Teilen, Pasta des Tages, großzügige Gerichte — eine einfache Küche, gedacht als Begleitung zu einem Glas unter Freunden.",
-  c_spot_k:"Platten, Pasta & Tagesgerichte", c_spot_p:"Eine Platte zum Teilen, Pasta des Tages, ein großzügiges Gericht — die Küche einer Quartiersadresse, gedacht als Begleitung zu einem Glas unter Freunden.",
-  ca_eyebrow:"Die Karte", ca_head:"Ein Beispiel für ein Tagesmenü.", ca_intro:"Die Karte wechselt jeden Monat — hier ein Menü, das im Haus bereits serviert wurde, als Beispiel. Die aktuelle Karte ist zu bestätigen.",
-  ca_date:"Beispiel — Woche vom 11. bis 14. April 2023",
+  c_spot_k:"Platten, Pasta & Tagesgerichte", c_spot_p:"Wurst und Käse zum Teilen, Pasta des Tages mit Lachs, paniertes Fischfilet mit Pommes — ein Einblick, was an einem gewöhnlichen Abend aus der Küche kommt.",
+  ca_eyebrow:"Die Karte", ca_head:"Marktküche, die jeden Monat wechselt.", ca_intro:"Die Karte folgt den Jahreszeiten und wechselt von Monat zu Monat. Hier einige Gerichte, die zeigen, was aus der Küche kommt.",
   g_entrees:"Vorspeisen", i_veloute:"Gemüsecremesuppe mit Hühnerbrühe", i_rillettes:"Forellenrillette mit Estragon und Senf",
   g_plats:"Hauptgerichte", i_spaghetti:"Spaghetti Bolognese", i_cabillaud:"Kabeljaufilet mit Ingwer-Zitronen-Sauce, dreifarbigem Reis", i_omelette:"Kräuteromelette mit Karottenpüree und grünem Salat",
   g_desserts:"Desserts", i_cake:"Ananaskuchen", i_creme:"Crème Caramel",
-  g_prix:"Menüs (Beispiel)", i_p1:"Komplettmenü", i_p2:"Vorspeise + Hauptgericht oder Hauptgericht + Dessert", i_p3:"Nur Hauptgericht", ac:"auf Anfrage",
-  ca_pricenote:"Beispiel eines bereits servierten Menüs (April 2023), monatliche Karte — aktuelle Gerichte und Preise im Restaurant zu bestätigen.",
-  v_eyebrow:"Praktische Infos", v_head:"51 rue J.-F. Kennedy, Differdingen.",
-  l_addr:"Adresse", l_tel:"Telefon", l_mail:"E-Mail", l_hours:"Öffnungszeiten", h_val:"Öffnungszeiten zu bestätigen",
-  v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  ds_k:"Alte Webseite", ds_p:"cafe-walzstrooss.lu antwortet nicht mehr — dies ist ein Vorschlag für eine neue Webseite, aus Ihren eigenen Fotos und Ihrer Karte.",
-  foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (Google Maps, Ihre im Lokal ausgehängte Karte, editus.lu). Logo nach Ihrem Schild neu gestaltet. Die gezeigte Karte ist ein bereits serviertes Beispiel (April 2023) — aktuelle Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten zu bestätigen.",
-  foot_made:"Eine Vorschau von"
+  g_prix:"Menüs", i_p1:"Komplettmenü", i_p2:"Vorspeise + Hauptgericht oder Hauptgericht + Dessert", i_p3:"Nur Hauptgericht",
+  ca_pricenote:"Gerichte und Preise im Lokal ausgehängt.",
+  v_eyebrow:"Praktische Infos", v_head:"Kommen Sie vorbei.",
+  l_tel:"Telefon", l_mail:"E-Mail",
+  v_call:"Anrufen", v_dir:"Route", v_dir2:"In Google Maps öffnen →",
+  v_place_k:"So finden Sie uns", v_place_note:"Die Terrasse liegt direkt an der Rue J.-F. Kennedy, zwischen den Fassaden des alten Differdingen.",
+  foot_disc:"Website-Vorschau, von Webwerk aus öffentlichen Fotos und Informationen erstellt — dies ist nicht die offizielle Website des Hauses."
  },
  en:{
   brand_sub:"Differdange · BistroBar", n_maison:"The house", n_terrasse:"The terrace", n_carte:"The menu", n_visit:"Find us",
   hero_tag:"BistroBar · Differdange",
   hero_sub:"Bar, terrace and bistro cooking in the heart of Differdange — on the Walzstrooss, the rolling-mill road, where steel once built the town.",
   hero_cta1:"See the menu", hero_cta2:"Call", hero_chip:"51 rue J.-F. Kennedy, Differdange",
-  m_eyebrow:"The house", m_est:"Differdange · BistroBar", m_head:"On the rolling-mill road.",
+  m_eyebrow:"The house", m_head:"On the rolling-mill road.",
   m_p1:"\"Walzstrooss\" — the rolling-mill road — carries the name of old, steel-built Differdange: the town that long lived off its steelworks. The house made it their name and their sign, a chimney drawn in the colours of the country.",
   m_p2:"People come here for a drink on the terrace, a well-made cocktail, or a bistro dish — a neighbourhood address, no fuss.",
   t_eyebrow:"The terrace", t_head:"A Battin, in the shade.",
   t_p:"The terrace opens onto rue J.-F. Kennedy — a glass of Battin, a Luxembourg beer served since 1937, or a well-made cocktail (Gin Mum, Jack Daniels Honey), among the facades of old Differdange.",
   c_eyebrow:"In the kitchen", c_head:"Bistro cooking, no fuss.",
   c_p:"Sharing boards, pasta of the day, generous dishes — simple cooking, built to go with a drink among friends.",
-  c_spot_k:"Boards, pasta & daily specials", c_spot_p:"A sharing board, pasta of the day, a generous plate — the cooking of a neighbourhood address, meant to go alongside a drink among friends.",
-  ca_eyebrow:"The menu", ca_head:"An example of a daily menu.", ca_intro:"The menu changes every month — here is one already served at the house, as an example. The current menu is to be confirmed.",
-  ca_date:"Example — week of 11–14 April 2023",
+  c_spot_k:"Boards, pasta & daily specials", c_spot_p:"Charcuterie and cheese to share, salmon pasta of the day, breaded fish and fries — a look at what actually comes out of the kitchen on any given night.",
+  ca_eyebrow:"The menu", ca_head:"Market cooking, changing every month.", ca_intro:"The menu follows the seasons and turns over month by month. Here are a few dishes that show what comes out of the kitchen.",
   g_entrees:"Starters", i_veloute:"Vegetable velouté with chicken broth", i_rillettes:"Trout rillettes with tarragon and mustard",
   g_plats:"Mains", i_spaghetti:"Spaghetti bolognese", i_cabillaud:"Cod filet, lemon-ginger sauce, three-colour rice", i_omelette:"Herb omelette, carrot purée, green salad",
   g_desserts:"Desserts", i_cake:"Pineapple cake", i_creme:"Crème caramel",
-  g_prix:"Set menus (example)", i_p1:"Full menu", i_p2:"Starter + main or main + dessert", i_p3:"Main only", ac:"tbc",
-  ca_pricenote:"Example of a menu already served (April 2023), monthly changing — current dishes and prices to be confirmed in-house.",
-  v_eyebrow:"Find us", v_head:"51 rue J.-F. Kennedy, Differdange.",
-  l_addr:"Address", l_tel:"Phone", l_mail:"Email", l_hours:"Hours", h_val:"Hours to be confirmed",
-  v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
-  ds_k:"Old website", ds_p:"cafe-walzstrooss.lu no longer responds — this is a proposal for a new site, built from your own photos and menu.",
-  foot_disc:"Demonstration preview composed by Webwerk from public photos and information (Google Maps, your own in-house menu, editus.lu). Logo redrawn from your own sign. The menu shown is an example already served (April 2023) — current menu and prices to be confirmed in-house. Hours to be confirmed.",
-  foot_made:"A preview by"
+  g_prix:"Set menus", i_p1:"Full menu", i_p2:"Starter + main or main + dessert", i_p3:"Main only",
+  ca_pricenote:"Dishes and prices posted in-house.",
+  v_eyebrow:"Find us", v_head:"Come and see us.",
+  l_tel:"Phone", l_mail:"Email",
+  v_call:"Call", v_dir:"Directions", v_dir2:"Open in Google Maps →",
+  v_place_k:"Where to find us", v_place_note:"The terrace opens straight onto rue J.-F. Kennedy, among the facades of old Differdange.",
+  foot_disc:"Site preview composed by Webwerk from public photos and information — this is not the venue's official website."
  }
 };
 function applyLang(l){

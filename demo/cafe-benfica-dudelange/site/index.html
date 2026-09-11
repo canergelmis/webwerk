@@ -166,9 +166,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(247,244,238,.94);backdro
 .visit .cta .btn.g{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .pay{margin-top:22px;display:flex;flex-wrap:wrap;gap:9px}
 .pay span{font-family:var(--body);font-weight:700;font-size:.76rem;letter-spacing:.03em;text-transform:uppercase;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 13px;color:var(--ink2)}
-.deadsite{margin-top:24px;padding:18px 20px;background:var(--card);border:1px dashed var(--muted);border-radius:12px}
-.deadsite .k{font-family:var(--disp);font-weight:400;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--red2)}
-.deadsite p{margin-top:6px;color:var(--ink2);font-size:.9rem}
 .mapcard{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start;min-height:300px}
 .mapcard svg{width:100%;height:100%;display:block;min-height:300px}
 .mapcta{position:absolute;left:18px;bottom:16px;font-family:var(--disp);font-weight:400;font-size:.84rem;color:#fff;background:rgba(28,20,16,.6);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:8px 14px}
@@ -294,14 +291,14 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
       <div class="head-c reveal">
         <span class="eyebrow" data-i18n="ca_eyebrow">La carte</span>
         <h2 data-i18n="ca_head">Cuisine portugaise, portions généreuses.</h2>
-        <p class="intro" data-i18n="ca_intro">Les plats et prix ci-dessous sont recensés à partir d'annuaires publics (gastronomie.lu, RestaurantGuru) — à confirmer en salle, la carte réelle n'a pas encore été partagée par l'établissement.</p>
+        <p class="intro" data-i18n="ca_intro">Carte complète et tarifs disponibles sur place.</p>
       </div>
       <div class="cwrap">
         <div class="menu-card reveal">
           <div class="dateline" data-i18n="ca_date">Buffet &amp; à la carte</div>
           <div class="mgroup">
             <h3 data-i18n="g_buffet">Buffet de midi (lun.–sam., 12h–14h)</h3>
-            <div class="item"><span class="nm" data-i18n="i_buffet">Buffet froid &amp; chaud, dessert compris</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm" data-i18n="i_buffet">Buffet froid &amp; chaud, dessert compris</span></div>
           </div>
           <div class="mgroup">
             <h3 data-i18n="g_plats">Spécialités portugaises</h3>
@@ -323,7 +320,6 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
           <img src="assets/img/food-gambas.jpg" alt="Pâtes aux gambas et frites" />
         </div>
       </div>
-      <p class="pricenote" data-i18n="ca_pricenote">Prix relevés sur deux annuaires publics indépendants — non confirmés directement par l'établissement. Carte et prix à confirmer en salle.</p>
     </div>
   </section>
 
@@ -368,10 +364,6 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
         <div class="cta">
           <a href="tel:+352518255" class="btn p" data-i18n="v_call">Appeler</a>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Benfica+179+rue+de+la+Lib%C3%A9ration+Dudelange" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
-        </div>
-        <div class="deadsite reveal">
-          <span class="k" data-i18n="ds_k">Ancien site</span>
-          <p data-i18n="ds_p">cafe-benfica.lu ne répond plus (erreur 410) — le café n'a pas de site à lui aujourd'hui, seulement Facebook. Ceci est une proposition de nouveau site, à partir de vos photos.</p>
         </div>
       </div>
       <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Benfica+179+rue+de+la+Lib%C3%A9ration+Dudelange" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
@@ -424,12 +416,11 @@ const I18N = {
   d2_p:"Carte à la carte le soir et le week-end, grande salle pour mariages et banquets, musique live et animations le week-end — la maison devient salle de fête sans changer d'adresse.",
   d2_t1:"Salle de banquet", d2_t2:"Mariages", d2_t3:"Musique live",
   ca_eyebrow:"La carte", ca_head:"Cuisine portugaise, portions généreuses.",
-  ca_intro:"Les plats et prix ci-dessous sont recensés à partir d'annuaires publics (gastronomie.lu, RestaurantGuru) — à confirmer en salle, la carte réelle n'a pas encore été partagée par l'établissement.",
+  ca_intro:"Carte complète et tarifs disponibles sur place.",
   ca_date:"Buffet & à la carte",
   g_buffet:"Buffet de midi (lun.–sam., 12h–14h)", i_buffet:"Buffet froid & chaud, dessert compris",
   g_plats:"Spécialités portugaises", i_bacalhau:"Bacalhau (morue)", i_cozido:"Cozido à Portuguesa (viandes & légumes bouillis)", i_cataplana:"Cataplana de fruits de mer", i_porco:"Porco preto (porc ibérique noir)", i_prego:"Prego (sandwich à la viande)", i_gambas:"Pâtes aux gambas",
   g_boissons:"Boissons", i_vinho:"Vinho Verde, vins portugais", i_bieres:"Super Bock, Bofferding",
-  ca_pricenote:"Prix relevés sur deux annuaires publics indépendants — non confirmés directement par l'établissement. Carte et prix à confirmer en salle.",
   ac:"à conf.",
   do_eyebrow:"Desserts & boissons", do_head:"Pudim, bolo et une pression locale.",
   do_bolo:"Bolo maison", do_pudim:"Pudim", do_biere:"Bofferding pression",
@@ -439,7 +430,6 @@ const I18N = {
   h_note:"Horaires relevés sur des annuaires publics, qui ne s'accordent pas tous sur l'heure de fermeture en soirée — à confirmer avec l'établissement.",
   p_1:"Ticket Restaurant", p_2:"Chèque Repas", p_3:"Visa / Mastercard", p_4:"Parking gratuit", p_5:"Accès fauteuil roulant",
   v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  ds_k:"Ancien site", ds_p:"cafe-benfica.lu ne répond plus (erreur 410) — le café n'a pas de site à lui aujourd'hui, seulement Facebook. Ceci est une proposition de nouveau site, à partir de vos photos.",
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (gastronomie.lu, editus.lu, RestaurantGuru, resto.lu, Facebook). Emblème redessiné pour cette maison, sans affiliation officielle avec le Sport Lisboa e Benfica. Carte, prix et horaires de service à confirmer en salle.",
   foot_made:"Un aperçu"
  },
@@ -461,12 +451,11 @@ const I18N = {
   d2_p:"Abends und am Wochenende à la carte, ein großer Saal für Hochzeiten und Bankette, Livemusik und Unterhaltung am Wochenende — das Haus wird zum Festsaal, ohne die Adresse zu wechseln.",
   d2_t1:"Bankettsaal", d2_t2:"Hochzeiten", d2_t3:"Livemusik",
   ca_eyebrow:"Die Karte", ca_head:"Portugiesische Küche, großzügige Portionen.",
-  ca_intro:"Die untenstehenden Gerichte und Preise stammen aus öffentlichen Verzeichnissen (gastronomie.lu, RestaurantGuru) — im Restaurant zu bestätigen, die tatsächliche Karte wurde vom Betrieb noch nicht mitgeteilt.",
+  ca_intro:"Vollständige Karte und Preise vor Ort erhältlich.",
   ca_date:"Buffet & à la carte",
   g_buffet:"Mittagsbuffet (Mo.–Sa., 12–14 Uhr)", i_buffet:"Kaltes & warmes Buffet, Dessert inklusive",
   g_plats:"Portugiesische Spezialitäten", i_bacalhau:"Bacalhau (Kabeljau)", i_cozido:"Cozido à Portuguesa (gekochtes Fleisch & Gemüse)", i_cataplana:"Cataplana mit Meeresfrüchten", i_porco:"Porco preto (iberisches Schwarzschwein)", i_prego:"Prego (Fleisch-Sandwich)", i_gambas:"Nudeln mit Garnelen",
   g_boissons:"Getränke", i_vinho:"Vinho Verde, portugiesische Weine", i_bieres:"Super Bock, Bofferding",
-  ca_pricenote:"Preise aus zwei unabhängigen öffentlichen Verzeichnissen — nicht direkt vom Betrieb bestätigt. Karte und Preise im Restaurant zu bestätigen.",
   ac:"auf Anfrage",
   do_eyebrow:"Desserts & Getränke", do_head:"Pudim, Bolo und ein lokales Bier vom Fass.",
   do_bolo:"Hausgemachtes Bolo", do_pudim:"Pudim", do_biere:"Bofferding vom Fass",
@@ -476,7 +465,6 @@ const I18N = {
   h_note:"Öffnungszeiten aus öffentlichen Verzeichnissen — diese stimmen nicht immer bei der abendlichen Schließzeit überein, im Restaurant zu bestätigen.",
   p_1:"Ticket Restaurant", p_2:"Chèque Repas", p_3:"Visa / Mastercard", p_4:"Kostenlose Parkplätze", p_5:"Rollstuhlzugang",
   v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  ds_k:"Alte Webseite", ds_p:"cafe-benfica.lu antwortet nicht mehr (Fehler 410) — das Café hat derzeit keine eigene Webseite, nur Facebook. Dies ist ein Vorschlag für eine neue Webseite, aus Ihren eigenen Fotos.",
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (gastronomie.lu, editus.lu, RestaurantGuru, resto.lu, Facebook). Emblem für dieses Haus neu gestaltet, ohne offizielle Verbindung zu Sport Lisboa e Benfica. Karte, Preise und Öffnungszeiten im Restaurant zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
@@ -498,12 +486,11 @@ const I18N = {
   d2_p:"An à la carte menu in the evenings and at weekends, a large room for weddings and banquets, live music and entertainment at weekends — the house becomes a party hall without changing address.",
   d2_t1:"Banquet room", d2_t2:"Weddings", d2_t3:"Live music",
   ca_eyebrow:"The menu", ca_head:"Portuguese cooking, generous portions.",
-  ca_intro:"The dishes and prices below are compiled from public directories (gastronomie.lu, RestaurantGuru) — to be confirmed in person, the actual menu has not yet been shared by the venue.",
+  ca_intro:"Full menu and pricing available in-house.",
   ca_date:"Buffet & à la carte",
   g_buffet:"Midday buffet (Mon.–Sat., 12–2pm)", i_buffet:"Cold & hot buffet, dessert included",
   g_plats:"Portuguese specialities", i_bacalhau:"Bacalhau (salt cod)", i_cozido:"Cozido à Portuguesa (boiled meats & vegetables)", i_cataplana:"Seafood cataplana", i_porco:"Porco preto (Iberian black pork)", i_prego:"Prego (steak sandwich)", i_gambas:"Shrimp pasta",
   g_boissons:"Drinks", i_vinho:"Vinho Verde, Portuguese wines", i_bieres:"Super Bock, Bofferding",
-  ca_pricenote:"Prices recorded from two independent public directories — not directly confirmed by the venue. Menu and prices to be confirmed in person.",
   ac:"tbc",
   do_eyebrow:"Desserts & drinks", do_head:"Pudim, bolo and a local beer on tap.",
   do_bolo:"House bolo", do_pudim:"Pudim", do_biere:"Bofferding on tap",
@@ -513,7 +500,6 @@ const I18N = {
   h_note:"Hours recorded from public directories, which don't all agree on the evening closing time — to confirm with the venue.",
   p_1:"Ticket Restaurant", p_2:"Luncheon vouchers", p_3:"Visa / Mastercard", p_4:"Free parking", p_5:"Wheelchair access",
   v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
-  ds_k:"Old website", ds_p:"cafe-benfica.lu no longer responds (error 410) — the café has no own website today, only Facebook. This is a proposal for a new site, built from your own photos.",
   foot_disc:"Demonstration preview composed by Webwerk from public photos and information (gastronomie.lu, editus.lu, RestaurantGuru, resto.lu, Facebook). Emblem redrawn for this house, with no official affiliation to Sport Lisboa e Benfica. Menu, prices and service hours to be confirmed in person.",
   foot_made:"A preview by"
  }

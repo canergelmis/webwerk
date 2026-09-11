@@ -52,7 +52,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(250,243,228,.94);backdro
 .brand{display:flex;align-items:center;gap:11px;color:var(--ink)}
 .brand .chop{font-size:19px}
 .brand .bt{font-family:var(--serif);font-weight:400;font-size:1.36rem;letter-spacing:.01em;line-height:.86}
-.brand .bt small{display:block;font-family:var(--hanzi);font-weight:400;font-size:.66rem;letter-spacing:.16em;color:var(--muted);margin-top:4px}
+.brand .bt small{display:block;font-family:var(--hanzi);font-weight:400;font-size:.66rem;letter-spacing:.08em;color:var(--muted);margin-top:4px;white-space:nowrap}
 .navright{display:flex;align-items:center;gap:18px}
 .menu{display:flex;align-items:center;gap:26px}
 .menu a{font-family:var(--sans);font-weight:600;font-size:.92rem;letter-spacing:.01em;color:var(--ink2)}
@@ -61,13 +61,65 @@ header{position:sticky;top:0;z-index:60;background:rgba(250,243,228,.94);backdro
 .langs button{font-family:var(--sans);font-weight:700;font-size:.7rem;border:0;background:transparent;color:var(--ink2);padding:5px 10px;border-radius:999px;cursor:pointer}
 .langs button.on{background:var(--steel);color:#fff}
 .burger{display:none;background:transparent;border:0;color:var(--ink);cursor:pointer;padding:6px}
-@media(max-width:860px){
-  .menu{position:fixed;inset:74px 0 auto 0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--paper-line);padding:6px 0;transform:translateY(-140%);transition:transform .32s ease;box-shadow:var(--sh-s)}
-  .menu.open{transform:none}
-  .menu a{padding:15px clamp(20px,5vw,46px);width:100%;border-top:1px solid var(--paper-line)}
-  .burger{display:block}
+/* overlay chrome: present in the DOM at every width, shown only on mobile */
+.m-top,.m-langs,.callicon{display:none}
+
+@media(max-width:768px){
+  /* ROOT CAUSE of the old overlap bug: header carries backdrop-filter, which
+     makes it the containing block for its position:fixed descendants - so the
+     nav panel's inset resolved against the 57px header, not the viewport, and
+     it hung inline under the bar instead of covering the screen. Drop the
+     blur on mobile (solid ground instead) so the overlay can be full-screen. */
+  header{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--cream)}
+
+  /* One compact row: wordmark left, call + hamburger right. */
+  .nav{height:56px;gap:8px}
+  header .brand{min-height:48px}
+  .brand .chop{font-size:17px}
+  .brand .bt{font-size:1.05rem;line-height:1}
+  header .brand .bt small{display:none}
+  .hdr-langs{display:none}          /* the language switch lives in the overlay */
+  .navright{gap:8px}
+  .burger{display:block;min-width:48px;min-height:48px}
+  .callicon{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:48px;min-height:48px;border-radius:10px;
+    background:var(--steel);color:#fff
+  }
+
+  /* The nav panel is a FULL-SCREEN OVERLAY above the header - never an inline
+     strip hanging in flow, and never hidden by a transform alone (anything
+     that neutralises transforms used to reveal it on top of the page copy). */
+  .menu{
+    position:fixed;inset:0;z-index:200;
+    display:flex;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--cream);padding:0;overflow-y:auto;
+    transform:none;
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .2s ease,visibility .2s ease
+  }
+  .menu.open{opacity:1;visibility:visible;pointer-events:auto}
+  .m-top{
+    display:flex;align-items:center;justify-content:space-between;
+    height:56px;padding:0 clamp(20px,5vw,46px);border-bottom:1px solid var(--paper-line)
+  }
+  .m-title{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
+  .m-close{
+    background:transparent;border:0;color:var(--ink);font-size:20px;line-height:1;
+    min-width:48px;min-height:48px;cursor:pointer
+  }
+  .menu a{
+    display:flex;align-items:center;min-height:58px;
+    padding:16px clamp(20px,5vw,46px);width:100%;
+    border-bottom:1px solid var(--paper-line);font-size:1.1rem;color:var(--ink)
+  }
+  .m-langs{
+    display:flex;gap:4px;align-self:flex-start;
+    margin:22px clamp(20px,5vw,46px);background:var(--cream2);border-radius:999px;padding:4px
+  }
+  .m-langs button{min-height:44px;padding:0 18px;font-size:.82rem}
 }
-@media(max-width:520px){.brand .bt{font-size:1.12rem}.navright{gap:9px}}
+@media(max-width:430px){.brand .bt{font-size:.98rem}}
 
 /* HERO */
 .hero{position:relative;min-height:clamp(580px,88vh,820px);display:flex;align-items:flex-end;color:#fff;background:#1c1108;overflow:hidden}
@@ -81,7 +133,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(250,243,228,.94);backdro
 .hero .tag{font-family:var(--sans);font-weight:600;font-size:clamp(15px,1.8vw,18px);letter-spacing:.02em;color:#eddcb6;margin:14px 0 0;max-width:54ch;line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.4)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;align-items:center}
 .hero .chip{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:var(--sans);font-size:.86rem;color:#e6d9bd}
-.btn{font-family:var(--sans);font-weight:700;font-size:.96rem;letter-spacing:.01em;border:0;border-radius:8px;padding:13px 24px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn{font-family:var(--sans);font-weight:700;font-size:.96rem;letter-spacing:.01em;border:0;border-radius:8px;padding:13px 24px;min-height:48px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
 .btn.p{background:var(--steel);color:#fff}
 .btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(31,78,121,.42)}
 .btn.g{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5)}
@@ -144,7 +196,19 @@ header{position:sticky;top:0;z-index:60;background:rgba(250,243,228,.94);backdro
 .gitem.g4{grid-column:span 2;grid-row:span 1}
 .gitem.g5{grid-column:span 2;grid-row:span 1}
 .gitem.g6{grid-column:span 2;grid-row:span 1}
-@media(max-width:760px){.ggrid{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}.gitem.g1,.gitem.g2,.gitem.g3,.gitem.g4,.gitem.g5,.gitem.g6{grid-column:span 1;grid-row:span 1}.gitem.g1{grid-column:span 2;grid-row:span 2}}
+/* On a phone the desktop mosaic collapses to ~120px tiles with 8px captions
+   burned over dark food - unreadable. Stack it, caption below the photo. */
+@media(max-width:760px){
+  .ggrid{display:flex;flex-direction:column;gap:24px;grid-template-columns:none;grid-auto-rows:auto}
+  .gitem{overflow:visible;border-radius:0}
+  .gitem img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+  .gitem:hover img{transform:none}
+  .gitem .cap{
+    position:static;opacity:1;background:none;
+    color:var(--ink2);font-size:13px;font-weight:600;line-height:1.45;
+    padding:9px 2px 0
+  }
+}
 
 /* VISIT */
 .visit{background:var(--porcelain);color:#eaf2f7}
@@ -158,7 +222,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(250,243,228,.94);backdro
 .info-row:last-child{border-bottom:0}
 .info-row .l{font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel-lt);width:110px;flex-shrink:0;padding-top:2px}
 .info-row .v{font-size:1rem;color:#f2f7fa}
-.info-row .v a{border-bottom:1px solid rgba(242,247,250,.4)}
+.info-row .v a{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid rgba(242,247,250,.4)}
 .tag-ac{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;background:rgba(31,78,121,.10);color:var(--steel);border:1px solid rgba(31,78,121,.35)}
 .tag-ac.on-dark{background:rgba(255,255,255,.14);color:#eaf2f7;border-color:rgba(255,255,255,.35)}
 .vcard{background:rgba(255,255,255,.06);border:1px solid rgba(234,242,247,.2);border-radius:16px;padding:clamp(24px,3vw,34px)}
@@ -167,11 +231,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(250,243,228,.94);backdro
 /* FOOTER */
 footer{background:#160c05;color:#d9c7a3;padding:clamp(38px,5vw,56px) 0 26px}
 .fgrid2{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
-footer .brand{color:#f3e6cf}
+footer .brand{color:#f3e6cf;min-height:44px}
 footer .brand .bt small{color:#a6906f}
-.disc{margin-top:20px;color:#a6906f;max-width:80ch;font-size:.86rem;line-height:1.7}
+/* The single disclosure. Small, but it has to be readable: ~9:1 on #160c05. */
+.disc{margin-top:20px;color:#c4ae8b;max-width:80ch;font-size:.92rem;line-height:1.7}
 .madeby{margin-top:14px;color:var(--steel-lt);font-size:.86rem}
-.madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+.madeby a{display:inline-flex;align-items:center;min-height:44px;color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
 </style>
 </head>
 <body id="top">
@@ -183,16 +248,24 @@ footer .brand .bt small{color:#a6906f}
       <span class="bt">Bak Gi Bo<small data-i18n="brand_sub">北之寳 · Luxembourg-Gare</small></span>
     </a>
     <div class="navright">
-      <nav class="menu" id="menu">
+      <nav class="menu" id="menu" aria-label="Navigation">
+        <div class="m-top">
+          <span class="m-title" data-i18n="n_menu">Menu</span>
+          <button class="m-close" id="mclose" aria-label="Fermer">&#10005;</button>
+        </div>
         <a href="#nom" data-i18n="n_nom">Le nom</a>
         <a href="#carte" data-i18n="n_carte">La carte</a>
         <a href="#photos" data-i18n="n_photos">Photos</a>
         <a href="#visit" data-i18n="n_visit">Infos</a>
+        <div class="langs m-langs" role="group" aria-label="Langue">
+          <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+        </div>
       </nav>
-      <div class="langs" role="group" aria-label="Langue">
+      <div class="langs hdr-langs" role="group" aria-label="Langue">
         <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
       </div>
-      <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 32 22" width="22" height="16"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M1 2H31M1 11H31M1 20H31"/></g></svg></button>
+      <a class="callicon" href="tel:+35226845468" aria-label="Appeler Bak Gi Bo"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1z"/></svg></a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 32 22" width="22" height="16"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M1 2H31M1 11H31M1 20H31"/></g></svg></button>
     </div>
   </div>
 </header>
@@ -208,7 +281,7 @@ footer .brand .bt small{color:#a6906f}
       <p class="tag" data-i18n="hero_tag">Le trésor du Nord — cuisine chinoise régionale (cantonaise, sichuanaise, du Nord-Est), généreuse et rapide, à deux pas de la Gare.</p>
       <div class="cta">
         <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
-        <a href="tel:+35226845468" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 26 84 54 68</a>
+        <a href="tel:+35226845468" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · +352 26 84 54 68</a>
       </div>
       <div class="chip" data-i18n="hero_chip">15 rue André Duchscher, L-1424 Luxembourg</div>
     </div>
@@ -250,29 +323,28 @@ footer .brand .bt small{color:#a6906f}
       <div class="ledger-head">
         <span class="eyebrow" data-i18n="l_eyebrow">La carte</span>
         <h2 data-i18n="l_head">Le registre régional.</h2>
-        <p data-i18n="l_p">Un aperçu des spécialités régionales de la maison, classées par origine — cantonaise, sichuanaise, Nord-Est (Dongbei). Noms, orthographe, disponibilité et prix <b>à confirmer avec l'établissement</b> avant publication.</p>
+        <p data-i18n="l_p">Un aperçu des spécialités régionales de la maison, classées par origine — cantonaise, sichuanaise, Nord-Est (Dongbei). <b>Carte complète et tarifs disponibles sur place.</b></p>
       </div>
       <div class="lgrid">
         <div class="lcol">
           <div class="lreg"><span class="chop">粤</span><h3 data-i18n="lc_canton">Cantonais</h3></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">豉汁鳳爪</span><span class="d-name" data-i18n="d1_n">Pattes de poulet, sauce aux fèves noires</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">糯米雞</span><span class="d-name" data-i18n="d2_n">Poulet au riz gluant, feuille de lotus</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">白斬雞</span><span class="d-name" data-i18n="d3_n">Poulet blanc coupé</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">脆皮烤鴨</span><span class="d-name" data-i18n="d4_n">Canard laqué croustillant</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">梅菜扣肉</span><span class="d-name" data-i18n="d5_n">Porc braisé, légumes salés</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">豉汁鳳爪</span><span class="d-name" data-i18n="d1_n">Pattes de poulet, sauce aux fèves noires</span></div></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">糯米雞</span><span class="d-name" data-i18n="d2_n">Poulet au riz gluant, feuille de lotus</span></div></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">白斬雞</span><span class="d-name" data-i18n="d3_n">Poulet blanc coupé</span></div></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">脆皮烤鴨</span><span class="d-name" data-i18n="d4_n">Canard laqué croustillant</span></div></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">梅菜扣肉</span><span class="d-name" data-i18n="d5_n">Porc braisé, légumes salés</span></div></div>
         </div>
         <div class="lcol">
           <div class="lreg"><span class="chop">川</span><h3 data-i18n="lc_sichuan">Sichuan</h3></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">麻辣肚絲</span><span class="d-name" data-i18n="d6_n">Tripes émincées, sauce mala</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">乾鍋大蝦</span><span class="d-name" data-i18n="d7_n">Crevettes en wok sec</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">水煮魚</span><span class="d-name" data-i18n="d8_n">Poisson bouilli à la sichuanaise</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">火鍋</span><span class="d-name" data-i18n="d.hotpot.n">Fondue chinoise (hot pot)</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div><span class="d-desc" data-i18n="d.hotpot.d">Bouillon parfumé, à partager — sur demande, à confirmer.</span></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">麻辣肚絲</span><span class="d-name" data-i18n="d6_n">Tripes émincées, sauce mala</span></div></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">乾鍋大蝦</span><span class="d-name" data-i18n="d7_n">Crevettes en wok sec</span></div></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">水煮魚</span><span class="d-name" data-i18n="d8_n">Poisson bouilli à la sichuanaise</span></div></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">火鍋</span><span class="d-name" data-i18n="d.hotpot.n">Fondue chinoise (hot pot)</span></div><span class="d-desc" data-i18n="d.hotpot.d">Bouillon parfumé, à partager.</span></div>
         </div>
         <div class="lcol">
           <div class="lreg"><span class="chop">東</span><h3 data-i18n="lc_dongbei">Nord-Est</h3></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">東北煎餃</span><span class="d-name" data-i18n="d9_n">Raviolis poêlés du Nord-Est</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
-          <div class="dish"><div class="d-row"><span class="d-hz">溜大腸</span><span class="d-name" data-i18n="d10_n">Intestin de porc sauté</span><span class="d-lead"></span><span class="d-price">à confirmer</span></div></div>
-          <span class="tag-ac" data-i18n="l_tagnote" style="margin-top:10px;display:inline-block">Sélection non exhaustive</span>
+          <div class="dish"><div class="d-row"><span class="d-hz">東北煎餃</span><span class="d-name" data-i18n="d9_n">Raviolis poêlés du Nord-Est</span></div></div>
+          <div class="dish"><div class="d-row"><span class="d-hz">溜大腸</span><span class="d-name" data-i18n="d10_n">Intestin de porc sauté</span></div></div>
         </div>
       </div>
     </div>
@@ -283,7 +355,7 @@ footer .brand .bt small{color:#a6906f}
     <div class="wrap">
       <span class="eyebrow" data-i18n="g_eyebrow">En photos</span>
       <h2 data-i18n="g_head">Ce qui sort de la cuisine.</h2>
-      <p style="color:var(--ink2);margin-top:12px;max-width:60ch" data-i18n="g_p">Photographies réelles de plats servis à la maison (galerie du restaurant, 2020) — à remplacer par des photos actuelles si la maison le souhaite.</p>
+      <p style="color:var(--ink2);margin-top:12px;max-width:60ch" data-i18n="g_p">Photographies réelles de plats servis à la maison — galerie du restaurant, 2020.</p>
       <div class="ggrid">
         <div class="gitem g1"><img src="assets/img/hero-sweet-sour.jpg" alt="Porc croustillant sauce aigre-douce"><span class="cap" data-i18n="gal_sour">Porc croustillant, sauce aigre-douce</span></div>
         <div class="gitem g2"><img src="assets/img/food-beef-ho-fun.jpg" alt="Nouilles de riz sautées au bœuf"><span class="cap" data-i18n="gal_hofun">Nouilles ho fun sautées au bœuf</span></div>
@@ -301,7 +373,7 @@ footer .brand .bt small{color:#a6906f}
       <div>
         <span class="eyebrow" data-i18n="v_eyebrow">Nous trouver</span>
         <h2 data-i18n="v_head">15 rue André Duchscher, Gare.</h2>
-        <p data-i18n="v_p">À deux pas de la Gare centrale de Luxembourg. Ce site est un aperçu réalisé par Webwerk — Bak Gi Bo n'a aujourd'hui aucun site officiel.</p>
+        <p data-i18n="v_p">À deux pas de la Gare centrale de Luxembourg.</p>
         <div class="vbtns">
           <a href="tel:+35226845468" class="btn p" data-i18n="v_call">Appeler</a>
           <a href="https://www.google.com/maps/search/?api=1&query=Bak+Gi+Bo+15+Rue+Andr%C3%A9+Duchscher+Luxembourg" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire ↗</a>
@@ -309,9 +381,7 @@ footer .brand .bt small{color:#a6906f}
       </div>
       <div class="vcard">
         <div class="info-row"><span class="l" data-i18n="l_addr">Adresse</span><span class="v">15, rue André Duchscher<br>L-1424 Luxembourg (Gare)</span></div>
-        <div class="info-row"><span class="l" data-i18n="l_tel">Téléphone</span><span class="v"><a href="tel:+35226845468">26 84 54 68</a> <span class="tag-ac on-dark" data-i18n="v_land">fixe</span><br><a href="tel:+352691892289">691 89 22 89</a> <span class="tag-ac on-dark" data-i18n="v_mob">mobile · à confirmer si principal</span></span></div>
-        <div class="info-row"><span class="l" data-i18n="l_hours">Horaires</span><span class="v"><span class="tag-ac on-dark" data-i18n="v_hours">à confirmer avec l'établissement</span></span></div>
-        <div class="info-row"><span class="l" data-i18n="l_price">Budget</span><span class="v" data-i18n="v_price">À confirmer avec l'établissement</span></div>
+        <div class="info-row"><span class="l" data-i18n="l_tel">Téléphone</span><span class="v"><a href="tel:+35226845468">+352 26 84 54 68</a></span></div>
       </div>
     </div>
   </section>
@@ -326,7 +396,7 @@ footer .brand .bt small{color:#a6906f}
       </a>
       <div class="madeby" data-i18n="foot_made">Un aperçu par <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a></div>
     </div>
-    <p class="disc" data-i18n="foot_disc">Site de démonstration — maquette non officielle composée par Webwerk à partir de photographies et informations publiques (galerie Menu.lu, Feinfood, Editus, Gastronomie.lu, TripAdvisor). Aucun logo officiel n'existe pour cette maison : l'identité visuelle présentée ici (sceau, couleurs) est une proposition, non le logo réel. Menu, orthographe, prix, horaires et coordonnées à confirmer avec l'établissement avant toute publication. Photographies : galerie du restaurant (2020).</p>
+    <p class="disc" data-i18n="foot_disc">Aperçu de site composé par Webwerk à partir d'informations et de photographies publiques — ce n'est pas le site officiel de Bak Gi Bo, et son contenu (carte, identité visuelle, coordonnées) reste à valider par l'établissement.</p>
   </div>
 </footer>
 
@@ -334,7 +404,7 @@ footer .brand .bt small{color:#a6906f}
 const I18N = {
  fr:{
   brand_sub:"北之寳 · Luxembourg-Gare", brand_sub2:"北之寳 · cuisine chinoise régionale",
-  n_nom:"Le nom", n_carte:"La carte", n_photos:"Photos", n_visit:"Infos",
+  n_menu:"Menu", n_nom:"Le nom", n_carte:"La carte", n_photos:"Photos", n_visit:"Infos",
   hero_tag:"Le trésor du Nord — cuisine chinoise régionale (cantonaise, sichuanaise, du Nord-Est), généreuse et rapide, à deux pas de la Gare.",
   hero_cta1:"Voir la carte", hero_cta2:"Appeler",
   hero_chip:"15 rue André Duchscher, L-1424 Luxembourg",
@@ -347,30 +417,27 @@ const I18N = {
   f2_t:"Portions généreuses", f2_p:"Une cuisine abondante et à prix doux, pensée pour un repas de midi rapide ou une grande table à partager.",
   f3_t:"Sur place ou à emporter", f3_p:"Un nombre modeste de tables, et une forte activité à emporter — pratique pour les habitués de la Gare.",
   l_eyebrow:"La carte", l_head:"Le registre régional.",
-  l_p:"Un aperçu des spécialités régionales de la maison, classées par origine — cantonaise, sichuanaise, Nord-Est (Dongbei). Noms, orthographe, disponibilité et prix <b>à confirmer avec l'établissement</b> avant publication.",
+  l_p:"Un aperçu des spécialités régionales de la maison, classées par origine — cantonaise, sichuanaise, Nord-Est (Dongbei). <b>Carte complète et tarifs disponibles sur place.</b>",
   lc_canton:"Cantonais", lc_sichuan:"Sichuan", lc_dongbei:"Nord-Est",
   d1_n:"Pattes de poulet, sauce aux fèves noires", d2_n:"Poulet au riz gluant, feuille de lotus", d3_n:"Poulet blanc coupé",
   d4_n:"Canard laqué croustillant", d5_n:"Porc braisé, légumes salés",
   d6_n:"Tripes émincées, sauce mala", d7_n:"Crevettes en wok sec", d8_n:"Poisson bouilli à la sichuanaise",
-  "d.hotpot.n":"Fondue chinoise (hot pot)", "d.hotpot.d":"Bouillon parfumé, à partager — sur demande, à confirmer.",
+  "d.hotpot.n":"Fondue chinoise (hot pot)", "d.hotpot.d":"Bouillon parfumé, à partager.",
   d9_n:"Raviolis poêlés du Nord-Est", d10_n:"Intestin de porc sauté",
-  l_tagnote:"Sélection non exhaustive",
   g_eyebrow:"En photos", g_head:"Ce qui sort de la cuisine.",
-  g_p:"Photographies réelles de plats servis à la maison (galerie du restaurant, 2020) — à remplacer par des photos actuelles si la maison le souhaite.",
+  g_p:"Photographies réelles de plats servis à la maison — galerie du restaurant, 2020.",
   gal_sour:"Porc croustillant, sauce aigre-douce", gal_hofun:"Nouilles ho fun sautées au bœuf", gal_pork:"Porc braisé, sauce soja foncée",
   gal_greens:"Légumes verts sautés à l'ail", gal_ear:"Salade froide épicée, coriandre", gal_cold:"Entrée froide, piment et coriandre",
   v_eyebrow:"Nous trouver", v_head:"15 rue André Duchscher, Gare.",
-  v_p:"À deux pas de la Gare centrale de Luxembourg. Ce site est un aperçu réalisé par Webwerk — Bak Gi Bo n'a aujourd'hui aucun site officiel.",
+  v_p:"À deux pas de la Gare centrale de Luxembourg.",
   v_call:"Appeler", v_dir:"Itinéraire ↗",
-  l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", l_price:"Budget",
-  v_land:"fixe", v_mob:"mobile · à confirmer si principal", v_hours:"à confirmer avec l'établissement",
-  v_price:"À confirmer avec l'établissement",
+  l_addr:"Adresse", l_tel:"Téléphone",
   foot_made:"Un aperçu par <a href=\"https://webwerk.lu\" target=\"_blank\" rel=\"noopener\">Webwerk</a>",
-  foot_disc:"Site de démonstration — maquette non officielle composée par Webwerk à partir de photographies et informations publiques (galerie Menu.lu, Feinfood, Editus, Gastronomie.lu, TripAdvisor). Aucun logo officiel n'existe pour cette maison : l'identité visuelle présentée ici (sceau, couleurs) est une proposition, non le logo réel. Menu, orthographe, prix, horaires et coordonnées à confirmer avec l'établissement avant toute publication. Photographies : galerie du restaurant (2020)."
+  foot_disc:"Aperçu de site composé par Webwerk à partir d'informations et de photographies publiques — ce n'est pas le site officiel de Bak Gi Bo, et son contenu (carte, identité visuelle, coordonnées) reste à valider par l'établissement."
  },
  de:{
   brand_sub:"北之寳 · Luxemburg-Bahnhof", brand_sub2:"北之寳 · regionale chinesische Küche",
-  n_nom:"Der Name", n_carte:"Die Karte", n_photos:"Fotos", n_visit:"Infos",
+  n_menu:"Menü", n_nom:"Der Name", n_carte:"Die Karte", n_photos:"Fotos", n_visit:"Infos",
   hero_tag:"Der Schatz des Nordens — regionale chinesische Küche (kantonesisch, sichuanesisch, Nordost), großzügig und schnell, direkt beim Bahnhof.",
   hero_cta1:"Zur Karte", hero_cta2:"Anrufen",
   hero_chip:"15 rue André Duchscher, L-1424 Luxemburg",
@@ -383,30 +450,27 @@ const I18N = {
   f2_t:"Großzügige Portionen", f2_p:"Eine reichhaltige, preiswerte Küche — ideal für ein schnelles Mittagessen oder eine große Tafel zum Teilen.",
   f3_t:"Vor Ort oder zum Mitnehmen", f3_p:"Eine bescheidene Anzahl an Tischen und ein starkes Mitnahmegeschäft — praktisch für Stammgäste vom Bahnhof.",
   l_eyebrow:"Die Karte", l_head:"Das regionale Register.",
-  l_p:"Ein Überblick über die regionalen Spezialitäten des Hauses, nach Herkunft geordnet — kantonesisch, sichuanesisch, Nordost (Dongbei). Namen, Schreibweise, Verfügbarkeit und Preise <b>vor Ort zu bestätigen</b>.",
+  l_p:"Ein Überblick über die regionalen Spezialitäten des Hauses, nach Herkunft geordnet — kantonesisch, sichuanesisch, Nordost (Dongbei). <b>Vollständige Karte und Preise vor Ort.</b>",
   lc_canton:"Kantonesisch", lc_sichuan:"Sichuan", lc_dongbei:"Nordost",
   d1_n:"Hühnerfüße in schwarzer Bohnensauce", d2_n:"Klebreis-Huhn im Lotusblatt", d3_n:"Weißgekochtes Huhn",
   d4_n:"Knusprige Ente", d5_n:"Geschmorter Bauchspeck, eingelegtes Gemüse",
   d6_n:"Kutteln, Mala-Sauce", d7_n:"Garnelen im Trockentopf", d8_n:"Gekochter Fisch nach Sichuan-Art",
-  "d.hotpot.n":"Chinesisches Fondue (Hot Pot)", "d.hotpot.d":"Aromatische Brühe zum Teilen — auf Anfrage, zu bestätigen.",
+  "d.hotpot.n":"Chinesisches Fondue (Hot Pot)", "d.hotpot.d":"Aromatische Brühe zum Teilen.",
   d9_n:"Gebratene Nordost-Teigtaschen", d10_n:"Gebratener Schweinedarm",
-  l_tagnote:"Nicht vollständige Auswahl",
   g_eyebrow:"In Bildern", g_head:"Was aus der Küche kommt.",
-  g_p:"Echte Fotos von Gerichten, die im Haus serviert wurden (Restaurant-Galerie, 2020) — auf Wunsch des Hauses durch aktuelle Fotos zu ersetzen.",
+  g_p:"Echte Fotos von Gerichten, die im Haus serviert wurden — Restaurant-Galerie, 2020.",
   gal_sour:"Knuspriges Schweinefleisch, süß-sauer", gal_hofun:"Gebratene Ho-Fun-Nudeln mit Rind", gal_pork:"Geschmorter Bauchspeck, dunkle Sojasauce",
   gal_greens:"Knoblauch-Grüngemüse", gal_ear:"Kalter scharfer Salat, Koriander", gal_cold:"Kalte Vorspeise, Chili und Koriander",
   v_eyebrow:"So finden Sie uns", v_head:"15 rue André Duchscher, Bahnhof.",
-  v_p:"Nur wenige Schritte vom Hauptbahnhof Luxemburg entfernt. Diese Seite ist ein von Webwerk erstellter Entwurf — Bak Gi Bo hat derzeit keine eigene Website.",
+  v_p:"Nur wenige Schritte vom Hauptbahnhof Luxemburg entfernt.",
   v_call:"Anrufen", v_dir:"Route ↗",
-  l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", l_price:"Budget",
-  v_land:"Festnetz", v_mob:"mobil · Hauptnummer zu bestätigen", v_hours:"vor Ort zu bestätigen",
-  v_price:"Beim Betrieb zu bestätigen",
+  l_addr:"Adresse", l_tel:"Telefon",
   foot_made:"Ein Entwurf von <a href=\"https://webwerk.lu\" target=\"_blank\" rel=\"noopener\">Webwerk</a>",
-  foot_disc:"Demo-Website — kein offizielles Angebot, erstellt von Webwerk anhand öffentlicher Fotos und Informationen (Menu.lu-Galerie, Feinfood, Editus, Gastronomie.lu, TripAdvisor). Für dieses Haus existiert kein offizielles Logo: das hier gezeigte visuelle Erscheinungsbild (Siegel, Farben) ist ein Vorschlag, nicht das echte Logo. Karte, Schreibweise, Preise, Öffnungszeiten und Kontaktdaten vor jeder Veröffentlichung mit dem Betrieb zu bestätigen. Fotos: Restaurant-Galerie (2020)."
+  foot_disc:"Website-Entwurf von Webwerk, erstellt aus öffentlich zugänglichen Informationen und Fotos — dies ist nicht die offizielle Website von Bak Gi Bo, und die Inhalte (Karte, visuelle Identität, Kontaktdaten) sind noch vom Betrieb zu bestätigen."
  },
  en:{
   brand_sub:"北之寳 · Luxembourg-Gare", brand_sub2:"北之寳 · regional Chinese cuisine",
-  n_nom:"The name", n_carte:"The menu", n_photos:"Photos", n_visit:"Visit",
+  n_menu:"Menu", n_nom:"The name", n_carte:"The menu", n_photos:"Photos", n_visit:"Visit",
   hero_tag:"Treasure of the North — regional Chinese cooking (Cantonese, Sichuan, Northeastern), generous and fast, steps from the station.",
   hero_cta1:"See the menu", hero_cta2:"Call",
   hero_chip:"15 rue André Duchscher, L-1424 Luxembourg",
@@ -419,26 +483,23 @@ const I18N = {
   f2_t:"Generous portions", f2_p:"Abundant, good-value cooking, built for a quick lunch or a big table to share.",
   f3_t:"Dine in or take away", f3_p:"A modest number of tables, and a strong take-away trade — convenient for the Gare crowd.",
   l_eyebrow:"The menu", l_head:"The regional ledger.",
-  l_p:"A selection of the house's regional specialties, grouped by origin — Cantonese, Sichuan, Northeastern (Dongbei). Names, spelling, availability and prices <b>to be confirmed with the venue</b> before publishing.",
+  l_p:"A selection of the house's regional specialties, grouped by origin — Cantonese, Sichuan, Northeastern (Dongbei). <b>Full menu and prices available in person.</b>",
   lc_canton:"Cantonese", lc_sichuan:"Sichuan", lc_dongbei:"Northeastern",
   d1_n:"Chicken feet, black bean sauce", d2_n:"Glutinous rice chicken, lotus leaf", d3_n:"White-cut chicken",
   d4_n:"Crispy roast duck", d5_n:"Braised pork belly, preserved greens",
   d6_n:"Shredded tripe, mala sauce", d7_n:"Dry-pot prawns", d8_n:"Sichuan-style boiled fish",
-  "d.hotpot.n":"Chinese fondue (hot pot)", "d.hotpot.d":"Fragrant broth, to share — on request, to be confirmed.",
+  "d.hotpot.n":"Chinese fondue (hot pot)", "d.hotpot.d":"Fragrant broth, to share.",
   d9_n:"Northeastern pan-fried dumplings", d10_n:"Sautéed pork intestine",
-  l_tagnote:"Not an exhaustive selection",
   g_eyebrow:"In photos", g_head:"What comes out of the kitchen.",
-  g_p:"Real photos of dishes served at the house (restaurant gallery, 2020) — happy to swap in current photos if the house wants.",
+  g_p:"Real photos of dishes served at the house — restaurant gallery, 2020.",
   gal_sour:"Crispy pork, sweet & sour sauce", gal_hofun:"Wok-fried beef ho fun", gal_pork:"Braised pork, dark soy sauce",
   gal_greens:"Garlic stir-fried greens", gal_ear:"Cold spicy salad, coriander", gal_cold:"Cold starter, chilli and coriander",
   v_eyebrow:"Find us", v_head:"15 rue André Duchscher, Gare.",
-  v_p:"Steps from Luxembourg's central station. This site is a preview built by Webwerk — Bak Gi Bo has no official website today.",
+  v_p:"Steps from Luxembourg's central station.",
   v_call:"Call", v_dir:"Directions ↗",
-  l_addr:"Address", l_tel:"Phone", l_hours:"Hours", l_price:"Budget",
-  v_land:"landline", v_mob:"mobile · unconfirmed which is primary", v_hours:"to be confirmed with the venue",
-  v_price:"To be confirmed with the venue",
+  l_addr:"Address", l_tel:"Phone",
   foot_made:"A preview by <a href=\"https://webwerk.lu\" target=\"_blank\" rel=\"noopener\">Webwerk</a>",
-  foot_disc:"Demonstration site — an unofficial preview composed by Webwerk from public photos and information (Menu.lu gallery, Feinfood, Editus, Gastronomie.lu, TripAdvisor). No official logo exists for this venue: the visual identity shown here (seal, colours) is a proposal, not the real logo. Menu, spelling, prices, hours and contact details to be confirmed with the venue before any publication. Photos: restaurant gallery (2020)."
+  foot_disc:"A site preview composed by Webwerk from publicly available information and photographs — this is not Bak Gi Bo's official website, and its content (menu, visual identity, contact details) is still to be validated by the venue."
  }
 };
 function applyLang(l){
@@ -451,9 +512,20 @@ function applyLang(l){
 document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
 (function(){ let l='fr'; try{ l=localStorage.getItem('bakgibo_lang')||'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
 
-const burger=document.getElementById('burger'), menu=document.getElementById('menu');
-burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
-menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+/* Mobile nav = full-screen overlay. Open/closed is carried by a class that
+   flips visibility + opacity (not a transform), so the panel cannot be
+   revealed accidentally and never participates in page flow. */
+const burger=document.getElementById('burger'), menu=document.getElementById('menu'), mclose=document.getElementById('mclose');
+function setMenu(open){
+  menu.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+burger.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
+if(mclose) mclose.addEventListener('click', function(){ setMenu(false); });
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') setMenu(false); });
+window.addEventListener('resize', function(){ if(window.innerWidth>768) setMenu(false); });
 
 const io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });

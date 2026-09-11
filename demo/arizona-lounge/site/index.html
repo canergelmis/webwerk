@@ -5,64 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Arizona Lounge — Bar · Restaurant · Lounge · Contern</title>
-<!--
-  ============================================================================
-  v2 RE-ELEVATION - Arizona Lounge (audit 79 - Competent to agency bar)
-  Non-destructive: rebuild/index.html untouched.
-
-  NB this comment deliberately avoids quoting the shared component's own marker
-  strings: the audit's finding was that those tokens were readable in the shipped
-  source, so re-printing them here would reintroduce the very thing being fixed.
-
-  KEPT ENTIRELY: the type stack (Anton / DM Mono / Yellowtail / Source Sans 3 -
-  the audit found ZERO AI-default tells, scored 4) and the photography (scored 5,
-  already art-directed with consistent sepia grading, white borders and honest
-  "Photos d'archives" captions). Neither needed work. Also kept the sticky
-  maitre-d' rail with its live open/closed status, the ardoise specials, FR/DE/EN
-  parity and every "a confirmer" flag.
-
-  1. THE BOOKING CONTRADICTION (the real defect). The rail states
-     "Le telephone, notre seul canal de reservation" - a HIGH-confidence fact -
-     while a separate "Reserver en ligne" CTA opened a modal whose submit fell back
-     to a PLACEHOLDER e-mail address. A demo viewer who tested the form got a
-     silently fake flow that contradicted the site's own copy.
-     The audit offered two fixes: wire it to a real address, or drop the CTA.
-     WIRING IT WAS REJECTED: content.md lists the venue's e-mail as MEDIUM
-     confidence with "verify before using publicly", and it sits under "to confirm
-     before final/live". Shipping an unverified address as live booking
-     infrastructure is exactly the kind of plausible-but-unchecked detail that must
-     not go out. So the online path is REMOVED - CTA, modal, styles and JS - and the
-     site's verified phone-only claim is now simply true. Phone stays reachable in
-     the rail, the contact list, the mobile bar and 5 tel: links.
-
-  2. SHIPPED BUILD SCAFFOLDING. The source carried the batch assembly instructions
-     verbatim - paste-this-block-unedited directions, a recipe-file reference and a
-     bundle end-marker - i.e. visible proof on inspection that the component was
-     shared across the demo batch. All of it went out with the modal, along with the
-     orphaned per-site theme block and the label-sync script that fed the removed
-     button. Residual count for every one of those markers, and for the placeholder
-     address: ZERO. ~12.6 KB removed.
-
-  3. PALETTE PROVENANCE - and here the audit's premise is OVERTURNED. It called the
-     desert motif "invented atmosphere dressed as brand fidelity". The venue's own
-     logo.jpg is not merely a red badge: it contains a PHOTOGRAPHIC ARIZONA DESERT -
-     blue sky and clouds, a butte, a straight desert highway with a yellow centre
-     line, saguaro cacti, sand scrub and orange rock. The sand/rust desert palette
-     is therefore traced to the brand, not a pun on the name.
-     Measured against the file, as fix 3 asked:
-       --sand #D8B98A  vs logo desert sand #d0ba96  -> already accurate, unchanged
-       --red  #B21F24  vs logo red        #a11e23  -> was brighter; corrected
-       --red-deep -> #7d1418 (the same red, shaded)
-       --sky  #5B8FB0  vs logo desert sky  #6080b6  -> already accurate, unchanged
-     So ALL THREE palette colours measure against the venue's own logo. The audit's
-     "invented atmosphere dressed as brand fidelity" reading does not survive opening
-     the file: red, sand AND sky are traced, and only the red needed correcting.
-
-  PRE-DEPLOY TODO: if the owner confirms they DO take online/e-mail bookings, the
-  reservation path can come back - but only wired to an address confirmed by the
-  venue, never to the MEDIUM-confidence one in content.md.
-  ============================================================================
---><meta name="description" content="Arizona Lounge, Contern — brasserie décontractée sous la verrière et les palmiers. Menu du jour au déjeuner, terrasse, bar. Réservez par téléphone.">
+<!-- Arizona Lounge demo. Build notes, source confidence and every string that
+     was removed from the live page live in
+     lux-restaurant-sites/mockups/arizona-lounge/content.md - not here. --><meta name="description" content="Arizona Lounge, Contern — brasserie décontractée sous la verrière et les palmiers. Menu du jour au déjeuner, terrasse, bar. Réservez par téléphone.">
 <style id="rk-fonts">
 /* latin-ext */
 @font-face {
@@ -285,28 +230,6 @@
     margin-top:-4px;
   }
 
-  .status{
-    display:flex;align-items:center;gap:11px;
-    background:#343434;
-    border:1px solid #454545;
-    border-radius:40px;
-    padding:9px 15px;
-  }
-  .dot{
-    width:11px;height:11px;border-radius:50%;
-    background:var(--sand);
-    box-shadow:0 0 0 0 rgba(216,185,138,.6);
-    animation:pulse 2.4s ease-out infinite;
-    flex:none;
-  }
-  @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(120,180,140,.55);}
-    70%{box-shadow:0 0 0 9px rgba(120,180,140,0);}
-    100%{box-shadow:0 0 0 0 rgba(120,180,140,0);}
-  }
-  .status .st-main{font-weight:700;font-size:15px;line-height:1.15;}
-  .status .st-sub{font-size:11.5px;color:#b9b3a7;line-height:1.2;}
-
   .rail-addr{
     font-size:14px;color:#d8d2c6;
     display:flex;gap:9px;align-items:flex-start;line-height:1.4;
@@ -329,10 +252,11 @@
     opacity:.85;display:flex;align-items:center;gap:8px;
   }
   .call-block .cb-num{
+    display:block;
     font-family:"DM Mono",monospace;
-    font-size:24px;font-weight:500;margin-top:4px;letter-spacing:-.01em;
+    font-size:21px;font-weight:500;margin-top:4px;letter-spacing:-.02em;
   }
-  .call-block .cb-sub{font-size:12.5px;opacity:.9;margin-top:3px;}
+  .call-block .cb-sub{display:block;font-size:12.5px;opacity:.9;margin-top:3px;}
 
   .microlinks{display:flex;flex-direction:column;gap:9px;}
   .microlinks a{
@@ -356,15 +280,6 @@
   }
   .rail-hours .hr-row{display:flex;justify-content:space-between;color:#cfc9bd;padding:2px 0;}
   .rail-hours .hr-row span:last-child{font-family:"DM Mono",monospace;font-size:12px;}
-  .flag{
-    display:inline-block;
-    font-size:10.5px;letter-spacing:.04em;
-    color:#171717;background:var(--sand);
-    padding:1px 7px;border-radius:4px;font-weight:600;
-    text-transform:none;vertical-align:middle;
-  }
-  .rail-hours .flag{margin-top:9px;}
-
   /* ============ CONTENT TRACK ============ */
   .content{min-width:0;}
   .track-in{max-width:920px;}
@@ -396,10 +311,6 @@
     gap:56px;
     align-items:center;
   }
-  .hero-date{
-    font-size:16px;color:#8a7a5f;margin-bottom:6px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
-  }
-  .hero-date .script{font-size:30px;color:var(--red);line-height:1;}
   .hero h1{
     font-size:clamp(48px,6.2vw,88px);
     color:var(--char);
@@ -509,6 +420,8 @@
   .plat .plat-price small{font-size:13px;color:#9a9284;}
 
   .ardoise-cats{padding:30px 32px;display:flex;flex-direction:column;gap:0;}
+  .cats-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--sand);opacity:.75;margin-bottom:14px;}
   .cat-row{
     display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:baseline;
     padding:13px 0;border-bottom:1px dotted rgba(255,255,255,.14);
@@ -521,13 +434,9 @@
     padding:16px 26px 22px;
     border-top:1px solid rgba(255,255,255,.1);
     display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
-    font-size:13.5px;color:#b5ae9f;
+    font-size:13.5px;color:#c6bfae;
   }
   .ardoise-note a{color:var(--sand);text-decoration:underline;text-underline-offset:3px;}
-  .price-flag{
-    background:var(--sand);color:#171717;font-weight:600;font-size:11.5px;
-    padding:3px 10px;border-radius:5px;
-  }
 
   /* SOUS LES PALMIERS */
   .palms{background:#efe6d5;}
@@ -544,11 +453,11 @@
     padding:11px 16px;font-size:14.5px;color:#6a5d44;font-weight:600;
   }
   .thumbs{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
   }
   .thumb{
     aspect-ratio:4/3;overflow:hidden;border-radius:8px;
-    border:5px solid #fff;
+    border:6px solid #fff;
     box-shadow:0 8px 18px rgba(60,45,20,.16);
     background:#c9b79a;
     filter:sepia(.22) saturate(1.02) contrast(.98);
@@ -560,8 +469,7 @@
     background:linear-gradient(180deg,rgba(43,43,43,.04),rgba(43,43,43,.16));
     pointer-events:none;
   }
-  .thumb.wide{grid-column:span 1;}
-  .thumbs-cap{grid-column:1/-1;font-family:"DM Mono",monospace;font-size:11.5px;color:#8a7a5f;margin-top:2px;}
+  .thumbs-cap{grid-column:1/-1;font-family:"DM Mono",monospace;font-size:12px;color:#7b6c50;margin-top:2px;}
 
   /* NOUS TROUVER */
   .find{background:var(--cream);}
@@ -577,21 +485,40 @@
   .find-list .fi-h{font-weight:700;color:var(--char);font-size:15px;margin-bottom:2px;}
   .find-list .fi-t{color:#5c554a;font-size:15px;}
   .find-list .fi-t .mono{font-size:14px;}
-  .map-frame{
-    border-radius:14px;overflow:hidden;border:5px solid #fff;
-    box-shadow:0 16px 40px rgba(60,45,20,.18);
-    min-height:400px;background:#ddd;
+  /* address plate — deliberately NOT a map frame (no external requests allowed,
+     and an empty framed box with a pin reads as a map that failed to load) */
+  .plate{
+    background:#efe6d5;
+    border:1px solid #e0d3ba;
+    border-left:6px solid var(--red);
+    border-radius:14px;
+    padding:34px 34px 30px;
+    box-shadow:0 14px 34px rgba(60,45,20,.14);
+    display:flex;flex-direction:column;justify-content:center;gap:0;
   }
-  .map-frame iframe{width:100%;height:100%;min-height:400px;border:0;display:block;}
-  .mapcard{position:relative;display:block;text-decoration:none;}
-  .mapcard svg{width:100%;height:100%;min-height:400px;display:block;}
-  .mapcta{
-    position:absolute;left:18px;bottom:16px;
-    font-family:"DM Mono",monospace;font-weight:500;font-size:13.5px;color:#fff;
-    background:rgba(27,27,28,.62);border:1px solid rgba(216,185,138,.5);
-    border-radius:999px;padding:9px 16px;transition:background .15s,border-color .15s;
+  .plate-label{
+    font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.22em;
+    text-transform:uppercase;color:#8a7a5f;margin-bottom:12px;
   }
-  .mapcard:hover .mapcta{background:var(--red);border-color:var(--red);}
+  .plate-addr{
+    font-size:clamp(26px,2.8vw,34px);line-height:1.06;color:var(--char);
+  }
+  .plate-city{
+    font-family:"DM Mono",monospace;font-size:15px;color:#6a5d44;margin-top:8px;
+  }
+  .plate-hr{border:0;border-top:1px dashed #d3c3a4;margin:22px 0 18px;}
+  .plate-orient{font-size:15.5px;color:#5c554a;margin:0;max-width:40ch;}
+  .plate-orient strong{color:var(--char);font-weight:700;}
+  .plate-cta{
+    align-self:flex-start;
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:"DM Mono",monospace;font-weight:500;font-size:14px;color:#fff;
+    background:var(--red);border-radius:999px;padding:13px 24px;margin-top:22px;
+    text-decoration:none;
+    box-shadow:0 8px 18px rgba(161,30,35,.28);
+    transition:background .15s,transform .15s;
+  }
+  .plate-cta:hover{background:var(--red-deep);transform:translateY(-2px);}
 
   /* FOOTER — desert band */
   .desert{
@@ -623,10 +550,15 @@
   }
   .desert-cta .btn-white:hover{transform:translateY(-2px);}
   .desert-cta .dc-note{font-size:12.5px;color:#ffd8d4;}
+  /* The single disclosure. Small, but it must stay legible — it sits on a
+     red gradient, so it carries its own darkened ground to hold WCAG AA. */
   .desert-legal{
-    max-width:1280px;margin:32px auto 0;padding-top:20px;
-    border-top:1px solid rgba(255,255,255,.25);
-    font-size:12px;color:#ffcfcb;line-height:1.6;
+    max-width:1280px;margin:32px auto 0;
+    background:rgba(0,0,0,.22);
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:10px;
+    padding:14px 18px;
+    font-size:13px;color:#fff;line-height:1.6;
   }
 
   /* MOBILE BOTTOM CALL BAR (hidden desktop) */
@@ -645,29 +577,36 @@
   }
   @media (max-width:760px){
     body{font-size:16px;}
-    .layout{grid-template-columns:1fr;}
+    /* The phone must open on the RESTAURANT, not on the utility rail. Flex
+       order pushes the whole rail (logo, address, hours) below the content. */
+    .layout{display:flex;flex-direction:column;}
+    .content{order:1;}
     .rail{
+      order:2;
       position:static;height:auto;
-      border-right:none;border-bottom:2px solid var(--seam);
+      border-right:none;border-top:2px solid var(--seam);
       flex-direction:row;flex-wrap:wrap;align-items:center;
-      gap:14px;padding:18px 20px;
+      gap:14px;padding:26px 20px 30px;
     }
     .badge-frame{width:64px;height:64px;margin:0;border-width:2px;}
-    .rail-name{display:none;}
-    .status{flex:1 1 auto;min-width:160px;}
+    .rail-name{
+      display:block;flex:1 1 auto;text-align:left;margin-top:0;
+      font-size:11px;letter-spacing:.2em;
+    }
     .rail-addr{flex:1 1 100%;}
     .call-block{display:none;}          /* moves to fixed bottom bar */
     .microlinks{flex:1 1 100%;flex-direction:row;flex-wrap:wrap;}
-    .microlinks a{flex:1 1 auto;justify-content:center;}
+    .microlinks a{flex:1 1 auto;justify-content:center;min-height:46px;}
     .rail-hours{flex:1 1 100%;margin-top:4px;border-top:1px solid #3d3d3d;}
     .rail-hours .hr-row{max-width:340px;}
+    .thumbs{grid-template-columns:repeat(2,1fr);gap:12px;}
+    .plate{padding:26px 22px;}
     .langbar{padding:16px 22px 0;}
     section{padding:44px 22px;}
     .hero{grid-template-columns:1fr;padding-top:26px;gap:30px;}
     .postcard{justify-self:center;transform:rotate(-2deg);}
     .desert{padding:40px 22px 96px;}
     .desert-in{grid-template-columns:1fr;gap:24px;text-align:center;justify-items:center;}
-    .desert-legal{padding-bottom:0;}
     /* fixed bottom call bar */
     .mbar{
       display:flex;gap:10px;
@@ -687,7 +626,6 @@
   }
   @media (prefers-reduced-motion:reduce){
     .plat h3 .sheen{animation:none;display:none;}
-    .dot{animation:none;}
     html{scroll-behavior:auto;}
   }
 </style>
@@ -704,14 +642,6 @@
     </div>
     <div class="rail-name">Bar · Restaurant · Lounge</div>
 
-    <div class="status" id="status">
-      <span class="dot" id="statusDot"></span>
-      <span>
-        <span class="st-main" id="statusMain" data-i18n="statusMain">Nous appeler pour confirmer</span><br>
-        <span class="st-sub" id="statusSub" data-i18n="statusSub">Horaires à confirmer</span>
-      </span>
-    </div>
-
     <div class="rail-addr">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D8B98A" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
       <span>2–4, Rue Edmond Reuter<br>Contern, Luxembourg</span>
@@ -722,7 +652,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1z"/></svg>
         <span data-i18n="callLabel">Appeler / Réserver</span>
       </span>
-      <span class="cb-num">26 70 14 90</span>
+      <span class="cb-num">+352 26 70 14 90</span>
       <span class="cb-sub" data-i18n="callSub">Le téléphone, notre seul canal de réservation</span>
     </a>
 
@@ -742,7 +672,6 @@
       <div class="hr-row"><span data-i18n="hMonSat">Lun – Sam</span><span>08:00 – 20:00</span></div>
       <div class="hr-row"><span data-i18n="hLunch">Déjeuner</span><span>12:00 – 14:30</span></div>
       <div class="hr-row"><span data-i18n="hSun">Dimanche</span><span data-i18n="hClosed">Fermé</span></div>
-      <span class="flag" data-i18n="hoursFlag">Horaires à confirmer</span>
     </div>
   </aside>
 
@@ -758,10 +687,6 @@
     <!-- HERO / ARRIVÉE -->
     <section class="hero">
       <div class="track-in">
-        <div class="hero-date">
-          <span class="script" id="todayWord">Aujourd'hui</span>
-          <span class="mono" id="todayDate">—</span>
-        </div>
         <p class="eyebrow" data-i18n="heroEyebrow">Brasserie · Terrasse · Contern</p>
         <h1 class="anton">
           <span class="l1">Arizona</span>
@@ -797,8 +722,7 @@
       <p class="eyebrow" data-i18n="ardEyebrow">Ce qui se cuisine — au premier regard</p>
       <div class="ardoise">
         <div class="ardoise-rail">
-          <span class="ar-title anton" data-i18n="ardTitle">L'ardoise du jour</span>
-          <span class="ar-date mono" id="ardDate">—</span>
+          <span class="ar-title anton" data-i18n="ardTitle">L'ardoise</span>
         </div>
         <div class="ardoise-body">
           <div class="plat">
@@ -811,6 +735,7 @@
             <p class="plat-desc" data-i18n="ardPlatDesc">Une assiette différente chaque jour — mijotée maison, généreuse. Le plat exact est annoncé le matin même.</p>
           </div>
           <div class="ardoise-cats">
+            <div class="cats-label" data-i18n="ardCatsLabel">Toujours à la carte</div>
             <div class="cat-row">
               <span class="c-cat">Burger</span>
               <span class="c-name">Cheese Burger</span>
@@ -838,7 +763,7 @@
           </div>
         </div>
         <div class="ardoise-note">
-          <span><span class="price-flag" data-i18n="priceFlag">Prix non affichés — à confirmer en salle</span> <span data-i18n="ardNoteText">· la carte change chaque jour</span></span>
+          <span data-i18n="ardNoteText">Les prix sont communiqués en salle · la carte change chaque jour</span>
           <span><span data-i18n="ardFbText">Le plat exact du jour est publié sur</span> <a href="https://www.facebook.com/110576048529388" target="_blank" rel="noopener">Facebook</a>.</span>
         </div>
       </div>
@@ -858,11 +783,10 @@
           </span>
         </div>
         <div class="thumbs">
-          <div class="thumb"><img src="assets/atrium.jpg" width="200" height="150" alt="Atrium planté de l'Arizona Lounge"></div>
-          <div class="thumb"><img src="assets/dining.jpg" width="200" height="150" alt="Tables dressées sous la verrière"></div>
-          <div class="thumb"><img src="assets/interior.jpg" width="200" height="150" alt="Salle sous verrière avec palmiers"></div>
-          <div class="thumb"><img src="assets/interior2.jpg" width="200" height="150" alt="Salle avec art mural coloré"></div>
-          <div class="thumb"><img src="assets/lounge.jpg" width="200" height="150" alt="Coin lounge avec canapé et mur rouge"></div>
+          <div class="thumb"><img src="assets/atrium.jpg" width="320" height="240" alt="Atrium planté de l'Arizona Lounge"></div>
+          <div class="thumb"><img src="assets/interior.jpg" width="320" height="240" alt="Salle sous verrière avec palmiers"></div>
+          <div class="thumb"><img src="assets/dining.jpg" width="320" height="240" alt="Tables dressées sous la verrière"></div>
+          <div class="thumb"><img src="assets/lounge.jpg" width="320" height="240" alt="Coin lounge avec canapé et mur rouge"></div>
           <p class="thumbs-cap" data-i18n="thumbsCap">Photos d'archives — décor d'époque</p>
         </div>
       </div>
@@ -888,8 +812,7 @@
               <span class="fi-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
               <span>
                 <span class="fi-h" data-i18n="fiHours">Horaires</span>
-                <span class="fi-t"><span data-i18n="fiHoursTxt">Lun–Sam 08:00–20:00 · déjeuner 12:00–14:30 · dim. fermé</span><br>
-                  <span class="flag" data-i18n="hoursFlag2">horaires à confirmer</span></span>
+                <span class="fi-t" data-i18n="fiHoursTxt">Lun–Sam 08:00–20:00 · déjeuner 12:00–14:30 · dim. fermé</span>
               </span>
             </li>
             <li>
@@ -907,23 +830,15 @@
               </span>
             </li>
           </ul>
-          <a class="btn btn-red" href="https://www.google.com/maps/search/?api=1&query=Arizona+Lounge+Rue+Edmond+Reuter+Contern+Luxembourg" target="_blank" rel="noopener" data-i18n="findDirBtn">Ouvrir l'itinéraire</a>
         </div>
-        <a class="map-frame mapcard" href="https://www.google.com/maps/search/?api=1&amp;query=Arizona+Lounge+Rue+Edmond+Reuter+Contern+Luxembourg" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
-          <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
-            <rect width="400" height="300" fill="#1b1b1c"/>
-            <g stroke="#3d3630" stroke-width="10" opacity=".6">
-              <path d="M30 60 H150"/><path d="M230 40 H360"/><path d="M50 230 H170"/><path d="M220 250 H340"/><path d="M60 145 H160"/><path d="M240 155 H370"/>
-            </g>
-            <g transform="translate(200,150)">
-              <circle r="34" fill="rgba(178,31,36,.18)"/>
-              <path d="M0 -22 C12 -22 20 -13 20 -2 C20 12 0 30 0 30 C0 30 -20 12 -20 -2 C-20 -13 -12 -22 0 -22 Z" fill="#B21F24"/>
-              <circle r="6" fill="#1b1b1c"/>
-            </g>
-            <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#D8B98A" letter-spacing="1">RUE EDMOND REUTER · CONTERN</text>
-          </svg>
-          <span class="mapcta" data-i18n="findDirBtn2">Ouvrir l'itinéraire ↗</span>
-        </a>
+        <div class="plate">
+          <span class="plate-label" data-i18n="plateLabel">L'adresse</span>
+          <span class="plate-addr anton">2–4, Rue Edmond Reuter</span>
+          <span class="plate-city">L-5326 Contern · Luxembourg</span>
+          <hr class="plate-hr">
+          <p class="plate-orient" data-i18n="plateOrient">Nous sommes dans le <strong>parc d'activité Edmond Reuter</strong>, à Contern — le <strong>château d'eau</strong> se dresse juste à côté, visible depuis la terrasse : si vous le voyez, vous y êtes.</p>
+          <a class="plate-cta" href="https://www.google.com/maps/search/?api=1&amp;query=Arizona+Lounge+Rue+Edmond+Reuter+Contern+Luxembourg" target="_blank" rel="noopener" data-i18n="mapsCta">Ouvrir dans Google Maps →</a>
+        </div>
       </div>
     </section>
 
@@ -940,21 +855,21 @@
       <h3 class="anton">Arizona Lounge</h3>
       <p>2–4, Rue Edmond Reuter · Contern · Luxembourg</p>
       <p><span class="mono">+352 26 70 14 90</span> · <a href="https://www.facebook.com/110576048529388" target="_blank" rel="noopener">Facebook</a></p>
-      <p data-i18n="footHours">Lun–Sam 08:00–20:00 · dimanche fermé · <em>horaires à confirmer</em></p>
+      <p data-i18n="footHours">Lun–Sam 08:00–20:00 · dimanche fermé</p>
     </div>
     <div class="desert-cta">
-      <a class="btn-white" href="tel:+35226701490">26 70 14 90</a>
+      <a class="btn-white" href="tel:+35226701490">+352 26 70 14 90</a>
       <span class="dc-note" data-i18n="footCta">Appelez pour réserver</span>
     </div>
   </div>
-  <p class="desert-legal" data-i18n="footLegal">Site de démonstration — contenu proposé à valider par l'établissement. Prix et horaires indicatifs et à confirmer. Photographies d'archives de l'établissement.</p>
+  <p class="desert-legal" data-i18n="footLegal">Aperçu de site composé par Webwerk à partir d'informations et de photographies publiques — ce n'est pas le site officiel de l'Arizona Lounge, et son contenu reste à valider par l'établissement.</p>
 </footer>
 
 <!-- MOBILE FIXED CALL BAR -->
 <div class="mbar" aria-hidden="false">
   <a class="m-call" href="tel:+35226701490">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1z"/></svg>
-    <span data-i18n="mCall">Appeler · 26 70 14 90</span>
+    <span data-i18n="mCall">Appeler</span>
   </a>
   <a class="m-dir" href="https://www.google.com/maps/search/?api=1&query=Arizona+Lounge+Rue+Edmond+Reuter+Contern+Luxembourg" target="_blank" rel="noopener">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D8B98A" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -966,90 +881,96 @@
 /* ---------------- i18n ---------------- */
 const I18N = {
   fr:{
-    statusMain:"Nous appeler pour confirmer", statusSub:"Horaires à confirmer",
     callLabel:"Appeler / Réserver", callSub:"Le téléphone, notre seul canal de réservation",
     linkDir:"Itinéraire", linkFb:"Menu du jour sur Facebook",
-    hoursTitle:"Horaires", hMonSat:"Lun – Sam", hLunch:"Déjeuner", hSun:"Dimanche", hClosed:"Fermé", hoursFlag:"Horaires à confirmer",
+    hoursTitle:"Horaires", hMonSat:"Lun – Sam", hLunch:"Déjeuner", hSun:"Dimanche", hClosed:"Fermé",
     heroEyebrow:"Brasserie · Terrasse · Contern", heroLine2:"La pause", heroLine3:"sous les palmiers",
     heroLede:"Un bar-restaurant décontracté au cœur du parc d'activité de Contern. Sous la verrière et les palmiers : un menu du jour honnête, un café le matin, une longue terrasse au déjeuner.",
     tag1:"Ouvert en semaine", tag2:"Menu du jour", tag3:"Terrasse & verrière",
     heroCallBtn:"Appeler pour réserver", heroFindBtn:"Où nous trouver", postcardCap:"La terrasse · Contern",
-    ardEyebrow:"Ce qui se cuisine — au premier regard", ardTitle:"L'ardoise du jour", ardTodayWord:"Aujourd'hui",
+    ardEyebrow:"Ce qui se cuisine — au premier regard", ardTitle:"L'ardoise", ardTodayWord:"Aujourd'hui",
     ardPlatKicker:"Le plat du jour", ardPlatName:"Menu du jour",
     ardPlatDesc:"Une assiette différente chaque jour — mijotée maison, généreuse. Le plat exact est annoncé le matin même.",
     catPasta:"Pâtes", catSalad:"Salade", catFish:"Poisson", catMeat:"Viande", catDessert:"Dessert",
+    ardCatsLabel:"Toujours à la carte",
     dishSalmon:"Saumon grillé", dishDessert:"Dessert du jour",
-    priceFlag:"Prix non affichés — à confirmer en salle", ardNoteText:"· la carte change chaque jour", ardFbText:"Le plat exact du jour est publié sur",
+    ardNoteText:"Les prix sont communiqués en salle · la carte change chaque jour", ardFbText:"Le plat exact du jour est publié sur",
     palmEyebrow:"L'ambiance", palmTitle:'Sous les <span>palmiers</span>',
     palmP1:"Une verrière lumineuse, des palmiers et de la verdure : on déjeune comme dans une petite oasis, à l'abri du business-park. Le matin pour un café, le midi pour un plat chaud, et dès qu'il fait beau, la terrasse ouvre.",
     palmP2:"Décontracté et sans chichis — une vraie brasserie de jour, pas un club.",
     palmPark:"Parc d'activité Edmond Reuter — château d'eau à deux pas", thumbsCap:"Photos d'archives — décor d'époque",
     findEyebrow:"Pratique", findTitle:"Nous trouver",
     fiAddr:"Adresse",
-    fiHours:"Horaires", fiHoursTxt:"Lun–Sam 08:00–20:00 · déjeuner 12:00–14:30 · dim. fermé", hoursFlag2:"horaires à confirmer",
+    fiHours:"Horaires", fiHoursTxt:"Lun–Sam 08:00–20:00 · déjeuner 12:00–14:30 · dim. fermé",
     fiPhone:"Téléphone", fiPark:"Quartier", fiParkTxt:"Parc d'activité Edmond Reuter, Contern",
-    findDirBtn:"Ouvrir l'itinéraire", findDirBtn2:"Ouvrir l'itinéraire ↗",
-    footHours:"Lun–Sam 08:00–20:00 · dimanche fermé · <em>horaires à confirmer</em>", footCta:"Appelez pour réserver",
-    footLegal:"Site de démonstration — contenu proposé à valider par l'établissement. Prix et horaires indicatifs et à confirmer. Photographies d'archives de l'établissement.",
-    mCall:"Appeler · 26 70 14 90", mDir:"Itinéraire",
+    mapsCta:"Ouvrir dans Google Maps →",
+    plateLabel:"L'adresse",
+    plateOrient:"Nous sommes dans le <strong>parc d'activité Edmond Reuter</strong>, à Contern — le <strong>château d'eau</strong> se dresse juste à côté, visible depuis la terrasse : si vous le voyez, vous y êtes.",
+    footHours:"Lun–Sam 08:00–20:00 · dimanche fermé", footCta:"Appelez pour réserver",
+    footLegal:"Aperçu de site composé par Webwerk à partir d'informations et de photographies publiques — ce n'est pas le site officiel de l'Arizona Lounge, et son contenu reste à valider par l'établissement.",
+    mCall:"Appeler", mDir:"Itinéraire",
     locale:"fr-FR"
   },
   de:{
-    statusMain:"Bitte anrufen zur Bestätigung", statusSub:"Öffnungszeiten unbestätigt",
     callLabel:"Anrufen / Reservieren", callSub:"Telefon — unser einziger Reservierungsweg",
     linkDir:"Route", linkFb:"Tagesmenü auf Facebook",
-    hoursTitle:"Öffnungszeiten", hMonSat:"Mo – Sa", hLunch:"Mittag", hSun:"Sonntag", hClosed:"Geschlossen", hoursFlag:"Zeiten unbestätigt",
+    hoursTitle:"Öffnungszeiten", hMonSat:"Mo – Sa", hLunch:"Mittag", hSun:"Sonntag", hClosed:"Geschlossen",
     heroEyebrow:"Brasserie · Terrasse · Contern", heroLine2:"Die Pause", heroLine3:"unter den Palmen",
     heroLede:"Ein entspanntes Bar-Restaurant mitten im Gewerbepark von Contern. Unter dem Glasdach und den Palmen: ein ehrliches Tagesmenü, morgens ein Kaffee, mittags eine lange Terrasse.",
     tag1:"Werktags geöffnet", tag2:"Tagesmenü", tag3:"Terrasse & Wintergarten",
     heroCallBtn:"Anrufen & reservieren", heroFindBtn:"So finden Sie uns", postcardCap:"Die Terrasse · Contern",
-    ardEyebrow:"Was heute gekocht wird — auf einen Blick", ardTitle:"Die Tagestafel", ardTodayWord:"Heute",
+    ardEyebrow:"Was heute gekocht wird — auf einen Blick", ardTitle:"Die Tafel", ardTodayWord:"Heute",
     ardPlatKicker:"Das Tagesgericht", ardPlatName:"Tagesmenü",
     ardPlatDesc:"Jeden Tag ein anderes Gericht — hausgemacht und großzügig. Das genaue Gericht wird am Morgen bekanntgegeben.",
     catPasta:"Pasta", catSalad:"Salat", catFish:"Fisch", catMeat:"Fleisch", catDessert:"Dessert",
+    ardCatsLabel:"Immer auf der Karte",
     dishSalmon:"Gegrillter Lachs", dishDessert:"Dessert des Tages",
-    priceFlag:"Preise nicht angezeigt — vor Ort zu bestätigen", ardNoteText:"· die Karte wechselt täglich", ardFbText:"Das genaue Tagesgericht steht auf",
+    ardNoteText:"Die Preise werden vor Ort genannt · die Karte wechselt täglich", ardFbText:"Das genaue Tagesgericht steht auf",
     palmEyebrow:"Das Ambiente", palmTitle:'Unter den <span>Palmen</span>',
     palmP1:"Ein helles Glasdach, Palmen und Grün: Man isst wie in einer kleinen Oase, geschützt vom Gewerbepark. Morgens ein Kaffee, mittags ein warmes Gericht, und bei schönem Wetter öffnet die Terrasse.",
     palmP2:"Entspannt und unkompliziert — eine echte Tages-Brasserie, kein Club.",
     palmPark:"Gewerbepark Edmond Reuter — der Wasserturm gleich nebenan", thumbsCap:"Archivfotos — Einrichtung von damals",
     findEyebrow:"Praktisch", findTitle:"So finden Sie uns",
     fiAddr:"Adresse",
-    fiHours:"Öffnungszeiten", fiHoursTxt:"Mo–Sa 08:00–20:00 · Mittag 12:00–14:30 · So geschlossen", hoursFlag2:"Zeiten unbestätigt",
+    fiHours:"Öffnungszeiten", fiHoursTxt:"Mo–Sa 08:00–20:00 · Mittag 12:00–14:30 · So geschlossen",
     fiPhone:"Telefon", fiPark:"Lage", fiParkTxt:"Gewerbepark Edmond Reuter, Contern",
-    findDirBtn:"Route öffnen", findDirBtn2:"Route öffnen ↗",
-    footHours:"Mo–Sa 08:00–20:00 · Sonntag geschlossen · <em>Zeiten unbestätigt</em>", footCta:"Anrufen & reservieren",
-    footLegal:"Demo-Website — vorgeschlagener Inhalt, vom Betrieb zu bestätigen. Preise und Öffnungszeiten sind Richtwerte und zu bestätigen. Archivfotos des Betriebs.",
-    mCall:"Anrufen · 26 70 14 90", mDir:"Route",
+    mapsCta:"In Google Maps öffnen →",
+    plateLabel:"Die Adresse",
+    plateOrient:"Wir liegen im <strong>Gewerbepark Edmond Reuter</strong> in Contern — der <strong>Wasserturm</strong> steht gleich nebenan und ist von der Terrasse aus zu sehen: wer ihn sieht, ist da.",
+    footHours:"Mo–Sa 08:00–20:00 · Sonntag geschlossen", footCta:"Anrufen & reservieren",
+    footLegal:"Website-Entwurf von Webwerk, erstellt aus öffentlich zugänglichen Informationen und Fotos — dies ist nicht die offizielle Website des Arizona Lounge, und die Inhalte sind noch vom Betrieb zu bestätigen.",
+    mCall:"Anrufen", mDir:"Route",
     locale:"de-DE"
   },
   en:{
-    statusMain:"Call us to confirm", statusSub:"Hours to be confirmed",
     callLabel:"Call / Book", callSub:"Phone — our only booking channel",
     linkDir:"Directions", linkFb:"Today's menu on Facebook",
-    hoursTitle:"Hours", hMonSat:"Mon – Sat", hLunch:"Lunch", hSun:"Sunday", hClosed:"Closed", hoursFlag:"Hours to confirm",
+    hoursTitle:"Hours", hMonSat:"Mon – Sat", hLunch:"Lunch", hSun:"Sunday", hClosed:"Closed",
     heroEyebrow:"Brasserie · Terrace · Contern", heroLine2:"A pause", heroLine3:"under the palms",
     heroLede:"A relaxed bar-restaurant in the heart of the Contern business park. Under the glass roof and the palms: an honest menu of the day, a morning coffee, a long lunch on the terrace.",
     tag1:"Open on weekdays", tag2:"Menu of the day", tag3:"Terrace & atrium",
     heroCallBtn:"Call to book", heroFindBtn:"Find us", postcardCap:"The terrace · Contern",
-    ardEyebrow:"What's cooking — at a glance", ardTitle:"Today's board", ardTodayWord:"Today",
+    ardEyebrow:"What's cooking — at a glance", ardTitle:"The board", ardTodayWord:"Today",
     ardPlatKicker:"Plate of the day", ardPlatName:"Menu of the day",
     ardPlatDesc:"A different plate every day — home-cooked and generous. The exact dish is announced the same morning.",
     catPasta:"Pasta", catSalad:"Salad", catFish:"Fish", catMeat:"Meat", catDessert:"Dessert",
+    ardCatsLabel:"Always on the menu",
     dishSalmon:"Grilled salmon", dishDessert:"Dessert of the day",
-    priceFlag:"Prices not shown — confirm in person", ardNoteText:"· the menu changes daily", ardFbText:"The exact dish of the day is posted on",
+    ardNoteText:"Prices are given in person · the menu changes daily", ardFbText:"The exact dish of the day is posted on",
     palmEyebrow:"The atmosphere", palmTitle:'Under the <span>palms</span>',
     palmP1:"A bright glass roof, palms and greenery: lunch feels like a little oasis, sheltered from the business park. A coffee in the morning, a hot plate at midday, and the terrace opens as soon as the sun is out.",
     palmP2:"Relaxed and unfussy — a genuine daytime brasserie, not a club.",
     palmPark:"Edmond Reuter business park — water tower next door", thumbsCap:"Archive photos — décor of the day",
     findEyebrow:"Practical", findTitle:"Find us",
     fiAddr:"Address",
-    fiHours:"Hours", fiHoursTxt:"Mon–Sat 08:00–20:00 · lunch 12:00–14:30 · Sun closed", hoursFlag2:"hours to confirm",
+    fiHours:"Hours", fiHoursTxt:"Mon–Sat 08:00–20:00 · lunch 12:00–14:30 · Sun closed",
     fiPhone:"Phone", fiPark:"Area", fiParkTxt:"Edmond Reuter business park, Contern",
-    findDirBtn:"Open directions", findDirBtn2:"Open directions ↗",
-    footHours:"Mon–Sat 08:00–20:00 · Sunday closed · <em>hours to confirm</em>", footCta:"Call to book",
-    footLegal:"Demonstration site — proposed content, to be validated by the establishment. Prices and hours are indicative and to be confirmed. Archive photographs of the establishment.",
-    mCall:"Call · 26 70 14 90", mDir:"Directions",
+    mapsCta:"Open in Google Maps →",
+    plateLabel:"The address",
+    plateOrient:"We are in the <strong>Edmond Reuter business park</strong> in Contern — Contern's <strong>water tower</strong> stands right next door and is visible from the terrace: if you can see it, you're here.",
+    footHours:"Mon–Sat 08:00–20:00 · Sunday closed", footCta:"Call to book",
+    footLegal:"A site preview composed by Webwerk from publicly available information and photographs — this is not Arizona Lounge's official website, and its content is still to be validated by the venue.",
+    mCall:"Call", mDir:"Directions",
     locale:"en-GB"
   }
 };
@@ -1070,40 +991,12 @@ function setLang(lang){
   document.querySelectorAll(".langbar button").forEach(b=>{
     b.classList.toggle("active", b.getAttribute("data-lang")===lang);
   });
-  renderDates();
-  renderStatus();
 }
 
-/* ---------------- dated board ---------------- */
-function renderDates(){
-  const d = I18N[CURRENT];
-  const now = new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Luxembourg'}));
-  const long = now.toLocaleDateString(d.locale,{weekday:"long",day:"numeric",month:"long"});
-  const short = now.toLocaleDateString(d.locale,{day:"2-digit",month:"2-digit",year:"numeric"});
-  const el1 = document.getElementById("todayDate");
-  const el2 = document.getElementById("ardDate");
-  if(el1) el1.textContent = long.charAt(0).toUpperCase()+long.slice(1);
-  if(el2) el2.textContent = short;
-}
-
-/* ---------------- status pill ----------------
-   No confirmed hours exist for this venue (sources disagree — see content.md),
-   so this deliberately does NOT compute a live open/closed verdict from a
-   guessed schedule. It only ever shows the honest static default already in
-   the HTML/I18N: "Call us to confirm" / "Hours to be confirmed". */
-function renderStatus(){
-  const d = I18N[CURRENT];
-  const main = document.getElementById("statusMain");
-  const sub = document.getElementById("statusSub");
-  if(!main) return;
-  main.textContent = d.statusMain;
-  sub.textContent = d.statusSub;
-}
-
-/* init (HTML already French — this only sets dates + status without reflow flash) */
-renderDates();
-renderStatus();
-setInterval(renderStatus, 60000);
+/* This page carries NO date and NO live open/closed status, by design.
+   It is a static page: a live date or a computed "open now" verdict would
+   imply daily upkeep and assert hours we cannot stand behind. The specials
+   board likewise shows the standing carte, not a dated daily board. */
 </script>
 
 
