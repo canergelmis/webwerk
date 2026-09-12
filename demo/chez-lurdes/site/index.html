@@ -57,7 +57,7 @@ nav.links a:hover{color:var(--glow);opacity:1}
 .hero{position:relative;min-height:94vh;display:flex;align-items:center;margin-top:-63px;padding-top:63px;overflow:hidden;background:radial-gradient(120% 90% at 50% 108%,#3a1c0e 0%,var(--coal2) 42%,var(--coal) 100%)}
 .hero canvas#grillcv{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(20,13,10,.92) 0%,rgba(20,13,10,.62) 42%,rgba(20,13,10,.15) 70%,transparent 100%)}
-.hero .inner{position:relative;z-index:2;padding:clamp(40px,7vw,80px) 0;max-width:640px}
+.hero .inner{position:relative;z-index:2;padding-block:clamp(40px,7vw,80px);max-width:640px}
 .hero .eyebrow{color:var(--glow);margin-bottom:16px;display:block}
 .hero h1{color:#fff;font-size:clamp(58px,11vw,140px);letter-spacing:-.01em;text-shadow:0 6px 44px rgba(0,0,0,.6)}
 .hero h1 span{display:block;color:var(--ember-l);font-size:.42em;letter-spacing:.02em;margin-top:6px}
@@ -160,7 +160,7 @@ section{padding:clamp(56px,9vw,104px) 0}
 footer{background:#100b09;color:#a8927a;padding:0 0 40px}
 footer .band{padding:26px 0;display:flex;align-items:center;gap:16px}
 footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--ember),transparent)}
-footer .in{padding:4px 0 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .in{padding-block:4px 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
 footer .nm{font-family:'Disp';font-weight:700;font-size:27px;color:var(--cream)}
 footer .nm small{display:block;font-family:'Body';font-size:10px;letter-spacing:.2em;color:var(--ember-l);margin-top:5px;text-transform:uppercase}
 footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#9a836b}
