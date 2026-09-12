@@ -39,7 +39,8 @@
 
   ASSETS: rebuild/assets/ ships REAL venue photos (public sources — RestaurantGuru),
     enhanced with a warm-newsprint grade, shown in the "Le reportage" picture desk
-    (portraits.jpg / heidi.jpg / judd.jpg / terrasse.jpg). Low-res.
+    (portraits.jpg / judd.jpg / terrasse.jpg). Low-res.
+    heidi.jpg is deliberately NOT shown: it pictures two identifiable diners.
     Fonts self-hosted in assets/fonts/.
     >>> REQUEST hi-res owner photos for the production build. <<<
   ============================================================================
@@ -560,7 +561,7 @@
 
   /* ================= LE REPORTAGE (picture desk) ================= */
   .reportage{border-top:3px double var(--ink);}
-  .rep-grid{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:var(--rule);}
+  .rep-grid{display:grid;grid-template-columns:repeat(2,1fr);border-bottom:var(--rule);}
   .rep-fig{margin:0;border-right:var(--rule);border-top:var(--rule);position:relative;overflow:hidden;}
   .rep-fig:nth-child(3n),.rep-fig.lead{border-right:none;}
   .rep-fig.lead{grid-column:1 / -1;border-top:none;}
@@ -865,10 +866,6 @@
           <figcaption><b data-i18n="cap_portraits_l">La salle</b><span data-i18n="cap_portraits">— boiseries, portraits encadrés et coupures de presse aux murs, face au Palais.</span></figcaption>
         </figure>
         <figure class="rep-fig">
-          <img src="assets/heidi.jpg" alt="Accueil chaleureux à table, autour de bols de Bouneschlupp" loading="lazy" />
-          <figcaption><b data-i18n="cap_heidi_l">Beim Heidi</b><span data-i18n="cap_heidi">— l’accueil de la maison, à chaque table.</span></figcaption>
-        </figure>
-        <figure class="rep-fig">
           <img src="assets/judd.jpg" alt="Judd mat Gaardebounen, collet de porc fumé et fèves des marais" loading="lazy" />
           <figcaption><b data-i18n="cap_judd_l">Judd mat Gaardebounen</b><span data-i18n="cap_judd">— le plat national, copieux comme il se doit.</span></figcaption>
         </figure>
@@ -1046,7 +1043,6 @@
       disc_text:" Aperçu de site réalisé par Webwerk à partir de sources publiques — proposition non officielle, sans lien avec la direction de l’établissement.",
       rep_title:"En images",
       cap_portraits_l:"La salle", cap_portraits:"— boiseries, portraits encadrés et coupures de presse aux murs, face au Palais.",
-      cap_heidi_l:"Beim Heidi", cap_heidi:"— l’accueil de la maison, à chaque table.",
       cap_judd_l:"Judd mat Gaardebounen", cap_judd:"— le plat national, copieux comme il se doit.",
       cap_terrasse_l:"Ville-Haute", cap_terrasse:"— la vieille ville, à deux pas.",
       ns_menu:"Lire le menu", ns_call:"Appeler", ns_dir:"Itinéraire",
@@ -1097,7 +1093,6 @@
       disc_text:" Website-Vorschau von Webwerk, aus öffentlichen Quellen erstellt — ein inoffizieller Entwurf, ohne Verbindung zur Leitung des Hauses.",
       rep_title:"In Bildern",
       cap_portraits_l:"Der Saal", cap_portraits:"— Holzvertäfelung, Wände voller gerahmter Porträts und Presseausschnitte, gegenüber dem Palais.",
-      cap_heidi_l:"Beim Heidi", cap_heidi:"— der Empfang des Hauses, an jedem Tisch.",
       cap_judd_l:"Judd mat Gaardebounen", cap_judd:"— das Nationalgericht, reichlich serviert.",
       cap_terrasse_l:"Oberstadt", cap_terrasse:"— die Altstadt direkt vor der Tür.",
       ns_menu:"Zur Karte", ns_call:"Anrufen", ns_dir:"Route",
@@ -1148,7 +1143,6 @@
       disc_text:" A website preview produced by Webwerk from public sources — an unofficial proposal, not affiliated with the venue’s management.",
       rep_title:"In pictures",
       cap_portraits_l:"The room", cap_portraits:"— oak panelling, walls of framed portraits and press clippings, facing the Palace.",
-      cap_heidi_l:"Beim Heidi", cap_heidi:"— the welcome of the house, at every table.",
       cap_judd_l:"Judd mat Gaardebounen", cap_judd:"— the national dish, served generously.",
       cap_terrasse_l:"Ville-Haute", cap_terrasse:"— the old town, right on the doorstep.",
       ns_menu:"Read the menu", ns_call:"Call", ns_dir:"Directions",
