@@ -673,8 +673,7 @@
       <button class="modal__close" data-close-modal aria-label="Fermer">&times;</button>
     </div>
     <div class="modal__body">
-      <iframe id="resframe" title="Réservation Il Fragolino" src="about:blank"></iframe>
-      <p class="modal__fallback" data-fr="Le widget ne s'affiche pas ? Appelez-nous directement :" data-en="Widget not loading? Call us directly:" data-de="Widget lädt nicht? Rufen Sie uns direkt an:">Le widget ne s'affiche pas ? Appelez-nous directement :</p>
+      <p class="modal__fallback" data-fr="Les réservations se font par téléphone. Appelez la maison :" data-en="Reservations are taken by phone. Call the restaurant:" data-de="Reservierungen erfolgen telefonisch. Rufen Sie das Haus an:">Les réservations se font par téléphone. Appelez la maison :</p>
       <a class="modal__tel" href="tel:+35226480267">+352 26 48 02 67</a>
     </div>
   </div>
@@ -698,22 +697,17 @@
     document.querySelectorAll("[data-lang]").forEach(function(b){
       b.classList.toggle("active", b.getAttribute("data-lang")===lang);
     });
-    // if modal iframe already loaded, refresh with new lang
-    var f=document.getElementById("resframe");
-    if(f && f.src && f.src.indexOf("about:blank")<0){ f.src=resURL(); }
   }
   document.querySelectorAll("[data-lang]").forEach(function(b){
     b.addEventListener("click",function(){ setLang(b.getAttribute("data-lang")); });
   });
 
   // ---------- reservation modal ----------
-  function resURL(){
-    return "https://bookings.zenchef.com/results?rid=380745&lang="+current;
-  }
+  // Phone-only by design. This modal previously embedded the venue's real
+  // Zenchef widget, which would have taken genuine bookings from a demo we
+  // have no mandate for, and made an off-origin request. Both are out.
   var modal=document.getElementById("modal");
-  var frame=document.getElementById("resframe");
   function openModal(){
-    if(!frame.src || frame.src.indexOf("about:blank")>-1){ frame.src=resURL(); }
     modal.classList.add("open");
     document.body.style.overflow="hidden";
   }

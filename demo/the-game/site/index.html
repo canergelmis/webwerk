@@ -351,7 +351,15 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
 .cline .cv{font-size:1.02rem;color:#e9e9ee}
 .cline .cv a{border-bottom:1px solid var(--red);padding-bottom:1px}
 .map-wrap{margin-top:30px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-.map-wrap iframe{width:100%;height:300px;border:0;display:block;filter:grayscale(.3) contrast(1.05)}
+.map-static{height:300px;display:flex;align-items:flex-end;background:var(--panel2);
+    background-image:repeating-linear-gradient(90deg,rgba(245,245,245,.045) 0 1px,transparent 1px 44px),
+                     repeating-linear-gradient(0deg,rgba(245,245,245,.045) 0 1px,transparent 1px 44px)}
+  .map-static-in{padding:22px 24px 24px}
+  .ms-addr{font-family:var(--disp);font-size:22px;letter-spacing:.01em;color:var(--paper);margin:0 0 6px}
+  .ms-note{font-size:13px;color:var(--muted);margin:0 0 14px;max-width:34ch}
+  .ms-link{display:inline-block;font-size:13px;font-weight:700;color:var(--amber);text-decoration:none;
+    border-bottom:1px solid var(--amber);padding-bottom:2px}
+  .ms-link:hover{color:var(--red-hot);border-color:var(--red-hot)}
 .visit-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
 .confirm-flag{font-family:var(--mono);font-size:.6rem;color:var(--amber);letter-spacing:.06em;margin-top:4px;display:block}
 
@@ -719,8 +727,14 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
         </div>
       </div>
       <div class="map-wrap">
-        <iframe title="Map — The Game, 45 Avenue J.F. Kennedy, Luxembourg" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=The+Game+Sports+Bar+Steakhouse+45+Avenue+JF+Kennedy+Luxembourg&output=embed"></iframe>
+        <div class="map-static">
+          <div class="map-static-in">
+            <p class="ms-addr">45 Avenue J.F. Kennedy<br />L-1855 Luxembourg — Kirchberg</p>
+            <p class="ms-note" data-i18n="ms_note">Au Kirchberg, sur l'avenue J.F. Kennedy.</p>
+            <a class="ms-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Game+Sports+Bar+Steakhouse+45+Avenue+JF+Kennedy+Luxembourg"
+               target="_blank" rel="noopener" data-i18n="ms_open">Ouvrir dans Google Maps →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -802,7 +816,7 @@ const I18N = {
     fxHoursNote:"Horaires de salle d'après les annuaires locaux (sept. 2026) ; horaires de cuisine à confirmer avec l'établissement.",
     fxAddr:"Adresse",fxAddrNote:"Numéro de rue à confirmer (45 / 47).",
     fxPhone:"Téléphone",fxEmail:"Email",fxOrder:"Livraison",
-    fxCall:"Appeler pour réserver",fxDir:"Itinéraire",
+    fxCall:"Appeler pour réserver",ms_note:"Au Kirchberg, sur l'avenue J.F. Kennedy.",ms_open:"Ouvrir dans Google Maps →",fxDir:"Itinéraire",
     ftCall:"Réserver une table",ftWolt:"Commander sur Wolt",
     ftVisit:"Visite",ftHours:"Horaires",ftHours1:"Lun–jeu &amp; dim · 11:00 – 23:45",ftHours2:"Ven–sam · 11:00 – 00:00",
     ftNote:"MAQUETTE DE DÉMO — Le logo, les couleurs et les polices sont des espaces réservés proposés, remplaçables dès que le propriétaire fournit sa charte officielle. Numéro de rue (45) et prix sur place à confirmer.",
@@ -844,7 +858,7 @@ const I18N = {
     fxHoursNote:"Öffnungszeiten laut lokalen Verzeichnissen (Sept. 2026); Küchenzeiten mit dem Lokal zu bestätigen.",
     fxAddr:"Adresse",fxAddrNote:"Hausnummer zu bestätigen (45 / 47).",
     fxPhone:"Telefon",fxEmail:"E-Mail",fxOrder:"Lieferung",
-    fxCall:"Anrufen & reservieren",fxDir:"Route",
+    fxCall:"Anrufen & reservieren",ms_note:"Auf Kirchberg, an der Avenue J.F. Kennedy.",ms_open:"In Google Maps öffnen →",fxDir:"Route",
     ftCall:"Tisch reservieren",ftWolt:"Auf Wolt bestellen",
     ftVisit:"Besuch",ftHours:"Öffnungszeiten",ftHours1:"Mo–Do &amp; So · 11:00 – 23:45",ftHours2:"Fr–Sa · 11:00 – 00:00",
     ftNote:"DEMO-PLATZHALTER — Wortmarke, Farben und Schriften sind ein vorgeschlagener Platzhalter, austauschbar sobald der Inhaber offizielles Branding liefert. Hausnummer (45) und Preise vor Ort zu bestätigen.",
@@ -886,7 +900,7 @@ const I18N = {
     fxHoursNote:"Floor hours per local directories (Sept 2026); kitchen hours to be confirmed with the venue.",
     fxAddr:"Address",fxAddrNote:"Street number to be confirmed (45 / 47).",
     fxPhone:"Phone",fxEmail:"Email",fxOrder:"Delivery",
-    fxCall:"Call to book",fxDir:"Get directions",
+    fxCall:"Call to book",ms_note:"On Kirchberg, on Avenue J.F. Kennedy.",ms_open:"Open in Google Maps →",fxDir:"Get directions",
     ftCall:"Book a table",ftWolt:"Order on Wolt",
     ftVisit:"Visit",ftHours:"Hours",ftHours1:"Mon–Thu &amp; Sun · 11:00 – 23:45",ftHours2:"Fri–Sat · 11:00 – 00:00",
     ftNote:"DEMO PLACEHOLDER — Wordmark, colours and fonts are a proposed placeholder, swappable once the owner supplies official branding. Street number (No. 45) and dine-in prices to be confirmed with the venue.",
