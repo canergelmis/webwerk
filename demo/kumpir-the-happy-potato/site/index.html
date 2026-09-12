@@ -144,7 +144,7 @@ nav.main a:hover::after{right:0}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* ============================ SECTION SHELL ============================ */
-section.blk{padding:66px 0}
+section.blk{padding-block:66px}
 .sec-head{max-width:60ch;margin-bottom:36px}
 .sec-head h2{font-size:clamp(30px,4.6vw,50px)}
 .sec-head p{margin-top:12px;color:var(--note);font-size:1.06rem}
@@ -325,7 +325,7 @@ footer a.wk{color:var(--mustard);font-weight:700}
   /* two columns of chips on a phone — four would clip the longer names */
   .chips{grid-template-columns:repeat(2,minmax(0,1fr))}
   .chip{font-size:.85rem;padding:8px 10px}
-  section.blk{padding:48px 0}
+  section.blk{padding-block:48px}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto}
