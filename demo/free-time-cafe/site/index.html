@@ -277,7 +277,10 @@ header{position:sticky;top:0;z-index:70;background:rgba(250,246,236,.94);backdro
 /* ===== HERO ===== */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;color:var(--cream);overflow:hidden;background:var(--navy3)}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,24,38,.86),rgba(15,24,38,.72) 55%,rgba(15,24,38,.94)),url('assets/photos/interior-dining.jpg') center 40%/cover no-repeat}
-.hero-in{position:relative;z-index:2;width:100%;padding:150px 0 74px}
+/* padding-block, not the padding shorthand: this element is also a .wrap, and
+   a shorthand here zeroes .wrap's horizontal gutter, putting the h1, the CTA
+   and the address chip hard against the viewport edge on mobile. */
+.hero-in{position:relative;z-index:2;width:100%;padding-block:150px 74px}
 .hero .eyebrow{color:var(--gold)}
 .hero .eyebrow::before{background:var(--gold)}
 .hero h1{font-size:clamp(2.9rem,9vw,6.4rem);color:var(--cream);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.005em}
