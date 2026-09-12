@@ -416,8 +416,18 @@
   /* ---------- SUR LA PLACE / visit ---------- */
   .visit{padding:84px 0 90px;background:var(--cream)}
   .visit-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:44px;align-items:stretch}
-  .map-tile{border-radius:14px;overflow:hidden;min-height:520px;border:1px solid var(--line);position:relative}
-  .map-tile iframe{width:100%;height:100%;min-height:520px;border:0;filter:grayscale(.25) contrast(1.02)}
+  .map-tile{border-radius:14px;overflow:hidden;min-height:360px;border:1px solid var(--line);position:relative;align-self:start}
+  .map-static{width:100%;min-height:360px;display:flex;align-items:center;
+    background:var(--cream-2);
+    /* A quiet paper texture, deliberately NOT a depiction of the streets. */
+    background-image:repeating-linear-gradient(90deg,rgba(58,59,56,.05) 0 1px,transparent 1px 46px),
+                     repeating-linear-gradient(0deg,rgba(58,59,56,.05) 0 1px,transparent 1px 46px)}
+  .map-static-in{padding:28px 28px 30px}
+  .ms-addr{font-family:var(--serif);font-size:20px;line-height:1.35;color:var(--ink);margin:0 0 8px}
+  .ms-note{font-size:13px;color:var(--stone-2);margin:0 0 16px;max-width:34ch}
+  .ms-link{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.02em;
+    color:var(--brick);text-decoration:none;border-bottom:1px solid var(--brick);padding-bottom:2px}
+  .ms-link:hover{color:var(--brick-d);border-color:var(--brick-d)}
   .map-plaque{position:absolute;top:20px;left:20px;z-index:2;transform:rotate(-1.4deg)}
   .map-plaque .plaque{padding:8px 16px}
   .map-plaque .plaque .p-name{font-size:22px}
@@ -713,10 +723,14 @@
         <div class="map-plaque">
           <span class="plaque"><span class="p-name">Maartplaz</span></span>
         </div>
-        <iframe
-          title="Plan — Maartplaz, 9 rue de Bastogne, Ettelbruck"
-          src="https://www.google.com/maps?q=9+rue+de+Bastogne+9010+Ettelbruck+Luxembourg&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-static">
+          <div class="map-static-in">
+            <p class="ms-addr">9, rue de Bastogne<br />L-9010 Ettelbruck</p>
+            <p class="ms-note" data-i18n="visit.map.note">Sur la Place Marie-Adélaïde, au centre d'Ettelbruck.</p>
+            <a class="ms-link" href="https://www.google.com/maps/search/?api=1&amp;query=9+rue+de+Bastogne+9010+Ettelbruck+Luxembourg"
+               target="_blank" rel="noopener" data-i18n="visit.map.open">Ouvrir dans Google Maps →</a>
+          </div>
+        </div>
       </div>
 
       <div class="visit-col">
@@ -820,7 +834,7 @@ const I18N = {
     "visit.intro":"La terrasse donne sur la Place Marie-Adélaïde, en plein centre d'Ettelbruck. Stationnement gratuit à proximité le midi.",
     "visit.hours.sub":"Service","visit.hours.h":"Horaires","visit.closed":"Fermé","visit.eve":"soir à confirmer",
     "visit.hours.note":"Horaires indicatifs — à confirmer avec l'établissement.",
-    "visit.contact.sub":"Contact & réservation","visit.contact.h":"Nous joindre",
+    "visit.contact.sub":"Contact & réservation","visit.map.note":"Sur la Place Marie-Adélaïde, au centre d'Ettelbruck.","visit.map.open":"Ouvrir dans Google Maps →","visit.contact.h":"Nous joindre",
     "visit.contact.tel":"Réservation conseillée — la salle est petite",
     "visit.contact.mail":"Écrivez-nous pour un groupe ou un événement",
     "visit.contact.addr":"Terrasse sur la Place Marie-Adélaïde",
@@ -871,7 +885,7 @@ const I18N = {
     "visit.intro":"Die Terrasse liegt am Place Marie-Adélaïde, mitten in Ettelbrück. Mittags kostenloses Parken in der Nähe.",
     "visit.hours.sub":"Service","visit.hours.h":"Öffnungszeiten","visit.closed":"Geschlossen","visit.eve":"Abend zu bestätigen",
     "visit.hours.note":"Zeiten als Richtwert — beim Restaurant bestätigen lassen.",
-    "visit.contact.sub":"Kontakt & Reservierung","visit.contact.h":"Kontakt",
+    "visit.contact.sub":"Kontakt & Reservierung","visit.map.note":"Am Place Marie-Adélaïde, im Zentrum von Ettelbruck.","visit.map.open":"In Google Maps öffnen →","visit.contact.h":"Kontakt",
     "visit.contact.tel":"Reservierung empfohlen — der Saal ist klein",
     "visit.contact.mail":"Schreiben Sie uns für Gruppen oder Feiern",
     "visit.contact.addr":"Terrasse am Place Marie-Adélaïde",
@@ -922,7 +936,7 @@ const I18N = {
     "visit.intro":"The terrace faces Place Marie-Adélaïde, right in the centre of Ettelbruck. Free parking nearby at lunchtime.",
     "visit.hours.sub":"Service","visit.hours.h":"Opening hours","visit.closed":"Closed","visit.eve":"evening to confirm",
     "visit.hours.note":"Indicative hours — to be confirmed with the restaurant.",
-    "visit.contact.sub":"Contact & booking","visit.contact.h":"Get in touch",
+    "visit.contact.sub":"Contact & booking","visit.map.note":"On Place Marie-Adélaïde, in the centre of Ettelbruck.","visit.map.open":"Open in Google Maps →","visit.contact.h":"Get in touch",
     "visit.contact.tel":"Booking recommended — the room is small",
     "visit.contact.mail":"Write to us for a group or an event",
     "visit.contact.addr":"Terrace on Place Marie-Adélaïde",
