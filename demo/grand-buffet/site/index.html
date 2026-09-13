@@ -192,6 +192,11 @@ footer .made a{color:var(--gold-l)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* pill containment */
+  /* right:-12px deliberately overhangs the card on desktop, but at phone
+     width that overhang lands outside the viewport and clips. */
+  @media(max-width:760px){ .spot .pic .pill{right:22px} }
 </style>
 </head>
 <body>
@@ -327,8 +332,8 @@ footer .made a{color:var(--gold-l)}
      </div>
      <div class="mgroup">
       <h3><svg class="dm" viewBox="0 0 64 64"><use href="#dishmark"/></svg><span data-i18n="mg4">Les formules</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Formule midi — à volonté</div><div class="ds" data-i18n="i7d">Tarif à confirmer</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Formule soir — à volonté</div><div class="ds" data-i18n="i8d">Tarif à confirmer</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Formule midi — à volonté</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Formule soir — à volonté</div></div></div>
      </div>
     </div>
    </div>
@@ -402,7 +407,7 @@ const I18N={
   i1n:"Sushis & makis",i1d:"Roulés sur place",i2n:"Salades & entrées",i2d:"Le coin frais",
   i3n:"Grillades",i3d:"Viandes & brochettes",i4n:"Wok & plats mijotés",i4d:"Nouilles, riz, sautés",
   i5n:"Pâtisseries",i5d:"La vitrine sucrée",i6n:"Glaces à volonté",i6d:"Plusieurs parfums",
-  i7n:"Formule midi — à volonté",i7d:"Tarif à confirmer",i8n:"Formule soir — à volonté",i8d:"Tarif à confirmer",
+  i7n:"Formule midi — à volonté",i8n:"Formule soir — à volonté",
   st_note:"Stations d'après les photos publiques de la maison, à titre indicatif — l'offre change selon les jours. Formules à volonté midi & soir : tarifs à confirmer sur place.",
   infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
   ino_k1:"Adresse",ino_fl1:"Adresse exacte à confirmer",ino_k2:"Réserver",ino_phone:"Téléphone à confirmer",
@@ -470,7 +475,7 @@ const I18N={
   i1n:"Sushi & maki",i1d:"Rolled on site",i2n:"Salads & starters",i2d:"The fresh corner",
   i3n:"Grills",i3d:"Meats & skewers",i4n:"Wok & slow-cooked",i4d:"Noodles, rice, stir-fries",
   i5n:"Pastries",i5d:"The sweet counter",i6n:"Ice cream, all you can eat",i6d:"Several flavours",
-  i7n:"Lunch deal — all you can eat",i7d:"Price to be confirmed",i8n:"Dinner deal — all you can eat",i8d:"Price to be confirmed",
+  i7n:"Lunch deal — all you can eat",i8n:"Dinner deal — all you can eat",
   st_note:"Stations from the house's public photos, for reference — the offer changes daily. All-you-can-eat lunch & dinner: prices to be confirmed on site.",
   infos_eyebrow:"Info & access",infos_h:"Find us",
   ino_k1:"Address",ino_fl1:"Exact address to be confirmed",ino_k2:"Book",ino_phone:"Phone to be confirmed",
