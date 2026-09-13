@@ -58,7 +58,7 @@ nav.links a:hover{color:var(--saffron);opacity:1}
 .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-74px;padding-top:74px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.03)}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,12,7,.62) 0%,rgba(18,12,7,.4) 32%,rgba(18,12,7,.6) 66%,rgba(13,9,5,.94) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,12,7,0.62) 0%,rgba(18,12,7,0.48) 32%,rgba(18,12,7,0.6) 66%,rgba(13,9,5,0.94) 100%)}
 .hero canvas#screen{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero .inner{padding-bottom:clamp(40px,7vw,84px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--saffron);margin-bottom:18px}
@@ -95,7 +95,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .gal figure:hover img{transform:scale(1.05);filter:saturate(1.05) contrast(1.02)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
 .gal figure::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(36,26,18,.14),rgba(30,95,110,.06));mix-blend-mode:multiply}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,14,9,.82),transparent);color:#fff;font-family:'Eczar',serif;font-weight:600;font-size:16px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,14,9,0.94) 0%,rgba(20,14,9,0.82) 62%,rgba(20,14,9,0) 100%);color:#fff;font-family:'Eczar',serif;font-weight:600;font-size:16px}
 
 /* sweets spotlight */
 .spot{background:var(--lapis);color:#eaf2f0;position:relative;overflow:hidden}
@@ -174,6 +174,12 @@ footer .made a{color:var(--saffron)}
  .hero h1{font-size:clamp(48px,15vw,86px)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(125, 108, 80)); set to meet WCAG AA
+     against its own footer ground at 4.67:1, at a readable size. */
+  .disc{color:#8d7e65 !important;font-size:12.5px !important;line-height:1.5}
 </style>
 </head>
 <body>

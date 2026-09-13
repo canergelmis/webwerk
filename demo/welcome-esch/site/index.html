@@ -58,7 +58,7 @@ nav.links a:hover{color:#fff;opacity:1}
 /* HERO — azulejo-blue field with tessellating tilework */
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;margin-top:-64px;padding-top:64px;overflow:hidden;background:radial-gradient(120% 100% at 20% 12%,var(--blue) 0,var(--blue-d) 46%,var(--blue-dd) 100%)}
 .hero canvas#azu{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
-.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,34,71,.82) 0%,rgba(10,34,71,.5) 42%,rgba(10,34,71,.15) 70%,rgba(10,34,71,.28) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,34,71,0.82) 0%,rgba(10,34,71,0.5) 42%,rgba(10,34,71,0.15) 70%,rgba(10,34,71,0.28) 100%)}
 .hero .inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(38px,7vw,86px)}
 .hero .eyebrow{color:var(--gold);margin-bottom:16px;display:block}
 .hero h1{color:#fff;font-size:clamp(58px,11vw,150px);letter-spacing:.005em;text-shadow:0 6px 44px rgba(0,0,0,.45);line-height:.9}
@@ -122,14 +122,14 @@ section{padding:clamp(56px,9vw,102px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02) contrast(1.02);transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(10,20,42,.86),transparent);color:#fff;font-family:'Disp',serif;font-weight:600;font-size:17px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(10,20,42,0.95) 0%,rgba(10,20,42,0.86) 62%,rgba(10,20,42,0) 100%);color:#fff;font-family:'Disp',serif;font-weight:600;font-size:17px}
 
 /* LA MAISON — rooms */
 .maison{background:var(--stone)}
 .maison .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
 .maison figure{position:relative;overflow:hidden;border-radius:6px;background:#cfc3a8;box-shadow:0 14px 34px rgba(20,30,50,.14)}
 .maison figure img{width:100%;height:clamp(220px,32vw,340px);object-fit:cover}
-.maison figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 14px 12px;background:linear-gradient(0deg,rgba(10,20,42,.8),transparent);color:#fff;font-family:'Disp';font-weight:600;font-size:16px}
+.maison figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 14px 12px;background:linear-gradient(0deg,rgba(10,20,42,0.92) 0%,rgba(10,20,42,0.8) 62%,rgba(10,20,42,0) 100%);color:#fff;font-family:'Disp';font-weight:600;font-size:16px}
 .maison .lead{max-width:60ch;font-size:18px;color:var(--ink2);margin-top:26px;line-height:1.6}
 
 /* CARTE */
@@ -159,7 +159,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .ino .fl{color:#a9b6cc;font-size:13px;font-style:italic}
 .infos .photo{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 20px 44px rgba(0,0,0,.4);min-height:260px}
 .infos .photo img{width:100%;height:100%;min-height:260px;object-fit:cover}
-.infos .photo .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(10,20,42,.85),transparent);color:#fff;font-family:'Disp';font-weight:600;font-size:16px}
+.infos .photo .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(10,20,42,0.95) 0%,rgba(10,20,42,0.85) 62%,rgba(10,20,42,0) 100%);color:#fff;font-family:'Disp';font-weight:600;font-size:16px}
 .infos .photo .cap .btn{margin-top:10px}
 
 footer{background:var(--blue-ink);color:#9fb0cc;padding:0 0 40px}
@@ -197,6 +197,12 @@ footer .made a{color:var(--gold)}
  .bar{gap:8px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(109, 126, 156)); set to meet WCAG AA
+     against its own footer ground at 4.64:1, at a readable size. */
+  .disc{color:#7d8ca7 !important;font-size:12.5px !important;line-height:1.5}
 </style>
 </head>
 <body>

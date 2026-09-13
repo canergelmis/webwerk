@@ -56,7 +56,7 @@ nav.links a:hover{color:var(--glow);opacity:1}
 /* hero — dark charcoal grill, live canvas */
 .hero{position:relative;min-height:94vh;display:flex;align-items:center;margin-top:-63px;padding-top:63px;overflow:hidden;background:radial-gradient(120% 90% at 50% 108%,#3a1c0e 0%,var(--coal2) 42%,var(--coal) 100%)}
 .hero canvas#grillcv{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(20,13,10,.92) 0%,rgba(20,13,10,.62) 42%,rgba(20,13,10,.15) 70%,transparent 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(20,13,10,0.92) 0%,rgba(20,13,10,0.62) 42%,rgba(20,13,10,0.15) 70%,transparent 100%)}
 .hero .inner{position:relative;z-index:2;padding-block:clamp(40px,7vw,80px);max-width:640px}
 .hero .eyebrow{color:var(--glow);margin-bottom:16px;display:block}
 .hero h1{color:#fff;font-size:clamp(58px,11vw,140px);letter-spacing:-.01em;text-shadow:0 6px 44px rgba(0,0,0,.6)}
@@ -112,7 +112,7 @@ section{padding:clamp(56px,9vw,104px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02) contrast(1.02);transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 15px 12px;background:linear-gradient(0deg,rgba(18,10,7,.86),transparent);color:#fff;font-family:'Disp',serif;font-weight:600;font-size:17px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 15px 12px;background:linear-gradient(0deg,rgba(18,10,7,0.95) 0%,rgba(18,10,7,0.86) 62%,rgba(18,10,7,0) 100%);color:#fff;font-family:'Disp',serif;font-weight:600;font-size:17px}
 
 /* maison / quartier band */
 .mai{background:var(--char);color:#eaddc9;position:relative;overflow:hidden}
@@ -182,7 +182,7 @@ footer .made b{color:#e6d6c1}footer .made a{color:var(--glow)}
  nav.links a{padding:12px;font-size:17px}
  .burger{display:flex}
  header{background:rgba(20,13,10,.95)}
- .hero .scrim{background:linear-gradient(180deg,rgba(20,13,10,.86) 0%,rgba(20,13,10,.4) 46%,rgba(20,13,10,.72) 100%)}
+ .hero .scrim{background:linear-gradient(180deg,rgba(20,13,10,0.86) 0%,rgba(20,13,10,0.48) 46%,rgba(20,13,10,0.72) 100%)}
  .hero h1{font-size:clamp(52px,16vw,92px)}
  .hero .late{display:none}
 }
@@ -191,6 +191,12 @@ footer .made b{color:#e6d6c1}footer .made a{color:var(--glow)}
  .brand .nm{font-size:22px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(106, 89, 71)); set to meet WCAG AA
+     against its own footer ground at 4.62:1, at a readable size. */
+  .disc{color:#86796a !important;font-size:12.5px !important;line-height:1.5}
 </style>
 </head>
 <body>

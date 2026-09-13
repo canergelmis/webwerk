@@ -59,8 +59,8 @@ nav.links a:hover{color:var(--tomato)}
    radial-gradient(120% 90% at 88% 12%,rgba(211,61,43,.06),transparent 60%),
    var(--cream)}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
-   background-image:linear-gradient(45deg,rgba(211,61,43,.045) 25%,transparent 25%,transparent 75%,rgba(211,61,43,.045) 75%),
-   linear-gradient(45deg,rgba(211,61,43,.045) 25%,transparent 25%,transparent 75%,rgba(211,61,43,.045) 75%);
+   background-image:linear-gradient(45deg,rgba(211,61,43,0.48) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%),
+   linear-gradient(45deg,rgba(211,61,43,0.48) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%);
    background-size:44px 44px;background-position:0 0,22px 22px;
    -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent);mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent)}
 .hero .wrap{position:relative;z-index:2}
@@ -114,7 +114,7 @@ section{padding:clamp(56px,9vw,104px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02);transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(30,20,14,.82),transparent);color:#fff;font-family:'Disp',sans-serif;font-weight:700;font-size:17px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(30,20,14,0.94) 0%,rgba(30,20,14,0.82) 62%,rgba(30,20,14,0) 100%);color:#fff;font-family:'Disp',sans-serif;font-weight:700;font-size:17px}
 
 /* ---------- maison (dark wood band) ---------- */
 .maison{background:var(--wood);color:#efe2ce}
@@ -185,6 +185,12 @@ footer .made a{color:var(--terra)}
  .bar{gap:8px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(125, 106, 82)); set to meet WCAG AA
+     against its own footer ground at 4.67:1, at a readable size. */
+  .disc{color:#a19482 !important;font-size:12.5px !important;line-height:1.5}
 </style>
 </head>
 <body>

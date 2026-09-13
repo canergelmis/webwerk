@@ -76,7 +76,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,246,238,.94);backdro
 .hero .steam i:nth-child(3){left:74%;animation-delay:6s;width:100px}
 @keyframes rise{0%{transform:translateY(0) scale(.8);opacity:0}18%{opacity:.9}100%{transform:translateY(-120%) scale(1.5);opacity:0}}
 @media(prefers-reduced-motion:reduce){.hero .steam{display:none}}
-.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(20,17,12,.5) 0%,rgba(20,17,12,.1) 30%,rgba(18,15,10,.78) 76%,rgba(14,11,7,.94) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(20,17,12,0.5) 0%,rgba(20,17,12,0.48) 30%,rgba(18,15,10,0.78) 76%,rgba(14,11,7,0.94) 100%)}
 .hero .wrap{position:relative;z-index:3;width:100%;padding-top:100px;padding-bottom:clamp(44px,6vw,78px)}
 .hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:7px 14px;font-family:var(--body);font-weight:700;font-size:.82rem;letter-spacing:.02em;color:#fff}
 .hero .badge svg{height:14px;width:14px;color:var(--curry)}
@@ -201,6 +201,12 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
 .disc{margin-top:22px;color:#8e8571;max-width:80ch}
 .madeby{margin-top:14px;color:#f2cf98}
 .madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(142, 133, 113)); set to meet WCAG AA
+     against its own footer ground at 4.61:1, at a readable size. */
+  .disc{color:#968e7b !important;font-size:12.5px !important;line-height:1.5}
 </style>
 </head>
 <body id="top">

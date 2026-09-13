@@ -65,7 +65,7 @@ header.solid .burger span{background:var(--ink)}
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;background:#e9c68a}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
-.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(120,52,22,.86) 0%,rgba(150,78,34,.42) 40%,rgba(224,161,60,.10) 68%,rgba(255,236,190,.04) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(120,52,22,0.86) 0%,rgba(150,78,34,0.48) 40%,rgba(224,161,60,0.1) 68%,rgba(255,236,190,0.04) 100%)}
 .hero canvas#skycv{position:absolute;inset:0;z-index:2;pointer-events:none}
 .hero .inner{position:relative;z-index:3;padding-bottom:clamp(42px,7vw,90px);padding-top:130px}
 .hero .eyebrow{color:var(--amber-l);margin-bottom:16px;display:block}
@@ -142,7 +142,7 @@ section{padding:clamp(58px,9vw,102px) 0}
 .gal .d{grid-column:span 2}
 .gal .e{grid-column:span 2}
 .gal .f{grid-column:span 3}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 15px 11px;background:linear-gradient(0deg,rgba(42,26,14,.82),transparent);color:#fbeed7;font-family:'Disp',serif;font-weight:600;font-size:16px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 15px 11px;background:linear-gradient(0deg,rgba(42,26,14,0.94) 0%,rgba(42,26,14,0.82) 62%,rgba(42,26,14,0) 100%);color:#fbeed7;font-family:'Disp',serif;font-weight:600;font-size:16px}
 
 /* CARTE */
 .carte{background:var(--paper)}
@@ -215,6 +215,12 @@ footer .ck{font-family:'Body';font-weight:700;letter-spacing:.13em;text-transfor
  nav.links{gap:2px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(111, 99, 80)); set to meet WCAG AA
+     against its own footer ground at 4.63:1, at a readable size. */
+  .disc{color:#8c8273 !important;font-size:12.5px !important;line-height:1.5}
 </style>
 </head>
 <body>

@@ -52,7 +52,7 @@ nav.links a:hover{color:var(--gold-l);opacity:1}
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-64px;padding-top:64px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,18,32,.66) 0%,rgba(10,18,32,.4) 32%,rgba(10,18,32,.6) 66%,rgba(8,14,24,.95) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,18,32,0.66) 0%,rgba(10,18,32,0.48) 32%,rgba(10,18,32,0.6) 66%,rgba(8,14,24,0.95) 100%)}
 .hero canvas#lazy{position:absolute;right:1%;top:6%;height:78%;width:42%;z-index:0;pointer-events:none}
 .hero .inner{padding-bottom:clamp(40px,7vw,88px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--gold-l);margin-bottom:16px}
@@ -97,7 +97,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(8,14,24,.86),transparent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(8,14,24,0.95) 0%,rgba(8,14,24,0.86) 62%,rgba(8,14,24,0) 100%);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
 
 /* salle band */
 .salle{background:var(--navy-d);color:#e7eef8;position:relative;overflow:hidden}
@@ -164,6 +164,12 @@ footer .made a{color:var(--gold-l)}
  .hero canvas#lazy{width:66%;opacity:.72}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(95, 113, 137)); set to meet WCAG AA
+     against its own footer ground at 4.64:1, at a readable size. */
+  .disc{color:#718196 !important;font-size:12.5px !important;line-height:1.5}
 </style>
 </head>
 <body>
