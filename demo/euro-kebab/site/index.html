@@ -166,6 +166,15 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
   @media(max-width:760px){
     .visit .vgrid2{grid-template-columns:1fr}
   }
+
+  /* header lockup */
+  /* The tagline had line-height 6.56px on an 8px font, so when it wrapped at
+     phone width the second line sat on top of the first. Give it a real
+     line-height and tighten the tracking so it fits the lockup cleanly. */
+  .bt small{line-height:1.4 !important;display:block}
+  @media(max-width:520px){
+    .bt small{letter-spacing:.09em !important;font-size:7.4px !important}
+  }
 </style>
 </head>
 <body id="top">
