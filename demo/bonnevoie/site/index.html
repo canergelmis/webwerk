@@ -200,6 +200,29 @@ footer .made a{color:var(--ochre)}
  .dusk-mud{opacity:.17;animation:none}
  .dusk-neon{opacity:1;animation:none;text-shadow:0 0 8px rgba(255,190,90,.8),0 0 20px rgba(180,71,31,.6)}
 }
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -421,7 +444,7 @@ footer .made a{color:var(--ochre)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
   nav_mafe:"Le mafé",nav_carte:"La carte",nav_night:"Les soirs",nav_infos:"Infos & accès",
   hero_eyebrow:"Cuisine ouest-africaine · Bonnevoie · Luxembourg",
   hero_tag:"Un bout d'Afrique de l'Ouest, à deux pas de la gare. Le midi on mange, le soir on danse.",
@@ -455,7 +478,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
   nav_mafe:"Mafé",nav_carte:"Karte",nav_night:"Abends",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Westafrikanische Küche · Bonnevoie · Luxemburg",
   hero_tag:"Ein Stück Westafrika, ein paar Schritte vom Bahnhof. Mittags wird gegessen, abends getanzt.",
@@ -489,7 +512,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben von Lieferplattformen und Verzeichnissen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
   nav_mafe:"The mafé",nav_carte:"Menu",nav_night:"After dark",nav_infos:"Find us",
   hero_eyebrow:"West African kitchen · Bonnevoie · Luxembourg",
   hero_tag:"A corner of West Africa, a stone's throw from the station. Lunch to eat, nights to dance.",
@@ -541,5 +564,11 @@ const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("bb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+352661465501" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-bonnevoie-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Bistrot+de+Bonnevoie+29+Rue+de+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

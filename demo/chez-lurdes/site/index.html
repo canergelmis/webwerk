@@ -191,6 +191,29 @@ footer .made b{color:#e6d6c1}footer .made a{color:var(--glow)}
  .brand .nm{font-size:22px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -399,7 +422,7 @@ footer .made b{color:#e6d6c1}footer .made a{color:var(--glow)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   nav_sig:"L'espetada",nav_inc:"Les classiques",nav_carte:"La carte",nav_maison:"La maison",nav_infos:"Infos & accès",
   hero_eyebrow:"Churrasqueira portugaise · Luxembourg-Gare",hero_sub:"au charbon de bois",
   hero_tag:"Le charbon, la <b>francesinha</b>, un vin portugais. La churrasqueira du quartier Gare.",
@@ -437,7 +460,7 @@ const I18N={
   foot_contact:"Contact",
   disc:"Démonstration créée par Webwerk à titre indicatif, à partir de sources publiques. La marque a été recréée ; les photos, issues de sources publiques, sont à remplacer. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_sig:"Die Espetada",nav_inc:"Die Klassiker",nav_carte:"Karte",nav_maison:"Das Haus",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Portugiesische Churrasqueira · Luxemburg-Bahnhof",hero_sub:"über Holzkohle",
   hero_tag:"Die Kohle, die <b>Francesinha</b>, ein portugiesischer Wein. Die Churrasqueira im Bahnhofsviertel.",
@@ -475,7 +498,7 @@ const I18N={
   foot_contact:"Kontakt",
   disc:"Demonstration von Webwerk, unverbindlich, auf Basis öffentlicher Quellen. Die Marke wurde nachgebildet; die Fotos aus öffentlichen Quellen sind zu ersetzen. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_sig:"The espetada",nav_inc:"The classics",nav_carte:"Menu",nav_maison:"The house",nav_infos:"Find us",
   hero_eyebrow:"Portuguese churrasqueira · Luxembourg-Gare",hero_sub:"over charcoal",
   hero_tag:"The charcoal, the <b>francesinha</b>, a Portuguese wine. The churrasqueira of the Gare quarter.",
@@ -634,5 +657,10 @@ try{const sv=localStorage.getItem("clz_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35224873629" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Chez+Lurdes+45+Rue+de+Strasbourg+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

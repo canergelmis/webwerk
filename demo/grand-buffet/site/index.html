@@ -164,6 +164,29 @@ footer .made a{color:var(--gold-l)}
  .hero canvas#lazy{width:66%;opacity:.72}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -352,7 +375,7 @@ footer .made a{color:var(--gold-l)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_dir:"Itinéraire",
   nav_buffet:"Le buffet",nav_stations:"Ce qu'on trouve",nav_salle:"La salle",nav_infos:"Infos & accès",
   hero_eyebrow:"Buffet asiatique à volonté · Schifflange",
   hero_tag:"Sushis, grillades, wok et desserts — le buffet à volonté, midi et soir. On tourne la table, et on se ressert.",
@@ -386,7 +409,7 @@ const I18N={
   foot_conf:"Adresse & téléphone à confirmer",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, formules, prix, horaires, adresse exacte et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_dir:"Route",
   nav_buffet:"Das Buffet",nav_stations:"Das Angebot",nav_salle:"Der Saal",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Asiatisches All-you-can-eat · Schifflange",
   hero_tag:"Sushi, Grill, Wok und Desserts — das Buffet nach Belieben, mittags und abends. Man dreht den Tisch und nimmt sich nach.",
@@ -420,7 +443,7 @@ const I18N={
   foot_conf:"Adresse & Telefon zu bestätigen",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Formeln, Preise, Zeiten, genaue Adresse und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_dir:"Directions",
   nav_buffet:"The buffet",nav_stations:"What's on",nav_salle:"The room",nav_infos:"Find us",
   hero_eyebrow:"Asian all-you-can-eat · Schifflange",
   hero_tag:"Sushi, grill, wok and desserts — the all-you-can-eat buffet, midday and evening. Spin the table and help yourself again.",
@@ -529,5 +552,9 @@ try{const sv=localStorage.getItem("gbf_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="https://www.google.com/maps/search/Grand+Buffet+Schifflange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

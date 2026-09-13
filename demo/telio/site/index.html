@@ -168,6 +168,29 @@ footer .made a{color:var(--ochre)}
  .hero h1{font-size:clamp(58px,18vw,104px)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--stone);color:var(--char);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -374,7 +397,7 @@ footer .made a{color:var(--ochre)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
   nav_souv:"Le grill",nav_carte:"La carte",nav_meze:"Les mezédes",nav_infos:"Infos & accès",
   hero_eyebrow:"Grill méditerranéen · au charbon · Grand-Rue",
   hero_tag:"Souvlaki, mezédes et grillades au charbon — la Méditerranée, grecque et anatolienne, en plein cœur de la vieille ville.",
@@ -408,7 +431,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires, d'avis et de plateformes de livraison). La marque et les plats sont ceux de la maison. Cuisine méditerranéenne au charbon — spécialités grecques & grillades anatoliennes, halal ; carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
   nav_souv:"Der Grill",nav_carte:"Karte",nav_meze:"Mezédes",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Mediterraner Holzkohlegrill · Grand-Rue",
   hero_tag:"Souvlaki, Mezédes und Grillgerichte über Holzkohle — der Mittelmeerraum, griechisch und anatolisch, mitten in der Altstadt.",
@@ -442,7 +465,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen, Bewertungen und Lieferplattformen). Marke und Gerichte gehören dem Haus. Mediterrane Küche vom Holzkohlegrill — griechische Spezialitäten & anatolische Grillgerichte, halal; Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
   nav_souv:"The grill",nav_carte:"Menu",nav_meze:"Mezédes",nav_infos:"Find us",
   hero_eyebrow:"Mediterranean charcoal grill · Grand-Rue",
   hero_tag:"Souvlaki, mezédes and charcoal grills — the Mediterranean, Greek and Anatolian, in the heart of the old town.",
@@ -530,5 +553,11 @@ try{const sv=localStorage.getItem("te_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35227567787" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://wolt.com/en/lux/luxembourg/restaurant/telio-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Restaurant+Telio+Grand-Rue+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

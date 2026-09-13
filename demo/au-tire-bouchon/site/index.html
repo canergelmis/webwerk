@@ -178,6 +178,29 @@ footer .made a{color:var(--amber)}
  .hero canvas#corkcv{width:64%;opacity:.7}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -383,7 +406,7 @@ footer .made a{color:var(--amber)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_dir:"Itinéraire",
   nav_planche:"La planche",nav_carte:"La carte",nav_soir:"Le soir",nav_infos:"Infos & accès",
   hero_eyebrow:"Brasserie · bar à vin · Mondercange",
   hero_tag:"On débouche une bonne bouteille, on dresse une planche, et on partage — jusque tard dans la soirée.",
@@ -421,7 +444,7 @@ const I18N={
   foot_phone:"Téléphone à confirmer",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires, téléphone et programmation musicale sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_dir:"Route",
   nav_planche:"Die Platte",nav_carte:"Karte",nav_soir:"Am Abend",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Brasserie · Weinbar · Mondercange",
   hero_tag:"Man entkorkt eine gute Flasche, richtet eine Platte an und teilt — bis spät in den Abend.",
@@ -459,7 +482,7 @@ const I18N={
   foot_phone:"Telefon zu bestätigen",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten, Telefon und Musikprogramm sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_dir:"Directions",
   nav_planche:"The board",nav_carte:"Menu",nav_soir:"After dark",nav_infos:"Find us",
   hero_eyebrow:"Brasserie · wine bar · Mondercange",
   hero_tag:"Uncork a good bottle, set down a board, and share — well into the evening.",
@@ -555,5 +578,9 @@ try{const sv=localStorage.getItem("atb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="https://www.google.com/maps/search/Au+Tire-Bouchon+4+Rue+d%27Esch+Mondercange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

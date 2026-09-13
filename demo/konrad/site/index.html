@@ -226,6 +226,29 @@ html.night .langs button{color:var(--ink2)}
 html.night .dusk{background:linear-gradient(180deg,#221a13 0%,#3a2a1c 55%,var(--walnut) 100%)}
 /* a touch of warm lamplight once the lights are low */
 html.night body{background-image:radial-gradient(120% 60% at 50% -8%,rgba(193,153,63,.10),transparent 60%)}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -424,7 +447,7 @@ html.night body{background-image:radial-gradient(120% 60% at 50% -8%,rgba(193,15
 
 <script>
 var I18N={
-  fr:{
+  fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
     nav_house:"La maison",nav_menu:"La carte",nav_events:"Au sous-sol",nav_info:"Infos",
     hero_kick:"Café & bar · Ville-Haute",hero_tag:"Le salon bohème de la Ville-Haute.",
     hero_sub:"Café bio et pâtisseries maison le jour ; concerts et club de comédie au sous-sol le soir. Une des premières maisons de café de spécialité de la ville — bois patiné, lumière chaude, objets chinés.",
@@ -456,7 +479,7 @@ var I18N={
     disc:"Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé. Carte, horaires, téléphone et programmation à confirmer avec la maison. Photographies de sources publiques, à remplacer par les visuels de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
   },
-  de:{
+  de:{wwb_call:"Anrufen",wwb_dir:"Route",
     nav_house:"Das Haus",nav_menu:"Die Karte",nav_events:"Im Keller",nav_info:"Infos",
     hero_kick:"Café & Bar · Oberstadt",hero_tag:"Das Boheme-Wohnzimmer der Oberstadt.",
     hero_sub:"Bio-Kaffee und hausgemachtes Gebäck am Tag; Konzerte und Comedy-Club im Keller am Abend. Eines der ersten Spezialitätenkaffeehäuser der Stadt — patiniertes Holz, warmes Licht, zusammengesuchte Fundstücke.",
@@ -488,7 +511,7 @@ var I18N={
     disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das (textliche) Logo ist ein Vorschlag. Karte, Öffnungszeiten, Telefon und Programm mit dem Haus zu bestätigen. Fotos aus öffentlichen Quellen, durch eigene Bilder des Hauses zu ersetzen. Anonyme Besuchsstatistik, ohne Cookie oder personenbezogene Daten.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"]
   },
-  en:{
+  en:{wwb_call:"Call",wwb_dir:"Directions",
     nav_house:"The house",nav_menu:"The menu",nav_events:"Downstairs",nav_info:"Info",
     hero_kick:"Café & bar · Old Town",hero_tag:"The Old Town's bohemian living room.",
     hero_sub:"Organic coffee and homemade cakes by day; live music and a comedy club in the cellar by night. One of the city's first specialty coffee houses — worn wood, warm light, found objects.",
@@ -560,5 +583,10 @@ document.getElementById("yr").textContent=new Date().getFullYear();
 
 applyLang("fr");
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226201894" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Konrad+Café+7+rue+du+Nord+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

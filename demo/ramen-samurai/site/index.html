@@ -223,6 +223,29 @@ footer a.wk{color:var(--gold);font-weight:700}
   *{animation:none!important;transition-duration:.001ms!important;scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
 }
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--sumi);color:var(--cream-dim);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -416,7 +439,7 @@ footer a.wk{color:var(--gold);font-weight:700}
 
 <script>
 var I18N = {
-  fr:{
+  fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
     nav_story:"L'histoire",nav_menu:"Les bols",nav_room:"La salle",nav_info:"Infos",
     hero_kick:"Ramen · Avenue Monterey",hero_t1:"Le ramen",hero_t2:"a un passeport.",
     hero_tag:"Né à Tokyo. Servi à Luxembourg.",
@@ -448,7 +471,7 @@ var I18N = {
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],closed:"Fermé",
     story_h:"Le ramen d'Osaka, <span class='u'>au cœur de Luxembourg.</span>"
   },
-  de:{
+  de:{wwb_call:"Anrufen",wwb_dir:"Route",
     nav_story:"Die Geschichte",nav_menu:"Die Bowls",nav_room:"Der Raum",nav_info:"Infos",
     hero_kick:"Ramen · Avenue Monterey",hero_t1:"Ramen",hero_t2:"mit Reisepass.",
     hero_tag:"In Tokio geboren. In Luxemburg serviert.",
@@ -480,7 +503,7 @@ var I18N = {
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],closed:"Geschlossen",
     story_h:"Der Ramen aus Osaka, <span class='u'>mitten in Luxemburg.</span>"
   },
-  en:{
+  en:{wwb_call:"Call",wwb_dir:"Directions",
     nav_story:"The story",nav_menu:"The bowls",nav_room:"The room",nav_info:"Info",
     hero_kick:"Ramen · Avenue Monterey",hero_t1:"Ramen",hero_t2:"with a passport.",
     hero_tag:"Born in Tokyo. Served in Luxembourg.",
@@ -572,5 +595,10 @@ document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
 document.getElementById("yr").textContent=new Date().getFullYear();
 applyLang("fr");
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226108866" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Ramen+Samurai+17+Avenue+Monterey+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

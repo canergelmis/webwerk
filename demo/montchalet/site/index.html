@@ -162,6 +162,29 @@ footer{background:#161310;color:#b4ab98;padding:44px 0 40px;font-size:.86rem;lin
 .madeby{margin-top:14px;color:#c9a06a}
 .madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
 @media(max-width:860px){.cgrid{grid-template-columns:1fr;gap:44px}.cpics .chip{width:38%}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -333,7 +356,7 @@ footer{background:#161310;color:#b4ab98;padding:44px 0 40px;font-size:.86rem;lin
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Bistro · Brasserie · Dudelange", n_chalet:"Le chalet", n_carte:"La carte", n_terr:"La terrasse", n_visit:"Infos",
   hero_eyebrow:"Bistro · Brasserie · Biergarten", hero_tag:"Un chalet au cœur de Dudelange.",
   hero_sub:"Un décor de montagne — bois, cerf blanc et vert sapin — pour une cuisine bistro généreuse : pinsa romana, burgers, planches, et une belle carte de bières et de vins.",
@@ -359,7 +382,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, Wolt), à remplacer par vos propres visuels. Identité typographique proposée — aucun logo officiel ; le nom apparaît aussi sous la forme « Mont Chalet ». Carte et prix à confirmer en salle. Horaires détaillés à confirmer.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Bistro · Brasserie · Dudelange", n_chalet:"Das Chalet", n_carte:"Die Karte", n_terr:"Die Terrasse", n_visit:"Infos",
   hero_eyebrow:"Bistro · Brasserie · Biergarten", hero_tag:"Ein Chalet mitten in Düdelingen.",
   hero_sub:"Ein Bergdekor — Holz, weißer Hirsch und tiefes Tannengrün — für eine großzügige Bistroküche: Pinsa Romana, Burger, Platten und eine schöne Bier- und Weinkarte.",
@@ -385,7 +408,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (Google Maps, Wolt), durch eigene Bilder zu ersetzen. Typografische Identität als Vorschlag — kein offizielles Logo; der Name erscheint auch als „Mont Chalet“. Karte und Preise im Restaurant zu bestätigen. Genaue Öffnungszeiten zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Bistro · Brasserie · Dudelange", n_chalet:"The chalet", n_carte:"The menu", n_terr:"The terrace", n_visit:"Find us",
   hero_eyebrow:"Bistro · Brasserie · Biergarten", hero_tag:"A chalet in the heart of Dudelange.",
   hero_sub:"A mountain-lodge setting — timber, a white stag and deep fir-green — for hearty bistro cooking: pinsa romana, burgers, sharing boards, and a proper beer and wine list.",
@@ -458,5 +481,10 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   let rt=null; window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(size,180); });
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226511156" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

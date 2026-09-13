@@ -197,6 +197,29 @@ footer .made a{color:var(--gold)}
  .bar{gap:8px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -411,7 +434,7 @@ footer .made a{color:var(--gold)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"La table portugaise · Esch",
   nav_sig:"La signature",nav_gal:"À table",nav_maison:"La maison",nav_carte:"La carte",nav_infos:"Infos & accès",
   hero_eyebrow:"Fruits de mer · grillades · cuisine portugaise · Esch",
@@ -452,7 +475,7 @@ const I18N={
   foot_contact:"Contact",
   disc:"Ce site est une démonstration réalisée par Webwerk, à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque « Welcome » a été recréée pour la démonstration ; les photos, de sources publiques, sont à remplacer. Le motif azulejo est un clin d'œil décoratif au Portugal, non une description du décor. Carte, prix et horaires sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Portugiesische Tafel · Esch",
   nav_sig:"Das Signature-Gericht",nav_gal:"Zu Tisch",nav_maison:"Das Haus",nav_carte:"Karte",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Meeresfrüchte · Grill · portugiesische Küche · Esch",
@@ -493,7 +516,7 @@ const I18N={
   foot_contact:"Kontakt",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Die Marke „Welcome“ wurde für die Demonstration nachgebildet; die Fotos, aus öffentlichen Quellen, sind zu ersetzen. Das Azulejo-Muster ist eine dekorative Anspielung auf Portugal, keine Beschreibung des Dekors. Karte, Preise und Zeiten sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"The Portuguese table · Esch",
   nav_sig:"The signature",nav_gal:"At the table",nav_maison:"The house",nav_carte:"Menu",nav_infos:"Find us",
   hero_eyebrow:"Seafood · grill · Portuguese cooking · Esch",
@@ -623,5 +646,10 @@ function azulejo(canvas, opts){
 azulejo("azu",{div:7,speed:1});
 azulejo("azu2",{div:6,speed:1.15});
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:542558" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Restaurant+Welcome+103+Rue+du+Canal+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

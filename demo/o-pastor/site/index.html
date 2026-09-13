@@ -185,6 +185,29 @@ footer .made a{color:var(--terra)}
  .bar{gap:8px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -383,7 +406,7 @@ footer .made a{color:var(--terra)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Pizzeria · Consdorf",
   nav_pizza:"La pizza",nav_table:"À table",nav_maison:"La maison",nav_carte:"La carte",nav_infos:"Infos & accès",
   hero_eyebrow:"Pizzeria · pâtes · Consdorf",
@@ -421,7 +444,7 @@ const I18N={
   foot_contact:"Contact",
   disc:"Démonstration Webwerk, à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). Photos de sources publiques, à remplacer. Marque recréée. Carte, prix et horaires à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Pizzeria · Consdorf",
   nav_pizza:"Die Pizza",nav_table:"Zu Tisch",nav_maison:"Das Haus",nav_carte:"Karte",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Pizzeria · Pasta · Consdorf",
@@ -459,7 +482,7 @@ const I18N={
   foot_contact:"Kontakt",
   disc:"Webwerk-Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Fotos aus öffentlichen Quellen, zu ersetzen. Marke nachgebildet. Karte, Preise und Zeiten zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Pizzeria · Consdorf",
   nav_pizza:"The pizza",nav_table:"At the table",nav_maison:"The house",nav_carte:"Menu",nav_infos:"Find us",
   hero_eyebrow:"Pizzeria · pasta · Consdorf",
@@ -615,5 +638,10 @@ try{const sv=localStorage.getItem("opa_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226784370" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/O+Pastor+3+Route+de+Luxembourg+Consdorf" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

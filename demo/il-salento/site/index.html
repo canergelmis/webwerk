@@ -191,6 +191,29 @@ footer .toprow{display:flex;justify-content:space-between;align-items:flex-start
 footer .brandline{font-family:var(--disp);font-weight:700;color:#fff}
 footer .disc{max-width:82ch;color:rgba(247,242,231,.62);font-size:.78rem;line-height:1.6}
 footer a.wm{color:rgba(247,242,231,.85);font-weight:700}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -411,7 +434,7 @@ footer a.wm{color:rgba(247,242,231,.85);font-weight:700}
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
   n_maison:"La maison", n_banco:"Il banco", n_forno:"Le four à bois", n_visit:"Infos & adresse",
   hero_eyebrow:"Grand-Rue · Ville Haute",
   hero_h1a:"On y passe pour une puccia.", hero_h1b:"On y reste pour la pizza.",
@@ -455,7 +478,7 @@ const I18N = {
   foot_made:"Aperçu par Webwerk",
   foot_disc:"Aperçu Webwerk composé à partir de sources publiques (salento.lu, Wolt, Wedely, Editus, Paperjam, Google Maps) — proposition non officielle, sans lien avec la maison. Logo repris tel quel du site salento.lu ; horaires repris du même site. Photos des plats reprises de la fiche Wolt officielle de la maison ; photos de l'enseigne et du calzone prises sur Google Maps. Carte et prix relevés sur les plateformes de livraison, à confirmer sur place. Aucune note ni avis d'agrégateur n'est repris sur ce site."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
   n_maison:"Das Haus", n_banco:"Il banco", n_forno:"Der Holzofen", n_visit:"Infos & Adresse",
   hero_eyebrow:"Grand-Rue · Ville Haute",
   hero_h1a:"Man kommt für eine Puccia.", hero_h1b:"Man bleibt für die Pizza.",
@@ -499,7 +522,7 @@ const I18N = {
   foot_made:"Ein Vorschlag von Webwerk",
   foot_disc:"Webwerk-Vorschau, erstellt aus öffentlichen Quellen (salento.lu, Wolt, Wedely, Editus, Paperjam, Google Maps) — kein offizieller Auftritt, keine Verbindung zum Haus. Logo unverändert von salento.lu übernommen; Öffnungszeiten von derselben Seite. Gerichtsfotos aus dem offiziellen Wolt-Profil des Hauses; Fotos vom Schild und vom Calzone von Google Maps. Karte und Preise von Lieferplattformen, vor Ort zu bestätigen. Es werden keine Bewertungen oder Aggregator-Sterne auf dieser Seite gezeigt."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
   n_maison:"The house", n_banco:"Il banco", n_forno:"The wood oven", n_visit:"Info & address",
   hero_eyebrow:"Grand-Rue · Ville Haute",
   hero_h1a:"You come by for a puccia.", hero_h1b:"You stay for the pizza.",
@@ -571,5 +594,11 @@ const io = new IntersectionObserver(function(entries){
 }, {threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226771500" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://wolt.com/en/lux/luxembourg/restaurant/il-salento-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Salento+Rosticceria+5+Grand-Rue+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

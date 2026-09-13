@@ -173,6 +173,29 @@ footer .made a{color:var(--amber)}
  .hero h1{font-size:clamp(48px,15vw,90px)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--char);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -369,7 +392,7 @@ footer .made a{color:var(--amber)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
   nav_rod:"Le rodízio",nav_carte:"La carte",nav_bar:"Le café-bar",nav_infos:"Infos & accès",
   hero_eyebrow:"Churrasco brésilien · Dudelange",
   hero_tag:"O sabor do Brasil à Dudelange — la picanha qui tourne, du café du matin au grill de minuit.",
@@ -403,7 +426,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
   nav_rod:"Rodízio",nav_carte:"Karte",nav_bar:"Café-Bar",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Brasilianisches Churrasco · Dudelange",
   hero_tag:"O sabor do Brasil in Dudelange — die Picanha am Spieß, vom Morgenkaffee bis zum Grill um Mitternacht.",
@@ -437,7 +460,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben von Lieferplattformen und Verzeichnissen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
   nav_rod:"The rodízio",nav_carte:"Menu",nav_bar:"Café-bar",nav_infos:"Find us",
   hero_eyebrow:"Brazilian churrasco · Dudelange",
   hero_tag:"O sabor do Brasil in Dudelange — the picanha keeps turning, from morning coffee to the midnight grill.",
@@ -517,5 +540,11 @@ try{const sv=localStorage.getItem("ld_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35228261194" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://wolt.com/en/lux/luxembourg-south/restaurant/le-diplomate-lux" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Le+Diplomate+9+Route+de+Kayl+Dudelange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

@@ -174,6 +174,29 @@ footer{background:#101315;color:#a3aab0;padding:44px 0 40px;font-size:.86rem;lin
 .disc{margin-top:22px;color:#7d848a;max-width:80ch}
 .madeby{margin-top:14px;color:#7fd4ef}
 .madeby a{color:#bfe9f8;border-bottom:1px solid rgba(191,233,248,.4)}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -376,7 +399,7 @@ footer{background:#101315;color:#a3aab0;padding:44px 0 40px;font-size:.86rem;lin
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
   brand_sub:"la maison du burger", n_concept:"Le concept", n_carte:"La carte", n_maison:"La maison", n_visit:"Infos",
   hero_h1a:"Un burger.", hero_h1b:"Un pays.",
   hero_tag:"« Parcourez l'Europe des saveurs » — leur propre devanture, Rue de Bonnevoie.",
@@ -409,7 +432,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de sources publiques (Tripadvisor, menu.lu, luxtoday.lu, Waze, la devanture et le logo réels du restaurant, photographiés). Logotype recréé d'après leur enseigne réelle. La carte affichée est un échantillon sourcé — carte et prix actuels à confirmer avec le restaurant. Horaires à confirmer. Aucune note ou nombre d'avis n'est affiché ici.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
   brand_sub:"das Burgerhaus", n_concept:"Das Konzept", n_carte:"Die Karte", n_maison:"Das Haus", n_visit:"Infos",
   hero_h1a:"Ein Burger.", hero_h1b:"Ein Land.",
   hero_tag:"„Reisen Sie durch das Europa der Aromen“ — ihr eigenes Schaufenster, Rue de Bonnevoie.",
@@ -442,7 +465,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Quellen (Tripadvisor, menu.lu, luxtoday.lu, Waze, die fotografierte echte Fassade und das echte Logo des Restaurants). Logo nach dem echten Schild neu gestaltet. Die gezeigte Karte ist eine sourcierte Auswahl — aktuelle Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten zu bestätigen. Es wird keine Bewertung oder Anzahl von Rezensionen angezeigt.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
   brand_sub:"the house of burgers", n_concept:"The concept", n_carte:"The menu", n_maison:"The house", n_visit:"Find us",
   hero_h1a:"One burger.", hero_h1b:"One country.",
   hero_tag:"\"Travel through the Europe of flavours\" — their own real shopfront, Rue de Bonnevoie.",
@@ -493,5 +516,11 @@ menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', func
 const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn g" href="tel:+35226190070" data-i18n="wwb_call">Appeler</a>
+  <a class="btn m" href="https://wolt.com/en/lux/luxembourg/restaurant/luxburgers-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn m" href="https://www.google.com/maps/search/?api=1&amp;query=Lux%27Burgers+17+Rue+de+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

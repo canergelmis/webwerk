@@ -407,6 +407,29 @@ footer{background:var(--navy3);color:#cfc6ab;padding:50px 0 36px}
 .disc{margin-top:22px;font-size:.78rem;color:#8d8368;line-height:1.6;max-width:820px}
 .madeby{margin-top:14px;font-family:var(--mono);font-size:.78rem;color:#a89e80}
 .madeby a{color:var(--gold);font-weight:700}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -679,7 +702,7 @@ if(!reduceMotion){ setInterval(tickClock, 1000); }
 
 /* ===== i18n ===== */
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Belvaux · Brasserie & bar à vin",
   n_maison:"La maison", n_burgers:"Nos burgers", n_carte:"La carte", n_bar:"Le bar", n_visit:"Infos",
   hero_eyebrow:"Belvaux · Brasserie & bar à vin",
@@ -732,7 +755,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et informations publiques : le site freetimecafe.lu et Google Maps. Logo recréé à partir de l'enseigne réelle de la maison, telle qu'elle figure sur sa propre carte. Horaires et carte repris du site freetimecafe.lu (2026) — non-contractuels, à confirmer en salle.",
   foot_made:"Un aperçu par"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Belvaux · Brasserie & Weinbar",
   n_maison:"Das Haus", n_burgers:"Unsere Burger", n_carte:"Die Karte", n_bar:"Die Bar", n_visit:"Infos",
   hero_eyebrow:"Belvaux · Brasserie & Weinbar",
@@ -785,7 +808,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Informationen: der Website freetimecafe.lu und Google Maps. Logo neu erstellt nach dem echten Zeichen des Hauses, wie es auf dessen eigener Speisekarte erscheint. Öffnungszeiten und Karte von freetimecafe.lu (2026) übernommen — unverbindlich, im Restaurant zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Belvaux · Brasserie & wine bar",
   n_maison:"The house", n_burgers:"Our burgers", n_carte:"The menu", n_bar:"The bar", n_visit:"Find us",
   hero_eyebrow:"Belvaux · Brasserie & wine bar",
@@ -863,5 +886,10 @@ const io = new IntersectionObserver(function(entries){
 }, { threshold: .14 });
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn g" href="tel:+35228203684" data-i18n="wwb_call">Appeler</a>
+  <a class="btn p" href="https://www.google.com/maps/search/?api=1&amp;query=Free+Time+Caf%C3%A9+90+Rue+de+la+Gare+Belvaux" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

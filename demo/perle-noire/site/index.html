@@ -195,6 +195,30 @@ footer a.wk{color:var(--gold);font-weight:500}
   .room .gal{grid-template-columns:1fr}.room .gal .w2{grid-column:auto}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.001ms!important;scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+  .drink .na{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--noir);color:var(--dim);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -298,7 +322,7 @@ footer a.wk{color:var(--gold);font-weight:500}
             <div class="cat" data-i18n="cat_cla">Classique revisité</div>
           </div>
           <div class="drink">
-            <div class="top"><span class="nm">Sparkling Caramel</span><span class="pr" data-i18n="pr_na">sans alcool</span></div>
+            <div class="top"><span class="nm">Sparkling Caramel</span><span class="na" data-i18n="pr_na">sans alcool</span></div>
             <div class="notes" data-i18n="d5_notes">Caramel au beurre salé, pétillant</div>
             <div class="ing" data-i18n="d5_ing">Création sans alcool</div>
             <div class="cat" data-i18n="cat_na">Sans alcool</div>
@@ -374,7 +398,7 @@ footer a.wk{color:var(--gold);font-weight:500}
 
 <script>
 var I18N={
-  fr:{
+  fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
     nav_concept:"La maison",nav_menu:"La carte",nav_room:"Le lieu",nav_info:"Infos",
     hero_award:"Bar de l'Année 2026 · Gault&Millau",hero_tag:"Rare par nature. Ouvert la nuit.",
     hero_sub:"Un bar à cocktails au dernier étage de la Place d'Armes. Velours sombre, laiton, lumières basses — et des cocktails composés comme des parfums.",
@@ -403,7 +427,7 @@ var I18N={
     disc:"Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé. La carte reprend des cocktails cités dans la presse d'ouverture ; carte complète et prix à confirmer avec la maison. Photographies de presse (à titre indicatif), à remplacer par les visuels de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],closed:"Fermé"
   },
-  de:{
+  de:{wwb_call:"Anrufen",wwb_dir:"Route",
     nav_concept:"Das Haus",nav_menu:"Die Karte",nav_room:"Der Ort",nav_info:"Infos",
     hero_award:"Bar des Jahres 2026 · Gault&Millau",hero_tag:"Selten von Natur aus. Nachts geöffnet.",
     hero_sub:"Eine Cocktailbar im obersten Stock am Place d'Armes. Dunkler Samt, Messing, gedämpftes Licht — und Cocktails, komponiert wie Parfums.",
@@ -432,7 +456,7 @@ var I18N={
     disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das (textliche) Logo ist ein Vorschlag. Die Karte nennt in der Eröffnungspresse erwähnte Cocktails; vollständige Karte und Preise mit dem Haus zu bestätigen. Pressefotos (indikativ), durch eigene Bilder des Hauses zu ersetzen. Anonyme Besuchsstatistik, ohne Cookie oder personenbezogene Daten.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],closed:"Geschlossen"
   },
-  en:{
+  en:{wwb_call:"Call",wwb_dir:"Directions",
     nav_concept:"The house",nav_menu:"The menu",nav_room:"The room",nav_info:"Info",
     hero_award:"Bar of the Year 2026 · Gault&Millau",hero_tag:"Rare by design. Open by night.",
     hero_sub:"A cocktail bar on the top floor of Place d'Armes. Dark velvet, brass, low light — and cocktails composed like perfumes.",
@@ -515,5 +539,10 @@ document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
 document.getElementById("yr").textContent=new Date().getFullYear();
 applyLang("fr");
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn" href="tel:+352471436" data-i18n="wwb_call">Appeler</a>
+  <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Perle+Noire+7+Place+d%27Armes+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

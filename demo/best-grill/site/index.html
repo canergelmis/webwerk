@@ -177,6 +177,29 @@ footer .ct{font-family:'Body';font-weight:800;letter-spacing:.14em;text-transfor
  .wrap{padding:0 18px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -382,7 +405,7 @@ footer .ct{font-family:'Body';font-weight:800;letter-spacing:.14em;text-transfor
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   nav_broche:"À la broche",nav_carte:"La carte",nav_gal:"En images",nav_infos:"Infos & accès",
   hero_eyebrow:"Döner · dürüm · grillades · Clausen",
   hero_tag:"Le döner de Clausen, à la broche — tranché à la minute. Frais, rapide, généreux.",
@@ -416,7 +439,7 @@ const I18N={
   foot_contact:"Contact",
   disc:"Démonstration Webwerk, à titre indicatif — photos de sources publiques à remplacer, marque recréée, carte et prix à confirmer. Le nom et les plats sont ceux de la maison ; horaires, téléphone et adresse d'après des sources publiques. Proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_broche:"Vom Spieß",nav_carte:"Karte",nav_gal:"Bilder",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Döner · Dürüm · Grill · Clausen",
   hero_tag:"Der Döner von Clausen, vom Spieß — frisch geschnitten. Frisch, schnell, großzügig.",
@@ -450,7 +473,7 @@ const I18N={
   foot_contact:"Kontakt",
   disc:"Webwerk-Demonstration, unverbindlich — Fotos aus öffentlichen Quellen, zu ersetzen, Marke nachgebildet, Karte und Preise zu bestätigen. Name und Gerichte gehören dem Haus; Öffnungszeiten, Telefon und Adresse nach öffentlichen Quellen. Inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_broche:"On the spit",nav_carte:"Menu",nav_gal:"In pictures",nav_infos:"Find us",
   hero_eyebrow:"Döner · dürüm · grill · Clausen",
   hero_tag:"The döner of Clausen, on the spit — sliced to order. Fresh, fast, generous.",
@@ -608,5 +631,10 @@ try{const sv=localStorage.getItem("bgr_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35227848386" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Best+Grill+63+Rue+de+Clausen+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

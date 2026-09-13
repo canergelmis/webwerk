@@ -167,6 +167,29 @@ footer .made a{color:var(--amber)}
  .hero h1{font-size:clamp(48px,15vw,92px)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--bone);color:var(--basalt);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -356,7 +379,7 @@ footer .made a{color:var(--amber)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   nav_poisson:"Le poisson",nav_carte:"La carte",nav_mora:"La morabeza",nav_infos:"Infos & accès",
   hero_eyebrow:"Cuisine cap-verdienne · Esch-sur-Alzette",
   hero_tag:"Le goût de la terre : la cachupa, le poisson de l'Atlantique et la morabeza — la table des îles du Cap-Vert, à Esch.",
@@ -390,7 +413,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis) ; la fiche du lieu n'est pas revendiquée. La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_poisson:"Der Fisch",nav_carte:"Karte",nav_mora:"Morabeza",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Kapverdische Küche · Esch-sur-Alzette",
   hero_tag:"Der Geschmack der Erde: Cachupa, Fisch aus dem Atlantik und Morabeza — die Tafel der Kapverden, in Esch.",
@@ -424,7 +447,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen); der Eintrag des Lokals ist nicht beansprucht. Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_poisson:"The fish",nav_carte:"Menu",nav_mora:"Morabeza",nav_infos:"Find us",
   hero_eyebrow:"Cape Verdean kitchen · Esch-sur-Alzette",
   hero_tag:"The taste of the land: cachupa, Atlantic fish and morabeza — the table of the Cape Verde islands, in Esch.",
@@ -507,5 +530,10 @@ try{const sv=localStorage.getItem("sb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+352621427592" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Sabor+Di+Terra+Rue+Zenon+Bernard+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

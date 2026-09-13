@@ -159,6 +159,29 @@ footer .made a{color:var(--wood)}
  .hero canvas#ensocv{width:70%;opacity:.6;right:-6%}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--rice);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -324,7 +347,7 @@ footer .made a{color:var(--wood)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_dir:"Itinéraire",
   nav_comptoir:"Le comptoir",nav_carte:"La carte",nav_gal:"En images",nav_infos:"Infos & accès",
   hero_eyebrow:"Sushi · sashimi · maki · Ettelbruck",
   hero_tag:"Le poisson tranché au comptoir, à la minute — au cœur du nord du pays.",
@@ -355,7 +378,7 @@ const I18N={
   foot_phone:"Téléphone à confirmer",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Adresse exacte, carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_dir:"Route",
   nav_comptoir:"Der Tresen",nav_carte:"Karte",nav_gal:"Bilder",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Sushi · Sashimi · Maki · Ettelbruck",
   hero_tag:"Der Fisch am Tresen geschnitten, à la minute — im Norden des Landes.",
@@ -386,7 +409,7 @@ const I18N={
   foot_phone:"Telefon zu bestätigen",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Genaue Adresse, Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_dir:"Directions",
   nav_comptoir:"The counter",nav_carte:"Menu",nav_gal:"In pictures",nav_infos:"Find us",
   hero_eyebrow:"Sushi · sashimi · maki · Ettelbruck",
   hero_tag:"Fish sliced at the counter, to order — in the heart of the north.",
@@ -478,5 +501,9 @@ try{const sv=localStorage.getItem("iwo_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="https://www.google.com/maps/search/Sushi+Iwo+Ettelbruck" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>
