@@ -51,7 +51,7 @@ nav.links a:hover{color:var(--amber);opacity:1}
 .hero{position:relative;min-height:94vh;display:flex;align-items:center;margin-top:-64px;padding-top:64px;overflow:hidden;background:var(--char)}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.34}
-.hero .scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(115% 90% at 74% 42%,rgba(240,167,40,.16),rgba(23,17,12,0.48) 44%,rgba(23,17,12,0.9) 78%),linear-gradient(90deg,rgba(23,17,12,.96),rgba(23,17,12,0.5) 62%,rgba(23,17,12,.2))}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(115% 90% at 74% 42%,rgba(240,167,40,.16),rgba(23,17,12,0.38) 44%,rgba(23,17,12,0.9) 78%),linear-gradient(90deg,rgba(23,17,12,.96),rgba(23,17,12,0.5) 62%,rgba(23,17,12,.2))}
 .hero canvas#conecv{position:absolute;right:3%;top:50%;transform:translateY(-50%);width:min(42%,470px);height:88%;z-index:2;pointer-events:none}
 .hero .inner{position:relative;z-index:3;padding:clamp(40px,7vw,86px) 0;max-width:640px}
 .hero .eyebrow{color:var(--amber);margin-bottom:16px;display:block}
@@ -205,6 +205,12 @@ footer .ct{font-family:'Body';font-weight:800;letter-spacing:.14em;text-transfor
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>

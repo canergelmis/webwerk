@@ -83,7 +83,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(250,245,234,.94);backdro
 .hero{position:relative;min-height:clamp(600px,88vh,820px);display:flex;align-items:flex-end;color:#fff;background:var(--navy);overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
-.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(20,17,30,0.5) 0%,rgba(20,17,30,0.48) 30%,rgba(18,16,26,0.8) 78%,rgba(14,13,22,0.95) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(20,17,30,0.5) 0%,rgba(20,17,30,0.38) 30%,rgba(18,16,26,0.8) 78%,rgba(14,13,22,0.95) 100%)}
 .hero .wrap{position:relative;z-index:3;width:100%;padding-top:100px;padding-bottom:clamp(44px,6vw,76px)}
 .hero .brandmark{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .hero .brandmark .mark{height:56px;width:56px}
@@ -201,6 +201,12 @@ footer{background:var(--navy);color:#a9ae9e;padding:44px 0 40px;font-size:.86rem
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body id="top">
@@ -347,10 +353,6 @@ footer{background:var(--navy);color:#a9ae9e;padding:44px 0 40px;font-size:.86rem
           <a href="tel:+35226652802" class="btn p" data-i18n="v_call">Appeler</a>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=New+Metropole+1+Route+de+Luxembourg+Petange" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
         </div>
-        <div class="nosite reveal">
-          <span class="k" data-i18n="ns_k">Pas encore de site</span>
-          <p data-i18n="ns_p">New Metropole n'a pas de site aujourd'hui — seulement leur enseigne. Voici une proposition de site, à partir de vos photos et de votre ardoise.</p>
-        </div>
       </div>
       <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=New+Metropole+1+Route+de+Luxembourg+Petange" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
         <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
@@ -408,7 +410,6 @@ const I18N = {
   v_eyebrow:"Infos pratiques", v_head:"1 Route de Luxembourg, Pétange.",
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Ouvert tous les jours, 7h30 – 1h",
   v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  ns_k:"Pas encore de site", ns_p:"New Metropole n'a pas de site aujourd'hui — seulement leur enseigne. Voici une proposition de site, à partir de vos photos et de votre ardoise.",
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, resto.lu, editus.lu). Logo recréé d'après l'enseigne réelle du café. Le plat du jour affiché est un exemple photographié (mercredi) — plat et prix actuels à confirmer sur place. Aucune note Google n'est affichée.",
   foot_made:"Un aperçu"
  },
@@ -436,7 +437,6 @@ const I18N = {
   v_eyebrow:"Praktische Infos", v_head:"1 Route de Luxembourg, Pétange.",
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Täglich geöffnet, 7:30 – 1 Uhr",
   v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  ns_k:"Noch keine Webseite", ns_p:"New Metropole hat heute keine eigene Webseite — nur ihr Schild. Dies ist ein Vorschlag für eine neue Webseite, aus Ihren eigenen Fotos und Ihrer Kreidetafel.",
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Informationen (Google Maps, resto.lu, editus.lu). Logo nach dem echten Schild des Cafés neu gestaltet. Das gezeigte Tagesgericht ist ein fotografiertes Beispiel (Mittwoch) — aktuelles Gericht und Preise vor Ort zu bestätigen. Es wird keine Google-Bewertung angezeigt.",
   foot_made:"Eine Vorschau von"
  },
@@ -464,7 +464,6 @@ const I18N = {
   v_eyebrow:"Find us", v_head:"1 Route de Luxembourg, Pétange.",
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Open daily, 7:30am – 1am",
   v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
-  ns_k:"No website yet", ns_p:"New Metropole has no website today — just their sign. This is a proposal for a new site, built from your own photos and chalkboard.",
   foot_disc:"Demonstration preview composed by Webwerk from public photos and information (Google Maps, resto.lu, editus.lu). Logo redrawn from the café's own real sign. The daily special shown is a photographed example (Wednesday) — current dish and prices to be confirmed on site. No Google rating is shown.",
   foot_made:"A preview by"
  }

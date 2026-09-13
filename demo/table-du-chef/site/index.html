@@ -73,7 +73,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(246,239,228,.94);backdro
 .hero{position:relative;min-height:clamp(600px,90vh,840px);display:flex;align-items:flex-end;color:#fff;background:#1c140c;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center center}
-.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(182deg,rgba(20,14,8,0.42) 0%,rgba(20,14,8,0.48) 32%,rgba(20,14,8,0.74) 78%,rgba(15,10,6,0.94) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(182deg,rgba(20,14,8,0.42) 0%,rgba(20,14,8,0.38) 32%,rgba(20,14,8,0.74) 78%,rgba(15,10,6,0.94) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-top:96px;padding-bottom:clamp(44px,6vw,76px)}
 .hero h1{color:#fff;font-size:clamp(46px,9vw,100px);letter-spacing:-.01em;text-shadow:0 3px 40px rgba(0,0,0,.5)}
 .hero .tag{font-family:var(--body);font-weight:600;font-size:clamp(15px,1.9vw,19px);letter-spacing:.06em;text-transform:uppercase;color:var(--ochre);margin:12px 0 0}
@@ -185,6 +185,12 @@ footer{background:var(--ink);color:#b9ab98;padding:44px 0 40px;font-size:.86rem;
   /* The card lost its dark ground when the fake-map SVG went, so this
      pill was translucent over cream and its white label read ~3.2:1. */
   .mapcard .mapcta{background:rgb(28, 20, 12) !important;padding:9px 14px;border-radius:8px}
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body id="top">
@@ -313,10 +319,6 @@ footer{background:var(--ink);color:#b9ab98;padding:44px 0 40px;font-size:.86rem;
           <a href="tel:+35226521043" class="btn p" data-i18n="v_call">Appeler pour réserver</a>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Table+du+Chef+19+Rue+du+Commerce+Dudelange" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
         </div>
-        <div class="neversite reveal">
-          <span class="k" data-i18n="ns_k">Pas encore de site</span>
-          <p data-i18n="ns_p">Table du Chef n'a jamais eu de site — ceci est une proposition, à partir de vos photos et de votre carte.</p>
-        </div>
       </div>
       <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Table+du+Chef+19+Rue+du+Commerce+Dudelange" target="_blank" rel="noopener">
           <div class="loc-in">
@@ -364,7 +366,6 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Lun-mar 12h-14h · mer-dim 12h-14h & 18h30-21h · horaires à confirmer",
   l_resa:"Réservation", resa_val:"Conseillée — petite salle",
   v_call:"Appeler pour réserver", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  ns_k:"Pas encore de site", ns_p:"Table du Chef n'a jamais eu de site — ceci est une proposition, à partir de vos photos et de votre carte.",
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, resto.lu, rankeat.fr). Identité typographique proposée — aucun logo trouvé. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur des annuaires, à confirmer.",
   foot_made:"Un aperçu"
  },
@@ -390,7 +391,6 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Mo-Di 12-14 Uhr · Mi-So 12-14 & 18:30-21 Uhr · genaue Zeiten zu bestätigen",
   l_resa:"Reservierung", resa_val:"Empfohlen — kleiner Saal",
   v_call:"Zum Reservieren anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  ns_k:"Noch keine Webseite", ns_p:"Table du Chef hatte nie eine eigene Webseite — dies ist ein Vorschlag, aus Ihren Fotos und Ihrer Karte.",
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (Google Maps, resto.lu, rankeat.fr). Typografische Identität als Vorschlag — kein Logo gefunden. Karte in groben Kategorien ohne Preise gezeigt — detaillierte Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten aus Verzeichnissen übernommen, zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
@@ -416,7 +416,6 @@ const I18N = {
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Mon-Tue 12-2pm · Wed-Sun 12-2pm & 6:30-9pm · hours to be confirmed",
   l_resa:"Reservation", resa_val:"Recommended — small dining room",
   v_call:"Call to book", v_dir:"Directions", v_dir2:"Open directions ↗",
-  ns_k:"No website yet", ns_p:"Table du Chef has never had a website — this is a proposal, built from your own photos and menu.",
   foot_disc:"Demonstration preview composed by Webwerk from public photos and information (Google Maps, resto.lu, rankeat.fr). Typographic identity proposed — no logo found anywhere. Menu shown in broad categories with no prices — the detailed menu and prices are to be confirmed in-house. Hours taken from directories, to be confirmed.",
   foot_made:"A preview by"
  }

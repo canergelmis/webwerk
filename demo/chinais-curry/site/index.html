@@ -76,7 +76,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,246,238,.94);backdro
 .hero .steam i:nth-child(3){left:74%;animation-delay:6s;width:100px}
 @keyframes rise{0%{transform:translateY(0) scale(.8);opacity:0}18%{opacity:.9}100%{transform:translateY(-120%) scale(1.5);opacity:0}}
 @media(prefers-reduced-motion:reduce){.hero .steam{display:none}}
-.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(20,17,12,0.5) 0%,rgba(20,17,12,0.48) 30%,rgba(18,15,10,0.78) 76%,rgba(14,11,7,0.94) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(20,17,12,0.5) 0%,rgba(20,17,12,0.38) 30%,rgba(18,15,10,0.78) 76%,rgba(14,11,7,0.94) 100%)}
 .hero .wrap{position:relative;z-index:3;width:100%;padding-top:100px;padding-bottom:clamp(44px,6vw,78px)}
 .hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:7px 14px;font-family:var(--body);font-weight:700;font-size:.82rem;letter-spacing:.02em;color:#fff}
 .hero .badge svg{height:14px;width:14px;color:var(--curry)}
@@ -236,6 +236,12 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body id="top">
@@ -415,10 +421,6 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
           <a href="tel:+35226481808" class="btn p" data-i18n="v_call">Appeler</a>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Chinai%27s+Curry+29+Rue+Joseph+Junck+Luxembourg" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
         </div>
-        <div class="nosite reveal">
-          <span class="k" data-i18n="ns_k">Aucun site aujourd'hui</span>
-          <p data-i18n="ns_p">Chinai's Curry n'a pas de site officiel — seulement une page Wolt et des fiches d'annuaires. Ceci est une proposition de site, composée à partir de vos photos et de votre carte.</p>
-        </div>
       </div>
       <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Chinai%27s+Curry+29+Rue+Joseph+Junck+Luxembourg" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
         <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
@@ -488,7 +490,6 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Lun–ven : 10h30–20h00 (Wolt) ou 11h00–20h30 (rankeat.fr), sam & dim horaires réduits", h_note:"Les deux sources ne concordent pas exactement — horaires à confirmer avec l'établissement.",
   l_delivery:"Livraison", v_delivery:"Wolt uniquement — pas de réservation en ligne connue",
   v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  ns_k:"Aucun site aujourd'hui", ns_p:"Chinai's Curry n'a pas de site officiel — seulement une page Wolt et des fiches d'annuaires. Ceci est une proposition de site, composée à partir de vos photos et de votre carte.",
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Wolt, Paperjam, rankeat.fr). Aucune note ou avis d'agrégateur n'est repris ici. Carte et tarifs relevés sur Wolt (2026) — à confirmer avec l'établissement. Horaires à confirmer.",
   foot_made:"Un aperçu"
  },
@@ -528,7 +529,6 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Mo–Fr: 10:30–20:00 (Wolt) oder 11:00–20:30 (rankeat.fr), Sa & So verkürzt", h_note:"Die beiden Quellen stimmen nicht genau überein — Öffnungszeiten mit dem Betrieb zu bestätigen.",
   l_delivery:"Lieferung", v_delivery:"Nur über Wolt — keine bekannte Online-Reservierung",
   v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  ns_k:"Bisher keine Webseite", ns_p:"Chinai's Curry hat keine eigene Webseite — nur eine Wolt-Seite und Einträge in Verzeichnissen. Dies ist ein Vorschlag für eine Webseite, erstellt aus Ihren eigenen Fotos und Ihrer Karte.",
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (Wolt, Paperjam, rankeat.fr). Es werden keine Aggregator-Bewertungen übernommen. Karte und Preise erfasst auf Wolt (2026) — mit dem Betrieb zu bestätigen. Öffnungszeiten zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
@@ -568,7 +568,6 @@ const I18N = {
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Mon–Fri: 10:30am–8pm (Wolt) or 11am–8:30pm (rankeat.fr), shorter Sat & Sun", h_note:"The two sources don't quite agree — hours to be confirmed with the venue.",
   l_delivery:"Delivery", v_delivery:"Wolt only — no known online booking",
   v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
-  ns_k:"No website today", ns_p:"Chinai's Curry has no official website — only a Wolt page and directory listings. This is a site proposal, built from your own photos and menu.",
   foot_disc:"Demonstration preview composed by Webwerk from public photos and information (Wolt, Paperjam, rankeat.fr). No aggregator rating or review score is reproduced here. Menu and prices recorded from Wolt (2026) — to be confirmed with the venue. Hours to be confirmed.",
   foot_made:"A preview by"
  }

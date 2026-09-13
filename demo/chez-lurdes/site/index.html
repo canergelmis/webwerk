@@ -182,7 +182,7 @@ footer .made b{color:#e6d6c1}footer .made a{color:var(--glow)}
  nav.links a{padding:12px;font-size:17px}
  .burger{display:flex}
  header{background:rgba(20,13,10,.95)}
- .hero .scrim{background:linear-gradient(180deg,rgba(20,13,10,0.86) 0%,rgba(20,13,10,0.48) 46%,rgba(20,13,10,0.72) 100%)}
+ .hero .scrim{background:linear-gradient(180deg,rgba(20,13,10,0.86) 0%,rgba(20,13,10,0.38) 46%,rgba(20,13,10,0.72) 100%)}
  .hero h1{font-size:clamp(52px,16vw,92px)}
  .hero .late{display:none}
 }
@@ -219,6 +219,12 @@ footer .made b{color:#e6d6c1}footer .made a{color:var(--glow)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>

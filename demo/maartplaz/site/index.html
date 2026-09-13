@@ -235,7 +235,7 @@
   }
   .hero-photo::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(120deg,rgba(42,43,41,0.42) 0%,rgba(42,43,41,0.48) 42%,transparent 68%);
+    background:linear-gradient(120deg,rgba(42,43,41,0.42) 0%,rgba(42,43,41,0.38) 42%,transparent 68%);
   }
   .hero-plaque{
     position:absolute;top:34px;left:34px;z-index:3;
@@ -1234,6 +1234,12 @@ btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
     /* label/value rows: 196px is too tight for the value at phone width */
     .board-facts > div{grid-template-columns:1fr;gap:2px}
   }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 <script>
   // WS1: replace `email` with the venue's real reservation address before go-live.

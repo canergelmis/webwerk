@@ -54,7 +54,7 @@ nav.links a:hover{color:var(--amber);opacity:1}
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-64px;padding-top:64px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,12,10,0.68) 0%,rgba(20,12,10,0.48) 34%,rgba(20,12,10,0.6) 66%,rgba(14,8,6,0.95) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,12,10,0.68) 0%,rgba(20,12,10,0.38) 34%,rgba(20,12,10,0.6) 66%,rgba(14,8,6,0.95) 100%)}
 .hero canvas#corkcv{position:absolute;right:2%;top:8%;height:80%;width:40%;z-index:0;pointer-events:none}
 .hero .inner{padding-bottom:clamp(40px,7vw,88px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--amber);margin-bottom:16px}
@@ -206,6 +206,12 @@ footer .made a{color:var(--amber)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>

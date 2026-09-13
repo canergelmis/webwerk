@@ -78,7 +78,7 @@ nav.links a:hover{color:var(--celadon);opacity:1}
 .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-70px;padding-top:70px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,17,14,0.55) 0%,rgba(20,17,14,0.48) 32%,rgba(20,17,14,0.5) 66%,rgba(15,12,9,0.92) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,17,14,0.55) 0%,rgba(20,17,14,0.38) 32%,rgba(20,17,14,0.5) 66%,rgba(15,12,9,0.92) 100%)}
 .hero .stripe{position:absolute;top:0;bottom:0;right:14%;width:34px;background:var(--red);transform:skewX(-14deg);opacity:.9;z-index:-1;box-shadow:0 0 60px rgba(200,69,46,.4);overflow:hidden}
 .hero canvas#quilt{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
@@ -228,6 +228,12 @@ footer .made a{color:var(--celadon)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>

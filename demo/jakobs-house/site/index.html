@@ -79,7 +79,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(245,239,226,.93);backdro
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
 #dust{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.85}
-.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(15,12,8,0.4) 0%,rgba(15,12,8,0.48) 30%,rgba(15,12,8,0.7) 78%,rgba(10,8,5,0.92) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(15,12,8,0.4) 0%,rgba(15,12,8,0.38) 30%,rgba(15,12,8,0.7) 78%,rgba(10,8,5,0.92) 100%)}
 .hero .wrap{position:relative;z-index:3;width:100%;padding-top:96px;padding-bottom:clamp(44px,6vw,76px)}
 .hero .brandmark{display:flex;align-items:center;gap:14px;margin-bottom:10px}
 .hero .brandmark img{height:56px;width:56px}
@@ -214,6 +214,12 @@ footer{background:var(--ink);color:#b9ae99;padding:44px 0 40px;font-size:.86rem;
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body id="top">
@@ -372,10 +378,6 @@ footer{background:var(--ink);color:#b9ae99;padding:44px 0 40px;font-size:.86rem;
           <a href="tel:+352621277487" class="btn p" data-i18n="v_call">Appeler</a>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Jakob%27s+House+9+Rives+de+Clausen+Luxembourg" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
         </div>
-        <div class="deadsite reveal">
-          <span class="k" data-i18n="ds_k">Ancien site</span>
-          <p data-i18n="ds_p">jakobs.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.</p>
-        </div>
       </div>
       <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Jakob%27s+House+9+Rives+de+Clausen+Luxembourg" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
         <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
@@ -440,7 +442,6 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Téléphone", l_mail:"E-mail", l_hours:"Horaires",
   h_val:"Fermé le lundi · mar-ven 10h-minuit · sam 10h-13h puis 15h30-tard · horaires à confirmer",
   v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  ds_k:"Ancien site", ds_p:"jakobs.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.",
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (site archivé de jakobs.lu, editus.lu, gastronomie.lu, cityshopping.lu, Google Maps), à remplacer par vos propres visuels. Logotype proposé, d'après votre enseigne. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur l'ancien site, à confirmer.",
   foot_made:"Un aperçu"
  },
@@ -469,7 +470,6 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Telefon", l_mail:"E-Mail", l_hours:"Öffnungszeiten",
   h_val:"Montags geschlossen · Di-Fr 10-24 Uhr · Sa 10-13 Uhr, dann 15:30-spät · genaue Zeiten zu bestätigen",
   v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  ds_k:"Alte Webseite", ds_p:"jakobs.lu antwortet nicht mehr — dies ist ein Vorschlag für eine neue Webseite, aus Ihren eigenen Fotos und Ihrer Karte.",
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (archivierte jakobs.lu-Seite, editus.lu, gastronomie.lu, cityshopping.lu, Google Maps), durch eigene Bilder zu ersetzen. Logo als Vorschlag, nach Ihrem Schild. Karte in groben Kategorien ohne Preise gezeigt — detaillierte Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten von der alten Seite übernommen, zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
@@ -498,7 +498,6 @@ const I18N = {
   l_addr:"Address", l_tel:"Phone", l_mail:"Email", l_hours:"Hours",
   h_val:"Closed Mondays · Tue-Fri 10am-midnight · Sat 10am-1pm then 3:30pm-late · hours to be confirmed",
   v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
-  ds_k:"Old website", ds_p:"jakobs.lu no longer responds — this is a proposal for a new site, built from your own photos and menu.",
   foot_disc:"Demonstration preview composed by Webwerk from public photos and information (archived jakobs.lu site, editus.lu, gastronomie.lu, cityshopping.lu, Google Maps), to be replaced with your own visuals. Logo proposed, based on your own sign. Menu shown in broad categories with no prices — the detailed menu and prices are to be confirmed in-house. Hours taken from the old site, to be confirmed.",
   foot_made:"A preview by"
  }
