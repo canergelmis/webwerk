@@ -175,6 +175,28 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
   @media(max-width:520px){
     .bt small{letter-spacing:.09em !important;font-size:7.4px !important}
   }
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -352,7 +374,7 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Esch-sur-Alzette · depuis 1996", n_maison:"La maison", n_comptoir:"Le comptoir", n_carte:"La carte", n_visit:"Infos",
   hero_tag:"Esch-sur-Alzette · kebab & grill depuis 1996",
   hero_sub:"Un comptoir connu de tout Esch — sandwichs, kebabs et tacos, la même sauce blanche maison depuis les débuts.",
@@ -379,7 +401,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (editus.lu, RCS Luxembourg, Escher Blog). Aucune note Google/agrégateur n'est affichée. La carte présentée liste des catégories réellement au menu (enseignes du comptoir) — plats précis, prix et horaires à confirmer sur place. Aucun nom de famille des gérants n'est avancé.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Esch-sur-Alzette · seit 1996", n_maison:"Das Haus", n_comptoir:"Der Tresen", n_carte:"Die Karte", n_visit:"Infos",
   hero_tag:"Esch-sur-Alzette · Kebab & Grill seit 1996",
   hero_sub:"Ein Tresen, den ganz Esch kennt — Sandwiches, Kebab und Tacos, dieselbe hausgemachte weiße Sauce seit den Anfängen.",
@@ -406,7 +428,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (editus.lu, RCS Luxemburg, Escher Blog). Es wird keine Google-/Aggregator-Bewertung angezeigt. Die gezeigte Karte listet Kategorien, die tatsächlich angeboten werden (Schilder am Tresen) — genaue Gerichte, Preise und Öffnungszeiten vor Ort zu bestätigen. Kein Nachname der Betreiber wird genannt.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Esch-sur-Alzette · since 1996", n_maison:"The house", n_comptoir:"The counter", n_carte:"The menu", n_visit:"Find us",
   hero_tag:"Esch-sur-Alzette · kebab & grill since 1996",
   hero_sub:"A counter all of Esch knows — sandwiches, kebab and tacos, the same homemade white sauce since the start.",
@@ -451,5 +473,10 @@ menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', func
 const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226532202" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Euro+Kebab+6+rue+d%27Audun+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

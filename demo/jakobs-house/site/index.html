@@ -191,6 +191,29 @@ footer{background:var(--ink);color:#b9ae99;padding:44px 0 40px;font-size:.86rem;
 .disc{margin-top:22px;color:#8f8471;max-width:80ch}
 .madeby{margin-top:14px;color:var(--amber-lite)}
 .madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -392,7 +415,7 @@ footer{background:var(--ink);color:#b9ae99;padding:44px 0 40px;font-size:.86rem;
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Rives de Clausen · Est. 2014", n_maison:"La maison", n_etage:"La salle", n_carte:"La carte", n_visit:"Infos",
   hero_sub:"Bar, terrasse et salle dans l'ancienne brasserie Mousel, aux Rives de Clausen — une seule maison.",
   hero_cta1:"Découvrir la maison", hero_cta2:"Appeler", hero_chip:"9 Rives de Clausen, Grund · Luxembourg",
@@ -421,7 +444,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (site archivé de jakobs.lu, editus.lu, gastronomie.lu, cityshopping.lu, Google Maps), à remplacer par vos propres visuels. Logotype proposé, d'après votre enseigne. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur l'ancien site, à confirmer.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Rives de Clausen · Seit 2014", n_maison:"Das Haus", n_etage:"Der Saal", n_carte:"Die Karte", n_visit:"Infos",
   hero_sub:"Bar, Terrasse und Saal in der ehemaligen Mousel-Brauerei, an den Rives de Clausen — ein Haus.",
   hero_cta1:"Das Haus entdecken", hero_cta2:"Anrufen", hero_chip:"9 Rives de Clausen, Grund · Luxemburg",
@@ -450,7 +473,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (archivierte jakobs.lu-Seite, editus.lu, gastronomie.lu, cityshopping.lu, Google Maps), durch eigene Bilder zu ersetzen. Logo als Vorschlag, nach Ihrem Schild. Karte in groben Kategorien ohne Preise gezeigt — detaillierte Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten von der alten Seite übernommen, zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Rives de Clausen · Est. 2014", n_maison:"The house", n_etage:"The dining room", n_carte:"The menu", n_visit:"Find us",
   hero_sub:"Bar, terrace and dining room in the former Mousel brewery, at the Rives de Clausen — one house.",
   hero_cta1:"Discover the house", hero_cta2:"Call", hero_chip:"9 Rives de Clausen, Grund · Luxembourg",
@@ -526,5 +549,10 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   let rt=null; window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(size,180); });
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+352621277487" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Jakob%27s+House+9+Rives+de+Clausen+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

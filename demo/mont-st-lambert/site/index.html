@@ -170,6 +170,28 @@ footer .made a{color:var(--amber)}
      It was the least legible text here (rgb(111, 96, 73)); set to meet WCAG AA
      against its own footer ground at 4.68:1, at a readable size. */
   .disc{color:#8c806d !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -292,27 +314,27 @@ footer .made a{color:var(--amber)}
     <div>
      <div class="mgroup">
       <h3><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span data-i18n="mg1">Pour commencer</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Nems</div><div class="ds" data-i18n="i1d">Rouleaux croustillants, sauce aigre-douce</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Soupe du jour</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Nems</div><div class="ds" data-i18n="i1d">Rouleaux croustillants, sauce aigre-douce</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Soupe du jour</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span data-i18n="mg2">Le wok</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Wok de bœuf &amp; légumes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Nouilles sautées</div><div class="ds" data-i18n="i4d">Poulet ou légumes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Riz cantonais</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Wok de bœuf &amp; légumes</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Nouilles sautées</div><div class="ds" data-i18n="i4d">Poulet ou légumes</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Riz cantonais</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span data-i18n="mg3">Les spécialités</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Canard croustillant</div><div class="ds" data-i18n="i6d">La signature de la maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Curry thaï</div><div class="ds" data-i18n="i7d">Selon le marché</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Dessert maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Canard croustillant</div><div class="ds" data-i18n="i6d">La signature de la maison</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Curry thaï</div><div class="ds" data-i18n="i7d">Selon le marché</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Dessert maison</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span data-i18n="mg4">Le bar</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Carte de bières</div><div class="ds" data-i18n="i9d">Sélection de la maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Vins au verre</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Carte de bières</div><div class="ds" data-i18n="i9d">Sélection de la maison</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Vins au verre</div></div></div>
      </div>
     </div>
    </div>
@@ -329,9 +351,8 @@ footer .made a{color:var(--amber)}
    </div>
    <div class="grid">
     <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v" data-i18n="ino_addr">Limpertsberg · Luxembourg-Ville</div><div class="fl" data-i18n="ino_addr_fl">Adresse exacte à confirmer</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v" data-i18n="ino_phone">Téléphone à confirmer</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" data-i18n="ino_ht">Midi &amp; soir</span><br><span class="fl" data-i18n="ino_fl3">Horaires à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v" data-i18n="ino_addr">Limpertsberg · Luxembourg-Ville</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" data-i18n="ino_ht">Midi &amp; soir</span></div></div></div>
     </div>
     <div class="mapcard">
      <img src="assets/facade.jpg" alt="La façade de Mont St-Lambert, Limpertsberg"/>
@@ -364,7 +385,7 @@ footer .made a{color:var(--amber)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_dir:"Itinéraire",
   nav_canard:"Le canard",nav_carte:"La carte",nav_bar:"Le bar",nav_infos:"Infos & accès",
   hero_eyebrow:"Cuisine thaïe & chinoise · Limpertsberg",
   hero_tag:"La cantine thaïe et chinoise du quartier — le wok, le canard croustillant, et une belle carte de bières.",
@@ -388,7 +409,7 @@ const I18N={
   i1n:"Nems",i1d:"Rouleaux croustillants, sauce aigre-douce",i2n:"Soupe du jour",
   i3n:"Wok de bœuf & légumes",i4n:"Nouilles sautées",i4d:"Poulet ou légumes",i5n:"Riz cantonais",
   i6n:"Canard croustillant",i6d:"La signature de la maison",i7n:"Curry thaï",i7d:"Selon le marché",i8n:"Dessert maison",
-  i9n:"Carte de bières",i9d:"Sélection de la maison",i10n:"Vins au verre",ac:"à conf.",
+  i9n:"Carte de bières",i9d:"Sélection de la maison",i10n:"Vins au verre",
   carte_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié : la carte, les prix et la carte des bières sont à confirmer sur place.",
   infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
   ino_k1:"Adresse",ino_addr:"Limpertsberg · Luxembourg-Ville",ino_addr_fl:"Adresse exacte à confirmer",
@@ -400,7 +421,7 @@ const I18N={
   foot_contact:"Limpertsberg · Luxembourg-Ville<br>Adresse & téléphone à confirmer",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque, le logo et les plats sont ceux de la maison. Adresse, carte, prix, horaires, téléphone et carte des bières sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_dir:"Route",
   nav_canard:"Die Ente",nav_carte:"Karte",nav_bar:"Die Bar",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Thailändische & chinesische Küche · Limpertsberg",
   hero_tag:"Die thailändisch-chinesische Kantine des Viertels — der Wok, die knusprige Ente und eine schöne Bierkarte.",
@@ -424,7 +445,7 @@ const I18N={
   i1n:"Nems",i1d:"Knusprige Röllchen, süßsauer",i2n:"Suppe des Tages",
   i3n:"Wok mit Rind & Gemüse",i4n:"Gebratene Nudeln",i4d:"Hähnchen oder Gemüse",i5n:"Gebratener Reis",
   i6n:"Knusprige Ente",i6d:"Die Signatur des Hauses",i7n:"Thai-Curry",i7d:"Je nach Markt",i8n:"Hausgemachtes Dessert",
-  i9n:"Bierkarte",i9d:"Auswahl des Hauses",i10n:"Offene Weine",ac:"n. Angabe",
+  i9n:"Bierkarte",i9d:"Auswahl des Hauses",i10n:"Offene Weine",
   carte_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Es sind keine Preise veröffentlicht: Karte, Preise und Bierkarte vor Ort zu bestätigen.",
   infos_eyebrow:"Infos & Anfahrt",infos_h:"So finden Sie uns",
   ino_k1:"Adresse",ino_addr:"Limpertsberg · Luxemburg-Stadt",ino_addr_fl:"Genaue Adresse zu bestätigen",
@@ -436,7 +457,7 @@ const I18N={
   foot_contact:"Limpertsberg · Luxemburg-Stadt<br>Adresse & Telefon zu bestätigen",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke, Logo und Gerichte gehören dem Haus. Adresse, Karte, Preise, Zeiten, Telefon und Bierkarte sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_dir:"Directions",
   nav_canard:"The duck",nav_carte:"Menu",nav_bar:"The bar",nav_infos:"Find us",
   hero_eyebrow:"Thai & Chinese cooking · Limpertsberg",
   hero_tag:"The neighbourhood's Thai and Chinese canteen — the wok, the crispy duck, and a fine beer list.",
@@ -460,7 +481,7 @@ const I18N={
   i1n:"Nems",i1d:"Crispy rolls, sweet-and-sour sauce",i2n:"Soup of the day",
   i3n:"Beef & vegetable wok",i4n:"Sautéed noodles",i4d:"Chicken or vegetables",i5n:"Fried rice",
   i6n:"Crispy duck",i6d:"The house signature",i7n:"Thai curry",i7d:"As the market allows",i8n:"House dessert",
-  i9n:"Beer list",i9d:"The house selection",i10n:"Wines by the glass",ac:"tbc",
+  i9n:"Beer list",i9d:"The house selection",i10n:"Wines by the glass",
   carte_note:"Dishes from the house's public photos, for reference. No prices are published: the menu, prices and beer list are to be confirmed on site.",
   infos_eyebrow:"Info & access",infos_h:"Find us",
   ino_k1:"Address",ino_addr:"Limpertsberg · Luxembourg City",ino_addr_fl:"Exact address to be confirmed",
@@ -536,5 +557,9 @@ try{const sv=localStorage.getItem("msl_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="https://www.google.com/maps/search/Mont+Saint+Lambert+Limpertsberg+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

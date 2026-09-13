@@ -188,6 +188,29 @@ footer a.wk{color:var(--orange2);font-weight:700}
   .hero .palm.l{width:80px}.hero .palm.r{width:96px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.001ms!important;scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -281,22 +304,22 @@ footer a.wk{color:var(--orange2);font-weight:700}
       <div class="menu-wrap reveal">
         <div class="mcol">
           <h3><span class="p" style="background:var(--orange)"></span> <span data-i18n="menu_wraps">Wraps &amp; street food</span></h3>
-          <div class="mrow"><span class="nm" data-i18n="d_burrito">Burrito poulet</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_quesa">Quesadilla poulet</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_tacos">Crispy tacos (x3)</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_burrito">Burrito poulet</span><span class="dsh"></span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_quesa">Quesadilla poulet</span><span class="dsh"></span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_tacos">Crispy tacos (x3)</span><span class="dsh"></span></div>
         </div>
         <div class="mcol">
           <h3><span class="p" style="background:var(--teal)"></span> <span data-i18n="menu_plates">Buena Plates</span></h3>
-          <div class="mrow"><span class="nm">Buena Chili</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_cesar">Salade César</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_cuisse">Assiette cuisse de poulet</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="mrow"><span class="nm" data-i18n="d_wings">Assiette wings</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="mrow"><span class="nm">Double legs</span><span class="dsh"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="mrow"><span class="nm">Buena Chili</span><span class="dsh"></span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_cesar">Salade César</span><span class="dsh"></span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_cuisse">Assiette cuisse de poulet</span><span class="dsh"></span></div>
+          <div class="mrow"><span class="nm" data-i18n="d_wings">Assiette wings</span><span class="dsh"></span></div>
+          <div class="mrow"><span class="nm">Double legs</span><span class="dsh"></span></div>
         </div>
       </div>
       <div class="drinks reveal">
         <h3 style="font-size:1.1rem;color:var(--navy);display:flex;align-items:center;gap:9px"><span style="width:12px;height:12px;border-radius:50%;background:var(--coral)"></span> <span data-i18n="menu_drinks">Boissons</span></h3>
-        <div class="dl"><span>Pepsi</span><span>7up</span><span>Mirinda</span><span>Ice Tea</span><span data-i18n="dr_price">à l'unité, à conf.</span></div>
+        <div class="dl"><span>Pepsi</span><span>7up</span><span>Mirinda</span><span>Ice Tea</span></div>
       </div>
       <p class="alsobar reveal" data-i18n="menu_also">Aussi connu pour ses <b>pizzas maison</b> et le <b>barbecue du vendredi</b> — à confirmer avec la maison.</p>
       <p class="menu-note reveal" data-i18n="menu_note">Tarifs indicatifs relevés en ligne (fin 2025) — carte, prix et disponibilité à confirmer avec la maison.</p>
@@ -349,11 +372,11 @@ footer a.wk{color:var(--orange2);font-weight:700}
 
 <script>
 var I18N={
-  fr:{
+  fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
     nav_menu:"La carte",nav_house:"La maison",nav_gal:"En images",nav_info:"Infos",
     hero_kick:"Street food · saveurs latines · Bonnevoie",hero_h:"Un coin de soleil à Bonnevoie",
     hero_sub:"Burritos, quesadillas, tacos croustillants — et le barbecue du vendredi. La cuisine latine, généreuse et bon marché, au sud de la ville.",
-    hero_cta1:"Voir la carte",hero_cta2:"Commander en ligne ↗",ac:"à conf.",
+    hero_cta1:"Voir la carte",hero_cta2:"Commander en ligne ↗",
     menu_kick:"La carte",menu_h:"Généreux, latin, bon marché",
     menu_p:"La street food latine à emporter ou sur place — préparée maison. Voici les incontournables.",
     menu_wraps:"Wraps & street food",menu_plates:"Buena Plates",menu_drinks:"Boissons",
@@ -375,11 +398,11 @@ var I18N={
     foot_tag:"Street food latine · Bonnevoie · Luxembourg",
     disc:"Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le visuel de marque est celui de la maison. Cuisine (street food latine / pizzas), carte, tarifs et horaires à confirmer avec la maison. Photographies de sources publiques, à remplacer par les visuels de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
   },
-  de:{
+  de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
     nav_menu:"Die Karte",nav_house:"Das Haus",nav_gal:"In Bildern",nav_info:"Infos",
     hero_kick:"Street Food · latino Aromen · Bonneweg",hero_h:"Ein Sonnenfleck in Bonneweg",
     hero_sub:"Burritos, Quesadillas, knusprige Tacos — und der Freitags-Grill. Latino-Küche, großzügig und günstig, im Süden der Stadt.",
-    hero_cta1:"Zur Karte",hero_cta2:"Online bestellen ↗",ac:"auf Anfrage",
+    hero_cta1:"Zur Karte",hero_cta2:"Online bestellen ↗",
     menu_kick:"Die Karte",menu_h:"Großzügig, latino, günstig",
     menu_p:"Latino-Street-Food zum Mitnehmen oder vor Ort — hausgemacht. Das sind die Klassiker.",
     menu_wraps:"Wraps & Street Food",menu_plates:"Buena Plates",menu_drinks:"Getränke",
@@ -401,11 +424,11 @@ var I18N={
     foot_tag:"Latino Street Food · Bonneweg · Luxemburg",
     disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das Markenbild stammt vom Haus. Küche (Latino-Street-Food / Pizzen), Karte, Preise und Öffnungszeiten mit dem Haus zu bestätigen. Fotos aus öffentlichen Quellen, durch eigene Bilder des Hauses zu ersetzen. Anonyme Besuchsstatistik, ohne Cookie oder personenbezogene Daten."
   },
-  en:{
+  en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
     nav_menu:"The menu",nav_house:"The place",nav_gal:"In pictures",nav_info:"Info",
     hero_kick:"Street food · Latin flavours · Bonnevoie",hero_h:"A little corner of sunshine in Bonnevoie",
     hero_sub:"Burritos, quesadillas, crispy tacos — and the Friday barbecue. Latin cooking, generous and easy on the wallet, in the south of the city.",
-    hero_cta1:"See the menu",hero_cta2:"Order online ↗",ac:"tbc",
+    hero_cta1:"See the menu",hero_cta2:"Order online ↗",
     menu_kick:"The menu",menu_h:"Generous, Latin, great value",
     menu_p:"Latin street food to take away or eat in — made in-house. Here are the essentials.",
     menu_wraps:"Wraps & street food",menu_plates:"Buena Plates",menu_drinks:"Drinks",
@@ -444,5 +467,11 @@ document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
 document.getElementById("yr").textContent=new Date().getFullYear();
 applyLang("fr");
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+352621707656" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://wolt.com/en/lux/luxembourg/restaurant/buena-vista-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Buena+Vista+174+Route+de+Thionville+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

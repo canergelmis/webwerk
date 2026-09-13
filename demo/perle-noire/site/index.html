@@ -195,6 +195,30 @@ footer a.wk{color:var(--gold);font-weight:500}
   .room .gal{grid-template-columns:1fr}.room .gal .w2{grid-column:auto}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.001ms!important;scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+  .drink .na{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--noir);color:var(--dim);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -274,37 +298,37 @@ footer a.wk{color:var(--gold);font-weight:500}
         </div>
         <div class="comp">
           <div class="drink">
-            <div class="top"><span class="nm">Perle Noire</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="top"><span class="nm">Perle Noire</span></div>
             <div class="notes" data-i18n="d1_notes">Boisé, iodé, ambré</div>
             <div class="ing">Calvados · monoï · sherry</div>
             <div class="cat" data-i18n="cat_sig">Signature</div>
           </div>
           <div class="drink">
-            <div class="top"><span class="nm">Lulu</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="top"><span class="nm">Lulu</span></div>
             <div class="notes" data-i18n="d2_notes">Vanillé, salin, rond</div>
             <div class="ing">Vodka · vanille · olive</div>
             <div class="cat" data-i18n="cat_sig">Signature</div>
           </div>
           <div class="drink">
-            <div class="top"><span class="nm">Rouge</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="top"><span class="nm">Rouge</span></div>
             <div class="notes" data-i18n="d3_notes">Vif, poivré, fruité</div>
             <div class="ing" data-i18n="d3_ing">Bloody Mary réinventé — tomate, poivre, framboise</div>
             <div class="cat" data-i18n="cat_sig">Signature</div>
           </div>
           <div class="drink">
-            <div class="top"><span class="nm">Naked &amp; Famous</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="top"><span class="nm">Naked &amp; Famous</span></div>
             <div class="notes" data-i18n="d4_notes">Fumé, amer, agrume</div>
             <div class="ing">Mezcal · Aperol</div>
             <div class="cat" data-i18n="cat_cla">Classique revisité</div>
           </div>
           <div class="drink">
-            <div class="top"><span class="nm">Sparkling Caramel</span><span class="pr" data-i18n="pr_na">sans alcool</span></div>
+            <div class="top"><span class="nm">Sparkling Caramel</span><span class="na" data-i18n="pr_na">sans alcool</span></div>
             <div class="notes" data-i18n="d5_notes">Caramel au beurre salé, pétillant</div>
             <div class="ing" data-i18n="d5_ing">Création sans alcool</div>
             <div class="cat" data-i18n="cat_na">Sans alcool</div>
           </div>
           <div class="drink">
-            <div class="top"><span class="nm">Ojo Verde</span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="top"><span class="nm">Ojo Verde</span></div>
             <div class="notes" data-i18n="d6_notes">Frais, végétal, complexe</div>
             <div class="ing" data-i18n="d6_ing">Composition du moment</div>
             <div class="cat" data-i18n="cat_sig">Signature</div>
@@ -352,7 +376,6 @@ footer a.wk{color:var(--gold);font-weight:500}
         <div class="card">
           <h3 data-i18n="info_contact">Contact</h3>
           <a class="line" href="tel:+352471436">+352 47 14 36</a>
-          <p class="note" style="color:var(--gold)" data-i18n="info_phone_flag">Numéro à confirmer.</p>
           <div class="socials"><a href="https://www.instagram.com/perlenoire_luxembourg/" target="_blank" rel="noopener">Instagram ↗</a></div>
         </div>
       </div>
@@ -374,7 +397,7 @@ footer a.wk{color:var(--gold);font-weight:500}
 
 <script>
 var I18N={
-  fr:{
+  fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
     nav_concept:"La maison",nav_menu:"La carte",nav_room:"Le lieu",nav_info:"Infos",
     hero_award:"Bar de l'Année 2026 · Gault&Millau",hero_tag:"Rare par nature. Ouvert la nuit.",
     hero_sub:"Un bar à cocktails au dernier étage de la Place d'Armes. Velours sombre, laiton, lumières basses — et des cocktails composés comme des parfums.",
@@ -387,7 +410,7 @@ var I18N={
     menu_kick:"La carte olfactive",menu_h:"Six compositions",
     menu_p:"Une sélection de la carte — chaque cocktail, une composition. Les classiques revisités complètent la carte au comptoir.",
     tier_sig:"Signatures",tier_cla:"Classiques",
-    cat_sig:"Signature",cat_cla:"Classique revisité",cat_na:"Sans alcool",pr_na:"sans alcool",ac:"à conf.",
+    cat_sig:"Signature",cat_cla:"Classique revisité",cat_na:"Sans alcool",pr_na:"sans alcool",
     d1_notes:"Boisé, iodé, ambré",d2_notes:"Vanillé, salin, rond",d3_notes:"Vif, poivré, fruité",
     d3_ing:"Bloody Mary réinventé — tomate, poivre, framboise",
     d4_notes:"Fumé, amer, agrume",d5_notes:"Caramel au beurre salé, pétillant",d5_ing:"Création sans alcool",
@@ -403,7 +426,7 @@ var I18N={
     disc:"Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé. La carte reprend des cocktails cités dans la presse d'ouverture ; carte complète et prix à confirmer avec la maison. Photographies de presse (à titre indicatif), à remplacer par les visuels de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],closed:"Fermé"
   },
-  de:{
+  de:{wwb_call:"Anrufen",wwb_dir:"Route",
     nav_concept:"Das Haus",nav_menu:"Die Karte",nav_room:"Der Ort",nav_info:"Infos",
     hero_award:"Bar des Jahres 2026 · Gault&Millau",hero_tag:"Selten von Natur aus. Nachts geöffnet.",
     hero_sub:"Eine Cocktailbar im obersten Stock am Place d'Armes. Dunkler Samt, Messing, gedämpftes Licht — und Cocktails, komponiert wie Parfums.",
@@ -416,7 +439,7 @@ var I18N={
     menu_kick:"Die olfaktorische Karte",menu_h:"Sechs Kompositionen",
     menu_p:"Eine Auswahl der Karte — jeder Cocktail eine Komposition. Neu interpretierte Klassiker ergänzen die Karte am Tresen.",
     tier_sig:"Signature",tier_cla:"Klassiker",
-    cat_sig:"Signature",cat_cla:"Klassiker, neu",cat_na:"Alkoholfrei",pr_na:"alkoholfrei",ac:"auf Anfrage",
+    cat_sig:"Signature",cat_cla:"Klassiker, neu",cat_na:"Alkoholfrei",pr_na:"alkoholfrei",
     d1_notes:"Holzig, jodig, ambriert",d2_notes:"Vanillig, salzig, rund",d3_notes:"Lebhaft, pfeffrig, fruchtig",
     d3_ing:"Neu gedachte Bloody Mary — Tomate, Pfeffer, Himbeere",
     d4_notes:"Rauchig, bitter, Zitrus",d5_notes:"Gesalzenes Butterkaramell, prickelnd",d5_ing:"Alkoholfreie Kreation",
@@ -432,7 +455,7 @@ var I18N={
     disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das (textliche) Logo ist ein Vorschlag. Die Karte nennt in der Eröffnungspresse erwähnte Cocktails; vollständige Karte und Preise mit dem Haus zu bestätigen. Pressefotos (indikativ), durch eigene Bilder des Hauses zu ersetzen. Anonyme Besuchsstatistik, ohne Cookie oder personenbezogene Daten.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],closed:"Geschlossen"
   },
-  en:{
+  en:{wwb_call:"Call",wwb_dir:"Directions",
     nav_concept:"The house",nav_menu:"The menu",nav_room:"The room",nav_info:"Info",
     hero_award:"Bar of the Year 2026 · Gault&Millau",hero_tag:"Rare by design. Open by night.",
     hero_sub:"A cocktail bar on the top floor of Place d'Armes. Dark velvet, brass, low light — and cocktails composed like perfumes.",
@@ -445,7 +468,7 @@ var I18N={
     menu_kick:"The olfactory menu",menu_h:"Six compositions",
     menu_p:"A selection from the menu — each cocktail, a composition. Reimagined classics round it out at the bar.",
     tier_sig:"Signatures",tier_cla:"Classics",
-    cat_sig:"Signature",cat_cla:"Classic, reimagined",cat_na:"Non-alcoholic",pr_na:"alcohol-free",ac:"tbc",
+    cat_sig:"Signature",cat_cla:"Classic, reimagined",cat_na:"Non-alcoholic",pr_na:"alcohol-free",
     d1_notes:"Woody, briny, amber",d2_notes:"Vanilla, saline, round",d3_notes:"Bright, peppery, fruity",
     d3_ing:"Bloody Mary reimagined — tomato, pepper, raspberry",
     d4_notes:"Smoky, bitter, citrus",d5_notes:"Salted butter caramel, sparkling",d5_ing:"Alcohol-free creation",
@@ -515,5 +538,10 @@ document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
 document.getElementById("yr").textContent=new Date().getFullYear();
 applyLang("fr");
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn" href="tel:+352471436" data-i18n="wwb_call">Appeler</a>
+  <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Perle+Noire+7+Place+d%27Armes+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

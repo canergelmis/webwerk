@@ -196,6 +196,28 @@ footer a.wm{color:rgba(247,242,231,.85);font-weight:700}
   @media(max-width:760px){
     .quicknav .wrap{grid-template-columns:1fr}
   }
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -284,9 +306,9 @@ footer a.wm{color:rgba(247,242,231,.85);font-weight:700}
       <div class="groups reveal">
         <div class="grp">
           <h3 data-i18n="g_pucce">Pucce</h3>
-          <div class="item"><span class="nm" data-i18n="i_pu1">Puccia Mortadella</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pu2">Puccia Salsiccia</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pu3">Puccia Poulet</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pu1">Puccia Mortadella</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pu2">Puccia Salsiccia</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pu3">Puccia Poulet</span></div>
           <div class="item"><span class="nm" data-i18n="i_pu4">Puccia Végétarienne / « Surprise »</span><span class="dots"></span><span class="tbc" data-i18n="tbc">à confirmer</span></div>
           <div class="callout">
             <span class="k" data-i18n="b_call_k">Le plat le plus mentionné</span>
@@ -295,12 +317,12 @@ footer a.wm{color:rgba(247,242,231,.85);font-weight:700}
         </div>
         <div class="grp">
           <h3 data-i18n="g_focacce">Focacce</h3>
-          <div class="item"><span class="nm" data-i18n="i_fo1">Focaccia Margherita</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_fo2">Focaccia Prosciutto / Diavola / Napoli / Capricciosa</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_fo1">Focaccia Margherita</span></div>
+          <div class="item"><span class="nm" data-i18n="i_fo2">Focaccia Prosciutto / Diavola / Napoli / Capricciosa</span></div>
           <h3 style="margin-top:26px" data-i18n="g_dolci">Pasticceria</h3>
-          <div class="item"><span class="nm" data-i18n="i_do1">Pasticciotto Leccese<span class="desc" data-i18n="i_do1d">la pâtisserie du Salento, spécialité de Lecce</span></span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_do2">Crema Caffè</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_do3">Pizza Nutella / Pistacchio</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_do1">Pasticciotto Leccese<span class="desc" data-i18n="i_do1d">la pâtisserie du Salento, spécialité de Lecce</span></span></div>
+          <div class="item"><span class="nm" data-i18n="i_do2">Crema Caffè</span></div>
+          <div class="item"><span class="nm" data-i18n="i_do3">Pizza Nutella / Pistacchio</span></div>
         </div>
       </div>
       <p class="note-price" data-i18n="note_price1">Prix relevés sur Wolt et Wedely (livraison) — la vente au comptoir peut différer. Carte à confirmer avec la maison.</p>
@@ -331,31 +353,31 @@ footer a.wm{color:rgba(247,242,231,.85);font-weight:700}
       <div class="groups reveal" style="margin-top:36px">
         <div class="grp">
           <h3 data-i18n="g_pizze">Pizze al forno a legna</h3>
-          <div class="item"><span class="nm" data-i18n="i_pz1">Margherita</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pz2">Marinara</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pz3">Diavola</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pz4">Capricciosa</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pz5">Quattro Formaggi</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pz6">Tonno</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pz7">Mortadella, Burrata e Pistacchio<span class="desc" data-i18n="i_pz7d">l'une des 3 pizzas les plus demandées, selon Google Maps</span></span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pz8">Carbonara</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pz9">Carpaccio</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pz10">La Persia</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz1">Margherita</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz2">Marinara</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz3">Diavola</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz4">Capricciosa</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz5">Quattro Formaggi</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz6">Tonno</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz7">Mortadella, Burrata e Pistacchio<span class="desc" data-i18n="i_pz7d">l'une des 3 pizzas les plus demandées, selon Google Maps</span></span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz8">Carbonara</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz9">Carpaccio</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pz10">La Persia</span></div>
           <div class="item"><span class="nm" data-i18n="i_pz11">Calzone</span><span class="dots"></span><span class="tbc" data-i18n="tbc">à confirmer</span></div>
         </div>
         <div class="grp">
           <h3 data-i18n="g_salades">Salades</h3>
-          <div class="item"><span class="nm" data-i18n="i_sa1">Caprese</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_sa2">Salento</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_sa3">Fiorita</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_sa1">Caprese</span></div>
+          <div class="item"><span class="nm" data-i18n="i_sa2">Salento</span></div>
+          <div class="item"><span class="nm" data-i18n="i_sa3">Fiorita</span></div>
           <h3 style="margin-top:26px" data-i18n="g_plats">Plats</h3>
-          <div class="item"><span class="nm" data-i18n="i_pl1">Lasagne al forno</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pl2">Parmigiana</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pl1">Lasagne al forno</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pl2">Parmigiana</span></div>
           <h3 style="margin-top:26px" data-i18n="g_boissons">Boissons</h3>
-          <div class="item"><span class="nm" data-i18n="i_bo1">Eau</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_bo2">Softs</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_bo3">Bières artisanales</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_bo4">Vins (bouteille)</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_bo1">Eau</span></div>
+          <div class="item"><span class="nm" data-i18n="i_bo2">Softs</span></div>
+          <div class="item"><span class="nm" data-i18n="i_bo3">Bières artisanales</span></div>
+          <div class="item"><span class="nm" data-i18n="i_bo4">Vins (bouteille)</span></div>
         </div>
       </div>
       <p class="note-price" data-i18n="note_price2">Le four à bois est servi en soirée. Prix relevés sur les plateformes de livraison — carte, prix et horaires du four à confirmer avec la maison.</p>
@@ -416,8 +438,7 @@ footer a.wm{color:rgba(247,242,231,.85);font-weight:700}
 
 <script>
 const I18N = {
- fr:{
-  ac:"à conf.",
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
   n_maison:"La maison", n_banco:"Il banco", n_forno:"Le four à bois", n_visit:"Infos & adresse",
   hero_eyebrow:"Grand-Rue · Ville Haute",
   hero_h1a:"On y passe pour une puccia.", hero_h1b:"On y reste pour la pizza.",
@@ -434,7 +455,7 @@ const I18N = {
   b_eyebrow:"Il banco", b_head:"Ce qu'on vous tend au comptoir",
   b_lede:"La puccia — un pain du Salento, fendu et généreusement garni — et la focaccia sont les deux plats dont les clients parlent le plus. Prix relevés sur les plateformes de livraison, à confirmer sur place.",
   g_pucce:"Pucce", i_pu1:"Puccia Mortadella", i_pu2:"Puccia Salsiccia", i_pu3:"Puccia Poulet",
-  i_pu4:"Puccia Végétarienne / « Surprise »", tbc:"à confirmer",
+  i_pu4:"Puccia Végétarienne / « Surprise »",
   b_call_k:"Le plat le plus mentionné",
   b_call_p:"Sur l'ensemble des avis Google, la focaccia revient plus souvent qu'aucun autre plat — largement devant le pasticciotto ou le panzarotto.",
   g_focacce:"Focacce", i_fo1:"Focaccia Margherita", i_fo2:"Focaccia Prosciutto / Diavola / Napoli / Capricciosa",
@@ -461,8 +482,7 @@ const I18N = {
   foot_made:"Aperçu par Webwerk",
   foot_disc:"Aperçu Webwerk composé à partir de sources publiques (salento.lu, Wolt, Wedely, Editus, Paperjam, Google Maps) — proposition non officielle, sans lien avec la maison. Logo repris tel quel du site salento.lu ; horaires repris du même site. Photos des plats reprises de la fiche Wolt officielle de la maison ; photos de l'enseigne et du calzone prises sur Google Maps. Carte et prix relevés sur les plateformes de livraison, à confirmer sur place. Aucune note ni avis d'agrégateur n'est repris sur ce site."
  },
- de:{
-  ac:"auf Anfrage",
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
   n_maison:"Das Haus", n_banco:"Il banco", n_forno:"Der Holzofen", n_visit:"Infos & Adresse",
   hero_eyebrow:"Grand-Rue · Ville Haute",
   hero_h1a:"Man kommt für eine Puccia.", hero_h1b:"Man bleibt für die Pizza.",
@@ -479,7 +499,7 @@ const I18N = {
   b_eyebrow:"Il banco", b_head:"Was man Ihnen an der Theke reicht",
   b_lede:"Die Puccia — ein aufgeschnittenes, großzügig gefülltes Brot aus dem Salento — und die Focaccia sind die zwei Gerichte, über die Gäste am meisten sprechen. Preise von Lieferplattformen, vor Ort zu bestätigen.",
   g_pucce:"Pucce", i_pu1:"Puccia Mortadella", i_pu2:"Puccia Salsiccia", i_pu3:"Puccia Poulet",
-  i_pu4:"Puccia vegetarisch / „Surprise“", tbc:"zu bestätigen",
+  i_pu4:"Puccia vegetarisch / „Surprise“",
   b_call_k:"Das meistgenannte Gericht",
   b_call_p:"In den Google-Bewertungen taucht die Focaccia häufiger auf als jedes andere Gericht — weit vor Pasticciotto oder Panzarotto.",
   g_focacce:"Focacce", i_fo1:"Focaccia Margherita", i_fo2:"Focaccia Prosciutto / Diavola / Napoli / Capricciosa",
@@ -506,8 +526,7 @@ const I18N = {
   foot_made:"Ein Vorschlag von Webwerk",
   foot_disc:"Webwerk-Vorschau, erstellt aus öffentlichen Quellen (salento.lu, Wolt, Wedely, Editus, Paperjam, Google Maps) — kein offizieller Auftritt, keine Verbindung zum Haus. Logo unverändert von salento.lu übernommen; Öffnungszeiten von derselben Seite. Gerichtsfotos aus dem offiziellen Wolt-Profil des Hauses; Fotos vom Schild und vom Calzone von Google Maps. Karte und Preise von Lieferplattformen, vor Ort zu bestätigen. Es werden keine Bewertungen oder Aggregator-Sterne auf dieser Seite gezeigt."
  },
- en:{
-  ac:"tbc",
+ en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
   n_maison:"The house", n_banco:"Il banco", n_forno:"The wood oven", n_visit:"Info & address",
   hero_eyebrow:"Grand-Rue · Ville Haute",
   hero_h1a:"You come by for a puccia.", hero_h1b:"You stay for the pizza.",
@@ -524,7 +543,7 @@ const I18N = {
   b_eyebrow:"Il banco", b_head:"What's handed to you at the counter",
   b_lede:"The puccia — a split, generously filled Salento bread — and the focaccia are the two dishes guests talk about most. Prices from delivery platforms, to confirm in-house.",
   g_pucce:"Pucce", i_pu1:"Puccia Mortadella", i_pu2:"Puccia Salsiccia", i_pu3:"Puccia Poulet",
-  i_pu4:"Puccia Vegetarian / \"Surprise\"", tbc:"to confirm",
+  i_pu4:"Puccia Vegetarian / \"Surprise\"",
   b_call_k:"The most-mentioned dish",
   b_call_p:"Across Google reviews, focaccia comes up more often than any other dish — well ahead of pasticciotto or panzarotto.",
   g_focacce:"Focacce", i_fo1:"Focaccia Margherita", i_fo2:"Focaccia Prosciutto / Diavola / Napoli / Capricciosa",
@@ -579,5 +598,11 @@ const io = new IntersectionObserver(function(entries){
 }, {threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226771500" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://wolt.com/en/lux/luxembourg/restaurant/il-salento-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Salento+Rosticceria+5+Grand-Rue+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

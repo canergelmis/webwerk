@@ -178,6 +178,28 @@ footer .made a{color:var(--gold)}
      It was the least legible text here (rgb(111, 120, 124)); set to meet WCAG AA
      against its own footer ground at 4.67:1, at a readable size. */
   .disc{color:#8a9295 !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--slate);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -283,28 +305,28 @@ footer .made a{color:var(--gold)}
     <div>
      <div class="mgroup">
       <h3><svg class="mk" viewBox="0 0 40 30"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg><span data-i18n="mg1">La friture &amp; les poissons</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Friture de la Moselle</div><div class="ds" data-i18n="i1d">Petits poissons frits, citron, frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Moules-frites</div><div class="ds" data-i18n="i2d">En saison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Fish burger</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Friture de la Moselle</div><div class="ds" data-i18n="i1d">Petits poissons frits, citron, frites</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Moules-frites</div><div class="ds" data-i18n="i2d">En saison</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Fish burger</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="mk" viewBox="0 0 40 30"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg><span data-i18n="mg2">Les classiques</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Saucisses grillées</div><div class="ds" data-i18n="i4d">&amp; frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Salade</div><div class="ds" data-i18n="i5d">Fraîche, de saison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Formule du jour</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Saucisses grillées</div><div class="ds" data-i18n="i4d">&amp; frites</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Salade</div><div class="ds" data-i18n="i5d">Fraîche, de saison</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Formule du jour</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><svg class="mk" viewBox="0 0 40 30"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg><span data-i18n="mg3">Les douceurs</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Gaufres</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Glaces &amp; coupes</div><div class="ds" data-i18n="i8d">De la vitrine</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Tartes &amp; pâtisseries</div><div class="ds" data-i18n="i9d">Maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Gaufres</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Glaces &amp; coupes</div><div class="ds" data-i18n="i8d">De la vitrine</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Tartes &amp; pâtisseries</div><div class="ds" data-i18n="i9d">Maison</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="mk" viewBox="0 0 40 30"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 C13 4 27 12 38 8"/><path d="M2 15 C13 11 27 19 38 15"/><path d="M2 22 C13 18 27 26 38 22"/></g></svg><span data-i18n="mg4">Les vins de la Moselle</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Riesling</div><div class="ds" data-i18n="i10d">Du coteau voisin</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i11n">Crémant &amp; pinot</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Riesling</div><div class="ds" data-i18n="i10d">Du coteau voisin</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Crémant &amp; pinot</div></div></div>
      </div>
     </div>
    </div>
@@ -374,7 +396,7 @@ footer .made a{color:var(--gold)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   nav_fri:"La friture",nav_carte:"La carte",nav_terr:"La terrasse",nav_infos:"Infos & accès",
   hero_eyebrow:"La friture du quai · Remich · à la belle saison",hero_h:"Friture de la Moselle",
   hero_tag:"Les petits poissons de la rivière, frits à la minute — la terrasse au bord de l'eau, un verre de Riesling à la main, aux beaux jours.",
@@ -395,7 +417,7 @@ const I18N={
   i1n:"Friture de la Moselle",i1d:"Petits poissons frits, citron, frites",i2n:"Moules-frites",i2d:"En saison",i3n:"Fish burger",
   i4n:"Saucisses grillées",i4d:"& frites",i5n:"Salade",i5d:"Fraîche, de saison",i6n:"Formule du jour",
   i7n:"Gaufres",i8n:"Glaces & coupes",i8d:"De la vitrine",i9n:"Tartes & pâtisseries",i9d:"Maison",
-  i10n:"Riesling",i10d:"Du coteau voisin",i11n:"Crémant & pinot",ac:"à conf.",
+  i10n:"Riesling",i10d:"Du coteau voisin",i11n:"Crémant & pinot",
   carte_note:"Plats relevés à partir de sources publiques (avis, annuaires), à titre indicatif. Aucun prix n'est publié : la carte, les prix et la saison (souvent fermé le mardi) sont à confirmer avec la maison.",
   terr_eyebrow:"La terrasse",terr_h:"Les pieds<span>au bord de l'eau.</span>",
   terr_lead:"Aux beaux jours, la terrasse donne sur la Moselle : les bateaux de croisière qui passent, les coteaux de Riesling en face, et le clapotis de la rivière. On s'installe, on commande une friture, et on prend son temps.",
@@ -408,7 +430,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires, saison et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_fri:"Die Friture",nav_carte:"Karte",nav_terr:"Die Terrasse",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Die Friture am Kai · Remich · zur schönen Jahreszeit",hero_h:"Friture de la Moselle",
   hero_tag:"Die kleinen Flussfische, frisch frittiert — die Terrasse am Wasser, ein Glas Riesling in der Hand, an den schönen Tagen.",
@@ -429,7 +451,7 @@ const I18N={
   i1n:"Friture de la Moselle",i1d:"Frittierte Fischchen, Zitrone, Pommes",i2n:"Muscheln & Pommes",i2d:"Saisonal",i3n:"Fischburger",
   i4n:"Gegrillte Würstchen",i4d:"& Pommes",i5n:"Salat",i5d:"Frisch, saisonal",i6n:"Tagesmenü",
   i7n:"Waffeln",i8n:"Eis & Becher",i8d:"Aus der Vitrine",i9n:"Kuchen & Gebäck",i9d:"Hausgemacht",
-  i10n:"Riesling",i10d:"Vom benachbarten Hang",i11n:"Crémant & Pinot",ac:"n. Angabe",
+  i10n:"Riesling",i10d:"Vom benachbarten Hang",i11n:"Crémant & Pinot",
   carte_note:"Gerichte aus öffentlichen Quellen (Bewertungen, Verzeichnisse), ohne Gewähr. Es sind keine Preise veröffentlicht: Karte, Preise und Saison (oft dienstags geschlossen) beim Haus zu bestätigen.",
   terr_eyebrow:"Die Terrasse",terr_h:"Die Füße<span>am Wasser.</span>",
   terr_lead:"An den schönen Tagen liegt die Terrasse direkt an der Mosel: die vorbeifahrenden Ausflugsboote, die Rieslinghänge gegenüber und das Plätschern des Flusses. Man setzt sich, bestellt eine Friture und lässt sich Zeit.",
@@ -442,7 +464,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten, Saison und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_fri:"The friture",nav_carte:"Menu",nav_terr:"The terrace",nav_infos:"Find us",
   hero_eyebrow:"The friture on the quay · Remich · in the fine season",hero_h:"Friture de la Moselle",
   hero_tag:"The river's little fish, fried to order — the terrace by the water, a glass of Riesling in hand, on the fine days.",
@@ -463,7 +485,7 @@ const I18N={
   i1n:"Friture de la Moselle",i1d:"Fried river fish, lemon, chips",i2n:"Mussels & chips",i2d:"In season",i3n:"Fish burger",
   i4n:"Grilled sausages",i4d:"& chips",i5n:"Salad",i5d:"Fresh, seasonal",i6n:"Dish of the day",
   i7n:"Waffles",i8n:"Ice cream & sundaes",i8d:"From the counter",i9n:"Tarts & pastries",i9d:"House-made",
-  i10n:"Riesling",i10d:"From the slope next door",i11n:"Crémant & pinot",ac:"tbc",
+  i10n:"Riesling",i10d:"From the slope next door",i11n:"Crémant & pinot",
   carte_note:"Dishes drawn from public sources (reviews, directories), for reference only. No prices are published: the menu, prices and season (often closed on Tuesdays) are to be confirmed with the house.",
   terr_eyebrow:"The terrace",terr_h:"Feet<span>by the water.</span>",
   terr_lead:"On the fine days, the terrace looks onto the Moselle: the cruise boats gliding past, the Riesling slopes opposite, and the lap of the river. You sit down, order a friture, and take your time.",
@@ -519,5 +541,10 @@ try{const sv=localStorage.getItem("fm_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35223698685" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Friture+de+la+Moselle+Quai+de+la+Moselle+Remich" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

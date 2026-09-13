@@ -206,6 +206,28 @@ footer .made a{color:var(--celadon)}
      It was the least legible text here (rgb(111, 101, 83)); set to meet WCAG AA
      against its own footer ground at 4.63:1, at a readable size. */
   .disc{color:#877f70 !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--char);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -306,28 +328,28 @@ footer .made a{color:var(--celadon)}
     <div>
      <div class="mgroup">
       <h3><span class="patch" style="background:var(--red)"></span><span data-i18n="mg1">Le barbecue (à griller)</span></h3>
-      <div class="mitem"><div><div class="nm">Bulgogi <span class="han">불고기</span></div><div class="ds" data-i18n="i1d">Bœuf mariné, sauce sucrée-salée</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm">Galbi <span class="han">갈비</span></div><div class="ds" data-i18n="i2d">Travers de bœuf marinés</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Assortiment BBQ</div><div class="ds" data-i18n="i3d">Viandes marinées à griller à table</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm">Bulgogi <span class="han">불고기</span></div><div class="ds" data-i18n="i1d">Bœuf mariné, sauce sucrée-salée</div></div></div>
+      <div class="mitem"><div><div class="nm">Galbi <span class="han">갈비</span></div><div class="ds" data-i18n="i2d">Travers de bœuf marinés</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Assortiment BBQ</div><div class="ds" data-i18n="i3d">Viandes marinées à griller à table</div></div></div>
      </div>
      <div class="mgroup">
       <h3><span class="patch" style="background:var(--celadon)"></span><span data-i18n="mg2">Soupes &amp; ragoûts</span></h3>
-      <div class="mitem"><div><div class="nm">Kimchi jjigae <span class="han">김치찌개</span></div><div class="ds" data-i18n="i4d">Ragoût de kimchi mijoté</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Ramen &amp; nouilles</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm">Kimchi jjigae <span class="han">김치찌개</span></div><div class="ds" data-i18n="i4d">Ragoût de kimchi mijoté</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Ramen &amp; nouilles</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><span class="patch" style="background:var(--wood-l)"></span><span data-i18n="mg3">Les plats</span></h3>
-      <div class="mitem"><div><div class="nm">Bibimbap <span class="han">비빔밥</span></div><div class="ds" data-i18n="i6d">Bol de riz, œuf, légumes — au bol de pierre</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm">Japchae <span class="han">잡채</span></div><div class="ds" data-i18n="i7d">Nouilles de patate douce sautées</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Poulet frit coréen</div><div class="ds" data-i18n="i8d">Croustillant, sauce yangnyeom</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm">Bibimbap <span class="han">비빔밥</span></div><div class="ds" data-i18n="i6d">Bol de riz, œuf, légumes — au bol de pierre</div></div></div>
+      <div class="mitem"><div><div class="nm">Japchae <span class="han">잡채</span></div><div class="ds" data-i18n="i7d">Nouilles de patate douce sautées</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Poulet frit coréen</div><div class="ds" data-i18n="i8d">Croustillant, sauce yangnyeom</div></div></div>
      </div>
      <div class="mgroup">
       <h3><span class="patch" style="background:var(--indigo)"></span><span data-i18n="mg4">À côté</span></h3>
-      <div class="mitem"><div><div class="nm">Banchan <span class="han">반찬</span></div><div class="ds" data-i18n="i9d">Les petits plats d'accompagnement</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm">Mandoo <span class="han">만두</span></div><div class="ds" data-i18n="i10d">Raviolis coréens</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm">Kimbap <span class="han">김밥</span></div><div class="ds" data-i18n="i11d">Rouleaux de riz</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm">Banchan <span class="han">반찬</span></div><div class="ds" data-i18n="i9d">Les petits plats d'accompagnement</div></div></div>
+      <div class="mitem"><div><div class="nm">Mandoo <span class="han">만두</span></div><div class="ds" data-i18n="i10d">Raviolis coréens</div></div></div>
+      <div class="mitem"><div><div class="nm">Kimbap <span class="han">김밥</span></div><div class="ds" data-i18n="i11d">Rouleaux de riz</div></div></div>
      </div>
     </div>
    </div>
@@ -396,7 +418,7 @@ footer .made a{color:var(--celadon)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   nav_bbq:"Le barbecue",nav_carte:"La carte",nav_table:"La table",nav_infos:"Infos & accès",
   hero_eyebrow:"Barbecue coréen · Dudelange",
   hero_tag:"On allume le grill à votre table, et les petits plats coréens n'arrêtent pas d'arriver.",
@@ -417,7 +439,7 @@ const I18N={
   i1d:"Bœuf mariné, sauce sucrée-salée",i2d:"Travers de bœuf marinés",i3n:"Assortiment BBQ",i3d:"Viandes marinées à griller à table",
   i4d:"Ragoût de kimchi mijoté",i5n:"Ramen & nouilles",
   i6d:"Bol de riz, œuf, légumes — au bol de pierre",i7d:"Nouilles de patate douce sautées",i8n:"Poulet frit coréen",i8d:"Croustillant, sauce yangnyeom",
-  i9d:"Les petits plats d'accompagnement",i10d:"Raviolis coréens",i11d:"Rouleaux de riz",ac:"à conf.",
+  i9d:"Les petits plats d'accompagnement",i10d:"Raviolis coréens",i11d:"Rouleaux de riz",
   carte_note:"Plats relevés à partir de sources publiques (avis, annuaires), à titre indicatif. Aucun prix n'est publié : la carte et les prix sont à confirmer avec la maison.",
   table_eyebrow:"La table généreuse",table_h:"감자,<span>la pomme de terre.</span>",
   table_lead:"« Gamja », c'est la pomme de terre — humble, généreuse, réconfortante. C'est tout l'esprit de la maison : une table où les petits plats n'arrêtent pas d'arriver, où l'on grille, on partage, et on reste.",
@@ -430,7 +452,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_bbq:"Der Grill",nav_carte:"Karte",nav_table:"Die Tafel",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Koreanisches Barbecue · Dudelange",
   hero_tag:"Der Grill wird an Ihrem Tisch angezündet, und die kleinen koreanischen Gerichte hören nicht auf zu kommen.",
@@ -451,7 +473,7 @@ const I18N={
   i1d:"Mariniertes Rind, süß-salzige Sauce",i2d:"Marinierte Rinderrippchen",i3n:"BBQ-Auswahl",i3d:"Mariniertes Fleisch zum Grillen am Tisch",
   i4d:"Geschmorter Kimchi-Eintopf",i5n:"Ramen & Nudeln",
   i6d:"Reisschale, Ei, Gemüse — im Steintopf",i7d:"Gebratene Süßkartoffelnudeln",i8n:"Koreanisches Brathähnchen",i8d:"Knusprig, Yangnyeom-Sauce",
-  i9d:"Die kleinen Beilagen",i10d:"Koreanische Teigtaschen",i11d:"Reisröllchen",ac:"auf Anfrage",
+  i9d:"Die kleinen Beilagen",i10d:"Koreanische Teigtaschen",i11d:"Reisröllchen",
   carte_note:"Gerichte aus öffentlichen Quellen (Bewertungen, Verzeichnisse), ohne Gewähr. Es sind keine Preise veröffentlicht: Karte und Preise beim Haus zu bestätigen.",
   table_eyebrow:"Die großzügige Tafel",table_h:"감자,<span>die Kartoffel.</span>",
   table_lead:"„Gamja“ heißt Kartoffel — bescheiden, großzügig, wärmend. Das ist der ganze Geist des Hauses: eine Tafel, an der die kleinen Gerichte nicht aufhören zu kommen, an der man grillt, teilt und bleibt.",
@@ -464,7 +486,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_bbq:"The grill",nav_carte:"Menu",nav_table:"The table",nav_infos:"Find us",
   hero_eyebrow:"Korean barbecue · Dudelange",
   hero_tag:"The grill is lit at your table, and the little Korean dishes keep on coming.",
@@ -485,7 +507,7 @@ const I18N={
   i1d:"Marinated beef, sweet-savoury sauce",i2d:"Marinated beef short ribs",i3n:"BBQ assortment",i3d:"Marinated meats to grill at the table",
   i4d:"Simmered kimchi stew",i5n:"Ramen & noodles",
   i6d:"Rice bowl, egg, vegetables — in a stone bowl",i7d:"Stir-fried sweet-potato noodles",i8n:"Korean fried chicken",i8d:"Crisp, yangnyeom sauce",
-  i9d:"The little side dishes",i10d:"Korean dumplings",i11d:"Rice rolls",ac:"tbc",
+  i9d:"The little side dishes",i10d:"Korean dumplings",i11d:"Rice rolls",
   carte_note:"Dishes drawn from public sources (reviews, directories), for reference only. No prices are published: the menu and prices are to be confirmed with the house.",
   table_eyebrow:"The generous table",table_h:"감자,<span>the potato.</span>",
   table_lead:"“Gamja” means potato — humble, generous, comforting. That's the whole spirit of the house: a table where the little dishes keep coming, where you grill, you share, and you stay.",
@@ -542,5 +564,10 @@ try{const sv=localStorage.getItem("gj_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+352515726" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Restaurant+Gamja+Place+de+l%27Hotel+de+Ville+Dudelange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

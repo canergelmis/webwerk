@@ -522,6 +522,29 @@ html[data-theme="soir"] footer{background:#081E29}
   .dial-lg{display:flex}
   .dial-lg button{padding:10px 14px;letter-spacing:.06em;font-size:.7rem;flex:1;justify-content:center}
 }
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--bg);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -853,6 +876,7 @@ function setMode(mode){
 
 /* ============ LANGUAGE (FR / DE / EN) ============ */
 const I18N={
+  wwb_call:{de:'Anrufen',en:'Call'},wwb_dir:{de:'Route',en:'Directions'},
   nav_table:{de:'Der Tisch',en:'The table'},
   nav_carte:{de:'Die Karte',en:'The menu'},
   nav_ecrin:{de:'Das Ambiente',en:'The room'},
@@ -962,5 +986,10 @@ window.addEventListener('resize',()=>{
   positionThumb(document.querySelector('.dial-lg'),'thumbLg');
 });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn-solid" href="tel:+35226262507" data-i18n="wwb_call">Appeler</a>
+  <a class="btn-book" href="https://www.google.com/maps/search/?api=1&query=L%27Annexe+7+Rue+du+Saint-Esprit+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

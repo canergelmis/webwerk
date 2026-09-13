@@ -180,6 +180,28 @@ footer .made a{color:var(--saffron)}
      It was the least legible text here (rgb(125, 108, 80)); set to meet WCAG AA
      against its own footer ground at 4.67:1, at a readable size. */
   .disc{color:#8d7e65 !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -287,34 +309,34 @@ footer .made a{color:var(--saffron)}
     <div>
      <div class="mgroup">
       <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg1">Kebabs &amp; sandwichs</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Kebab</div><div class="ds" data-i18n="i1d">Dinde &amp; poulet, pain, crudités</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Dürüm kebab</div><div class="ds" data-i18n="i2d">Galette roulée</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Pizza kebab</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Escalope de poulet</div><div class="ds" data-i18n="i4d">Panée, croustillante</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Kefta / cevapcici</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Kebab</div><div class="ds" data-i18n="i1d">Dinde &amp; poulet, pain, crudités</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Dürüm kebab</div><div class="ds" data-i18n="i2d">Galette roulée</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Pizza kebab</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Escalope de poulet</div><div class="ds" data-i18n="i4d">Panée, croustillante</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Kefta / cevapcici</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg2">Falafel &amp; végé</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Sandwich falafel</div><div class="ds" data-i18n="i6d">Pois chiches maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Salade falafel</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Sandwich falafel</div><div class="ds" data-i18n="i6d">Pois chiches maison</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Salade falafel</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg3">Les assiettes</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Les Frères Mix</div><div class="ds" data-i18n="i8d">Quatre viandes, frites, salade</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Assiette kebab</div><div class="ds" data-i18n="i9d">Frites &amp; salade</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Salade brochettes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Les Frères Mix</div><div class="ds" data-i18n="i8d">Quatre viandes, frites, salade</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Assiette kebab</div><div class="ds" data-i18n="i9d">Frites &amp; salade</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Salade brochettes</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg4">Douceurs faites maison</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i11n">Baklava</div><div class="ds" data-i18n="i11d">Pistache, miel</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i12n">Znoud el Sit</div><div class="ds" data-i18n="i12d">Rouleaux dorés, crème</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i13n">Kunafa</div><div class="ds" data-i18n="i13d">Spécialité irakienne</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Baklava</div><div class="ds" data-i18n="i11d">Pistache, miel</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Znoud el Sit</div><div class="ds" data-i18n="i12d">Rouleaux dorés, crème</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i13n">Kunafa</div><div class="ds" data-i18n="i13d">Spécialité irakienne</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="st" viewBox="0 0 100 100"><use href="#star8" fill="currentColor"/></svg><span data-i18n="mg5">Spécialité irakienne</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i14n">Beryani</div><div class="ds" data-i18n="i14d">Le plat irakien de la maison</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i14n">Beryani</div><div class="ds" data-i18n="i14d">Le plat irakien de la maison</div></div></div>
      </div>
     </div>
    </div>
@@ -380,7 +402,7 @@ footer .made a{color:var(--saffron)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   nav_sweets:"Les douceurs",nav_carte:"La carte",nav_maison:"Depuis 2016",nav_infos:"Infos & accès",
   hero_eyebrow:"Cuisine irakienne · Esch-sur-Alzette",hero_est:"Une cuisine de famille depuis 2016",
   hero_tag:"Kebab au charbon, assiettes généreuses et douceurs irakiennes faites maison — en plein cœur d'Esch.",
@@ -402,7 +424,7 @@ const I18N={
   i6n:"Sandwich falafel",i6d:"Pois chiches maison",i7n:"Salade falafel",
   i8n:"Les Frères Mix",i8d:"Quatre viandes, frites, salade",i9n:"Assiette kebab",i9d:"Frites & salade",i10n:"Salade brochettes",
   i11n:"Baklava",i11d:"Pistache, miel",i12n:"Znoud el Sit",i12d:"Rouleaux dorés, crème",i13n:"Kunafa",i13d:"Spécialité irakienne",
-  i14n:"Beryani",i14d:"Le plat irakien de la maison",ac:"à conf.",
+  i14n:"Beryani",i14d:"Le plat irakien de la maison",
   carte_note:"Voici les plats de la maison. Tous les prix sont à confirmer directement auprès du restaurant.",
   maison_eyebrow:"La maison",maison_h:"Une famille,<span>depuis 2016.</span>",
   maison_lead:"Les Frères, c'est une cuisine irakienne tenue en famille au cœur d'Esch — le kebab grillé au charbon, les assiettes généreuses, et les douceurs préparées à la main.",
@@ -415,7 +437,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_sweets:"Süßes",nav_carte:"Karte",nav_maison:"Seit 2016",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Irakische Küche · Esch-sur-Alzette",hero_est:"Eine Familienküche seit 2016",
   hero_tag:"Kebab vom Holzkohlegrill, großzügige Teller und hausgemachtes irakisches Gebäck — mitten in Esch.",
@@ -437,7 +459,7 @@ const I18N={
   i6n:"Falafel-Sandwich",i6d:"Hausgemachte Kichererbsen",i7n:"Falafel-Salat",
   i8n:"Les Frères Mix",i8d:"Vier Fleischsorten, Pommes, Salat",i9n:"Kebab-Teller",i9d:"Pommes & Salat",i10n:"Spieß-Salat",
   i11n:"Baklava",i11d:"Pistazie, Honig",i12n:"Znoud el Sit",i12d:"Goldene Röllchen, Creme",i13n:"Kunafa",i13d:"Irakische Spezialität",
-  i14n:"Beryani",i14d:"Das irakische Gericht des Hauses",ac:"n. Angabe",
+  i14n:"Beryani",i14d:"Das irakische Gericht des Hauses",
   carte_note:"Hier die Gerichte des Hauses. Alle Preise sind direkt beim Restaurant zu bestätigen.",
   maison_eyebrow:"Das Haus",maison_h:"Eine Familie,<span>seit 2016.</span>",
   maison_lead:"Les Frères ist eine familiengeführte irakische Küche im Herzen von Esch — Kebab vom Holzkohlegrill, großzügige Teller und von Hand zubereitetes Gebäck.",
@@ -450,7 +472,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben von Lieferplattformen und Verzeichnissen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_sweets:"The sweets",nav_carte:"Menu",nav_maison:"Since 2016",nav_infos:"Find us",
   hero_eyebrow:"Iraqi kitchen · Esch-sur-Alzette",hero_est:"A family kitchen since 2016",
   hero_tag:"Charcoal-grilled kebab, generous plates and handmade Iraqi sweets — in the heart of Esch.",
@@ -472,7 +494,7 @@ const I18N={
   i6n:"Falafel sandwich",i6d:"House chickpea",i7n:"Falafel salad",
   i8n:"Les Frères Mix",i8d:"Four meats, fries, salad",i9n:"Kebab plate",i9d:"Fries & salad",i10n:"Skewer salad",
   i11n:"Baklava",i11d:"Pistachio, honey",i12n:"Znoud el Sit",i12d:"Golden rolls, cream",i13n:"Kunafa",i13d:"Iraqi speciality",
-  i14n:"Beryani",i14d:"The house Iraqi dish",ac:"tbc",
+  i14n:"Beryani",i14d:"The house Iraqi dish",
   carte_note:"Here are the dishes on offer. All prices are to be confirmed directly with the restaurant.",
   maison_eyebrow:"The house",maison_h:"A family,<span>since 2016.</span>",
   maison_lead:"Les Frères is a family-run Iraqi kitchen in the heart of Esch — charcoal-grilled kebab, generous plates, and sweets made by hand.",
@@ -534,5 +556,10 @@ try{const sv=localStorage.getItem("lf_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226540007" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Restaurant+Les+Freres+34+Rue+de+l%27Alzette+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>
