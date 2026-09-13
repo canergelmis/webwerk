@@ -58,7 +58,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .hero{position:relative;min-height:clamp(560px,86vh,780px);display:flex;align-items:flex-end;color:var(--cream);background:#241c14;overflow:hidden}
 .hero .bg{position:absolute;inset:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,8,.34) 0%,rgba(20,14,8,.34) 40%,rgba(20,14,8,.84) 100%)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,8,0.34) 0%,rgba(20,14,8,0.48) 40%,rgba(20,14,8,0.84) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,6vw,66px);padding-top:80px}
 .hero .kick{display:inline-flex;align-items:center;gap:11px;margin-bottom:16px}
 .hero .kick .eyebrow{color:#ecdcbb}
@@ -124,7 +124,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 13px 9px;color:#fff;font-weight:600;font-size:.78rem;background:linear-gradient(0deg,rgba(20,14,8,.82),transparent)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 13px 9px;color:#fff;font-weight:600;font-size:.78rem;background:linear-gradient(0deg,rgba(20,14,8,0.94) 0%,rgba(20,14,8,0.82) 62%,rgba(20,14,8,0) 100%)}
 
 /* ===================== CARTE (on the venue's real kraft-tan menu ground) ===================== */
 .carte{background:var(--kraft);color:#231a10;position:relative;overflow:hidden}
@@ -180,6 +180,29 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
   .food-strip{grid-template-columns:1fr 1fr}
 }
 @media(max-width:520px){.gal{grid-template-columns:1fr}.gal .w2{grid-column:auto}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -377,7 +400,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
 <script>
 /* ===================== i18n ===================== */
 var I18N = {
-  fr:{
+  fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
     brand_sub:"Brasserie Restaurant", nav_zurek:"Le żurek", nav_carte:"La carte", nav_infos:"Infos & accès",
     hero_kick:"Brasserie polonaise · Pfaffenthal", hero_tag:"Un coin de Pologne, au fond de la vallée.",
     hero_sub:"Pierogi, żurek en bol à pain, bigos mijoté — la cuisine polonaise comme à la maison, rue Laurent Menager.",
@@ -409,7 +432,7 @@ var I18N = {
     disclaimer:"Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site d'Osada. La marque (soleil & nom) est celle de la maison, reprise d'après son enseigne. La carte et les prix sont relevés sur la carte de la maison et restent à confirmer, tout comme les horaires et le numéro. Photographies de sources publiques, à remplacer par les visuels du restaurant.",
     days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé", svc:"midi & soir"
   },
-  de:{
+  de:{wwb_call:"Anrufen",wwb_dir:"Route",
     brand_sub:"Brasserie Restaurant", nav_zurek:"Der Żurek", nav_carte:"Die Karte", nav_infos:"Infos & Anfahrt",
     hero_kick:"Polnische Brasserie · Pfaffenthal", hero_tag:"Ein Stück Polen, unten im Tal.",
     hero_sub:"Pierogi, Żurek im Brotlaib, geschmorter Bigos — polnische Küche wie zu Hause, Rue Laurent Menager.",
@@ -441,7 +464,7 @@ var I18N = {
     disclaimer:"Diese Seite ist ein inoffizieller Vorschlag von Webwerk auf Basis öffentlicher Quellen und zeigt, wie die Website von Osada aussehen könnte. Die Marke (Sonne & Name) gehört dem Haus, übernommen von seinem Schild. Karte und Preise wurden von der Karte des Hauses abgelesen und bleiben zu bestätigen, ebenso Öffnungszeiten und Nummer. Fotos aus öffentlichen Quellen, durch eigene Bilder des Restaurants zu ersetzen.",
     days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen", svc:"mittags & abends"
   },
-  en:{
+  en:{wwb_call:"Call",wwb_dir:"Directions",
     brand_sub:"Brasserie Restaurant", nav_zurek:"The żurek", nav_carte:"The menu", nav_infos:"Find us",
     hero_kick:"Polish brasserie · Pfaffenthal", hero_tag:"A corner of Poland, down in the valley.",
     hero_sub:"Pierogi, żurek in a bread bowl, slow-simmered bigos — Polish home cooking, on Rue Laurent Menager.",
@@ -503,5 +526,10 @@ document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
 
 applyLang("fr");
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226202114" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Brasserie+Osada+35+rue+Laurent+Menager+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

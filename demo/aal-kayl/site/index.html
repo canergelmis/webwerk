@@ -76,7 +76,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(244,239,227,.9);backdrop
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
 #leaves{position:absolute;inset:0;z-index:1;mix-blend-mode:screen;pointer-events:none}
-.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(183deg,rgba(24,22,12,.22) 0%,rgba(24,22,12,.10) 34%,rgba(20,26,10,.62) 78%,rgba(16,22,8,.86) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(183deg,rgba(24,22,12,0.22) 0%,rgba(24,22,12,0.48) 34%,rgba(20,26,10,0.62) 78%,rgba(16,22,8,0.86) 100%)}
 .hero .wrap{position:relative;z-index:3;width:100%;padding-top:96px;padding-bottom:clamp(42px,6.5vw,74px)}
 .hero .eyebrow{color:#dfe6cb}
 .hero .eyebrow::before{background:#cdd7a6;opacity:.8}
@@ -172,6 +172,29 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
 .madeby a{color:#e7dcc0;border-bottom:1px solid rgba(231,220,192,.4)}
 
 @media(max-width:860px){.vgrid{grid-template-columns:1fr;gap:34px}.vpics{max-width:520px}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -265,7 +288,6 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
       </div>
 
       <div class="formule reveal">
-        <span class="big" data-i18n="ac">à conf.</span>
         <span class="lbl" data-i18n="c_formule">Menu du jour</span>
         <span class="nt" data-i18n="c_formule_nt">le midi · l'entrée et le plat changent chaque jour</span>
       </div>
@@ -274,35 +296,35 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
         <div>
           <div class="mgroup">
             <h3><svg class="sprig" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg>Antipasti</h3>
-            <div class="item"><span class="nm">Carpaccio de bœuf<span class="pop" data-i18n="pop">populaire · Google</span></span><span class="dots"></span><span class="pr room" data-i18n="room">en salle</span></div>
-            <div class="item"><span class="nm">Antipasti de la maison</span><span class="dots"></span><span class="pr room" data-i18n="room2">en salle</span></div>
-            <div class="item"><span class="nm">Caprese</span> <span class="ds" data-i18n="d_caprese">tomate, mozzarella, basilic</span><span class="dots"></span><span class="pr room" data-i18n="room3">en salle</span></div>
+            <div class="item"><span class="nm">Carpaccio de bœuf<span class="pop" data-i18n="pop">populaire · Google</span></span></div>
+            <div class="item"><span class="nm">Antipasti de la maison</span></div>
+            <div class="item"><span class="nm">Caprese</span> <span class="ds" data-i18n="d_caprese">tomate, mozzarella, basilic</span></div>
           </div>
           <div class="mgroup">
             <h3><svg class="sprig" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg>Pizze</h3>
-            <div class="item"><span class="nm">Salami</span><span class="dots"></span><span class="pr room" data-i18n="room4">en salle</span></div>
-            <div class="item"><span class="nm" data-i18n="pz_veg">Légumes grillés</span><span class="dots"></span><span class="pr room" data-i18n="room5">en salle</span></div>
-            <div class="item"><span class="nm" data-i18n="pz_salmon">Saumon fumé</span><span class="dots"></span><span class="pr room" data-i18n="room6">en salle</span></div>
+            <div class="item"><span class="nm">Salami</span></div>
+            <div class="item"><span class="nm" data-i18n="pz_veg">Légumes grillés</span></div>
+            <div class="item"><span class="nm" data-i18n="pz_salmon">Saumon fumé</span></div>
           </div>
         </div>
         <div>
           <div class="mgroup">
             <h3><svg class="sprig" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg><span data-i18n="g_pasta">Pâtes &amp; risotto</span></h3>
-            <div class="item"><span class="nm">Tagliatelle carbonara</span><span class="dots"></span><span class="pr room" data-i18n="room7">en salle</span></div>
-            <div class="item"><span class="nm" data-i18n="pa_salmon">Tagliatelle au saumon</span><span class="dots"></span><span class="pr room" data-i18n="room8">en salle</span></div>
-            <div class="item"><span class="nm" data-i18n="pa_riso">Risotto aux légumes</span><span class="pop" data-i18n="pop2">populaire · Google</span><span class="dots"></span><span class="pr room" data-i18n="room9">en salle</span></div>
+            <div class="item"><span class="nm">Tagliatelle carbonara</span></div>
+            <div class="item"><span class="nm" data-i18n="pa_salmon">Tagliatelle au saumon</span></div>
+            <div class="item"><span class="nm" data-i18n="pa_riso">Risotto aux légumes</span><span class="pop" data-i18n="pop2">populaire · Google</span></div>
           </div>
           <div class="mgroup">
             <h3><svg class="sprig" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg><span data-i18n="g_grill">Grillades &amp; poissons</span></h3>
-            <div class="item"><span class="nm" data-i18n="gr_entre">Entrecôte grillée</span><span class="dots"></span><span class="pr room" data-i18n="room10">en salle</span></div>
-            <div class="item"><span class="nm" data-i18n="gr_sea">Fruits de mer grillés</span><span class="dots"></span><span class="pr room" data-i18n="room11">en salle</span></div>
+            <div class="item"><span class="nm" data-i18n="gr_entre">Entrecôte grillée</span></div>
+            <div class="item"><span class="nm" data-i18n="gr_sea">Fruits de mer grillés</span></div>
           </div>
           <div class="mgroup">
             <h3><svg class="sprig" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg>Dolci</h3>
-            <div class="item"><span class="nm" data-i18n="do_tira">Tiramisu maison</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-            <div class="item"><span class="nm" data-i18n="do_panna">Panna cotta maison</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-            <div class="item"><span class="nm" data-i18n="do_fondant">Fondant au chocolat maison</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-            <div class="item"><span class="nm">Profiteroles</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm" data-i18n="do_tira">Tiramisu maison</span></div>
+            <div class="item"><span class="nm" data-i18n="do_panna">Panna cotta maison</span></div>
+            <div class="item"><span class="nm" data-i18n="do_fondant">Fondant au chocolat maison</span></div>
+            <div class="item"><span class="nm">Profiteroles</span></div>
           </div>
         </div>
       </div>
@@ -349,11 +371,11 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Pizzeria · Kayl", n_valley:"La vallée", n_carte:"La carte", n_visit:"Nous trouver",
   hero_eyebrow:"Cuisine italienne · Kayl", hero_tag:"À table, dans la vallée.",
   hero_sub:"Pizze, pâtes et grillades italiennes — servies sur une terrasse ouverte sur la vallée boisée du vieux Kayl.",
-  hero_cta1:"Voir la carte", hero_cta2:"Appeler", ac:"à conf.",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler",
   f1:"Cuisine italienne", f2:"7 j/7, midi & soir", f3:"Terrasse sur la vallée", f4:"Sur place · à emporter · livraison", f4b:"Sur place · à emporter · livraison",
   v_eyebrow:"La vallée", v_head:"Une table italienne au creux du vieux Kayl.",
   v_lede:"On vient d'abord pour la terrasse : les tables sous les parasols, la lumière qui tombe entre les arbres, et la vallée boisée qui descend juste en contrebas.",
@@ -363,7 +385,7 @@ const I18N = {
   c_eyebrow:"La carte", c_head:"Pizze, pâtes, grillades.", c_intro:"Une sélection de la maison. Menu du jour le midi ; carte complète servie en salle.",
   m_grill:"Grillades", m_sea:"Fruits de mer", m_veg:"Légumes grillés",
   c_formule:"Menu du jour", c_formule_nt:"le midi · l'entrée et le plat changent chaque jour",
-  pop:"populaire · Google", pop2:"populaire · Google", room:"en salle", room2:"en salle", room3:"en salle", room4:"en salle", room5:"en salle", room6:"en salle", room7:"en salle", room8:"en salle", room9:"en salle", room10:"en salle", room11:"en salle",
+  pop:"populaire · Google", pop2:"populaire · Google",
   d_caprese:"tomate, mozzarella, basilic",
   pz_veg:"Légumes grillés", pz_salmon:"Saumon fumé",
   g_pasta:"Pâtes & risotto", pa_salmon:"Tagliatelle au saumon", pa_riso:"Risotto aux légumes",
@@ -377,11 +399,11 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps), à remplacer par vos propres visuels. Identité typographique proposée — aucun logo officiel. Carte : sélection indicative, prix des plats confirmés en salle. Horaires et coordonnées à vérifier.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Pizzeria · Kayl", n_valley:"Das Tal", n_carte:"Die Karte", n_visit:"Anfahrt",
   hero_eyebrow:"Italienische Küche · Kayl", hero_tag:"Zu Tisch, im Tal.",
   hero_sub:"Italienische Pizza, Pasta und Grillgerichte — serviert auf einer Terrasse mit Blick ins bewaldete Tal des alten Kayl.",
-  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", ac:"auf Anfrage",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen",
   f1:"Italienische Küche", f2:"7 Tage, mittags & abends", f3:"Terrasse zum Tal", f4:"Vor Ort · zum Mitnehmen · Lieferung", f4b:"Vor Ort · zum Mitnehmen · Lieferung",
   v_eyebrow:"Das Tal", v_head:"Ein italienischer Tisch im alten Kayl.",
   v_lede:"Man kommt zuerst wegen der Terrasse: die Tische unter den Sonnenschirmen, das Licht, das zwischen den Bäumen fällt, und das bewaldete Tal, das gleich darunter abfällt.",
@@ -405,11 +427,11 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos (Google Maps), durch eigene Bilder zu ersetzen. Typografische Identität als Vorschlag — kein offizielles Logo. Karte: beispielhafte Auswahl, Gerichtpreise im Restaurant. Öffnungszeiten und Kontaktdaten zu prüfen.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Pizzeria · Kayl", n_valley:"The valley", n_carte:"The menu", n_visit:"Find us",
   hero_eyebrow:"Italian kitchen · Kayl", hero_tag:"To the table, in the valley.",
   hero_sub:"Italian pizza, pasta and grills — served on a terrace opening onto the wooded valley of old Kayl.",
-  hero_cta1:"See the menu", hero_cta2:"Call", ac:"tbc",
+  hero_cta1:"See the menu", hero_cta2:"Call",
   f1:"Italian cuisine", f2:"7 days, lunch & dinner", f3:"Valley-view terrace", f4:"Dine-in · takeaway · delivery", f4b:"Dine-in · takeaway · delivery",
   v_eyebrow:"The valley", v_head:"An Italian table in old Kayl.",
   v_lede:"People come first for the terrace: tables under the parasols, light falling between the trees, and the wooded valley dropping away just below.",
@@ -512,5 +534,10 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   let rt=null; window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(size,180); });
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226560550" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Aal+Kayl+90+Rue+Notre+Dame+Kayl" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

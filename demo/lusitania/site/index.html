@@ -70,7 +70,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(247,240,230,.94);backdro
 .hero{position:relative;min-height:clamp(600px,90vh,840px);display:flex;align-items:flex-end;color:#fff;background:#1e0c0f;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
-.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(182deg,rgba(30,12,15,.44) 0%,rgba(30,12,15,.12) 32%,rgba(30,12,15,.78) 78%,rgba(20,8,10,.94) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(182deg,rgba(30,12,15,0.44) 0%,rgba(30,12,15,0.48) 32%,rgba(30,12,15,0.78) 78%,rgba(20,8,10,0.94) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-top:100px;padding-bottom:clamp(44px,6vw,76px)}
 .hero .crest{height:64px;width:auto;margin-bottom:14px;filter:drop-shadow(0 2px 10px rgba(0,0,0,.55))}
 .hero h1{color:#fff;font-size:clamp(42px,8vw,88px);letter-spacing:-.01em;text-shadow:0 3px 40px rgba(0,0,0,.5)}
@@ -159,6 +159,34 @@ footer{background:var(--ink);color:#b9ac9e;padding:44px 0 40px;font-size:.86rem;
 .disc{margin-top:22px;color:#8f8271;max-width:80ch}
 .madeby{margin-top:14px;color:var(--gold)}
 .madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+
+  /* mobile grid collapse */
+  @media(max-width:760px){
+    .visit .vgrid2{grid-template-columns:1fr}
+    .menucols{grid-template-columns:1fr}
+  }
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -390,7 +418,7 @@ footer{background:var(--ink);color:#b9ac9e;padding:44px 0 40px;font-size:.86rem;
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Depuis 2007 · Dippach", n_maison:"La maison", n_carte:"La carte", n_events:"Fêtes", n_visit:"Infos",
   hero_tag:"Le Portugal plus près de nous.", tag_band:"Le Portugal plus près de nous",
   hero_sub:"Cuisine portugaise et française à Dippach, depuis 2007 — bacalhau, grillades et cataplana, dans un cadre chaleureux.",
@@ -418,7 +446,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (ancien site archivé de restaurant-lusitania.lu, rankeat.fr, Google Maps). Logotype réel de la maison, retrouvé sur l'ancien site. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur l'ancien site (2019) et un annuaire (2026), à confirmer.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Seit 2007 · Dippach", n_maison:"Das Haus", n_carte:"Die Karte", n_events:"Feiern", n_visit:"Infos",
   hero_tag:"Portugal, näher bei uns.", tag_band:"Portugal, näher bei uns",
   hero_sub:"Portugiesische und französische Küche in Dippach, seit 2007 — Bacalhau, Grillgerichte und Cataplana, in herzlicher Atmosphäre.",
@@ -446,7 +474,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (archivierte Seite von restaurant-lusitania.lu, rankeat.fr, Google Maps). Echtes Logo des Hauses, von der alten Seite. Karte in groben Kategorien ohne Preise gezeigt — detaillierte Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten von der alten Seite (2019) und einem Verzeichnis (2026), zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Since 2007 · Dippach", n_maison:"The house", n_carte:"The menu", n_events:"Celebrations", n_visit:"Find us",
   hero_tag:"Portugal, closer to us.", tag_band:"Portugal, closer to us",
   hero_sub:"Portuguese and French cooking in Dippach, since 2007 — bacalhau, grilled dishes and cataplana, in a warm setting.",
@@ -492,5 +520,10 @@ menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', func
 const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226374742" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+Lusitania+163+Route+de+Luxembourg+Dippach" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

@@ -87,7 +87,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(246,241,230,.94);backdro
 .hero{position:relative;min-height:clamp(600px,88vh,820px);display:flex;align-items:flex-end;color:#fff;background:var(--navy-d);overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
-.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(184deg,rgba(13,25,40,.5) 0%,rgba(13,25,40,.18) 30%,rgba(11,20,32,.8) 78%,rgba(9,17,28,.95) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(184deg,rgba(13,25,40,0.5) 0%,rgba(13,25,40,0.48) 30%,rgba(11,20,32,0.8) 78%,rgba(9,17,28,0.95) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-top:100px;padding-bottom:clamp(46px,6vw,78px)}
 .hero .brandmark{margin-bottom:14px}
 .hero .brandmark img{height:58px;width:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.4))}
@@ -182,6 +182,29 @@ footer{background:var(--navy-d);color:#b3ab95;padding:44px 0 40px;font-size:.86r
 .disc{margin-top:22px;color:#8f8770;max-width:82ch}
 .madeby{margin-top:14px;color:var(--gold-br)}
 .madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -361,7 +384,7 @@ footer{background:var(--navy-d);color:#b3ab95;padding:44px 0 40px;font-size:.86r
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Gasperich · brasserie franco-italienne", n_maison:"La maison", n_salle:"La salle", n_carte:"La carte", n_visit:"Infos",
   hero_tag:"Brasserie franco-italienne · Gasperich",
   hero_sub:"Une brasserie de quartier à Gasperich, où le menu du jour côtoie la pizzeria — sur la rue qui porte le nom du navigateur.",
@@ -385,7 +408,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (menu.lu, rankeat.fr, TripAdvisor, votre page Facebook). Logo reproduit fidèlement à partir de votre enseigne réelle. Le menu affiché est un exemple déjà servi, à titre indicatif — la pizza « Colomb » figurait bien sur votre tableau du menu du jour ; si elle est toujours au menu, sa recette exacte et son prix restent à confirmer, comme le reste de la carte. Un second numéro de téléphone circule (26 48 17 06) — à confirmer lequel est actif. Horaires à confirmer.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Gasperich · Franko-italienische Brasserie", n_maison:"Das Haus", n_salle:"Der Saal", n_carte:"Die Karte", n_visit:"Infos",
   hero_tag:"Franko-italienische Brasserie · Gasperich",
   hero_sub:"Eine Nachbarschaftsbrasserie in Gasperich, wo das Tagesmenü neben der Pizzeria steht — in der Straße, die den Namen des Seefahrers trägt.",
@@ -409,7 +432,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (menu.lu, rankeat.fr, TripAdvisor, Ihre Facebook-Seite). Logo originalgetreu nach Ihrem echten Schild reproduziert. Die gezeigte Karte ist ein bereits serviertes Beispiel — die Pizza „Colomb“ stand tatsächlich auf Ihrer Tagesmenütafel; ob sie noch auf der Karte steht, ihr genaues Rezept und ihr Preis bleiben zu bestätigen, wie der Rest der Karte. Eine zweite Telefonnummer ist im Umlauf (26 48 17 06) — welche aktiv ist, ist zu bestätigen. Öffnungszeiten zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Gasperich · Franco-Italian brasserie", n_maison:"The house", n_salle:"The room", n_carte:"The menu", n_visit:"Find us",
   hero_tag:"Franco-Italian brasserie · Gasperich",
   hero_sub:"A neighbourhood brasserie in Gasperich, where the daily menu sits alongside the pizzeria — on the street named after the navigator.",
@@ -451,5 +474,10 @@ menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', func
 const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226649611" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Brasserie+Colomb+1+Rue+Christophe+Colomb+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

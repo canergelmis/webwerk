@@ -78,7 +78,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(13,15,18,.88);backdrop-f
 .hero{position:relative;min-height:clamp(600px,92vh,860px);display:flex;align-items:flex-end;color:#fff;background:var(--ink);overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:saturate(1.08)}
-.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(182deg,rgba(9,10,13,.5) 0%,rgba(9,10,13,.12) 30%,rgba(9,10,13,.8) 76%,rgba(6,7,9,.95) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(182deg,rgba(9,10,13,0.5) 0%,rgba(9,10,13,0.48) 30%,rgba(9,10,13,0.8) 76%,rgba(6,7,9,0.95) 100%)}
 .hero .glow{position:absolute;left:0;right:0;bottom:0;height:46%;z-index:1;background:radial-gradient(60% 100% at 30% 100%,rgba(47,107,255,.32),transparent 70%)}
 .hero .wrap{position:relative;z-index:3;width:100%;padding-top:94px;padding-bottom:clamp(44px,6vw,76px)}
 .hero .kick{font-family:var(--disp);font-weight:700;font-size:.86rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cobalt2)}
@@ -222,6 +222,12 @@ footer{background:var(--ink);color:var(--muted);padding:44px 0 84px;font-size:.8
 .echo{margin-top:14px;font-family:var(--hand);color:var(--cobalt2);font-size:1.1rem}
 .madeby{margin-top:14px;color:var(--amber)}
 .madeby a{color:#e9dcb8;border-bottom:1px solid rgba(233,220,184,.4)}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(107, 114, 128)); set to meet WCAG AA
+     against its own footer ground at 4.65:1, at a readable size. */
+  .disc{color:#777d8a !important;font-size:12.5px !important;line-height:1.5}
 </style>
 </head>
 <body id="top">

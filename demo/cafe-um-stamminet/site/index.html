@@ -69,7 +69,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(246,241,228,.92);backdro
 .hero{position:relative;min-height:clamp(560px,88vh,800px);display:flex;align-items:flex-end;color:#fff;background:#123f3b;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
-.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(183deg,rgba(15,30,28,.30) 0%,rgba(15,30,28,.12) 32%,rgba(18,50,46,.66) 74%,rgba(12,38,35,.9) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(183deg,rgba(15,30,28,0.3) 0%,rgba(15,30,28,0.48) 32%,rgba(18,50,46,0.66) 74%,rgba(12,38,35,0.9) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-top:92px;padding-bottom:clamp(42px,6vw,72px)}
 .hero .eyebrow{color:#ffd4e6}.hero .eyebrow::before{background:var(--pink)}
 .hero h1{color:#fff;font-size:clamp(58px,12vw,148px);letter-spacing:-.02em;margin:12px 0 0;text-shadow:0 3px 40px rgba(0,0,0,.4)}
@@ -157,6 +157,29 @@ footer{background:#15201d;color:#a9b4ad;padding:44px 0 40px;font-size:.86rem;lin
 .madeby{margin-top:14px;color:#e6b3c9}
 .madeby a{color:#f2dbe6;border-bottom:1px solid rgba(242,219,230,.4)}
 @media(max-width:860px){.sgrid{grid-template-columns:1fr;gap:40px}.spics .chip{width:40%}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -306,7 +329,7 @@ footer{background:#15201d;color:#a9b4ad;padding:44px 0 40px;font-size:.86rem;lin
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Café · Belair", n_story:"Le stamminet", n_quilles:"Les quilles", n_carte:"La carte", n_visit:"Infos",
   hero_eyebrow:"Café · Brasserie · Belair", hero_tag:"Le stamminet du quartier.",
   hero_sub:"Le café le matin, la table et les quilles le soir. Cuisine portugaise et classiques de brasserie, la Bofferding en pression, un vrai jeu de quilles au fond.",
@@ -328,7 +351,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps), à remplacer par vos propres visuels. La maison n'a pas de logo indépendant (l'enseigne est co-marquée avec la brasserie Bofferding) — identité proposée ; le nom apparaît aussi « Staminet ». Carte sans prix : plats relevés en photo, carte et prix en salle. Horaires à confirmer.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Café · Belair", n_story:"Das Stamminet", n_quilles:"Das Kegeln", n_carte:"Die Karte", n_visit:"Infos",
   hero_eyebrow:"Café · Brasserie · Belair", hero_tag:"Das Stamminet des Viertels.",
   hero_sub:"Morgens Kaffee, abends Tisch und Kegeln. Portugiesische Küche und Brasserie-Klassiker, Bofferding vom Fass, hinten eine echte Kegelbahn.",
@@ -350,7 +373,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk aus öffentlichen Fotos (Google Maps), durch eigene Bilder zu ersetzen. Das Haus hat kein eigenständiges Logo (das Schild ist mit der Brauerei Bofferding co-gebrandet) — Identität als Vorschlag; der Name erscheint auch als „Staminet”. Karte ohne Preise: Gerichte aus Fotos, Karte und Preise vor Ort. Öffnungszeiten zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Café · Belair", n_story:"The stamminet", n_quilles:"The skittles", n_carte:"The menu", n_visit:"Find us",
   hero_eyebrow:"Café · Brasserie · Belair", hero_tag:"The neighbourhood stamminet.",
   hero_sub:"Coffee in the morning, a table and skittles at night. Portuguese cooking and brasserie classics, Bofferding on tap, and a real skittle alley at the back.",
@@ -397,5 +420,10 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   qio.observe(row);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226458961" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Um+Stamminet+294+Route+de+Longwy+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

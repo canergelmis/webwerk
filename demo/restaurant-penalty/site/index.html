@@ -64,7 +64,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(25,21,18,.9);backdrop-fi
 .hero{position:relative;min-height:clamp(560px,88vh,800px);display:flex;align-items:flex-end;color:var(--cream);background:#100c0a;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 45%;opacity:.86}
-.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(184deg,rgba(16,12,10,.5) 0%,rgba(16,12,10,.32) 34%,rgba(16,12,10,.72) 74%,rgba(14,10,8,.95) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(184deg,rgba(16,12,10,0.5) 0%,rgba(16,12,10,0.48) 34%,rgba(16,12,10,0.72) 74%,rgba(14,10,8,0.95) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-top:92px;padding-bottom:clamp(42px,6vw,74px)}
 .hero .eyebrow{color:var(--ember)}.hero .eyebrow::before{background:var(--red2)}
 .hero h1{font-size:clamp(72px,15vw,180px);letter-spacing:.01em;margin:12px 0 0;text-shadow:0 4px 44px rgba(0,0,0,.55)}
@@ -167,6 +167,17 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
   }
   .mobile-cta a{flex:1;justify-content:center;padding:13px 14px;font-size:.9rem}
 }
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(114, 104, 88)); set to meet WCAG AA
+     against its own footer ground at 4.63:1, at a readable size. */
+  .disc{color:#837a6c !important;font-size:12.5px !important;line-height:1.5}
+
+  /* mobile grid collapse */
+  @media(max-width:760px){
+    .menucols{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body id="top">

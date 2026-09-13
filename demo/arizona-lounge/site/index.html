@@ -628,6 +628,17 @@
     .plat h3 .sheen{animation:none;display:none;}
     html{scroll-behavior:auto;}
   }
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(255, 255, 255)); set to meet WCAG AA
+     against its own footer ground at 4.78:1, at a readable size. */
+  .disc{color:#6b6b6b !important;font-size:12.5px !important;line-height:1.5}
+
+  /* disclosure legibility */
+  /* This line was white on a cream footer — 1.12:1, i.e. invisible. A
+     disclosure nobody can read is not a disclosure. Set to WCAG AA (4.78:1). */
+  .desert-legal{color:#6b6b6b !important;font-size:12.5px !important;line-height:1.5}
 </style>
 </head>
 <body>

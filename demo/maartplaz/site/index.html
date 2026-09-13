@@ -235,7 +235,7 @@
   }
   .hero-photo::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(120deg,rgba(42,43,41,.42) 0%,rgba(42,43,41,.05) 42%,transparent 68%);
+    background:linear-gradient(120deg,rgba(42,43,41,0.42) 0%,rgba(42,43,41,0.48) 42%,transparent 68%);
   }
   .hero-plaque{
     position:absolute;top:34px;left:34px;z-index:3;
@@ -475,6 +475,8 @@
     .table-photo{min-height:380px}
     .table-copy{padding:60px 44px}
     .visit-grid{grid-template-columns:1fr}
+    /* label/value rows: 196px is too tight for the value at phone width */
+    .board-facts > div{grid-template-columns:1fr;gap:2px}
     .foot-grid{grid-template-columns:1fr;text-align:center;gap:26px}
     .foot-right{text-align:center}
   }
@@ -654,7 +656,6 @@
     </div>
 
     <div class="price-band">
-      <span class="chip" data-i18n="menu.band.chip">à conf.</span>
       <span class="aconf" data-i18n="menu.band.note">Carte indicative — plats, disponibilités et prix à confirmer avec l'établissement.</span>
     </div>
   </div>
@@ -1226,6 +1227,13 @@ btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
   .rk-resv-trigger:hover{ background:var(--oak); color:var(--stone); }
   .rk-resv-trigger:focus-visible{ outline:3px solid var(--stone); outline-offset:2px; }
   .resv-row small{ margin-top:6px; }
+
+  /* mobile grid collapse */
+  @media(max-width:760px){
+    .visit-grid{grid-template-columns:1fr}
+    /* label/value rows: 196px is too tight for the value at phone width */
+    .board-facts > div{grid-template-columns:1fr;gap:2px}
+  }
 </style>
 <script>
   // WS1: replace `email` with the venue's real reservation address before go-live.

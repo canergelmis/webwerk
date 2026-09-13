@@ -76,7 +76,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,246,238,.94);backdro
 .hero .steam i:nth-child(3){left:74%;animation-delay:6s;width:100px}
 @keyframes rise{0%{transform:translateY(0) scale(.8);opacity:0}18%{opacity:.9}100%{transform:translateY(-120%) scale(1.5);opacity:0}}
 @media(prefers-reduced-motion:reduce){.hero .steam{display:none}}
-.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(20,17,12,.5) 0%,rgba(20,17,12,.1) 30%,rgba(18,15,10,.78) 76%,rgba(14,11,7,.94) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(20,17,12,0.5) 0%,rgba(20,17,12,0.48) 30%,rgba(18,15,10,0.78) 76%,rgba(14,11,7,0.94) 100%)}
 .hero .wrap{position:relative;z-index:3;width:100%;padding-top:100px;padding-bottom:clamp(44px,6vw,78px)}
 .hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:7px 14px;font-family:var(--body);font-weight:700;font-size:.82rem;letter-spacing:.02em;color:#fff}
 .hero .badge svg{height:14px;width:14px;color:var(--curry)}
@@ -201,6 +201,41 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
 .disc{margin-top:22px;color:#8e8571;max-width:80ch}
 .madeby{margin-top:14px;color:#f2cf98}
 .madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(142, 133, 113)); set to meet WCAG AA
+     against its own footer ground at 4.61:1, at a readable size. */
+  .disc{color:#968e7b !important;font-size:12.5px !important;line-height:1.5}
+
+  /* mobile grid collapse */
+  @media(max-width:760px){
+    .visit .vgrid2{grid-template-columns:1fr}
+    .mgrid{grid-template-columns:1fr}
+    .sband{grid-template-columns:1fr}
+  }
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body id="top">
@@ -317,15 +352,15 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
       <div class="mwrap reveal">
         <div class="mgroup">
           <h3><svg viewBox="0 0 26 9"><use href="#line"/></svg><span data-i18n="g_curry">Curry japonais — signature</span></h3>
-          <div class="item"><span class="nm" data-i18n="i_katsu">Katsu au poulet, omurice au curry</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_tonkatsu">Tonkatsu (porc), omurice au curry</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_poitrine">Poitrine de bœuf au curry</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_entrecote">Bœuf entrecôte au curry</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_canard">Canard croustillant au curry</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_pop">Poulet popcorn au curry</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_tempura">Tempura de crevettes au curry</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_vege">Végé au curry</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-          <div class="item"><span class="nm" data-i18n="i_wurscht">Edamer wurscht &amp; fromage au curry</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+          <div class="item"><span class="nm" data-i18n="i_katsu">Katsu au poulet, omurice au curry</span></div>
+          <div class="item"><span class="nm" data-i18n="i_tonkatsu">Tonkatsu (porc), omurice au curry</span></div>
+          <div class="item"><span class="nm" data-i18n="i_poitrine">Poitrine de bœuf au curry</span></div>
+          <div class="item"><span class="nm" data-i18n="i_entrecote">Bœuf entrecôte au curry</span></div>
+          <div class="item"><span class="nm" data-i18n="i_canard">Canard croustillant au curry</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pop">Poulet popcorn au curry</span></div>
+          <div class="item"><span class="nm" data-i18n="i_tempura">Tempura de crevettes au curry</span></div>
+          <div class="item"><span class="nm" data-i18n="i_vege">Végé au curry</span></div>
+          <div class="item"><span class="nm" data-i18n="i_wurscht">Edamer wurscht &amp; fromage au curry</span></div>
         </div>
         <div>
           <div class="mgroup" style="margin-bottom:22px">
@@ -334,12 +369,12 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
           </div>
           <div class="mgroup" style="margin-bottom:22px">
             <h3><svg viewBox="0 0 26 9"><use href="#line"/></svg><span data-i18n="g_sides">Accompagnements</span></h3>
-            <div class="item"><span class="nm" data-i18n="i_s_katsu">Katsu poulet</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-            <div class="item"><span class="nm" data-i18n="i_s_tonkatsu">Tonkatsu porc</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-            <div class="item"><span class="nm" data-i18n="i_s_gyoza">Gyoza poulet (6 pièces)</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-            <div class="item"><span class="nm" data-i18n="i_s_pop">Poulet popcorn</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-            <div class="item"><span class="nm" data-i18n="i_s_wings">Chicken wings (5 pièces)</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-            <div class="item"><span class="nm" data-i18n="i_s_miso">Miso soup</span><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+            <div class="item"><span class="nm" data-i18n="i_s_katsu">Katsu poulet</span></div>
+            <div class="item"><span class="nm" data-i18n="i_s_tonkatsu">Tonkatsu porc</span></div>
+            <div class="item"><span class="nm" data-i18n="i_s_gyoza">Gyoza poulet (6 pièces)</span></div>
+            <div class="item"><span class="nm" data-i18n="i_s_pop">Poulet popcorn</span></div>
+            <div class="item"><span class="nm" data-i18n="i_s_wings">Chicken wings (5 pièces)</span></div>
+            <div class="item"><span class="nm" data-i18n="i_s_miso">Miso soup</span></div>
           </div>
           <div class="mgroup">
             <h3><svg viewBox="0 0 26 9"><use href="#line"/></svg><span data-i18n="g_drinks">Boissons</span></h3>
@@ -417,7 +452,7 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
 
 <script>
 const I18N = {
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
   brand_sub:"Curry japonais · Gare", n_formule:"La formule", n_carte:"La carte", n_lieu:"Le lieu", n_infos:"Infos", nav_order:"Commander",
   hero_badge:"Luxembourg-Gare", hero_tag:"Curry japonais · Omurice · Katsu",
   hero_sub:"On vous dira « curry indien ». C'est japonais — un roux épais et mijoté, versé sur riz, sous une omelette roulée tracée d'une ligne d'herbes, et une pièce panée bien croustillante.",
@@ -443,7 +478,6 @@ const I18N = {
   i_entrecote:"Bœuf entrecôte au curry", i_canard:"Canard croustillant au curry", i_pop:"Poulet popcorn au curry",
   i_tempura:"Tempura de crevettes au curry", i_vege:"Végé au curry", i_wurscht:"Edamer wurscht & fromage au curry",
   g_ramen:"Ramen & udon", ca_ramen_note:"Tonkatsu chashu, bœuf entrecôte, katsu poulet, canard ou tempura de crevettes — prix selon la garniture, à confirmer.",
-  ac:"à conf.",
   g_sides:"Accompagnements", i_s_katsu:"Katsu poulet", i_s_tonkatsu:"Tonkatsu porc", i_s_gyoza:"Gyoza poulet (6 pièces)", i_s_pop:"Poulet popcorn", i_s_wings:"Chicken wings (5 pièces)", i_s_miso:"Miso soup",
   g_drinks:"Boissons", ca_drinks_note:"Softs · Asahi / Qingdao · Bofferding · boissons asiatiques (Wanglaoji, Foco, aloe) — prix à confirmer.",
   ca_pricenote:"Prix relevés sur Wolt (2026) — carte et tarifs actuels à confirmer avec l'établissement.",
@@ -458,7 +492,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Wolt, Paperjam, rankeat.fr). Aucune note ou avis d'agrégateur n'est repris ici. Carte et tarifs relevés sur Wolt (2026) — à confirmer avec l'établissement. Horaires à confirmer.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
   brand_sub:"Japanisches Curry · Gare", n_formule:"Das Prinzip", n_carte:"Die Karte", n_lieu:"Der Ort", n_infos:"Infos", nav_order:"Bestellen",
   hero_badge:"Luxembourg-Gare", hero_tag:"Japanisches Curry · Omurice · Katsu",
   hero_sub:"Man sagt Ihnen „indisches Curry“. Es ist japanisch — ein dickflüssiger, lange geköchelter Roux auf Reis, unter einem gerollten Omelett mit einer Kräuterlinie, und einem knusprig panierten Stück obendrauf.",
@@ -484,7 +518,6 @@ const I18N = {
   i_entrecote:"Rib-Eye im Curry", i_canard:"Knusprige Ente im Curry", i_pop:"Popcorn-Hühnchen im Curry",
   i_tempura:"Garnelen-Tempura im Curry", i_vege:"Vegetarisches Curry", i_wurscht:"Edamer Wurst & Käse im Curry",
   g_ramen:"Ramen & Udon", ca_ramen_note:"Tonkatsu Chashu, Rib-Eye, Hähnchen-Katsu, Ente oder Garnelen-Tempura — Preis je nach Belag, auf Anfrage.",
-  ac:"auf Anfrage",
   g_sides:"Beilagen", i_s_katsu:"Hähnchen-Katsu", i_s_tonkatsu:"Schweine-Tonkatsu", i_s_gyoza:"Hähnchen-Gyoza (6 Stück)", i_s_pop:"Popcorn-Hühnchen", i_s_wings:"Chicken Wings (5 Stück)", i_s_miso:"Miso-Suppe",
   g_drinks:"Getränke", ca_drinks_note:"Softdrinks · Asahi / Qingdao · Bofferding · asiatische Getränke (Wanglaoji, Foco, Aloe) — Preise auf Anfrage.",
   ca_pricenote:"Preise erfasst auf Wolt (2026) — aktuelle Karte und Preise mit dem Betrieb zu bestätigen.",
@@ -499,7 +532,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (Wolt, Paperjam, rankeat.fr). Es werden keine Aggregator-Bewertungen übernommen. Karte und Preise erfasst auf Wolt (2026) — mit dem Betrieb zu bestätigen. Öffnungszeiten zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
   brand_sub:"Japanese curry · Gare", n_formule:"The formula", n_carte:"The menu", n_lieu:"The place", n_infos:"Find us", nav_order:"Order",
   hero_badge:"Luxembourg-Gare", hero_tag:"Japanese curry · Omurice · Katsu",
   hero_sub:"You'll be told \"Indian curry\". It's Japanese — a thick, slow-simmered roux poured over rice, under a rolled omelette traced with a herb line, topped with a crisp breaded cutlet.",
@@ -525,7 +558,6 @@ const I18N = {
   i_entrecote:"Ribeye beef curry", i_canard:"Crispy duck curry", i_pop:"Popcorn chicken curry",
   i_tempura:"Shrimp tempura curry", i_vege:"Vegetarian curry", i_wurscht:"Edamer sausage & cheese curry",
   g_ramen:"Ramen & udon", ca_ramen_note:"Tonkatsu chashu, ribeye beef, chicken katsu, duck or shrimp tempura — price depends on topping, tbc.",
-  ac:"tbc",
   g_sides:"Sides", i_s_katsu:"Chicken katsu", i_s_tonkatsu:"Pork tonkatsu", i_s_gyoza:"Chicken gyoza (6 pcs)", i_s_pop:"Popcorn chicken", i_s_wings:"Chicken wings (5 pcs)", i_s_miso:"Miso soup",
   g_drinks:"Drinks", ca_drinks_note:"Soft drinks · Asahi / Qingdao · Bofferding · Asian drinks (Wanglaoji, Foco, aloe) — prices tbc.",
   ca_pricenote:"Prices recorded from Wolt (2026) — current menu and prices to be confirmed with the venue.",
@@ -558,5 +590,11 @@ menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', func
 const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226481808" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://wolt.com/en/lux/luxembourg/restaurant/chinais-curry-lux" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Chinai%27s+Curry+29+Rue+Joseph+Junck+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

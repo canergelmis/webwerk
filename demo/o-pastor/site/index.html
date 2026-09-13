@@ -59,8 +59,8 @@ nav.links a:hover{color:var(--tomato)}
    radial-gradient(120% 90% at 88% 12%,rgba(211,61,43,.06),transparent 60%),
    var(--cream)}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
-   background-image:linear-gradient(45deg,rgba(211,61,43,.045) 25%,transparent 25%,transparent 75%,rgba(211,61,43,.045) 75%),
-   linear-gradient(45deg,rgba(211,61,43,.045) 25%,transparent 25%,transparent 75%,rgba(211,61,43,.045) 75%);
+   background-image:linear-gradient(45deg,rgba(211,61,43,0.48) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%),
+   linear-gradient(45deg,rgba(211,61,43,0.48) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%);
    background-size:44px 44px;background-position:0 0,22px 22px;
    -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent);mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent)}
 .hero .wrap{position:relative;z-index:2}
@@ -114,7 +114,7 @@ section{padding:clamp(56px,9vw,104px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02);transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(30,20,14,.82),transparent);color:#fff;font-family:'Disp',sans-serif;font-weight:700;font-size:17px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(30,20,14,0.94) 0%,rgba(30,20,14,0.82) 62%,rgba(30,20,14,0) 100%);color:#fff;font-family:'Disp',sans-serif;font-weight:700;font-size:17px}
 
 /* ---------- maison (dark wood band) ---------- */
 .maison{background:var(--wood);color:#efe2ce}
@@ -185,6 +185,34 @@ footer .made a{color:var(--terra)}
  .bar{gap:8px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(125, 106, 82)); set to meet WCAG AA
+     against its own footer ground at 4.67:1, at a readable size. */
+  .disc{color:#a19482 !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -311,27 +339,27 @@ footer .made a{color:var(--terra)}
     <div>
      <div class="mgroup">
       <h3><svg class="sl"><use href="#slice"/></svg><span data-i18n="mg1">Les pizzas</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Margherita</div><div class="ds" data-i18n="i1d">Tomate, mozzarella, basilic</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Pizza fruits de mer</div><div class="ds" data-i18n="i2d">Saumon &amp; crevettes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Pizza à l'œuf</div><div class="ds" data-i18n="i3d">Œuf, oignons</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Margherita</div><div class="ds" data-i18n="i1d">Tomate, mozzarella, basilic</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Pizza fruits de mer</div><div class="ds" data-i18n="i2d">Saumon &amp; crevettes</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Pizza à l'œuf</div><div class="ds" data-i18n="i3d">Œuf, oignons</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="sl"><use href="#slice"/></svg><span data-i18n="mg2">Les pâtes</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Penne à la crème</div><div class="ds" data-i18n="i4d">Crème &amp; parmesan</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Penne, crème &amp; jambon</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Penne, sauce tomate</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Penne à la crème</div><div class="ds" data-i18n="i4d">Crème &amp; parmesan</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Penne, crème &amp; jambon</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Penne, sauce tomate</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><svg class="sl"><use href="#slice"/></svg><span data-i18n="mg3">Et aussi</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Burgers</div><div class="ds" data-i18n="i7d">Servis avec frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Salades</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Plat gratiné, œuf &amp; frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Burgers</div><div class="ds" data-i18n="i7d">Servis avec frites</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Salades</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Plat gratiné, œuf &amp; frites</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="sl"><use href="#slice"/></svg><span data-i18n="mg4">À emporter</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Toute la carte</div><div class="ds" data-i18n="i10d">Pizzas &amp; pâtes à emporter</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Toute la carte</div><div class="ds" data-i18n="i10d">Pizzas &amp; pâtes à emporter</div></div></div>
      </div>
     </div>
    </div>
@@ -350,7 +378,7 @@ footer .made a{color:var(--terra)}
     <div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="in_k1">Adresse</div><div class="v">3, Rte de Luxembourg<br>L-6210 Consdorf</div></div></div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="in_k2">Réserver</div><div class="v"><a href="tel:+35226784370">(+352) 26 78 43 70</a></div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="in_k3">Horaires</div><div class="v"><span data-i18n="in_ht">Midi &amp; soir</span><br><span class="fl" data-i18n="in_fl3">horaires à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="in_k3">Horaires</div><div class="v"><span data-i18n="in_ht">Midi &amp; soir</span></div></div></div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><div><div class="k" data-i18n="in_k4">La terrasse</div><div class="v"><span data-i18n="in_terr">Terrasse aux beaux jours</span><br><span class="fl" data-i18n="in_fl4">à confirmer</span></div></div></div>
     </div>
     <div class="mapcard">
@@ -383,7 +411,7 @@ footer .made a{color:var(--terra)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   brand_sub:"Pizzeria · Consdorf",
   nav_pizza:"La pizza",nav_table:"À table",nav_maison:"La maison",nav_carte:"La carte",nav_infos:"Infos & accès",
   hero_eyebrow:"Pizzeria · pâtes · Consdorf",
@@ -410,7 +438,7 @@ const I18N={
   i1n:"Margherita",i1d:"Tomate, mozzarella, basilic",i2n:"Pizza fruits de mer",i2d:"Saumon & crevettes",i3n:"Pizza à l'œuf",i3d:"Œuf, oignons",
   i4n:"Penne à la crème",i4d:"Crème & parmesan",i5n:"Penne, crème & jambon",i6n:"Penne, sauce tomate",
   i7n:"Burgers",i7d:"Servis avec frites",i8n:"Salades",i9n:"Plat gratiné, œuf & frites",
-  i10n:"Toute la carte",i10d:"Pizzas & pâtes à emporter",ac:"à conf.",
+  i10n:"Toute la carte",i10d:"Pizzas & pâtes à emporter",
   ct_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié ici : la carte et les prix sont à confirmer sur place.",
   in_eyebrow:"Infos & accès",in_h:"Nous <em>trouver</em>",
   in_k1:"Adresse",in_k2:"Réserver",in_k3:"Horaires",in_ht:"Midi & soir",in_fl3:"horaires à confirmer",
@@ -421,7 +449,7 @@ const I18N={
   foot_contact:"Contact",
   disc:"Démonstration Webwerk, à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). Photos de sources publiques, à remplacer. Marque recréée. Carte, prix et horaires à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Pizzeria · Consdorf",
   nav_pizza:"Die Pizza",nav_table:"Zu Tisch",nav_maison:"Das Haus",nav_carte:"Karte",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Pizzeria · Pasta · Consdorf",
@@ -448,7 +476,7 @@ const I18N={
   i1n:"Margherita",i1d:"Tomate, Mozzarella, Basilikum",i2n:"Pizza Meeresfrüchte",i2d:"Lachs & Garnelen",i3n:"Pizza mit Ei",i3d:"Ei, Zwiebeln",
   i4n:"Penne mit Sahne",i4d:"Sahne & Parmesan",i5n:"Penne, Sahne & Schinken",i6n:"Penne, Tomatensauce",
   i7n:"Burger",i7d:"Mit Pommes serviert",i8n:"Salate",i9n:"Überbackenes Gericht, Ei & Pommes",
-  i10n:"Die ganze Karte",i10d:"Pizza & Pasta zum Mitnehmen",ac:"n. Angabe",
+  i10n:"Die ganze Karte",i10d:"Pizza & Pasta zum Mitnehmen",
   ct_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Hier sind keine Preise veröffentlicht: Karte und Preise vor Ort zu bestätigen.",
   in_eyebrow:"Infos & Anfahrt",in_h:"So <em>finden</em> Sie uns",
   in_k1:"Adresse",in_k2:"Reservieren",in_k3:"Öffnungszeiten",in_ht:"Mittags & abends",in_fl3:"Zeiten zu bestätigen",
@@ -459,7 +487,7 @@ const I18N={
   foot_contact:"Kontakt",
   disc:"Webwerk-Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Fotos aus öffentlichen Quellen, zu ersetzen. Marke nachgebildet. Karte, Preise und Zeiten zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Pizzeria · Consdorf",
   nav_pizza:"The pizza",nav_table:"At the table",nav_maison:"The house",nav_carte:"Menu",nav_infos:"Find us",
   hero_eyebrow:"Pizzeria · pasta · Consdorf",
@@ -486,7 +514,7 @@ const I18N={
   i1n:"Margherita",i1d:"Tomato, mozzarella, basil",i2n:"Seafood pizza",i2d:"Salmon & prawns",i3n:"Egg pizza",i3d:"Egg, onions",
   i4n:"Penne with cream",i4d:"Cream & parmesan",i5n:"Penne, cream & ham",i6n:"Penne, tomato sauce",
   i7n:"Burgers",i7d:"Served with chips",i8n:"Salads",i9n:"Gratin plate, egg & chips",
-  i10n:"The whole menu",i10d:"Pizza & pasta to take away",ac:"tbc",
+  i10n:"The whole menu",i10d:"Pizza & pasta to take away",
   ct_note:"Dishes from the house's public photos, for reference. No prices are published here: the menu and prices are to be confirmed on site.",
   in_eyebrow:"Info & access",in_h:"Find <em>us</em>",
   in_k1:"Address",in_k2:"Book",in_k3:"Opening hours",in_ht:"Lunch & evening",in_fl3:"hours to be confirmed",
@@ -615,5 +643,10 @@ try{const sv=localStorage.getItem("opa_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226784370" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/O+Pastor+3+Route+de+Luxembourg+Consdorf" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

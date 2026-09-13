@@ -54,7 +54,7 @@ nav.links a:hover{color:var(--wood);opacity:1}
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;margin-top:-63px;padding-top:63px;overflow:hidden;background:var(--sumi)}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.28}
-.hero .scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(120% 90% at 72% 50%,rgba(21,19,15,.35),rgba(21,19,15,.86) 70%),linear-gradient(90deg,rgba(21,19,15,.94),rgba(21,19,15,.5))}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(120% 90% at 72% 50%,rgba(21,19,15,.35),rgba(21,19,15,0.86) 70%),linear-gradient(90deg,rgba(21,19,15,.94),rgba(21,19,15,.5))}
 .hero canvas#ensocv{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:min(46%,520px);height:80%;z-index:2;pointer-events:none}
 .hero .inner{position:relative;z-index:3;padding:clamp(40px,8vw,90px) 0}
 .hero .eyebrow{color:var(--wood);margin-bottom:18px}
@@ -101,7 +101,7 @@ section{padding:clamp(58px,9vw,104px) 0}
 .gal figcaption{z-index:2}
 .gal figure:hover img{transform:scale(1.05);filter:saturate(1.02) contrast(1.02)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(15,13,10,.86),transparent);color:var(--cream);font-family:'Garamond',serif;font-weight:600;font-size:17px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(15,13,10,0.95) 0%,rgba(15,13,10,0.86) 62%,rgba(15,13,10,0) 100%);color:var(--cream);font-family:'Garamond',serif;font-weight:600;font-size:17px}
 
 /* carte */
 .carte{background:var(--rice)}
@@ -159,6 +159,34 @@ footer .made a{color:var(--wood)}
  .hero canvas#ensocv{width:70%;opacity:.6;right:-6%}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(100, 92, 77)); set to meet WCAG AA
+     against its own footer ground at 4.62:1, at a readable size. */
+  .disc{color:#857e72 !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--rice);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -254,26 +282,26 @@ footer .made a{color:var(--wood)}
     <div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg1">Nigiri &amp; sashimi</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Nigiri saumon</div><div class="ds" data-i18n="i1d">Riz vinaigré, saumon tranché</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Sashimi assortis</div><div class="ds" data-i18n="i2d">Sélection du comptoir</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Tartare &amp; ikura</div><div class="ds" data-i18n="i3d">Dressé à la main</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Nigiri saumon</div><div class="ds" data-i18n="i1d">Riz vinaigré, saumon tranché</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Sashimi assortis</div><div class="ds" data-i18n="i2d">Sélection du comptoir</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Tartare &amp; ikura</div><div class="ds" data-i18n="i3d">Dressé à la main</div></div></div>
      </div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg2">Maki &amp; rolls</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Maki</div><div class="ds" data-i18n="i4d">Roulés à la commande</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">California &amp; rolls signés</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Maki</div><div class="ds" data-i18n="i4d">Roulés à la commande</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">California &amp; rolls signés</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg3">Les plateaux</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Plateau découverte</div><div class="ds" data-i18n="i6d">Assortiment composé</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Grand plateau à partager</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Plateau découverte</div><div class="ds" data-i18n="i6d">Assortiment composé</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Grand plateau à partager</div></div></div>
      </div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg4">Chaud &amp; à côté</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Tempura</div><div class="ds" data-i18n="i8d">Beignets croustillants</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Soupe miso &amp; edamame</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Tempura</div><div class="ds" data-i18n="i8d">Beignets croustillants</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Soupe miso &amp; edamame</div></div></div>
      </div>
     </div>
    </div>
@@ -290,9 +318,9 @@ footer .made a{color:var(--wood)}
    </div>
    <div class="grid">
     <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">Ettelbruck<br><span class="fl" data-i18n="ino_fl1">adresse exacte à confirmer</span></div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><span class="resa" data-i18n="ino_resa">Réserver par téléphone</span><br><span class="fl" data-i18n="ino_phone">Numéro à confirmer</span></div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span data-i18n="ino_ht">Midi &amp; soir</span><br><span class="fl" data-i18n="ino_fl3">horaires à confirmer</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">Ettelbruck</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><span class="resa" data-i18n="ino_resa">Réserver par téléphone</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span data-i18n="ino_ht">Midi &amp; soir</span></div></div></div>
     </div>
     <div class="mapcard">
      <div>
@@ -316,7 +344,7 @@ footer .made a{color:var(--wood)}
   </div>
   <div>
    <div style="font-family:'Manrope';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--wood)">Contact</div>
-   <p style="margin-top:10px">Ettelbruck<br><span data-i18n="foot_phone">Téléphone à confirmer</span></p>
+   <p style="margin-top:10px">Ettelbruck</p>
   </div>
  </div>
  <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Adresse exacte, carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
@@ -324,7 +352,7 @@ footer .made a{color:var(--wood)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_dir:"Itinéraire",
   nav_comptoir:"Le comptoir",nav_carte:"La carte",nav_gal:"En images",nav_infos:"Infos & accès",
   hero_eyebrow:"Sushi · sashimi · maki · Ettelbruck",
   hero_tag:"Le poisson tranché au comptoir, à la minute — au cœur du nord du pays.",
@@ -344,7 +372,7 @@ const I18N={
   i1n:"Nigiri saumon",i1d:"Riz vinaigré, saumon tranché",i2n:"Sashimi assortis",i2d:"Sélection du comptoir",i3n:"Tartare & ikura",i3d:"Dressé à la main",
   i4n:"Maki",i4d:"Roulés à la commande",i5n:"California & rolls signés",
   i6n:"Plateau découverte",i6d:"Assortiment composé",i7n:"Grand plateau à partager",
-  i8n:"Tempura",i8d:"Beignets croustillants",i9n:"Soupe miso & edamame",ac:"à conf.",
+  i8n:"Tempura",i8d:"Beignets croustillants",i9n:"Soupe miso & edamame",
   carte_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié en ligne : la carte et les prix sont à confirmer sur place.",
   infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
   ino_k1:"Adresse",ino_fl1:"adresse exacte à confirmer",ino_k2:"Réserver",ino_resa:"Réserver par téléphone",ino_phone:"Numéro à confirmer",
@@ -355,7 +383,7 @@ const I18N={
   foot_phone:"Téléphone à confirmer",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Adresse exacte, carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_dir:"Route",
   nav_comptoir:"Der Tresen",nav_carte:"Karte",nav_gal:"Bilder",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Sushi · Sashimi · Maki · Ettelbruck",
   hero_tag:"Der Fisch am Tresen geschnitten, à la minute — im Norden des Landes.",
@@ -375,7 +403,7 @@ const I18N={
   i1n:"Lachs-Nigiri",i1d:"Sushi-Reis, geschnittener Lachs",i2n:"Sashimi-Auswahl",i2d:"Auswahl vom Tresen",i3n:"Tatar & Ikura",i3d:"Von Hand angerichtet",
   i4n:"Maki",i4d:"Auf Bestellung gerollt",i5n:"California & Signature-Rolls",
   i6n:"Entdecker-Platte",i6d:"Zusammengestelltes Sortiment",i7n:"Große Platte zum Teilen",
-  i8n:"Tempura",i8d:"Knusprige Teigtaschen",i9n:"Miso-Suppe & Edamame",ac:"n. Angabe",
+  i8n:"Tempura",i8d:"Knusprige Teigtaschen",i9n:"Miso-Suppe & Edamame",
   carte_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Es sind keine Preise online veröffentlicht: Karte und Preise vor Ort zu bestätigen.",
   infos_eyebrow:"Infos & Anfahrt",infos_h:"So finden Sie uns",
   ino_k1:"Adresse",ino_fl1:"genaue Adresse zu bestätigen",ino_k2:"Reservieren",ino_resa:"Telefonisch reservieren",ino_phone:"Nummer zu bestätigen",
@@ -386,7 +414,7 @@ const I18N={
   foot_phone:"Telefon zu bestätigen",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Genaue Adresse, Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_dir:"Directions",
   nav_comptoir:"The counter",nav_carte:"Menu",nav_gal:"In pictures",nav_infos:"Find us",
   hero_eyebrow:"Sushi · sashimi · maki · Ettelbruck",
   hero_tag:"Fish sliced at the counter, to order — in the heart of the north.",
@@ -406,7 +434,7 @@ const I18N={
   i1n:"Salmon nigiri",i1d:"Vinegared rice, sliced salmon",i2n:"Assorted sashimi",i2d:"The counter's selection",i3n:"Tartare & ikura",i3d:"Plated by hand",
   i4n:"Maki",i4d:"Rolled to order",i5n:"California & signature rolls",
   i6n:"Discovery platter",i6d:"Composed assortment",i7n:"Big sharing platter",
-  i8n:"Tempura",i8d:"Crisp fritters",i9n:"Miso soup & edamame",ac:"tbc",
+  i8n:"Tempura",i8d:"Crisp fritters",i9n:"Miso soup & edamame",
   carte_note:"Dishes from the house's public photos, for reference. No prices are published online: the menu and prices are to be confirmed on site.",
   infos_eyebrow:"Info & access",infos_h:"Find us",
   ino_k1:"Address",ino_fl1:"exact address to be confirmed",ino_k2:"Book",ino_resa:"Book by phone",ino_phone:"Number to be confirmed",
@@ -478,5 +506,9 @@ try{const sv=localStorage.getItem("iwo_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="https://www.google.com/maps/search/Sushi+Iwo+Ettelbruck" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

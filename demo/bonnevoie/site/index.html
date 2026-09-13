@@ -62,7 +62,7 @@ nav.links a:hover{color:var(--ochre);opacity:1}
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-72px;padding-top:72px}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(36,26,19,.62) 0%,rgba(36,26,19,.28) 34%,rgba(36,26,19,.55) 68%,rgba(20,14,9,.92) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(36,26,19,0.62) 0%,rgba(36,26,19,0.48) 34%,rgba(36,26,19,0.55) 68%,rgba(20,14,9,0.92) 100%)}
 /* day->night DUSK — the signature: hero warms at midday then falls to indigo night, bogolan glows, neon flickers on */
 .hero .dusk{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .dusk .layer{position:absolute;inset:0}
@@ -122,7 +122,7 @@ section{padding:clamp(56px,9vw,104px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;bottom:0;right:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,14,9,.82),transparent);color:#fff;font-family:'Shoulders',sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:14px}
+.gal figcaption{position:absolute;left:0;bottom:0;right:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,14,9,0.94) 0%,rgba(20,14,9,0.82) 62%,rgba(20,14,9,0) 100%);color:#fff;font-family:'Shoulders',sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:14px}
 
 /* menu */
 .carte{background:var(--raffia)}
@@ -200,6 +200,34 @@ footer .made a{color:var(--ochre)}
  .dusk-mud{opacity:.17;animation:none}
  .dusk-neon{opacity:1;animation:none;text-shadow:0 0 8px rgba(255,190,90,.8),0 0 20px rgba(180,71,31,.6)}
 }
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(125, 108, 80)); set to meet WCAG AA
+     against its own footer ground at 4.62:1, at a readable size. */
+  .disc{color:#8b7c63 !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -298,7 +326,7 @@ footer .made a{color:var(--ochre)}
   </div>
  </section>
 
- <div class="wrap"><div class="divider"><span class="dot"></span><svg class="mud" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg><span class="dot"></span></div></div>
+ <div class="wrap"><div class="divider"><span class="dot"></span><svg class="mud" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg></div></div>
 
  <!-- GALLERY -->
  <section id="table">
@@ -332,25 +360,25 @@ footer .made a{color:var(--ochre)}
     <div>
      <div class="mgroup">
       <h3><svg class="st" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="currentColor"/></svg><span data-i18n="mg1">Les sauces &amp; grillades</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Mafé</div><div class="ds" data-i18n="i1d">Sauce arachide mijotée, viande, riz</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Sauce gombo</div><div class="ds" data-i18n="i2d">Gombo, viande ou poisson, riz</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Poisson braisé</div><div class="ds" data-i18n="i3d">Attiéké &amp; plantain frit</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Poulet grillé</div><div class="ds" data-i18n="i4d">Riz exotique &amp; sauce</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Chèvre grillée</div><div class="ds" data-i18n="i5d">Oignons, plantain, piment</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Mafé</div><div class="ds" data-i18n="i1d">Sauce arachide mijotée, viande, riz</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Sauce gombo</div><div class="ds" data-i18n="i2d">Gombo, viande ou poisson, riz</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Poisson braisé</div><div class="ds" data-i18n="i3d">Attiéké &amp; plantain frit</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Poulet grillé</div><div class="ds" data-i18n="i4d">Riz exotique &amp; sauce</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Chèvre grillée</div><div class="ds" data-i18n="i5d">Oignons, plantain, piment</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><svg class="st" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="currentColor"/></svg><span data-i18n="mg2">Les accompagnements</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Attiéké</div><div class="ds" data-i18n="i6d">Semoule de manioc</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Riz exotique</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Plantain frit</div><div class="ds" data-i18n="i8d">Alloco</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Igname frite</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Attiéké</div><div class="ds" data-i18n="i6d">Semoule de manioc</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Riz exotique</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Plantain frit</div><div class="ds" data-i18n="i8d">Alloco</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Igname frite</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="st" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="currentColor"/></svg><span data-i18n="mg3">À grignoter &amp; le bar</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Beignets</div><div class="ds" data-i18n="i10d">À partager</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i11n">Bar</div><div class="ds" data-i18n="i11d">Bières, softs, cocktails — jusqu'à tard</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Beignets</div><div class="ds" data-i18n="i10d">À partager</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Bar</div><div class="ds" data-i18n="i11d">Bières, softs, cocktails — jusqu'à tard</div></div></div>
      </div>
     </div>
    </div>
@@ -421,7 +449,7 @@ footer .made a{color:var(--ochre)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
   nav_mafe:"Le mafé",nav_carte:"La carte",nav_night:"Les soirs",nav_infos:"Infos & accès",
   hero_eyebrow:"Cuisine ouest-africaine · Bonnevoie · Luxembourg",
   hero_tag:"Un bout d'Afrique de l'Ouest, à deux pas de la gare. Le midi on mange, le soir on danse.",
@@ -442,7 +470,7 @@ const I18N={
   i1n:"Mafé",i1d:"Sauce arachide mijotée, viande, riz",i2n:"Sauce gombo",i2d:"Gombo, viande ou poisson, riz",
   i3n:"Poisson braisé",i3d:"Attiéké & plantain frit",i4n:"Poulet grillé",i4d:"Riz exotique & sauce",i5n:"Chèvre grillée",i5d:"Oignons, plantain, piment",
   i6n:"Attiéké",i6d:"Semoule de manioc",i7n:"Riz exotique",i8n:"Plantain frit",i8d:"Alloco",i9n:"Igname frite",
-  i10n:"Beignets",i10d:"À partager",i11n:"Bar",i11d:"Bières, softs, cocktails — jusqu'à tard",ac:"à conf.",
+  i10n:"Beignets",i10d:"À partager",i11n:"Bar",i11d:"Bières, softs, cocktails — jusqu'à tard",
   carte_note:"Carte relevée à partir de sources publiques (Wolt, Uber Eats), à titre indicatif. Plats, disponibilité et prix à confirmer avec la maison.",
   night_eyebrow:"Quand la nuit tombe",night_h:"Et le soir,<span>on danse.</span>",
   night_lead:"Les assiettes laissent la place au bar : afrobeats, lumières tamisées, et on danse. On reste tard, on refait le monde jusque tard dans la nuit.",
@@ -455,7 +483,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations des plateformes de livraison et annuaires). La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
   nav_mafe:"Mafé",nav_carte:"Karte",nav_night:"Abends",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Westafrikanische Küche · Bonnevoie · Luxemburg",
   hero_tag:"Ein Stück Westafrika, ein paar Schritte vom Bahnhof. Mittags wird gegessen, abends getanzt.",
@@ -476,7 +504,7 @@ const I18N={
   i1n:"Mafé",i1d:"Geschmorte Erdnusssauce, Fleisch, Reis",i2n:"Gombo-Sauce",i2d:"Okra, Fleisch oder Fisch, Reis",
   i3n:"Gegrillter Fisch",i3d:"Attiéké & gebratene Kochbanane",i4n:"Gegrilltes Hähnchen",i4d:"Reis & Sauce",i5n:"Gegrillte Ziege",i5d:"Zwiebeln, Kochbanane, Chili",
   i6n:"Attiéké",i6d:"Maniokgrieß",i7n:"Reis exotisch",i8n:"Gebratene Kochbanane",i8d:"Alloco",i9n:"Gebratene Yamswurzel",
-  i10n:"Beignets",i10d:"Zum Teilen",i11n:"Bar",i11d:"Biere, Softdrinks, Cocktails — bis spät",ac:"n. Angabe",
+  i10n:"Beignets",i10d:"Zum Teilen",i11n:"Bar",i11d:"Biere, Softdrinks, Cocktails — bis spät",
   carte_note:"Karte aus öffentlichen Quellen (Wolt, Uber Eats), ohne Gewähr. Gerichte, Verfügbarkeit und Preise beim Haus zu bestätigen.",
   night_eyebrow:"Wenn die Nacht kommt",night_h:"Und abends<span>wird getanzt.</span>",
   night_lead:"Die Teller machen der Bar Platz: Afrobeats, gedämpftes Licht, und man tanzt. Man bleibt lange und redet bis spät in die Nacht.",
@@ -489,7 +517,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben von Lieferplattformen und Verzeichnissen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
   nav_mafe:"The mafé",nav_carte:"Menu",nav_night:"After dark",nav_infos:"Find us",
   hero_eyebrow:"West African kitchen · Bonnevoie · Luxembourg",
   hero_tag:"A corner of West Africa, a stone's throw from the station. Lunch to eat, nights to dance.",
@@ -510,7 +538,7 @@ const I18N={
   i1n:"Mafé",i1d:"Simmered peanut sauce, meat, rice",i2n:"Gombo sauce",i2d:"Okra, meat or fish, rice",
   i3n:"Grilled fish",i3d:"Attiéké & fried plantain",i4n:"Grilled chicken",i4d:"Spiced rice & sauce",i5n:"Grilled goat",i5d:"Onions, plantain, chilli",
   i6n:"Attiéké",i6d:"Cassava couscous",i7n:"Spiced rice",i8n:"Fried plantain",i8d:"Alloco",i9n:"Fried yam",
-  i10n:"Beignets",i10d:"To share",i11n:"Bar",i11d:"Beers, soft drinks, cocktails — till late",ac:"tbc",
+  i10n:"Beignets",i10d:"To share",i11n:"Bar",i11d:"Beers, soft drinks, cocktails — till late",
   carte_note:"Menu drawn from public sources (Wolt, Uber Eats), for reference only. Dishes, availability and prices to be confirmed with the house.",
   night_eyebrow:"When night falls",night_h:"And after dark,<span>you dance.</span>",
   night_lead:"The plates give way to the bar: afrobeats, low lights, and you dance. You stay late and put the world to rights, well into the night.",
@@ -541,5 +569,11 @@ const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("bb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+352661465501" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-bonnevoie-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Bistrot+de+Bonnevoie+29+Rue+de+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

@@ -64,7 +64,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.92);backdro
 .hero .bg{position:absolute;inset:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
 .hero .bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(14,25,34,.30) 0%,rgba(14,25,34,.34) 40%,rgba(14,25,34,.82) 100%)}
+  background:linear-gradient(180deg,rgba(14,25,34,0.3) 0%,rgba(14,25,34,0.48) 40%,rgba(14,25,34,0.82) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,6vw,66px);padding-top:80px}
 .hero .kick{display:inline-flex;align-items:center;gap:11px;margin-bottom:20px}
 .hero .kick .eyebrow{color:#e7d9bf}
@@ -118,7 +118,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.92);backdro
 .spot .fig{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:5/4}
 .spot .fig img{width:100%;height:100%;object-fit:cover}
 .spot .fig .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 12px;color:#fff;font-size:.82rem;font-weight:600;
-  background:linear-gradient(0deg,rgba(15,20,25,.8),transparent)}
+  background:linear-gradient(0deg,rgba(15,20,25,0.92) 0%,rgba(15,20,25,0.8) 62%,rgba(15,20,25,0) 100%)}
 
 /* ===================== MAISON ===================== */
 .maison .wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,4.5vw,60px);align-items:center}
@@ -168,7 +168,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.92);backdro
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
 .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 13px 9px;color:#fff;font-weight:600;font-size:.78rem;
-  background:linear-gradient(0deg,rgba(15,20,25,.82),transparent)}
+  background:linear-gradient(0deg,rgba(15,20,25,0.94) 0%,rgba(15,20,25,0.82) 62%,rgba(15,20,25,0) 100%)}
 
 /* ===================== INFOS ===================== */
 .infos .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4.5vw,56px)}
@@ -216,6 +216,29 @@ footer .wk .made{color:#8f836d}
   .brand .bt{font-size:1rem}
   .gal{grid-template-columns:1fr}.gal .w2{grid-column:auto}
 }
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -342,10 +365,6 @@ footer .wk .made{color:#8f836d}
         <div class="mrow"><div class="n">Dessert du jour</div><div class="d" data-i18n="m_dessert_d">Selon l'inspiration et le marché.</div></div>
       </div>
     </div>
-    <div class="formules">
-      <div class="formule"><div class="k" data-i18n="form_1_k">Menu du jour</div><div class="v" data-i18n="ac">à conf.</div><div class="s" data-i18n="form_ind">indicatif · à confirmer</div></div>
-      <div class="formule"><div class="k" data-i18n="form_2_k">À la carte</div><div class="v" data-i18n="ac">à conf.</div><div class="s" data-i18n="form_ind2">indicatif · à confirmer</div></div>
-    </div>
     <p class="menu-note" data-i18n="menu_note">Carte, plats et prix donnés à titre indicatif — à confirmer avec la maison.</p>
     <div class="food-strip reveal">
       <figure><img src="assets/bacalhau.jpg" alt="Bacalhau à Brás — morue effilochée" loading="lazy" /></figure>
@@ -424,7 +443,7 @@ footer .wk .made{color:#8f836d}
 <script>
 /* ===================== i18n ===================== */
 var I18N = {
-  fr:{
+  fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
     brand_sub:"Restaurant", nav_maison:"La maison", nav_carte:"La carte", nav_infos:"Infos & accès",
     hero_kick:"Restaurant portugais & luxembourgeois · Diekirch", hero_tag:"Un coin de Porto à Diekirch.",
     hero_sub:"L'âme portugaise et la table luxembourgeoise, avenue de la Gare — et la Francesinha réputée la meilleure du pays, servie généreusement.",
@@ -464,7 +483,7 @@ var I18N = {
     disclaimer:"Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site du Jardin du Portugal. Le logotype est proposé ; la carte, les prix, les horaires et le numéro de téléphone sont donnés à titre indicatif et restent à confirmer avec la maison. Photographies de sources publiques, à remplacer par les visuels du restaurant.",
     days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé", today:"Aujourd'hui"
   },
-  de:{
+  de:{wwb_call:"Anrufen",wwb_dir:"Route",
     brand_sub:"Restaurant", nav_maison:"Das Haus", nav_carte:"Die Karte", nav_infos:"Infos & Anfahrt",
     hero_kick:"Portugiesisches & luxemburgisches Restaurant · Diekirch", hero_tag:"Ein Stück Porto in Diekirch.",
     hero_sub:"Portugiesische Seele und luxemburgische Küche an der Avenue de la Gare — und die Francesinha, die als beste des Landes gilt, großzügig serviert.",
@@ -504,7 +523,7 @@ var I18N = {
     disclaimer:"Diese Seite ist ein inoffizieller Vorschlag von Webwerk auf Basis öffentlicher Quellen und zeigt, wie die Website des Jardin du Portugal aussehen könnte. Das Logotype ist ein Vorschlag; Karte, Preise, Öffnungszeiten und Telefonnummer sind Richtwerte und mit dem Haus zu bestätigen. Fotos aus öffentlichen Quellen, durch eigene Bilder des Restaurants zu ersetzen.",
     days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen", today:"Heute"
   },
-  en:{
+  en:{wwb_call:"Call",wwb_dir:"Directions",
     brand_sub:"Restaurant", nav_maison:"The house", nav_carte:"The menu", nav_infos:"Find us",
     hero_kick:"Portuguese & Luxembourgish restaurant · Diekirch", hero_tag:"A corner of Porto in Diekirch.",
     hero_sub:"Portuguese soul and a Luxembourg table on the Avenue de la Gare — and the Francesinha reputed the best in the country, generously served.",
@@ -603,5 +622,10 @@ else{ window.addEventListener("load",function(){setTimeout(drawAzu,350);}); }
 
 applyLang("fr");
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226803705" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Jardin+du+Portugal+33+Avenue+de+la+Gare+Diekirch" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

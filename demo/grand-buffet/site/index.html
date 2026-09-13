@@ -52,7 +52,7 @@ nav.links a:hover{color:var(--gold-l);opacity:1}
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-64px;padding-top:64px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,18,32,.66) 0%,rgba(10,18,32,.4) 32%,rgba(10,18,32,.6) 66%,rgba(8,14,24,.95) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,18,32,0.66) 0%,rgba(10,18,32,0.48) 32%,rgba(10,18,32,0.6) 66%,rgba(8,14,24,0.95) 100%)}
 .hero canvas#lazy{position:absolute;right:1%;top:6%;height:78%;width:42%;z-index:0;pointer-events:none}
 .hero .inner{padding-bottom:clamp(40px,7vw,88px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--gold-l);margin-bottom:16px}
@@ -97,7 +97,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(8,14,24,.86),transparent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(8,14,24,0.95) 0%,rgba(8,14,24,0.86) 62%,rgba(8,14,24,0) 100%);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:16px}
 
 /* salle band */
 .salle{background:var(--navy-d);color:#e7eef8;position:relative;overflow:hidden}
@@ -164,6 +164,34 @@ footer .made a{color:var(--gold-l)}
  .hero canvas#lazy{width:66%;opacity:.72}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(95, 113, 137)); set to meet WCAG AA
+     against its own footer ground at 4.64:1, at a readable size. */
+  .disc{color:#718196 !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -317,8 +345,7 @@ footer .made a{color:var(--gold-l)}
    </div>
    <div class="grid">
     <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">Schifflange<br><span class="fl" data-i18n="ino_fl1">Adresse exacte à confirmer</span></div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v" data-i18n="ino_phone">Téléphone à confirmer</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">Schifflange</div></div></div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" data-i18n="ino_ht">Midi &amp; soir</span><br><span class="fl" data-i18n="ino_fl3">Ouvert midi &amp; soir · horaires à confirmer</span></div></div></div>
     </div>
     <div class="mapcard">
@@ -344,7 +371,7 @@ footer .made a{color:var(--gold-l)}
   </div>
   <div>
    <div style="font-family:'Instr';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold-l)">Contact</div>
-   <p style="margin-top:10px">Schifflange, Luxembourg<br><span data-i18n="foot_conf">Adresse &amp; téléphone à confirmer</span></p>
+   <p style="margin-top:10px">Schifflange, Luxembourg</p>
   </div>
  </div>
  <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, formules, prix, horaires, adresse exacte et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
@@ -352,7 +379,7 @@ footer .made a{color:var(--gold-l)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_dir:"Itinéraire",
   nav_buffet:"Le buffet",nav_stations:"Ce qu'on trouve",nav_salle:"La salle",nav_infos:"Infos & accès",
   hero_eyebrow:"Buffet asiatique à volonté · Schifflange",
   hero_tag:"Sushis, grillades, wok et desserts — le buffet à volonté, midi et soir. On tourne la table, et on se ressert.",
@@ -386,7 +413,7 @@ const I18N={
   foot_conf:"Adresse & téléphone à confirmer",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, formules, prix, horaires, adresse exacte et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_dir:"Route",
   nav_buffet:"Das Buffet",nav_stations:"Das Angebot",nav_salle:"Der Saal",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Asiatisches All-you-can-eat · Schifflange",
   hero_tag:"Sushi, Grill, Wok und Desserts — das Buffet nach Belieben, mittags und abends. Man dreht den Tisch und nimmt sich nach.",
@@ -420,7 +447,7 @@ const I18N={
   foot_conf:"Adresse & Telefon zu bestätigen",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Formeln, Preise, Zeiten, genaue Adresse und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_dir:"Directions",
   nav_buffet:"The buffet",nav_stations:"What's on",nav_salle:"The room",nav_infos:"Find us",
   hero_eyebrow:"Asian all-you-can-eat · Schifflange",
   hero_tag:"Sushi, grill, wok and desserts — the all-you-can-eat buffet, midday and evening. Spin the table and help yourself again.",
@@ -529,5 +556,9 @@ try{const sv=localStorage.getItem("gbf_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="https://www.google.com/maps/search/Grand+Buffet+Schifflange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

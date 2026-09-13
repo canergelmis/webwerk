@@ -130,8 +130,8 @@ em{font-style:italic}
 .hero-img::after{
   content:"";position:absolute;inset:0;
   background:
-    linear-gradient(180deg, rgba(34,26,21,.15) 0%, rgba(34,26,21,.1) 38%, rgba(34,26,21,.86) 100%),
-    linear-gradient(90deg, rgba(34,26,21,.55) 0%, transparent 42%);
+    linear-gradient(180deg, rgba(34,26,21,0.15) 0%, rgba(34,26,21,0.48) 38%, rgba(34,26,21,0.86) 100%),
+    linear-gradient(90deg, rgba(34,26,21,0.55) 0%, transparent 42%);
 }
 .hero-copy{
   position:absolute;left:0;right:0;bottom:0;padding:clamp(28px,5vw,64px) clamp(18px,4vw,48px) clamp(40px,6vw,64px);
@@ -240,6 +240,29 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
   .carta-grid{grid-template-columns:1fr}
   .hero-img{height:78vh}
 }
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--cream);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -312,11 +335,11 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
       <div class="col">
         <div class="menugroup">
           <h3><span data-i18n="grp.antipasti">Antipasti</span> <span class="it" data-i18n="grp.antipasti.it">Entrées</span></h3>
-          <div class="dish"><span class="nm">Antipasto Trattoria</span><span class="dots"></span><span class="pr">15</span></div>
-          <div class="dish"><span class="nm">Insalata Caprese</span><span class="dots"></span><span class="pr">16,50</span></div>
-          <div class="dish"><span class="nm">Carpaccio di Manzo</span><span class="dots"></span><span class="pr">17,50</span></div>
-          <div class="dish"><span class="nm">Prosciutto Crudo</span><span class="dots"></span><span class="pr">17,50</span></div>
-          <div class="dish"><span class="nm">Bruschette</span><span class="dots"></span><span class="pr">11–14</span></div>
+          <div class="dish"><span class="nm">Antipasto Trattoria</span></div>
+          <div class="dish"><span class="nm">Insalata Caprese</span></div>
+          <div class="dish"><span class="nm">Carpaccio di Manzo</span></div>
+          <div class="dish"><span class="nm">Prosciutto Crudo</span></div>
+          <div class="dish"><span class="nm">Bruschette</span></div>
         </div>
         <div class="dish-card">
           <figure><img src="assets/food-fritto-misto.jpg" class="photo-real" alt="Fritto misto — friture de fruits de mer et courgettes grillées" /></figure>
@@ -324,23 +347,23 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
         </div>
         <div class="menugroup">
           <h3><span data-i18n="grp.risotti">Risotti</span></h3>
-          <div class="dish"><span class="nm">Zucchine e Taleggio</span><span class="dots"></span><span class="pr">18,50</span></div>
-          <div class="dish"><span class="nm">alla Calabrese</span><span class="dots"></span><span class="pr">19</span></div>
-          <div class="dish"><span class="nm">del Pescatore</span><span class="dots"></span><span class="pr">20,50</span></div>
+          <div class="dish"><span class="nm">Zucchine e Taleggio</span></div>
+          <div class="dish"><span class="nm">alla Calabrese</span></div>
+          <div class="dish"><span class="nm">del Pescatore</span></div>
         </div>
       </div>
       <!-- COL 2 -->
       <div class="col">
         <div class="menugroup">
           <h3><span data-i18n="grp.pizze">Pizze</span> <span class="it" data-i18n="grp.pizze.it">Four à bois</span></h3>
-          <div class="dish"><span class="nm">Margherita</span><span class="dots"></span><span class="pr">13,50</span></div>
-          <div class="dish"><span class="nm">Diavola</span><span class="dots"></span><span class="pr">16</span></div>
-          <div class="dish"><span class="nm">Capricciosa</span><span class="dots"></span><span class="pr">16,50</span></div>
-          <div class="dish"><span class="nm">Quattro Formaggi</span><span class="dots"></span><span class="pr">16,50</span></div>
-          <div class="dish"><span class="nm">Calzone</span><span class="dots"></span><span class="pr">16,50</span></div>
-          <div class="dish"><span class="nm">Ai Frutti di Mare</span><span class="dots"></span><span class="pr">19</span></div>
-          <div class="dish"><span class="nm">Calabrese</span><span class="dots"></span><span class="pr">19,50</span></div>
-          <div class="dish"><span class="nm">Bufala</span><span class="dots"></span><span class="pr">20</span></div>
+          <div class="dish"><span class="nm">Margherita</span></div>
+          <div class="dish"><span class="nm">Diavola</span></div>
+          <div class="dish"><span class="nm">Capricciosa</span></div>
+          <div class="dish"><span class="nm">Quattro Formaggi</span></div>
+          <div class="dish"><span class="nm">Calzone</span></div>
+          <div class="dish"><span class="nm">Ai Frutti di Mare</span></div>
+          <div class="dish"><span class="nm">Calabrese</span></div>
+          <div class="dish"><span class="nm">Bufala</span></div>
         </div>
         <div class="dish-card">
           <figure><img src="assets/food-grilled-dorade.jpg" class="photo-real" alt="Dorade entière grillée, citron et légumes" /></figure>
@@ -348,12 +371,12 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
         </div>
         <div class="menugroup">
           <h3><span data-i18n="grp.paste">Paste Fresche</span> <span class="it" data-i18n="grp.paste.it">Fatte in casa</span></h3>
-          <div class="dish"><span class="nm">Spaghetti alla Carbonara</span><span class="dots"></span><span class="pr">17</span></div>
-          <div class="dish"><span class="nm">Lasagne della Casa al Forno</span><span class="dots"></span><span class="pr">17,50</span></div>
-          <div class="dish"><span class="nm">Ravioli ricotta e spinaci</span><span class="dots"></span><span class="pr">19,50</span></div>
-          <div class="dish"><span class="nm">Tagliolini al Salmone</span><span class="dots"></span><span class="pr">20</span></div>
-          <div class="dish"><span class="nm">Il Tris dell'Antica</span><span class="dots"></span><span class="pr">20</span></div>
-          <div class="dish"><span class="nm">Linguine alle Vongole Veraci</span><span class="dots"></span><span class="pr">20,50</span></div>
+          <div class="dish"><span class="nm">Spaghetti alla Carbonara</span></div>
+          <div class="dish"><span class="nm">Lasagne della Casa al Forno</span></div>
+          <div class="dish"><span class="nm">Ravioli ricotta e spinaci</span></div>
+          <div class="dish"><span class="nm">Tagliolini al Salmone</span></div>
+          <div class="dish"><span class="nm">Il Tris dell'Antica</span></div>
+          <div class="dish"><span class="nm">Linguine alle Vongole Veraci</span></div>
         </div>
       </div>
       <!-- COL 3 -->
@@ -364,10 +387,10 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
         </div>
         <div class="menugroup">
           <h3><span data-i18n="grp.pesce">Pesce</span> <span class="it" data-i18n="grp.pesce.it">Poissons</span></h3>
-          <div class="dish"><span class="nm">Fritto di Calamari</span><span class="dots"></span><span class="pr">28</span></div>
-          <div class="dish"><span class="nm">Tranche de Bar Grillé</span><span class="dots"></span><span class="pr">30,50</span></div>
-          <div class="dish"><span class="nm">Scampi alla Griglia</span><span class="dots"></span><span class="pr">31</span></div>
-          <div class="dish"><span class="nm">Grigliata Mista di Pesce</span><span class="dots"></span><span class="pr">33</span></div>
+          <div class="dish"><span class="nm">Fritto di Calamari</span></div>
+          <div class="dish"><span class="nm">Tranche de Bar Grillé</span></div>
+          <div class="dish"><span class="nm">Scampi alla Griglia</span></div>
+          <div class="dish"><span class="nm">Grigliata Mista di Pesce</span></div>
         </div>
         <div class="dish-card">
           <figure><img src="assets/food-seafood-platter.jpg" class="photo-real" alt="Assiette de fruits de mer avec risotto et légumes grillés" /></figure>
@@ -375,11 +398,11 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
         </div>
         <div class="menugroup">
           <h3><span data-i18n="grp.carne">Carne</span> <span class="it" data-i18n="grp.carne.it">Viandes</span></h3>
-          <div class="dish"><span class="nm">Scaloppina al Limone / Milanese</span><span class="dots"></span><span class="pr">27,50</span></div>
-          <div class="dish"><span class="nm">Saltimbocca alla Romana</span><span class="dots"></span><span class="pr">27,50</span></div>
-          <div class="dish"><span class="nm">Tagliata con Rucola e Parmigiano</span><span class="dots"></span><span class="pr">33</span></div>
-          <div class="dish"><span class="nm">Filetto alla Griglia</span><span class="dots"></span><span class="pr">33</span></div>
-          <div class="dish"><span class="nm">Filetto ai Tre Pepi</span><span class="dots"></span><span class="pr">34</span></div>
+          <div class="dish"><span class="nm">Scaloppina al Limone / Milanese</span></div>
+          <div class="dish"><span class="nm">Saltimbocca alla Romana</span></div>
+          <div class="dish"><span class="nm">Tagliata con Rucola e Parmigiano</span></div>
+          <div class="dish"><span class="nm">Filetto alla Griglia</span></div>
+          <div class="dish"><span class="nm">Filetto ai Tre Pepi</span></div>
         </div>
         <div class="dish-card">
           <figure><img src="assets/food-milanese.jpg" class="photo-real" alt="Scaloppina milanese avec frites et salade" /></figure>
@@ -442,7 +465,7 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
         <h3 data-i18n="visit.contact.t">Réserver &amp; nous joindre</h3>
         <p data-i18n="visit.contact.addr">166, Avenue du Dix Septembre<br>L-2550 Luxembourg — Belair</p>
         <a class="big" href="tel:+35226440944">+352 26 44 09 44</a>
-        <p style="margin-top:10px"><a href="mailto:antica@pt.lu">antica@pt.lu</a> <span class="tag" data-i18n="visit.contact.tag">(à confirmer)</span></p>
+        <p style="margin-top:10px"><a href="mailto:antica@pt.lu">antica@pt.lu</a></p>
         <p class="tag" data-i18n="visit.contact.note">Réservation par téléphone conseillée. Emporter &amp; livraison disponibles.</p>
         <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Antica+Trattoria+166+Avenue+du+Dix+Septembre+L-2550+Luxembourg" target="_blank" rel="noopener" data-i18n="visit.contact.map">Voir sur Google Maps →</a>
       </div>
@@ -450,7 +473,6 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
         <h3 data-i18n="visit.hours.t">Horaires</h3>
         <div class="row"><span data-i18n="visit.hours.lunch">Déjeuner · 7j/7</span><span>11h45 – 14h00</span></div>
         <div class="row"><span data-i18n="visit.hours.dinner">Dîner · 7j/7</span><span>18h30 – 22h00</span></div>
-        <div class="row"><span data-i18n="visit.hours.price">Budget indicatif</span><span data-i18n="visit.hours.pricev">à conf.</span></div>
         <div class="row"><span data-i18n="visit.hours.pay">Ticket Restaurant</span><span data-i18n="visit.hours.payok">Accepté</span></div>
         <p class="tag" style="margin-top:14px" data-i18n="visit.hours.note">Horaires, prix et disponibilités à confirmer avec l'établissement.</p>
       </div>
@@ -474,7 +496,7 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
 
 <script>
 const I18N = {
-  fr:{
+  fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
     "nav.carta":"La Carte","nav.forno":"Le Four","nav.visit":"Nous Trouver",
     "hero.kicker":"Belair · Luxembourg-Ville","hero.h1sub":"Trattoria",
     "hero.lede":"Ici, le four à bois brûle dès l'entrée — on le sent avant même de s'asseoir. Une trattoria de quartier au carrefour de Belair : pâtes fraîches faites maison, poissons grillés, cave italienne.",
@@ -502,7 +524,7 @@ const I18N = {
     "visit.hours.note":"Horaires, prix et disponibilités à confirmer avec l'établissement.",
     "foot.disc":"Site de démonstration — non officiel. Contenus, photos, horaires et prix à confirmer avec l'établissement. Photos réelles du restaurant, issues de galeries publiques liées à cet établissement (menu.lu, TripAdvisor, Wedely)."
   },
-  de:{
+  de:{wwb_call:"Anrufen",wwb_dir:"Route",
     "nav.carta":"Die Karte","nav.forno":"Der Ofen","nav.visit":"Anfahrt",
     "hero.kicker":"Belair · Luxemburg-Stadt","hero.h1sub":"Trattoria",
     "hero.lede":"Hier brennt der Holzofen schon am Eingang — man spürt ihn, bevor man sitzt. Eine Quartier-Trattoria an der Kreuzung von Belair: hausgemachte frische Pasta, gegrillter Fisch, italienischer Weinkeller.",
@@ -530,7 +552,7 @@ const I18N = {
     "visit.hours.note":"Öffnungszeiten, Preise und Verfügbarkeiten mit dem Restaurant zu bestätigen.",
     "foot.disc":"Demo-Website — inoffiziell. Inhalte, Fotos, Öffnungszeiten und Preise mit dem Restaurant zu bestätigen. Echte Fotos des Restaurants, aus öffentlichen Galerien dieses Betriebs (menu.lu, TripAdvisor, Wedely)."
   },
-  en:{
+  en:{wwb_call:"Call",wwb_dir:"Directions",
     "nav.carta":"The Menu","nav.forno":"The Oven","nav.visit":"Find Us",
     "hero.kicker":"Belair · Luxembourg City","hero.h1sub":"Trattoria",
     "hero.lede":"Here, the wood oven burns right at the entrance — you feel it before you even sit down. A neighbourhood trattoria at the Belair crossroads: homemade fresh pasta, grilled fish, Italian cellar.",
@@ -573,5 +595,10 @@ document.querySelectorAll('.langs button').forEach(btn=>{
   btn.addEventListener('click', ()=> applyLang(btn.getAttribute('data-lang')));
 });
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn primary" href="tel:+35226440944" data-i18n="wwb_call">Appeler</a>
+  <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Antica+Trattoria+166+Avenue+du+Dix+Septembre+L-2550+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

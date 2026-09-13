@@ -60,7 +60,7 @@ nav.links a:hover{color:var(--amber);opacity:1}
 .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-66px;padding-top:66px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(22,29,45,.55) 0%,rgba(22,29,45,.25) 30%,rgba(22,29,45,.5) 64%,rgba(18,24,38,.92) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(22,29,45,0.55) 0%,rgba(22,29,45,0.48) 30%,rgba(22,29,45,0.5) 64%,rgba(18,24,38,0.92) 100%)}
 .hero .pano{position:absolute;top:0;left:0;right:0;z-index:1}
 .hero canvas#weave{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
@@ -105,7 +105,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(18,24,38,.82),transparent);color:#fff;font-family:'Newsreader',serif;font-weight:500;font-size:17px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(18,24,38,0.94) 0%,rgba(18,24,38,0.82) 62%,rgba(18,24,38,0) 100%);color:#fff;font-family:'Newsreader',serif;font-weight:500;font-size:17px}
 
 .carte{background:var(--bone2)}
 .carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
@@ -167,6 +167,34 @@ footer .made a{color:var(--amber)}
  .hero h1{font-size:clamp(48px,15vw,92px)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(98, 105, 117)); set to meet WCAG AA
+     against its own footer ground at 4.7:1, at a readable size. */
+  .disc{color:#80868f !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--bone);color:var(--basalt);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -264,29 +292,29 @@ footer .made a{color:var(--amber)}
     <div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg1">Les plats des îles</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Cachupa</div><div class="ds" data-i18n="i1d">Le plat national — maïs, haricots, viande ou poisson</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Bitoque</div><div class="ds" data-i18n="i2d">Steak, œuf au plat, riz &amp; frites</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Escalope de frango</div><div class="ds" data-i18n="i3d">Poulet pané, frites &amp; salade</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Ragoût de la maison</div><div class="ds" data-i18n="i4d">Viande mijotée, riz &amp; salade</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Cachupa</div><div class="ds" data-i18n="i1d">Le plat national — maïs, haricots, viande ou poisson</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Bitoque</div><div class="ds" data-i18n="i2d">Steak, œuf au plat, riz &amp; frites</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Escalope de frango</div><div class="ds" data-i18n="i3d">Poulet pané, frites &amp; salade</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Ragoût de la maison</div><div class="ds" data-i18n="i4d">Viande mijotée, riz &amp; salade</div></div></div>
      </div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg4">À grignoter &amp; à boire</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Torresmos</div><div class="ds" data-i18n="i8d">Lardons de porc croustillants</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Pastel (trigo / milho)</div><div class="ds" data-i18n="i9d">Chaussons frits, blé ou maïs</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Ponche / grogue</div><div class="ds" data-i18n="i10d">L'eau-de-vie de canne du Cap-Vert</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Torresmos</div><div class="ds" data-i18n="i8d">Lardons de porc croustillants</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Pastel (trigo / milho)</div><div class="ds" data-i18n="i9d">Chaussons frits, blé ou maïs</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Ponche / grogue</div><div class="ds" data-i18n="i10d">L'eau-de-vie de canne du Cap-Vert</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg2">La mer &amp; le grill</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Poisson grillé de l'Atlantique</div><div class="ds" data-i18n="i5d">Du jour, riz &amp; légumes</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Fruits de mer grillés</div><div class="ds" data-i18n="i6d">Gambas, calamars</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Chouriço grillé</div><div class="ds" data-i18n="i7d">Avec du pain</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i11n">Grillades mixtes</div><div class="ds" data-i18n="i11d">Viandes &amp; poisson, riz &amp; salade</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Poisson grillé de l'Atlantique</div><div class="ds" data-i18n="i5d">Du jour, riz &amp; légumes</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Fruits de mer grillés</div><div class="ds" data-i18n="i6d">Gambas, calamars</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Chouriço grillé</div><div class="ds" data-i18n="i7d">Avec du pain</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Grillades mixtes</div><div class="ds" data-i18n="i11d">Viandes &amp; poisson, riz &amp; salade</div></div></div>
      </div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg3">Le midi</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i12n">Formule du jour</div><div class="ds" data-i18n="i12d">Un plat des îles, chaque jour</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Formule du jour</div><div class="ds" data-i18n="i12d">Un plat des îles, chaque jour</div></div></div>
      </div>
     </div>
    </div>
@@ -356,7 +384,7 @@ footer .made a{color:var(--amber)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   nav_poisson:"Le poisson",nav_carte:"La carte",nav_mora:"La morabeza",nav_infos:"Infos & accès",
   hero_eyebrow:"Cuisine cap-verdienne · Esch-sur-Alzette",
   hero_tag:"Le goût de la terre : la cachupa, le poisson de l'Atlantique et la morabeza — la table des îles du Cap-Vert, à Esch.",
@@ -377,7 +405,7 @@ const I18N={
   i1n:"Cachupa",i1d:"Le plat national — maïs, haricots, viande ou poisson",i2n:"Bitoque",i2d:"Steak, œuf au plat, riz & frites",i3n:"Escalope de frango",i3d:"Poulet pané, frites & salade",i4n:"Ragoût de la maison",i4d:"Viande mijotée, riz & salade",
   i5n:"Poisson grillé de l'Atlantique",i5d:"Du jour, riz & légumes",i6n:"Fruits de mer grillés",i6d:"Gambas, calamars",i7n:"Chouriço grillé",i7d:"Avec du pain",i11n:"Grillades mixtes",i11d:"Viandes & poisson, riz & salade",
   i8n:"Torresmos",i8d:"Lardons de porc croustillants",i9n:"Pastel (trigo / milho)",i9d:"Chaussons frits, blé ou maïs",i10n:"Ponche / grogue",i10d:"L'eau-de-vie de canne du Cap-Vert",
-  i12n:"Formule du jour",i12d:"Un plat des îles, chaque jour",ac:"à conf.",
+  i12n:"Formule du jour",i12d:"Un plat des îles, chaque jour",
   carte_note:"Plats relevés à partir de sources publiques (la carte de la maison, avis, annuaires) ; aucun prix n'est publié en ligne. Carte et prix à confirmer avec la maison.",
   mora_eyebrow:"La morabeza",mora_h:"Le goût de la terre,<span>l'accueil des îles.</span>",
   mora_lead:"« Sabor di terra » veut dire le goût de la terre, et « morabeza », cette hospitalité chaleureuse propre au Cap-Vert. C'est tout l'esprit de la maison : une table de quartier, généreuse, où l'on se sent chez soi — et parfois, la musique des îles.",
@@ -390,7 +418,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis) ; la fiche du lieu n'est pas revendiquée. La marque et les plats sont ceux de la maison. Carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_poisson:"Der Fisch",nav_carte:"Karte",nav_mora:"Morabeza",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Kapverdische Küche · Esch-sur-Alzette",
   hero_tag:"Der Geschmack der Erde: Cachupa, Fisch aus dem Atlantik und Morabeza — die Tafel der Kapverden, in Esch.",
@@ -411,7 +439,7 @@ const I18N={
   i1n:"Cachupa",i1d:"Das Nationalgericht — Mais, Bohnen, Fleisch oder Fisch",i2n:"Bitoque",i2d:"Steak, Spiegelei, Reis & Pommes",i3n:"Escalope de frango",i3d:"Paniertes Hähnchen, Pommes & Salat",i4n:"Eintopf des Hauses",i4d:"Geschmortes Fleisch, Reis & Salat",
   i5n:"Gegrillter Atlantik-Fisch",i5d:"Vom Tag, Reis & Gemüse",i6n:"Gegrillte Meeresfrüchte",i6d:"Gambas, Tintenfisch",i7n:"Gegrillter Chouriço",i7d:"Mit Brot",i11n:"Gemischter Grill",i11d:"Fleisch & Fisch, Reis & Salat",
   i8n:"Torresmos",i8d:"Knusprige Schweinegrieben",i9n:"Pastel (Trigo / Milho)",i9d:"Frittierte Teigtaschen, Weizen oder Mais",i10n:"Ponche / Grogue",i10d:"Der Zuckerrohrschnaps der Kapverden",
-  i12n:"Tagesmenü",i12d:"Jeden Tag ein Inselgericht",ac:"auf Anfrage",
+  i12n:"Tagesmenü",i12d:"Jeden Tag ein Inselgericht",
   carte_note:"Gerichte aus öffentlichen Quellen (Karte des Hauses, Bewertungen, Verzeichnisse); online sind keine Preise veröffentlicht. Karte und Preise beim Haus zu bestätigen.",
   mora_eyebrow:"Die Morabeza",mora_h:"Der Geschmack der Erde,<span>die Gastfreundschaft der Inseln.</span>",
   mora_lead:"„Sabor di terra“ heißt der Geschmack der Erde, und „Morabeza“ jene warme Gastfreundschaft, die typisch kapverdisch ist. Das ist der ganze Geist des Hauses: eine großzügige Nachbarschaftstafel, an der man sich zu Hause fühlt — und manchmal die Musik der Inseln.",
@@ -424,7 +452,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen); der Eintrag des Lokals ist nicht beansprucht. Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_poisson:"The fish",nav_carte:"Menu",nav_mora:"Morabeza",nav_infos:"Find us",
   hero_eyebrow:"Cape Verdean kitchen · Esch-sur-Alzette",
   hero_tag:"The taste of the land: cachupa, Atlantic fish and morabeza — the table of the Cape Verde islands, in Esch.",
@@ -445,7 +473,7 @@ const I18N={
   i1n:"Cachupa",i1d:"The national dish — corn, beans, meat or fish",i2n:"Bitoque",i2d:"Steak, fried egg, rice & chips",i3n:"Escalope de frango",i3d:"Breaded chicken, chips & salad",i4n:"House stew",i4d:"Simmered meat, rice & salad",
   i5n:"Grilled Atlantic fish",i5d:"Of the day, rice & vegetables",i6n:"Grilled seafood",i6d:"Prawns, squid",i7n:"Grilled chouriço",i7d:"With bread",i11n:"Mixed grill",i11d:"Meat & fish, rice & salad",
   i8n:"Torresmos",i8d:"Crisp pork bits",i9n:"Pastel (trigo / milho)",i9d:"Fried pastries, wheat or corn",i10n:"Ponche / grogue",i10d:"Cape Verde's sugarcane spirit",
-  i12n:"Dish of the day",i12d:"An island dish, every day",ac:"tbc",
+  i12n:"Dish of the day",i12d:"An island dish, every day",
   carte_note:"Dishes drawn from public sources (the house's own menu, reviews, directories); no prices are published online. Menu and prices to be confirmed with the house.",
   mora_eyebrow:"Morabeza",mora_h:"The taste of the land,<span>the welcome of the islands.</span>",
   mora_lead:"“Sabor di terra” means the taste of the land, and “morabeza” that warm hospitality particular to Cape Verde. That's the whole spirit of the house: a generous neighbourhood table where you feel at home — and sometimes, the music of the islands.",
@@ -507,5 +535,10 @@ try{const sv=localStorage.getItem("sb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   io.observe(cv);
 })();
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+352621427592" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Sabor+Di+Terra+Rue+Zenon+Bernard+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

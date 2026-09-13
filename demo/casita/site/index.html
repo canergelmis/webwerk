@@ -56,7 +56,7 @@ nav.links a:hover{color:var(--marigold);opacity:1}
 .hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-70px;padding-top:70px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,26,44,.55) 0%,rgba(20,26,44,.22) 30%,rgba(20,26,44,.5) 64%,rgba(15,20,36,.92) 100%)}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,26,44,0.55) 0%,rgba(20,26,44,0.48) 30%,rgba(20,26,44,0.5) 64%,rgba(15,20,36,0.92) 100%)}
 .hero .papel{position:absolute;top:0;left:0;right:0;z-index:1;color:var(--marigold)}
 /* swaying papel-picado banner — the wow */
 .picado{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:center;align-items:flex-start;padding:0 4px;pointer-events:none}
@@ -112,7 +112,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(15,20,36,.82),transparent);color:#fff;font-family:'Yeseva',serif;font-weight:400;font-size:16px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(15,20,36,0.94) 0%,rgba(15,20,36,0.82) 62%,rgba(15,20,36,0) 100%);color:#fff;font-family:'Yeseva',serif;font-weight:400;font-size:16px}
 
 /* menu */
 .carte{background:var(--cream)}
@@ -177,6 +177,34 @@ footer .made a{color:var(--marigold)}
  .hero h1{font-size:clamp(46px,14vw,88px)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(106, 98, 80)); set to meet WCAG AA
+     against its own footer ground at 4.66:1, at a readable size. */
+  .disc{color:#8e887a !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--navy);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
 </style>
 </head>
 <body>
@@ -297,24 +325,24 @@ footer .made a{color:var(--marigold)}
      <div class="mgroup">
       <h3><svg class="corn" viewBox="0 0 20 26"><use href="#corn"/></svg><span data-i18n="mg1">Los tacos</span></h3>
       <p class="subnote" data-i18n="mg1_sub">le taco</p>
-      <div class="mitem"><div><div class="nm">Al Pastor</div><div class="ds" data-i18n="i1d">Porc mariné rôti, oignon, coriandre, ananas</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm">Carnitas</div><div class="ds" data-i18n="i2d">Porc confit, oignon, coriandre</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm">Tinga de pollo</div><div class="ds" data-i18n="i3d">Poulet effiloché, sauce tomate fumée, queso fresco</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm">Hongos</div><div class="ds" data-i18n="i4d">Champignons portobello, guacamole, coriandre</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm">Res</div><div class="ds" data-i18n="i5d">Bœuf émincé, oignons marinés</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm">Al Pastor</div><div class="ds" data-i18n="i1d">Porc mariné rôti, oignon, coriandre, ananas</div></div></div>
+      <div class="mitem"><div><div class="nm">Carnitas</div><div class="ds" data-i18n="i2d">Porc confit, oignon, coriandre</div></div></div>
+      <div class="mitem"><div><div class="nm">Tinga de pollo</div><div class="ds" data-i18n="i3d">Poulet effiloché, sauce tomate fumée, queso fresco</div></div></div>
+      <div class="mitem"><div><div class="nm">Hongos</div><div class="ds" data-i18n="i4d">Champignons portobello, guacamole, coriandre</div></div></div>
+      <div class="mitem"><div><div class="nm">Res</div><div class="ds" data-i18n="i5d">Bœuf émincé, oignons marinés</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><svg class="corn" viewBox="0 0 20 26"><use href="#corn"/></svg><span data-i18n="mg2">Nachos &amp; tostada</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Nachos &amp; guacamole</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Tostada de thon</div><div class="ds" data-i18n="i7d">Thon cru, guacamole, oignons marinés, huile pimentée</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Nachos &amp; guacamole</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Tostada de thon</div><div class="ds" data-i18n="i7d">Thon cru, guacamole, oignons marinés, huile pimentée</div></div></div>
      </div>
      <div class="mgroup">
       <h3><svg class="corn" viewBox="0 0 20 26"><use href="#corn"/></svg><span data-i18n="mg3">Postres &amp; bar</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Paleta mangue ou melon</div><div class="ds" data-i18n="i8d">Sucettes glacées</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Paleta margarita</div><div class="ds" data-i18n="i9d">Tequila, cointreau, citron vert</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Margarita &amp; paloma</div><div class="ds" data-i18n="i10d">Au bar · tequila &amp; mezcal</div></div><span class="dots"></span><span class="pr" data-i18n="ac">à conf.</span></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Paleta mangue ou melon</div><div class="ds" data-i18n="i8d">Sucettes glacées</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Paleta margarita</div><div class="ds" data-i18n="i9d">Tequila, cointreau, citron vert</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Margarita &amp; paloma</div><div class="ds" data-i18n="i10d">Au bar · tequila &amp; mezcal</div></div></div>
      </div>
     </div>
    </div>
@@ -383,7 +411,7 @@ footer .made a{color:var(--marigold)}
 
 <script>
 const I18N={
- fr:{
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   nav_tacos:"Les tacos",nav_carte:"La carte",nav_casita:"La casita",nav_infos:"Infos & accès",
   hero_eyebrow:"Taqueria · Grund · Luxembourg",
   hero_tag:"La petite maison mexicaine, cachée dans le Grund. Tortillas de maïs pressées à la main, vraies salsas, une paleta pour finir.",
@@ -397,13 +425,13 @@ const I18N={
   tacos_pill:"Tortilla de maïs",
   gal_eyebrow:"Sur la table",gal_h:"La table <em>mexicaine</em>",
   gal_p:"Tacos, tostadas, guacamole et chips, et des margaritas — servis sur les sets de la maison, dans une salle qui déborde de couleurs.",
-  cap_spread:"Tacos & tostadas",cap_tinga:"Tinga de poulet",cap_guac:"Guacamole & margarita",cap_int2:"La petite salle",cap_int3:"Au bord de l'eau",cap_decor:"Le décor",
+  cap_spread:"Tacos & tostadas",cap_tinga:"Tinga de poulet",cap_gucap_int2:"La petite salle",cap_int3:"Au bord de l'eau",cap_decor:"Le décor",
   carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
   carte_p:"Une carte courte et vraie, reprise de sa propre carte. Tortillas de maïs, salsas maison, paletas pour finir.",
   mg1:"Los tacos",mg1_sub:"le taco",mg2:"Nachos & tostada",mg3:"Postres & bar",
   i1d:"Porc mariné rôti, oignon, coriandre, ananas",i2d:"Porc confit, oignon, coriandre",i3d:"Poulet effiloché, sauce tomate fumée, queso fresco",i4d:"Champignons portobello, guacamole, coriandre",i5d:"Bœuf émincé, oignons marinés",
   i6n:"Nachos & guacamole",i7n:"Tostada de thon",i7d:"Thon cru, guacamole, oignons marinés, huile pimentée",
-  i8n:"Paleta mangue ou melon",i8d:"Sucettes glacées",i9n:"Paleta margarita",i9d:"Tequila, cointreau, citron vert",i10n:"Margarita & paloma",i10d:"Au bar · tequila & mezcal",ac:"à conf.",
+  i8n:"Paleta mangue ou melon",i8d:"Sucettes glacées",i9n:"Paleta margarita",i9d:"Tequila, cointreau, citron vert",i10n:"Margarita & paloma",i10d:"Au bar · tequila & mezcal",
   carte_note:"Carte et prix relevés sur la carte de la maison (à titre indicatif). Les boissons et le supplément tajín sont à confirmer sur place.",
   casa_eyebrow:"La casita",casa_h:"Une petite maison<span>mexicaine.</span>",
   casa_lead:"« Casita », c'est la petite maison. Ouverte en 2026, nichée dans le Grund au bord de l'eau : une salle minuscule, quelques tables en terrasse, et toute la chaleur d'une vraie taqueria mexicaine — les tortillas pressées à la main, les salsas dans le molcajete.",
@@ -416,7 +444,7 @@ const I18N={
   foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
   disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Carte, prix, horaires, code postal et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
  },
- de:{
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_tacos:"Die Tacos",nav_carte:"Karte",nav_casita:"La Casita",nav_infos:"Infos & Anfahrt",
   hero_eyebrow:"Taqueria · Grund · Luxemburg",
   hero_tag:"Das kleine mexikanische Haus, versteckt im Grund. Handgepresste Maistortillas, echte Salsas, zum Schluss eine Paleta.",
@@ -430,13 +458,13 @@ const I18N={
   tacos_pill:"Maistortilla",
   gal_eyebrow:"Auf dem Tisch",gal_h:"Der <em>mexikanische</em> Tisch",
   gal_p:"Tacos, Tostadas, Guacamole und Chips, dazu Margaritas — serviert auf den Sets des Hauses, in einem Raum voller Farben.",
-  cap_spread:"Tacos & Tostadas",cap_tinga:"Hähnchen-Tinga",cap_guac:"Guacamole & Margarita",cap_int2:"Der kleine Raum",cap_int3:"Am Wasser",cap_decor:"Das Dekor",
+  cap_spread:"Tacos & Tostadas",cap_tinga:"Hähnchen-Tinga",cap_gucap_int2:"Der kleine Raum",cap_int3:"Am Wasser",cap_decor:"Das Dekor",
   carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
   carte_p:"Eine kurze, ehrliche Karte, vom Haus übernommen. Maistortillas, hausgemachte Salsas, Paletas zum Schluss.",
   mg1:"Los Tacos",mg1_sub:"pro Taco",mg2:"Nachos & Tostada",mg3:"Postres & Bar",
   i1d:"Mariniertes Bratschwein, Zwiebel, Koriander, Ananas",i2d:"Schmorschwein, Zwiebel, Koriander",i3d:"Zerpflücktes Hähnchen, rauchige Tomatensauce, Queso fresco",i4d:"Portobello-Pilze, Guacamole, Koriander",i5d:"Rind in Scheiben, eingelegte Zwiebeln",
   i6n:"Nachos & Guacamole",i7n:"Thunfisch-Tostada",i7d:"Roher Thunfisch, Guacamole, eingelegte Zwiebeln, Chili-Öl",
-  i8n:"Paleta Mango oder Melone",i8d:"Eis am Stiel",i9n:"Paleta Margarita",i9d:"Tequila, Cointreau, Limette",i10n:"Margarita & Paloma",i10d:"An der Bar · Tequila & Mezcal",ac:"auf Anfrage",
+  i8n:"Paleta Mango oder Melone",i8d:"Eis am Stiel",i9n:"Paleta Margarita",i9d:"Tequila, Cointreau, Limette",i10n:"Margarita & Paloma",i10d:"An der Bar · Tequila & Mezcal",
   carte_note:"Karte und Preise von der Karte des Hauses (unverbindlich). Getränke und der Tajín-Aufschlag vor Ort zu bestätigen.",
   casa_eyebrow:"La Casita",casa_h:"Ein kleines<span>mexikanisches Haus.</span>",
   casa_lead:"„Casita“ heißt kleines Haus. 2026 eröffnet, im Grund am Wasser gelegen: ein winziger Raum, ein paar Tische auf der Terrasse und die ganze Wärme einer echten mexikanischen Taqueria — Tortillas von Hand gepresst, Salsas im Molcajete.",
@@ -449,7 +477,7 @@ const I18N={
   foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
   disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Karte, Preise, Zeiten, Postleitzahl und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
  },
- en:{
+ en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_tacos:"The tacos",nav_carte:"Menu",nav_casita:"La casita",nav_infos:"Find us",
   hero_eyebrow:"Taqueria · Grund · Luxembourg",
   hero_tag:"The little Mexican house, tucked into the Grund. Hand-pressed corn tortillas, real salsas, a paleta to finish.",
@@ -463,13 +491,13 @@ const I18N={
   tacos_pill:"Corn tortilla",
   gal_eyebrow:"On the table",gal_h:"The <em>Mexican</em> table",
   gal_p:"Tacos, tostadas, guacamole and chips, and margaritas — served on the house placemats, in a room bursting with colour.",
-  cap_spread:"Tacos & tostadas",cap_tinga:"Chicken tinga",cap_guac:"Guacamole & margarita",cap_int2:"The little room",cap_int3:"By the water",cap_decor:"The decor",
+  cap_spread:"Tacos & tostadas",cap_tinga:"Chicken tinga",cap_gucap_int2:"The little room",cap_int3:"By the water",cap_decor:"The decor",
   carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
   carte_p:"A short, honest menu, taken from the house. Corn tortillas, house salsas, paletas to finish.",
   mg1:"Los tacos",mg1_sub:"per taco",mg2:"Nachos & tostada",mg3:"Postres & bar",
   i1d:"Marinated roast pork, onion, coriander, pineapple",i2d:"Confit pork, onion, coriander",i3d:"Shredded chicken, smoky tomato sauce, queso fresco",i4d:"Portobello mushrooms, guacamole, coriander",i5d:"Sliced beef, pickled onions",
   i6n:"Nachos & guacamole",i7n:"Tuna tostada",i7d:"Raw tuna, guacamole, pickled onions, spicy oil",
-  i8n:"Mango or melon paleta",i8d:"Ice popsicles",i9n:"Margarita paleta",i9d:"Tequila, cointreau, lime",i10n:"Margarita & paloma",i10d:"At the bar · tequila & mezcal",ac:"tbc",
+  i8n:"Mango or melon paleta",i8d:"Ice popsicles",i9n:"Margarita paleta",i9d:"Tequila, cointreau, lime",i10n:"Margarita & paloma",i10d:"At the bar · tequila & mezcal",
   carte_note:"Menu and prices taken from the house's own card (for reference). Drinks and the tajín supplement to be confirmed on site.",
   casa_eyebrow:"La casita",casa_h:"A little<span>Mexican house.</span>",
   casa_lead:"“Casita” means little house. Opened in 2026, tucked into the Grund by the water: a tiny room, a few terrace tables, and all the warmth of a real Mexican taqueria — tortillas pressed by hand, salsas in the molcajete.",
@@ -500,5 +528,10 @@ const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("tc_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
 </script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35220221537" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Taqueria+Casita+Rue+Saint-Ulric+Grund+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>
