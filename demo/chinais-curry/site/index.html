@@ -207,6 +207,13 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
      It was the least legible text here (rgb(142, 133, 113)); set to meet WCAG AA
      against its own footer ground at 4.61:1, at a readable size. */
   .disc{color:#968e7b !important;font-size:12.5px !important;line-height:1.5}
+
+  /* mobile grid collapse */
+  @media(max-width:760px){
+    .visit .vgrid2{grid-template-columns:1fr}
+    .mgrid{grid-template-columns:1fr}
+    .sband{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body id="top">

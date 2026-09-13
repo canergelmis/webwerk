@@ -195,6 +195,11 @@ footer .wrap{padding:52px clamp(20px,5vw,48px) 40px}
   .board-frame{transform:none;order:-1}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.nav-cta{transition:none}}
+
+  /* mobile grid collapse */
+  @media(max-width:760px){
+    #story .story-grid{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>

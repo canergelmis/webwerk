@@ -146,6 +146,18 @@ footer{background:var(--ink);color:#b9ab98;padding:44px 0 40px;font-size:.86rem;
 .disc{margin-top:22px;color:#8f8371;max-width:80ch}
 .madeby{margin-top:14px;color:var(--ochre)}
 .madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+
+  /* location card: type, not a pretend map */
+  .mapcard{display:flex;align-items:flex-end;min-height:260px;text-decoration:none;position:relative}
+  .loc-in{padding:26px 24px 24px}
+  .loc-addr{font-size:1.28rem;line-height:1.3;margin:0 0 7px;font-weight:600}
+  .loc-note{font-size:.88rem;opacity:.8;margin:0 0 16px;max-width:34ch}
+  .mapcard .mapcta{position:static;display:inline-block}
+
+  /* mobile grid collapse */
+  @media(max-width:760px){
+    .visit .vgrid2{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body id="top">
@@ -279,22 +291,14 @@ footer{background:var(--ink);color:#b9ab98;padding:44px 0 40px;font-size:.86rem;
           <p data-i18n="ns_p">Table du Chef n'a jamais eu de site — ceci est une proposition, à partir de vos photos et de votre carte.</p>
         </div>
       </div>
-      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Table+du+Chef+19+Rue+du+Commerce+Dudelange" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
-        <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
-          <rect width="400" height="300" fill="#1c140c"/>
-          <g stroke="#3a2c1c" stroke-width="10" opacity=".6">
-            <path d="M30 60 H140"/><path d="M220 40 H340"/><path d="M50 230 H160"/><path d="M210 250 H330"/><path d="M60 140 H150"/><path d="M240 150 H360"/>
-          </g>
-          <g transform="translate(200,150)">
-            <circle r="34" fill="rgba(224,166,96,.18)"/>
-            <path d="M0 -22 C12 -22 20 -13 20 -2 C20 12 0 30 0 30 C0 30 -20 12 -20 -2 C-20 -13 -12 -22 0 -22 Z" fill="#c97a3d"/>
-            <circle r="6" fill="#1c140c"/>
-          </g>
-          <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#d9c4a4" letter-spacing="1">RUE DU COMMERCE · DUDELANGE</text>
-        </svg>
-        <span class="mapcta" data-i18n="v_dir2">Ouvrir l'itinéraire ↗</span>
-      </a>
-    </div>
+      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Table+du+Chef+19+Rue+du+Commerce+Dudelange" target="_blank" rel="noopener">
+          <div class="loc-in">
+            <p class="loc-addr">19, Rue du Commerce<br />L-3450 Dudelange</p>
+            <p class="loc-note" data-i18n="loc_note">Au centre de Dudelange, rue du Commerce.</p>
+            <span class="mapcta" data-i18n="v_dir2">Ouvrir l'itinéraire ↗</span>
+          </div>
+        </a>
+</div>
   </section>
 </main>
 
@@ -311,7 +315,7 @@ footer{background:var(--ink);color:#b9ab98;padding:44px 0 40px;font-size:.86rem;
 
 <script>
 const I18N = {
- fr:{
+ fr:{loc_note:"Au centre de Dudelange, rue du Commerce.",
   brand_sub:"Restaurant portugais · Dudelange", n_maison:"La maison", n_broche:"La broche", n_carte:"La carte", n_visit:"Infos",
   hero_tag:"Cuisine portugaise, sobre & chic.",
   hero_sub:"Une petite table du centre de Dudelange — brochettes dressées en salle, produits de la mer, et de généreuses portions préparées avec soin.",
@@ -337,7 +341,7 @@ const I18N = {
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (Google Maps, resto.lu, rankeat.fr). Identité typographique proposée — aucun logo trouvé. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur des annuaires, à confirmer.",
   foot_made:"Un aperçu"
  },
- de:{
+ de:{loc_note:"Im Zentrum von Dudelange, Rue du Commerce.",
   brand_sub:"Portugiesisches Restaurant · Düdelingen", n_maison:"Das Haus", n_broche:"Der Spieß", n_carte:"Die Karte", n_visit:"Infos",
   hero_tag:"Portugiesische Küche, schlicht & elegant.",
   hero_sub:"Ein kleines Restaurant im Zentrum von Düdelingen — Spieße, die am Tisch serviert werden, Meeresfrüchte und großzügige, sorgfältig zubereitete Portionen.",
@@ -363,7 +367,7 @@ const I18N = {
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (Google Maps, resto.lu, rankeat.fr). Typografische Identität als Vorschlag — kein Logo gefunden. Karte in groben Kategorien ohne Preise gezeigt — detaillierte Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten aus Verzeichnissen übernommen, zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
- en:{
+ en:{loc_note:"In the centre of Dudelange, on Rue du Commerce.",
   brand_sub:"Portuguese restaurant · Dudelange", n_maison:"The house", n_broche:"The skewer", n_carte:"The menu", n_visit:"Find us",
   hero_tag:"Portuguese cooking, sober & chic.",
   hero_sub:"A small restaurant in the centre of Dudelange — skewers brought to the table, seafood, and generous, carefully prepared portions.",
