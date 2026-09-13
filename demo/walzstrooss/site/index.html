@@ -72,7 +72,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(242,237,228,.94);backdro
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
 #smoke{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.7}
-.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(15,12,9,0.44) 0%,rgba(15,12,9,0.48) 32%,rgba(15,12,9,0.76) 78%,rgba(10,8,6,0.94) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(15,12,9,0.44) 0%,rgba(15,12,9,0.38) 32%,rgba(15,12,9,0.76) 78%,rgba(10,8,6,0.94) 100%)}
 .hero .wrap{position:relative;z-index:3;width:100%;padding-top:96px;padding-bottom:clamp(44px,6vw,76px)}
 .hero .brandmark{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .hero .brandmark .mark{height:52px;width:52px;color:var(--gold)}
@@ -185,6 +185,12 @@ footer{background:var(--ink);color:#c3b9a6;padding:44px 0 40px;font-size:.94rem;
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body id="top">

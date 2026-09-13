@@ -70,7 +70,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(247,240,230,.94);backdro
 .hero{position:relative;min-height:clamp(600px,90vh,840px);display:flex;align-items:flex-end;color:#fff;background:#1e0c0f;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
-.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(182deg,rgba(30,12,15,0.44) 0%,rgba(30,12,15,0.48) 32%,rgba(30,12,15,0.78) 78%,rgba(20,8,10,0.94) 100%)}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(182deg,rgba(30,12,15,0.44) 0%,rgba(30,12,15,0.38) 32%,rgba(30,12,15,0.78) 78%,rgba(20,8,10,0.94) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-top:100px;padding-bottom:clamp(44px,6vw,76px)}
 .hero .crest{height:64px;width:auto;margin-bottom:14px;filter:drop-shadow(0 2px 10px rgba(0,0,0,.55))}
 .hero h1{color:#fff;font-size:clamp(42px,8vw,88px);letter-spacing:-.01em;text-shadow:0 3px 40px rgba(0,0,0,.5)}
@@ -187,6 +187,12 @@ footer{background:var(--ink);color:#b9ac9e;padding:44px 0 40px;font-size:.86rem;
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body id="top">
@@ -381,10 +387,6 @@ footer{background:var(--ink);color:#b9ac9e;padding:44px 0 40px;font-size:.86rem;
           <a href="tel:+35226374742" class="btn p" data-i18n="v_call">Appeler pour réserver</a>
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+Lusitania+163+Route+de+Luxembourg+Dippach" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
         </div>
-        <div class="deadsite reveal">
-          <span class="k" data-i18n="ds_k">Ancien site</span>
-          <p data-i18n="ds_p">restaurant-lusitania.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.</p>
-        </div>
       </div>
       <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+Lusitania+163+Route+de+Luxembourg+Dippach" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
         <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
@@ -442,7 +444,6 @@ const I18N = {
   h_val:"Lun-jeu & dim 11h30-14h30, 18h30-22h · ven-sam 11h30-14h30, 18h30-22h30 · horaires à confirmer",
   l_serv:"Services", serv_val:"Parking · WiFi gratuit · terrasse d'été · terrasse fumeurs couverte",
   v_call:"Appeler pour réserver", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  ds_k:"Ancien site", ds_p:"restaurant-lusitania.lu ne répond plus — ceci est une proposition de nouveau site, à partir de vos photos et de votre carte.",
   foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et d'informations publiques (ancien site archivé de restaurant-lusitania.lu, rankeat.fr, Google Maps). Logotype réel de la maison, retrouvé sur l'ancien site. Carte présentée par grandes catégories, sans prix — carte détaillée et prix à confirmer en salle. Horaires relevés sur l'ancien site (2019) et un annuaire (2026), à confirmer.",
   foot_made:"Un aperçu"
  },
@@ -470,7 +471,6 @@ const I18N = {
   h_val:"Mo-Do & So 11:30-14:30, 18:30-22 Uhr · Fr-Sa 11:30-14:30, 18:30-22:30 Uhr · genaue Zeiten zu bestätigen",
   l_serv:"Services", serv_val:"Parkplatz · Kostenloses WLAN · Sommerterrasse · überdachte Raucherterrasse",
   v_call:"Zum Reservieren anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  ds_k:"Alte Webseite", ds_p:"restaurant-lusitania.lu antwortet nicht mehr — dies ist ein Vorschlag für eine neue Webseite, aus Ihren Fotos und Ihrer Karte.",
   foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Infos (archivierte Seite von restaurant-lusitania.lu, rankeat.fr, Google Maps). Echtes Logo des Hauses, von der alten Seite. Karte in groben Kategorien ohne Preise gezeigt — detaillierte Karte und Preise im Restaurant zu bestätigen. Öffnungszeiten von der alten Seite (2019) und einem Verzeichnis (2026), zu bestätigen.",
   foot_made:"Eine Vorschau von"
  },
@@ -498,7 +498,6 @@ const I18N = {
   h_val:"Mon-Thu & Sun 11:30am-2:30pm, 6:30-10pm · Fri-Sat 11:30am-2:30pm, 6:30-10:30pm · hours to be confirmed",
   l_serv:"Amenities", serv_val:"Parking · Free WiFi · summer terrace · covered smoking terrace",
   v_call:"Call to book", v_dir:"Directions", v_dir2:"Open directions ↗",
-  ds_k:"Old website", ds_p:"restaurant-lusitania.lu no longer responds — this is a proposal for a new site, built from your own photos and menu.",
   foot_disc:"Demonstration preview composed by Webwerk from public photos and information (archived restaurant-lusitania.lu site, rankeat.fr, Google Maps). Real logo of the house, recovered from the old site. Menu shown in broad categories with no prices — the detailed menu and prices are to be confirmed in-house. Hours taken from the old site (2019) and a directory (2026), to be confirmed.",
   foot_made:"A preview by"
  }

@@ -59,8 +59,8 @@ nav.links a:hover{color:var(--tomato)}
    radial-gradient(120% 90% at 88% 12%,rgba(211,61,43,.06),transparent 60%),
    var(--cream)}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
-   background-image:linear-gradient(45deg,rgba(211,61,43,0.48) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%),
-   linear-gradient(45deg,rgba(211,61,43,0.48) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%);
+   background-image:linear-gradient(45deg,rgba(211,61,43,0.38) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%),
+   linear-gradient(45deg,rgba(211,61,43,0.38) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%);
    background-size:44px 44px;background-position:0 0,22px 22px;
    -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent);mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent)}
 .hero .wrap{position:relative;z-index:2}
@@ -213,6 +213,12 @@ footer .made a{color:var(--terra)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>

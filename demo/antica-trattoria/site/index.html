@@ -130,7 +130,7 @@ em{font-style:italic}
 .hero-img::after{
   content:"";position:absolute;inset:0;
   background:
-    linear-gradient(180deg, rgba(34,26,21,0.15) 0%, rgba(34,26,21,0.48) 38%, rgba(34,26,21,0.86) 100%),
+    linear-gradient(180deg, rgba(34,26,21,0.15) 0%, rgba(34,26,21,0.38) 38%, rgba(34,26,21,0.86) 100%),
     linear-gradient(90deg, rgba(34,26,21,0.55) 0%, transparent 42%);
 }
 .hero-copy{
@@ -263,6 +263,12 @@ footer{background:var(--espresso);color:var(--cream-2);padding:28px 0}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>

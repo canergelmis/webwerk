@@ -58,7 +58,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .hero{position:relative;min-height:clamp(560px,86vh,780px);display:flex;align-items:flex-end;color:var(--cream);background:#241c14;overflow:hidden}
 .hero .bg{position:absolute;inset:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,8,0.34) 0%,rgba(20,14,8,0.48) 40%,rgba(20,14,8,0.84) 100%)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,8,0.34) 0%,rgba(20,14,8,0.38) 40%,rgba(20,14,8,0.84) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(40px,6vw,66px);padding-top:80px}
 .hero .kick{display:inline-flex;align-items:center;gap:11px;margin-bottom:16px}
 .hero .kick .eyebrow{color:#ecdcbb}
@@ -203,6 +203,12 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>
