@@ -191,6 +191,14 @@ footer{background:var(--ink);color:#c3b9a6;padding:44px 0 40px;font-size:.94rem;
      the photograph behind it. */
   .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
     text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
+
+  /* strip colour consistency */
+  /* Measured average warmth (r-b) across the three frames: planche 61,
+     fishchips 57, pasta 102 — the pasta frame reads strongly yellow beside
+     the other two. A moderate grade closes most of that gap; matching it
+     exactly would need desaturation heavy enough to make the food look
+     washed out, so this stops short deliberately. */
+  .spot-card img[src*="pasta"]{filter:saturate(.84) hue-rotate(-5deg)}
 </style>
 </head>
 <body id="top">
