@@ -7,7 +7,7 @@
 <title>Brasserie Beaulieu — Bistro de quartier · Bonnevoie, Luxembourg</title>
 <meta name="description" content="Brasserie Beaulieu — cuisine canaille, ambiance de quartier. Bistro parisien à Bonnevoie, Luxembourg. Nappes vichy rouge, terrasse ensoleillée, vins bio.">
 <!--
-  Concept: the venue's own cursive "Beaulieu" enseigne (traced from assets/exterior.jpg,
+  Concept: the venue's own cursive "Beaulieu" enseigne (traced from the facade photo (removed here - identifiable patrons; kept in lux-restaurant-sites),
   daylight — core tube blue #2a4661) is the wordmark colour; red gingham + honey wood +
   cream stays the dominant palette (content.md L41). Alegreya (warm humanist serif, real
   italics) for editorial type; Yellowtail (1930s connected sign-script) for the wordmark,
@@ -209,7 +209,7 @@
     --chalk:#232323;
     --olive:#6F7D3A;
     --ink:#2b2320;
-    /* Sampled from the venue's OWN cursive enseigne in assets/exterior.jpg (daylight).
+    /* Sampled from the venue's OWN cursive enseigne in the facade photo (removed here - identifiable patrons; kept in lux-restaurant-sites) (daylight).
        core tube #2a4661 · highlight #3d5368 · deep #1d3448 */
     --enseigne:#2a4661;
     --enseigne-deep:#1d3448;
@@ -385,7 +385,7 @@
      With stretch, the photo column was pulled to the height of the taller
      practical column, the image stopped at its own aspect ratio and ~500px of
      empty cream followed with the caption gradient stranded at the bottom. */
-  .terr-grid{display:grid;grid-template-columns:55% 45%;gap:clamp(26px,3.5vw,48px);align-items:start;margin-top:14px}
+  .terr-grid{display:grid;grid-template-columns:1fr;gap:clamp(26px,3.5vw,48px);align-items:start;margin-top:14px}
   .terr-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
   .terr-photos figure{margin:0;position:relative;overflow:hidden;border-radius:10px;box-shadow:0 12px 30px rgba(94,62,40,.16)}
   .terr-photos .ph{aspect-ratio:4/5;position:relative}
@@ -514,7 +514,7 @@
   .hero-wordmark,.brand .b-script{font-synthesis:none;font-weight:400;font-style:normal}
 
   /* BRAND TRACE: the venue's real enseigne is a BLUE CURSIVE script, so the
-     wordmark now is one too — colour sampled from assets/exterior.jpg, letterforms
+     wordmark now is one too — colour sampled from the facade photo (removed here - identifiable patrons; kept in lux-restaurant-sites), letterforms
      matched by Yellowtail. Previously near-black in a stock Google cursive. */
   .hero-wordmark{color:var(--enseigne)}
   .brand .b-script{color:var(--enseigne)}
@@ -748,17 +748,6 @@
     <span class="eyebrow" data-i18n="terr_eyebrow">La terrasse & infos pratiques</span>
     <h2 class="band-title" data-i18n="terr_title">Au soleil, rue Félix de Blochausen</h2>
     <div class="terr-grid">
-      <div class="terr-photos">
-        <figure>
-          <div class="ph"><img src="assets/exterior.jpg" alt="Façade crème de la Brasserie Beaulieu, enseigne cursive bleue et parasols verts Bofferding, terrasse animée" loading="lazy"></div>
-          <figcaption data-i18n="terr_cap1">La façade et ses parasols verts, côté rue.</figcaption>
-        </figure>
-        <figure>
-          <div class="ph"><img src="assets/terrace.jpg" alt="Terrasse de rue : muret en pierre, herbes en pot, chaises bistrot et verre gravé « Brasserie Beaulieu »" loading="lazy"></div>
-          <figcaption data-i18n="terr_cap2">La terrasse : muret, herbes et verre gravé.</figcaption>
-        </figure>
-      </div>
-
       <div class="practical">
         <div class="hours-ardoise">
           <h3 data-i18n="hours_title">Horaires</h3>
