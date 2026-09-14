@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Sushi Iwo — Comptoir à sushi, Ettelbruck</title>
-<meta name="description" content="Sushi Iwo à Ettelbruck — sushi, sashimi et maki préparés au comptoir, fraîcheur et précision. Démonstration Webwerk."/>
+<title>Sushi Iwo — Restaurant de sushis, Ettelbruck</title>
+<meta name="description" content="Sushi Iwo, restaurant de sushis place Marie-Adélaïde à Ettelbruck — nigiri, maki, sashimi et plateaux, sur place ou à emporter."/>
 <style>
 @font-face{font-family:'Garamond';src:url('assets/fonts/garamond-400-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Garamond';src:url('assets/fonts/garamond-600-latin.woff2') format('woff2');font-weight:600;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -32,9 +32,9 @@ h1,h2,h3,.disp{font-family:'Garamond','Manrope',serif;font-weight:600;line-heigh
 .rule .ln{flex:1;height:1px;background:var(--line)}
 .rule .dot{width:7px;height:7px;background:var(--seal);border-radius:50%;flex:none}
 
-header{position:sticky;top:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header{position:sticky;top:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;background:linear-gradient(180deg,rgba(21,19,15,.78),rgba(21,19,15,0))}
 header.solid{background:rgba(21,19,15,.94);border-color:var(--line-d);backdrop-filter:blur(6px)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
 .brand .seal{width:30px;height:30px;font-size:15px}
 .brand .nm{font-family:'Garamond',serif;font-weight:700;font-size:24px;letter-spacing:.03em;line-height:.95;color:var(--cream)}
@@ -53,11 +53,11 @@ nav.links a:hover{color:var(--wood);opacity:1}
 
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;margin-top:-63px;padding-top:63px;overflow:hidden;background:var(--sumi)}
 .hero .bg{position:absolute;inset:0;z-index:0}
-.hero .bg img{width:100%;height:100%;object-fit:cover;opacity:.28}
-.hero .scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(120% 90% at 72% 50%,rgba(21,19,15,.35),rgba(21,19,15,0.72) 70%),linear-gradient(90deg,rgba(21,19,15,0.72),rgba(21,19,15,.5))}
-.hero canvas#ensocv{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:min(46%,520px);height:80%;z-index:2;pointer-events:none}
-.hero .inner{position:relative;z-index:3;padding:clamp(40px,8vw,90px) 0}
-.hero .eyebrow{color:var(--wood);margin-bottom:18px}
+.hero .bg img{width:100%;height:100%;object-fit:cover;opacity:1}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(21,19,15,.86) 0%,rgba(21,19,15,.6) 42%,rgba(21,19,15,.05) 75%),linear-gradient(0deg,rgba(21,19,15,.5),rgba(21,19,15,0) 35%)}
+.hero canvas#ensocv{position:absolute;right:-1%;top:50%;transform:translateY(-50%);width:min(36%,440px);height:72%;z-index:2;pointer-events:none}
+.hero .inner{position:relative;z-index:3;width:100%;padding-block:clamp(40px,8vw,90px)}
+.hero .eyebrow{color:var(--wood);margin-bottom:18px;text-shadow:0 1px 10px rgba(0,0,0,.9)}
 .hero h1{color:var(--cream);font-size:clamp(54px,10vw,140px);letter-spacing:.02em;font-weight:700}
 .hero .jp{font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP","Songti SC",'Garamond',serif;color:var(--seal);font-size:clamp(20px,3vw,30px);letter-spacing:.3em;margin-top:2px}
 .hero .tag{font-family:'Manrope',sans-serif;font-weight:400;font-size:clamp(18px,2.3vw,25px);color:#e8dfcb;max-width:26ch;margin:20px 0 0;line-height:1.45}
@@ -91,7 +91,7 @@ section{padding:clamp(58px,9vw,104px) 0}
 .spot .body{font-size:16.5px;color:#5f574a;margin:16px 0 0;max-width:46ch}
 .spot .pic{position:relative}
 .spot .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;box-shadow:0 30px 66px rgba(0,0,0,.5)}
-.spot .pic .tag2{position:absolute;left:-12px;bottom:24px;background:var(--seal);color:#fff;font-family:'Manrope';font-weight:700;font-size:13.5px;letter-spacing:.02em;padding:10px 16px;border-radius:2px}
+.spot .pic .tag2{position:absolute;left:16px;bottom:16px;background:var(--seal);color:#fff;font-family:'Manrope';font-weight:700;font-size:13.5px;letter-spacing:.02em;padding:10px 16px;border-radius:2px}
 
 /* gallery */
 .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:12px}
@@ -100,7 +100,7 @@ section{padding:clamp(58px,9vw,104px) 0}
 .gal figure::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(33,29,22,.10),rgba(178,58,46,.05));mix-blend-mode:multiply}
 .gal figcaption{z-index:2}
 .gal figure:hover img{transform:scale(1.05);filter:saturate(1.02) contrast(1.02)}
-.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}.gal .w4{grid-column:1 / -1}
 .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(15,13,10,0.95) 0%,rgba(15,13,10,0.86) 62%,rgba(15,13,10,0) 100%);color:var(--cream);font-family:'Garamond',serif;font-weight:600;font-size:17px}
 
 /* carte */
@@ -126,7 +126,7 @@ section{padding:clamp(58px,9vw,104px) 0}
 .ino .k{font-family:'Manrope';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--wood)}
 .ino .v{font-size:16.5px;color:var(--cream);margin-top:3px}
 .ino .fl{color:var(--muted);font-size:13px;font-style:italic}
-.mapcard{background:var(--sumi);border:1px solid var(--line-d);border-radius:3px;overflow:hidden;min-height:270px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:34px}
+.mapcard{background:var(--sumi) url(assets/salle.jpg) top center/100% auto no-repeat;border:1px solid var(--line-d);border-radius:3px;overflow:hidden;position:relative;display:block;text-align:left;padding:calc(75.3% + 22px) 26px 26px}
 .mapcard .big{font-family:'Garamond';font-weight:600;font-size:28px;color:var(--cream)}
 .mapcard .btn{margin-top:20px}
 
@@ -147,7 +147,7 @@ footer .made a{color:var(--wood)}
  .spot .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:165px}
  .spot .pic{order:-1}
- .hero canvas#ensocv{width:56%;opacity:.9}
+ .hero canvas#ensocv{width:44%;opacity:.8;right:-6%}
 }
 @media(max-width:760px){
  nav.links{position:fixed;inset:63px 0 auto 0;flex-direction:column;background:rgba(21,19,15,.98);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.5);align-items:center}
@@ -156,7 +156,7 @@ footer .made a{color:var(--wood)}
  .burger{display:flex}
  header{background:rgba(21,19,15,.94)}
  .hero h1{font-size:clamp(48px,15vw,92px)}
- .hero canvas#ensocv{width:70%;opacity:.6;right:-6%}
+ .hero canvas#ensocv{width:62%;height:46%;top:14%;transform:none;opacity:.32;right:-20%}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
@@ -194,11 +194,10 @@ footer .made a{color:var(--wood)}
 <header id="hd">
  <div class="wrap bar">
   <a class="brand" href="#top" aria-label="Sushi Iwo">
-   <span class="seal" aria-hidden="true">岩</span>
-   <span class="nm">Sushi Iwo<small>Comptoir à sushi · Ettelbruck</small></span>
+   <span class="nm">Sushi Iwo<small>Ettelbruck</small></span>
   </a>
   <nav class="links" id="nav">
-   <a href="#comptoir" data-i18n="nav_comptoir">Le comptoir</a>
+   <a href="#comptoir" data-i18n="nav_comptoir">La maison</a>
    <a href="#carte" data-i18n="nav_carte">La carte</a>
    <a href="#gal" data-i18n="nav_gal">En images</a>
    <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
@@ -212,26 +211,24 @@ footer .made a{color:var(--wood)}
 
 <main id="top">
  <section class="hero" id="hero">
-  <div class="bg"><img src="assets/hero.jpg" alt="Un plateau de sushi de Sushi Iwo"/></div>
+  <div class="bg"><img src="assets/hero.jpg" alt="Plateau de sushi de Sushi Iwo : rolls croustillants, nigiri saumon, maki et edamame"/></div>
   <div class="scrim"></div>
-  <canvas id="ensocv" aria-hidden="true"></canvas>
   <div class="wrap inner">
-   <span class="eyebrow" data-i18n="hero_eyebrow">Sushi · sashimi · maki · Ettelbruck</span>
+   <span class="eyebrow" data-i18n="hero_eyebrow">Place Marie-Adélaïde, Ettelbruck</span>
    <h1>Sushi Iwo</h1>
-   <div class="jp" aria-hidden="true">岩</div>
-   <p class="tag" data-i18n="hero_tag">Le poisson tranché au comptoir, à la minute — au cœur du nord du pays.</p>
+   <p class="tag" data-i18n="hero_tag">Rolls croustillants, nigiri au saumon et grands plateaux — sur ardoise en salle, ou à emporter.</p>
    <div class="cta">
     <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
-    <a class="btn o" href="#comptoir" data-i18n="hero_cta2">Le comptoir ↓</a>
+    <a class="btn o" href="#comptoir" data-i18n="hero_cta2">La maison ↓</a>
    </div>
   </div>
  </section>
 
  <div class="facts">
   <div class="wrap"><div class="row">
-    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Sushi &amp; sashimi</b>tranchés au comptoir, à la minute</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>Ettelbruck</b>au cœur du nord</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>Une maison familiale</b>sur place ou à emporter</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k1">Au menu</div><div class="v" data-i18n="fact_v1"><b>Rolls &amp; plateaux</b>à partager ou à emporter</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>Ettelbruck</b>face à la place Marie-Adélaïde</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">Commander</div><div class="v" data-i18n="fact_v3"><b>Par téléphone</b>ou sur WhatsApp</div></div>
   </div></div>
  </div>
 
@@ -239,14 +236,14 @@ footer .made a{color:var(--wood)}
  <section class="spot" id="comptoir">
   <div class="wrap grid">
    <div class="pic">
-    <img src="assets/assiette.jpg" alt="Sushi et sashimi dressés à la minute — Sushi Iwo"/>
-    <span class="tag2" data-i18n="sp_tag">Dressé à la main</span>
+    <img src="assets/assiette.jpg" alt="Assiette de sushi et sashimi de Sushi Iwo"/>
+    <span class="tag2" data-i18n="sp_tag">Sur ardoise</span>
    </div>
    <div class="txt">
-    <span class="eyebrow" data-i18n="sp_eyebrow">Le comptoir</span>
-    <h2 data-i18n="sp_h">Fraîcheur &amp; précision.</h2>
-    <p class="lead" data-i18n="sp_lead">Le poisson est tranché au comptoir, le riz assaisonné juste, chaque pièce dressée à la main — nigiri, maki, sashimi et tartares.</p>
-    <p class="body" data-i18n="sp_body">Ici, le geste compte autant que le produit. On regarde le comptoir travailler, on commande une sélection, et l'assiette arrive nette, précise, fraîche. Rien de superflu. Une maison familiale, tenue avec soin.</p>
+    <span class="eyebrow" data-i18n="sp_eyebrow">La maison</span>
+    <h2 data-i18n="sp_h">Sur place ou à emporter.</h2>
+    <p class="lead" data-i18n="sp_lead">Nigiri, maki, sashimi et tartares, dressés sur ardoise ou réunis en grands plateaux à emporter.</p>
+    <p class="body" data-i18n="sp_body">Une salle lumineuse aux panneaux de cerisiers en fleurs, un bar en bois clair, de grandes baies vitrées sur la place : on s'y attable, ou on repart avec un plateau.</p>
    </div>
   </div>
  </section>
@@ -257,14 +254,13 @@ footer .made a{color:var(--wood)}
    <div class="sect-h">
     <span class="eyebrow" data-i18n="gal_eyebrow">En images</span>
     <h2 data-i18n="gal_h">La table japonaise</h2>
-    <p data-i18n="gal_p">Nigiri, maki roulés à la commande, sashimi, tartares et grands plateaux à partager — la fraîcheur d'abord.</p>
+    <p data-i18n="gal_p">Du roll garni au grand plateau, et la salle aux cerisiers en fleurs.</p>
    </div>
    <div class="gal">
-    <figure class="w2 h2"><img src="assets/roll.jpg" alt="Maki et sashimi de saumon"/><figcaption data-i18n="cap_roll">Maki &amp; sashimi</figcaption></figure>
-    <figure><img src="assets/maki.jpg" alt="Maki garni, sauce"/><figcaption data-i18n="cap_maki">Le maki signature</figcaption></figure>
+    <figure class="w2 h2"><img src="assets/roll.jpg" alt="Roll garni d'herbes et de sauce, sur ardoise"/><figcaption data-i18n="cap_roll">Roll garni</figcaption></figure>
+    <figure class="w2"><img src="assets/maki.jpg" alt="Maki garni, sur ardoise"/><figcaption data-i18n="cap_maki">Maki sur ardoise</figcaption></figure>
     <figure class="w2"><img src="assets/plateau.jpg" alt="Grand plateau à partager"/><figcaption data-i18n="cap_plateau">Le grand plateau</figcaption></figure>
-    <figure><img src="assets/comptoir.jpg" alt="Le comptoir et la salle"/><figcaption data-i18n="cap_comptoir">Le comptoir</figcaption></figure>
-    <figure><img src="assets/salle.jpg" alt="La salle de Sushi Iwo"/><figcaption data-i18n="cap_salle">La salle</figcaption></figure>
+    <figure class="w4 h2"><img src="assets/comptoir.jpg" alt="Le bar en bois clair et la salle de Sushi Iwo"/><figcaption data-i18n="cap_comptoir">Le bar et la salle</figcaption></figure>
    </div>
   </div>
  </section>
@@ -274,37 +270,31 @@ footer .made a{color:var(--wood)}
   <div class="wrap">
    <div class="sect-h">
     <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
-    <h2 data-i18n="carte_h">Ce qu'on prépare</h2>
-    <p data-i18n="carte_p">Les classiques du comptoir — nigiri, maki, sashimi, tartares, et des plateaux composés.</p>
+    <h2 data-i18n="carte_h">Ce qu'on sert</h2>
+    <p data-i18n="carte_p">Les grandes familles de la carte.</p>
    </div>
    <div class="cols">
     <div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg1">Nigiri &amp; sashimi</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Nigiri saumon</div><div class="ds" data-i18n="i1d">Riz vinaigré, saumon tranché</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Sashimi assortis</div><div class="ds" data-i18n="i2d">Sélection du comptoir</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Tartare &amp; ikura</div><div class="ds" data-i18n="i3d">Dressé à la main</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Nigiri saumon</div><div class="ds" data-i18n="i1d">Saumon sur riz vinaigré</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Sashimi assortis</div><div class="ds" data-i18n="i2d">Assortiment de poissons crus</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Tartare &amp; ikura</div><div class="ds" data-i18n="i3d">Tartare de poisson et œufs de saumon</div></div></div>
      </div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg2">Maki &amp; rolls</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Maki</div><div class="ds" data-i18n="i4d">Roulés à la commande</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">California &amp; rolls signés</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Maki</div><div class="ds" data-i18n="i4d">Saumon, thon ou avocat</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Rolls garnis</div><div class="ds" data-i18n="i5d">Croustillants, au tobiko, aux herbes ou nappés de sauce</div></div></div>
      </div>
     </div>
     <div>
      <div class="mgroup">
       <h3><span class="dot"></span><span data-i18n="mg3">Les plateaux</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Plateau découverte</div><div class="ds" data-i18n="i6d">Assortiment composé</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Grand plateau à partager</div></div></div>
-     </div>
-     <div class="mgroup">
-      <h3><span class="dot"></span><span data-i18n="mg4">Chaud &amp; à côté</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Tempura</div><div class="ds" data-i18n="i8d">Beignets croustillants</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Soupe miso &amp; edamame</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Plateau découverte</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Grand plateau à partager</div><div class="ds" data-i18n="i7d">Nigiri, maki et rolls sur un même plateau</div></div></div>
      </div>
     </div>
    </div>
-   <p class="note" data-i18n="carte_note">Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié en ligne : la carte et les prix sont à confirmer sur place.</p>
   </div>
  </section>
 
@@ -317,14 +307,13 @@ footer .made a{color:var(--wood)}
    </div>
    <div class="grid">
     <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">Ettelbruck</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span data-i18n="ino_ht">Midi &amp; soir</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">9, place Marie-Adélaïde<br>L-9063 Ettelbruck</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k3">Réserver / commander</div><div class="v"><a href="tel:+352621783668">+352 621 783 668</a><br><a class="btn p" style="margin-top:14px" href="https://wa.me/c/352621783668" target="_blank" rel="noopener" data-i18n="ino_wa">Commander sur WhatsApp ↗</a></div></div></div>
     </div>
-    <div class="mapcard">
+    <div class="mapcard" role="img" aria-label="La salle de Sushi Iwo, avec vue sur la place Marie-Adélaïde">
      <div>
       <div class="big" data-i18n="map_big">Ettelbruck</div>
-      <div style="color:#b7ac97;margin-top:8px" data-i18n="map_sub">Au cœur du nord du Luxembourg</div>
-      <a class="btn p" href="https://www.google.com/maps/search/Sushi+Iwo+Ettelbruck" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+      <a class="btn p" href="https://www.google.com/maps/search/Sushi+Iwo+9+Place+Marie-Adela%C3%AFde+Ettelbruck" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
      </div>
     </div>
    </div>
@@ -336,112 +325,99 @@ footer .made a{color:var(--wood)}
  <div class="wrap band"><span class="ln"></span><span class="dot"></span><span class="ln"></span></div>
  <div class="wrap in">
   <div>
-   <div class="nm">Sushi Iwo<small>Comptoir à sushi · Ettelbruck</small></div>
-   <p data-i18n="foot_p">Le comptoir à sushi d'Ettelbruck — sushi, sashimi et maki préparés à la minute, au comptoir.</p>
-   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+   <div class="nm">Sushi Iwo<small>Ettelbruck</small></div>
+   <p data-i18n="foot_p">Restaurant de sushis à Ettelbruck — nigiri, maki, sashimi et plateaux.</p>
   </div>
   <div>
    <div style="font-family:'Manrope';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--wood)">Contact</div>
-   <p style="margin-top:10px">Ettelbruck</p>
+   <p style="margin-top:10px">9, place Marie-Adélaïde<br>L-9063 Ettelbruck<br><a href="tel:+352621783668">+352 621 783 668</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Adresse exacte, carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
 </footer>
 
 <script>
 const I18N={
- fr:{wwb_dir:"Itinéraire",
-  nav_comptoir:"Le comptoir",nav_carte:"La carte",nav_gal:"En images",nav_infos:"Infos & accès",
-  hero_eyebrow:"Sushi · sashimi · maki · Ettelbruck",
-  hero_tag:"Le poisson tranché au comptoir, à la minute — au cœur du nord du pays.",
-  hero_cta1:"Voir la carte",hero_cta2:"Le comptoir ↓",
-  fact_k1:"La cuisine",fact_v1:"<b>Sushi & sashimi</b>tranchés au comptoir, à la minute",
-  fact_k2:"Le lieu",fact_v2:"<b>Ettelbruck</b>au cœur du nord",
-  fact_k3:"La maison",fact_v3:"<b>Une maison familiale</b>sur place ou à emporter",
-  sp_tag:"Dressé à la main",sp_eyebrow:"Le comptoir",sp_h:"Fraîcheur & précision.",
-  sp_lead:"Le poisson est tranché au comptoir, le riz assaisonné juste, chaque pièce dressée à la main — nigiri, maki, sashimi et tartares.",
-  sp_body:"Ici, le geste compte autant que le produit. On regarde le comptoir travailler, on commande une sélection, et l'assiette arrive nette, précise, fraîche. Rien de superflu. Une maison familiale, tenue avec soin.",
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
+  nav_comptoir:"La maison",nav_carte:"La carte",nav_gal:"En images",nav_infos:"Infos & accès",
+  hero_eyebrow:"Place Marie-Adélaïde, Ettelbruck",
+  hero_tag:"Rolls croustillants, nigiri au saumon et grands plateaux — sur ardoise en salle, ou à emporter.",
+  hero_cta1:"Voir la carte",hero_cta2:"La maison ↓",
+  fact_k1:"Au menu",fact_v1:"<b>Rolls &amp; plateaux</b>à partager ou à emporter",
+  fact_k2:"Le lieu",fact_v2:"<b>Ettelbruck</b>face à la place Marie-Adélaïde",
+  fact_k3:"Commander",fact_v3:"<b>Par téléphone</b>ou sur WhatsApp",
+  sp_tag:"Sur ardoise",sp_eyebrow:"La maison",sp_h:"Sur place ou à emporter.",
+  sp_lead:"Nigiri, maki, sashimi et tartares, dressés sur ardoise ou réunis en grands plateaux à emporter.",
+  sp_body:"Une salle lumineuse aux panneaux de cerisiers en fleurs, un bar en bois clair, de grandes baies vitrées sur la place : on s'y attable, ou on repart avec un plateau.",
   gal_eyebrow:"En images",gal_h:"La table japonaise",
-  gal_p:"Nigiri, maki roulés à la commande, sashimi, tartares et grands plateaux à partager — la fraîcheur d'abord.",
-  cap_roll:"Maki & sashimi",cap_maki:"Le maki signature",cap_assiette:"L'assiette variée",cap_plateau:"Le grand plateau",cap_comptoir:"Le comptoir",cap_salle:"La salle",
-  carte_eyebrow:"La carte",carte_h:"Ce qu'on prépare",
-  carte_p:"Les classiques du comptoir — nigiri, maki, sashimi, tartares, et des plateaux composés.",
-  mg1:"Nigiri & sashimi",mg2:"Maki & rolls",mg3:"Les plateaux",mg4:"Chaud & à côté",
-  i1n:"Nigiri saumon",i1d:"Riz vinaigré, saumon tranché",i2n:"Sashimi assortis",i2d:"Sélection du comptoir",i3n:"Tartare & ikura",i3d:"Dressé à la main",
-  i4n:"Maki",i4d:"Roulés à la commande",i5n:"California & rolls signés",
-  i6n:"Plateau découverte",i6d:"Assortiment composé",i7n:"Grand plateau à partager",
-  i8n:"Tempura",i8d:"Beignets croustillants",i9n:"Soupe miso & edamame",
-  carte_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié en ligne : la carte et les prix sont à confirmer sur place.",
+  gal_p:"Du roll garni au grand plateau, et la salle aux cerisiers en fleurs.",
+  cap_roll:"Roll garni",cap_maki:"Maki sur ardoise",cap_assiette:"L'assiette variée",cap_plateau:"Le grand plateau",cap_comptoir:"Le bar et la salle",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on sert",
+  carte_p:"Les grandes familles de la carte.",
+  mg1:"Nigiri & sashimi",mg2:"Maki & rolls",mg3:"Les plateaux",
+  i1n:"Nigiri saumon",i1d:"Saumon sur riz vinaigré",i2n:"Sashimi assortis",i2d:"Assortiment de poissons crus",i3n:"Tartare & ikura",i3d:"Tartare de poisson et œufs de saumon",
+  i4n:"Maki",i4d:"Saumon, thon ou avocat",i5n:"Rolls garnis",i5d:"Croustillants, au tobiko, aux herbes ou nappés de sauce",
+  i6n:"Plateau découverte",i7n:"Grand plateau à partager",i7d:"Nigiri, maki et rolls sur un même plateau",
   infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
-  ino_k1:"Adresse",ino_fl1:"adresse exacte à confirmer",ino_phone:"Numéro à confirmer",
-  ino_k3:"Horaires",ino_ht:"Midi & soir",ino_fl3:"horaires à confirmer",
-  map_big:"Ettelbruck",map_sub:"Au cœur du nord du Luxembourg",map_btn:"Ouvrir dans Maps ↗",
-  foot_p:"Le comptoir à sushi d'Ettelbruck — sushi, sashimi et maki préparés à la minute, au comptoir.",
-  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
-  foot_phone:"Téléphone à confirmer",
-  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison. Adresse exacte, carte, prix, horaires et téléphone sont à confirmer — proposition non officielle, non affiliée à ce jour."
+  ino_k1:"Adresse",
+  ino_k3:"Réserver / commander",ino_wa:"Commander sur WhatsApp ↗",
+  map_big:"Ettelbruck",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Restaurant de sushis à Ettelbruck — nigiri, maki, sashimi et plateaux.",
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
  },
- de:{wwb_dir:"Route",
-  nav_comptoir:"Der Tresen",nav_carte:"Karte",nav_gal:"Bilder",nav_infos:"Infos & Anfahrt",
-  hero_eyebrow:"Sushi · Sashimi · Maki · Ettelbruck",
-  hero_tag:"Der Fisch am Tresen geschnitten, à la minute — im Norden des Landes.",
-  hero_cta1:"Zur Karte",hero_cta2:"Der Tresen ↓",
-  fact_k1:"Die Küche",fact_v1:"<b>Sushi & Sashimi</b>am Tresen geschnitten, à la minute",
-  fact_k2:"Der Ort",fact_v2:"<b>Ettelbruck</b>im Herzen des Nordens",
-  fact_k3:"Das Haus",fact_v3:"<b>Ein Familienbetrieb</b>vor Ort oder zum Mitnehmen",
-  sp_tag:"Von Hand angerichtet",sp_eyebrow:"Der Tresen",sp_h:"Frische & Präzision.",
-  sp_lead:"Der Fisch wird am Tresen geschnitten, der Reis genau gewürzt, jedes Stück von Hand angerichtet — Nigiri, Maki, Sashimi und Tatar.",
-  sp_body:"Hier zählt die Handbewegung so viel wie das Produkt. Man sieht dem Tresen bei der Arbeit zu, bestellt eine Auswahl, und der Teller kommt klar, präzise, frisch. Nichts Überflüssiges. Ein Familienbetrieb, mit Sorgfalt geführt.",
-  gal_eyebrow:"Bilder",gal_h:"Der japanische Tisch",
-  gal_p:"Nigiri, auf Bestellung gerollte Maki, Sashimi, Tatar und große Platten zum Teilen — Frische zuerst.",
-  cap_roll:"Maki & Sashimi",cap_maki:"Das Signature-Maki",cap_assiette:"Der gemischte Teller",cap_plateau:"Die große Platte",cap_comptoir:"Der Tresen",cap_salle:"Der Gastraum",
-  carte_eyebrow:"Die Karte",carte_h:"Was wir zubereiten",
-  carte_p:"Die Klassiker vom Tresen — Nigiri, Maki, Sashimi, Tatar und zusammengestellte Platten.",
-  mg1:"Nigiri & Sashimi",mg2:"Maki & Rolls",mg3:"Die Platten",mg4:"Warm & dazu",
-  i1n:"Lachs-Nigiri",i1d:"Sushi-Reis, geschnittener Lachs",i2n:"Sashimi-Auswahl",i2d:"Auswahl vom Tresen",i3n:"Tatar & Ikura",i3d:"Von Hand angerichtet",
-  i4n:"Maki",i4d:"Auf Bestellung gerollt",i5n:"California & Signature-Rolls",
-  i6n:"Entdecker-Platte",i6d:"Zusammengestelltes Sortiment",i7n:"Große Platte zum Teilen",
-  i8n:"Tempura",i8d:"Knusprige Teigtaschen",i9n:"Miso-Suppe & Edamame",
-  carte_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Es sind keine Preise online veröffentlicht: Karte und Preise vor Ort zu bestätigen.",
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
+  nav_comptoir:"Das Haus",nav_carte:"Karte",nav_gal:"Bilder",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Place Marie-Adélaïde, Ettelbruck",
+  hero_tag:"Knusprige Rolls, Lachs-Nigiri und große Platten — auf Schiefer im Restaurant oder zum Mitnehmen.",
+  hero_cta1:"Zur Karte",hero_cta2:"Das Haus ↓",
+  fact_k1:"Auf der Karte",fact_v1:"<b>Rolls & Platten</b>zum Teilen oder Mitnehmen",
+  fact_k2:"Der Ort",fact_v2:"<b>Ettelbruck</b>an der Place Marie-Adélaïde",
+  fact_k3:"Bestellen",fact_v3:"<b>Telefonisch</b>oder per WhatsApp",
+  sp_tag:"Auf Schiefer",sp_eyebrow:"Das Haus",sp_h:"Vor Ort oder zum Mitnehmen.",
+  sp_lead:"Nigiri, Maki, Sashimi und Tatar — auf Schiefer angerichtet oder als große Platte zum Mitnehmen.",
+  sp_body:"Ein heller Gastraum mit Kirschblüten-Paneelen, eine Theke aus hellem Holz und große Fenster zum Platz: Man bleibt zum Essen oder nimmt eine Platte mit.",
+  gal_eyebrow:"Bilder",gal_h:"Am japanischen Tisch",
+  gal_p:"Von der garnierten Roll bis zur großen Platte — und der Gastraum mit den Kirschblüten.",
+  cap_roll:"Garnierte Roll",cap_maki:"Maki auf Schiefer",cap_assiette:"Der gemischte Teller",cap_plateau:"Die große Platte",cap_comptoir:"Bar und Gastraum",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir servieren",
+  carte_p:"Die Karte im Überblick.",
+  mg1:"Nigiri & Sashimi",mg2:"Maki & Rolls",mg3:"Die Platten",
+  i1n:"Lachs-Nigiri",i1d:"Lachs auf Sushi-Reis",i2n:"Sashimi-Auswahl",i2d:"Auswahl an rohem Fisch",i3n:"Tatar & Ikura",i3d:"Fischtatar mit Lachskaviar",
+  i4n:"Maki",i4d:"Lachs, Thunfisch oder Avocado",i5n:"Garnierte Rolls",i5d:"Knusprig, mit Tobiko, Kräutern oder Sauce",
+  i6n:"Entdecker-Platte",i7n:"Große Platte zum Teilen",i7d:"Nigiri, Maki und Rolls auf einer Platte",
   infos_eyebrow:"Infos & Anfahrt",infos_h:"So finden Sie uns",
-  ino_k1:"Adresse",ino_fl1:"genaue Adresse zu bestätigen",ino_phone:"Nummer zu bestätigen",
-  ino_k3:"Öffnungszeiten",ino_ht:"Mittags & abends",ino_fl3:"Zeiten zu bestätigen",
-  map_big:"Ettelbruck",map_sub:"Im Herzen des Luxemburger Nordens",map_btn:"In Maps öffnen ↗",
-  foot_p:"Der Sushi-Tresen von Ettelbruck — Sushi, Sashimi und Maki à la minute, am Tresen.",
-  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
-  foot_phone:"Telefon zu bestätigen",
-  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus. Genaue Adresse, Karte, Preise, Zeiten und Telefon sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+  ino_k1:"Adresse",
+  ino_k3:"Reservieren / bestellen",ino_wa:"Per WhatsApp bestellen ↗",
+  map_big:"Ettelbruck",map_btn:"In Maps öffnen ↗",
+  foot_p:"Sushi-Restaurant in Ettelbruck — Nigiri, Maki, Sashimi und Platten.",
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
  },
- en:{wwb_dir:"Directions",
-  nav_comptoir:"The counter",nav_carte:"Menu",nav_gal:"In pictures",nav_infos:"Find us",
-  hero_eyebrow:"Sushi · sashimi · maki · Ettelbruck",
-  hero_tag:"Fish sliced at the counter, to order — in the heart of the north.",
-  hero_cta1:"See the menu",hero_cta2:"The counter ↓",
-  fact_k1:"The kitchen",fact_v1:"<b>Sushi & sashimi</b>sliced at the counter, to order",
-  fact_k2:"The place",fact_v2:"<b>Ettelbruck</b>in the heart of the north",
-  fact_k3:"The house",fact_v3:"<b>A family-run house</b>dine in or take away",
-  sp_tag:"Plated by hand",sp_eyebrow:"The counter",sp_h:"Freshness & precision.",
-  sp_lead:"The fish is sliced at the counter, the rice seasoned just so, each piece plated by hand — nigiri, maki, sashimi and tartares.",
-  sp_body:"Here the gesture matters as much as the product. You watch the counter work, order a selection, and the plate arrives clean, precise, fresh. Nothing superfluous. A family-run house, kept with care.",
-  gal_eyebrow:"In pictures",gal_h:"The Japanese table",
-  gal_p:"Nigiri, maki rolled to order, sashimi, tartares and big sharing platters — freshness first.",
-  cap_roll:"Maki & sashimi",cap_maki:"The signature maki",cap_assiette:"The mixed plate",cap_plateau:"The big platter",cap_comptoir:"The counter",cap_salle:"The dining room",
-  carte_eyebrow:"The menu",carte_h:"What we prepare",
-  carte_p:"The counter classics — nigiri, maki, sashimi, tartares, and composed platters.",
-  mg1:"Nigiri & sashimi",mg2:"Maki & rolls",mg3:"The platters",mg4:"Hot & sides",
-  i1n:"Salmon nigiri",i1d:"Vinegared rice, sliced salmon",i2n:"Assorted sashimi",i2d:"The counter's selection",i3n:"Tartare & ikura",i3d:"Plated by hand",
-  i4n:"Maki",i4d:"Rolled to order",i5n:"California & signature rolls",
-  i6n:"Discovery platter",i6d:"Composed assortment",i7n:"Big sharing platter",
-  i8n:"Tempura",i8d:"Crisp fritters",i9n:"Miso soup & edamame",
-  carte_note:"Dishes from the house's public photos, for reference. No prices are published online: the menu and prices are to be confirmed on site.",
+ en:{wwb_call:"Call",wwb_dir:"Directions",
+  nav_comptoir:"The restaurant",nav_carte:"Menu",nav_gal:"In pictures",nav_infos:"Find us",
+  hero_eyebrow:"Place Marie-Adélaïde, Ettelbruck",
+  hero_tag:"Crispy rolls, salmon nigiri and big platters — on slate in the restaurant, or to take away.",
+  hero_cta1:"See the menu",hero_cta2:"The restaurant ↓",
+  fact_k1:"On the menu",fact_v1:"<b>Rolls & platters</b>to share or take away",
+  fact_k2:"The place",fact_v2:"<b>Ettelbruck</b>on Place Marie-Adélaïde",
+  fact_k3:"Order",fact_v3:"<b>By phone</b>or on WhatsApp",
+  sp_tag:"On slate",sp_eyebrow:"The restaurant",sp_h:"Eat in or take away.",
+  sp_lead:"Nigiri, maki, sashimi and tartare — plated on slate or packed into big platters to take away.",
+  sp_body:"A bright room with cherry-blossom panels, a pale-wood bar and big windows onto the square: stay and eat, or leave with a platter.",
+  gal_eyebrow:"In pictures",gal_h:"At the table",
+  gal_p:"From garnished rolls to the big platter — and the cherry-blossom dining room.",
+  cap_roll:"Garnished roll",cap_maki:"Maki on slate",cap_assiette:"The mixed plate",cap_plateau:"The big platter",cap_comptoir:"The bar and dining room",
+  carte_eyebrow:"The menu",carte_h:"What we serve",
+  carte_p:"The menu at a glance.",
+  mg1:"Nigiri & sashimi",mg2:"Maki & rolls",mg3:"The platters",
+  i1n:"Salmon nigiri",i1d:"Salmon on sushi rice",i2n:"Assorted sashimi",i2d:"An assortment of raw fish",i3n:"Tartare & ikura",i3d:"Fish tartare with salmon roe",
+  i4n:"Maki",i4d:"Salmon, tuna or avocado",i5n:"Garnished rolls",i5d:"Crispy, with tobiko, herbs or sauce",
+  i6n:"Discovery platter",i7n:"Big sharing platter",i7d:"Nigiri, maki and rolls on one platter",
   infos_eyebrow:"Info & access",infos_h:"Find us",
-  ino_k1:"Address",ino_fl1:"exact address to be confirmed",ino_phone:"Number to be confirmed",
-  ino_k3:"Opening hours",ino_ht:"Lunch & evening",ino_fl3:"hours to be confirmed",
-  map_big:"Ettelbruck",map_sub:"In the heart of Luxembourg's north",map_btn:"Open in Maps ↗",
-  foot_p:"The sushi counter of Ettelbruck — sushi, sashimi and maki made to order, at the counter.",
-  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
-  foot_phone:"Phone to be confirmed",
-  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand and dishes belong to the house. Exact address, menu, prices, hours and phone are to be confirmed — an unofficial proposal, not affiliated to date."
+  ino_k1:"Address",
+  ino_k3:"Book / order",ino_wa:"Order on WhatsApp ↗",
+  map_big:"Ettelbruck",map_btn:"Open in Maps ↗",
+  foot_p:"Sushi restaurant in Ettelbruck — nigiri, maki, sashimi and platters.",
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
  }
 };
 let lang="fr";
@@ -506,7 +482,8 @@ try{const sv=localStorage.getItem("iwo_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
 </script>
 
 <div class="wwbar" role="navigation" aria-label="Actions rapides">
-  <a class="btn p" href="https://www.google.com/maps/search/Sushi+Iwo+Ettelbruck" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+  <a class="btn p" href="tel:+352621783668" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Sushi+Iwo+9+Place+Marie-Adela%C3%AFde+Ettelbruck" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
 </body>
 </html>
