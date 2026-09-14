@@ -61,7 +61,7 @@ nav.links a:hover{color:var(--gold);opacity:1}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
 .hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,14,14,0.58) 0%,rgba(20,14,14,0.38) 32%,rgba(20,14,14,0.5) 66%,rgba(15,10,10,0.92) 100%)}
 .hero .mgwm{position:absolute;right:-40px;top:8%;width:360px;height:360px;color:rgba(226,151,26,.16);z-index:-1}
-.hero .kolam{position:absolute;z-index:0;right:clamp(-150px,-6vw,-40px);top:50%;transform:translateY(-50%);width:clamp(260px,26vw,380px);height:clamp(260px,26vw,380px);opacity:.55;pointer-events:none;color:var(--gold);filter:drop-shadow(0 0 14px rgba(0,0,0,.55))}
+.hero .kolam{display:none;position:absolute;z-index:0;right:clamp(-150px,-6vw,-40px);top:50%;transform:translateY(-50%);width:clamp(260px,26vw,380px);height:clamp(260px,26vw,380px);opacity:.55;pointer-events:none;color:var(--gold);filter:drop-shadow(0 0 14px rgba(0,0,0,.55))}
 .hero .kolam .krot{transform-box:fill-box;transform-origin:center;animation:kspin 96s linear infinite}
 .hero .kolam .kd{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:kolamDraw 9s ease-in-out infinite}
 .hero .kolam .kdot{fill:currentColor;opacity:0;animation:kdotPulse 9s ease-in-out infinite}
@@ -69,7 +69,7 @@ nav.links a:hover{color:var(--gold);opacity:1}
 @keyframes kdotPulse{0%{opacity:0}20%{opacity:0}32%{opacity:1}74%{opacity:1}86%{opacity:0}100%{opacity:0}}
 @keyframes kspin{to{transform:rotate(360deg)}}
 .hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
-.hero .eyebrow{color:var(--gold);margin-bottom:14px}
+.hero .eyebrow{color:var(--gold);margin-bottom:14px;text-shadow:0 1px 12px rgba(0,0,0,.9),0 0 2px rgba(0,0,0,.8)}
 .hero h1{color:#fff;font-size:clamp(66px,13vw,168px);letter-spacing:.02em;text-shadow:0 4px 40px rgba(0,0,0,.45)}
 .hero .tag{font-family:'Mukta',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f4ead6;max-width:31ch;margin:18px 0 0;line-height:1.4}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
@@ -296,7 +296,7 @@ footer .made a{color:var(--gold)}
   <div class="wrap grid">
    <div class="txt">
     <span class="eyebrow" data-i18n="thali_eyebrow">La signature</span>
-    <h2 data-i18n="thali_h">Le thali<span>du Sud, à volonté.</span></h2>
+    <h2 data-i18n="thali_h">Le thali<span>du Sud, à&nbsp;volonté.</span></h2>
     <p class="lead" data-i18n="thali_lead">Un grand plateau végétarien : riz, plusieurs curries et accompagnements — resservi à volonté, le midi.</p>
     <p class="body" data-i18n="thali_body">C'est la table du Sud comme à la maison : végétarienne, généreuse, épicée juste comme il faut. On goûte à tout, on se ressert, et on repart calé. Une belle façon de découvrir la cuisine d'Andhra.</p>
    </div>
@@ -438,7 +438,7 @@ const I18N={
   fact_k1:"La cuisine",fact_v1:"<b>Inde du Sud</b>Andhra & Hyderabad, maison",
   fact_k2:"Le thali",fact_v2:"<b>Végétarien à volonté</b>le midi",
   fact_k3:"L'adresse",fact_v3:"<b>4b Dernier Sol</b>Bonnevoie · à deux pas de la gare",
-  thali_eyebrow:"La signature",thali_h:"Le thali<span>du Sud, à volonté.</span>",
+  thali_eyebrow:"La signature",thali_h:"Le thali<span>du Sud, à&nbsp;volonté.</span>",
   thali_lead:"Un grand plateau végétarien : riz, plusieurs curries et accompagnements — resservi à volonté, le midi.",
   thali_body:"C'est la table du Sud comme à la maison : végétarienne, généreuse, épicée juste comme il faut. On goûte à tout, on se ressert, et on repart calé. Une belle façon de découvrir la cuisine d'Andhra.",
   thali_pill:"À volonté",
