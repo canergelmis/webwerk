@@ -14,7 +14,7 @@
 :root{
  --teak:#382013; --teak-d:#271609; --teak-l:#523422; --ink:#2a1c12;
  --cream:#f3e9d6; --stone:#e6d9c0; --card:#fbf5e7;
- --gold:#c8922e; --amber:#e3ac48; --jade:#2f6d54; --jade-l:#3f8a6b; --chili:#c1402a;
+ --gold:#c8922e; --amber:#e3ac48; --jade:#9a6a1f; --jade-l:#b07a26; --chili:#a8741f;
  --line:#d8c9a9; --muted:#8c7a5f;
  --maxw:1200px;
 }
@@ -60,7 +60,7 @@ nav.links a:hover{color:var(--amber);opacity:1}
 .hero h1{color:#fff;font-size:clamp(52px,10vw,130px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.5)}
 .hero .tag{font-family:'Kanit',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f2e6d0;max-width:31ch;margin:20px 0 0;line-height:1.4}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
-.btn{font-family:'Kanit',sans-serif;font-weight:700;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn{font-family:'Kanit',sans-serif;font-weight:600;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
 .btn.p{background:var(--jade);color:#fff}
 .btn.p:hover{background:var(--jade-l)}
 .btn.o{background:transparent;color:var(--cream);border-color:rgba(243,233,214,.5)}
@@ -98,11 +98,11 @@ section{padding:clamp(56px,9vw,102px) 0}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
 .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,12,6,0.95) 0%,rgba(20,12,6,0.85) 62%,rgba(20,12,6,0) 100%);color:#fff;font-family:'Chonburi',serif;font-weight:400;font-size:17px}
 
-.bar-band{background:var(--jade);color:#eaf3ee;position:relative;overflow:hidden}
+.bar-band{background:var(--teak-d);color:#f0e4cf;position:relative;overflow:hidden}
 .bar-band .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
 .bar-band h2{font-family:'Chonburi';font-size:clamp(34px,5vw,60px);color:#fff}
 .bar-band h2 span{color:var(--amber);display:block}
-.bar-band .lead{font-size:18px;color:#e2efe8;margin-top:18px;line-height:1.6;max-width:44ch}
+.bar-band .lead{font-size:18px;color:#e6d8bd;margin-top:18px;line-height:1.6;max-width:44ch}
 .bar-band .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .bar-band .chip{font-family:'Kanit';font-weight:700;font-size:12.5px;color:var(--teak-d);background:var(--amber);padding:8px 15px;border-radius:999px}
 .bar-band .chip.b{background:transparent;color:#eaf3ee;border:1.5px solid rgba(234,243,238,.4)}
@@ -112,6 +112,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
 .mgroup{margin-bottom:30px}
 .mgroup{scroll-margin-top:90px}
+.mphoto{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;margin-bottom:14px}
 .mjump{display:flex;flex-wrap:wrap;gap:8px;margin:-14px 0 28px}
 .mjump a{border:1.5px solid var(--teak);border-radius:999px;padding:6px 14px;font-family:'Kanit';font-weight:600;font-size:14px;color:var(--teak)}
 .mgroup h3{font-family:'Chonburi';font-size:25px;color:var(--teak);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--chili);margin-bottom:14px}
@@ -199,8 +200,9 @@ footer .made a{color:var(--amber)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
-@media(max-width:760px){ .wwbar a{font-size:.86rem} .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .inobtns .btn.p{display:none} }
+@media(max-width:760px){ .brand .nm{display:none} .hero .bg img{object-position:72% 50%} .wwbar a{font-size:.86rem} .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .inobtns .btn.p{display:none} }
 @media(min-width:901px){
+  .facts .c:first-child{padding-left:0}
   .hero{align-items:center;margin-top:0;padding-top:0;min-height:min(74vh,660px)}
   .hero .bg{left:auto;width:52%}
   .hero .scrim{background:linear-gradient(90deg,var(--teak-d) 0%,rgba(39,22,9,0) 14%)}
@@ -267,24 +269,22 @@ footer .made a{color:var(--amber)}
   <div class="wrap grid">
    <div class="txt">
     <span class="eyebrow" data-i18n="ma_eyebrow">La maison</span>
-    <h2 data-i18n="ma_h">Avenue du Bois,<span>à Limpertsberg.</span></h2>
-    <p class="lead" data-i18n="ma_lead">Mont St-Lambert est un bar-restaurant : cuisine thaïe et chinoise en salle, dans la véranda côté rue, à emporter ou en livraison.</p>
+    <h2 data-i18n="ma_h">La salle<span>et la véranda.</span></h2>
+    <p class="lead" data-i18n="ma_lead">Des banquettes en bois, des chaises bistrot, les suspensions en rotin et, côté avenue du Bois, la véranda vitrée. Cuisine thaïe et chinoise sur place, à emporter ou en livraison.</p>
    </div>
-   <div class="pic"><img src="assets/salle.jpg" alt="La salle, banquette en bois, chaises bistrot et le logo Mont St-Lambert au mur"/></div>
+   <div class="pic"><img src="assets/salle.jpg" alt="La salle en longueur, suspension en rotin, chaises bistrot et comptoir"/></div>
   </div>
  </section>
  <section id="gal">
   <div class="wrap">
    <div class="sect-h">
-    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
-    <h2 data-i18n="gal_h">Du wok</h2>
-    <p data-i18n="gal_p">Bœuf et légumes, riz sauté, nems, nouilles sautées.</p>
+    <span class="eyebrow" data-i18n="gal_eyebrow">En images</span>
+    <h2 data-i18n="gal_h">À table</h2>
+    <p data-i18n="gal_p">Bœuf sauté aux légumes, nouilles sautées au poulet.</p>
    </div>
    <div class="gal">
     <figure class="w2 h2"><img src="assets/wok.jpg" alt="Bœuf sauté aux légumes, coriandre et piment"/><figcaption data-i18n="cap_wok">Bœuf sauté aux légumes</figcaption></figure>
-    <figure><img src="assets/rice.jpg" alt="Riz sauté aux légumes et à la viande"/><figcaption data-i18n="cap_rice">Riz sauté</figcaption></figure>
-    <figure><img src="assets/nems.jpg" alt="Nems et sauce aigre-douce"/><figcaption data-i18n="cap_nems">Nems</figcaption></figure>
-    <figure class="w2"><img src="assets/noodles.jpg" alt="Nouilles sautées au poulet et aux légumes"/><figcaption data-i18n="cap_noodles">Nouilles sautées au poulet</figcaption></figure>
+    <figure class="w2 h2"><img src="assets/noodles.jpg" alt="Nouilles sautées au poulet et aux légumes"/><figcaption data-i18n="cap_noodles">Nouilles sautées au poulet</figcaption></figure>
    </div>
   </div>
  </section>
@@ -295,7 +295,7 @@ footer .made a{color:var(--amber)}
     <h2 data-i18n="bar_h">Aussi<span>un bar.</span></h2>
     <p class="lead" data-i18n="bar_lead">Une carte de bières, de la Leffe et de la Chouffe à la Tsingtao, la Hoegaarden et la Vedette, et des vins de Luxembourg, de France et d'Italie.</p>
    </div>
-   <div class="pic"><img src="assets/bar.jpg" alt="Le comptoir, la tireuse à bière et la salle au fond"/></div>
+   <div class="pic"><img src="assets/bar.jpg" alt="Le coin banquette et le logo Mont St-Lambert au mur"/></div>
   </div>
  </section>
  <section class="carte" id="carte">
@@ -308,6 +308,7 @@ footer .made a{color:var(--amber)}
    <div class="cols">
     <div>
      <div class="mgroup" id="mg1">
+      <img class="mphoto" src="assets/nems.jpg" alt="Nems et sauce aigre-douce" loading="lazy"/>
       <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg1">Soupes &amp; entrées</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i1n">Soupe thaïe au curry rouge et scampis</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i2n">Soupe aux raviolis chinois</div></div></div>
@@ -335,6 +336,7 @@ footer .made a{color:var(--amber)}
       <div class="mitem"><div><div class="nm" data-i18n="i16n">Tofu façon grand-mère</div></div></div>
      </div>
      <div class="mgroup" id="mg4">
+      <img class="mphoto" src="assets/rice.jpg" alt="Riz sauté" loading="lazy"/>
       <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg4">Nouilles &amp; riz</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i17n">Nouilles sautées</div><div class="ds" data-i18n="i17d">Légumes, poulet, bœuf ou scampis</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i18n">Riz sauté</div><div class="ds" data-i18n="i18d">Légumes, poulet, bœuf ou scampis</div></div></div>
@@ -403,14 +405,12 @@ const I18N={
   fact_k3:"Le bar",
   fact_v3:"<b>Une belle carte de bières</b>et des vins",
   ma_eyebrow:"La maison",
-  ma_h:"Avenue du Bois,<span>à Limpertsberg.</span>",
-  ma_lead:"Mont St-Lambert est un bar-restaurant : cuisine thaïe et chinoise en salle, dans la véranda côté rue, à emporter ou en livraison.",
-  gal_eyebrow:"À table",
-  gal_h:"Du wok",
-  gal_p:"Bœuf et légumes, riz sauté, nems, nouilles sautées.",
+  ma_h:"La salle<span>et la véranda.</span>",
+  ma_lead:"Des banquettes en bois, des chaises bistrot, les suspensions en rotin et, côté avenue du Bois, la véranda vitrée. Cuisine thaïe et chinoise sur place, à emporter ou en livraison.",
+  gal_eyebrow:"En images",
+  gal_h:"À table",
+  gal_p:"Bœuf sauté aux légumes, nouilles sautées au poulet.",
   cap_wok:"Bœuf sauté aux légumes",
-  cap_rice:"Riz sauté",
-  cap_nems:"Nems",
   cap_noodles:"Nouilles sautées au poulet",
   bar_eyebrow:"Le bar",
   bar_h:"Aussi<span>un bar.</span>",
@@ -474,14 +474,12 @@ const I18N={
   fact_k3:"Die Bar",
   fact_v3:"<b>Eine gute Bierkarte</b>und Weine",
   ma_eyebrow:"Das Haus",
-  ma_h:"Avenue du Bois,<span>in Limpertsberg.</span>",
-  ma_lead:"Mont St-Lambert ist Bar und Restaurant: thailändische und chinesische Küche im Gastraum, in der Veranda zur Straße, zum Mitnehmen oder geliefert.",
-  gal_eyebrow:"Zu Tisch",
-  gal_h:"Aus dem Wok",
-  gal_p:"Rind mit Gemüse, gebratener Reis, Frühlingsrollen, gebratene Nudeln.",
+  ma_h:"Gastraum<span>und Veranda.</span>",
+  ma_lead:"Holzbänke, Bistrostühle, Rattanlampen und zur Avenue du Bois hin die verglaste Veranda. Thailändische und chinesische Küche vor Ort, zum Mitnehmen oder geliefert.",
+  gal_eyebrow:"In Bildern",
+  gal_h:"Zu Tisch",
+  gal_p:"Rind mit Gemüse aus dem Wok, gebratene Nudeln mit Hähnchen.",
   cap_wok:"Rind mit Gemüse aus dem Wok",
-  cap_rice:"Gebratener Reis",
-  cap_nems:"Frühlingsrollen",
   cap_noodles:"Gebratene Nudeln mit Hähnchen",
   bar_eyebrow:"Die Bar",
   bar_h:"Auch<span>eine Bar.</span>",
@@ -545,14 +543,12 @@ const I18N={
   fact_k3:"The bar",
   fact_v3:"<b>A good beer list</b>and wines",
   ma_eyebrow:"The house",
-  ma_h:"Avenue du Bois,<span>in Limpertsberg.</span>",
-  ma_lead:"Mont St-Lambert is a bar-restaurant: Thai and Chinese cooking in the dining room, in the street-side veranda, to take away or delivered.",
-  gal_eyebrow:"At the table",
-  gal_h:"From the wok",
-  gal_p:"Beef and vegetables, fried rice, spring rolls, stir-fried noodles.",
+  ma_h:"The dining room<span>and the veranda.</span>",
+  ma_lead:"Wooden banquettes, bistro chairs, rattan pendant lamps and, facing Avenue du Bois, the glazed veranda. Thai and Chinese cooking to eat in, take away or have delivered.",
+  gal_eyebrow:"In pictures",
+  gal_h:"At the table",
+  gal_p:"Stir-fried beef and vegetables, chicken fried noodles.",
   cap_wok:"Stir-fried beef and vegetables",
-  cap_rice:"Fried rice",
-  cap_nems:"Spring rolls",
   cap_noodles:"Chicken fried noodles",
   bar_eyebrow:"The bar",
   bar_h:"Also<span>a bar.</span>",
