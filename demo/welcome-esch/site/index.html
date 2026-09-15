@@ -58,10 +58,10 @@ nav.links a:hover{color:#fff;opacity:1}
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;margin-top:-64px;padding-top:64px;overflow:hidden;background:radial-gradient(120% 100% at 20% 12%,var(--blue) 0,var(--blue-d) 46%,var(--blue-dd) 100%)}
 .hero canvas#azu{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
 .hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,34,71,0.82) 0%,rgba(10,34,71,0.5) 42%,rgba(10,34,71,0.15) 70%,rgba(10,34,71,0.28) 100%)}
-.hero .inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(38px,7vw,86px)}
+.hero .inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(38px,7vw,86px)}
 .hero .eyebrow{color:var(--gold);margin-bottom:16px;display:block}
 .hero h1{color:#fff;font-size:clamp(58px,11vw,150px);letter-spacing:.005em;text-shadow:0 6px 44px rgba(0,0,0,.45);line-height:.9}
-.hero h1 .kick{display:block;font-family:'Body',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.42em;font-size:clamp(12px,1.5vw,16px);color:var(--azu-l);margin-bottom:14px;text-shadow:none}
+.hero h1 .kick{display:block;padding-bottom:10px;font-family:'Body',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.42em;font-size:clamp(12px,1.5vw,16px);color:var(--azu-l);margin-bottom:14px;text-shadow:none}
 .hero .tag{font-family:'Body',sans-serif;font-weight:400;font-size:clamp(18px,2.3vw,25px);color:#eaf1fb;max-width:32ch;margin:22px 0 0;line-height:1.45}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
 .btn{font-family:'Body',sans-serif;font-weight:700;letter-spacing:.01em;font-size:14.5px;padding:14px 26px;border-radius:4px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
@@ -72,9 +72,11 @@ nav.links a:hover{color:#fff;opacity:1}
 .btn.b{background:var(--blue);color:#fff}
 .btn.b:hover{background:var(--blue-d)}
 /* framed photo card = a glazed panel */
-.herocard{position:relative;justify-self:end;width:100%;max-width:540px}
-.herocard .frame{background:var(--cream);padding:10px;border-radius:8px;box-shadow:0 34px 70px rgba(6,18,42,.55)}
-.herocard .frame img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px}
+.herocard{position:absolute;top:0;right:0;bottom:0;width:48%;z-index:1}
+.herocard .frame{height:100%}
+.herocard .frame img{width:100%;height:100%;object-fit:cover}
+.hero canvas#azu{opacity:.5}
+@media(min-width:901px){ .hero h1{font-size:clamp(58px,8.4vw,120px)} .hero .inner{padding-right:calc(48vw - (100vw - min(100vw,var(--maxw))) / 2 + 40px)} .hero .scrim{background:linear-gradient(90deg,rgba(10,34,71,.78) 0%,rgba(10,34,71,.45) 60%,rgba(10,34,71,.2) 100%)} }
 .herocard .pill{position:absolute;left:-14px;bottom:22px;background:var(--red);color:#fff;font-family:'Body';font-weight:700;font-size:13px;letter-spacing:.02em;padding:10px 16px;border-radius:4px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:rotate(-1.4deg)}
 
 /* FACTS */
@@ -125,6 +127,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .carte{background:var(--paper)}
 .carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
 .mgroup{margin-bottom:30px}
+.carte .sub{font-size:16px;color:var(--ink2)}
 .mgroup h3{font-family:'Disp';font-weight:600;font-size:25px;color:var(--blue-d);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--blue);margin-bottom:14px}
 .mgroup h3 .az{width:16px;height:16px;flex:none;border-radius:3px;background:
   repeating-linear-gradient(45deg,var(--blue) 0 4px,#fff 4px 8px)}
@@ -149,8 +152,9 @@ section{padding:clamp(56px,9vw,102px) 0}
 .ino .v.big{font-family:'Disp',serif;font-size:30px}
 .inobtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .inobtns .btn{flex:1 1 160px;justify-content:center}
-.infos .photo{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 20px 44px rgba(0,0,0,.4);min-height:260px}
-.infos .photo img{width:100%;height:100%;min-height:260px;object-fit:cover}
+.infos .photo{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 20px 44px rgba(0,0,0,.4)}
+.infos .photo img{width:100%;aspect-ratio:3/2;height:auto;object-fit:cover}
+.infos .grid{align-items:center}
 .infos .photo .cap{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(10,20,42,0.95) 0%,rgba(10,20,42,0.85) 62%,rgba(10,20,42,0) 100%);color:#fff;font-family:'Disp';font-weight:600;font-size:16px}
 .infos .photo .cap .btn{margin-top:10px}
 
@@ -170,7 +174,10 @@ footer .made a{color:var(--gold)}
 @media(max-width:900px){
  .hero .inner,.spot .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
  .hero{min-height:auto}
- .herocard{justify-self:center;margin-top:8px;max-width:400px}
+ .herocard{width:100%;z-index:0}
+ .hero canvas#azu{display:none}
+ .hero{min-height:calc(100svh - 78px);align-items:flex-end}
+ .hero .scrim{background:linear-gradient(180deg,rgba(10,34,71,.2) 0%,rgba(10,34,71,.12) 36%,rgba(10,34,71,.92) 100%)}
  .maison .rooms{grid-template-columns:1fr}
  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
  .spot .pic{order:-1}
@@ -218,7 +225,7 @@ footer .made a{color:var(--gold)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
-@media(max-width:760px){ .hero .cta{display:none} }
+@media(max-width:760px){ .hero .cta{display:none} .inobtns{display:none} }
 </style>
 </head>
 <body>
@@ -243,6 +250,9 @@ footer .made a{color:var(--gold)}
 <main id="top">
  <section class="hero" id="hero">
   <canvas id="azu" aria-hidden="true"></canvas>
+  <div class="herocard">
+    <div class="frame"><img src="assets/arroz.jpg" alt="Arroz de marisco dans sa poêle, homard, gambas et citron"/></div>
+  </div>
   <div class="scrim"></div>
   <div class="wrap inner">
    <div class="txt">
@@ -250,11 +260,8 @@ footer .made a{color:var(--gold)}
     <p class="tag" data-i18n="hero_tag">Cuisine portugaise rue du Canal, à Esch-sur-Alzette : fruits de mer, espetada, bacalhau et grillades.</p>
     <div class="cta">
      <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
-     <a class="btn o" href="tel:+352542558" data-i18n="hero_cta2">Appeler le 54 25 58</a>
+     <a class="btn o" href="tel:+352542558" data-i18n="hero_cta2">Appeler</a>
     </div>
-   </div>
-   <div class="herocard">
-    <div class="frame"><img src="assets/marisco.jpg" alt="Une grande poêle de riz aux fruits de mer : homard, gambas et moules"/></div>
    </div>
   </div>
  </section>
@@ -262,7 +269,7 @@ footer .made a{color:var(--gold)}
   <div class="wrap"><div class="row">
     <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Fruits de mer &amp; grillades</b>gambas, arroz de marisco, espetada</div></div>
     <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>103, rue du Canal</b>Esch-sur-Alzette</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k3">Téléphone</div><div class="v" data-i18n="fact_v3"><b>54 25 58</b>à Esch-sur-Alzette</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">Téléphone</div><div class="v" data-i18n="fact_v3"><b>+352 54 25 58</b></div></div>
   </div></div>
  </div>
  <section class="spot" id="signature">
@@ -270,7 +277,7 @@ footer .made a{color:var(--gold)}
    <div class="txt">
     <span class="eyebrow" data-i18n="sig_eyebrow">Côté mer</span>
     <h2>Polvo à lagareiro<span data-i18n="sig_sub">Poulpe grillé, pommes de terre et haricots verts</span></h2>
-    <p class="lead" data-i18n="sig_lead">Le poulpe grillé, à l'ail et à l'huile d'olive, avec pommes de terre et haricots verts, servi dans un plat en terre cuite.</p>
+    <p class="lead" data-i18n="sig_lead">À l'ail et à l'huile d'olive, servi dans un plat en terre cuite.</p>
     <p class="body" data-i18n="sig_body">Sur la carte aussi : gambas, arroz de marisco, espetada, côte de bœuf et bacalhau.</p>
    </div>
    <div class="pic"><img src="assets/polvo.jpg" alt="Polvo à lagareiro : poulpe grillé à l'ail, pommes de terre et haricots verts dans un plat en terre cuite"/></div>
@@ -280,17 +287,16 @@ footer .made a{color:var(--gold)}
   <div class="wrap">
    <div class="sect-h">
     <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
-    <h2 data-i18n="gal_h">Fruits de mer &amp; grillades</h2>
+    <h2 data-i18n="gal_h">Les assiettes</h2>
     <p data-i18n="gal_p">Grands plats de la mer à partager, grillades et espetada.</p>
    </div>
    <div class="gal">
-    <figure class="w2 h2"><img src="assets/arroz.jpg" alt="Arroz de marisco dans sa poêle"/><figcaption data-i18n="cap_arroz">Arroz de marisco</figcaption></figure>
-    <figure><img src="assets/espetada.jpg" alt="Espetada : brochette de viande et courgette, suspendue à son support"/><figcaption data-i18n="cap_espetada">Espetada</figcaption></figure>
+    <figure class="w2 h2"><img src="assets/marisco.jpg" alt="Une grande poêle de riz aux fruits de mer : homard, gambas et moules"/><figcaption data-i18n="cap_arroz">Arroz de marisco</figcaption></figure>
     <figure><img src="assets/cote.jpg" alt="Bœuf grillé, beurre aux herbes et tranche d'orange"/><figcaption data-i18n="cap_cote">Bœuf grillé, beurre aux herbes</figcaption></figure>
-    <figure class="w2"><img src="assets/prato.jpg" alt="Grillade avec riz, haricots noirs et légumes verts"/><figcaption data-i18n="cap_prato">Grillade, riz &amp; haricots noirs</figcaption></figure>
-    <figure><img src="assets/bacalhau.jpg" alt="Bacalhau en sauce tomate, pommes de terre frites, dans un plat émaillé"/><figcaption data-i18n="cap_bacalhau">Bacalhau</figcaption></figure>
     <figure><img src="assets/peixinhos.jpg" alt="Petits poissons frits, citron et salade"/><figcaption data-i18n="cap_peixinhos">Petits poissons frits</figcaption></figure>
+    <figure class="w2"><img src="assets/prato.jpg" alt="Grillade avec riz, haricots noirs et légumes verts"/><figcaption data-i18n="cap_prato">Grillade, riz &amp; haricots noirs</figcaption></figure>
     <figure class="w2"><img src="assets/gambas.jpg" alt="Gambas en sauce, citron et persil"/><figcaption data-i18n="cap_gambas">Gambas</figcaption></figure>
+    <figure class="w2"><img src="assets/bacalhau.jpg" alt="Bacalhau en sauce tomate, pommes de terre frites, dans un plat émaillé"/><figcaption data-i18n="cap_bacalhau">Bacalhau</figcaption></figure>
    </div>
   </div>
  </section>
@@ -301,9 +307,9 @@ footer .made a{color:var(--gold)}
     <h2 data-i18n="maison_h">La salle et le comptoir</h2>
    </div>
    <div class="rooms">
-    <figure><img src="assets/salle.jpg" alt="La salle du restaurant, nappes rouges et beiges, chaises en bois"/><figcaption data-i18n="cap_salle">La salle</figcaption></figure>
-    <figure><img src="assets/comptoir.jpg" alt="Le comptoir en bois, le coq de Barcelos et le cochon « Welcome »"/><figcaption data-i18n="cap_comptoir">Le comptoir</figcaption></figure>
     <figure><img src="assets/welcome.jpg" alt="Le cochon en céramique « Welcome » et les orchidées sur le comptoir"/><figcaption data-i18n="cap_accueil">Le cochon « Welcome »</figcaption></figure>
+    <figure><img src="assets/comptoir.jpg" alt="Le comptoir en bois, le coq de Barcelos et le cochon « Welcome »"/><figcaption data-i18n="cap_comptoir">Le comptoir</figcaption></figure>
+    <figure><img src="assets/salle.jpg" alt="La salle du restaurant, nappes rouges et beiges, chaises en bois"/><figcaption data-i18n="cap_salle">La salle</figcaption></figure>
    </div>
    <p class="lead" data-i18n="maison_lead">Nappes rouges et beiges, un grand comptoir en bois garni de verres, le coq de Barcelos au-dessus du bar et le petit cochon « Welcome » posé sur le comptoir.</p>
   </div>
@@ -318,13 +324,13 @@ footer .made a{color:var(--gold)}
    <div class="cols">
     <div>
      <div class="mgroup">
-      <h3><span class="az"></span><span data-i18n="mg1">La mer</span></h3>
+      <h3><span data-i18n="mg1">La mer</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i1n">Gambas</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i2n">Arroz de marisco</div><div class="ds" data-i18n="i2d">Riz aux fruits de mer</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i3n">Polvo à lagareiro</div><div class="ds" data-i18n="i3d">Poulpe grillé, pommes de terre</div></div></div>
      </div>
      <div class="mgroup">
-      <h3><span class="az"></span><span data-i18n="mg2">Le gril</span></h3>
+      <h3><span data-i18n="mg2">Le gril</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i5n">Espetada</div><div class="ds" data-i18n="i5d">Brochette de viande sur son support</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i6n">Côte de bœuf</div><div class="ds" data-i18n="i6d">Beurre maître d'hôtel</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i7n">Entrecôte</div></div></div>
@@ -332,15 +338,13 @@ footer .made a{color:var(--gold)}
     </div>
     <div>
      <div class="mgroup">
-      <h3><span class="az"></span><span data-i18n="mg3">Le Portugal</span></h3>
+      <h3><span data-i18n="mg3">Le Portugal</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i8n">Bacalhau</div><div class="ds" data-i18n="i8d">Com natas, à brás ou pané</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i9n">Feijoada</div><div class="ds" data-i18n="i9d">Haricots noirs et viandes</div></div></div>
      </div>
      <div class="mgroup">
-      <h3><span class="az"></span><span data-i18n="mg4">À boire &amp; desserts</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Vinhos portugueses</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i11n">Sangria</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i12n">Desserts</div></div></div>
+      <h3><span data-i18n="mg4">À boire &amp; desserts</span></h3>
+      <p class="sub" data-i18n="i_drinks">Vinhos portugueses, sangria et desserts.</p>
      </div>
     </div>
    </div>
@@ -355,12 +359,12 @@ footer .made a{color:var(--gold)}
    <div class="grid">
     <div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">103, rue du Canal<br>L-4051 Esch-sur-Alzette</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Téléphone</div><div class="v big"><a href="tel:+352542558">54 25 58</a></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Téléphone</div><div class="v big"><a href="tel:+352542558">+352 54 25 58</a></div></div></div>
      <div class="inobtns"><a class="btn p" href="tel:+352542558" data-i18n="wwb_call">Appeler</a><a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Restaurant+Welcome+103+Rue+du+Canal+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="map_btn">Itinéraire ↗</a></div>
     </div>
     <div class="photo">
      <img src="assets/facade.jpg" alt="La façade du Restaurant Welcome, rue du Canal à Esch-sur-Alzette"/>
-     <div class="cap"><span data-i18n="photo_cap">103, rue du Canal, Esch-sur-Alzette</span></div>
+     <div class="cap"><span data-i18n="photo_cap">La façade</span></div>
     </div>
    </div>
   </div>
@@ -375,7 +379,7 @@ footer .made a{color:var(--gold)}
   </div>
   <div>
    <div class="fk" data-i18n="foot_contact">Contact</div>
-   <p style="margin-top:10px">103, rue du Canal<br>L-4051 Esch-sur-Alzette<br><a href="tel:+352542558" style="border-bottom:1px solid var(--gold)">54 25 58</a></p>
+   <p style="margin-top:10px">103, rue du Canal<br>L-4051 Esch-sur-Alzette<br><a href="tel:+352542558" style="border-bottom:1px solid var(--gold)">+352 54 25 58</a></p>
   </div>
  </div>
  <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
@@ -394,22 +398,21 @@ const I18N={
   hero_kick:"Restaurant",
   hero_tag:"Cuisine portugaise rue du Canal, à Esch-sur-Alzette : fruits de mer, espetada, bacalhau et grillades.",
   hero_cta1:"Voir la carte",
-  hero_cta2:"Appeler le 54 25 58",
+  hero_cta2:"Appeler",
   fact_k1:"La cuisine",
   fact_v1:"<b>Fruits de mer &amp; grillades</b>gambas, arroz de marisco, espetada",
   fact_k2:"Le lieu",
   fact_v2:"<b>103, rue du Canal</b>Esch-sur-Alzette",
   fact_k3:"Téléphone",
-  fact_v3:"<b>54 25 58</b>à Esch-sur-Alzette",
+  fact_v3:"<b>+352 54 25 58</b>",
   sig_eyebrow:"Côté mer",
   sig_sub:"Poulpe grillé, pommes de terre et haricots verts",
-  sig_lead:"Le poulpe grillé, à l'ail et à l'huile d'olive, avec pommes de terre et haricots verts, servi dans un plat en terre cuite.",
+  sig_lead:"À l'ail et à l'huile d'olive, servi dans un plat en terre cuite.",
   sig_body:"Sur la carte aussi : gambas, arroz de marisco, espetada, côte de bœuf et bacalhau.",
   gal_eyebrow:"À table",
-  gal_h:"Fruits de mer &amp; grillades",
+  gal_h:"Les assiettes",
   gal_p:"Grands plats de la mer à partager, grillades et espetada.",
   cap_arroz:"Arroz de marisco",
-  cap_espetada:"Espetada",
   cap_cote:"Bœuf grillé, beurre aux herbes",
   cap_prato:"Grillade, riz &amp; haricots noirs",
   cap_bacalhau:"Bacalhau",
@@ -442,14 +445,12 @@ const I18N={
   i9n:"Feijoada",
   i9d:"Haricots noirs et viandes",
   mg4:"À boire &amp; desserts",
-  i10n:"Vinhos portugueses",
-  i11n:"Sangria",
-  i12n:"Desserts",
+  i_drinks:"Vinhos portugueses, sangria et desserts.",
   infos_eyebrow:"Infos &amp; accès",
   infos_h:"Nous trouver",
   ino_k1:"Adresse",
   ino_k2:"Téléphone",
-  photo_cap:"103, rue du Canal, Esch-sur-Alzette",
+  photo_cap:"La façade",
   map_btn:"Itinéraire ↗",
   foot_contact:"Contact",
   foot_p:"Cuisine portugaise à Esch-sur-Alzette : fruits de mer, espetada, bacalhau et grillades.",
@@ -467,22 +468,21 @@ const I18N={
   hero_kick:"Restaurant",
   hero_tag:"Portugiesische Küche in der Rue du Canal in Esch-sur-Alzette: Meeresfrüchte, Espetada, Bacalhau und Gegrilltes.",
   hero_cta1:"Zur Speisekarte",
-  hero_cta2:"54 25 58 anrufen",
+  hero_cta2:"Anrufen",
   fact_k1:"Küche",
   fact_v1:"<b>Meeresfrüchte &amp; Gegrilltes</b>Gambas, Arroz de marisco, Espetada",
   fact_k2:"Adresse",
   fact_v2:"<b>103, rue du Canal</b>Esch-sur-Alzette",
   fact_k3:"Telefon",
-  fact_v3:"<b>54 25 58</b>in Esch-sur-Alzette",
+  fact_v3:"<b>+352 54 25 58</b>",
   sig_eyebrow:"Aus dem Meer",
   sig_sub:"Gegrillter Pulpo mit Kartoffeln und grünen Bohnen",
-  sig_lead:"Gegrillter Pulpo mit Knoblauch und Olivenöl, dazu Kartoffeln und grüne Bohnen, in der Tonschale serviert.",
+  sig_lead:"Mit Knoblauch und Olivenöl, in der Tonschale serviert.",
   sig_body:"Außerdem auf der Karte: Gambas, Arroz de marisco, Espetada, Côte de bœuf und Bacalhau.",
   gal_eyebrow:"Zu Tisch",
-  gal_h:"Meeresfrüchte &amp; Gegrilltes",
+  gal_h:"Die Teller",
   gal_p:"Große Meeresfrüchteplatten zum Teilen, Gegrilltes und Espetada.",
   cap_arroz:"Arroz de marisco",
-  cap_espetada:"Espetada",
   cap_cote:"Gegrilltes Rindfleisch mit Kräuterbutter",
   cap_prato:"Gegrilltes mit Reis &amp; schwarzen Bohnen",
   cap_bacalhau:"Bacalhau",
@@ -515,14 +515,12 @@ const I18N={
   i9n:"Feijoada",
   i9d:"Schwarze Bohnen mit Fleisch",
   mg4:"Getränke &amp; Desserts",
-  i10n:"Vinhos portugueses",
-  i11n:"Sangria",
-  i12n:"Desserts",
+  i_drinks:"Portugiesische Weine, Sangria und Desserts.",
   infos_eyebrow:"Anfahrt",
   infos_h:"So finden Sie uns",
   ino_k1:"Adresse",
   ino_k2:"Telefon",
-  photo_cap:"103, rue du Canal, Esch-sur-Alzette",
+  photo_cap:"Die Fassade",
   map_btn:"Route ↗",
   foot_contact:"Kontakt",
   foot_p:"Portugiesische Küche in Esch-sur-Alzette: Meeresfrüchte, Espetada, Bacalhau und Gegrilltes.",
@@ -540,22 +538,21 @@ const I18N={
   hero_kick:"Restaurant",
   hero_tag:"Portuguese cooking on Rue du Canal in Esch-sur-Alzette: seafood, espetada, bacalhau and grills.",
   hero_cta1:"See the menu",
-  hero_cta2:"Call 54 25 58",
+  hero_cta2:"Call",
   fact_k1:"The food",
   fact_v1:"<b>Seafood &amp; grills</b>gambas, arroz de marisco, espetada",
   fact_k2:"Address",
   fact_v2:"<b>103 Rue du Canal</b>Esch-sur-Alzette",
   fact_k3:"Phone",
-  fact_v3:"<b>54 25 58</b>in Esch-sur-Alzette",
+  fact_v3:"<b>+352 54 25 58</b>",
   sig_eyebrow:"From the sea",
   sig_sub:"Grilled octopus with potatoes and green beans",
-  sig_lead:"Grilled octopus with garlic and olive oil, potatoes and green beans, served in a terracotta dish.",
+  sig_lead:"With garlic and olive oil, served in a terracotta dish.",
   sig_body:"Also on the menu: gambas, arroz de marisco, espetada, côte de bœuf and bacalhau.",
   gal_eyebrow:"At the table",
-  gal_h:"Seafood &amp; grills",
+  gal_h:"The plates",
   gal_p:"Big seafood dishes to share, grills and espetada.",
   cap_arroz:"Arroz de marisco",
-  cap_espetada:"Espetada",
   cap_cote:"Grilled beef with herb butter",
   cap_prato:"Grilled meat, rice &amp; black beans",
   cap_bacalhau:"Bacalhau",
@@ -588,14 +585,12 @@ const I18N={
   i9n:"Feijoada",
   i9d:"Black beans and meats",
   mg4:"Drinks &amp; desserts",
-  i10n:"Portuguese wines",
-  i11n:"Sangria",
-  i12n:"Desserts",
+  i_drinks:"Portuguese wines, sangria and desserts.",
   infos_eyebrow:"Getting here",
   infos_h:"Find us",
   ino_k1:"Address",
   ino_k2:"Phone",
-  photo_cap:"103 Rue du Canal, Esch-sur-Alzette",
+  photo_cap:"The front",
   map_btn:"Directions ↗",
   foot_contact:"Contact",
   foot_p:"Portuguese cooking in Esch-sur-Alzette: seafood, espetada, bacalhau and grills.",
