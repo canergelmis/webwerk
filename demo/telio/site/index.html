@@ -84,7 +84,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .sect-h h2 em{font-style:normal;color:var(--clay)}
 .sect-h p{font-family:'Familjen',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
 
-.spot{background:var(--olive);color:#e8dfce;position:relative;overflow:hidden}
+.spot{background:var(--olive-d);color:#e8dfce;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,.1)}
 .spot .skwm{position:absolute;left:-10px;bottom:-30px;width:180px;height:400px;color:rgba(217,164,65,.1)}
 .spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center;position:relative}
 .spot .eyebrow{color:var(--ochre)}
@@ -140,8 +140,13 @@ section{padding:clamp(56px,9vw,102px) 0}
 .ino .v{font-size:16.5px;color:var(--char);margin-top:3px}
 .ino .v a{border-bottom:1px solid var(--ochre-d)}
 .ino .grow{flex:1}
-.front{margin:0 0 4px;border-radius:4px;overflow:hidden}
-.front img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.lieu{position:relative;isolation:isolate;min-height:clamp(380px,46vw,560px);display:flex;align-items:flex-end;padding:0;color:#fff}
+.lieu img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.lieu::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(20,18,12,.9) 0%,rgba(20,18,12,.45) 48%,rgba(20,18,12,0) 80%)}
+.lieu .wrap{width:100%;padding-block:clamp(34px,5vw,60px)}
+.lieu .eyebrow{color:var(--ochre)}
+.lieu h2{font-size:clamp(34px,5vw,60px);color:#fff;margin:10px 0 0}
+.lieu p{font-size:clamp(17px,1.9vw,21px);max-width:52ch;margin-top:12px;color:#f1eadb;text-shadow:0 1px 12px rgba(0,0,0,.5)}
 .hrs{width:100%;border-collapse:collapse;margin-top:6px;font-size:16px}
 .hrs td{padding:5px 0;border-bottom:1px dotted var(--line)}
 .hrs tr:last-child td{border-bottom:0}
@@ -149,14 +154,14 @@ section{padding:clamp(56px,9vw,102px) 0}
 .btn.o2{margin-top:12px;padding:10px 18px;font-size:14px;border-color:var(--char);color:var(--char);background:transparent}
 .btn.o2:hover{border-color:var(--clay);color:var(--clay)}
 .hours-today{font-family:'Gilda';color:var(--olive);font-size:18px}
-.callcard{background:var(--olive);color:#e8dfce;border-radius:4px;padding:clamp(26px,4vw,42px);align-self:start}
+.callcard{background:var(--olive);color:#e8dfce;border-radius:4px;padding:clamp(26px,4vw,42px);display:flex;flex-direction:column}
 .callcard .k{font-family:'Familjen';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--ochre)}
 .callcard .big{font-family:'Gilda',serif;font-size:clamp(30px,4vw,44px);margin:10px 0 6px}
 .callcard .big a{color:#fff}
 .callcard p{margin:0 0 20px;font-size:15.5px}
 .callcard .ccbtns{display:flex;flex-wrap:wrap;gap:10px}
-.callcard .ccbtns .btn{flex:1 1 170px;justify-content:center}
-.callcard .ig{display:inline-block;margin-top:18px;color:var(--ochre);font-weight:700;font-size:14px}
+.callcard .ccbtns .btn{flex:1 1 170px;justify-content:center;white-space:nowrap;padding-inline:18px}
+.callcard .ig{display:inline-block;margin-top:auto;padding-top:18px;align-self:flex-start;color:var(--ochre);font-weight:700;font-size:14px}
 .mapcard{background:var(--olive);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#e8dfce;text-align:center;padding:34px}
 .mapcard .skwm{position:absolute;right:-10px;top:-20px;width:110px;height:230px;color:rgba(217,164,65,.18)}
 .mapcard .in{position:relative}
@@ -221,10 +226,12 @@ footer .made a{color:var(--ochre)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
-@media(max-width:760px){ .mjump{margin:-18px 0 20px;gap:7px} .mjump a{font-size:13px;padding:6px 12px} .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .brand .loc{display:none} }
+@media(max-width:760px){ .mjump{position:sticky;top:60px;z-index:5;background:var(--stone);flex-wrap:nowrap;margin:-18px 0 16px;padding:8px 0;gap:7px} .mjump a{font-size:13.5px;padding:6px 13px} .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .brand .loc{display:none} }
 @media(min-width:901px){
+  .facts .c:first-child{padding-left:0}
   .hero{align-items:center;min-height:min(86vh,760px)}
   .hero .bg{left:auto;width:50%}
+  .hero .bg img{object-position:62% 22%}
   .hero .scrim{display:none}
   .hero .inner{padding-block:110px 90px;padding-right:calc(50vw - (100vw - min(100vw,var(--maxw))) / 2 + 48px)}
 }
@@ -255,6 +262,7 @@ footer .made a{color:var(--ochre)}
   <nav class="links" id="nav">
    <a href="#grill" data-i18n="nav_grill">Le grill</a>
    <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#lieu" data-i18n="nav_lieu">Le lieu</a>
    <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
    <div class="langs" role="group" aria-label="Langue">
      <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
@@ -306,8 +314,6 @@ footer .made a{color:var(--ochre)}
     <figure><img src="assets/bifteki.jpg" alt="Assiette grillée avec frites, pita, salade et tzatziki"/><figcaption data-i18n="cap_plate">Assiette grillée, frites et pita</figcaption></figure>
     <figure><img src="assets/baklava.jpg" alt="Un plateau de baklava"/><figcaption data-i18n="cap_bak">Baklava</figcaption></figure>
     <figure class="w2"><img src="assets/interior.jpg" alt="La salle de Télio, chaises rouges et miroirs"/><figcaption data-i18n="cap_sal">La salle</figcaption></figure>
-    <figure class="w2"><img src="assets/salle2.jpg" alt="Tables et chaises au fond de la salle, murs à motif clair"/><figcaption data-i18n="cap_salle2">Au fond de la salle</figcaption></figure>
-    <figure class="w2"><img src="assets/chicken.jpg" alt="Poulet rôti, frites et crudités"/><figcaption data-i18n="cap_poulet">Poulet rôti, frites et crudités</figcaption></figure>
    </div>
   </div>
  </section>
@@ -317,7 +323,7 @@ footer .made a{color:var(--ochre)}
     <span class="eyebrow" data-i18n="carte_eyebrow">Sur place ou à emporter</span>
     <h2 data-i18n="carte_h">La carte</h2>
    </div>
-   <nav class="mjump" aria-label="Catégories"><a href="#mg1" data-i18n="mg1">Mezédes &amp; salades</a><a href="#mg2" data-i18n="mg2">Pitas</a><a href="#mg3" data-i18n="mg3">Assiettes grill</a><a href="#mg4" data-i18n="mg4">Feuilletés &amp; desserts</a></nav>
+   <nav class="mjump" aria-label="Catégories"><a href="#mg1" data-i18n="mj1">Mezédes</a><a href="#mg2" data-i18n="mj2">Pitas</a><a href="#mg3" data-i18n="mj3">Grill</a><a href="#mg4" data-i18n="mj4">Desserts</a></nav>
    <div class="cols">
     <div>
      <div class="mgroup" id="mg1">
@@ -368,6 +374,14 @@ footer .made a{color:var(--ochre)}
    </div>
   </div>
  </section>
+ <section class="lieu" id="lieu">
+  <img src="assets/hero.jpg" alt="La façade de Télio et sa terrasse, sous l'enseigne rouge, sur la Grand-Rue"/>
+  <div class="wrap">
+   <span class="eyebrow" data-i18n="lieu_eyebrow">Le lieu</span>
+   <h2 data-i18n="lieu_h">Sur la Grand-Rue</h2>
+   <p data-i18n="lieu_p">Un grill méditerranéen, grec et anatolien, avec sa terrasse dans la rue piétonne de la vieille ville. Sur place, à emporter ou en livraison avec Wolt.</p>
+  </div>
+ </section>
  <section class="infos" id="infos">
   <div class="wrap">
    <div class="sect-h">
@@ -376,7 +390,6 @@ footer .made a{color:var(--ochre)}
    </div>
    <div class="grid">
     <div class="addr">
-     <figure class="front"><img src="assets/hero.jpg" alt="La façade de Télio et sa terrasse, sous l'enseigne rouge"/></figure>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">7, Grand-Rue<br>L-1660 Luxembourg</div><a class="btn o2" href="https://www.google.com/maps/search/?api=1&query=Restaurant+T%C3%A9lio+7+Grand-Rue+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Itinéraire ↗</a></div></div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div class="grow"><div class="k" data-i18n="ino_k3">Horaires</div>
       <table class="hrs"><tr><td data-i18n="h_1">Du lundi au jeudi</td><td data-i18n="h_1v">11h – 22h40</td></tr><tr><td data-i18n="h_2">Vendredi et samedi</td><td data-i18n="h_2v">11h – 23h30</td></tr><tr><td data-i18n="h_3">Dimanche</td><td data-i18n="h_3v">12h – 21h30</td></tr></table></div></div>
@@ -415,6 +428,7 @@ const I18N={
   brand_loc:"Grand-Rue",
   nav_grill:"Le grill",
   nav_carte:"La carte",
+  nav_lieu:"Le lieu",
   nav_infos:"Infos &amp; accès",
   hero_eyebrow:"Grill méditerranéen, Grand-Rue",
   hero_tag:"Souvlaki, pitas et assiettes grillées, grecs et anatoliens, dans la vieille ville.",
@@ -430,14 +444,15 @@ const I18N={
   grill_h:"Le Mix Grill Télio",
   grill_lead:"Brochette de poulet, brochette d'agneau, köfte et saucisse, avec salade, tomate, tzatziki et frites.",
   grill_body:"Les autres assiettes suivent le même principe : brochettes de poulet, d'agneau ou de bœuf, côtelettes d'agneau, köfte ou biftek, avec pain pita.",
+  lieu_eyebrow:"Le lieu",
+  lieu_h:"Sur la Grand-Rue",
+  lieu_p:"Un grill méditerranéen, grec et anatolien, avec sa terrasse dans la rue piétonne de la vieille ville. Sur place, à emporter ou en livraison avec Wolt.",
   gal_eyebrow:"En images",
   gal_h:"Chez Télio",
   cap_pita:"Pita garnie, tomate et frites",
   cap_plate:"Assiette grillée, frites et pita",
   cap_bak:"Baklava",
   cap_sal:"La salle",
-  cap_salle2:"Au fond de la salle",
-  cap_poulet:"Poulet rôti, frites et crudités",
   carte_eyebrow:"Sur place ou à emporter",
   carte_h:"La carte",
   mg1:"Mezédes &amp; salades",
@@ -446,6 +461,10 @@ const I18N={
   mg3:"Assiettes grill",
   mg3_sub:"Avec salade, tomate, tzatziki, frites et pain pita",
   mg4:"Feuilletés &amp; desserts",
+  mj1:"Mezédes",
+  mj2:"Pitas",
+  mj3:"Grill",
+  mj4:"Desserts",
   i1n:"Salade grecque",
   i1d:"Tomate, concombre, salade, olives, feta, poivrons, origan",
   i2n:"Dolmades",
@@ -514,6 +533,7 @@ const I18N={
   brand_loc:"Grand-Rue",
   nav_grill:"Grill",
   nav_carte:"Karte",
+  nav_lieu:"Lokal",
   nav_infos:"Anfahrt",
   hero_eyebrow:"Mediterraner Grill, Grand-Rue",
   hero_tag:"Souvlaki, Pitas und Grillteller, griechisch und anatolisch, in der Altstadt.",
@@ -529,14 +549,15 @@ const I18N={
   grill_h:"Der Mix Grill Télio",
   grill_lead:"Hähnchenspieß, Lammspieß, Köfte und Wurst, mit Salat, Tomate, Tzatziki und Pommes.",
   grill_body:"Die anderen Teller folgen demselben Prinzip: Hähnchen-, Lamm- oder Rindfleischspieße, Lammkoteletts, Köfte oder Biftek, mit Pitabrot.",
+  lieu_eyebrow:"Das Lokal",
+  lieu_h:"An der Grand-Rue",
+  lieu_p:"Ein mediterraner Grill, griechisch und anatolisch, mit Terrasse in der Fußgängerzone der Altstadt. Vor Ort, zum Mitnehmen oder mit Lieferung über Wolt.",
   gal_eyebrow:"In Bildern",
   gal_h:"Bei Télio",
   cap_pita:"Gefüllte Pita mit Tomate und Pommes",
   cap_plate:"Grillteller mit Pommes und Pita",
   cap_bak:"Baklava",
   cap_sal:"Der Gastraum",
-  cap_salle2:"Hinten im Gastraum",
-  cap_poulet:"Brathähnchen mit Pommes und Rohkost",
   carte_eyebrow:"Vor Ort oder zum Mitnehmen",
   carte_h:"Die Karte",
   mg1:"Mezédes &amp; Salate",
@@ -545,6 +566,10 @@ const I18N={
   mg3:"Grillteller",
   mg3_sub:"Mit Salat, Tomate, Tzatziki, Pommes und Pitabrot",
   mg4:"Blätterteig &amp; Desserts",
+  mj1:"Mezédes",
+  mj2:"Pitas",
+  mj3:"Grill",
+  mj4:"Desserts",
   i1n:"Griechischer Salat",
   i1d:"Tomate, Gurke, Blattsalat, Oliven, Feta, Paprika, Oregano",
   i2n:"Dolmades",
@@ -613,6 +638,7 @@ const I18N={
   brand_loc:"Grand-Rue",
   nav_grill:"The grill",
   nav_carte:"Menu",
+  nav_lieu:"The place",
   nav_infos:"Getting here",
   hero_eyebrow:"Mediterranean grill, Grand-Rue",
   hero_tag:"Souvlaki, pitas and grill plates, Greek and Anatolian, in the old town.",
@@ -628,14 +654,15 @@ const I18N={
   grill_h:"The Télio Mix Grill",
   grill_lead:"Chicken skewer, lamb skewer, köfte and sausage, with salad, tomato, tzatziki and fries.",
   grill_body:"The other plates follow the same idea: chicken, lamb or beef skewers, lamb chops, köfte or biftek, with pita bread.",
+  lieu_eyebrow:"The place",
+  lieu_h:"On the Grand-Rue",
+  lieu_p:"A Mediterranean grill, Greek and Anatolian, with a terrace on the pedestrian street of the old town. Eat in, take away or order delivery through Wolt.",
   gal_eyebrow:"In pictures",
   gal_h:"At Télio",
   cap_pita:"Filled pita with tomato and fries",
   cap_plate:"Grill plate with fries and pita",
   cap_bak:"Baklava",
   cap_sal:"The dining room",
-  cap_salle2:"At the back of the room",
-  cap_poulet:"Roast chicken with fries and salad",
   carte_eyebrow:"Eat in or take away",
   carte_h:"The menu",
   mg1:"Mezédes &amp; salads",
@@ -644,6 +671,10 @@ const I18N={
   mg3:"Grill plates",
   mg3_sub:"With salad, tomato, tzatziki, fries and pita bread",
   mg4:"Pastries &amp; desserts",
+  mj1:"Mezédes",
+  mj2:"Pitas",
+  mj3:"Grill",
+  mj4:"Desserts",
   i1n:"Greek salad",
   i1d:"Tomato, cucumber, salad leaves, olives, feta, peppers, oregano",
   i2n:"Dolmades",
