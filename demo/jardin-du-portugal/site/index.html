@@ -181,8 +181,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.92);backdro
 .hours{list-style:none}
 .hours li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--cream2);font-size:.95rem}
 .hours li:last-child{border-bottom:0}
-.hours li.today{color:var(--azul-ink);font-weight:700}
-.hours li.today .day::before{content:"▸ ";color:var(--terra)}
 .hours .cl{color:var(--muted)}
 .map-btn{margin-top:6px}
 .socials{display:flex;gap:10px;margin-top:16px}
@@ -350,7 +348,7 @@ footer .wk .made{color:#8f836d}
     <div class="sec-head">
       <span class="eyebrow" data-i18n="menu_kick">La carte</span>
       <h2 data-i18n="menu_h">Portugal &amp; Luxembourg, dans la même assiette</h2>
-      <p data-i18n="menu_p">Une sélection représentative. Les plats varient au fil du marché — la carte complète et les prix sont à confirmer avec la maison.</p>
+      <p data-i18n="menu_p">Une sélection de la carte.</p>
     </div>
     <div class="cats">
       <div class="cat reveal">
@@ -432,7 +430,7 @@ footer .wk .made{color:#8f836d}
       <h2 data-i18n="hours_h">Quand nous ouvrons</h2>
       <div class="icard">
         <ul class="hours" id="hours"></ul>
-        <p class="s" style="margin-top:12px" data-i18n="hours_note">Service 11h30–14h &amp; 18h30–21h30. Fermé le mardi et le dimanche soir. Horaires indicatifs — à confirmer avec la maison.</p>
+        <p class="s" style="margin-top:12px" data-i18n="hours_note">Service 11h30–14h et 18h30–21h30. Fermé le mardi et le dimanche soir.</p>
       </div>
     </div>
   </div>
@@ -444,11 +442,10 @@ footer .wk .made{color:#8f836d}
     <div class="top">
       <div class="bn">Jardin du Portugal<small data-i18n="foot_sub">Diekirch · Luxembourg</small></div>
       <div class="wk">
-        <div data-i18n="foot_made" class="made">Aperçu de site composé pour la maison par</div>
         <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk · studio web · Luxembourg ↗</a>
       </div>
     </div>
-    <p class="disc" data-i18n="disclaimer">Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site du Jardin du Portugal. Le logotype est proposé ; la carte, les prix, les horaires et le numéro de téléphone sont donnés à titre indicatif et restent à confirmer avec la maison. Photographies de sources publiques.</p>
+    <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
   </div>
 </footer>
 
@@ -472,7 +469,7 @@ var I18N = {
     d2_h:"Le grill & l'espetada", d2_p:"Brochettes marinées sur pique, entrecôtes, poulpe grillé à l'huile d'olive.",
     d3_h:"La douceur finale", d3_p:"Crème brûlée, mousse au chocolat, dessert du jour — la maison a la dent sucrée.",
     menu_kick:"La carte", menu_h:"Portugal & Luxembourg, dans la même assiette",
-    menu_p:"Une sélection représentative. Les plats varient au fil du marché — la carte complète et les prix sont à confirmer avec la maison.",
+    menu_p:"Une sélection de la carte.",
     cat_spec:"◆ La spécialité", cat_mer:"◆ Poissons & fruits de mer", cat_viande:"◆ Viandes", cat_douceur:"◆ Douceurs",
     m_franc_d:"Croque de Porto — viandes, sauce bière & tomate, œuf au plat.",
     m_espet_t:"sur pique", m_espet_d:"Brochette de viande marinée, servie suspendue.",
@@ -482,15 +479,15 @@ var I18N = {
     m_entre_d:"Grillée, sauce au choix, frites maison.", m_escal_d:"Panée ou à la crème, façon maison.",
     m_ameri_d:"Préparé minute, à la luxembourgeoise.",
     m_creme_d:"Vanille, croûte caramélisée.", m_mousse_d:"Maison, intense.", m_dessert_d:"Selon l'inspiration et le marché.",
-    form_1_k:"Menu du jour", form_2_k:"À la carte", form_ind:"indicatif · à confirmer", form_ind2:"indicatif · à confirmer", ac:"à conf.",
+    form_1_k:"Menu du jour", form_2_k:"À la carte",   
     gal_kick:"En images", gal_h:"Un aperçu de la maison",
     g_octopus:"Polvo grelhado", g_facade:"Avenue de la Gare", g_cata:"La cataplana", g_detail:"À table", g_gambas:"Gambas à l'ail",
     info_kick:"Infos & accès", info_h:"Nous trouver", info_addr_k:"Adresse", info_addr_s:"Vieille ville de Diekirch, dans l'Éislek.", info_map:"Itinéraire ↗",
     info_tel_k:"Réserver", info_tel_s:"Réservation conseillée le week-end.",
     hours_kick:"Horaires", hours_h:"Quand nous ouvrons",
-    hours_note:"Service 11h30–14h & 18h30–21h30. Fermé le mardi et le dimanche soir. Horaires indicatifs — à confirmer avec la maison.",
+    hours_note:"Service 11h30–14h et 18h30–21h30. Fermé le mardi et le dimanche soir.",
     foot_sub:"Diekirch · Luxembourg", foot_made:"Aperçu de site composé pour la maison par",
-    days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé", today:"Aujourd'hui"
+    days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé"
   },
   de:{wwb_call:"Anrufen",wwb_dir:"Route",
     brand_sub:"Restaurant", nav_maison:"Das Haus", nav_carte:"Die Karte", nav_infos:"Infos & Anfahrt",
@@ -500,7 +497,7 @@ var I18N = {
     fact_1:"Küche <b>portugiesisch & luxemburgisch</b>", fact_2:"<b>Francesinha</b> — „die beste Luxemburgs“", fact_3:"33 av. de la Gare · <b>Diekirch</b>",
     fr_badge:"◆ Die Spezialität des Hauses", fr_h:"Die Francesinha", fr_lead:"„Die beste Luxemburgs“, sagt man.",
     fr_p:"Der neu erfundene Toast aus Porto: mehrere Fleischsorten zwischen zwei Brotscheiben, übergossen mit einer kräftigen Sauce aus Bier und Tomate, ein Spiegelei obendrauf. Ein charaktervolles, großzügiges Gericht, das man nicht teilt — man verdient es sich.",
-    fr_note:"Rezept des Hauses — Zubereitung und Beilagen vor Ort zu bestätigen.",
+    fr_note:"Rezept des Hauses.",
     fr_cap:"Francesinha — die Signatur des Jardin du Portugal",
     house_kick:"Das Haus", house_h:"Die Seele Portugals, der Tisch von Diekirch", house_lead:"Man kommt als Nachbar und geht satt wieder.",
     house_p1:"Unter den Steinbögen der Avenue de la Gare vereint das Jardin du Portugal zwei Küchen, die sich ähnlicher sind, als man denkt: portugiesische Großzügigkeit und luxemburgische Bodenständigkeit. Fisch und Stockfisch, gegrilltes Fleisch, ehrliche Portionen, freundlicher Service.",
@@ -509,7 +506,7 @@ var I18N = {
     d2_h:"Grill & Espetada", d2_p:"Marinierte Spieße am Haken, Entrecôtes, gegrillter Oktopus in Olivenöl.",
     d3_h:"Der süße Schluss", d3_p:"Crème brûlée, Mousse au Chocolat, Dessert des Tages — das Haus mag es süß.",
     menu_kick:"Die Karte", menu_h:"Portugal & Luxemburg auf einem Teller",
-    menu_p:"Eine repräsentative Auswahl. Die Gerichte wechseln je nach Markt — die vollständige Karte und die Preise sind mit dem Haus zu bestätigen.",
+    menu_p:"Eine Auswahl aus der Karte.",
     cat_spec:"◆ Die Spezialität", cat_mer:"◆ Fisch & Meeresfrüchte", cat_viande:"◆ Fleisch", cat_douceur:"◆ Süßes",
     m_franc_d:"Toast aus Porto — Fleisch, Bier-Tomaten-Sauce, Spiegelei.",
     m_espet_t:"am Spieß", m_espet_d:"Mariniertes Fleisch am hängenden Spieß.",
@@ -519,17 +516,16 @@ var I18N = {
     m_entre_d:"Gegrillt, Sauce nach Wahl, hausgemachte Pommes.", m_escal_d:"Paniert oder in Rahm, nach Art des Hauses.",
     m_ameri_d:"Frisch zubereitet, auf luxemburgische Art.",
     m_creme_d:"Vanille, karamellisierte Kruste.", m_mousse_d:"Hausgemacht, intensiv.", m_dessert_d:"Je nach Inspiration und Markt.",
-    form_1_k:"Tagesmenü", form_2_k:"À la carte", form_ind:"Richtwert · zu bestätigen", form_ind2:"Richtwert · zu bestätigen", ac:"auf Anfrage",
-    menu_note:"Karte, Gerichte und Preise als Richtwert — mit dem Haus zu bestätigen.",
+    form_1_k:"Tagesmenü", form_2_k:"À la carte",   
     gal_kick:"In Bildern", gal_h:"Ein Blick ins Haus",
     g_octopus:"Polvo grelhado", g_facade:"Avenue de la Gare", g_cata:"Die Cataplana", g_detail:"Zu Tisch", g_gambas:"Knoblauchgarnelen",
     info_kick:"Infos & Anfahrt", info_h:"So finden Sie uns", info_addr_k:"Adresse", info_addr_s:"Altstadt von Diekirch, im Éislek.", info_map:"Route ↗",
-    info_tel_k:"Reservieren", info_tel_s:"Am Wochenende Reservierung empfohlen — Nummer zu bestätigen.",
+    info_tel_k:"Reservieren", info_tel_s:"Am Wochenende Reservierung empfohlen.",
     hours_kick:"Öffnungszeiten", hours_h:"Wann wir öffnen",
-    hours_note:"Service 11:30–14:00 & 18:30–21:30. Dienstag und Sonntagabend geschlossen. Zeiten als Richtwert — mit dem Haus zu bestätigen.",
+    hours_note:"Service 11:30–14:00 und 18:30–21:30. Dienstag und Sonntagabend geschlossen.",
     foot_sub:"Diekirch · Luxemburg", foot_made:"Website-Vorschau für das Haus, gestaltet von",
-    disclaimer:"Diese Seite ist ein inoffizieller Vorschlag von Webwerk auf Basis öffentlicher Quellen und zeigt, wie die Website des Jardin du Portugal aussehen könnte. Das Logotype ist ein Vorschlag; Karte, Preise, Öffnungszeiten und Telefonnummer sind Richtwerte und mit dem Haus zu bestätigen. Fotos aus öffentlichen Quellen.",
-    days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen", today:"Heute"
+    disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+    days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen"
   },
   en:{wwb_call:"Call",wwb_dir:"Directions",
     brand_sub:"Restaurant", nav_maison:"The house", nav_carte:"The menu", nav_infos:"Find us",
@@ -548,7 +544,7 @@ var I18N = {
     d2_h:"The grill & the espetada", d2_p:"Marinated skewers on the hook, entrecôtes, grilled octopus in olive oil.",
     d3_h:"The sweet finish", d3_p:"Crème brûlée, chocolate mousse, dessert of the day — the house has a sweet tooth.",
     menu_kick:"The menu", menu_h:"Portugal & Luxembourg on one plate",
-    menu_p:"A representative selection. Dishes change with the market — the full menu and prices are to be confirmed with the house.",
+    menu_p:"A selection from the menu.",
     cat_spec:"◆ The speciality", cat_mer:"◆ Fish & seafood", cat_viande:"◆ Meats", cat_douceur:"◆ Sweets",
     m_franc_d:"Porto toastie — meats, beer & tomato sauce, fried egg.",
     m_espet_t:"on the skewer", m_espet_d:"Marinated meat served on a hanging skewer.",
@@ -558,17 +554,16 @@ var I18N = {
     m_entre_d:"Grilled, sauce of your choice, house chips.", m_escal_d:"Breaded or in cream, the house way.",
     m_ameri_d:"Prepared to order, Luxembourg style.",
     m_creme_d:"Vanilla, caramelised crust.", m_mousse_d:"Homemade, intense.", m_dessert_d:"As inspiration and the market allow.",
-    form_1_k:"Menu of the day", form_2_k:"À la carte", form_ind:"indicative · to be confirmed", form_ind2:"indicative · to be confirmed", ac:"tbc",
-    menu_note:"Menu, dishes and prices are indicative — to be confirmed with the house.",
+    form_1_k:"Menu of the day", form_2_k:"À la carte",   
     gal_kick:"In pictures", gal_h:"A look inside",
     g_octopus:"Polvo grelhado", g_facade:"Avenue de la Gare", g_cata:"The cataplana", g_detail:"At the table", g_gambas:"Garlic prawns",
     info_kick:"Find us", info_h:"Find us", info_addr_k:"Address", info_addr_s:"Diekirch old town, in the Éislek.", info_map:"Directions ↗",
     info_tel_k:"Book a table", info_tel_s:"Booking advised at weekends.",
     hours_kick:"Opening hours", hours_h:"When we open",
-    hours_note:"Service 11:30–14:00 & 18:30–21:30. Closed Tuesday and Sunday evening. Hours indicative — to be confirmed with the house.",
+    hours_note:"Service 11:30–14:00 and 18:30–21:30. Closed Tuesday and Sunday evening.",
     foot_sub:"Diekirch · Luxembourg", foot_made:"Website preview composed for the venue by",
-    disclaimer:"This page is an unofficial proposal by Webwerk, built from public sources to show what the Jardin du Portugal's website could look like. The logotype is proposed; the menu, prices, hours and phone number are indicative and remain to be confirmed with the venue. Public-source photographs.",
-    days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], closed:"Closed", today:"Today"
+    disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+    days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], closed:"Closed"
   }
 };
 /* Hours by getDay() index (0=Sun .. 6=Sat). null = closed. "L" lunch only. */
@@ -594,12 +589,11 @@ function applyLang(l){
 }
 function buildHours(){
   var ul=document.getElementById("hours"); if(!ul) return;
-  var D=I18N[lang].days, todayIdx=(new Date().getDay());
+  var D=I18N[lang].days;
   // display order Mon..Sun
   var order=[1,2,3,4,5,6,0]; ul.innerHTML="";
   order.forEach(function(i){
     var h=HOURS[i], li=document.createElement("li");
-    if(i===todayIdx) li.className="today";
     var val=h?h.svc:('<span class="cl">'+I18N[lang].closed+'</span>');
     li.innerHTML='<span class="day">'+D[i]+'</span><span>'+val+'</span>';
     ul.appendChild(li);
