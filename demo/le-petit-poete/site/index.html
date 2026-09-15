@@ -122,16 +122,22 @@ section{padding:clamp(56px,9vw,102px) 0}
 .mgroup{margin-bottom:30px}
 .mgroup h3{font-family:'Garamond';font-weight:600;font-size:26px;color:var(--green-d);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--green);margin-bottom:14px}
 .mgroup h3 .nb{width:11px;height:22px;flex:none;color:var(--brass)}
-.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
-.mitem .nm{font-family:'Figtree';font-weight:700;font-size:17px;color:var(--ink)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line)}
+.mitem:last-child{border-bottom:0}
+.mitem .nm{font-family:'Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);line-height:1.2}
 .mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:48ch}
 .mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
 .mitem .pr{font-family:'Garamond';color:var(--green);font-size:17px;white-space:nowrap;font-weight:700}
 .carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--brass);padding-left:14px;max-width:80ch}
+.mgroup.side{background:rgba(255,255,255,.55);border-radius:4px;padding:18px 22px 8px}
+.mgroup.side h3{font-size:21px}
+.mgroup.side .mitem .nm{font-size:17px}
 .carte .sub{font-size:13px;color:var(--muted);margin:-6px 0 8px;font-style:italic}
 
 /* infos */
-.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,40px)}
+.infos .grid>div:first-child{background:#fff;border:1px solid var(--line);border-radius:4px;padding:clamp(8px,2vw,22px) clamp(22px,4vw,40px)}
+.infos .grid>div:first-child .ino:last-child{border-bottom:0}
 .ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
 .ino .ic{width:22px;height:22px;flex:none;color:var(--green);margin-top:3px}
 .ino .k{font-family:'Figtree';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
@@ -161,7 +167,8 @@ footer .made b{color:#e6ddc8}
 footer .made a{color:var(--gold)}
 .disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6a5f49;line-height:1.55;max-width:82ch}
 
-@media(max-width:760px){.hero .bg img{object-position:6% 50%}.hero .cta .btn.p{display:none}}
+.hero .bg img{object-position:50% 100%}
+@media(max-width:760px){.hero .bg{top:-30%}.hero .bg img{object-position:6% 100%}.hero .cta a[href^="tel:"]{display:none}}
 @media(max-width:900px){
  .spot .grid,.place .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
@@ -205,6 +212,7 @@ footer .made a{color:var(--gold)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+@media(max-width:760px){ .callcard .btn{display:none} .callcard p{margin-bottom:0} }
 
   /* hero type legibility */
   /* Contrast comes from the type's own shadow rather than from darkening
@@ -252,8 +260,8 @@ footer .made a{color:var(--gold)}
    <svg class="penflourish" viewBox="0 0 640 100" aria-hidden="true"><path pathLength="1" d="M28 62 C 150 22 300 20 384 54 C 424 70 344 88 332 60 C 320 34 500 26 612 52"/></svg>
    <p class="tag" data-i18n="hero_tag">À la table du poète, sur la place du Marché d'Echternach, la plus vieille ville du pays.</p>
    <div class="cta">
-    <a class="btn p" href="tel:+3527200721" data-i18n="hero_cta1">Appeler</a>
-    <a class="btn o" href="#carte" data-i18n="hero_cta2">Voir la carte</a>
+    <a class="btn p" href="#carte" data-i18n="hero_cta2">Voir la carte</a>
+    <a class="btn o" href="tel:+3527200721" data-i18n="hero_cta1">Appeler</a>
    </div>
   </div>
  </section>
@@ -276,7 +284,7 @@ footer .made a{color:var(--gold)}
     <p class="body" data-i18n="tb_body">Hôtel, café et restaurant sous un même toit, avec terrasse sur la place du Marché. Cuisine non-stop de 12h à 22h.</p>
    </div>
    <div class="pic">
-    <img src="assets/plat.jpg" alt="Côtes d'agneau, légumes et jus au vin rouge"/>
+    <img src="assets/boeuf.jpg" alt="Pièce de bœuf grillée, sa sauce et ses légumes"/>
    </div>
   </div>
  </section>
@@ -291,12 +299,13 @@ footer .made a{color:var(--gold)}
     <h2 data-i18n="gal_h">À table</h2>
    </div>
    <div class="gal">
-    <figure class="w2 h2"><img src="assets/steak.jpg" alt="Pièce de bœuf, légumes et sa sauce"/><figcaption data-i18n="cap_plat">Pièce de bœuf et sa sauce</figcaption></figure>
+    <figure class="w2 h2"><img src="assets/plat.jpg" alt="Côtes d'agneau, légumes et jus au vin rouge"/><figcaption data-i18n="cap_plat">Côtes d'agneau grillées</figcaption></figure>
     <figure><img src="assets/terrine.jpg" alt="Pâté en croûte et jambon cru sur ardoise"/><figcaption data-i18n="cap_terrine">Pâté en croûte &amp; jambon cru</figcaption></figure>
-    <figure><img src="assets/soupe.jpg" alt="Un potage"/><figcaption data-i18n="cap_soupe">Le potage</figcaption></figure>
-    <figure class="w2"><img src="assets/salle.jpg" alt="La salle du Petit Poète dressée pour un grand repas"/><figcaption data-i18n="cap_banquet">La salle, dressée pour un grand repas</figcaption></figure>
+    <figure><img src="assets/dessert.jpg" alt="Crème brûlée et fruits rouges sur ardoise"/><figcaption data-i18n="cap_dessert">Crème brûlée</figcaption></figure>
+    <figure class="w2"><img src="assets/salle.jpg" alt="La salle du restaurant, tables nappées et suspensions en rotin"/><figcaption data-i18n="cap_salle">La salle du restaurant</figcaption></figure>
     <figure><img src="assets/biere.jpg" alt="Une bière en terrasse, face à la place du Marché"/><figcaption data-i18n="cap_biere">Une bière en terrasse</figcaption></figure>
     <figure><img src="assets/terrasse.jpg" alt="La terrasse, avec vue sur la place du Marché et le Dënzelt"/><figcaption data-i18n="cap_terrasse">La terrasse, face à la place du Marché</figcaption></figure>
+    <figure class="w2"><img src="assets/place.jpg" alt="La place du Marché d'Echternach et ses terrasses, au soleil"/><figcaption data-i18n="cap_place">La place du Marché</figcaption></figure>
    </div>
   </div>
  </section>
@@ -317,9 +326,9 @@ footer .made a{color:var(--gold)}
  <section class="carte" id="carte">
   <div class="wrap">
    <div class="sect-h">
-    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
-    <h2 data-i18n="carte_h">Les <em>viandes</em></h2>
-    <p data-i18n="carte_p">Les viandes de la carte, avec accompagnement et sauce au choix.</p>
+    <span class="eyebrow" data-i18n="carte_eyebrow">La brasserie</span>
+    <h2 data-i18n="carte_h">La carte</h2>
+    <p data-i18n="carte_p">Plats de brasserie et viandes, avec accompagnement et sauce au choix.</p>
    </div>
    <div class="cols">
     <div>
@@ -340,7 +349,7 @@ footer .made a{color:var(--gold)}
       <div class="mitem"><div><div class="nm" data-i18n="i8n">Filet de bœuf (Argentine)</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i9n">Maminha de bœuf black angus</div><div class="ds" data-i18n="i9d">Cuit à basse température</div></div></div>
      </div>
-     <div class="mgroup">
+     <div class="mgroup side">
       <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg3">Les à-côtés</span></h3>
       <p class="sub" data-i18n="mg3_sub">Au choix, avec les viandes</p>
       <div class="mitem"><div><div class="nm" data-i18n="i10n">Gratin dauphinois ou frites</div></div></div>
@@ -356,7 +365,7 @@ footer .made a{color:var(--gold)}
   <div class="wrap">
    <div class="sect-h">
     <span class="eyebrow" data-i18n="infos_eyebrow">Infos & accès</span>
-    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+    <h2 data-i18n="infos_h">Nous trouver</h2>
    </div>
    <div class="grid">
     <div>
@@ -402,16 +411,16 @@ const I18N={
   tb_lead:"Cordon bleu, bouchée à la reine, rognons de veau à la moutarde, francesinha, côtes d'agneau grillées, maminha de black angus.",
   tb_body:"Hôtel, café et restaurant sous un même toit, avec terrasse sur la place du Marché. Cuisine non-stop de 12h à 22h.",
   gal_eyebrow:"Photos",gal_h:"À table",
-  cap_plat:"Pièce de bœuf et sa sauce",cap_terrine:"Pâté en croûte &amp; jambon cru",cap_soupe:"Le potage",cap_banquet:"La salle, dressée pour un grand repas",cap_biere:"Une bière en terrasse",cap_terrasse:"La terrasse, face à la place du Marché",
+  cap_plat:"Côtes d'agneau grillées",cap_terrine:"Pâté en croûte &amp; jambon cru",cap_dessert:"Crème brûlée",cap_salle:"La salle du restaurant",cap_biere:"Une bière en terrasse",cap_terrasse:"La terrasse, face à la place du Marché",cap_place:"La place du Marché",
   ech_eyebrow:"Le lieu",ech_h:"Au cœur<span>d'Echternach.</span>",
   ech_lead:"Le Petit Poète est sur la place du Marché de la plus vieille ville du Luxembourg — à deux pas de l'abbaye bénédictine et de la basilique, aux portes du Mullerthal, la « Petite Suisse » luxembourgeoise.",
-  carte_eyebrow:"La carte",carte_h:"Les <em>viandes</em>",
-  carte_p:"Les viandes de la carte, avec accompagnement et sauce au choix.",
+  carte_eyebrow:"La brasserie",carte_h:"La carte",
+  carte_p:"Plats de brasserie et viandes, avec accompagnement et sauce au choix.",
   mg1:"Les classiques de brasserie",mg2:"Les viandes",mg3:"Les à-côtés",mg3_sub:"Au choix, avec les viandes",
   i1n:"Escalope de volaille panée",i2n:"Cordon bleu de volaille",i2d:"Sauce champignons",i3n:"Bouchée à la reine",i4n:"Francesinha",i5n:"Rognons de veau à la moutarde",
   i6n:"Spareribs sauce barbecue",i7n:"Côtes d'agneau grillées",i8n:"Filet de bœuf (Argentine)",i9n:"Maminha de bœuf black angus",i9d:"Cuit à basse température",
   i10n:"Gratin dauphinois ou frites",i11n:"Sauces",i11d:"Poivre, champignons, maître d'hôtel, vin rouge, béarnaise",
-  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
   ino_k1:"Adresse",ino_hours:"Cuisine non-stop de 12h à 22h",ino_k2:"Téléphone",cc_p:"Pour réserver une table ou une chambre.",
   map_btn:"Ouvrir dans Maps ↗",
   foot_p:"Hôtel-café-restaurant sur la place du Marché d'Echternach.",
@@ -429,16 +438,16 @@ const I18N={
   tb_lead:"Cordon bleu, Königinpastete, Kalbsnieren in Senfsauce, Francesinha, gegrillte Lammkoteletts, Maminha vom Black Angus.",
   tb_body:"Hotel, Café und Restaurant unter einem Dach, mit Terrasse am Marktplatz. Durchgehend warme Küche von 12 bis 22 Uhr.",
   gal_eyebrow:"Fotos",gal_h:"Zu Tisch",
-  cap_plat:"Rindfleisch mit Sauce",cap_terrine:"Pastete & Rohschinken",cap_soupe:"Die Suppe",cap_banquet:"Der Saal, für eine lange Tafel gedeckt",cap_biere:"Ein Bier auf der Terrasse",cap_terrasse:"Die Terrasse mit Blick auf den Marktplatz",
+  cap_plat:"Gegrillte Lammkoteletts",cap_terrine:"Pastete & Rohschinken",cap_dessert:"Crème brûlée",cap_salle:"Das Restaurant",cap_biere:"Ein Bier auf der Terrasse",cap_terrasse:"Die Terrasse mit Blick auf den Marktplatz",cap_place:"Der Marktplatz",
   ech_eyebrow:"Der Ort",ech_h:"Im Herzen<span>Echternachs.</span>",
   ech_lead:"Le Petit Poète liegt am Marktplatz der ältesten Stadt Luxemburgs — wenige Schritte von der Benediktinerabtei und der Basilika, am Tor zum Müllerthal, der „Kleinen Schweiz“ Luxemburgs.",
-  carte_eyebrow:"Die Karte",carte_h:"Die <em>Fleischgerichte</em>",
-  carte_p:"Die Fleischgerichte der Karte, mit Beilage und Sauce nach Wahl.",
+  carte_eyebrow:"Die Brasserie",carte_h:"Die Karte",
+  carte_p:"Brasserie-Klassiker und Fleischgerichte, mit Beilage und Sauce nach Wahl.",
   mg1:"Brasserie-Klassiker",mg2:"Fleisch",mg3:"Die Beilagen",mg3_sub:"Nach Wahl zu allen Fleischgerichten",
   i1n:"Paniertes Geflügelschnitzel",i2n:"Cordon bleu vom Geflügel",i2d:"Champignonsauce",i3n:"Königinpastete",i4n:"Francesinha",i5n:"Kalbsnieren in Senfsauce",
   i6n:"Spareribs mit Barbecuesauce",i7n:"Gegrillte Lammkoteletts",i8n:"Rinderfilet (Argentinien)",i9n:"Maminha vom Black-Angus-Rind",i9d:"Bei Niedertemperatur gegart",
   i10n:"Gratin dauphinois oder Pommes",i11n:"Saucen",i11d:"Pfeffer, Champignon, Maître d'hôtel, Rotwein, Sauce béarnaise",
-  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So finden Sie uns",
   ino_k1:"Adresse",ino_hours:"Küche durchgehend von 12 bis 22 Uhr",ino_k2:"Telefon",cc_p:"Für eine Tisch- oder Zimmerreservierung.",
   map_btn:"In Maps öffnen ↗",
   foot_p:"Hotel, Café und Restaurant am Marktplatz von Echternach.",
@@ -456,16 +465,16 @@ const I18N={
   tb_lead:"Cordon bleu, vol-au-vent, veal kidneys in mustard sauce, francesinha, grilled lamb chops, Black Angus maminha.",
   tb_body:"Hotel, café and restaurant under one roof, with a terrace on the market square. Kitchen open non-stop from 12:00 to 22:00.",
   gal_eyebrow:"Photos",gal_h:"At the table",
-  cap_plat:"Beef with its sauce",cap_terrine:"Pâté en croûte & cured ham",cap_soupe:"Soup",cap_banquet:"The dining room set for a long table",cap_biere:"A beer on the terrace",cap_terrasse:"The terrace, looking onto the market square",
+  cap_plat:"Grilled lamb chops",cap_terrine:"Pâté en croûte & cured ham",cap_dessert:"Crème brûlée",cap_salle:"The dining room",cap_biere:"A beer on the terrace",cap_terrasse:"The terrace, looking onto the market square",cap_place:"The market square",
   ech_eyebrow:"The place",ech_h:"In the heart<span>of Echternach.</span>",
   ech_lead:"Le Petit Poète stands on the market square of Luxembourg's oldest town — a few steps from the Benedictine abbey and the basilica, at the gateway to the Mullerthal, Luxembourg's “Little Switzerland”.",
-  carte_eyebrow:"The menu",carte_h:"The <em>meats</em>",
-  carte_p:"The meat dishes on the menu, with a side and a sauce of your choice.",
+  carte_eyebrow:"The brasserie",carte_h:"The menu",
+  carte_p:"Brasserie classics and meat dishes, with a side and a sauce of your choice.",
   mg1:"Brasserie classics",mg2:"Meats",mg3:"On the side",mg3_sub:"Your choice, with the meats",
   i1n:"Breaded chicken escalope",i2n:"Chicken cordon bleu",i2d:"Mushroom sauce",i3n:"Vol-au-vent (bouchée à la reine)",i4n:"Francesinha",i5n:"Veal kidneys in mustard sauce",
   i6n:"Spare ribs with barbecue sauce",i7n:"Grilled lamb chops",i8n:"Argentinian beef fillet",i9n:"Black Angus maminha",i9d:"Cooked low and slow",
   i10n:"Gratin dauphinois or fries",i11n:"Sauces",i11d:"Pepper, mushroom, maître d'hôtel, red wine, béarnaise",
-  infos_eyebrow:"Find us",infos_h:"Find <em>us</em>",
+  infos_eyebrow:"Find us",infos_h:"Find us",
   ino_k1:"Address",ino_hours:"Kitchen non-stop, 12:00 to 22:00",ino_k2:"Phone",cc_p:"To book a table or a room.",
   map_btn:"Open in Maps ↗",
   foot_p:"Hotel, café and restaurant on Echternach's market square.",
