@@ -302,11 +302,13 @@
   }
   .runhead .rh-name{font-family:var(--serif);text-transform:none;letter-spacing:0;font-size:1.15rem;}
   .runhead .rh-name .la{font-style:italic;color:var(--red);}
-  .rh-sec{color:var(--micro);flex:1;text-align:center;}
+  .rh-sec{color:var(--micro);text-align:center;}
+  .runhead .runhead-inner{display:grid;grid-template-columns:1fr auto 1fr;}
+  .rh-lang{justify-self:end;}
 
   /* ================= ABOVE-THE-FOLD BODY ================= */
   .fold{
-    display:grid;grid-template-columns:1.7fr 1fr;gap:0;
+    display:grid;grid-template-columns:5fr 7fr;gap:0;
     border-top:3px double var(--ink);border-bottom:var(--rule);
   }
   .lead-col{padding:18px 26px 22px 0;border-right:var(--rule);}
@@ -330,14 +332,14 @@
   .btn:active{transform:translateY(1px);}
   .btn-primary{background:var(--red);border-color:var(--red);color:#fff;font-size:1.02rem;padding:15px 28px;}
   .btn-primary:hover{background:#561312;color:#fff;}
-  .btn-wolt{border-color:var(--myrtle);color:var(--myrtle);}
-  .btn-wolt:hover{background:var(--myrtle);color:#fff;}
+  .btn-wolt{border-color:var(--ink);color:var(--ink);}
+  .btn-wolt:hover{background:var(--ink);color:var(--paper);}
   .btn-ghost{background:transparent;}
 
   .fold-fig{margin:0;padding:18px 0 22px 26px;}
-  .fold-fig img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 60%;}
+  .fold-fig img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;}
   .fold-fig figcaption{font-style:italic;font-size:.85rem;margin-top:8px;}
-  .fold-fig figcaption b{font-style:normal;font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;color:var(--red);}
+  .fold-fig figcaption b{margin-right:5px;font-style:normal;font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;color:var(--red);}
 
   /* section heading band */
   .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
@@ -349,7 +351,8 @@
   /* ================= MENU (centre spread, agate listings) ================= */
   .menu-wrap{padding:6px 0 8px;}
   .menu-cols{columns:3;column-gap:34px;column-rule:var(--hair);padding-top:16px;}
-  .menu-group{break-inside:avoid;margin:0 0 22px;}
+  .menu-group{margin:0 0 26px;scroll-margin-top:64px;}
+  .menu-group h3{break-after:avoid;}
   .menu-group h3{
     font-family:var(--cond);text-transform:uppercase;letter-spacing:.07em;
     font-size:.95rem;font-weight:700;color:var(--ink);margin:0 0 4px;
@@ -358,9 +361,10 @@
   .menu-group h3 .star{color:var(--gold);}
   .item{display:flex;align-items:baseline;gap:6px;margin:9px 0 0;line-height:1.2;}
   .item .nm{font-weight:600;}
-  .item .gloss{display:block;font-size:.82rem;font-style:italic;color:var(--ink);opacity:.72;margin-top:1px;}
-  .item-wrap{break-inside:avoid;margin-top:9px;}
+  .item-wrap .gloss{display:block;font-size:.86rem;font-style:italic;color:var(--ink);opacity:.74;line-height:1.35;margin-top:2px;}
+  .item-wrap{break-inside:avoid;margin-top:15px;}
   .item-wrap .item{margin-top:0;}
+  .menu-jump{display:none;}
   .sec-side{display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap;}
   .sec-side .sec-note{max-width:none;margin:0;}
   .sec-side .btn-wolt{padding:10px 16px;font-size:.84rem;}
@@ -368,27 +372,29 @@
 
   /* ================= CARNET D'ADRESSES ================= */
   .carnet{border-top:3px double var(--ink);}
-  .carnet-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:0;}
-  .carnet-info{padding:18px 30px 26px 0;border-right:var(--rule);}
-  .carnet-info dl{margin:0;}
+  .carnet-grid{display:grid;grid-template-columns:1fr;gap:0;}
+  .carnet-info{padding:8px 0 24px;border-bottom:var(--rule);}
+  .carnet-info dl{margin:0;display:grid;grid-template-columns:1.2fr 1fr 1fr 1.3fr;gap:0 32px;}
   .carnet-info dt{font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;
     font-size:.8rem;color:var(--red);margin-top:16px;}
+  .carnet-info dl > div > dt{margin-top:14px;}
   .carnet-info dd{margin:3px 0 0;font-size:1.02rem;}
   .social-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
   .social-row a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;border:var(--rule);
     padding:8px 13px;font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:var(--ink);}
   .social-row a:hover{background:var(--ink);color:var(--paper);}
   .social-row a svg{width:15px;height:15px;}
-  .carnet-map{padding:18px 0 26px 30px;}
-  .place{border-top:3px double var(--ink);border-bottom:3px double var(--ink);padding:20px 0 24px;}
+  .carnet-map{padding:20px 0 10px;}
+  .place{display:flex;align-items:flex-end;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;}
   .place .p-label{font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;
     font-size:.78rem;color:var(--red);margin:0 0 12px;}
-  .place .p-orient{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.15;margin:0;max-width:22ch;}
-  .place .btn{margin-top:20px;}
+  .place .p-orient{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.15;margin:0;max-width:none;}
+  .place .btn{margin-top:0;}
 
   /* ================= COLOPHON FOOTER ================= */
   .colophon{border-top:3px double var(--ink);padding:22px 0 48px;}
-  .colophon-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .colophon-grid{display:grid;grid-template-columns:1fr auto;align-items:end;gap:14px 24px;}
+  .col-sub{font-family:var(--cond);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;margin:8px 0 0;}
   .col-name{font-family:var(--serif);font-size:1.6rem;margin:0;line-height:1;}
   .col-name .la{font-style:italic;color:var(--red);}
   .colophon a{color:var(--ink);}
@@ -425,6 +431,7 @@
   .rep-fig figcaption{flex:1 0 auto;}
   .rep-fig.lead figcaption{flex:none;}
   .rep-fig:hover img{transform:scale(1.03);}
+  .rep-fig.room img{object-position:50% 62%;}
   .rep-fig figcaption{font-family:var(--body);font-style:italic;font-size:.85rem;line-height:1.35;
     color:var(--ink);padding:9px 12px 13px;border-top:var(--hair);background:var(--paper);}
   .rep-fig figcaption b{font-style:normal;font-family:var(--cond);text-transform:uppercase;
@@ -440,13 +447,15 @@
     .fold-fig img{aspect-ratio:4/3;}
     .menu-cols{columns:2;}
     .carnet-grid{grid-template-columns:1fr;}
-    .carnet-info{border-right:none;border-bottom:var(--rule);padding:16px 0 22px;}
+    .carnet-info{padding:4px 0 22px;}
+    .carnet-info dl{grid-template-columns:1fr 1fr;}
     .carnet-map{padding:18px 0 8px;}
+    .place{align-items:flex-start;flex-direction:column;}
     .colophon{padding-bottom:120px;}
-    .cta-find{display:none;}
     .newsstand{display:grid;}
     .lead-col .cta-row{display:none;}
     .runhead .rh-sec{display:none;}
+    .runhead .runhead-inner{grid-template-columns:1fr auto;}
     .rep-grid{grid-template-columns:1fr 1fr;}
     .rep-fig.lead{grid-column:1 / -1;grid-row:auto;}
     .rep-fig.lead img{flex:none;height:clamp(220px,58vw,360px);}
@@ -456,6 +465,8 @@
   }
   @media(max-width:560px){
     .menu-cols{columns:1;}
+    .colophon-grid{grid-template-columns:1fr;}
+    .carnet-info dl{grid-template-columns:1fr;}
     .masthead{padding-top:16px;}
     .folio{flex-wrap:nowrap;padding:6px 0;}
     .editions .ed-label{display:none;}
@@ -464,6 +475,9 @@
     .ed-tab[aria-pressed="true"]:first-of-type::after{left:0;}
     .sec-head .sec-note{max-width:100%;text-align:left;}
     .sec-side{justify-content:space-between;width:100%;}
+    .menu-jump{display:flex;flex-wrap:wrap;gap:8px;padding:14px 0 2px;}
+    .menu-jump a{font-family:var(--cond);text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;font-weight:600;
+      color:var(--ink);text-decoration:none;border:var(--rule);padding:8px 11px;}
   }
 
   @media(prefers-reduced-motion:reduce){
@@ -487,6 +501,7 @@
   <div class="runhead-inner">
     <span class="rh-name">Bistrot de <span class="la">la</span> Presse</span>
     <span class="rh-sec" id="rhSec" data-i18n="rh_default">La une</span>
+    <span class="rh-lang editions"><button class="ed-tab" data-lang="fr" aria-pressed="true" lang="fr">FR</button><button class="ed-tab" data-lang="de" aria-pressed="false" lang="de">DE</button><button class="ed-tab" data-lang="en" aria-pressed="false" lang="en">EN</button></span>
     
   </div>
 </div>
@@ -523,20 +538,19 @@
         <div class="cta-row">
           <a class="btn btn-primary" href="#menu"><span data-i18n="cta_menu">Lire le menu</span></a>
           <a class="btn" href="tel:+35227743060"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-i18n="cta_call">Appeler</span></a>
-          <a class="btn btn-ghost cta-find" href="#carnet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="cta_find">Nous trouver</span></a>
         </div>
       </div>
       <figure class="fold-fig">
-        <img src="assets/salle.jpg" alt="La salle du Bistrot de la Presse : banquettes de cuir, portraits encadrés, murs anthracite" />
-        <figcaption><b data-i18n="fold_cap_l">La salle</b> <span data-i18n="fold_cap">— banquettes, portraits encadrés et murs anthracite.</span></figcaption>
+        <img src="assets/kniddelen.jpg" alt="Kniddelen à la crème et au lard sur un set à carreaux" />
+          <figcaption><b data-i18n="cap_knid_l">Kniddelen</b><span data-i18n="cap_knid">— à la crème et au lard.</span></figcaption>
       </figure>
     </section>
     <section class="reportage" id="images" aria-labelledby="repTitle">
       <div class="sec-head"><h2 id="repTitle" data-i18n="rep_title">En images</h2></div>
       <div class="rep-grid">
         <figure class="rep-fig lead">
-          <img src="assets/kniddelen.jpg" alt="Kniddelen à la crème et au lard sur un set à carreaux" loading="lazy" />
-          <figcaption><b data-i18n="cap_knid_l">Kniddelen</b><span data-i18n="cap_knid">— à la crème et au lard.</span></figcaption>
+          <img src="assets/bar.jpg" alt="Le bar en bois et les tables du Bistrot de la Presse" loading="lazy" />
+          <figcaption><b data-i18n="cap_salle_l">Le comptoir</b><span data-i18n="cap_salle">— et les tables, côté rue.</span></figcaption>
         </figure>
         <figure class="rep-fig">
           <img src="assets/paschteit.jpg" alt="Paschtéit : bouchée à la reine en sauce, avec des frites" loading="lazy" />
@@ -550,9 +564,9 @@
           <img src="assets/soupe.jpg" alt="Soupe aux haricots verts, pommes de terre et lard" loading="lazy" />
           <figcaption><b data-i18n="cap_soupe_l">La soupe</b><span data-i18n="cap_soupe">— haricots verts, pommes de terre et lard.</span></figcaption>
         </figure>
-        <figure class="rep-fig">
-          <img src="assets/bar.jpg" alt="Le bar en bois et les tables du Bistrot de la Presse" loading="lazy" />
-          <figcaption><b data-i18n="cap_salle_l">La salle</b><span data-i18n="cap_salle">— le bar et les tables, côté rue.</span></figcaption>
+        <figure class="rep-fig room">
+          <img src="assets/salle.jpg" alt="La salle du Bistrot de la Presse : banquettes de cuir, portraits encadrés, murs anthracite" loading="lazy" />
+        <figcaption><b data-i18n="cap_room_l">La salle</b> <span data-i18n="cap_room">— banquettes, portraits encadrés et murs anthracite.</span></figcaption>
         </figure>
       </div>
     </section>
@@ -561,8 +575,11 @@
         <h2 id="menuTitle" data-i18n="menu_title">Le Menu</h2>
         <div class="sec-side"><p class="sec-note" data-i18n="menu_note">Extraits de la carte</p><a class="btn btn-wolt" href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-la-presse-luxembourg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2.2l2.4 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 7H6"/></svg><span data-i18n="wolt">Commander sur Wolt</span></a></div>
       </div>
+      <nav class="menu-jump" aria-label="Rubriques">
+        <a href="#m-lux" data-i18n="jump_lux">Spécialités</a><a href="#m-brass" data-i18n="grp_brass">Brasserie</a><a href="#m-burg" data-i18n="jump_burg">Burgers et pinsa</a><a href="#m-dess" data-i18n="grp_dess">Desserts faits maison</a>
+      </nav>
       <div class="menu-cols" id="menuCols">
-        <div class="menu-group">
+        <div class="menu-group" id="m-lux">
           <h3><span class="star">✶</span> <span data-i18n="grp_lux">Spécialités luxembourgeoises</span></h3>
           <div class="item-wrap">
             <p class="item"><span class="nm">Bouneschlupp</span></p>
@@ -597,7 +614,7 @@
             <span class="gloss" data-i18n="g_ham">Jambon cru et cuit, frites et salade</span>
           </div>
         </div>
-        <div class="menu-group">
+        <div class="menu-group" id="m-brass">
           <h3><span data-i18n="grp_brass">Brasserie</span></h3>
           <div class="item-wrap">
             <p class="item"><span class="nm">Tartare de bœuf</span></p>
@@ -628,7 +645,7 @@
             <span class="gloss" data-i18n="g_fish">Églefin, sauce rémoulade, frites</span>
           </div>
         </div>
-        <div class="menu-group">
+        <div class="menu-group" id="m-burg">
           <h3><span data-i18n="grp_burg">Burgers, pinsa et salades</span></h3>
           <div class="item-wrap">
             <p class="item"><span class="nm">Beef, Chicken, Vegetarian Burger</span></p>
@@ -647,7 +664,7 @@
             <span class="gloss" data-i18n="g_cesar">Filet de poulet, sauce César, parmesan</span>
           </div>
         </div>
-        <div class="menu-group">
+        <div class="menu-group" id="m-dess">
           <h3><span data-i18n="grp_dess">Desserts faits maison</span></h3>
           <div class="item-wrap"><p class="item"><span class="nm">Gâteau aux carottes</span></p></div>
           <div class="item-wrap"><p class="item"><span class="nm">Gâteau au fromage à la pistache</span></p></div>
@@ -661,13 +678,16 @@
       <div class="carnet-grid">
         <div class="carnet-info">
           <dl>
-            <dt data-i18n="c_addr">Adresse</dt>
+            <div>            <dt data-i18n="c_addr">Adresse</dt>
             <dd>24, rue du Marché-aux-Herbes<br />L-1728 Luxembourg</dd>
-            <dt data-i18n="c_phone">Téléphone</dt>
+            </div>
+            <div>            <dt data-i18n="c_phone">Téléphone</dt>
             <dd><a href="tel:+35227743060">+352 27 74 30 60</a></dd>
-            <dt data-i18n="c_order">Commander</dt>
+            </div>
+            <div>            <dt data-i18n="c_order">Commander</dt>
             <dd><a href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-la-presse-luxembourg" target="_blank" rel="noopener" data-i18n="c_wolt">Livraison sur Wolt</a></dd>
-            <dt data-i18n="c_social">Réseaux</dt>
+            </div>
+            <div>            <dt data-i18n="c_social">Réseaux</dt>
             <dd>
               <div class="social-row">
                 <a href="https://www.facebook.com/pages/Bistrot-de-La-Presse/163294833726279" target="_blank" rel="noopener">
@@ -678,12 +698,13 @@
                   Instagram</a>
               </div>
             </dd>
+            </div>
           </dl>
         </div>
         <div class="carnet-map">
           <div class="place">
-            <p class="p-label" data-i18n="place_label">Pour venir</p>
-            <p class="p-orient" data-i18n="place_orient">En face du Palais grand-ducal et de la Chambre des députés.</p>
+            <div><p class="p-label" data-i18n="place_label">Pour venir</p>
+            <p class="p-orient" data-i18n="place_orient">En face du Palais grand-ducal et de la Chambre des députés.</p></div>
             <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Bistrot+de+la+Presse+24+Rue+du+March%C3%A9-aux-Herbes+Luxembourg" target="_blank" rel="noopener"><span data-i18n="map_open">Itinéraire →</span></a>
           </div>
         </div>
@@ -692,7 +713,9 @@
   </main>
   <footer class="colophon" role="contentinfo">
     <div class="colophon-grid">
-      <p class="col-name">Bistrot de <span class="la">la</span> Presse</p>
+      <div><p class="col-name">Bistrot de <span class="la">la</span> Presse</p>
+      <p class="col-sub" data-i18n="underdeck">Cuisine luxembourgeoise et brasserie, Ville-Haute</p></div>
+      <nav class="editions col-ed" aria-label="Langue"><button class="ed-tab" data-lang="fr" aria-pressed="true" lang="fr">FR</button><button class="ed-tab" data-lang="de" aria-pressed="false" lang="de">DE</button><button class="ed-tab" data-lang="en" aria-pressed="false" lang="en">EN</button></nav>
       <p class="disclosure"><span data-i18n="disc_text">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span></p>
     </div>
   </footer>
@@ -723,9 +746,8 @@
       fold_body:"Au menu, les classiques luxembourgeois : Bouneschlupp, Kniddelen mat Speck, Judd mat Gaardebounen, Paschtéit. Et la brasserie : tartare, cordon bleu, burgers et pinsa.",
       cta_menu:"Lire le menu",
       cta_call:"Appeler",
-      cta_find:"Nous trouver",
-      fold_cap_l:"La salle",
-      fold_cap:"— banquettes, portraits encadrés et murs anthracite.",
+      cap_room_l:"La salle",
+      cap_room:"— banquettes, portraits encadrés et murs anthracite.",
       menu_title:"Le Menu",
       menu_note:"Extraits de la carte",
       grp_lux:"Spécialités luxembourgeoises",
@@ -751,6 +773,8 @@
       g_duke:"Lardons, pommes de terre, salade, œuf",
       g_cesar:"Filet de poulet, sauce César, parmesan",
       grp_dess:"Desserts faits maison",
+      jump_lux:"Spécialités",
+      jump_burg:"Burgers et pinsa",
       wolt:"Commander sur Wolt",
       rep_title:"En images",
       cap_judd_l:"Judd mat Gaardebounen",
@@ -761,8 +785,8 @@
       cap_pasch:"— bouchée à la reine et frites.",
       cap_soupe_l:"La soupe",
       cap_soupe:"— haricots verts, pommes de terre et lard.",
-      cap_salle_l:"La salle",
-      cap_salle:"— le bar et les tables, côté rue.",
+      cap_salle_l:"Le comptoir",
+      cap_salle:"— et les tables, côté rue.",
       carnet_title:"Carnet d’adresses",
       c_addr:"Adresse",
       c_phone:"Téléphone",
@@ -793,9 +817,8 @@
       fold_body:"Auf der Karte stehen die Luxemburger Klassiker: Bouneschlupp, Kniddelen mat Speck, Judd mat Gaardebounen, Paschtéit. Dazu die Brasserie: Tatar, Cordon bleu, Burger und Pinsa.",
       cta_menu:"Zum Menü",
       cta_call:"Anrufen",
-      cta_find:"Anfahrt",
-      fold_cap_l:"Der Gastraum",
-      fold_cap:"— Bänke, gerahmte Porträts und anthrazitfarbene Wände.",
+      cap_room_l:"Der Gastraum",
+      cap_room:"— Bänke, gerahmte Porträts und anthrazitfarbene Wände.",
       menu_title:"Das Menü",
       menu_note:"Auszüge aus der Karte",
       grp_lux:"Luxemburger Spezialitäten",
@@ -821,6 +844,8 @@
       g_duke:"Speckwürfel, Kartoffeln, Salat, Ei",
       g_cesar:"Hähnchenfilet, Caesar-Sauce, Parmesan",
       grp_dess:"Hausgemachte Desserts",
+      jump_lux:"Spezialitäten",
+      jump_burg:"Burger und Pinsa",
       wolt:"Auf Wolt bestellen",
       rep_title:"In Bildern",
       cap_judd_l:"Judd mat Gaardebounen",
@@ -831,8 +856,8 @@
       cap_pasch:"— Königinpastete mit Pommes.",
       cap_soupe_l:"Die Suppe",
       cap_soupe:"— grüne Bohnen, Kartoffeln und Speck.",
-      cap_salle_l:"Der Gastraum",
-      cap_salle:"— Bar und Tische zur Straße hin.",
+      cap_salle_l:"Die Theke",
+      cap_salle:"— und die Tische zur Straße hin.",
       carnet_title:"Adressbuch",
       c_addr:"Adresse",
       c_phone:"Telefon",
@@ -863,9 +888,8 @@
       fold_body:"On the menu, the Luxembourgish classics: Bouneschlupp, Kniddelen mat Speck, Judd mat Gaardebounen, Paschtéit. And the brasserie: tartare, cordon bleu, burgers and pinsa.",
       cta_menu:"Read the menu",
       cta_call:"Call",
-      cta_find:"Find us",
-      fold_cap_l:"The room",
-      fold_cap:"— banquettes, framed portraits and charcoal walls.",
+      cap_room_l:"The room",
+      cap_room:"— banquettes, framed portraits and charcoal walls.",
       menu_title:"The Menu",
       menu_note:"From the menu",
       grp_lux:"Luxembourgish specialities",
@@ -891,6 +915,8 @@
       g_duke:"Bacon lardons, potatoes, salad, egg",
       g_cesar:"Chicken fillet, Caesar dressing, parmesan",
       grp_dess:"Homemade desserts",
+      jump_lux:"Specialities",
+      jump_burg:"Burgers and pinsa",
       wolt:"Order on Wolt",
       rep_title:"In pictures",
       cap_judd_l:"Judd mat Gaardebounen",
@@ -901,8 +927,8 @@
       cap_pasch:"— vol-au-vent with fries.",
       cap_soupe_l:"The soup",
       cap_soupe:"— green beans, potatoes and bacon.",
-      cap_salle_l:"The room",
-      cap_salle:"— the bar and the tables, street side.",
+      cap_salle_l:"The bar",
+      cap_salle:"— and the tables on the street side.",
       carnet_title:"Address book",
       c_addr:"Address",
       c_phone:"Phone",
