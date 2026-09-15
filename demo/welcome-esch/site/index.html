@@ -61,7 +61,7 @@ nav.links a:hover{color:#fff;opacity:1}
 .hero .inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(38px,7vw,86px)}
 .hero .eyebrow{color:var(--gold);margin-bottom:16px;display:block}
 .hero h1{color:#fff;font-size:clamp(58px,11vw,150px);letter-spacing:.005em;text-shadow:0 6px 44px rgba(0,0,0,.45);line-height:.9}
-.hero h1 .kick{display:block;padding-bottom:10px;font-family:'Body',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.42em;font-size:clamp(12px,1.5vw,16px);color:var(--azu-l);margin-bottom:14px;text-shadow:none}
+.hero h1 .kick{display:block;padding-bottom:10px;font-family:'Body',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.42em;font-size:clamp(12px,1.5vw,16px);color:#f1d49a;margin-bottom:14px;text-shadow:none}
 .hero .tag{font-family:'Body',sans-serif;font-weight:400;font-size:clamp(18px,2.3vw,25px);color:#eaf1fb;max-width:32ch;margin:22px 0 0;line-height:1.45}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
 .btn{font-family:'Body',sans-serif;font-weight:700;letter-spacing:.01em;font-size:14.5px;padding:14px 26px;border-radius:4px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
@@ -117,9 +117,12 @@ section{padding:clamp(56px,9vw,102px) 0}
 
 /* LA MAISON — rooms */
 .maison{background:var(--stone)}
-.maison .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.maison .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+.maison .grid .lead{margin-top:18px}
+.maison .grid h2{font-size:clamp(32px,4.8vw,56px);color:var(--ink);margin-top:12px}
+.maison .grid .eyebrow{display:block}
 .maison figure{position:relative;overflow:hidden;border-radius:6px;background:#cfc3a8;box-shadow:0 14px 34px rgba(20,30,50,.14)}
-.maison figure img{width:100%;height:clamp(220px,32vw,340px);object-fit:cover}
+.maison figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .maison figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 14px 12px;background:linear-gradient(0deg,rgba(10,20,42,0.92) 0%,rgba(10,20,42,0.8) 62%,rgba(10,20,42,0) 100%);color:#fff;font-family:'Disp';font-weight:600;font-size:16px}
 .maison .lead{max-width:60ch;font-size:18px;color:var(--ink2);margin-top:26px;line-height:1.6}
 
@@ -142,6 +145,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 /* INFOS */
 .infos{background:var(--blue-dd);color:#e8eef9}
 .infos .sect-h h2{color:#fff}
+.infos .eyebrow{color:var(--gold)}
 .infos .sect-h h2 em{color:var(--azu-l)}
 .infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
 .ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.14)}
@@ -161,7 +165,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 footer{background:var(--blue-ink);color:#9fb0cc;padding:0 0 40px}
 footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
 footer .band .ln{flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--azu) 0 8px,transparent 8px 16px)}
-footer .in{padding-block:6px 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .in{padding-block:6px 0;display:grid;grid-template-columns:1fr;gap:40px}
 footer .nm{font-family:'Disp';font-weight:600;font-size:26px;color:var(--cream)}
 footer .fk{font-family:'Body';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold)}
 footer .nm small{display:block;font-family:'Body';font-size:10px;letter-spacing:.2em;color:var(--azu-l);margin-top:5px;text-transform:uppercase}
@@ -178,7 +182,8 @@ footer .made a{color:var(--gold)}
  .hero canvas#azu{display:none}
  .hero{min-height:calc(100svh - 78px);align-items:flex-end}
  .hero .scrim{background:linear-gradient(180deg,rgba(10,34,71,.2) 0%,rgba(10,34,71,.12) 36%,rgba(10,34,71,.92) 100%)}
- .maison .rooms{grid-template-columns:1fr}
+ .maison .grid{grid-template-columns:1fr}
+ .maison figure img{aspect-ratio:4/3}
  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
  .spot .pic{order:-1}
 }
@@ -235,7 +240,6 @@ footer .made a{color:var(--gold)}
    <span class="nm">Restaurant Welcome<small data-i18n="brand_sub">Esch-sur-Alzette</small></span>
   </a>
   <nav class="links" id="nav">
-   <a href="#signature" data-i18n="nav_sig">Le polvo</a>
    <a href="#gal" data-i18n="nav_gal">À table</a>
    <a href="#maison" data-i18n="nav_maison">La salle</a>
    <a href="#carte" data-i18n="nav_carte">La carte</a>
@@ -272,13 +276,22 @@ footer .made a{color:var(--gold)}
     <div class="c"><div class="k" data-i18n="fact_k3">Téléphone</div><div class="v" data-i18n="fact_v3"><b>+352 54 25 58</b></div></div>
   </div></div>
  </div>
+ <section class="maison" id="maison">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="maison_eyebrow">La maison</span>
+    <h2 data-i18n="maison_h">La salle et le comptoir</h2>
+    <p class="lead" data-i18n="maison_lead">Nappes rouges et beiges, un grand comptoir en bois garni de verres, le coq de Barcelos au-dessus du bar et le petit cochon « Welcome » posé sur le comptoir.</p>
+   </div>
+   <figure class="pig"><img src="assets/welcome.jpg" alt="Le cochon en céramique « Welcome » et les orchidées sur le comptoir"/><figcaption data-i18n="cap_accueil">Le cochon « Welcome »</figcaption></figure>
+  </div>
+ </section>
  <section class="spot" id="signature">
   <div class="wrap grid">
    <div class="txt">
     <span class="eyebrow" data-i18n="sig_eyebrow">Côté mer</span>
-    <h2>Polvo à lagareiro<span data-i18n="sig_sub">Poulpe grillé, pommes de terre et haricots verts</span></h2>
-    <p class="lead" data-i18n="sig_lead">À l'ail et à l'huile d'olive, servi dans un plat en terre cuite.</p>
-    <p class="body" data-i18n="sig_body">Sur la carte aussi : gambas, arroz de marisco, espetada, côte de bœuf et bacalhau.</p>
+    <h2>Polvo à lagareiro</h2>
+    <p class="lead" data-i18n="sig_lead">Poulpe grillé à l'ail et à l'huile d'olive, avec pommes de terre et haricots verts, servi dans un plat en terre cuite.</p>
    </div>
    <div class="pic"><img src="assets/polvo.jpg" alt="Polvo à lagareiro : poulpe grillé à l'ail, pommes de terre et haricots verts dans un plat en terre cuite"/></div>
   </div>
@@ -298,20 +311,6 @@ footer .made a{color:var(--gold)}
     <figure class="w2"><img src="assets/gambas.jpg" alt="Gambas en sauce, citron et persil"/><figcaption data-i18n="cap_gambas">Gambas</figcaption></figure>
     <figure class="w2"><img src="assets/bacalhau.jpg" alt="Bacalhau en sauce tomate, pommes de terre frites, dans un plat émaillé"/><figcaption data-i18n="cap_bacalhau">Bacalhau</figcaption></figure>
    </div>
-  </div>
- </section>
- <section class="maison" id="maison">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="maison_eyebrow">La maison</span>
-    <h2 data-i18n="maison_h">La salle et le comptoir</h2>
-   </div>
-   <div class="rooms">
-    <figure><img src="assets/welcome.jpg" alt="Le cochon en céramique « Welcome » et les orchidées sur le comptoir"/><figcaption data-i18n="cap_accueil">Le cochon « Welcome »</figcaption></figure>
-    <figure><img src="assets/comptoir.jpg" alt="Le comptoir en bois, le coq de Barcelos et le cochon « Welcome »"/><figcaption data-i18n="cap_comptoir">Le comptoir</figcaption></figure>
-    <figure><img src="assets/salle.jpg" alt="La salle du restaurant, nappes rouges et beiges, chaises en bois"/><figcaption data-i18n="cap_salle">La salle</figcaption></figure>
-   </div>
-   <p class="lead" data-i18n="maison_lead">Nappes rouges et beiges, un grand comptoir en bois garni de verres, le coq de Barcelos au-dessus du bar et le petit cochon « Welcome » posé sur le comptoir.</p>
   </div>
  </section>
  <section class="carte" id="carte">
@@ -344,7 +343,7 @@ footer .made a{color:var(--gold)}
      </div>
      <div class="mgroup">
       <h3><span data-i18n="mg4">À boire &amp; desserts</span></h3>
-      <p class="sub" data-i18n="i_drinks">Vinhos portugueses, sangria et desserts.</p>
+      <p class="sub" data-i18n="i_drinks">Vins portugais, sangria et desserts.</p>
      </div>
     </div>
    </div>
@@ -377,10 +376,6 @@ footer .made a{color:var(--gold)}
    <div class="nm">Restaurant Welcome<small data-i18n="brand_sub">Esch-sur-Alzette</small></div>
    <p data-i18n="foot_p">Cuisine portugaise à Esch-sur-Alzette : fruits de mer, espetada, bacalhau et grillades.</p>
   </div>
-  <div>
-   <div class="fk" data-i18n="foot_contact">Contact</div>
-   <p style="margin-top:10px">103, rue du Canal<br>L-4051 Esch-sur-Alzette<br><a href="tel:+352542558" style="border-bottom:1px solid var(--gold)">+352 54 25 58</a></p>
-  </div>
  </div>
  <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
 </footer>
@@ -390,7 +385,6 @@ const I18N={
   wwb_call:"Appeler",
   wwb_dir:"Itinéraire",
   brand_sub:"Esch-sur-Alzette",
-  nav_sig:"Le polvo",
   nav_gal:"À table",
   nav_maison:"La salle",
   nav_carte:"La carte",
@@ -406,9 +400,7 @@ const I18N={
   fact_k3:"Téléphone",
   fact_v3:"<b>+352 54 25 58</b>",
   sig_eyebrow:"Côté mer",
-  sig_sub:"Poulpe grillé, pommes de terre et haricots verts",
-  sig_lead:"À l'ail et à l'huile d'olive, servi dans un plat en terre cuite.",
-  sig_body:"Sur la carte aussi : gambas, arroz de marisco, espetada, côte de bœuf et bacalhau.",
+  sig_lead:"Poulpe grillé à l'ail et à l'huile d'olive, avec pommes de terre et haricots verts, servi dans un plat en terre cuite.",
   gal_eyebrow:"À table",
   gal_h:"Les assiettes",
   gal_p:"Grands plats de la mer à partager, grillades et espetada.",
@@ -420,8 +412,6 @@ const I18N={
   cap_gambas:"Gambas",
   maison_eyebrow:"La maison",
   maison_h:"La salle et le comptoir",
-  cap_salle:"La salle",
-  cap_comptoir:"Le comptoir",
   cap_accueil:"Le cochon « Welcome »",
   maison_lead:"Nappes rouges et beiges, un grand comptoir en bois garni de verres, le coq de Barcelos au-dessus du bar et le petit cochon « Welcome » posé sur le comptoir.",
   carte_eyebrow:"Cuisine portugaise",
@@ -445,14 +435,13 @@ const I18N={
   i9n:"Feijoada",
   i9d:"Haricots noirs et viandes",
   mg4:"À boire &amp; desserts",
-  i_drinks:"Vinhos portugueses, sangria et desserts.",
+  i_drinks:"Vins portugais, sangria et desserts.",
   infos_eyebrow:"Infos &amp; accès",
   infos_h:"Nous trouver",
   ino_k1:"Adresse",
   ino_k2:"Téléphone",
   photo_cap:"La façade",
   map_btn:"Itinéraire ↗",
-  foot_contact:"Contact",
   foot_p:"Cuisine portugaise à Esch-sur-Alzette : fruits de mer, espetada, bacalhau et grillades.",
   disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
  },
@@ -460,7 +449,6 @@ const I18N={
   wwb_call:"Anrufen",
   wwb_dir:"Route",
   brand_sub:"Esch-sur-Alzette",
-  nav_sig:"Pulpo",
   nav_gal:"Gerichte",
   nav_maison:"Gastraum",
   nav_carte:"Speisekarte",
@@ -476,9 +464,7 @@ const I18N={
   fact_k3:"Telefon",
   fact_v3:"<b>+352 54 25 58</b>",
   sig_eyebrow:"Aus dem Meer",
-  sig_sub:"Gegrillter Pulpo mit Kartoffeln und grünen Bohnen",
-  sig_lead:"Mit Knoblauch und Olivenöl, in der Tonschale serviert.",
-  sig_body:"Außerdem auf der Karte: Gambas, Arroz de marisco, Espetada, Côte de bœuf und Bacalhau.",
+  sig_lead:"Gegrillter Pulpo mit Knoblauch und Olivenöl, dazu Kartoffeln und grüne Bohnen, in der Tonschale serviert.",
   gal_eyebrow:"Zu Tisch",
   gal_h:"Die Teller",
   gal_p:"Große Meeresfrüchteplatten zum Teilen, Gegrilltes und Espetada.",
@@ -490,8 +476,6 @@ const I18N={
   cap_gambas:"Gambas",
   maison_eyebrow:"Das Haus",
   maison_h:"Gastraum und Tresen",
-  cap_salle:"Der Gastraum",
-  cap_comptoir:"Der Tresen",
   cap_accueil:"Das „Welcome“-Schweinchen",
   maison_lead:"Rote und beige Tischdecken, ein großer Holztresen voller Gläser, der Hahn von Barcelos über der Bar und das kleine „Welcome“-Schweinchen auf dem Tresen.",
   carte_eyebrow:"Portugiesische Küche",
@@ -522,7 +506,6 @@ const I18N={
   ino_k2:"Telefon",
   photo_cap:"Die Fassade",
   map_btn:"Route ↗",
-  foot_contact:"Kontakt",
   foot_p:"Portugiesische Küche in Esch-sur-Alzette: Meeresfrüchte, Espetada, Bacalhau und Gegrilltes.",
   disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
  },
@@ -530,7 +513,6 @@ const I18N={
   wwb_call:"Call",
   wwb_dir:"Directions",
   brand_sub:"Esch-sur-Alzette",
-  nav_sig:"Octopus",
   nav_gal:"Dishes",
   nav_maison:"Dining room",
   nav_carte:"Menu",
@@ -546,9 +528,7 @@ const I18N={
   fact_k3:"Phone",
   fact_v3:"<b>+352 54 25 58</b>",
   sig_eyebrow:"From the sea",
-  sig_sub:"Grilled octopus with potatoes and green beans",
-  sig_lead:"With garlic and olive oil, served in a terracotta dish.",
-  sig_body:"Also on the menu: gambas, arroz de marisco, espetada, côte de bœuf and bacalhau.",
+  sig_lead:"Grilled octopus with garlic and olive oil, potatoes and green beans, served in a terracotta dish.",
   gal_eyebrow:"At the table",
   gal_h:"The plates",
   gal_p:"Big seafood dishes to share, grills and espetada.",
@@ -560,8 +540,6 @@ const I18N={
   cap_gambas:"Gambas",
   maison_eyebrow:"The house",
   maison_h:"Dining room and bar",
-  cap_salle:"The dining room",
-  cap_comptoir:"The bar",
   cap_accueil:"The “Welcome” pig",
   maison_lead:"Red and beige tablecloths, a big wooden bar lined with glasses, the Barcelos rooster above it and the little “Welcome” pig on the counter.",
   carte_eyebrow:"Portuguese cooking",
@@ -592,7 +570,6 @@ const I18N={
   ino_k2:"Phone",
   photo_cap:"The front",
   map_btn:"Directions ↗",
-  foot_contact:"Contact",
   foot_p:"Portuguese cooking in Esch-sur-Alzette: seafood, espetada, bacalhau and grills.",
   disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
  }
