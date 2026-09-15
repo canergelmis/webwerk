@@ -351,8 +351,7 @@
   /* ================= MENU (centre spread, agate listings) ================= */
   .menu-wrap{padding:6px 0 8px;}
   .menu-cols{columns:3;column-gap:34px;column-rule:var(--hair);padding-top:16px;}
-  .menu-group{margin:0 0 26px;scroll-margin-top:64px;}
-  .menu-group h3{break-after:avoid;}
+  .menu-group{break-inside:avoid;margin:0 0 26px;scroll-margin-top:64px;}
   .menu-group h3{
     font-family:var(--cond);text-transform:uppercase;letter-spacing:.07em;
     font-size:.95rem;font-weight:700;color:var(--ink);margin:0 0 4px;
@@ -384,7 +383,7 @@
     padding:8px 13px;font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:var(--ink);}
   .social-row a:hover{background:var(--ink);color:var(--paper);}
   .social-row a svg{width:15px;height:15px;}
-  .carnet-map{padding:20px 0 10px;}
+  .carnet-map{padding:24px 0 30px;}
   .place{display:flex;align-items:flex-end;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;}
   .place .p-label{font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;
     font-size:.78rem;color:var(--red);margin:0 0 12px;}
@@ -393,7 +392,7 @@
 
   /* ================= COLOPHON FOOTER ================= */
   .colophon{border-top:3px double var(--ink);padding:22px 0 48px;}
-  .colophon-grid{display:grid;grid-template-columns:1fr auto;align-items:end;gap:14px 24px;}
+  .colophon-grid{display:grid;grid-template-columns:1fr;gap:14px;}
   .col-sub{font-family:var(--cond);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;margin:8px 0 0;}
   .col-name{font-family:var(--serif);font-size:1.6rem;margin:0;line-height:1;}
   .col-name .la{font-style:italic;color:var(--red);}
@@ -417,7 +416,6 @@
   }
   .newsstand a:first-child{border-left:none;}
   .newsstand a svg{width:18px;height:18px;}
-  .newsstand .ns-primary{background:var(--red);font-size:.82rem;font-weight:600;}
 
   /* ================= LE REPORTAGE (picture desk) ================= */
   .reportage{border-top:3px double var(--ink);}
@@ -715,13 +713,12 @@
     <div class="colophon-grid">
       <div><p class="col-name">Bistrot de <span class="la">la</span> Presse</p>
       <p class="col-sub" data-i18n="underdeck">Cuisine luxembourgeoise et brasserie, Ville-Haute</p></div>
-      <nav class="editions col-ed" aria-label="Langue"><button class="ed-tab" data-lang="fr" aria-pressed="true" lang="fr">FR</button><button class="ed-tab" data-lang="de" aria-pressed="false" lang="de">DE</button><button class="ed-tab" data-lang="en" aria-pressed="false" lang="en">EN</button></nav>
       <p class="disclosure"><span data-i18n="disc_text">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span></p>
     </div>
   </footer>
 </div>
 <nav class="newsstand" aria-label="Actions rapides">
-  <a class="ns-primary" href="#menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h8"/></svg><span data-i18n="ns_menu">Menu</span></a>
+  <a href="#menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 9h8M8 13h8"/></svg><span data-i18n="ns_menu">Menu</span></a>
   <a href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-la-presse-luxembourg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2.2l2.4 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 7H6"/></svg><span>Wolt</span></a>
   <a href="tel:+35227743060"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-i18n="ns_call">Appeler</span></a>
   <a href="https://www.google.com/maps/search/?api=1&amp;query=Bistrot+de+la+Presse+24+Rue+du+March%C3%A9-aux-Herbes+Luxembourg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="ns_dir">Itinéraire</span></a>
