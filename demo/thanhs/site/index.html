@@ -548,10 +548,9 @@ function applyLang(l){
 }
 function buildHours(id){
   var ul=document.getElementById(id); if(!ul) return;
-  var D=I18N[lang].days, todayIdx=(new Date().getDay()), order=[1,2,3,4,5,6,0]; ul.innerHTML="";
+  var D=I18N[lang].days, order=[1,2,3,4,5,6,0]; ul.innerHTML="";
   order.forEach(function(i){
     var h=hoursFor(i), li=document.createElement("li");
-    if(i===todayIdx) li.className="today";
     var val=h?h:('<span class="cl">'+I18N[lang].closed+'</span>');
     li.innerHTML='<span class="day">'+D[i]+'</span><span>'+val+'</span>'; ul.appendChild(li);
   });

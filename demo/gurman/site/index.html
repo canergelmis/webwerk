@@ -559,12 +559,6 @@
     b.addEventListener("click",function(){ applyLang(b.getAttribute("data-lang")); });
   });
 
-  /* highlight today's hours */
-  (function(){
-    var d=new Date().getDay();
-    var li=document.querySelector('#hours li[data-day="'+d+'"]');
-    if(li) li.classList.add("today");
-  })();
 
   /* sticky dock appears after the hero */
   (function(){
