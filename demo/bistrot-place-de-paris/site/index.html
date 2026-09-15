@@ -52,8 +52,8 @@
   /* ---------- header ---------- */
   .bar{position:sticky;top:0;z-index:50;background:rgba(246,238,223,.96);border-bottom:1px solid var(--line);
     backdrop-filter:saturate(1.2) blur(6px)}
-  .bar .wrap{display:flex;align-items:center;gap:18px;min-height:66px;padding-block:8px}
-  .bar .mark img{height:54px;width:auto}
+  .bar .wrap{display:flex;align-items:center;gap:18px;min-height:78px;padding-block:8px}
+  .bar .mark img{height:66px;width:auto}
   .bar .mark-txt{display:none;font-family:var(--disp);font-weight:600;font-size:1.2rem;color:var(--bord);line-height:1.02}
   .bar .mark-txt b{display:block;font-weight:700;letter-spacing:.02em}
   .bar nav{display:flex;gap:22px;margin-left:auto}
@@ -104,14 +104,14 @@
   .carte h2{margin:8px 0 0}
   .plat-line{display:inline-block;margin-top:6px}
   .plat-line b{font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--bord);margin-right:8px}
-  .groups{columns:3;column-gap:clamp(22px,3vw,40px);margin-top:34px}
-  .grp{break-inside:avoid;margin-bottom:30px}
+  .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3vw,44px);align-items:start;margin-top:34px}
+  .grp{margin-bottom:0}
   .grp h3{border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:6px}
   .grp .note{font-size:.86rem;color:var(--muted);font-style:italic;margin-bottom:8px}
   .it{padding-top:13px}
   .it .n{font-family:var(--disp);font-weight:700;font-size:1.22rem;line-height:1.25}
   .it .d{font-size:.92rem;color:var(--muted);line-height:1.4}
-  .grp figure{margin:16px 0 4px}
+  .grp figure{margin:18px 0 0}
   .grp figure img{aspect-ratio:4/3;border-radius:2px}
   .grp figcaption{font-size:.84rem;padding-top:6px}
   .jump{display:none}
@@ -150,7 +150,7 @@
   .event .acts .btn{justify-content:center}
 
   /* ---------- infos ---------- */
-  .infos{background:var(--paper2)}
+  .infos{background:var(--paper2);scroll-margin-top:70px}
   .infos .grid{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(24px,4vw,56px);align-items:start}
   .infos .rows{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px}
   .infos .k{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--bord);margin-bottom:4px}
@@ -175,7 +175,7 @@
   @media(max-width:960px){
     .bar nav{display:none}
     .maison .grid,.comptoir .grid,.infos .grid,.event .card,.terr .grid{grid-template-columns:1fr}
-    .groups{columns:2}
+    .groups{grid-template-columns:1fr 1fr}
     .plates{grid-template-columns:1fr 1fr}
     .event .acts{flex-direction:row}
     .event .acts .btn{flex:1}
@@ -191,9 +191,12 @@
     .facts .wrap{grid-template-columns:1fr}
     .facts .c+.c{border-left:0;border-top:1px solid rgba(246,238,223,.28);padding-left:0;padding-top:16px}
     .facts .c{padding-block:16px}
-    .groups{columns:1}
-    .jump{display:flex;flex-wrap:wrap;gap:8px;padding-block:18px 2px}
-    .jump a{font-size:.82rem;font-weight:600;color:var(--ink);border:1px solid var(--line);
+    .groups{grid-template-columns:1fr}
+    .jump{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-block:16px 4px;position:sticky;top:58px;z-index:20;
+      background:linear-gradient(180deg,var(--paper2) 72%,rgba(238,226,205,0));
+      -webkit-mask-image:linear-gradient(90deg,#000 88%,rgba(0,0,0,.15));mask-image:linear-gradient(90deg,#000 88%,rgba(0,0,0,.15))}
+    .jump::-webkit-scrollbar{display:none}
+    .jump a{flex:none;font-size:.82rem;font-weight:600;color:var(--ink);border:1px solid var(--line);
       padding:8px 13px;border-radius:2px;white-space:nowrap;background:#fff}
     .cocks{columns:2;column-gap:20px}
     .plates figure img{aspect-ratio:16/9}
@@ -286,15 +289,15 @@
           <h3 data-i18n="g_viande">Viandes</h3>
           <p class="note" data-i18n="n_viande">Servies avec frites et salade mixte.</p>
           <div class="it"><div class="n">Bouchée à la reine</div></div>
-          <figure>
-            <img src="assets/bouchee.jpg" alt="Bouchée à la reine, frites et salade mixte" loading="lazy" />
-            <figcaption><span data-i18n="cap_bouchee">Bouchée à la reine, frites et salade.</span></figcaption>
-          </figure>
           <div class="it"><div class="n">Escalope de veau viennoise</div></div>
           <div class="it"><div class="n">Escalope de veau à la milanaise</div><div class="d" data-i18n="d_milan">Avec spaghetti à la tomate</div></div>
           <div class="it"><div class="n">Escalope de veau</div><div class="d" data-i18n="d_esc">Crème de champignons frais</div></div>
           <div class="it"><div class="n">Cordon bleu de veau</div><div class="d" data-i18n="d_cordon">Crème de champignons frais</div></div>
           <div class="it"><div class="n">Entrecôte de bœuf</div><div class="d" data-i18n="d_entre">Sauce poivre vert, crème de champignons frais ou beurre maître d’hôtel</div></div>
+          <figure>
+            <img src="assets/bouchee.jpg" alt="Bouchée à la reine, frites et salade mixte" loading="lazy" />
+            <figcaption><span data-i18n="cap_bouchee">Bouchée à la reine, frites et salade.</span></figcaption>
+          </figure>
         </div>
 
         <div class="grp" id="g-autres">
@@ -303,24 +306,24 @@
           <div class="it"><div class="n">Hamburger de bœuf</div><div class="d" data-i18n="d_burger">Oignons, tomates, cornichons ; frites et salade mixte</div></div>
           <div class="it"><div class="n">Scampis à l’ail décortiqués</div><div class="d" data-i18n="d_scampi">Riz ou frites, salade mixte</div></div>
           <div class="it"><div class="n">Pavé de saumon grillé</div><div class="d" data-i18n="d_saumon">Pommes nature, riz ou frites ; salade mixte</div></div>
+          <div class="it"><div class="n">Assiette jambon mixte</div><div class="d" data-i18n="d_jambon">Jambon cru et cuit, frites et salade mixte</div></div>
+          <div class="it"><div class="n">Jambon et melon</div><div class="d" data-i18n="d_melon">Frites et salade mixte</div></div>
+          <div class="it"><div class="n">Carpaccio de bœuf</div><div class="d" data-i18n="d_carpaccio">Roquette, parmesan, frites</div></div>
           <figure>
             <img src="assets/saumon.jpg" alt="Pavé de saumon grillé, pommes nature et salade" loading="lazy" />
             <figcaption><span data-i18n="cap_saumon">Pavé de saumon grillé.</span></figcaption>
           </figure>
-          <div class="it"><div class="n">Assiette jambon mixte</div><div class="d" data-i18n="d_jambon">Jambon cru et cuit, frites et salade mixte</div></div>
-          <div class="it"><div class="n">Jambon et melon</div><div class="d" data-i18n="d_melon">Frites et salade mixte</div></div>
-          <div class="it"><div class="n">Carpaccio de bœuf</div><div class="d" data-i18n="d_carpaccio">Roquette, parmesan, frites</div></div>
         </div>
 
         <div class="grp" id="g-pates">
           <h3 data-i18n="g_pates">Pâtes</h3>
           <div class="it"><div class="n">Spaghetti carbonara</div><div class="d" data-i18n="d_carbo">Lardons, œuf, crème</div></div>
           <div class="it"><div class="n">Spaghetti aux scampis</div></div>
+          <div class="it"><div class="n">Spaghetti à la tomate</div></div>
           <figure>
             <img src="assets/scampis.jpg" alt="Spaghetti aux scampis, sauce crémeuse et persil" loading="lazy" />
             <figcaption><span data-i18n="cap_scampis">Spaghetti aux scampis.</span></figcaption>
           </figure>
-          <div class="it"><div class="n">Spaghetti à la tomate</div></div>
         </div>
 
         <div class="grp" id="g-salades">
@@ -460,7 +463,7 @@
 <nav class="dock" aria-label="Actions rapides">
   <a href="#carte" data-i18n="dock_menu">La carte</a>
   <a class="call" href="tel:+352496139" data-i18n="dock_call">Appeler</a>
-  <a href="https://www.google.com/maps/search/?api=1&amp;query=Brasserie+Le+Bistrot+de+la+Place+de+Paris+31+Rue+du+Fort+Elisabeth+Luxembourg" target="_blank" rel="noopener" data-i18n="dock_dir">Itinéraire</a>
+  <a href="#infos" data-i18n="dock_info">Horaires et adresse</a>
 </nav>
 
 <script>
@@ -556,7 +559,7 @@
       i_fb:"Page Facebook",
       dock_menu:"La carte",
       dock_call:"Appeler",
-      dock_dir:"Itinéraire",
+      dock_info:"Horaires et adresse",
       disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
     },
     de:{
@@ -649,7 +652,7 @@
       i_fb:"Facebook-Seite",
       dock_menu:"Karte",
       dock_call:"Anrufen",
-      dock_dir:"Route",
+      dock_info:"Zeiten und Adresse",
       disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
     },
     en:{
@@ -742,7 +745,7 @@
       i_fb:"Facebook page",
       dock_menu:"Menu",
       dock_call:"Call",
-      dock_dir:"Directions",
+      dock_info:"Hours and address",
       disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
     }
   };
