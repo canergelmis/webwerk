@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
-<title>Le Petit Poète — Hôtel · Café · Restaurant, Echternach</title>
-<meta name="description" content="Le Petit Poète à Echternach — brasserie et grillades au cœur de la plus vieille ville du Luxembourg, à deux pas de l'abbaye et du Mullerthal. Démonstration Webwerk."/>
+<title>Le Petit Poète, Echternach</title>
+<meta name="description" content="Le Petit Poète, hôtel-café-restaurant sur la place du Marché d'Echternach, à deux pas de l'abbaye."/>
 <style>
 @font-face{font-family:'Garamond';src:url('assets/fonts/garamond-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Figtree';src:url('assets/fonts/figtree-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -25,17 +25,18 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 h1,h2,h3,.disp{font-family:'Garamond','Figtree',serif;font-weight:600;line-height:1.06}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
-.eyebrow{font-family:'Figtree',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.24em;font-size:12px;color:var(--brass)}
+.eyebrow{font-family:'Figtree',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.24em;font-size:12px;color:#84601e}
 
-.nib-div{display:flex;align-items:center;gap:20px;padding:30px 0}
+.nib-div{display:flex;align-items:center;gap:20px;padding-block:12px}
 .nib-div .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
 .nib-div .nb{width:20px;height:34px;color:var(--brass);flex:none}
 
-header{position:sticky;top:0;z-index:50;transition:background .3s}
+header{position:sticky;top:0;z-index:50;transition:background .3s;background:var(--green-d)}
 header.solid{background:var(--green-d);box-shadow:0 2px 22px rgba(0,0,0,.3)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:13px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--parch)}
 .brand .nb{width:16px;height:34px;flex:none;color:var(--gold)}
+.brand .plp{width:38px;height:38px;flex:none}
 .brand .nm{font-family:'Garamond',serif;font-weight:600;font-size:26px;letter-spacing:.01em;line-height:.95;color:var(--parch)}
 .brand .nm small{display:block;font-family:'Figtree';font-size:9px;letter-spacing:.24em;color:var(--gold);font-weight:700;margin-top:3px;text-transform:uppercase}
 nav.links{display:flex;align-items:center;gap:26px}
@@ -53,8 +54,8 @@ nav.links a:hover{color:var(--gold);opacity:1}
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-64px;padding-top:64px;overflow:hidden}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,14,9,0.62) 0%,rgba(18,14,9,0.38) 32%,rgba(20,22,16,0.55) 64%,rgba(12,16,10,0.94) 100%)}
-.hero .inner{padding-bottom:clamp(40px,7vw,84px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,14,9,.5) 0%,rgba(12,14,9,0) 58%),linear-gradient(180deg,rgba(18,14,9,0.62) 0%,rgba(18,14,9,0.38) 32%,rgba(20,22,16,0.55) 64%,rgba(12,16,10,0.94) 100%)}
+.hero .inner{width:100%;padding-bottom:clamp(40px,7vw,84px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--gold);margin-bottom:16px}
 .hero h1{color:#fff;font-size:clamp(46px,9vw,116px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.5)}
 .penflourish{display:block;width:clamp(260px,58%,540px);height:auto;margin:6px 0 0;color:var(--gold)}
@@ -87,18 +88,18 @@ section{padding:clamp(56px,9vw,102px) 0}
 .spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center}
 .spot .eyebrow{color:var(--gold)}
 .spot h2{font-family:'Garamond';font-size:clamp(38px,6vw,74px);color:#fff;margin:14px 0 0;line-height:1.05}
-.spot h2 span{color:var(--gold);display:block;font-style:italic}
+.spot h2 span{color:var(--gold);display:block;font-style:normal}
 .spot .lead{font-family:'Figtree';font-size:clamp(18px,2.2vw,24px);line-height:1.5;color:#eee4d0;margin:22px 0 0}
 .spot .body{font-size:16.5px;color:#c8bb9d;margin:16px 0 0;max-width:46ch}
 .spot .pic{position:relative}
-.spot .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.45)}
+.spot .pic img{width:100%;aspect-ratio:1;object-fit:cover;object-position:20% 50%;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.45)}
 .spot .pic .pill{position:absolute;right:-12px;bottom:24px;background:var(--gold);color:var(--ink);font-family:'Figtree';font-weight:700;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
 
 /* place / heritage band */
 .place{background:var(--green);color:#eef0e4;position:relative;overflow:hidden}
 .place .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,64px);align-items:center}
 .place h2{font-family:'Garamond';font-size:clamp(34px,5vw,62px);color:#fff}
-.place h2 span{color:var(--gold);display:block;font-style:italic}
+.place h2 span{color:var(--gold);display:block;font-style:normal}
 .place .lead{font-size:18px;color:#e4e7d6;margin-top:18px;line-height:1.62;max-width:44ch}
 .place .body{font-size:16px;color:#c4cbb4;margin-top:14px;max-width:46ch}
 .place .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
@@ -121,24 +122,34 @@ section{padding:clamp(56px,9vw,102px) 0}
 .mgroup{margin-bottom:30px}
 .mgroup h3{font-family:'Garamond';font-weight:600;font-size:26px;color:var(--green-d);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--green);margin-bottom:14px}
 .mgroup h3 .nb{width:11px;height:22px;flex:none;color:var(--brass)}
-.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
-.mitem .nm{font-family:'Figtree';font-weight:700;font-size:17px;color:var(--ink)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line)}
+.mitem:last-child{border-bottom:0}
+.mitem .nm{font-family:'Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);line-height:1.2}
 .mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:48ch}
 .mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
 .mitem .pr{font-family:'Garamond';color:var(--green);font-size:17px;white-space:nowrap;font-weight:700}
 .carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--brass);padding-left:14px;max-width:80ch}
+.mgroup.side{background:rgba(255,255,255,.55);border-radius:4px;padding:18px 22px 8px}
+.mgroup.side h3{font-size:21px}
+.mgroup.side .mitem .nm{font-size:17px}
 .carte .sub{font-size:13px;color:var(--muted);margin:-6px 0 8px;font-style:italic}
 
 /* infos */
-.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,40px)}
+.infos .grid>div:first-child{background:#fff;border:1px solid var(--line);border-radius:4px;padding:clamp(8px,2vw,22px) clamp(22px,4vw,40px)}
+.infos .grid>div:first-child .ino:last-child{border-bottom:0}
 .ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
 .ino .ic{width:22px;height:22px;flex:none;color:var(--green);margin-top:3px}
 .ino .k{font-family:'Figtree';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
 .ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
 .ino .fl{color:var(--muted);font-size:13px;font-style:italic}
 .hours-today{font-family:'Garamond';color:var(--green);font-size:18px;font-weight:700}
-.mapcard{background:var(--green-d);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#e9e1cf;text-align:center;padding:34px}
-.mapcard .nbwm{position:absolute;right:2px;top:-6px;width:110px;height:200px;color:rgba(216,178,94,.16)}
+.callcard{background:var(--green-d);color:#e9e1cf;border-radius:4px;padding:clamp(24px,4vw,40px)}
+.callcard .k{font-family:'Figtree',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold)}
+.callcard .big{font-family:'Garamond',serif;font-size:clamp(30px,4vw,44px);margin:10px 0 6px}
+.callcard .big a{color:#fff}
+.callcard p{margin:0 0 18px;font-size:15.5px;line-height:1.5}
+.mapcard{display:none}
 .mapcard .in{position:relative}
 .mapcard .big{font-family:'Garamond';font-size:28px;color:#fff}
 .mapcard .btn{margin-top:20px}
@@ -154,8 +165,10 @@ footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a4997e}
 footer .made{font-size:12.5px;color:#7f725a;margin-top:22px}
 footer .made b{color:#e6ddc8}
 footer .made a{color:var(--gold)}
-.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6a5f49;line-height:1.55;max-width:82ch}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6a5f49;line-height:1.55;max-width:none}
 
+.hero .bg img{object-position:50% 100%}
+@media(max-width:760px){.hero .bg{top:-30%}.hero .bg img{object-position:6% 100%}.hero .cta a[href^="tel:"]{display:none}}
 @media(max-width:900px){
  .spot .grid,.place .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
@@ -199,6 +212,7 @@ footer .made a{color:var(--gold)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+@media(max-width:760px){ .callcard .btn{display:none} .callcard p{margin-bottom:0} }
 
   /* hero type legibility */
   /* Contrast comes from the type's own shadow rather than from darkening
@@ -220,8 +234,8 @@ footer .made a{color:var(--gold)}
 <header id="hd">
  <div class="wrap bar">
   <a class="brand" href="#top" aria-label="Le Petit Poète">
-   <svg class="nb" viewBox="0 0 40 64" aria-hidden="true"><use href="#nib"/></svg>
-   <span class="nm">Le Petit Poète<small>Hôtel · Café · Restaurant · Echternach</small></span>
+   <img class="plp" src="assets/logo-plp.png" alt="" width="38" height="38"/>
+   <span class="nm">Le Petit Poète<small>Echternach</small></span>
   </a>
   <nav class="links" id="nav">
    <a href="#table" data-i18n="nav_table">La table</a>
@@ -241,22 +255,22 @@ footer .made a{color:var(--gold)}
   <div class="bg"><img src="assets/hero.jpg" alt="La devanture du Petit Poète, à la tombée du soir"/></div>
   <div class="scrim"></div>
   <div class="wrap inner">
-   <span class="eyebrow" data-i18n="hero_eyebrow">Hôtel · Café · Restaurant · Echternach</span>
+   <span class="eyebrow" data-i18n="hero_eyebrow">Hôtel – Café – Restaurant</span>
    <h1>Le Petit Poète</h1>
    <svg class="penflourish" viewBox="0 0 640 100" aria-hidden="true"><path pathLength="1" d="M28 62 C 150 22 300 20 384 54 C 424 70 344 88 332 60 C 320 34 500 26 612 52"/></svg>
-   <p class="tag" data-i18n="hero_tag">À la table du poète, au cœur d'Echternach — brasserie et grillades dans la plus vieille ville du pays.</p>
+   <p class="tag" data-i18n="hero_tag">À la table du poète, sur la place du Marché d'Echternach, la plus vieille ville du pays.</p>
    <div class="cta">
-    <a class="btn p" href="#infos" data-i18n="hero_cta1">Réserver</a>
-    <a class="btn o" href="#carte" data-i18n="hero_cta2">Voir la carte</a>
+    <a class="btn p" href="#carte" data-i18n="hero_cta2">Voir la carte</a>
+    <a class="btn o" href="tel:+3527200721" data-i18n="hero_cta1">Appeler</a>
    </div>
   </div>
  </section>
 
  <div class="facts">
   <div class="wrap"><div class="row">
-    <div class="c"><div class="k" data-i18n="fact_k1">La table</div><div class="v" data-i18n="fact_v1"><b>Brasserie &amp; grillades</b>spécialités maison, bœuf black angus</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>Au cœur d'Echternach</b>la plus vieille ville du pays · terrasse</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>Hôtel · Café · Restaurant</b>à deux pas de l'abbaye</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Non-stop</b>de 12h à 22h</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>13, place du Marché</b>Echternach, avec terrasse</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>Hôtel – Café – Restaurant</b>à deux pas de l'abbaye</div></div>
   </div></div>
  </div>
 
@@ -265,13 +279,12 @@ footer .made a{color:var(--gold)}
   <div class="wrap grid">
    <div class="txt">
     <span class="eyebrow" data-i18n="tb_eyebrow">La table</span>
-    <h2 data-i18n="tb_h">La brasserie,<span>et le grill.</span></h2>
-    <p class="lead" data-i18n="tb_lead">Les classiques d'une bonne brasserie — cordon bleu, bouchée à la reine, rognons à la moutarde — et les grandes grillades : côtes d'agneau, filet de bœuf, black angus cuit à basse température.</p>
-    <p class="body" data-i18n="tb_body">On s'attable comme à la maison, sans manière : une cuisine généreuse, des produits qui parlent d'eux-mêmes, et l'on prend le temps. Terrasse sur la place aux beaux jours.</p>
+    <h2 data-i18n="tb_h">La brasserie,<span>sur la place du Marché.</span></h2>
+    <p class="lead" data-i18n="tb_lead">Cordon bleu, bouchée à la reine, rognons de veau à la moutarde, francesinha, côtes d'agneau grillées, maminha de black angus.</p>
+    <p class="body" data-i18n="tb_body">Hôtel, café et restaurant sous un même toit, avec terrasse sur la place du Marché. Cuisine non-stop de 12h à 22h.</p>
    </div>
    <div class="pic">
-    <img src="assets/plat.jpg" alt="Un plat de la maison, dressé"/>
-    <span class="pill" data-i18n="tb_pill">Fait maison</span>
+    <img src="assets/boeuf.jpg" alt="Pièce de bœuf grillée, sa sauce et ses légumes"/>
    </div>
   </div>
  </section>
@@ -282,17 +295,17 @@ footer .made a{color:var(--gold)}
  <section id="gal">
   <div class="wrap">
    <div class="sect-h">
-    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
-    <h2 data-i18n="gal_h">Généreux, <em>sans manière</em></h2>
-    <p data-i18n="gal_p">Grillades et plats de brasserie, terrine et charcuterie, potage du jour — et une terrasse sur la place, aux beaux jours.</p>
+    <span class="eyebrow" data-i18n="gal_eyebrow">Photos</span>
+    <h2 data-i18n="gal_h">À table</h2>
    </div>
    <div class="gal">
-    <figure class="w2 h2"><img src="assets/plat.jpg" alt="Un plat dressé de la maison"/><figcaption data-i18n="cap_plat">Le plat du moment</figcaption></figure>
-    <figure><img src="assets/terrine.jpg" alt="Terrine et charcuterie sur ardoise"/><figcaption data-i18n="cap_terrine">Terrine &amp; charcuterie</figcaption></figure>
-    <figure><img src="assets/soupe.jpg" alt="Potage et pain"/><figcaption data-i18n="cap_soupe">Le potage du jour</figcaption></figure>
-    <figure class="w2"><img src="assets/banquet.jpg" alt="Une grande tablée dressée"/><figcaption data-i18n="cap_banquet">Les grandes tablées</figcaption></figure>
-    <figure><img src="assets/biere.jpg" alt="Une bière au café"/><figcaption data-i18n="cap_biere">Au café</figcaption></figure>
-    <figure><img src="assets/terrasse.jpg" alt="La terrasse sur la place d'Echternach"/><figcaption data-i18n="cap_terrasse">La terrasse, sur la place</figcaption></figure>
+    <figure class="w2 h2"><img src="assets/plat.jpg" alt="Côtes d'agneau, légumes et jus au vin rouge"/><figcaption data-i18n="cap_plat">Côtes d'agneau grillées</figcaption></figure>
+    <figure><img src="assets/terrine.jpg" alt="Pâté en croûte et jambon cru sur ardoise"/><figcaption data-i18n="cap_terrine">Pâté en croûte &amp; jambon cru</figcaption></figure>
+    <figure><img src="assets/dessert.jpg" alt="Crème brûlée et fruits rouges sur ardoise"/><figcaption data-i18n="cap_dessert">Crème brûlée</figcaption></figure>
+    <figure class="w2"><img src="assets/salle.jpg" alt="La salle du restaurant, tables nappées et suspensions en rotin"/><figcaption data-i18n="cap_salle">La salle du restaurant</figcaption></figure>
+    <figure><img src="assets/biere.jpg" alt="Une bière en terrasse, face à la place du Marché"/><figcaption data-i18n="cap_biere">Une bière en terrasse</figcaption></figure>
+    <figure><img src="assets/terrasse.jpg" alt="La terrasse, avec vue sur la place du Marché et le Dënzelt"/><figcaption data-i18n="cap_terrasse">La terrasse, face à la place du Marché</figcaption></figure>
+    <figure class="w2"><img src="assets/place.jpg" alt="La place du Marché d'Echternach et ses terrasses, au soleil"/><figcaption data-i18n="cap_place">La place du Marché</figcaption></figure>
    </div>
   </div>
  </section>
@@ -303,13 +316,7 @@ footer .made a{color:var(--gold)}
    <div class="txt">
     <span class="eyebrow" style="color:var(--gold)" data-i18n="ech_eyebrow">Le lieu</span>
     <h2 data-i18n="ech_h">Au cœur<span>d'Echternach.</span></h2>
-    <p class="lead" data-i18n="ech_lead">La table est posée dans la plus vieille ville du Luxembourg — à deux pas de l'abbaye bénédictine et de la basilique, aux portes du Mullerthal, la « Petite Suisse » luxembourgeoise.</p>
-    <p class="body" data-i18n="ech_body">On vient y déjeuner après la vieille ville, dîner avant le concert, ou s'attarder en terrasse sur la place. Une adresse de passage et d'habitués, à la fois. Echternach fut la ville du scriptorium de l'abbaye, où les moines enluminaient leurs manuscrits — un clin d'œil que porte l'enseigne du Petit Poète.</p>
-    <div class="chips">
-     <span class="chip" data-i18n="ech_c1">La plus vieille ville du pays</span>
-     <span class="chip b" data-i18n="ech_c2">À côté de l'abbaye</span>
-     <span class="chip b" data-i18n="ech_c3">Aux portes du Mullerthal</span>
-    </div>
+    <p class="lead" data-i18n="ech_lead">Le Petit Poète est sur la place du Marché de la plus vieille ville du Luxembourg — à deux pas de l'abbaye bénédictine et de la basilique, aux portes du Mullerthal, la « Petite Suisse » luxembourgeoise.</p>
    </div>
    <div class="pic"><img src="assets/facade.jpg" alt="La maison, sur la place d'Echternach"/></div>
   </div>
@@ -319,14 +326,14 @@ footer .made a{color:var(--gold)}
  <section class="carte" id="carte">
   <div class="wrap">
    <div class="sect-h">
-    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
-    <h2 data-i18n="carte_h">Les <em>viandes</em></h2>
-    <p data-i18n="carte_p">Le cœur de la carte : les classiques de brasserie et les grandes grillades. Voici la sélection viandes, relevée sur la carte de la maison.</p>
+    <span class="eyebrow" data-i18n="carte_eyebrow">La brasserie</span>
+    <h2 data-i18n="carte_h">La carte</h2>
+    <p data-i18n="carte_p">Plats de brasserie et viandes, avec accompagnement et sauce au choix.</p>
    </div>
    <div class="cols">
     <div>
      <div class="mgroup">
-      <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg1">Les classiques</span></h3>
+      <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg1">Les classiques de brasserie</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i1n">Escalope de volaille panée</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i2n">Cordon bleu de volaille</div><div class="ds" data-i18n="i2d">Sauce champignons</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i3n">Bouchée à la reine</div></div></div>
@@ -336,21 +343,20 @@ footer .made a{color:var(--gold)}
     </div>
     <div>
      <div class="mgroup">
-      <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg2">Le grill</span></h3>
+      <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg2">Les viandes</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i6n">Spareribs sauce barbecue</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i7n">Côtes d'agneau grillées</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i8n">Filet de bœuf (Argentine)</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i9n">Maminha de bœuf black angus</div><div class="ds" data-i18n="i9d">Cuit à basse température</div></div></div>
      </div>
-     <div class="mgroup">
+     <div class="mgroup side">
       <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg3">Les à-côtés</span></h3>
       <p class="sub" data-i18n="mg3_sub">Au choix, avec les viandes</p>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Gratin dauphinois ou frites</div><div class="ds">compris</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i11n">Sauces</div><div class="ds" data-i18n="i11d">Poivre, champignons, maître d'hôtel, vin rouge, béarnaise · au choix</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Gratin dauphinois ou frites</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Sauces</div><div class="ds" data-i18n="i11d">Poivre, champignons, maître d'hôtel, vin rouge, béarnaise</div></div></div>
      </div>
     </div>
    </div>
-   <p class="note" data-i18n="carte_note">Prix relevés sur la carte de la maison (sélection « Les Viandes »). Les entrées, poissons, plats du jour et desserts ne figurent pas ici et sont à confirmer sur place.</p>
   </div>
  </section>
 
@@ -358,22 +364,18 @@ footer .made a{color:var(--gold)}
  <section class="infos" id="infos">
   <div class="wrap">
    <div class="sect-h">
-    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
-    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos & accès</span>
+    <h2 data-i18n="infos_h">Nous trouver</h2>
    </div>
    <div class="grid">
     <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">Echternach<br><span class="fl" data-i18n="ino_addr_fl">centre historique · rue exacte à confirmer</span></div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver</div><div class="v"><span class="btn p" style="padding:10px 18px;font-size:13px;cursor:default" data-i18n="ino_book">Réserver — par téléphone</span></div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" data-i18n="ino_ht">Midi &amp; soir</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">13, place du Marché<br>L-6460 Echternach<br><span data-i18n="ino_hours">Cuisine non-stop de 12h à 22h</span><br><a class="btn p" style="margin-top:14px;padding:10px 18px;font-size:14px" href="https://www.google.com/maps/search/Le+Petit+Po%C3%A8te+13+Place+du+March%C3%A9+Echternach" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a></div></div></div>
     </div>
-    <div class="mapcard">
-     <svg class="nbwm" viewBox="0 0 40 64" aria-hidden="true"><use href="#nib"/></svg>
-     <div class="in">
-      <div class="big" data-i18n="map_big">Echternach</div>
-      <div style="color:#c4cbb4;margin-top:8px" data-i18n="map_sub">Au cœur de la vieille ville</div>
-      <a class="btn p" href="https://www.google.com/maps/search/Le+Petit+Po%C3%A8te+Echternach" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
-     </div>
+    <div class="callcard">
+     <div class="k" data-i18n="ino_k2">Téléphone</div>
+     <div class="big"><a href="tel:+3527200721">+352 72 00 72 1</a></div>
+     <p data-i18n="cc_p">Pour réserver une table ou une chambre.</p>
+     <a class="btn p" href="tel:+3527200721" data-i18n="hero_cta1">Appeler</a>
     </div>
    </div>
   </div>
@@ -384,124 +386,99 @@ footer .made a{color:var(--gold)}
  <div class="wrap band"><span class="ln"></span><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span class="ln"></span></div>
  <div class="wrap in">
   <div>
-   <div class="nm">Le Petit Poète<small>Hôtel · Café · Restaurant · Echternach</small></div>
-   <p data-i18n="foot_p">Brasserie et grillades au cœur d'Echternach, la plus vieille ville du Luxembourg — à deux pas de l'abbaye et du Mullerthal.</p>
-   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
+   <div class="nm">Le Petit Poète<small>Echternach</small></div>
+   <p data-i18n="foot_p">Hôtel-café-restaurant sur la place du Marché d'Echternach.</p>
   </div>
   <div>
    <div style="font-family:'Figtree';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold)">Contact</div>
-   <p style="margin-top:10px">Echternach<br><span data-i18n="foot_addr">centre historique · à confirmer</span><br><span data-i18n="foot_phone">Téléphone à confirmer</span></p>
+   <p style="margin-top:10px">13, place du Marché<br>L-6460 Echternach<br><a href="tel:+3527200721">+352 72 00 72 1</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison ; les prix « viandes » sont relevés sur sa carte. Adresse exacte, téléphone, horaires et le reste de la carte sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
 </footer>
 
 <script>
 const I18N={
- fr:{wwb_dir:"Itinéraire",
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
   nav_table:"La table",nav_carte:"La carte",nav_ech:"Echternach",nav_infos:"Infos & accès",
-  hero_eyebrow:"Hôtel · Café · Restaurant · Echternach",
-  hero_tag:"À la table du poète, au cœur d'Echternach — brasserie et grillades dans la plus vieille ville du pays.",
-  hero_cta1:"Réserver",hero_cta2:"Voir la carte",
-  fact_k1:"La table",fact_v1:"<b>Brasserie & grillades</b>spécialités maison, bœuf black angus",
-  fact_k2:"Le lieu",fact_v2:"<b>Au cœur d'Echternach</b>la plus vieille ville du pays · terrasse",
-  fact_k3:"La maison",fact_v3:"<b>Hôtel · Café · Restaurant</b>à deux pas de l'abbaye",
-  tb_eyebrow:"La table",tb_h:"La brasserie,<span>et le grill.</span>",
-  tb_lead:"Les classiques d'une bonne brasserie — cordon bleu, bouchée à la reine, rognons à la moutarde — et les grandes grillades : côtes d'agneau, filet de bœuf, black angus cuit à basse température.",
-  tb_body:"On s'attable comme à la maison, sans manière : une cuisine généreuse, des produits qui parlent d'eux-mêmes, et l'on prend le temps. Terrasse sur la place aux beaux jours.",
-  tb_pill:"Fait maison",
-  gal_eyebrow:"À table",gal_h:"Généreux, <em>sans manière</em>",
-  gal_p:"Grillades et plats de brasserie, terrine et charcuterie, potage du jour — et une terrasse sur la place, aux beaux jours.",
-  cap_plat:"Le plat du moment",cap_terrine:"Terrine & charcuterie",cap_soupe:"Le potage du jour",cap_banquet:"Les grandes tablées",cap_biere:"Au café",cap_terrasse:"La terrasse, sur la place",
+  hero_eyebrow:"Hôtel – Café – Restaurant",
+  hero_tag:"À la table du poète, sur la place du Marché d'Echternach, la plus vieille ville du pays.",
+  hero_cta1:"Appeler",hero_cta2:"Voir la carte",
+  fact_k1:"La cuisine",fact_v1:"<b>Non-stop</b>de 12h à 22h",
+  fact_k2:"Le lieu",fact_v2:"<b>13, place du Marché</b>Echternach, avec terrasse",
+  fact_k3:"La maison",fact_v3:"<b>Hôtel – Café – Restaurant</b>à deux pas de l'abbaye",
+  tb_eyebrow:"La table",tb_h:"La brasserie,<span>sur la place du Marché.</span>",
+  tb_lead:"Cordon bleu, bouchée à la reine, rognons de veau à la moutarde, francesinha, côtes d'agneau grillées, maminha de black angus.",
+  tb_body:"Hôtel, café et restaurant sous un même toit, avec terrasse sur la place du Marché. Cuisine non-stop de 12h à 22h.",
+  gal_eyebrow:"Photos",gal_h:"À table",
+  cap_plat:"Côtes d'agneau grillées",cap_terrine:"Pâté en croûte &amp; jambon cru",cap_dessert:"Crème brûlée",cap_salle:"La salle du restaurant",cap_biere:"Une bière en terrasse",cap_terrasse:"La terrasse, face à la place du Marché",cap_place:"La place du Marché",
   ech_eyebrow:"Le lieu",ech_h:"Au cœur<span>d'Echternach.</span>",
-  ech_lead:"La table est posée dans la plus vieille ville du Luxembourg — à deux pas de l'abbaye bénédictine et de la basilique, aux portes du Mullerthal, la « Petite Suisse » luxembourgeoise.",
-  ech_body:"On vient y déjeuner après la vieille ville, dîner avant le concert, ou s'attarder en terrasse sur la place. Une adresse de passage et d'habitués, à la fois. Echternach fut la ville du scriptorium de l'abbaye, où les moines enluminaient leurs manuscrits — un clin d'œil que porte l'enseigne du Petit Poète.",
-  ech_c1:"La plus vieille ville du pays",ech_c2:"À côté de l'abbaye",ech_c3:"Aux portes du Mullerthal",
-  carte_eyebrow:"La carte",carte_h:"Les <em>viandes</em>",
-  carte_p:"Le cœur de la carte : les classiques de brasserie et les grandes grillades. Voici la sélection viandes, relevée sur la carte de la maison.",
-  mg1:"Les classiques",mg2:"Le grill",mg3:"Les à-côtés",mg3_sub:"Au choix, avec les viandes",
+  ech_lead:"Le Petit Poète est sur la place du Marché de la plus vieille ville du Luxembourg — à deux pas de l'abbaye bénédictine et de la basilique, aux portes du Mullerthal, la « Petite Suisse » luxembourgeoise.",
+  carte_eyebrow:"La brasserie",carte_h:"La carte",
+  carte_p:"Plats de brasserie et viandes, avec accompagnement et sauce au choix.",
+  mg1:"Les classiques de brasserie",mg2:"Les viandes",mg3:"Les à-côtés",mg3_sub:"Au choix, avec les viandes",
   i1n:"Escalope de volaille panée",i2n:"Cordon bleu de volaille",i2d:"Sauce champignons",i3n:"Bouchée à la reine",i4n:"Francesinha",i5n:"Rognons de veau à la moutarde",
   i6n:"Spareribs sauce barbecue",i7n:"Côtes d'agneau grillées",i8n:"Filet de bœuf (Argentine)",i9n:"Maminha de bœuf black angus",i9d:"Cuit à basse température",
-  i10n:"Gratin dauphinois ou frites",incl:"compris",i11n:"Sauces",i11d:"Poivre, champignons, maître d'hôtel, vin rouge, béarnaise",au_choix:"au choix",
-  carte_note:"Prix relevés sur la carte de la maison (sélection « Les Viandes »). Les entrées, poissons, plats du jour et desserts ne figurent pas ici et sont à confirmer sur place.",
-  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
-  ino_k1:"Adresse",ino_addr_fl:"centre historique · rue exacte à confirmer",ino_k2:"Réserver",ino_book:"Réserver — par téléphone",ino_phone:"numéro à confirmer",
-  ino_k3:"Horaires",ino_ht:"Midi & soir",ino_fl3:"Horaires à confirmer",
-  map_big:"Echternach",map_sub:"Au cœur de la vieille ville",map_btn:"Ouvrir dans Maps ↗",
-  foot_p:"Brasserie et grillades au cœur d'Echternach, la plus vieille ville du Luxembourg — à deux pas de l'abbaye et du Mullerthal.",
-  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
-  foot_addr:"centre historique · à confirmer",foot_phone:"Téléphone à confirmer",
-  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque et les plats sont ceux de la maison ; les prix « viandes » sont relevés sur sa carte. Adresse exacte, téléphone, horaires et le reste de la carte sont à confirmer — proposition non officielle, non affiliée à ce jour."
+  i10n:"Gratin dauphinois ou frites",i11n:"Sauces",i11d:"Poivre, champignons, maître d'hôtel, vin rouge, béarnaise",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
+  ino_k1:"Adresse",ino_hours:"Cuisine non-stop de 12h à 22h",ino_k2:"Téléphone",cc_p:"Pour réserver une table ou une chambre.",
+  map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Hôtel-café-restaurant sur la place du Marché d'Echternach.",
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
  },
- de:{wwb_dir:"Route",
-  nav_table:"Der Tisch",nav_carte:"Karte",nav_ech:"Echternach",nav_infos:"Infos & Anfahrt",
-  hero_eyebrow:"Hotel · Café · Restaurant · Echternach",
-  hero_tag:"Am Tisch des Poeten, im Herzen Echternachs — Brasserie und Grill in der ältesten Stadt des Landes.",
-  hero_cta1:"Reservieren",hero_cta2:"Zur Karte",
-  fact_k1:"Der Tisch",fact_v1:"<b>Brasserie & Grill</b>hausgemachte Spezialitäten, Black-Angus-Rind",
-  fact_k2:"Der Ort",fact_v2:"<b>Im Herzen Echternachs</b>die älteste Stadt des Landes · Terrasse",
-  fact_k3:"Das Haus",fact_v3:"<b>Hotel · Café · Restaurant</b>ein paar Schritte von der Abtei",
-  tb_eyebrow:"Der Tisch",tb_h:"Die Brasserie,<span>und der Grill.</span>",
-  tb_lead:"Die Klassiker einer guten Brasserie — Cordon bleu, Königinpastete, Nieren in Senfsauce — und die großen Grillgerichte: Lammkoteletts, Rinderfilet, Black Angus bei Niedertemperatur gegart.",
-  tb_body:"Man setzt sich wie zu Hause, ganz ungezwungen: eine großzügige Küche, Produkte, die für sich sprechen, und man lässt sich Zeit. Terrasse am Platz an schönen Tagen.",
-  tb_pill:"Hausgemacht",
-  gal_eyebrow:"Zu Tisch",gal_h:"Großzügig, <em>ohne Umstände</em>",
-  gal_p:"Grillgerichte und Brasserie-Teller, Terrine und Charcuterie, Tagessuppe — und eine Terrasse am Platz, an schönen Tagen.",
-  cap_plat:"Das Gericht des Moments",cap_terrine:"Terrine & Charcuterie",cap_soupe:"Die Tagessuppe",cap_banquet:"Die großen Tafeln",cap_biere:"Im Café",cap_terrasse:"Die Terrasse, am Platz",
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
+  nav_table:"Küche",nav_carte:"Karte",nav_ech:"Echternach",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Hotel – Café – Restaurant",
+  hero_tag:"Am Tisch des Poeten, am Marktplatz von Echternach, der ältesten Stadt des Landes.",
+  hero_cta1:"Anrufen",hero_cta2:"Zur Karte",
+  fact_k1:"Küche",fact_v1:"<b>Durchgehend</b>von 12 bis 22 Uhr",
+  fact_k2:"Der Ort",fact_v2:"<b>13, place du Marché</b>Echternach, mit Terrasse",
+  fact_k3:"Das Haus",fact_v3:"<b>Hotel – Café – Restaurant</b>wenige Schritte von der Abtei",
+  tb_eyebrow:"Küche",tb_h:"Brasserie<span>am Marktplatz.</span>",
+  tb_lead:"Cordon bleu, Königinpastete, Kalbsnieren in Senfsauce, Francesinha, gegrillte Lammkoteletts, Maminha vom Black Angus.",
+  tb_body:"Hotel, Café und Restaurant unter einem Dach, mit Terrasse am Marktplatz. Durchgehend warme Küche von 12 bis 22 Uhr.",
+  gal_eyebrow:"Fotos",gal_h:"Zu Tisch",
+  cap_plat:"Gegrillte Lammkoteletts",cap_terrine:"Pastete & Rohschinken",cap_dessert:"Crème brûlée",cap_salle:"Das Restaurant",cap_biere:"Ein Bier auf der Terrasse",cap_terrasse:"Die Terrasse mit Blick auf den Marktplatz",cap_place:"Der Marktplatz",
   ech_eyebrow:"Der Ort",ech_h:"Im Herzen<span>Echternachs.</span>",
-  ech_lead:"Der Tisch steht in der ältesten Stadt Luxemburgs — ein paar Schritte von der Benediktinerabtei und der Basilika, am Tor zum Müllerthal, der luxemburgischen „Kleinen Schweiz“.",
-  ech_body:"Man kommt zum Mittagessen nach der Altstadt, zum Abendessen vor dem Konzert, oder verweilt auf der Terrasse am Platz. Eine Adresse für Durchreisende und Stammgäste zugleich. Echternach war die Stadt des Abtei-Skriptoriums, wo Mönche ihre Handschriften illuminierten — ein Augenzwinkern, das der Name Le Petit Poète aufgreift.",
-  ech_c1:"Die älteste Stadt des Landes",ech_c2:"Neben der Abtei",ech_c3:"Am Tor zum Müllerthal",
-  carte_eyebrow:"Die Karte",carte_h:"Die <em>Fleischgerichte</em>",
-  carte_p:"Das Herz der Karte: die Brasserie-Klassiker und die großen Grillgerichte. Hier die Fleischauswahl, von der Karte des Hauses übernommen.",
-  mg1:"Die Klassiker",mg2:"Der Grill",mg3:"Die Beilagen",mg3_sub:"Zur Wahl, zu den Fleischgerichten",
+  ech_lead:"Le Petit Poète liegt am Marktplatz der ältesten Stadt Luxemburgs — wenige Schritte von der Benediktinerabtei und der Basilika, am Tor zum Müllerthal, der „Kleinen Schweiz“ Luxemburgs.",
+  carte_eyebrow:"Die Brasserie",carte_h:"Die Karte",
+  carte_p:"Brasserie-Klassiker und Fleischgerichte, mit Beilage und Sauce nach Wahl.",
+  mg1:"Brasserie-Klassiker",mg2:"Fleisch",mg3:"Die Beilagen",mg3_sub:"Nach Wahl zu allen Fleischgerichten",
   i1n:"Paniertes Geflügelschnitzel",i2n:"Cordon bleu vom Geflügel",i2d:"Champignonsauce",i3n:"Königinpastete",i4n:"Francesinha",i5n:"Kalbsnieren in Senfsauce",
   i6n:"Spareribs mit Barbecuesauce",i7n:"Gegrillte Lammkoteletts",i8n:"Rinderfilet (Argentinien)",i9n:"Maminha vom Black-Angus-Rind",i9d:"Bei Niedertemperatur gegart",
-  i10n:"Gratin dauphinois oder Pommes",incl:"inkl.",i11n:"Saucen",i11d:"Pfeffer, Champignon, Maître d'hôtel, Rotwein, Sauce béarnaise",au_choix:"zur Wahl",
-  carte_note:"Preise von der Karte des Hauses übernommen (Auswahl „Les Viandes“). Vorspeisen, Fisch, Tagesgerichte und Desserts sind hier nicht aufgeführt und vor Ort zu bestätigen.",
-  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
-  ino_k1:"Adresse",ino_addr_fl:"Altstadt · genaue Straße zu bestätigen",ino_k2:"Reservieren",ino_book:"Reservieren — telefonisch",ino_phone:"Nummer zu bestätigen",
-  ino_k3:"Öffnungszeiten",ino_ht:"Mittags & abends",ino_fl3:"Zeiten zu bestätigen",
-  map_big:"Echternach",map_sub:"Im Herzen der Altstadt",map_btn:"In Maps öffnen ↗",
-  foot_p:"Brasserie und Grill im Herzen Echternachs, der ältesten Stadt Luxemburgs — ein paar Schritte von der Abtei und dem Müllerthal.",
-  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
-  foot_addr:"Altstadt · zu bestätigen",foot_phone:"Telefon zu bestätigen",
-  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke und Gerichte gehören dem Haus; die Fleischpreise sind von seiner Karte übernommen. Genaue Adresse, Telefon, Zeiten und die übrige Karte sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+  i10n:"Gratin dauphinois oder Pommes",i11n:"Saucen",i11d:"Pfeffer, Champignon, Maître d'hôtel, Rotwein, Sauce béarnaise",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So finden Sie uns",
+  ino_k1:"Adresse",ino_hours:"Küche durchgehend von 12 bis 22 Uhr",ino_k2:"Telefon",cc_p:"Für eine Tisch- oder Zimmerreservierung.",
+  map_btn:"In Maps öffnen ↗",
+  foot_p:"Hotel, Café und Restaurant am Marktplatz von Echternach.",
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
  },
- en:{wwb_dir:"Directions",
-  nav_table:"The table",nav_carte:"Menu",nav_ech:"Echternach",nav_infos:"Find us",
-  hero_eyebrow:"Hotel · Café · Restaurant · Echternach",
-  hero_tag:"At the poet's table, in the heart of Echternach — brasserie and grill in the country's oldest town.",
-  hero_cta1:"Book a table",hero_cta2:"See the menu",
-  fact_k1:"The table",fact_v1:"<b>Brasserie & grill</b>house specialities, black angus beef",
-  fact_k2:"The place",fact_v2:"<b>In the heart of Echternach</b>the country's oldest town · terrace",
-  fact_k3:"The house",fact_v3:"<b>Hotel · Café · Restaurant</b>steps from the abbey",
-  tb_eyebrow:"The table",tb_h:"The brasserie,<span>and the grill.</span>",
-  tb_lead:"The classics of a good brasserie — cordon bleu, vol-au-vent, kidneys in mustard sauce — and the big grills: lamb chops, beef fillet, black angus cooked low and slow.",
-  tb_body:"You sit down as if at home, no fuss: generous cooking, produce that speaks for itself, and you take your time. Terrace on the square on fine days.",
-  tb_pill:"House-made",
-  gal_eyebrow:"At the table",gal_h:"Generous, <em>no fuss</em>",
-  gal_p:"Grills and brasserie plates, terrine and charcuterie, soup of the day — and a terrace on the square, on fine days.",
-  cap_plat:"The dish of the moment",cap_terrine:"Terrine & charcuterie",cap_soupe:"Soup of the day",cap_banquet:"The big tables",cap_biere:"At the café",cap_terrasse:"The terrace, on the square",
+ en:{wwb_call:"Call",wwb_dir:"Directions",
+  nav_table:"Food",nav_carte:"Menu",nav_ech:"Echternach",nav_infos:"Find us",
+  hero_eyebrow:"Hotel – Café – Restaurant",
+  hero_tag:"At the poet's table, on the market square of Echternach, the country's oldest town.",
+  hero_cta1:"Call",hero_cta2:"See the menu",
+  fact_k1:"Kitchen",fact_v1:"<b>Non-stop</b>from 12:00 to 22:00",
+  fact_k2:"The place",fact_v2:"<b>13 Place du Marché</b>Echternach, with a terrace",
+  fact_k3:"The house",fact_v3:"<b>Hotel – Café – Restaurant</b>a few steps from the abbey",
+  tb_eyebrow:"Food",tb_h:"The brasserie,<span>on the market square.</span>",
+  tb_lead:"Cordon bleu, vol-au-vent, veal kidneys in mustard sauce, francesinha, grilled lamb chops, Black Angus maminha.",
+  tb_body:"Hotel, café and restaurant under one roof, with a terrace on the market square. Kitchen open non-stop from 12:00 to 22:00.",
+  gal_eyebrow:"Photos",gal_h:"At the table",
+  cap_plat:"Grilled lamb chops",cap_terrine:"Pâté en croûte & cured ham",cap_dessert:"Crème brûlée",cap_salle:"The dining room",cap_biere:"A beer on the terrace",cap_terrasse:"The terrace, looking onto the market square",cap_place:"The market square",
   ech_eyebrow:"The place",ech_h:"In the heart<span>of Echternach.</span>",
-  ech_lead:"The table sits in Luxembourg's oldest town — steps from the Benedictine abbey and the basilica, at the gateway to the Mullerthal, Luxembourg's “Little Switzerland”.",
-  ech_body:"People come for lunch after the old town, for dinner before the concert, or to linger on the terrace on the square. A place for passers-through and regulars alike. Echternach was the town of the abbey's scriptorium, where monks illuminated their manuscripts — a nod the name Le Petit Poète quietly carries.",
-  ech_c1:"The country's oldest town",ech_c2:"Beside the abbey",ech_c3:"Gateway to the Mullerthal",
-  carte_eyebrow:"The menu",carte_h:"The <em>meats</em>",
-  carte_p:"The heart of the menu: the brasserie classics and the big grills. Here is the meat selection, taken from the house's own menu.",
-  mg1:"The classics",mg2:"The grill",mg3:"On the side",mg3_sub:"Your choice, with the meats",
+  ech_lead:"Le Petit Poète stands on the market square of Luxembourg's oldest town — a few steps from the Benedictine abbey and the basilica, at the gateway to the Mullerthal, Luxembourg's “Little Switzerland”.",
+  carte_eyebrow:"The brasserie",carte_h:"The menu",
+  carte_p:"Brasserie classics and meat dishes, with a side and a sauce of your choice.",
+  mg1:"Brasserie classics",mg2:"Meats",mg3:"On the side",mg3_sub:"Your choice, with the meats",
   i1n:"Breaded chicken escalope",i2n:"Chicken cordon bleu",i2d:"Mushroom sauce",i3n:"Vol-au-vent (bouchée à la reine)",i4n:"Francesinha",i5n:"Veal kidneys in mustard sauce",
-  i6n:"Spareribs, barbecue sauce",i7n:"Grilled lamb chops",i8n:"Beef fillet (Argentina)",i9n:"Black angus maminha",i9d:"Cooked low and slow",
-  i10n:"Gratin dauphinois or fries",incl:"included",i11n:"Sauces",i11d:"Pepper, mushroom, maître d'hôtel, red wine, béarnaise",au_choix:"your choice",
-  carte_note:"Prices taken from the house's menu (the “Les Viandes” selection). Starters, fish, dishes of the day and desserts are not listed here and are to be confirmed on site.",
-  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
-  ino_k1:"Address",ino_addr_fl:"historic centre · exact street to be confirmed",ino_k2:"Book",ino_book:"Book — by phone",ino_phone:"number to be confirmed",
-  ino_k3:"Opening hours",ino_ht:"Lunch & dinner",ino_fl3:"Hours to be confirmed",
-  map_big:"Echternach",map_sub:"In the heart of the old town",map_btn:"Open in Maps ↗",
-  foot_p:"Brasserie and grill in the heart of Echternach, Luxembourg's oldest town — steps from the abbey and the Mullerthal.",
-  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
-  foot_addr:"historic centre · to be confirmed",foot_phone:"Phone to be confirmed",
-  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand and dishes belong to the house; the meat prices are taken from its menu. Exact address, phone, hours and the rest of the menu are to be confirmed — an unofficial proposal, not affiliated to date."
+  i6n:"Spare ribs with barbecue sauce",i7n:"Grilled lamb chops",i8n:"Argentinian beef fillet",i9n:"Black Angus maminha",i9d:"Cooked low and slow",
+  i10n:"Gratin dauphinois or fries",i11n:"Sauces",i11d:"Pepper, mushroom, maître d'hôtel, red wine, béarnaise",
+  infos_eyebrow:"Find us",infos_h:"Find us",
+  ino_k1:"Address",ino_hours:"Kitchen non-stop, 12:00 to 22:00",ino_k2:"Phone",cc_p:"To book a table or a room.",
+  map_btn:"Open in Maps ↗",
+  foot_p:"Hotel, café and restaurant on Echternach's market square.",
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
  }
 };
 let lang="fr";
@@ -523,7 +500,8 @@ try{const sv=localStorage.getItem("lpp_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
 </script>
 
 <div class="wwbar" role="navigation" aria-label="Actions rapides">
-  <a class="btn p" href="https://www.google.com/maps/search/Le+Petit+Po%C3%A8te+Echternach" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+  <a class="btn p" href="tel:+3527200721" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Le+Petit+Po%C3%A8te+13+Place+du+March%C3%A9+Echternach" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
 </body>
 </html>
