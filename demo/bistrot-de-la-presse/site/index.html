@@ -736,8 +736,8 @@
       </div>
 
       <aside class="almanac" aria-labelledby="almTitle">
-        <p class="alm-sub" data-i18n="alm_sub">L’almanach — aujourd’hui</p>
-        <h2 id="almTitle" data-i18n="alm_title">Aujourd’hui</h2>
+        <p class="alm-sub" data-i18n="alm_sub">L’almanach</p>
+        <h2 id="almTitle" data-i18n="alm_title">Horaires</h2>
         <table class="hours" id="hoursTable">
           <caption class="sr-only" data-i18n="alm_caption" style="position:absolute;left:-9999px;">Horaires d’ouverture</caption>
           <tbody>
@@ -1011,7 +1011,7 @@
       fold_stand:"Une maison ancienne où l’on pousse la porte sans réserver : boiseries de chêne, murs jaunes, portraits de la famille grand-ducale, et l’accueil de Heidi. On vient pour la carte, on reste pour l’ambiance.",
       fold_body:"Habitués, parlementaires et voyageurs de passage s’y croisent autour des grands classiques — Bouneschlupp, Kniddelen, Judd mat Gaardebounen. Lisez la suite : la carte est ci-dessous.",
       cta_menu:"Lire le menu", cta_call:"Appeler", cta_find:"Nous trouver",
-      alm_sub:"L’almanach — aujourd’hui", alm_title:"Aujourd’hui", alm_caption:"Horaires d’ouverture",
+      alm_sub:"L’almanach", alm_title:"Horaires", alm_caption:"Horaires d’ouverture",
       alm_bar:"Cuisine 11:30–21:30 · le bar veille jusque vers 01:00 (mar.–sam.).",
       day_mon:"Lundi", day_tue:"Mardi", day_wed:"Mercredi", day_thu:"Jeudi", day_fri:"Vendredi", day_sat:"Samedi", day_sun:"Dimanche",
       closed:"fermé",
@@ -1047,7 +1047,6 @@
       cap_terrasse_l:"Ville-Haute", cap_terrasse:"— la vieille ville, à deux pas.",
       ns_menu:"Lire le menu", ns_call:"Appeler", ns_dir:"Itinéraire",
       tagline:"Le vieux Luxembourg, servi avec honnêteté.",
-      st_open:"Ouvert", st_closed:"Fermé", st_bot_open:"service en cours", st_bot_closed:"revenez bientôt",
       rh_menu:"Le Menu", rh_carnet:"Carnet d’adresses", rh_feature:"Le portrait", rh_today:"La une"
     },
     de:{
@@ -1061,7 +1060,7 @@
       fold_stand:"Ein altes Haus, in das man ohne Reservierung eintritt: Eichenholz, gelbe Wände, Porträts der großherzoglichen Familie und Heidis Empfang. Man kommt wegen der Karte und bleibt wegen der Atmosphäre.",
       fold_body:"Stammgäste, Abgeordnete und Reisende treffen sich hier bei den Klassikern — Bouneschlupp, Kniddelen, Judd mat Gaardebounen. Lesen Sie weiter: Die Karte steht unten.",
       cta_menu:"Zur Karte", cta_call:"Anrufen", cta_find:"Anfahrt",
-      alm_sub:"Der Almanach — heute", alm_title:"Heute", alm_caption:"Öffnungszeiten",
+      alm_sub:"Der Almanach", alm_title:"Öffnungszeiten", alm_caption:"Öffnungszeiten",
       alm_bar:"Küche 11:30–21:30 · die Bar bis ca. 01:00 Uhr (Di.–Sa.).",
       day_mon:"Montag", day_tue:"Dienstag", day_wed:"Mittwoch", day_thu:"Donnerstag", day_fri:"Freitag", day_sat:"Samstag", day_sun:"Sonntag",
       closed:"geschlossen",
@@ -1097,7 +1096,6 @@
       cap_terrasse_l:"Oberstadt", cap_terrasse:"— die Altstadt direkt vor der Tür.",
       ns_menu:"Zur Karte", ns_call:"Anrufen", ns_dir:"Route",
       tagline:"Das alte Luxemburg — ehrlich serviert.",
-      st_open:"Geöffnet", st_closed:"Geschl.", st_bot_open:"Service läuft", st_bot_closed:"bald wieder da",
       rh_menu:"Die Karte", rh_carnet:"Adressbuch", rh_feature:"Das Porträt", rh_today:"Titelseite"
     },
     en:{
@@ -1111,7 +1109,7 @@
       fold_stand:"An old house you walk into without booking: oak panelling, yellow walls, portraits of the Grand Ducal family, and Heidi’s welcome. Come for the menu, stay for the atmosphere.",
       fold_body:"Regulars, parliamentarians and passing travellers meet here over the classics — Bouneschlupp, Kniddelen, Judd mat Gaardebounen. Read on: the menu is below.",
       cta_menu:"Read the menu", cta_call:"Call", cta_find:"Find us",
-      alm_sub:"The almanac — today", alm_title:"Today", alm_caption:"Opening hours",
+      alm_sub:"The almanac", alm_title:"Opening hours", alm_caption:"Opening hours",
       alm_bar:"Kitchen 11:30–21:30 · the bar stays open until ~01:00 (Tue–Sat).",
       day_mon:"Monday", day_tue:"Tuesday", day_wed:"Wednesday", day_thu:"Thursday", day_fri:"Friday", day_sat:"Saturday", day_sun:"Sunday",
       closed:"closed",
@@ -1147,7 +1145,6 @@
       cap_terrasse_l:"Ville-Haute", cap_terrasse:"— the old town, right on the doorstep.",
       ns_menu:"Read the menu", ns_call:"Call", ns_dir:"Directions",
       tagline:"Old Luxembourg, honestly served.",
-      st_open:"Open", st_closed:"Closed", st_bot_open:"now serving", st_bot_closed:"back soon",
       rh_menu:"The Menu", rh_carnet:"Address book", rh_feature:"The profile", rh_today:"Front page"
     }
   };
@@ -1201,15 +1198,6 @@
   /* The folio deliberately carries no date. This is a static page; a live
      masthead dateline would assert a daily edition we do not publish. */
 
-  /* ---------------- which row is today ---------------- */
-  /* Day of week only, on Europe/Luxembourg wall-clock so it is correct for
-     someone browsing from abroad. Deliberately does NOT read the hour: the
-     only thing this drives is bolding today's row in the static hours table. */
-  function luToday(){
-    var p = new Intl.DateTimeFormat("en-US",{timeZone:"Europe/Luxembourg",weekday:"short"}).formatToParts(new Date());
-    var m={}; for(var i=0;i<p.length;i++) m[p[i].type]=p[i].value;
-    return {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[m.weekday];
-  }
   /* There is deliberately no open/closed computation here. An earlier version
      computed one and never rendered it; dead code like that tends to get wired
      back up. Hours are indicative, so the seal below stays static. */
@@ -1225,23 +1213,6 @@
     stamp.setAttribute("aria-label", "Beim Heidi — " + t("ear_left_2"));
     var rh = document.getElementById("rhStatus"); if(rh) rh.style.display = "none";
 
-    // highlight today's row
-    var today = luToday();
-    var rows = document.querySelectorAll("#hoursTable tr[data-day]");
-    for(var i=0;i<rows.length;i++){
-      var isToday = parseInt(rows[i].getAttribute("data-day"),10)===today;
-      rows[i].classList.toggle("today", isToday);
-      // add/refresh "today" tag
-      var th = rows[i].querySelector("th");
-      var old = th.querySelector(".today-tag");
-      if(old) old.remove();
-      if(isToday){
-        var tag = document.createElement("span");
-        tag.className = "today-tag";
-        tag.textContent = ({fr:"auj.",de:"heute",en:"today"})[current];
-        th.appendChild(tag);
-      }
-    }
 
     if(doPress && !matchMedia("(prefers-reduced-motion: reduce)").matches){
       stamp.classList.remove("press");
