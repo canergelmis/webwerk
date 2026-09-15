@@ -35,7 +35,7 @@
 html{scroll-behavior:smooth}
 body{background:var(--rice);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,44px)}
-h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;color:var(--ink);letter-spacing:-.01em}
+h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.06;color:var(--herb-ink);letter-spacing:-.01em}
 img{max-width:100%;display:block}
 a{color:inherit}
 .eyebrow{font-family:var(--body);font-weight:700;font-size:.73rem;letter-spacing:.2em;text-transform:uppercase;color:var(--herb)}
@@ -61,7 +61,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .burger{display:none;background:transparent;border:0;font-size:1.42rem;line-height:1;color:var(--herb-ink);cursor:pointer;padding:4px 6px}
 
 /* ===================== HERO ===================== */
-.hero{position:relative;min-height:clamp(580px,88vh,800px);display:flex;align-items:flex-end;color:#fff;background:#1c2418;overflow:hidden}
+.hero{position:relative;min-height:clamp(580px,88vh,800px);display:flex;align-items:flex-end;color:#fff;background:var(--herb-ink);overflow:hidden}
 .hero .bg{position:absolute;inset:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
 .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,28,18,0.3) 0%,rgba(18,28,18,0.38) 42%,rgba(18,28,18,0.8) 100%)}
@@ -85,7 +85,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .btn.g:hover{background:rgba(255,255,255,.2)}
 
 /* ===================== FACTS ===================== */
-.facts{background:var(--herb-ink);color:#e7e0cd}
+.facts{background:var(--herb-ink);color:#e7e0cd;border-top:1px solid rgba(231,224,205,.14)}
 .facts .wrap{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:center;padding-block:16px;font-size:.9rem;text-align:center}
 .facts .f{display:inline;font-weight:600}
 .facts .f b{color:var(--amber-lite);font-family:var(--disp);font-weight:600}
@@ -98,15 +98,16 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .spot .fig img{width:100%;height:100%;object-fit:cover}
 .spot .badge{display:inline-flex;align-items:center;gap:8px;background:var(--herb);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:6px 13px;border-radius:999px;margin-bottom:16px}
 .spot h2{font-size:clamp(32px,4.8vw,56px)}
-.spot h2 .vn{color:var(--herb)}
+.spot h2 .vn{color:var(--herb-ink)}
 .spot .lead{font-family:var(--disp);font-weight:500;font-size:clamp(18px,2.3vw,24px);color:var(--amber);margin:12px 0 16px}
 .spot p{color:var(--ink2);max-width:52ch}
 .spot .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .spot .chips span{background:rgba(255,255,255,.6);border:1px solid rgba(63,125,78,.2);color:var(--herb-deep);font-weight:600;font-size:.82rem;padding:6px 13px;border-radius:999px}
 
 /* ===================== MAISON ===================== */
+.maison{padding-top:clamp(40px,6vw,64px)}
 .maison .wrap{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(28px,4.5vw,60px);align-items:center}
-.maison .fig{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1125/870;margin:0}
+.maison .fig{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1125/740;margin:0}
 .maison .fig img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .maison h2{font-size:clamp(30px,4.2vw,50px);margin:8px 0 18px}
 .maison .lead{font-family:var(--disp);font-weight:500;color:var(--amber);font-size:1.32rem;display:block;margin:10px 0 14px}
@@ -132,7 +133,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .mrow .l .d{font-size:.86rem;color:#c6bda6;margin-top:1px}
 .mrow .pr{font-family:var(--disp);font-weight:600;color:var(--amber-lite);white-space:nowrap;font-size:1.02rem}
 .mrow .pr small{color:#b7ad95;font-weight:400;font-size:.72rem}
-.menu-note{text-align:center;color:#b3aa93;font-size:.82rem;margin-top:22px}
+.menu-note{text-align:center;color:#cfc7b2;font-size:.92rem;margin-top:26px}
 .food-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(28px,5vw,44px)}
 .food-strip figure{position:relative;margin:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-s);aspect-ratio:1}
 .food-strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
@@ -161,20 +162,25 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .loc .locbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:18px}
 .loc .btn.g{background:transparent;color:var(--herb-deep);border:1px solid var(--herb-deep)}
 .loc .a a{color:var(--herb-deep);font-weight:600}
+.loc .hrs{margin-top:10px;font-weight:600;color:var(--herb-ink)}
+.loc .locbtns .btn{flex:1 1 190px;justify-content:center;white-space:nowrap}
 .hours{list-style:none;margin-top:16px;border-top:1px solid rgba(63,125,78,.2);padding-top:12px}
 .hours li{display:flex;justify-content:space-between;padding:6px 0;font-size:.92rem}
 .hours .cl{color:var(--muted)}
-.adr .note{text-align:center;color:var(--muted);font-size:.84rem;margin-top:20px}
+.adr .note{text-align:center;color:var(--ink2);font-size:.95rem;margin-top:22px}
 .socials{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
 .socials a{background:var(--herb-ink);color:#fff;font-weight:700;font-size:.82rem;padding:8px 15px;border-radius:999px;text-decoration:none}
 .socials a:hover{background:var(--herb)}
 
 /* ===================== FOOTER ===================== */
-footer{background:var(--ink);color:#d6cdb9;padding:clamp(40px,6vw,58px) 0 30px}
+footer{background:var(--herb-ink);color:#d6cdb9;padding:clamp(40px,6vw,58px) 0 30px}
 footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:flex-start}
 footer .bn{font-family:var(--disp);font-weight:700;color:var(--rice);font-size:1.5rem}
 footer .bn small{display:block;font-family:var(--body);font-weight:700;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber-lite);margin-top:3px}
 footer .wk{font-size:.82rem}
+footer .fadr{display:flex;flex-wrap:wrap;gap:18px 40px;font-size:.9rem;line-height:1.6;color:#d6cdb9}
+footer .fadr b{font-family:var(--disp);font-weight:600;color:var(--rice);font-size:1rem}
+footer .fadr a{color:var(--amber-lite);font-weight:600;text-decoration:none}
 footer .wk a{color:var(--amber-lite);text-decoration:none;font-weight:700}
 footer .wk .made{color:#8f8571}
 footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margin-top:22px;border-top:1px solid rgba(214,205,185,.16);padding-top:18px}
@@ -190,6 +196,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
   .gal{grid-template-columns:1fr 1fr;grid-auto-rows:158px}.gal .h2{grid-row:span 1}
   .food-strip{grid-template-columns:1fr 1fr}
 }
+@media(max-width:420px){.brand{gap:8px}.brand .bt small{letter-spacing:.08em}}
 @media(max-width:520px){.gal{grid-template-columns:1fr}.gal .w2{grid-column:auto}}
 
 /* Mobile action bar — pins the one or two things a hungry visitor actually
@@ -217,12 +224,10 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
 @media(max-width:760px){ .hero .cta{display:none} .hero{min-height:calc(100svh - 144px)} }
 @media(min-width:861px){
   .hero{align-items:center}
-  .hero .bg{inset:auto;top:50%;right:max(clamp(20px,5vw,44px),calc((100% - var(--maxw))/2 + clamp(20px,5vw,44px)));transform:translateY(-50%);width:min(40vw,480px);aspect-ratio:4/5;border-radius:22px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45)}
-  .hero .bg::after{display:none}
-  .hero .wrap{padding-block:72px;padding-right:calc(min(40vw,480px) + clamp(20px,5vw,44px) + 56px)}
+  .hero .bg{inset:0 0 0 auto;width:50%}
+  .hero .bg::after{background:linear-gradient(90deg,var(--herb-ink) 0%,rgba(18,51,30,0) 26%)}
+  .hero .wrap{padding-block:72px;padding-right:calc(50vw - (100vw - min(100vw,var(--maxw))) / 2 + 48px)}
 }
-/* the rim pattern of the house's blue-and-white bowls */
-.bowlband{height:14px;background:#fbfaf6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='14'%3E%3Cg fill='none' stroke='%232c4f9e' stroke-width='1.3'%3E%3Cpath d='M1 14a11 11 0 0 1 22 0M5 14a7 7 0 0 1 14 0M9 14a3 3 0 0 1 6 0'/%3E%3C/g%3E%3C/svg%3E") repeat-x left bottom/24px 14px;border-bottom:2px solid #2c4f9e}
 
   /* hero type legibility */
   /* Contrast comes from the type's own shadow rather than from darkening
@@ -242,7 +247,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
     </a>
     <div class="navright">
       <nav class="menu" id="menu">
-        <a href="#bobun-sec" data-i18n="nav_bobun">Le Bò Bún</a>
+        <a href="#bobun-sec" data-i18n="nav_bobun">Bò Bún</a>
         <a href="#carte" data-i18n="nav_carte">La carte</a>
         <a href="#adresses" data-i18n="nav_adr">Nos adresses</a>
       </nav>
@@ -277,7 +282,6 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
     <span class="f" data-i18n="fact_3"><b>Du lundi au vendredi</b> le midi</span>
   </div>
 </div>
-<div class="bowlband" aria-hidden="true"></div>
 
 <!-- ===================== BO BUN SPOTLIGHT ===================== -->
 <section class="spot blk" id="bobun-sec">
@@ -286,7 +290,8 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
     <div class="reveal">
       <span class="eyebrow" data-i18n="bb_badge">À la carte</span>
       <h2><span class="vn">Bò Bún</span></h2>
-      <p data-i18n="bb_p">Vermicelles de riz, nems croustillants coupés, herbes fraîches, cacahuètes et nuoc-cham, avec du bœuf mariné, du poulet, des crevettes, ou en version végétarienne.</p>
+      <p data-i18n="bb_p">Des brochettes, des nems au poulet ou végétariens, des vermicelles de riz, des pickles et des crudités.</p>
+      <div class="chips"><span data-i18n="bb_c1">Bœuf</span><span data-i18n="bb_c2">Crevettes</span><span data-i18n="bb_c3">Poulet</span><span data-i18n="bb_c4">Végétarien</span></div>
     </div>
   </div>
 </section>
@@ -296,9 +301,9 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow" data-i18n="house_kick">La maison</span>
-      <h2 data-i18n="house_h">Face à l'Hôtel Le Royal, et au Kirchberg</h2>
-      <p data-i18n="house_p1">Thanh's sert la cuisine vietnamienne à deux adresses : boulevard Royal, avec sa terrasse, et dans le centre commercial Infinity, au Kirchberg.</p>
-      <p data-i18n="house_p2">On y mange sur place, ou on se fait livrer par Wolt depuis les deux adresses.</p>
+      <h2 data-i18n="house_h">Le midi, en ville et au Kirchberg</h2>
+      <p data-i18n="house_p1">Thanh's sert la cuisine vietnamienne boulevard Royal, face à l'Hôtel Le Royal, et dans le centre commercial Infinity, au Kirchberg.</p>
+      <p data-i18n="house_p2">Sur place, à emporter, ou en livraison avec Wolt.</p>
     </div>
     <figure class="fig reveal"><img src="assets/storefront.jpg" alt="La devanture de Thanh's boulevard Royal, avec son enseigne" loading="lazy" /></figure>
   </div>
@@ -313,22 +318,25 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
     <div class="cats">
       <div class="cat reveal">
         <h3 data-i18n="cat_start">Pour commencer</h3>
-        <div class="mrow"><div class="l"><div class="n" data-i18n="m_nem_n">Nems</div><div class="d" data-i18n="m_nem_d">Rouleaux frits</div></div></div>
-        <div class="mrow"><div class="l"><div class="n" data-i18n="m_roll_n">Gỏi cuốn</div><div class="d" data-i18n="m_roll_d">Rouleaux de printemps frais</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Nem chả giò</div><div class="d" data-i18n="m_nem_d">Poulet ou végétarien, 2 pièces</div></div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_roll_n">Rouleaux de printemps</div><div class="d" data-i18n="m_roll_d">Crevettes, bœuf, poulet ou végétarien</div></div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_sal_n">Salade vietnamienne</div><div class="d" data-i18n="m_sal_d">Vermicelles de riz et crudités, avec bœuf, poulet, scampis ou tofu</div></div></div>
       </div>
       <div class="cat reveal">
-        <h3 data-i18n="cat_bobun">Bò Bún &amp; bánh mì</h3>
-        <div class="mrow"><div class="l"><div class="n">Bò Bún</div><div class="d" data-i18n="m_bb_d">Vermicelles, herbes, cacahuètes, nuoc-cham.</div></div></div>
-        <div class="mrow"><div class="l"><div class="n">Bánh mì</div><div class="d" data-i18n="m_sand_d">Sandwich vietnamien</div></div></div>
+        <h3 data-i18n="cat_bobun">Bò Bún &amp; soupes</h3>
+        <div class="mrow"><div class="l"><div class="n">Bò Bún</div><div class="d" data-i18n="m_bb_d">Bœuf, crevettes, poulet ou végétarien, avec nems, vermicelles de riz, pickles et crudités</div></div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_pho_n">Soupe phở</div><div class="d" data-i18n="m_pho_d">Bœuf ou poulet, pâtes de riz et herbes fraîches dans un bouillon de bœuf</div></div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_st_n">Soupe Thanh's</div><div class="d" data-i18n="m_st_d">Bœuf, poulet, crevettes ou tofu, avec pâtes de riz et légumes de saison</div></div></div>
       </div>
       <div class="cat reveal">
-        <h3 data-i18n="cat_soup">Phở</h3>
-        <div class="mrow"><div class="l"><div class="n">Phở bò</div><div class="d" data-i18n="m_pho_d">Au bœuf : bouillon long, herbes, citron vert.</div></div></div>
-        <div class="mrow"><div class="l"><div class="n">Phở gà</div><div class="d" data-i18n="m_pho2_d">Au poulet</div></div></div>
+        <h3 data-i18n="cat_soup">Bánh mì &amp; sautés</h3>
+        <div class="mrow"><div class="l"><div class="n">Bánh mì</div><div class="d" data-i18n="m_sand_d">Sandwich vietnamien : porc, poulet, bœuf ou tofu</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Phở xào</div><div class="d" data-i18n="m_px_d">Pâtes de riz sautées aux légumes, avec bœuf, poulet, scampis ou tofu (à l'Infinity)</div></div></div>
       </div>
     </div>
+    <p class="menu-note" data-i18n="m_drinks">À boire : jus de mangue, de lychee, de goyave ou de coco, lait de soja, aloe vera.</p>
     <div class="food-strip reveal">
-      <figure><img src="assets/pho.jpg" alt="Phở au bœuf, nouilles de riz et herbes" loading="lazy" /><figcaption data-i18n="fs_pho">Phở bò</figcaption></figure>
+      <figure><img src="assets/pho.jpg" alt="Phở au bœuf, nouilles de riz et herbes" loading="lazy" /><figcaption data-i18n="fs_pho">Soupe phở au bœuf</figcaption></figure>
       <figure><img src="assets/freshrolls.jpg" alt="Nems, salade et menthe" loading="lazy" /><figcaption data-i18n="fs_nems">Nems, salade et menthe</figcaption></figure>
       <figure><img src="assets/banhmi.jpg" alt="Bánh mì au bœuf, piment et coriandre" loading="lazy" /><figcaption data-i18n="fs_banhmi">Bánh mì au bœuf</figcaption></figure>
       <figure><img src="assets/nems.jpg" alt="Bò Bún garni de nems croustillants" loading="lazy" /><figcaption data-i18n="fs_bobun">Bò Bún aux nems</figcaption></figure>
@@ -346,26 +354,33 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
     <div class="grid">
       <div class="loc reveal">
         <div class="tag"><span class="pin">◉</span> Thanh's — Royal</div>
-        <div class="a" data-i18n="adr_royal">Boulevard Royal, Luxembourg<br>(face à l'Hôtel Le Royal)</div>
+        <div class="a" data-i18n="adr_royal">25, boulevard Royal<br>L-2449 Luxembourg (face à l'Hôtel Le Royal)</div>
+        <div class="a"><a href="tel:+35227478688">+352 27 47 86 88</a></div>
+        <div class="hrs" data-i18n="adr_hrs1">Du lundi au vendredi, de 11h à 14h45</div>
         <div class="locbtns"><a class="btn p map" target="_blank" rel="noopener" data-i18n="adr_map1" href="https://www.google.com/maps/search/?api=1&query=Thanh's+Taste+of+Vietnam+Royal+Boulevard+Royal+Luxembourg">Itinéraire ↗</a> <a class="btn g map" target="_blank" rel="noopener" data-i18n="adr_wolt1" href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-royal">Commander sur Wolt ↗</a></div>
       </div>
       <div class="loc reveal">
         <div class="tag"><span class="pin">◉</span> Thanh's — Infinity</div>
         <div class="a" data-i18n="adr_inf">Infinity Shopping, 7, avenue John F. Kennedy<br>L-1499 Luxembourg-Kirchberg</div>
         <div class="a"><a href="tel:+35226102136">+352 26 10 21 36</a></div>
+        <div class="hrs" data-i18n="adr_hrs2">Du lundi au vendredi, de 11h30 à 15h15</div>
         <div class="locbtns"><a class="btn p map" target="_blank" rel="noopener" data-i18n="adr_map2" href="https://www.google.com/maps/search/?api=1&query=Thanh's+Taste+of+Vietnam+Infinity+7+Avenue+John+F+Kennedy+Luxembourg">Itinéraire ↗</a> <a class="btn g map" target="_blank" rel="noopener" data-i18n="adr_wolt2" href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-infinity">Commander sur Wolt ↗</a></div>
       </div>
     </div>
-    <p class="note" data-i18n="adr_note">Le midi, du lundi au vendredi. Fermé le week-end.</p>
+    <p class="note" data-i18n="adr_note">Fermé le samedi et le dimanche.</p>
   </div>
 </section>
-<div class="bowlband" aria-hidden="true"></div>
 
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
     <div class="top">
       <div class="bn">Thanh's<small data-i18n="foot_sub">Cuisine vietnamienne</small></div>
+      <div class="fadr">
+        <div><b>Thanh's — Royal</b><br>25, boulevard Royal, L-2449 Luxembourg<br><a href="tel:+35227478688">+352 27 47 86 88</a></div>
+        <div><b>Thanh's — Infinity</b><br>7, avenue John F. Kennedy, L-1499 Kirchberg<br><a href="tel:+35226102136">+352 26 10 21 36</a></div>
+        <div><a href="https://www.instagram.com/thanhs.luxembourg/" target="_blank" rel="noopener">Instagram ↗</a></div>
+      </div>
     </div>
     <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
   </div>
@@ -377,7 +392,7 @@ var I18N = {
   fr:{wwb_adr:"Nos 2 adresses",
     wwb_menu:"La carte",
     brand_sub:"Cuisine vietnamienne",
-    nav_bobun:"Le Bò Bún",
+    nav_bobun:"Bò Bún",
     nav_carte:"La carte",
     nav_adr:"Nos adresses",
     hero_kick:"Cuisine vietnamienne à Luxembourg",
@@ -389,36 +404,47 @@ var I18N = {
     fact_2:"<b>Infinity</b> au Kirchberg",
     fact_3:"<b>Du lundi au vendredi</b> le midi",
     bb_badge:"À la carte",
-    bb_p:"Vermicelles de riz, nems croustillants coupés, herbes fraîches, cacahuètes et nuoc-cham, avec du bœuf mariné, du poulet, des crevettes, ou en version végétarienne.",
+    bb_p:"Des brochettes, des nems au poulet ou végétariens, des vermicelles de riz, des pickles et des crudités.",
+    bb_c1:"Bœuf",
+    bb_c2:"Crevettes",
+    bb_c3:"Poulet",
+    bb_c4:"Végétarien",
     house_kick:"La maison",
-    house_h:"Face à l'Hôtel Le Royal, et au Kirchberg",
-    house_p1:"Thanh's sert la cuisine vietnamienne à deux adresses : boulevard Royal, avec sa terrasse, et dans le centre commercial Infinity, au Kirchberg.",
-    house_p2:"On y mange sur place, ou on se fait livrer par Wolt depuis les deux adresses.",
+    house_h:"Le midi, en ville et au Kirchberg",
+    house_p1:"Thanh's sert la cuisine vietnamienne boulevard Royal, face à l'Hôtel Le Royal, et dans le centre commercial Infinity, au Kirchberg.",
+    house_p2:"Sur place, à emporter, ou en livraison avec Wolt.",
     menu_h:"La carte",
     cat_start:"Pour commencer",
-    cat_bobun:"Bò Bún &amp; bánh mì",
-    cat_soup:"Phở",
-    m_nem_n:"Nems",
-    m_nem_d:"Rouleaux frits",
-    m_roll_n:"Gỏi cuốn",
-    m_roll_d:"Rouleaux de printemps frais",
-    m_bb_d:"Vermicelles, herbes, cacahuètes, nuoc-cham.",
-    m_sand_d:"Sandwich vietnamien",
+    m_nem_d:"Poulet ou végétarien, 2 pièces",
+    m_roll_n:"Rouleaux de printemps",
+    m_roll_d:"Crevettes, bœuf, poulet ou végétarien",
+    m_sal_n:"Salade vietnamienne",
+    m_sal_d:"Vermicelles de riz et crudités, avec bœuf, poulet, scampis ou tofu",
+    cat_bobun:"Bò Bún &amp; soupes",
+    m_bb_d:"Bœuf, crevettes, poulet ou végétarien, avec nems, vermicelles de riz, pickles et crudités",
+    m_pho_n:"Soupe phở",
+    m_pho_d:"Bœuf ou poulet, pâtes de riz et herbes fraîches dans un bouillon de bœuf",
+    m_st_n:"Soupe Thanh's",
+    m_st_d:"Bœuf, poulet, crevettes ou tofu, avec pâtes de riz et légumes de saison",
+    cat_soup:"Bánh mì &amp; sautés",
+    m_sand_d:"Sandwich vietnamien : porc, poulet, bœuf ou tofu",
+    m_px_d:"Pâtes de riz sautées aux légumes, avec bœuf, poulet, scampis ou tofu (à l'Infinity)",
+    m_drinks:"À boire : jus de mangue, de lychee, de goyave ou de coco, lait de soja, aloe vera.",
     fs_bobun:"Bò Bún aux nems",
     fs_banhmi:"Bánh mì au bœuf",
     fs_nems:"Nems, salade et menthe",
-    fs_pho:"Phở bò",
-    m_pho_d:"Au bœuf : bouillon long, herbes, citron vert.",
-    m_pho2_d:"Au poulet",
+    fs_pho:"Soupe phở au bœuf",
     adr_kick:"Nos adresses",
     adr_h:"Deux adresses",
-    adr_royal:"Boulevard Royal, Luxembourg<br>(face à l'Hôtel Le Royal)",
+    adr_royal:"25, boulevard Royal<br>L-2449 Luxembourg (face à l'Hôtel Le Royal)",
     adr_inf:"Infinity Shopping, 7, avenue John F. Kennedy<br>L-1499 Luxembourg-Kirchberg",
+    adr_hrs1:"Du lundi au vendredi, de 11h à 14h45",
+    adr_hrs2:"Du lundi au vendredi, de 11h30 à 15h15",
     adr_map1:"Itinéraire ↗",
     adr_map2:"Itinéraire ↗",
     adr_wolt1:"Commander sur Wolt ↗",
     adr_wolt2:"Commander sur Wolt ↗",
-    adr_note:"Le midi, du lundi au vendredi. Fermé le week-end.",
+    adr_note:"Fermé le samedi et le dimanche.",
     foot_sub:"Cuisine vietnamienne",
     disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
   },
@@ -437,36 +463,47 @@ var I18N = {
     fact_2:"<b>Infinity</b> auf Kirchberg",
     fact_3:"<b>Montag bis Freitag</b> mittags",
     bb_badge:"Auf der Karte",
-    bb_p:"Reisnudeln, geschnittene knusprige Nems, frische Kräuter, Erdnüsse und Nuoc-Cham, mit mariniertem Rindfleisch, Hähnchen, Garnelen oder vegetarisch.",
+    bb_p:"Spieße, Nems mit Hähnchen oder vegetarisch, Reisnudeln, eingelegtes Gemüse und Rohkost.",
+    bb_c1:"Rind",
+    bb_c2:"Garnelen",
+    bb_c3:"Hähnchen",
+    bb_c4:"Vegetarisch",
     house_kick:"Das Haus",
-    house_h:"Gegenüber dem Hôtel Le Royal – und auf Kirchberg",
-    house_p1:"Thanh's serviert vietnamesische Küche an zwei Adressen: am Boulevard Royal mit Terrasse und im Einkaufszentrum Infinity auf Kirchberg.",
-    house_p2:"Man isst vor Ort oder bestellt über Wolt, von beiden Adressen.",
+    house_h:"Mittags, in der Stadt und auf Kirchberg",
+    house_p1:"Thanh's serviert vietnamesische Küche am Boulevard Royal, gegenüber dem Hôtel Le Royal, und im Einkaufszentrum Infinity auf Kirchberg.",
+    house_p2:"Vor Ort, zum Mitnehmen oder mit Lieferung über Wolt.",
     menu_h:"Die Karte",
     cat_start:"Vorspeisen",
-    cat_bobun:"Bò Bún &amp; Bánh mì",
-    cat_soup:"Phở",
-    m_nem_n:"Nems",
-    m_nem_d:"Frittierte Frühlingsrollen",
-    m_roll_n:"Gỏi cuốn",
-    m_roll_d:"Frische Sommerrollen",
-    m_bb_d:"Reisnudeln, Kräuter, Erdnüsse, Nuoc-Cham.",
-    m_sand_d:"Vietnamesisches Sandwich",
+    m_nem_d:"Hähnchen oder vegetarisch, 2 Stück",
+    m_roll_n:"Frühlingsrollen",
+    m_roll_d:"Garnelen, Rind, Hähnchen oder vegetarisch",
+    m_sal_n:"Vietnamesischer Salat",
+    m_sal_d:"Reisnudeln und Rohkost, mit Rind, Hähnchen, Scampi oder Tofu",
+    cat_bobun:"Bò Bún &amp; Suppen",
+    m_bb_d:"Rind, Garnelen, Hähnchen oder vegetarisch, mit Nems, Reisnudeln, eingelegtem Gemüse und Rohkost",
+    m_pho_n:"Phở-Suppe",
+    m_pho_d:"Rind oder Hähnchen, Reisnudeln und frische Kräuter in Rinderbrühe",
+    m_st_n:"Thanh's Suppe",
+    m_st_d:"Rind, Hähnchen, Garnelen oder Tofu, mit Reisnudeln und Gemüse der Saison",
+    cat_soup:"Bánh mì &amp; Gebratenes",
+    m_sand_d:"Vietnamesisches Sandwich: Schwein, Hähnchen, Rind oder Tofu",
+    m_px_d:"Gebratene Reisnudeln mit Gemüse, mit Rind, Hähnchen, Scampi oder Tofu (im Infinity)",
+    m_drinks:"Zu trinken: Mango-, Litschi-, Guaven- oder Kokossaft, Sojamilch, Aloe vera.",
     fs_bobun:"Bò Bún mit Nems",
     fs_banhmi:"Bánh mì mit Rindfleisch",
     fs_nems:"Nems mit Salat und Minze",
-    fs_pho:"Phở bò",
-    m_pho_d:"Mit Rindfleisch: lange gekochte Brühe, Kräuter, Limette.",
-    m_pho2_d:"Mit Hähnchen",
+    fs_pho:"Phở-Suppe mit Rind",
     adr_kick:"Adressen",
     adr_h:"Zwei Adressen",
-    adr_royal:"Boulevard Royal, Luxemburg<br>(gegenüber dem Hôtel Le Royal)",
+    adr_royal:"25, boulevard Royal<br>L-2449 Luxemburg (gegenüber dem Hôtel Le Royal)",
     adr_inf:"Infinity Shopping, 7, avenue John F. Kennedy<br>L-1499 Luxemburg-Kirchberg",
+    adr_hrs1:"Montag bis Freitag, 11:00–14:45 Uhr",
+    adr_hrs2:"Montag bis Freitag, 11:30–15:15 Uhr",
     adr_map1:"Route ↗",
     adr_map2:"Route ↗",
     adr_wolt1:"Auf Wolt bestellen ↗",
     adr_wolt2:"Auf Wolt bestellen ↗",
-    adr_note:"Mittags, Montag bis Freitag. Am Wochenende geschlossen.",
+    adr_note:"Samstag und Sonntag geschlossen.",
     foot_sub:"Vietnamesische Küche",
     disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
   },
@@ -485,36 +522,47 @@ var I18N = {
     fact_2:"<b>Infinity</b> in Kirchberg",
     fact_3:"<b>Monday to Friday</b> at lunchtime",
     bb_badge:"On the menu",
-    bb_p:"Rice vermicelli, sliced crispy nems, fresh herbs, peanuts and nuoc cham, with marinated beef, chicken or prawns, or vegetarian.",
+    bb_p:"Skewers, chicken or vegetarian nems, rice vermicelli, pickles and fresh raw vegetables.",
+    bb_c1:"Beef",
+    bb_c2:"Prawns",
+    bb_c3:"Chicken",
+    bb_c4:"Vegetarian",
     house_kick:"About",
-    house_h:"Opposite Hôtel Le Royal, and in Kirchberg",
-    house_p1:"Thanh's serves Vietnamese food at two addresses: Boulevard Royal, with its terrace, and the Infinity shopping centre in Kirchberg.",
-    house_p2:"Eat in, or order delivery through Wolt from either address.",
+    house_h:"Lunch in town and in Kirchberg",
+    house_p1:"Thanh's serves Vietnamese food on Boulevard Royal, opposite Hôtel Le Royal, and in the Infinity shopping centre in Kirchberg.",
+    house_p2:"Eat in, take away, or order delivery through Wolt.",
     menu_h:"The menu",
-    cat_start:"Starters",
-    cat_bobun:"Bò Bún &amp; bánh mì",
-    cat_soup:"Phở",
-    m_nem_n:"Nems",
-    m_nem_d:"Crispy fried rolls",
-    m_roll_n:"Gỏi cuốn",
-    m_roll_d:"Fresh spring rolls",
-    m_bb_d:"Vermicelli, herbs, peanuts, nuoc-cham.",
-    m_sand_d:"Vietnamese sandwich",
+    cat_start:"To start",
+    m_nem_d:"Chicken or vegetarian, 2 pieces",
+    m_roll_n:"Spring rolls",
+    m_roll_d:"Prawn, beef, chicken or vegetarian",
+    m_sal_n:"Vietnamese salad",
+    m_sal_d:"Rice vermicelli and raw vegetables, with beef, chicken, scampi or tofu",
+    cat_bobun:"Bò Bún &amp; soups",
+    m_bb_d:"Beef, prawn, chicken or vegetarian, with nems, rice vermicelli, pickles and raw vegetables",
+    m_pho_n:"Phở soup",
+    m_pho_d:"Beef or chicken, rice noodles and fresh herbs in a beef broth",
+    m_st_n:"Thanh's soup",
+    m_st_d:"Beef, chicken, prawn or tofu, with rice noodles and seasonal vegetables",
+    cat_soup:"Bánh mì &amp; stir-fries",
+    m_sand_d:"Vietnamese sandwich: pork, chicken, beef or tofu",
+    m_px_d:"Stir-fried rice noodles with vegetables and beef, chicken, scampi or tofu (at Infinity)",
+    m_drinks:"To drink: mango, lychee, guava or coconut juice, soy milk, aloe vera.",
     fs_bobun:"Bò Bún with nems",
     fs_banhmi:"Beef bánh mì",
     fs_nems:"Nems with lettuce and mint",
-    fs_pho:"Phở bò",
-    m_pho_d:"Beef, in a slow-simmered broth with herbs and lime.",
-    m_pho2_d:"Chicken",
+    fs_pho:"Beef phở soup",
     adr_kick:"Find us",
     adr_h:"Two locations",
-    adr_royal:"Boulevard Royal, Luxembourg<br>(opposite the Hôtel Le Royal)",
+    adr_royal:"25 Boulevard Royal<br>L-2449 Luxembourg (opposite Hôtel Le Royal)",
     adr_inf:"Infinity Shopping, 7 Avenue John F. Kennedy<br>L-1499 Luxembourg-Kirchberg",
+    adr_hrs1:"Monday to Friday, 11:00–14:45",
+    adr_hrs2:"Monday to Friday, 11:30–15:15",
     adr_map1:"Directions ↗",
     adr_map2:"Directions ↗",
     adr_wolt1:"Order on Wolt ↗",
     adr_wolt2:"Order on Wolt ↗",
-    adr_note:"Lunchtimes, Monday to Friday. Closed at weekends.",
+    adr_note:"Closed on Saturdays and Sundays.",
     foot_sub:"Vietnamese cuisine",
     disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
   }
