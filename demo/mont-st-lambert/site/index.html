@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex, nofollow"/>
 <title>Mont St-Lambert — Cuisine thaïe &amp; chinoise, Limpertsberg</title>
-<meta name="description" content="Mont St-Lambert à Limpertsberg — la cantine thaïe et chinoise du quartier : wok, canard croustillant, nems, et une belle carte de bières. Démonstration Webwerk."/>
+<meta name="description" content="Mont St-Lambert, bar-restaurant thaï et chinois, 97 avenue du Bois à Limpertsberg : wok, canard, nems et carte de bières."/>
 <style>
 @font-face{font-family:'Chonburi';src:url('assets/fonts/chonburi-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Kanit';src:url('assets/fonts/kanit-400-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -14,7 +14,7 @@
 :root{
  --teak:#382013; --teak-d:#271609; --teak-l:#523422; --ink:#2a1c12;
  --cream:#f3e9d6; --stone:#e6d9c0; --card:#fbf5e7;
- --gold:#c8922e; --amber:#e3ac48; --jade:#2f6d54; --jade-l:#3f8a6b; --chili:#c1402a;
+ --gold:#c8922e; --amber:#e3ac48; --jade:#9a6a1f; --jade-l:#b07a26; --chili:#a8741f;
  --line:#d8c9a9; --muted:#8c7a5f;
  --maxw:1200px;
 }
@@ -31,11 +31,11 @@ h1,h2,h3,.disp{font-family:'Chonburi','Kanit',serif;font-weight:400;line-height:
 .lotus-div .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .lotus-div .lo{width:30px;height:22px;color:var(--gold);flex:none}
 
-header{position:sticky;top:0;z-index:50;transition:background .3s}
+header{position:sticky;top:0;z-index:50;background:var(--teak-d)}
 header.solid{background:var(--teak-d);box-shadow:0 2px 22px rgba(0,0,0,.32)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 0}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:11px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
-.brand img{width:46px;height:46px;flex:none;border-radius:50%}
+.brand img{width:46px;height:46px;flex:none;border-radius:50%;background:var(--cream);padding:3px;box-shadow:0 0 0 1px rgba(243,233,214,.4)}
 .brand .nm{font-family:'Chonburi',serif;font-weight:400;font-size:23px;letter-spacing:.01em;line-height:.95;color:var(--cream)}
 .brand .nm small{display:block;font-family:'Kanit';font-size:9px;letter-spacing:.2em;color:var(--amber);font-weight:700;margin-top:4px;text-transform:uppercase}
 nav.links{display:flex;align-items:center;gap:26px}
@@ -54,13 +54,13 @@ nav.links a:hover{color:var(--amber);opacity:1}
 .hero .bg{position:absolute;inset:0;z-index:-2}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
 .hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(24,14,8,0.66) 0%,rgba(24,14,8,0.38) 32%,rgba(24,14,8,0.58) 64%,rgba(18,10,5,0.95) 100%)}
-.hero canvas#lotuscv{position:absolute;right:1%;top:6%;height:78%;width:44%;z-index:0;pointer-events:none}
 .hero .inner{padding-bottom:clamp(40px,7vw,88px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--amber);margin-bottom:16px}
+.hero h1 .nw{white-space:nowrap}
 .hero h1{color:#fff;font-size:clamp(52px,10vw,130px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.5)}
 .hero .tag{font-family:'Kanit',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f2e6d0;max-width:31ch;margin:20px 0 0;line-height:1.4}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
-.btn{font-family:'Kanit',sans-serif;font-weight:700;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn{font-family:'Kanit',sans-serif;font-weight:600;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
 .btn.p{background:var(--jade);color:#fff}
 .btn.p:hover{background:var(--jade-l)}
 .btn.o{background:transparent;color:var(--cream);border-color:rgba(243,233,214,.5)}
@@ -83,7 +83,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .spot{background:var(--teak);color:#f0e4cf;position:relative;overflow:hidden}
 .spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center}
 .spot .eyebrow{color:var(--amber)}
-.spot h2{font-family:'Chonburi';font-size:clamp(38px,6vw,72px);color:#fff;margin:14px 0 0;line-height:1.05}
+.spot h2{font-family:'Chonburi';font-size:clamp(34px,4.4vw,56px);color:#fff;margin:14px 0 0;line-height:1.05}
 .spot h2 span{color:var(--amber);display:block}
 .spot .lead{font-family:'Kanit';font-size:clamp(18px,2.2vw,24px);line-height:1.5;color:#f0e4cf;margin:22px 0 0}
 .spot .body{font-size:16.5px;color:#cdb996;margin:16px 0 0;max-width:46ch}
@@ -98,11 +98,11 @@ section{padding:clamp(56px,9vw,102px) 0}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
 .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,12,6,0.95) 0%,rgba(20,12,6,0.85) 62%,rgba(20,12,6,0) 100%);color:#fff;font-family:'Chonburi',serif;font-weight:400;font-size:17px}
 
-.bar-band{background:var(--jade);color:#eaf3ee;position:relative;overflow:hidden}
+.bar-band{background:var(--teak-d);color:#f0e4cf;position:relative;overflow:hidden}
 .bar-band .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
 .bar-band h2{font-family:'Chonburi';font-size:clamp(34px,5vw,60px);color:#fff}
 .bar-band h2 span{color:var(--amber);display:block}
-.bar-band .lead{font-size:18px;color:#e2efe8;margin-top:18px;line-height:1.6;max-width:44ch}
+.bar-band .lead{font-size:18px;color:#e6d8bd;margin-top:18px;line-height:1.6;max-width:44ch}
 .bar-band .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .bar-band .chip{font-family:'Kanit';font-weight:700;font-size:12.5px;color:var(--teak-d);background:var(--amber);padding:8px 15px;border-radius:999px}
 .bar-band .chip.b{background:transparent;color:#eaf3ee;border:1.5px solid rgba(234,243,238,.4)}
@@ -111,10 +111,16 @@ section{padding:clamp(56px,9vw,102px) 0}
 .carte{background:var(--stone)}
 .carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
 .mgroup{margin-bottom:30px}
+.mgroup{scroll-margin-top:90px}
+.mphoto{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;margin-bottom:14px}
+.mjump{display:flex;flex-wrap:wrap;gap:8px;margin:-14px 0 28px}
+.mjump a{border:1.5px solid var(--teak);border-radius:999px;padding:6px 14px;font-family:'Kanit';font-weight:600;font-size:14px;color:var(--teak)}
 .mgroup h3{font-family:'Chonburi';font-size:25px;color:var(--teak);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--chili);margin-bottom:14px}
 .mgroup h3 .lo{width:18px;height:14px;flex:none;color:var(--gold)}
 .mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
-.mitem .nm{font-family:'Kanit';font-weight:700;font-size:17px;color:var(--ink)}
+.mitem .nm{font-family:'Kanit';font-weight:500;font-size:17px;color:var(--ink)}
+.mitem{border-bottom:1px solid var(--line)}
+.mitem:last-child{border-bottom:0}
 .mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
 .mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
 .mitem .pr{font-family:'Chonburi';color:var(--chili);font-size:16px;white-space:nowrap}
@@ -125,21 +131,25 @@ section{padding:clamp(56px,9vw,102px) 0}
 .ino .ic{width:22px;height:22px;flex:none;color:var(--chili);margin-top:3px}
 .ino .k{font-family:'Kanit';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
 .ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
-.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.ino .v.big{font-family:'Kanit',sans-serif;font-weight:600;font-size:28px}
+.inobtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.inobtns .btn{flex:1 1 180px;justify-content:center}
+.btn.o2{background:transparent;color:var(--ink);border:2px solid var(--ink)}
 .hours-today{font-family:'Chonburi';color:var(--jade);font-size:18px}
 .mapcard{position:relative;border-radius:4px;overflow:hidden;min-height:280px;display:flex;align-items:flex-end}
 .mapcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mapcard .ov{position:relative;width:100%;padding:24px;background:linear-gradient(0deg,rgba(20,12,6,.9),transparent);color:#fff}
+.mapcard .ov{position:relative;width:100%;padding:18px 22px;background:var(--teak-d);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.mapcard .ov .btn{margin-top:0}
 .mapcard .big{font-family:'Chonburi';font-size:26px;color:#fff}
-.mapcard .btn{margin-top:14px}
+
 
 footer{background:#20130a;color:#b8a789;padding:0 0 40px}
 footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
 footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 footer .band .lo{width:30px;height:22px;color:var(--gold)}
-footer .in{padding-block:4px 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .in{padding-block:4px 0;display:grid;grid-template-columns:1fr;gap:40px}
 footer .fbrand{display:flex;align-items:center;gap:12px}
-footer .fbrand img{width:52px;height:52px;border-radius:50%}
+footer .fbrand img{width:52px;height:52px;border-radius:50%;background:var(--cream);padding:3px}
 footer .nm{font-family:'Chonburi';font-weight:400;font-size:25px;color:var(--cream)}
 footer .nm small{display:block;font-family:'Kanit';font-size:10px;letter-spacing:.2em;color:var(--amber);margin-top:4px;text-transform:uppercase}
 footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a89777}
@@ -152,7 +162,6 @@ footer .made a{color:var(--amber)}
  .spot .grid,.bar-band .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
  .spot .pic,.bar-band .pic{order:-1}
- .hero canvas#lotuscv{width:58%;opacity:.9}
 }
 @media(max-width:760px){
  nav.links{position:fixed;inset:60px 0 auto 0;flex-direction:column;background:var(--teak-d);padding:24px 0 30px;gap:4px;transform:translateY(-150%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
@@ -160,8 +169,7 @@ footer .made a{color:var(--amber)}
  nav.links a{padding:12px;font-size:17px}
  .burger{display:flex}
  header{background:var(--teak-d)}
- .hero h1{font-size:clamp(46px,15vw,86px)}
- .hero canvas#lotuscv{width:66%;opacity:.72}
+ .hero h1{font-size:clamp(40px,12.5vw,70px)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
@@ -192,6 +200,16 @@ footer .made a{color:var(--amber)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
+@media(max-width:760px){ .brand .nm{display:none} .hero{isolation:isolate;background:var(--teak-d);flex-direction:column;justify-content:flex-start;margin-top:0;padding-top:0} .hero .bg{position:relative;inset:auto;z-index:0;width:100%;aspect-ratio:3/2} .hero .scrim{display:none} .hero .inner{padding-top:24px} .wwbar a{font-size:.86rem} .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .inobtns .btn.p{display:none} }
+@media(min-width:901px){
+  .facts .c:first-child{padding-left:0}
+  .hero{align-items:center;margin-top:0;padding-top:0;min-height:min(74vh,660px)}
+  .hero .bg{left:auto;width:52%}
+  .hero .scrim{background:linear-gradient(90deg,var(--teak-d) 0%,rgba(39,22,9,0) 14%)}
+  .hero .inner{padding-block:90px;padding-right:calc(52vw - (100vw - min(100vw,var(--maxw))) / 2 + 40px)}
+  .hero{background:var(--teak-d);isolation:isolate}
+  .hero h1{font-size:clamp(44px,5vw,74px)}
+}
 
   /* hero type legibility */
   /* Contrast comes from the type's own shadow rather than from darkening
@@ -201,7 +219,6 @@ footer .made a{color:var(--amber)}
 </style>
 </head>
 <body>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <g id="lotus" fill="currentColor">
   <path d="M32 22 C26 12 24 4 32 0 C40 4 38 12 32 22 Z"/>
@@ -209,15 +226,14 @@ footer .made a{color:var(--amber)}
   <path d="M32 22 C44 16 52 12 52 4 C42 4 34 12 32 22 Z" opacity=".8"/>
 </g>
 </defs></svg>
-
 <header id="hd">
  <div class="wrap bar">
   <a class="brand" href="#top" aria-label="Mont St-Lambert">
    <img src="assets/logo.png" alt="" aria-hidden="true"/>
-   <span class="nm">Mont St-Lambert<small>Thaï &amp; chinois · Limpertsberg</small></span>
+   <span class="nm">Mont St-Lambert<small data-i18n="brand_sub">Bar-restaurant, Limpertsberg</small></span>
   </a>
   <nav class="links" id="nav">
-   <a href="#canard" data-i18n="nav_canard">Le canard</a>
+   <a href="#maison" data-i18n="nav_maison">La maison</a>
    <a href="#carte" data-i18n="nav_carte">La carte</a>
    <a href="#bar" data-i18n="nav_bar">Le bar</a>
    <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
@@ -228,127 +244,112 @@ footer .made a{color:var(--amber)}
   <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
  </div>
 </header>
-
 <main id="top">
  <section class="hero" id="hero">
-  <div class="bg"><img src="assets/hero.jpg" alt="Le canard croustillant, Mont St-Lambert"/></div>
+  <div class="bg"><img src="assets/canard.jpg" alt="Canard tranché sur nouilles, coriandre et piment"/></div>
   <div class="scrim"></div>
-  <canvas id="lotuscv" aria-hidden="true"></canvas>
   <div class="wrap inner">
-   <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine thaïe &amp; chinoise · Limpertsberg</span>
-   <h1>Mont St-Lambert</h1>
-   <p class="tag" data-i18n="hero_tag">La cantine thaïe et chinoise du quartier — le wok, le canard croustillant, et une belle carte de bières.</p>
+   <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine thaïe et chinoise à Limpertsberg</span>
+   <h1>Mont <span class="nw">St-Lambert</span></h1>
+   <p class="tag" data-i18n="hero_tag">Bar-restaurant thaï et chinois, sur place, à emporter ou en livraison : le wok, le canard et une belle carte de bières.</p>
    <div class="cta">
     <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
-    <a class="btn o" href="#canard" data-i18n="hero_cta2">Le canard ↓</a>
+    <a class="btn o" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="hero_cta2">Commander sur Wedely ↗</a>
    </div>
   </div>
  </section>
-
  <div class="facts">
   <div class="wrap"><div class="row">
-    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Thaïe &amp; chinoise</b>le wok, les nouilles, le canard croustillant</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k2">La maison</div><div class="v" data-i18n="fact_v2"><b>Cantine thaïe et chinoise</b>le wok, à Limpertsberg</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k3">Le bar</div><div class="v" data-i18n="fact_v3"><b>Une belle carte de bières</b>et un verre de vin qui va bien</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Thaïe &amp; chinoise</b>wok, nouilles, canard</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">L'adresse</div><div class="v" data-i18n="fact_v2"><b>97, avenue du Bois</b>Limpertsberg</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">Le bar</div><div class="v" data-i18n="fact_v3"><b>Une belle carte de bières</b>et des vins</div></div>
   </div></div>
  </div>
-
- <!-- CANARD SPOTLIGHT -->
- <section class="spot" id="canard">
+ <section class="spot" id="maison">
   <div class="wrap grid">
    <div class="txt">
-    <span class="eyebrow" data-i18n="ca_eyebrow">La signature</span>
-    <h2 data-i18n="ca_h">Le canard,<span>croustillant.</span></h2>
-    <p class="lead" data-i18n="ca_lead">La peau laquée et croustillante, la chair fondante, des herbes fraîches et le riz à côté — le plat qu'on vient chercher.</p>
-    <p class="body" data-i18n="ca_body">C'est la maison dans un bol : le wok qui ne s'arrête pas, les parfums thaïs et chinois, et cette générosité tranquille d'un lieu qu'on connaît par cœur. On s'installe, on partage, on reste.</p>
+    <span class="eyebrow" data-i18n="ma_eyebrow">La maison</span>
+    <h2 data-i18n="ma_h">La salle<span>et la véranda.</span></h2>
+    <p class="lead" data-i18n="ma_lead">Des banquettes en bois, des chaises bistrot, les suspensions en rotin et, côté avenue du Bois, la véranda vitrée. Cuisine thaïe et chinoise sur place, à emporter ou en livraison.</p>
    </div>
-   <div class="pic">
-    <img src="assets/canard.jpg" alt="Le canard croustillant et ses herbes"/>
-    <span class="pill" data-i18n="ca_pill">La signature</span>
-   </div>
+   <div class="pic"><img src="assets/salle.jpg" alt="La salle en longueur, suspension en rotin, chaises bistrot et comptoir"/></div>
   </div>
  </section>
-
- <div class="wrap lotus-div"><span class="ln"></span><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span class="ln"></span></div>
-
- <!-- GALLERY -->
  <section id="gal">
   <div class="wrap">
    <div class="sect-h">
-    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
-    <h2 data-i18n="gal_h">Du wok, généreux</h2>
-    <p data-i18n="gal_p">Riz cantonais, nouilles sautées, nems croustillants, wok de bœuf et de légumes — la cuisine thaïe et chinoise qu'on partage, sans façon.</p>
+    <span class="eyebrow" data-i18n="gal_eyebrow">En images</span>
+    <h2 data-i18n="gal_h">À table</h2>
+    <p data-i18n="gal_p">Bœuf sauté aux légumes, nouilles sautées au poulet.</p>
    </div>
    <div class="gal">
-    <figure class="w2 h2"><img src="assets/wok.jpg" alt="Wok de bœuf et légumes"/><figcaption data-i18n="cap_wok">Le wok de bœuf</figcaption></figure>
-    <figure><img src="assets/rice.jpg" alt="Riz cantonais"/><figcaption data-i18n="cap_rice">Riz cantonais</figcaption></figure>
-    <figure><img src="assets/nems.jpg" alt="Nems, sauce aigre-douce"/><figcaption data-i18n="cap_nems">Nems maison</figcaption></figure>
-    <figure class="w2"><img src="assets/noodles.jpg" alt="Nouilles sautées"/><figcaption data-i18n="cap_noodles">Nouilles sautées</figcaption></figure>
-    <figure><img src="assets/salle.jpg" alt="La salle, boiseries"/><figcaption data-i18n="cap_salle">La salle</figcaption></figure>
-    <figure><img src="assets/dessert.jpg" alt="Dessert maison"/><figcaption data-i18n="cap_dessert">Le dessert</figcaption></figure>
-    <figure class="w2"><img src="assets/repas.jpg" alt="Une table, riz sauté et salade"/><figcaption data-i18n="cap_repas">Une table à partager</figcaption></figure>
+    <figure class="w2 h2"><img src="assets/wok.jpg" alt="Bœuf sauté aux légumes, coriandre et piment"/><figcaption data-i18n="cap_wok">Bœuf sauté aux légumes</figcaption></figure>
+    <figure class="w2 h2"><img src="assets/noodles.jpg" alt="Nouilles sautées au poulet et aux légumes"/><figcaption data-i18n="cap_noodles">Nouilles sautées au poulet</figcaption></figure>
    </div>
   </div>
  </section>
-
- <!-- BAR BAND -->
  <section class="bar-band" id="bar">
   <div class="wrap grid">
    <div class="txt">
-    <span class="eyebrow" style="color:var(--amber)" data-i18n="bar_eyebrow">Au comptoir</span>
-    <h2 data-i18n="bar_h">Le wok,<span>et le verre qui va avec.</span></h2>
-    <p class="lead" data-i18n="bar_lead">Ce n'est pas qu'une cantine : c'est aussi un bar. Une belle carte de bières, un verre de vin, et de quoi s'attarder après le repas. On vient pour le wok, on reste pour l'ambiance.</p>
-    <div class="chips">
-     <span class="chip" data-i18n="chip1">Carte de bières</span>
-     <span class="chip b" data-i18n="chip2">Bar-restaurant</span>
-     <span class="chip b" data-i18n="chip3">La cantine du quartier</span>
-    </div>
+    <span class="eyebrow" style="color:var(--amber)" data-i18n="bar_eyebrow">Le bar</span>
+    <h2 data-i18n="bar_h">Aussi<span>un bar.</span></h2>
+    <p class="lead" data-i18n="bar_lead">Une carte de bières, de la Leffe et de la Chouffe à la Tsingtao, la Hoegaarden et la Vedette, et des vins de Luxembourg, de France et d'Italie.</p>
    </div>
-   <div class="pic"><img src="assets/table.jpg" alt="À table, un verre au comptoir"/></div>
+   <div class="pic"><img src="assets/bar.jpg" alt="Le coin banquette et le logo Mont St-Lambert au mur"/></div>
   </div>
  </section>
-
- <!-- MENU -->
  <section class="carte" id="carte">
   <div class="wrap">
    <div class="sect-h">
-    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
-    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
-    <p data-i18n="carte_p">Le meilleur du wok thaï et chinois, les classiques de la maison — et le bar pour aller avec.</p>
+    <span class="eyebrow" data-i18n="carte_eyebrow">Sur place, à emporter ou en livraison</span>
+    <h2 data-i18n="carte_h">La carte</h2>
    </div>
+   <nav class="mjump" aria-label="Catégories"><a href="#mg1" data-i18n="mg1">Soupes &amp; entrées</a><a href="#mg2" data-i18n="mg2">Le canard</a><a href="#mg3" data-i18n="mg3">Le wok</a><a href="#mg4" data-i18n="mg4">Nouilles &amp; riz</a><a href="#mg5" data-i18n="mg5">Desserts</a></nav>
    <div class="cols">
     <div>
-     <div class="mgroup">
-      <h3><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span data-i18n="mg1">Pour commencer</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Nems</div><div class="ds" data-i18n="i1d">Rouleaux croustillants, sauce aigre-douce</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Soupe du jour</div></div></div>
+     <div class="mgroup" id="mg1">
+      <img class="mphoto" src="assets/nems.jpg" alt="Nems et sauce aigre-douce" loading="lazy"/>
+      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg1">Soupes &amp; entrées</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Soupe thaïe au curry rouge et scampis</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Soupe aux raviolis chinois</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Nems</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Nems de scampis maison</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Gyoza</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Raviolis vapeur aux crevettes</div></div></div>
      </div>
-     <div class="mgroup">
-      <h3><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span data-i18n="mg2">Le wok</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Wok de bœuf &amp; légumes</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Nouilles sautées</div><div class="ds" data-i18n="i4d">Poulet ou légumes</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Riz cantonais</div></div></div>
+     <div class="mgroup" id="mg2">
+      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg2">Le canard</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Canard spécial maison</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Canard façon thaï</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Canard à la pékinoise</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Canard Sichuan</div></div></div>
      </div>
     </div>
     <div>
-     <div class="mgroup">
-      <h3><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span data-i18n="mg3">Les spécialités</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Canard croustillant</div><div class="ds" data-i18n="i6d">La signature de la maison</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Curry thaï</div><div class="ds" data-i18n="i7d">Selon le marché</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Dessert maison</div></div></div>
+     <div class="mgroup" id="mg3">
+      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg3">Le wok</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Poulet aux noix de cajou</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Poulet à la citronnelle</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i13n">Poulet au curry vert et légumes</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i14n">Bœuf au poivre noir</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i15n">Scampis au sel et poivre</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i16n">Tofu façon grand-mère</div></div></div>
      </div>
-     <div class="mgroup">
-      <h3><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span data-i18n="mg4">Le bar</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Carte de bières</div><div class="ds" data-i18n="i9d">Sélection de la maison</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Vins au verre</div></div></div>
+     <div class="mgroup" id="mg4">
+      <img class="mphoto" src="assets/rice.jpg" alt="Riz sauté" loading="lazy"/>
+      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg4">Nouilles &amp; riz</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i17n">Nouilles sautées</div><div class="ds" data-i18n="i17d">Légumes, poulet, bœuf ou scampis</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i18n">Riz sauté</div><div class="ds" data-i18n="i18d">Légumes, poulet, bœuf ou scampis</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i19n">Pad thaï aux scampis</div></div></div>
+     </div>
+     <div class="mgroup" id="mg5">
+      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg5">Desserts</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i20n">Moelleux au chocolat, cheesecake, mochis</div></div></div>
      </div>
     </div>
    </div>
-   <p class="note" data-i18n="carte_note">Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié : la carte, les prix et la carte des bières sont à confirmer sur place.</p>
   </div>
  </section>
-
- <!-- INFOS -->
  <section class="infos" id="infos">
   <div class="wrap">
    <div class="sect-h">
@@ -357,147 +358,239 @@ footer .made a{color:var(--amber)}
    </div>
    <div class="grid">
     <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v" data-i18n="ino_addr">Limpertsberg · Luxembourg-Ville</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" data-i18n="ino_ht">Midi &amp; soir</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">97, avenue du Bois<br>L-1250 Luxembourg (Limpertsberg)</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Téléphone</div><div class="v big"><a href="tel:+352224950">+352 22 49 50</a></div></div></div>
+     <div class="inobtns"><a class="btn p" href="tel:+352224950" data-i18n="wwb_call">Appeler</a><a class="btn o2" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="ino_order">Commander sur Wedely ↗</a></div>
     </div>
     <div class="mapcard">
-     <img src="assets/facade.jpg" alt="La façade de Mont St-Lambert, Limpertsberg"/>
+     <img src="assets/facade.jpg" alt="La véranda de Mont St-Lambert et son enseigne peinte, avenue du Bois"/>
      <div class="ov">
-      <div class="big" data-i18n="map_big">Limpertsberg</div>
-      <div style="color:#e0d3b8;margin-top:6px" data-i18n="map_sub">Au cœur du quartier, à Luxembourg-Ville</div>
-      <a class="btn p" href="https://www.google.com/maps/search/Mont+Saint+Lambert+Limpertsberg+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+      <div class="big" data-i18n="map_big">Avenue du Bois</div>
+      <a class="btn p" href="https://www.google.com/maps/search/?api=1&query=Mont-Saint-Lambert+97+Avenue+du+Bois+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Itinéraire ↗</a>
      </div>
     </div>
    </div>
   </div>
  </section>
 </main>
-
 <footer>
- <div class="wrap band"><span class="ln"></span><svg class="lo" viewBox="0 0 64 24"><use href="#lotus"/></svg><span class="ln"></span></div>
+ <div class="wrap band"><span class="ln"></span><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span class="ln"></span></div>
  <div class="wrap in">
   <div>
-   <div class="fbrand"><img src="assets/logo.png" alt="" aria-hidden="true"/><div class="nm">Mont St-Lambert<small>Thaï &amp; chinois · Limpertsberg</small></div></div>
-   <p data-i18n="foot_p">La cantine thaïe et chinoise du Limpertsberg — le wok, le canard croustillant, et une belle carte de bières.</p>
-   <div class="made" data-i18n="foot_made">Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.</div>
-  </div>
-  <div>
-   <div style="font-family:'Kanit';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--amber)">Contact</div>
-   <p style="margin-top:10px" data-i18n="foot_contact">Limpertsberg · Luxembourg-Ville</p>
+   <div class="fbrand"><img src="assets/logo.png" alt="" aria-hidden="true"/><div class="nm">Mont St-Lambert<small data-i18n="brand_sub">Bar-restaurant, Limpertsberg</small></div></div>
+   <p data-i18n="foot_p">Bar-restaurant thaï et chinois à Limpertsberg.</p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque, le logo et les plats sont ceux de la maison. Adresse, carte, prix, horaires, téléphone et carte des bières sont à confirmer — proposition non officielle, non affiliée à ce jour.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
 </footer>
-
 <script>
 const I18N={
- fr:{wwb_dir:"Itinéraire",
-  nav_canard:"Le canard",nav_carte:"La carte",nav_bar:"Le bar",nav_infos:"Infos & accès",
-  hero_eyebrow:"Cuisine thaïe & chinoise · Limpertsberg",
-  hero_tag:"La cantine thaïe et chinoise du quartier — le wok, le canard croustillant, et une belle carte de bières.",
-  hero_cta1:"Voir la carte",hero_cta2:"Le canard ↓",
-  fact_k1:"La cuisine",fact_v1:"<b>Thaïe & chinoise</b>le wok, les nouilles, le canard croustillant",
-  fact_k2:"La maison",fact_v2:"<b>Cantine thaïe et chinoise</b>le wok, à Limpertsberg",
-  fact_k3:"Le bar",fact_v3:"<b>Une belle carte de bières</b>et un verre de vin qui va bien",
-  ca_eyebrow:"La signature",ca_h:"Le canard,<span>croustillant.</span>",
-  ca_lead:"La peau laquée et croustillante, la chair fondante, des herbes fraîches et le riz à côté — le plat qu'on vient chercher.",
-  ca_body:"C'est la maison dans un bol : le wok qui ne s'arrête pas, les parfums thaïs et chinois, et cette générosité tranquille d'un lieu qu'on connaît par cœur. On s'installe, on partage, on reste.",
-  ca_pill:"La signature",
-  gal_eyebrow:"À table",gal_h:"Du wok, généreux",
-  gal_p:"Riz cantonais, nouilles sautées, nems croustillants, wok de bœuf et de légumes — la cuisine thaïe et chinoise qu'on partage, sans façon.",
-  cap_wok:"Le wok de bœuf",cap_rice:"Riz cantonais",cap_nems:"Nems maison",cap_noodles:"Nouilles sautées",cap_salle:"La salle",cap_dessert:"Le dessert",cap_repas:"Une table à partager",
-  bar_eyebrow:"Au comptoir",bar_h:"Le wok,<span>et le verre qui va avec.</span>",
-  bar_lead:"Ce n'est pas qu'une cantine : c'est aussi un bar. Une belle carte de bières, un verre de vin, et de quoi s'attarder après le repas. On vient pour le wok, on reste pour l'ambiance.",
-  chip1:"Carte de bières",chip2:"Bar-restaurant",chip3:"La cantine du quartier",
-  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
-  carte_p:"Le meilleur du wok thaï et chinois, les classiques de la maison — et le bar pour aller avec.",
-  mg1:"Pour commencer",mg2:"Le wok",mg3:"Les spécialités",mg4:"Le bar",
-  i1n:"Nems",i1d:"Rouleaux croustillants, sauce aigre-douce",i2n:"Soupe du jour",
-  i3n:"Wok de bœuf & légumes",i4n:"Nouilles sautées",i4d:"Poulet ou légumes",i5n:"Riz cantonais",
-  i6n:"Canard croustillant",i6d:"La signature de la maison",i7n:"Curry thaï",i7d:"Selon le marché",i8n:"Dessert maison",
-  i9n:"Carte de bières",i9d:"Sélection de la maison",i10n:"Vins au verre",
-  carte_note:"Plats d'après les photos publiques de la maison, à titre indicatif. Aucun prix n'est publié : la carte, les prix et la carte des bières sont à confirmer sur place.",
-  infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
-  ino_k1:"Adresse",ino_addr:"Limpertsberg · Luxembourg-Ville",ino_addr_fl:"Adresse exacte à confirmer",
-  ino_k2:"Réserver",ino_phone:"Téléphone à confirmer",
-  ino_k3:"Horaires",ino_ht:"Midi & soir",ino_fl3:"Horaires à confirmer",
-  map_big:"Limpertsberg",map_sub:"Au cœur du quartier, à Luxembourg-Ville",map_btn:"Ouvrir dans Maps ↗",
-  foot_p:"La cantine thaïe et chinoise du Limpertsberg — le wok, le canard croustillant, et une belle carte de bières.",
-  foot_made:"Une démonstration de site réalisée par <b>Webwerk</b> · studio web · Luxembourg.",
-  foot_contact:"Limpertsberg · Luxembourg-Ville",
-  disc:"Ce site est une démonstration créée par Webwerk à titre indicatif, à partir de sources publiques (photos et informations d'annuaires et d'avis). La marque, le logo et les plats sont ceux de la maison. Adresse, carte, prix, horaires, téléphone et carte des bières sont à confirmer — proposition non officielle, non affiliée à ce jour."
+ fr:{
+  wwb_call:"Appeler",
+  wwb_dir:"Itinéraire",
+  wwb_order:"Commander",
+  brand_sub:"Bar-restaurant, Limpertsberg",
+  nav_maison:"La maison",
+  nav_carte:"La carte",
+  nav_bar:"Le bar",
+  nav_infos:"Infos &amp; accès",
+  hero_eyebrow:"Cuisine thaïe et chinoise à Limpertsberg",
+  hero_tag:"Bar-restaurant thaï et chinois, sur place, à emporter ou en livraison : le wok, le canard et une belle carte de bières.",
+  hero_cta1:"Voir la carte",
+  hero_cta2:"Commander sur Wedely ↗",
+  fact_k1:"La cuisine",
+  fact_v1:"<b>Thaïe &amp; chinoise</b>wok, nouilles, canard",
+  fact_k2:"L'adresse",
+  fact_v2:"<b>97, avenue du Bois</b>Limpertsberg",
+  fact_k3:"Le bar",
+  fact_v3:"<b>Une belle carte de bières</b>et des vins",
+  ma_eyebrow:"La maison",
+  ma_h:"La salle<span>et la véranda.</span>",
+  ma_lead:"Des banquettes en bois, des chaises bistrot, les suspensions en rotin et, côté avenue du Bois, la véranda vitrée. Cuisine thaïe et chinoise sur place, à emporter ou en livraison.",
+  gal_eyebrow:"En images",
+  gal_h:"À table",
+  gal_p:"Bœuf sauté aux légumes, nouilles sautées au poulet.",
+  cap_wok:"Bœuf sauté aux légumes",
+  cap_noodles:"Nouilles sautées au poulet",
+  bar_eyebrow:"Le bar",
+  bar_h:"Aussi<span>un bar.</span>",
+  bar_lead:"Une carte de bières, de la Leffe et de la Chouffe à la Tsingtao, la Hoegaarden et la Vedette, et des vins de Luxembourg, de France et d'Italie.",
+  carte_eyebrow:"Sur place, à emporter ou en livraison",
+  carte_h:"La carte",
+  mg1:"Soupes &amp; entrées",
+  i1n:"Soupe thaïe au curry rouge et scampis",
+  i2n:"Soupe aux raviolis chinois",
+  i3n:"Nems",
+  i4n:"Nems de scampis maison",
+  i5n:"Gyoza",
+  i6n:"Raviolis vapeur aux crevettes",
+  mg2:"Le canard",
+  i7n:"Canard spécial maison",
+  i8n:"Canard façon thaï",
+  i9n:"Canard à la pékinoise",
+  i10n:"Canard Sichuan",
+  mg3:"Le wok",
+  i11n:"Poulet aux noix de cajou",
+  i12n:"Poulet à la citronnelle",
+  i13n:"Poulet au curry vert et légumes",
+  i14n:"Bœuf au poivre noir",
+  i15n:"Scampis au sel et poivre",
+  i16n:"Tofu façon grand-mère",
+  mg4:"Nouilles &amp; riz",
+  i17n:"Nouilles sautées",
+  i17d:"Légumes, poulet, bœuf ou scampis",
+  i18n:"Riz sauté",
+  i18d:"Légumes, poulet, bœuf ou scampis",
+  i19n:"Pad thaï aux scampis",
+  mg5:"Desserts",
+  i20n:"Moelleux au chocolat, cheesecake, mochis",
+  infos_eyebrow:"Infos &amp; accès",
+  infos_h:"Nous trouver",
+  ino_k1:"Adresse",
+  ino_k2:"Téléphone",
+  ino_order:"Commander sur Wedely ↗",
+  map_big:"Avenue du Bois",
+  map_btn:"Itinéraire ↗",
+  foot_p:"Bar-restaurant thaï et chinois à Limpertsberg.",
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
  },
- de:{wwb_dir:"Route",
-  nav_canard:"Die Ente",nav_carte:"Karte",nav_bar:"Die Bar",nav_infos:"Infos & Anfahrt",
-  hero_eyebrow:"Thailändische & chinesische Küche · Limpertsberg",
-  hero_tag:"Die thailändisch-chinesische Kantine des Viertels — der Wok, die knusprige Ente und eine schöne Bierkarte.",
-  hero_cta1:"Zur Karte",hero_cta2:"Die Ente ↓",
-  fact_k1:"Die Küche",fact_v1:"<b>Thai & Chinesisch</b>der Wok, die Nudeln, die knusprige Ente",
-  fact_k2:"Das Haus",fact_v2:"<b>Thai- und China-Kantine</b>der Wok, in Limpertsberg",
-  fact_k3:"Die Bar",fact_v3:"<b>Eine schöne Bierkarte</b>und ein Glas Wein dazu",
-  ca_eyebrow:"Die Signatur",ca_h:"Die Ente,<span>knusprig.</span>",
-  ca_lead:"Die lackierte, knusprige Haut, das zarte Fleisch, frische Kräuter und der Reis dazu — das Gericht, für das man kommt.",
-  ca_body:"Das ist das Haus in einer Schüssel: der Wok, der nie stillsteht, thailändische und chinesische Aromen, und die ruhige Großzügigkeit eines Ortes, den man in- und auswendig kennt. Man setzt sich, teilt, bleibt.",
-  ca_pill:"Die Signatur",
-  gal_eyebrow:"Zu Tisch",gal_h:"Aus dem Wok, großzügig",
-  gal_p:"Gebratener Reis, gebratene Nudeln, knusprige Nems, Wok mit Rind und Gemüse — die thailändisch-chinesische Küche, die man teilt, ganz ungezwungen.",
-  cap_wok:"Der Rind-Wok",cap_rice:"Gebratener Reis",cap_nems:"Hausgemachte Nems",cap_noodles:"Gebratene Nudeln",cap_salle:"Der Gastraum",cap_dessert:"Das Dessert",cap_repas:"Ein Tisch zum Teilen",
-  bar_eyebrow:"Am Tresen",bar_h:"Der Wok,<span>und das passende Glas.</span>",
-  bar_lead:"Es ist nicht nur eine Kantine: es ist auch eine Bar. Eine schöne Bierkarte, ein Glas Wein und Grund, nach dem Essen zu bleiben. Man kommt für den Wok, man bleibt für die Atmosphäre.",
-  chip1:"Bierkarte",chip2:"Bar-Restaurant",chip3:"Die Kantine des Viertels",
-  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
-  carte_p:"Das Beste aus dem thai-chinesischen Wok, die Klassiker des Hauses — und die Bar dazu.",
-  mg1:"Zum Beginn",mg2:"Der Wok",mg3:"Die Spezialitäten",mg4:"Die Bar",
-  i1n:"Nems",i1d:"Knusprige Röllchen, süßsauer",i2n:"Suppe des Tages",
-  i3n:"Wok mit Rind & Gemüse",i4n:"Gebratene Nudeln",i4d:"Hähnchen oder Gemüse",i5n:"Gebratener Reis",
-  i6n:"Knusprige Ente",i6d:"Die Signatur des Hauses",i7n:"Thai-Curry",i7d:"Je nach Markt",i8n:"Hausgemachtes Dessert",
-  i9n:"Bierkarte",i9d:"Auswahl des Hauses",i10n:"Offene Weine",
-  carte_note:"Gerichte nach den öffentlichen Fotos des Hauses, ohne Gewähr. Es sind keine Preise veröffentlicht: Karte, Preise und Bierkarte vor Ort zu bestätigen.",
-  infos_eyebrow:"Infos & Anfahrt",infos_h:"So finden Sie uns",
-  ino_k1:"Adresse",ino_addr:"Limpertsberg · Luxemburg-Stadt",ino_addr_fl:"Genaue Adresse zu bestätigen",
-  ino_k2:"Reservieren",ino_phone:"Telefon zu bestätigen",
-  ino_k3:"Öffnungszeiten",ino_ht:"Mittags & abends",ino_fl3:"Zeiten zu bestätigen",
-  map_big:"Limpertsberg",map_sub:"Im Herzen des Viertels, in Luxemburg-Stadt",map_btn:"In Maps öffnen ↗",
-  foot_p:"Die thailändisch-chinesische Kantine des Limpertsberg — der Wok, die knusprige Ente und eine schöne Bierkarte.",
-  foot_made:"Eine Website-Demonstration von <b>Webwerk</b> · Webstudio · Luxemburg.",
-  foot_contact:"Limpertsberg · Luxemburg-Stadt",
-  disc:"Diese Website ist eine von Webwerk erstellte Demonstration, unverbindlich, auf Basis öffentlicher Quellen (Fotos und Angaben aus Verzeichnissen und Bewertungen). Marke, Logo und Gerichte gehören dem Haus. Adresse, Karte, Preise, Zeiten, Telefon und Bierkarte sind zu bestätigen — inoffizieller Vorschlag, bislang ohne Zugehörigkeit."
+ de:{
+  wwb_call:"Anrufen",
+  wwb_dir:"Route",
+  wwb_order:"Bestellen",
+  brand_sub:"Bar-Restaurant, Limpertsberg",
+  nav_maison:"Das Haus",
+  nav_carte:"Speisekarte",
+  nav_bar:"Die Bar",
+  nav_infos:"Anfahrt",
+  hero_eyebrow:"Thailändische und chinesische Küche in Limpertsberg",
+  hero_tag:"Thailändisch-chinesisches Bar-Restaurant, vor Ort, zum Mitnehmen oder geliefert: Wok, Ente und eine gute Bierkarte.",
+  hero_cta1:"Zur Speisekarte",
+  hero_cta2:"Auf Wedely bestellen ↗",
+  fact_k1:"Küche",
+  fact_v1:"<b>Thailändisch &amp; chinesisch</b>Wok, Nudeln, Ente",
+  fact_k2:"Adresse",
+  fact_v2:"<b>97 Avenue du Bois</b>Limpertsberg",
+  fact_k3:"Die Bar",
+  fact_v3:"<b>Eine gute Bierkarte</b>und Weine",
+  ma_eyebrow:"Das Haus",
+  ma_h:"Gastraum<span>und Veranda.</span>",
+  ma_lead:"Holzbänke, Bistrostühle, Rattanlampen und zur Avenue du Bois hin die verglaste Veranda. Thailändische und chinesische Küche vor Ort, zum Mitnehmen oder geliefert.",
+  gal_eyebrow:"In Bildern",
+  gal_h:"Zu Tisch",
+  gal_p:"Rind mit Gemüse aus dem Wok, gebratene Nudeln mit Hähnchen.",
+  cap_wok:"Rind mit Gemüse aus dem Wok",
+  cap_noodles:"Gebratene Nudeln mit Hähnchen",
+  bar_eyebrow:"Die Bar",
+  bar_h:"Auch<span>eine Bar.</span>",
+  bar_lead:"Eine Bierkarte von Leffe und La Chouffe bis Tsingtao, Hoegaarden und Vedette, dazu Weine aus Luxemburg, Frankreich und Italien.",
+  carte_eyebrow:"Vor Ort, zum Mitnehmen oder geliefert",
+  carte_h:"Die Speisekarte",
+  mg1:"Suppen &amp; Vorspeisen",
+  i1n:"Thailändische Rotcurry-Suppe mit Scampi",
+  i2n:"Wan-Tan-Suppe",
+  i3n:"Frühlingsrollen",
+  i4n:"Hausgemachte Scampi-Röllchen",
+  i5n:"Gyoza",
+  i6n:"Gedämpfte Garnelen-Teigtaschen",
+  mg2:"Ente",
+  i7n:"Ente nach Art des Hauses",
+  i8n:"Ente nach Thai-Art",
+  i9n:"Peking-Ente",
+  i10n:"Sichuan-Ente",
+  mg3:"Aus dem Wok",
+  i11n:"Hähnchen mit Cashewnüssen",
+  i12n:"Zitronengras-Hähnchen",
+  i13n:"Hähnchen mit grünem Curry und Gemüse",
+  i14n:"Rind mit schwarzem Pfeffer",
+  i15n:"Scampi mit Salz und Pfeffer",
+  i16n:"Tofu nach Großmutters Art",
+  mg4:"Nudeln &amp; Reis",
+  i17n:"Gebratene Nudeln",
+  i17d:"Gemüse, Hähnchen, Rind oder Scampi",
+  i18n:"Gebratener Reis",
+  i18d:"Gemüse, Hähnchen, Rind oder Scampi",
+  i19n:"Pad Thai mit Scampi",
+  mg5:"Desserts",
+  i20n:"Schokoladenküchlein, Cheesecake, Mochis",
+  infos_eyebrow:"Anfahrt",
+  infos_h:"So finden Sie uns",
+  ino_k1:"Adresse",
+  ino_k2:"Telefon",
+  ino_order:"Auf Wedely bestellen ↗",
+  map_big:"Avenue du Bois",
+  map_btn:"Route ↗",
+  foot_p:"Thailändisch-chinesisches Bar-Restaurant in Limpertsberg.",
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
  },
- en:{wwb_dir:"Directions",
-  nav_canard:"The duck",nav_carte:"Menu",nav_bar:"The bar",nav_infos:"Find us",
-  hero_eyebrow:"Thai & Chinese cooking · Limpertsberg",
-  hero_tag:"The neighbourhood's Thai and Chinese canteen — the wok, the crispy duck, and a fine beer list.",
-  hero_cta1:"See the menu",hero_cta2:"The duck ↓",
-  fact_k1:"The kitchen",fact_v1:"<b>Thai & Chinese</b>the wok, the noodles, the crispy duck",
-  fact_k2:"The house",fact_v2:"<b>Thai & Chinese canteen</b>the wok, in Limpertsberg",
-  fact_k3:"The bar",fact_v3:"<b>A fine beer list</b>and a glass of wine to match",
-  ca_eyebrow:"The signature",ca_h:"The duck,<span>crispy.</span>",
-  ca_lead:"The lacquered, crisp skin, the tender meat, fresh herbs and rice beside it — the dish people come for.",
-  ca_body:"It's the house in a bowl: the wok that never stops, Thai and Chinese aromas, and the quiet generosity of a place you know by heart. You sit down, you share, you stay.",
-  ca_pill:"The signature",
-  gal_eyebrow:"At the table",gal_h:"From the wok, generous",
-  gal_p:"Fried rice, sautéed noodles, crispy nems, beef-and-vegetable wok — the Thai and Chinese cooking you share, no fuss.",
-  cap_wok:"The beef wok",cap_rice:"Fried rice",cap_nems:"House nems",cap_noodles:"Sautéed noodles",cap_salle:"The dining room",cap_dessert:"The dessert",cap_repas:"A table to share",
-  bar_eyebrow:"At the counter",bar_h:"The wok,<span>and the glass to match.</span>",
-  bar_lead:"It's not just a canteen: it's a bar too. A fine beer list, a glass of wine, and reason to linger after the meal. You come for the wok, you stay for the room.",
-  chip1:"Beer list",chip2:"Bar-restaurant",chip3:"The neighbourhood canteen",
-  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
-  carte_p:"The best of the Thai-Chinese wok, the house classics — and the bar to go with them.",
-  mg1:"To start",mg2:"The wok",mg3:"The specialities",mg4:"The bar",
-  i1n:"Nems",i1d:"Crispy rolls, sweet-and-sour sauce",i2n:"Soup of the day",
-  i3n:"Beef & vegetable wok",i4n:"Sautéed noodles",i4d:"Chicken or vegetables",i5n:"Fried rice",
-  i6n:"Crispy duck",i6d:"The house signature",i7n:"Thai curry",i7d:"As the market allows",i8n:"House dessert",
-  i9n:"Beer list",i9d:"The house selection",i10n:"Wines by the glass",
-  carte_note:"Dishes from the house's public photos, for reference. No prices are published: the menu, prices and beer list are to be confirmed on site.",
-  infos_eyebrow:"Info & access",infos_h:"Find us",
-  ino_k1:"Address",ino_addr:"Limpertsberg · Luxembourg City",ino_addr_fl:"Exact address to be confirmed",
-  ino_k2:"Book",ino_phone:"Phone to be confirmed",
-  ino_k3:"Opening hours",ino_ht:"Lunch & evening",ino_fl3:"Hours to be confirmed",
-  map_big:"Limpertsberg",map_sub:"In the heart of the quarter, Luxembourg City",map_btn:"Open in Maps ↗",
-  foot_p:"The Thai and Chinese canteen of Limpertsberg — the wok, the crispy duck, and a fine beer list.",
-  foot_made:"A website demonstration by <b>Webwerk</b> · web studio · Luxembourg.",
-  foot_contact:"Limpertsberg · Luxembourg City",
-  disc:"This site is a demonstration created by Webwerk for reference, from public sources (photos and information from directories and reviews). The brand, logo and dishes belong to the house. Address, menu, prices, hours, phone and beer list are to be confirmed — an unofficial proposal, not affiliated to date."
+ en:{
+  wwb_call:"Call",
+  wwb_dir:"Directions",
+  wwb_order:"Order",
+  brand_sub:"Bar-restaurant, Limpertsberg",
+  nav_maison:"The house",
+  nav_carte:"Menu",
+  nav_bar:"The bar",
+  nav_infos:"Getting here",
+  hero_eyebrow:"Thai and Chinese cooking in Limpertsberg",
+  hero_tag:"A Thai and Chinese bar-restaurant, eat in, take away or delivered: wok dishes, duck and a good beer list.",
+  hero_cta1:"See the menu",
+  hero_cta2:"Order on Wedely ↗",
+  fact_k1:"The food",
+  fact_v1:"<b>Thai &amp; Chinese</b>wok, noodles, duck",
+  fact_k2:"Address",
+  fact_v2:"<b>97 Avenue du Bois</b>Limpertsberg",
+  fact_k3:"The bar",
+  fact_v3:"<b>A good beer list</b>and wines",
+  ma_eyebrow:"The house",
+  ma_h:"The dining room<span>and the veranda.</span>",
+  ma_lead:"Wooden banquettes, bistro chairs, rattan pendant lamps and, facing Avenue du Bois, the glazed veranda. Thai and Chinese cooking to eat in, take away or have delivered.",
+  gal_eyebrow:"In pictures",
+  gal_h:"At the table",
+  gal_p:"Stir-fried beef and vegetables, chicken fried noodles.",
+  cap_wok:"Stir-fried beef and vegetables",
+  cap_noodles:"Chicken fried noodles",
+  bar_eyebrow:"The bar",
+  bar_h:"Also<span>a bar.</span>",
+  bar_lead:"A beer list from Leffe and La Chouffe to Tsingtao, Hoegaarden and Vedette, plus wines from Luxembourg, France and Italy.",
+  carte_eyebrow:"Eat in, take away or delivery",
+  carte_h:"The menu",
+  mg1:"Soups &amp; starters",
+  i1n:"Thai red curry soup with scampi",
+  i2n:"Wonton soup",
+  i3n:"Spring rolls",
+  i4n:"House scampi rolls",
+  i5n:"Gyoza",
+  i6n:"Steamed prawn dumplings",
+  mg2:"Duck",
+  i7n:"House special duck",
+  i8n:"Thai-style duck",
+  i9n:"Beijing duck",
+  i10n:"Sichuan duck",
+  mg3:"From the wok",
+  i11n:"Cashew chicken",
+  i12n:"Lemongrass chicken",
+  i13n:"Chicken with green curry and vegetables",
+  i14n:"Black pepper beef",
+  i15n:"Salt and pepper scampi",
+  i16n:"Grandma-style tofu",
+  mg4:"Noodles &amp; rice",
+  i17n:"Stir-fried noodles",
+  i17d:"Vegetables, chicken, beef or scampi",
+  i18n:"Fried rice",
+  i18d:"Vegetables, chicken, beef or scampi",
+  i19n:"Scampi pad thai",
+  mg5:"Desserts",
+  i20n:"Chocolate fondant, cheesecake, mochi",
+  infos_eyebrow:"Getting here",
+  infos_h:"Find us",
+  ino_k1:"Address",
+  ino_k2:"Phone",
+  ino_order:"Order on Wedely ↗",
+  map_big:"Avenue du Bois",
+  map_btn:"Directions ↗",
+  foot_p:"Thai and Chinese bar-restaurant in Limpertsberg.",
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
  }
 };
 let lang="fr";
@@ -516,56 +609,12 @@ const hd=document.getElementById("hd");
 const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("msl_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
-
-/* the wow: a lotus that gently blooms & breathes (Thai temple flower) */
-(function(){
-  const cv=document.getElementById("lotuscv"); if(!cv) return;
-  const ctx=cv.getContext("2d"); let W=0,H=0; const dpr=Math.min(window.devicePixelRatio||1,2);
-  let raf=null,t0=0;
-  const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-  function resize(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=Math.max(1,W*dpr);cv.height=Math.max(1,H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}
-  function petal(cx,cy,ang,len,wid,col,a){
-    ctx.save(); ctx.translate(cx,cy); ctx.rotate(ang);
-    ctx.beginPath(); ctx.moveTo(0,0);
-    ctx.quadraticCurveTo(wid,-len*0.55,0,-len);
-    ctx.quadraticCurveTo(-wid,-len*0.55,0,0);
-    ctx.closePath();
-    ctx.fillStyle=col.replace("A",(a*0.5).toFixed(3));
-    ctx.strokeStyle=col.replace("A",a.toFixed(3)); ctx.lineWidth=1.4;
-    ctx.fill(); ctx.stroke(); ctx.restore();
-  }
-  function draw(tm){
-    ctx.clearRect(0,0,W,H);
-    const cx=W*0.52, cy=H*0.56, base=Math.min(W*0.34,H*0.34);
-    const bloom=0.82+0.18*Math.sin(tm*0.0009);      // breathe
-    const rot=tm*0.00007;                            // slow rotation
-    // centre glow
-    const g=ctx.createRadialGradient(cx,cy,0,cx,cy,base*1.1);
-    g.addColorStop(0,"rgba(227,172,72,0.42)"); g.addColorStop(0.5,"rgba(227,172,72,0.14)"); g.addColorStop(1,"rgba(227,172,72,0)");
-    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
-    const rings=[{n:8,len:base*bloom,wid:base*0.30,col:"rgba(227,172,72,A)",off:0},
-                 {n:8,len:base*0.66*bloom,wid:base*0.24,col:"rgba(63,138,107,A)",off:Math.PI/8},
-                 {n:8,len:base*0.40*bloom,wid:base*0.18,col:"rgba(243,233,214,A)",off:0}];
-    rings.forEach((ring,ri)=>{
-      const a=0.52 - ri*0.06 + 0.12*Math.sin(tm*0.0009);
-      for(let i=0;i<ring.n;i++){
-        const ang=rot + ring.off + i*(Math.PI*2/ring.n);
-        petal(cx,cy,ang,ring.len,ring.wid,ring.col,Math.max(0.2,a));
-      }
-    });
-    // seed
-    ctx.fillStyle="rgba(243,233,214,0.85)"; ctx.beginPath(); ctx.arc(cx,cy,base*0.06,0,7); ctx.fill();
-  }
-  function loop(tm){draw(tm);raf=requestAnimationFrame(loop);}
-  resize(); window.addEventListener("resize",resize);
-  if(reduce){draw(1200);return;}
-  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!raf)raf=requestAnimationFrame(loop);else if(!e.isIntersecting&&raf){cancelAnimationFrame(raf);raf=null;}});});
-  io.observe(cv);
-})();
 </script>
 
 <div class="wwbar" role="navigation" aria-label="Actions rapides">
-  <a class="btn p" href="https://www.google.com/maps/search/Mont+Saint+Lambert+Limpertsberg+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+  <a class="btn p" href="tel:+352224950" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Mont-Saint-Lambert+97+Avenue+du+Bois+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
 </body>
 </html>
