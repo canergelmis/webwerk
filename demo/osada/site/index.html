@@ -42,7 +42,8 @@ a{color:inherit}
 header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdrop-filter:blur(9px);border-bottom:1px solid var(--cream2)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand .mk{width:34px;height:34px;flex:0 0 auto}
+.brand .mk{width:44px;height:44px;flex:0 0 auto}
+.brand .mk circle{stroke-width:3.2}
 .brand .bt{font-family:var(--disp);font-weight:700;font-size:1.32rem;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;line-height:1}
 .brand .bt small{display:block;font-family:var(--body);font-weight:700;font-size:.48rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink2);margin-top:3px}
 .navright{display:flex;align-items:center;gap:18px}
@@ -65,7 +66,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .hero .kick .dot{width:5px;height:5px;border-radius:50%;background:var(--gold-lite)}
 .hero h1{color:#fff;font-family:var(--disp);font-weight:700;font-size:clamp(60px,13vw,150px);line-height:.9;letter-spacing:.06em;text-transform:uppercase;text-shadow:0 2px 30px rgba(0,0,0,.34)}
 .hero .tag{font-family:var(--disp);font-weight:600;font-size:clamp(19px,3vw,30px);color:var(--gold-lite);margin:12px 0 0;max-width:24ch}
-.hero .sub{font-size:1.02rem;color:#e7dcc7;margin:14px 0 0;max-width:52ch;line-height:1.55}
+.hero .sub{font-size:1.02rem;color:#e7dcc7;margin:14px 0 0;max-width:46ch;line-height:1.55;text-wrap:balance}
+.hero .tag{text-wrap:balance}
 .hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
 .btn{font-family:var(--body);font-weight:700;font-size:.95rem;border:0;border-radius:8px;padding:14px 24px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;text-decoration:none;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
 .btn.p{background:var(--gold);color:#241804}
@@ -83,17 +85,17 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 /* ===================== ZUREK SPOTLIGHT ===================== */
 .spot{background:linear-gradient(180deg,var(--cream) 0%,var(--cream2) 100%)}
 .spot .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4.5vw,64px);align-items:center}
-.spot .fig{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1}
+.spot .fig{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 10px 26px rgba(30,20,8,.12);aspect-ratio:1}
 .spot .fig img{width:100%;height:100%;object-fit:cover}
 .spot .badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:6px 13px;border-radius:999px;margin-bottom:16px}
 .spot h2{font-size:clamp(32px,4.6vw,54px)}
 .spot h2 .pl{color:var(--gold)}
-.spot .lead{font-family:var(--disp);font-weight:500;font-style:normal;font-size:clamp(18px,2.3vw,24px);color:var(--kraft-deep);margin:12px 0 16px}
+.spot .lead{font-family:var(--disp);font-weight:500;font-style:normal;font-size:clamp(20px,2.5vw,28px);color:var(--ink);margin:12px 0 16px;line-height:1.35}
 .spot p{color:var(--ink2);max-width:52ch}
 
 /* ===================== MAISON ===================== */
 .maison .wrap{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,4.5vw,60px);align-items:center}
-.maison .fig{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5}
+.maison .fig{border-radius:6px;overflow:hidden;box-shadow:0 10px 26px rgba(30,20,8,.12);aspect-ratio:4/5}
 .maison .fig img{width:100%;height:100%;object-fit:cover}
 .maison h2{font-size:clamp(30px,4.2vw,50px);margin:8px 0 16px}
 .maison .lead{font-family:var(--disp);font-weight:500;font-style:normal;color:var(--kraft-deep);font-size:1.32rem;display:block;margin:10px 0 14px}
@@ -108,14 +110,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .gallery .sec-head{text-align:center;margin-bottom:clamp(24px,4vw,40px)}
 .gallery h2{font-size:clamp(28px,4vw,46px)}
 .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:188px;gap:13px}
-.gal figure{position:relative;margin:0;border-radius:13px;overflow:hidden;box-shadow:var(--shadow-s)}
+.gal figure{position:relative;margin:0;border-radius:6px;overflow:hidden}
 .gal img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
 .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 13px 9px;color:#fff;font-weight:600;font-size:.78rem;background:linear-gradient(0deg,rgba(20,14,8,0.94) 0%,rgba(20,14,8,0.82) 62%,rgba(20,14,8,0) 100%)}
 
 /* ===================== CARTE (on the venue's real kraft-tan menu ground) ===================== */
-.carte{background:var(--kraft);color:#231a10;position:relative;overflow:hidden}
+.carte{background:#d8bc8c;color:#231a10;position:relative;overflow:hidden}
 .carte .wrap{position:relative;z-index:2}
 .carte .sec-head{text-align:center;max-width:62ch;margin:0 auto clamp(28px,5vw,46px)}
 .carte .sec-head .eyebrow{color:#3a2c18}
@@ -126,7 +128,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .mrow{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dotted rgba(35,26,16,.2);align-items:baseline}
 .mrow:last-child{border-bottom:0}
 .mrow .l .n{font-family:var(--disp);font-weight:600;font-size:1.06rem;color:#231a10}
-.mrow .l .d{font-size:.86rem;color:#59492f;margin-top:1px}
+.mrow .l .d{font-size:.95rem;color:#2f2416;margin-top:2px}
 .menu-note{text-align:center;color:#5a4a2e;font-size:.82rem;margin-top:22px}
 .food-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(28px,5vw,44px)}
 .food-strip figure{margin:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-s);aspect-ratio:1}
@@ -144,9 +146,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
 .socials{display:flex;gap:10px;margin-top:16px}
 .socials a{background:var(--char);color:#fff;font-weight:700;font-size:.84rem;padding:9px 16px;border-radius:999px;text-decoration:none}
 .socials a:hover{background:var(--gold)}
-.csub{font-size:.9rem;color:#4a3a22;margin:-6px 0 6px}
+.csub{font-size:.95rem;font-style:italic;color:#2f2416;margin:-6px 0 4px}
 .facts .f a{text-decoration:none}
-.iphoto{margin:0;position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);align-self:center}
+.iphoto{margin:0;position:relative;border-radius:6px;overflow:hidden;align-self:center}
 .iphoto img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .iphoto figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-weight:600;font-size:.85rem;background:linear-gradient(0deg,rgba(20,14,8,.9),rgba(20,14,8,0))}
 @media(min-width:861px){
@@ -156,13 +158,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.93);backdro
   .hero .wrap{padding-block:80px;padding-right:calc(50vw - (100vw - min(100vw,var(--maxw))) / 2 + 48px)}
   .hero h1{font-size:clamp(60px,8vw,112px)}
 }
-@media(max-width:760px){ .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .iphoto img{aspect-ratio:4/3} }
+@media(max-width:760px){ .hero .cta{display:none} .hero{min-height:calc(100svh - 146px)} .hero .sub{display:none} .iphoto img{aspect-ratio:4/3} }
 
 /* ===================== FOOTER ===================== */
 footer{background:var(--char);color:#d8c8ab;padding:clamp(40px,6vw,58px) 0 30px}
 footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:flex-start}
 footer .bn{font-family:var(--disp);font-weight:700;color:var(--gold-lite);font-size:1.5rem;letter-spacing:.12em;text-transform:uppercase}
 footer .bn small{display:block;font-family:var(--body);font-weight:700;font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+footer .fc{font-size:.92rem;line-height:1.7;color:#d8c8ab}
+footer .fc a{color:var(--gold-lite);text-decoration:none}
 footer .wk{font-size:.82rem}
 footer .wk a{color:var(--gold-lite);text-decoration:none;font-weight:700}
 footer .wk .made{color:#948566}
@@ -247,7 +251,6 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
   <div class="wrap">
     <span class="f" data-i18n="fact_1">Cuisine <b>polonaise</b></span>
     <span class="f" data-i18n="fact_2">35, rue Laurent Ménager, <b>Pfaffenthal</b></span>
-    <span class="f"><a href="tel:+35226202114" data-i18n="fact_3"><b>+352 26 20 21 14</b></a></span>
   </div>
 </div>
 <section class="spot blk" id="zurek">
@@ -257,6 +260,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
       <span class="eyebrow" data-i18n="zu_kick">À la carte</span>
       <h2><span class="pl">Żurek</span></h2>
       <p class="lead" data-i18n="zu_lead">Soupe de seigle aigre, saucisse polonaise et œuf, servie dans un pain.</p>
+      <p data-i18n="zu_p">Aussi en entrée : le barszcz, bortsch de betterave, et la surówka, salade de chou.</p>
     </div>
   </div>
 </section>
@@ -266,7 +270,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
     <div class="reveal">
       <span class="eyebrow" data-i18n="house_kick">La maison</span>
       <h2 data-i18n="house_h">« Osada », le hameau en polonais</h2>
-      <p data-i18n="house_p1">Osada est au Pfaffenthal, dans la vallée sous la Ville-Haute. On y sert la cuisine polonaise familiale : pierogi, bigos mijoté, placki ziemniaczane, gołąbki.</p>
+      <p data-i18n="house_p1">Osada est au 35, rue Laurent Ménager, dans la vallée du Pfaffenthal, avec le pont rouge au-dessus des toits. On y mange dans une salle aux murs de pierre, et on y sert la cuisine polonaise familiale : pierogi, bigos mijoté, placki ziemniaczane, gołąbki.</p>
     </div>
   </div>
 </section>
@@ -280,9 +284,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
       <figure class="w2 h2"><img src="assets/placek.jpg" alt="Galette de pommes de terre garnie de ragoût, crème et poivrons" loading="lazy" /><figcaption data-i18n="g_placek">Galette de pommes de terre et ragoût</figcaption></figure>
       <figure><img src="assets/schabowy.jpg" alt="Placki ziemniaczane, sauce aux champignons" loading="lazy" /><figcaption data-i18n="g_placki">Placki, sauce aux champignons</figcaption></figure>
       <figure><img src="assets/dessert.jpg" alt="Sernik et assiette de desserts" loading="lazy" /><figcaption data-i18n="g_dessert">Sernik et desserts</figcaption></figure>
-      <figure class="w2"><img src="assets/charcuterie.jpg" alt="Assiettes de pâté et de jambon, pain et salade" loading="lazy" /><figcaption data-i18n="g_charc">Pâté et jambon</figcaption></figure>
-      <figure class="w2"><img src="assets/facade.jpg" alt="L'enseigne d'Osada rue Laurent Ménager, le pont rouge au-dessus" loading="lazy" /><figcaption data-i18n="g_facade">L'enseigne d'Osada</figcaption></figure>
-      <figure class="w2"><img src="assets/pierogi.jpg" alt="Pierogi, crème et lardons" loading="lazy" /><figcaption data-i18n="g_pierogi">Pierogi, crème et lardons</figcaption></figure>
+      <figure class="w2 h2"><img src="assets/charcuterie.jpg" alt="Assiettes de pâté et de jambon, pain et salade" loading="lazy" /><figcaption data-i18n="g_charc">Pâté et jambon</figcaption></figure>
     </div>
   </div>
 </section>
@@ -341,13 +343,14 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
         <a href="https://www.facebook.com/brasserieosada" target="_blank" rel="noopener">Facebook ↗</a>
       </div>
     </div>
-    <figure class="iphoto reveal"><img src="assets/rue.jpg" alt="Une rue du Pfaffenthal, avec le pont rouge au fond" loading="lazy" /><figcaption data-i18n="info_photo">Le Pfaffenthal</figcaption></figure>
+    <figure class="iphoto reveal"><img src="assets/facade.jpg" alt="L'enseigne d'Osada rue Laurent Ménager, le pont rouge au-dessus" loading="lazy" /><figcaption data-i18n="info_photo">Rue Laurent Ménager</figcaption></figure>
   </div>
 </section>
 <footer>
   <div class="wrap">
     <div class="top">
       <div class="bn">Osada<small data-i18n="foot_sub">Brasserie polonaise au Pfaffenthal</small></div>
+      <div class="fc">35, rue Laurent Ménager<br>L-2143 Luxembourg<br><a href="tel:+35226202114">+352 26 20 21 14</a><br><a href="https://www.facebook.com/brasserieosada" target="_blank" rel="noopener">Facebook ↗</a></div>
     </div>
     <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
   </div>
@@ -368,20 +371,18 @@ var I18N = {
     hero_cta2:"Appeler",
     fact_1:"Cuisine <b>polonaise</b>",
     fact_2:"35, rue Laurent Ménager, <b>Pfaffenthal</b>",
-    fact_3:"<b>+352 26 20 21 14</b>",
     zu_kick:"À la carte",
     zu_lead:"Soupe de seigle aigre, saucisse polonaise et œuf, servie dans un pain.",
+    zu_p:"Aussi en entrée : le barszcz, bortsch de betterave, et la surówka, salade de chou.",
     house_kick:"La maison",
     house_h:"« Osada », le hameau en polonais",
-    house_p1:"Osada est au Pfaffenthal, dans la vallée sous la Ville-Haute. On y sert la cuisine polonaise familiale : pierogi, bigos mijoté, placki ziemniaczane, gołąbki.",
+    house_p1:"Osada est au 35, rue Laurent Ménager, dans la vallée du Pfaffenthal, avec le pont rouge au-dessus des toits. On y mange dans une salle aux murs de pierre, et on y sert la cuisine polonaise familiale : pierogi, bigos mijoté, placki ziemniaczane, gołąbki.",
     gal_kick:"En images",
     gal_h:"En cuisine",
     g_placek:"Galette de pommes de terre et ragoût",
     g_placki:"Placki, sauce aux champignons",
     g_dessert:"Sernik et desserts",
     g_charc:"Pâté et jambon",
-    g_facade:"L'enseigne d'Osada",
-    g_pierogi:"Pierogi, crème et lardons",
     menu_kick:"Spécialités polonaises",
     menu_h:"La carte",
     cat_start:"Les entrées",
@@ -408,7 +409,7 @@ var I18N = {
     info_addr_s:"Dans la vallée, sous la Ville-Haute.",
     info_map:"Itinéraire ↗",
     info_tel_k:"Téléphone",
-    info_photo:"Le Pfaffenthal",
+    info_photo:"Rue Laurent Ménager",
     foot_sub:"Brasserie polonaise au Pfaffenthal",
     disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
   },
@@ -426,20 +427,18 @@ var I18N = {
     hero_cta2:"Anrufen",
     fact_1:"<b>Polnische</b> Küche",
     fact_2:"35 Rue Laurent Ménager, <b>Pfaffenthal</b>",
-    fact_3:"<b>+352 26 20 21 14</b>",
     zu_kick:"Auf der Karte",
     zu_lead:"Saure Roggensuppe mit polnischer Wurst und Ei, im Brotlaib serviert.",
+    zu_p:"Außerdem als Vorspeise: Barszcz, die Rote-Bete-Suppe, und Surówka, der Krautsalat.",
     house_kick:"Das Haus",
     house_h:"„Osada“ heißt auf Polnisch „Siedlung“",
-    house_p1:"Osada liegt im Pfaffenthal, im Tal unterhalb der Oberstadt. Auf den Tisch kommt polnische Hausmannskost: Pierogi, geschmorter Bigos, Placki ziemniaczane, Gołąbki.",
+    house_p1:"Osada liegt in der Rue Laurent Ménager 35, unten im Pfaffenthal, mit der roten Brücke über den Dächern. Gegessen wird in einem Raum mit Natursteinwänden, serviert wird polnische Hausmannskost: Pierogi, geschmorter Bigos, Placki ziemniaczane, Gołąbki.",
     gal_kick:"In Bildern",
     gal_h:"Aus der Küche",
     g_placek:"Kartoffelpuffer mit Ragout",
     g_placki:"Placki mit Pilzsauce",
     g_dessert:"Sernik und Desserts",
     g_charc:"Pastete und Schinken",
-    g_facade:"Das Schild von Osada",
-    g_pierogi:"Pierogi mit Schmand und Speck",
     menu_kick:"Polnische Spezialitäten",
     menu_h:"Die Speisekarte",
     cat_start:"Vorspeisen",
@@ -466,7 +465,7 @@ var I18N = {
     info_addr_s:"Im Tal unterhalb der Oberstadt.",
     info_map:"Route ↗",
     info_tel_k:"Telefon",
-    info_photo:"Das Pfaffenthal",
+    info_photo:"Rue Laurent Ménager",
     foot_sub:"Polnische Brasserie im Pfaffenthal",
     disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
   },
@@ -484,20 +483,18 @@ var I18N = {
     hero_cta2:"Call",
     fact_1:"<b>Polish</b> cooking",
     fact_2:"35 Rue Laurent Ménager, <b>Pfaffenthal</b>",
-    fact_3:"<b>+352 26 20 21 14</b>",
     zu_kick:"On the menu",
     zu_lead:"Sour rye soup with Polish sausage and egg, served in a bread loaf.",
+    zu_p:"Also to start: barszcz, beetroot borscht, and surówka, cabbage salad.",
     house_kick:"The house",
     house_h:"“Osada” is Polish for “settlement”",
-    house_p1:"Osada is in Pfaffenthal, in the valley below the Old Town, serving Polish home cooking: pierogi, slow-cooked bigos, placki ziemniaczane and gołąbki.",
+    house_p1:"Osada is at 35 Rue Laurent Ménager, down in the Pfaffenthal valley, with the red bridge above the rooftops. You eat in a stone-walled room, and the kitchen serves Polish home cooking: pierogi, slow-cooked bigos, placki ziemniaczane and gołąbki.",
     gal_kick:"In pictures",
     gal_h:"From the kitchen",
     g_placek:"Potato pancake with stew",
     g_placki:"Placki with mushroom sauce",
     g_dessert:"Sernik and desserts",
     g_charc:"Pâté and ham",
-    g_facade:"Osada's sign",
-    g_pierogi:"Pierogi with sour cream and bacon",
     menu_kick:"Polish specialities",
     menu_h:"The menu",
     cat_start:"Starters",
@@ -524,7 +521,7 @@ var I18N = {
     info_addr_s:"In the valley below the Old Town.",
     info_map:"Directions ↗",
     info_tel_k:"Phone",
-    info_photo:"Pfaffenthal",
+    info_photo:"Rue Laurent Ménager",
     foot_sub:"Polish brasserie in Pfaffenthal",
     disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
   }
