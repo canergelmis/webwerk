@@ -70,7 +70,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .hero .kick .eyebrow{color:#e9e0c9}
 .hero .kick .dot{width:6px;height:6px;border-radius:50%;background:var(--amber-lite)}
 .hero h1{color:#fff;font-size:clamp(52px,10vw,120px);line-height:.9;font-weight:600;text-shadow:0 2px 30px rgba(0,0,0,.28)}
-.hero h1 .ap{color:var(--amber-lite)}
+.hero h1 .ap{color:inherit}
 .hero .best{font-family:var(--disp);font-weight:500;font-size:clamp(20px,3.2vw,33px);color:#f3ead4;margin:16px 0 0;line-height:1.2}
 .hero .best .bobun{color:var(--amber-lite);font-weight:600;white-space:nowrap}
 .hero .best .bobun span{display:inline-block;opacity:0;transform:translateY(-.55em) rotate(-8deg);transition:opacity .42s ease,transform .5s cubic-bezier(.2,.8,.3,1)}
@@ -102,7 +102,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .spot .lead{font-family:var(--disp);font-weight:500;font-size:clamp(18px,2.3vw,24px);color:var(--amber);margin:12px 0 16px}
 .spot p{color:var(--ink2);max-width:52ch}
 .spot .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.spot .chips span{background:rgba(255,255,255,.6);border:1px solid rgba(63,125,78,.2);color:var(--herb-deep);font-weight:600;font-size:.82rem;padding:6px 13px;border-radius:999px}
+.spot .chips span{color:var(--herb-deep);font-weight:700;font-size:.9rem;letter-spacing:.02em}
+.spot .chips span+span::before{content:"/";margin-right:8px;color:var(--herb-soft);font-weight:400}
 
 /* ===================== MAISON ===================== */
 .maison{padding-top:clamp(40px,6vw,64px)}
@@ -134,7 +135,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .mrow .pr{font-family:var(--disp);font-weight:600;color:var(--amber-lite);white-space:nowrap;font-size:1.02rem}
 .mrow .pr small{color:#b7ad95;font-weight:400;font-size:.72rem}
 .menu-note{text-align:center;color:#cfc7b2;font-size:.92rem;margin-top:26px}
-.food-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(28px,5vw,44px)}
+.food-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:clamp(30px,5vw,48px)}
 .food-strip figure{position:relative;margin:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-s);aspect-ratio:1}
 .food-strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .food-strip figure:hover img{transform:scale(1.06)}
@@ -156,7 +157,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .adr .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px)}
 .loc{background:var(--celadon);border-radius:16px;padding:24px 26px;display:flex;flex-direction:column}
 .loc .tag{font-family:var(--disp);font-weight:600;font-size:1.35rem;color:var(--herb-deep)}
-.loc .tag .pin{color:var(--chili)}
+.loc .tag .pin{width:18px;height:18px;vertical-align:-2px;color:var(--herb)}
 .loc .a{font-size:.98rem;color:var(--ink2);margin-top:6px}
 .loc .map{margin-top:0}
 .loc .locbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:18px}
@@ -209,23 +210,27 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
     background:var(--rice);color:var(--ink);
     border-top:1px solid rgba(128,128,128,.28);
     box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
-  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+  .wwbar a,.wwbar button{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
     display:inline-flex;align-items:center;
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     font-size:.92rem;min-height:46px}
   /* The page's secondary button is often a ghost styled for a dark hero, so
      it can vanish on this bar. Re-ground it on the bar's own colours, which
      are the body's and therefore legible by construction. */
-  .wwbar a:not(:first-child){background:transparent;color:inherit;
+  .wwbar > :not(:first-child){background:transparent;color:inherit;
     border:1px solid currentColor;opacity:.92}
   body{padding-bottom:78px}
 }
-@media(min-width:761px){ .wwbar{display:none} }
+@media(min-width:761px){ .wwbar{display:none} .wwsheet{display:none!important} }
+.wwsheet{position:fixed;left:12px;right:12px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:901;display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--rice);border:1px solid rgba(18,51,30,.16);border-radius:14px;padding:14px;box-shadow:0 -12px 32px rgba(0,0,0,.22)}
+.wwsheet[hidden]{display:none}
+.wwsheet p{grid-column:1/-1;font-weight:700;font-size:.86rem;color:var(--ink2)}
+.wwsheet .btn{justify-content:center;min-height:46px}
 @media(max-width:760px){ .hero .cta{display:none} .hero{min-height:calc(100svh - 144px)} }
 @media(min-width:861px){
   .hero{align-items:center}
   .hero .bg{inset:0 0 0 auto;width:50%}
-  .hero .bg::after{background:linear-gradient(90deg,var(--herb-ink) 0%,rgba(18,51,30,0) 26%)}
+  .hero .bg::after{display:none}
   .hero .wrap{padding-block:72px;padding-right:calc(50vw - (100vw - min(100vw,var(--maxw))) / 2 + 48px)}
 }
 
@@ -315,6 +320,12 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
     <div class="sec-head">
       <h2 data-i18n="menu_h">La carte</h2>
     </div>
+    <div class="food-strip reveal">
+      <figure><img src="assets/pho.jpg" alt="Phở au bœuf, nouilles de riz et herbes" loading="lazy" /><figcaption data-i18n="fs_pho">Soupe phở au bœuf</figcaption></figure>
+      <figure><img src="assets/freshrolls.jpg" alt="Nems, salade et menthe" loading="lazy" /><figcaption data-i18n="fs_nems">Nems, salade et menthe</figcaption></figure>
+      <figure><img src="assets/banhmi.jpg" alt="Bánh mì au bœuf, piment et coriandre" loading="lazy" /><figcaption data-i18n="fs_banhmi">Bánh mì au bœuf</figcaption></figure>
+      <figure><img src="assets/nems.jpg" alt="Bò Bún garni de nems croustillants" loading="lazy" /><figcaption data-i18n="fs_bobun">Bò Bún aux nems</figcaption></figure>
+    </div>
     <div class="cats">
       <div class="cat reveal">
         <h3 data-i18n="cat_start">Pour commencer</h3>
@@ -335,12 +346,6 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
       </div>
     </div>
     <p class="menu-note" data-i18n="m_drinks">À boire : jus de mangue, de lychee, de goyave ou de coco, lait de soja, aloe vera.</p>
-    <div class="food-strip reveal">
-      <figure><img src="assets/pho.jpg" alt="Phở au bœuf, nouilles de riz et herbes" loading="lazy" /><figcaption data-i18n="fs_pho">Soupe phở au bœuf</figcaption></figure>
-      <figure><img src="assets/freshrolls.jpg" alt="Nems, salade et menthe" loading="lazy" /><figcaption data-i18n="fs_nems">Nems, salade et menthe</figcaption></figure>
-      <figure><img src="assets/banhmi.jpg" alt="Bánh mì au bœuf, piment et coriandre" loading="lazy" /><figcaption data-i18n="fs_banhmi">Bánh mì au bœuf</figcaption></figure>
-      <figure><img src="assets/nems.jpg" alt="Bò Bún garni de nems croustillants" loading="lazy" /><figcaption data-i18n="fs_bobun">Bò Bún aux nems</figcaption></figure>
-    </div>
   </div>
 </section>
 
@@ -353,14 +358,14 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
     </div>
     <div class="grid">
       <div class="loc reveal">
-        <div class="tag"><span class="pin">◉</span> Thanh's — Royal</div>
+        <div class="tag"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z" fill="currentColor"/><circle cx="12" cy="9" r="2.6" fill="#e0eadb"/></svg> Thanh's — Royal</div>
         <div class="a" data-i18n="adr_royal">25, boulevard Royal<br>L-2449 Luxembourg (face à l'Hôtel Le Royal)</div>
         <div class="a"><a href="tel:+35227478688">+352 27 47 86 88</a></div>
         <div class="hrs" data-i18n="adr_hrs1">Du lundi au vendredi, de 11h à 14h45</div>
         <div class="locbtns"><a class="btn p map" target="_blank" rel="noopener" data-i18n="adr_map1" href="https://www.google.com/maps/search/?api=1&query=Thanh's+Taste+of+Vietnam+Royal+Boulevard+Royal+Luxembourg">Itinéraire ↗</a> <a class="btn g map" target="_blank" rel="noopener" data-i18n="adr_wolt1" href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-royal">Commander sur Wolt ↗</a></div>
       </div>
       <div class="loc reveal">
-        <div class="tag"><span class="pin">◉</span> Thanh's — Infinity</div>
+        <div class="tag"><svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z" fill="currentColor"/><circle cx="12" cy="9" r="2.6" fill="#e0eadb"/></svg> Thanh's — Infinity</div>
         <div class="a" data-i18n="adr_inf">Infinity Shopping, 7, avenue John F. Kennedy<br>L-1499 Luxembourg-Kirchberg</div>
         <div class="a"><a href="tel:+35226102136">+352 26 10 21 36</a></div>
         <div class="hrs" data-i18n="adr_hrs2">Du lundi au vendredi, de 11h30 à 15h15</div>
@@ -389,8 +394,10 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
 <script>
 /* ===================== i18n ===================== */
 var I18N = {
-  fr:{wwb_adr:"Nos 2 adresses",
-    wwb_menu:"La carte",
+  fr:{wwb_order:"Commander",
+    wwb_call:"Appeler",
+    wws_order:"Commander sur Wolt",
+    wws_call:"Appeler",
     brand_sub:"Cuisine vietnamienne",
     nav_bobun:"Bò Bún",
     nav_carte:"La carte",
@@ -448,8 +455,10 @@ var I18N = {
     foot_sub:"Cuisine vietnamienne",
     disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
   },
-  de:{wwb_adr:"Unsere 2 Adressen",
-    wwb_menu:"Die Karte",
+  de:{wwb_order:"Bestellen",
+    wwb_call:"Anrufen",
+    wws_order:"Auf Wolt bestellen",
+    wws_call:"Anrufen",
     brand_sub:"Vietnamesische Küche",
     nav_bobun:"Bò Bún",
     nav_carte:"Die Karte",
@@ -507,8 +516,10 @@ var I18N = {
     foot_sub:"Vietnamesische Küche",
     disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
   },
-  en:{wwb_adr:"Our 2 addresses",
-    wwb_menu:"The menu",
+  en:{wwb_order:"Order",
+    wwb_call:"Call",
+    wws_order:"Order on Wolt",
+    wws_call:"Call",
     brand_sub:"Vietnamese cuisine",
     nav_bobun:"Bò Bún",
     nav_carte:"The menu",
@@ -605,12 +616,32 @@ document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
   else{ window.addEventListener("load",function(){ setTimeout(land,420); }); }
 })();
 
+/* sticky bar: two branches, so each action opens a Royal / Infinity choice (bar markup follows this script) */
+document.addEventListener("DOMContentLoaded",function(){
+  var btns=[].slice.call(document.querySelectorAll(".wwbar [data-sheet]"));
+  function sheet(b){return document.getElementById("sheet-"+b.getAttribute("data-sheet"));}
+  function closeAll(){btns.forEach(function(b){b.setAttribute("aria-expanded","false");sheet(b).hidden=true;});}
+  btns.forEach(function(b){b.addEventListener("click",function(e){e.stopPropagation();var s=sheet(b),open=s.hidden;closeAll();if(open){s.hidden=false;b.setAttribute("aria-expanded","true");}});});
+  document.addEventListener("click",function(e){if(!e.target.closest(".wwsheet"))closeAll();});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();});
+});
+
 applyLang("fr");
 </script>
 
+<div class="wwsheet" id="sheet-order" hidden>
+  <p data-i18n="wws_order">Commander sur Wolt</p>
+  <a class="btn p" href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-royal" target="_blank" rel="noopener">Royal ↗</a>
+  <a class="btn p" href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-infinity" target="_blank" rel="noopener">Infinity ↗</a>
+</div>
+<div class="wwsheet" id="sheet-call" hidden>
+  <p data-i18n="wws_call">Appeler</p>
+  <a class="btn p" href="tel:+35227478688">Royal</a>
+  <a class="btn p" href="tel:+35226102136">Infinity</a>
+</div>
 <div class="wwbar" role="navigation" aria-label="Actions rapides">
-  <a class="btn p" href="#adresses" data-i18n="wwb_adr">Nos 2 adresses</a>
-  <a class="btn p" href="#carte" data-i18n="wwb_menu">La carte</a>
+  <button class="btn p" type="button" data-sheet="order" aria-expanded="false" aria-controls="sheet-order" data-i18n="wwb_order">Commander</button>
+  <button class="btn p" type="button" data-sheet="call" aria-expanded="false" aria-controls="sheet-call" data-i18n="wwb_call">Appeler</button>
 </div>
 </body>
 </html>
