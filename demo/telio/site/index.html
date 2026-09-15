@@ -142,7 +142,7 @@ section{padding:clamp(56px,9vw,102px) 0}
 .ino .grow{flex:1}
 .lieu{position:relative;isolation:isolate;min-height:clamp(380px,46vw,560px);display:flex;align-items:flex-end;padding:0;color:#fff}
 .lieu img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.lieu::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(20,18,12,.9) 0%,rgba(20,18,12,.45) 48%,rgba(20,18,12,0) 80%)}
+.lieu::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(20,18,12,.82) 0%,rgba(20,18,12,.3) 38%,rgba(20,18,12,0) 62%)}
 .lieu .wrap{width:100%;padding-block:clamp(34px,5vw,60px)}
 .lieu .eyebrow{color:var(--ochre)}
 .lieu h2{font-size:clamp(34px,5vw,60px);color:#fff;margin:10px 0 0}
@@ -226,7 +226,7 @@ footer .made a{color:var(--ochre)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
-@media(max-width:760px){ .mjump{position:sticky;top:60px;z-index:5;background:var(--stone);flex-wrap:nowrap;margin:-18px 0 16px;padding:8px 0;gap:7px} .mjump a{font-size:13.5px;padding:6px 13px} .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .brand .loc{display:none} }
+@media(max-width:760px){ .mjump{position:sticky;top:60px;z-index:5;background:var(--stone);flex-wrap:nowrap;margin:-18px 0 16px;padding:8px 0;gap:7px} .mjump a{font-size:13.5px;padding:6px 13px} .callcard .ccbtns{display:none} .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .brand .loc{display:none} }
 @media(min-width:901px){
   .facts .c:first-child{padding-left:0}
   .hero{align-items:center;min-height:min(86vh,760px)}
@@ -423,7 +423,7 @@ footer .made a{color:var(--ochre)}
 const I18N={
  fr:{
   wwb_call:"Appeler",
-  wwb_order:"Commander",
+  wwb_order:"Wolt ↗",
   wwb_dir:"Itinéraire",
   brand_loc:"Grand-Rue",
   nav_grill:"Le grill",
@@ -528,7 +528,7 @@ const I18N={
  },
  de:{
   wwb_call:"Anrufen",
-  wwb_order:"Bestellen",
+  wwb_order:"Wolt ↗",
   wwb_dir:"Route",
   brand_loc:"Grand-Rue",
   nav_grill:"Grill",
@@ -633,7 +633,7 @@ const I18N={
  },
  en:{
   wwb_call:"Call",
-  wwb_order:"Order",
+  wwb_order:"Wolt ↗",
   wwb_dir:"Directions",
   brand_loc:"Grand-Rue",
   nav_grill:"The grill",
@@ -754,7 +754,7 @@ try{const sv=localStorage.getItem("te_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
 
 <div class="wwbar" role="navigation" aria-label="Actions rapides">
   <a class="btn p" href="tel:+35227567787" data-i18n="wwb_call">Appeler</a>
-  <a class="btn o" href="https://wolt.com/en/lux/luxembourg/restaurant/telio-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
+  <a class="btn o" href="https://wolt.com/en/lux/luxembourg/restaurant/telio-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Wolt ↗</a>
   <a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Restaurant+T%C3%A9lio+7+Grand-Rue+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
 </body>
