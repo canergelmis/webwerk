@@ -61,9 +61,12 @@
   header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
   .brand{font-family:var(--disp);font-weight:800;font-size:1.35rem;letter-spacing:.02em;color:var(--cream);display:inline-flex;align-items:center;gap:9px}
   .brand .fl{color:var(--ember2)}
-  .brand img{height:38px;width:auto;flex:none;display:block}
-  footer .brand img{height:96px}
-  @media(max-width:640px){ .brand img{height:32px} footer .brand img{height:76px} }
+  .brand img{height:50px;width:auto;flex:none;display:block}
+  footer .brand img{height:96px;filter:brightness(1.25)}
+  footer .fcontact{font-size:.95rem;line-height:1.7;color:rgba(246,236,224,.8);text-align:right}
+  footer .fcontact a{color:var(--cream)}
+  @media(max-width:640px){ footer .fcontact{text-align:left} }
+  @media(max-width:640px){ .brand img{height:42px} footer .brand img{height:76px} }
   .nav{display:flex;align-items:center;gap:26px}
   .nav a{font-size:.82rem;color:rgba(246,236,224,.82);letter-spacing:.02em}
   .nav a:hover{color:var(--cream)}
@@ -89,7 +92,8 @@
     background:linear-gradient(90deg,transparent,var(--ember) 18%,var(--ember2) 50%,var(--ember) 82%,transparent);
     filter:blur(.4px);opacity:.95;box-shadow:0 0 30px 4px rgba(239,139,59,.7)}
   .hero .wrap{position:relative;z-index:3;padding-bottom:64px;padding-top:100px;width:100%}
-  .hero .eyebrow{color:var(--ember2);margin-bottom:20px;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+  .hero .grad::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 18% 62%, rgba(8,5,3,.72), rgba(8,5,3,0) 70%)}
+  .hero .eyebrow{color:#f6ece0;margin-bottom:20px;text-shadow:0 1px 14px rgba(0,0,0,.8)}
   .hero .eyebrow .dot{color:var(--cream);opacity:.5}
   .hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(4.6rem,20vw,15rem);line-height:.82;
     letter-spacing:-.02em;text-transform:uppercase;
@@ -161,10 +165,10 @@
     opacity:1}
   .feature .fgrad{position:absolute;inset:0;background:
     linear-gradient(90deg, rgba(16,10,6,.9) 0%, rgba(16,10,6,.72) 34%, rgba(16,10,6,0) 62%)}
-  @media(max-width:760px){ .feature .fgrad{background:linear-gradient(0deg, rgba(16,10,6,.92) 0%, rgba(16,10,6,.6) 45%, rgba(16,10,6,0) 75%)} .feature .wrap{padding-top:260px} }
+  @media(max-width:760px){ .feature .fbg{bottom:auto;height:240px} .feature .fgrad{top:auto;height:auto;bottom:0;top:180px;background:linear-gradient(180deg, rgba(16,10,6,0) 0, #100a06 60px)} .feature .wrap{padding-top:262px!important;padding-bottom:54px!important} }
   .feature .wrap{position:relative;z-index:2;padding:clamp(70px,12vw,150px) 24px}
   .feature .inner{max-width:36ch}
-  .feature .eyebrow{color:var(--ember2);margin-bottom:16px}
+  .feature .eyebrow{color:#f3b27a;margin-bottom:16px}
   .feature h2{font-family:var(--disp);font-weight:800;font-size:clamp(2.4rem,7vw,5rem);line-height:.95;margin-bottom:16px}
   .feature p{font-size:1.06rem;color:rgba(246,236,224,.9)}
 
@@ -223,6 +227,7 @@
   .dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:0;
     background:var(--char);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s}
   .dock.show{transform:translateY(0)}
+  .dock{border-top:1px solid rgba(246,236,224,.18)}
   .dock a{flex:1;text-align:center;padding:15px 8px;font-weight:700;font-size:.9rem;color:var(--cream);
     display:flex;align-items:center;justify-content:center;gap:8px}
   .dock a.call{background:var(--ember);color:#fff}
@@ -278,6 +283,7 @@
         <div class="lead-in"><span class="no">01</span><span data-i18n="s1_kicker" class="eyebrow" style="color:var(--ember)">La maison</span><span class="rule"></span></div>
         <h2 class="head" data-i18n="s1_head">Les spécialités croates du gril.</h2>
         <p data-i18n="s1_p1">Chez Gurman, la carte est croate : ćevapčići, pljeskavica, grill mixte et steak makedonski, servis avec l'ajvar et la salade.</p>
+        <p data-i18n="s1_p2">La salle a ses arches de pierre, ses murs ocre et ses poutres en bois.</p>
       </div>
       <div class="fig">
         <img src="assets/ceva.jpg" alt="Ćevapčići, ajvar, oignon cru et salade" loading="lazy" />
@@ -366,6 +372,7 @@
   <div class="wrap" style="padding-top:52px">
     <div class="top">
       <a class="brand" href="#top" aria-label="Restaurant Gurman — Spécialités Croates"><img src="assets/logo.png" alt="Restaurant Gurman — Spécialités Croates" /></a>
+      <p class="fcontact">2, rue Grande-Duchesse Charlotte, L-4430 Belvaux<br><a href="tel:+352593697">+352 59 36 97</a><br><span data-i18n="v_hours_line">Midi et soir, fermé le lundi</span></p>
     </div>
     <p class="disc"><span data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span></p>
   </div>
@@ -374,6 +381,7 @@
 <!-- sticky mobile dock -->
 <div class="dock" id="dock">
   <a href="#carte" data-i18n="dock_menu">La carte</a>
+  <a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Gurman+2+Rue+Grande-Duchesse+Charlotte+Belvaux" target="_blank" rel="noopener" data-i18n="dock_dir">Itinéraire</a>
   <a class="call" href="tel:+352593697" data-i18n="dock_call">Appeler</a>
 </div>
 
@@ -387,7 +395,7 @@
       hero_lead:"Les grillades croates et l'ajvar, à Belvaux.",
       hero_cta1:"Voir la carte", hero_cta2:"Appeler pour réserver",
       s1_kicker:"La maison", s1_head:"Les spécialités croates du gril.",
-      s1_p1:"Chez Gurman, la carte est croate : ćevapčići, pljeskavica, grill mixte et steak makedonski, servis avec l'ajvar et la salade.",
+      s1_p1:"Chez Gurman, la carte est croate : ćevapčići, pljeskavica, grill mixte et steak makedonski, servis avec l'ajvar et la salade.", s1_p2:"La salle a ses arches de pierre, ses murs ocre et ses poutres en bois.",
       s1_stat:"Spécialités croates à Belvaux",
       s2_kicker:"La carte", s2_head:"Sa žara — du gril",
       s2_note:"Un aperçu de la carte.",
@@ -408,7 +416,7 @@
       v_hours:"Horaires", v_hours_line:"Midi et soir, fermé le lundi", disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.", 
       v_contact:"Adresse & contact", 
        v_dir:"Itinéraire ↗",
-      dock_menu:"La carte", dock_call:"Appeler"
+      dock_menu:"La carte", dock_call:"Appeler", dock_dir:"Itinéraire"
     },
     de:{
       skip:"Zur Speisekarte",
@@ -417,7 +425,7 @@
       hero_lead:"Kroatische Grillgerichte und Ajvar – in Belvaux.",
       hero_cta1:"Zur Speisekarte", hero_cta2:"Anrufen und reservieren",
       s1_kicker:"Das Haus", s1_head:"Kroatische Spezialitäten vom Grill.",
-      s1_p1:"Bei Gurman ist die Karte kroatisch: Ćevapčići, Pljeskavica, gemischte Grillplatte und Steak makedonski, serviert mit Ajvar und Salat.",
+      s1_p1:"Bei Gurman ist die Karte kroatisch: Ćevapčići, Pljeskavica, gemischte Grillplatte und Steak makedonski, serviert mit Ajvar und Salat.", s1_p2:"Der Gastraum hat Steinbögen, ockerfarbene Wände und Holzbalken.",
       s1_stat:"Kroatische Spezialitäten in Belvaux",
       s2_kicker:"Die Karte", s2_head:"Sa žara — vom Grill",
       s2_note:"Ein Auszug aus der Karte.",
@@ -439,7 +447,7 @@
       v_contact:"Adresse & Kontakt", 
        v_dir:"Route ↗",
       disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
-      dock_menu:"Speisekarte", dock_call:"Anrufen"
+      dock_menu:"Speisekarte", dock_call:"Anrufen", dock_dir:"Route"
     },
     en:{
       skip:"Skip to the menu",
@@ -448,7 +456,7 @@
       hero_lead:"Croatian grills and ajvar, in Belvaux.",
       hero_cta1:"See the menu", hero_cta2:"Call to book",
       s1_kicker:"The house", s1_head:"Croatian specialities off the grill.",
-      s1_p1:"At Gurman the menu is Croatian: ćevapčići, pljeskavica, mixed grill and steak makedonski, served with ajvar and salad.",
+      s1_p1:"At Gurman the menu is Croatian: ćevapčići, pljeskavica, mixed grill and steak makedonski, served with ajvar and salad.", s1_p2:"The dining room has stone arches, ochre walls and wooden beams.",
       s1_stat:"Croatian specialities in Belvaux",
       s2_kicker:"The menu", s2_head:"Sa žara — off the grill",
       s2_note:"A selection from the menu.",
@@ -470,7 +478,7 @@
       v_contact:"Address & contact", 
        v_dir:"Directions ↗",
       disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
-      dock_menu:"Menu", dock_call:"Call"
+      dock_menu:"Menu", dock_call:"Call", dock_dir:"Directions"
     }
   };
   var current="fr";
