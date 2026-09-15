@@ -58,13 +58,9 @@ nav.links a:hover{color:var(--tomato)}
 .hero{position:relative;overflow:hidden;background:
    radial-gradient(120% 90% at 88% 12%,rgba(211,61,43,.06),transparent 60%),
    var(--cream)}
-.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.16;
-   background-image:linear-gradient(45deg,rgba(211,61,43,0.38) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%),
-   linear-gradient(45deg,rgba(211,61,43,0.38) 25%,transparent 25%,transparent 75%,rgba(211,61,43,0.045) 75%);
-   background-size:44px 44px;background-position:0 0,22px 22px;
-   -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent);mask-image:linear-gradient(180deg,transparent,#000 40%,#000 88%,transparent)}
+.hero::before{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;z-index:0;pointer-events:none;background:repeating-linear-gradient(90deg,rgba(211,61,43,.85) 0 9px,transparent 9px 18px),repeating-linear-gradient(0deg,rgba(211,61,43,.45) 0 9px,transparent 9px 18px)}
 .hero .wrap{position:relative;z-index:2}
-.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,60px);align-items:center;min-height:min(calc(100vh - 62px),760px);padding-block:clamp(30px,6vw,64px)}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,60px);align-items:center;min-height:min(calc(100vh - 150px),640px);padding-block:clamp(30px,5vw,56px) clamp(40px,6vw,70px)}
 .heropic{margin:0;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px rgba(43,32,26,.25);aspect-ratio:1}
 .heropic img{width:100%;height:100%;object-fit:cover}
 .hero .eyebrow{margin-bottom:18px;display:inline-block}
@@ -109,7 +105,7 @@ section{padding:clamp(56px,9vw,104px) 0}
 .gal img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02);transition:transform .6s ease}
 .gal figure:hover img{transform:scale(1.05)}
 .gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}.gal .w4{grid-column:span 4}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 12px;background:linear-gradient(0deg,rgba(30,20,14,0.94) 0%,rgba(30,20,14,0.82) 62%,rgba(30,20,14,0) 100%);color:#fff;font-family:'Disp',sans-serif;font-weight:700;font-size:17px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 12px 9px;font-size:14px!important;background:linear-gradient(0deg,rgba(30,20,14,0.94) 0%,rgba(30,20,14,0.82) 62%,rgba(30,20,14,0) 100%);color:#fff;font-family:'Disp',sans-serif;font-weight:700;font-size:17px}
 
 /* ---------- maison (dark wood band) ---------- */
 .maison{background:var(--wood);color:#efe2ce}
@@ -124,7 +120,10 @@ section{padding:clamp(56px,9vw,104px) 0}
 /* ---------- carte ---------- */
 .carte{background:var(--paper)}
 .carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,66px)}
-.mgroup{margin-bottom:30px}
+.mgroup{margin-bottom:30px;scroll-margin-top:80px}
+.mjump{display:flex;flex-wrap:wrap;gap:8px;margin:-12px 0 28px}
+.mjump a{border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px}
+.mjump a:hover{background:var(--tomato);border-color:var(--tomato);color:#fff}
 .mgroup h3{font-family:'Disp';font-weight:700;font-size:25px;color:var(--ink);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--tomato);margin-bottom:12px}
 .mgroup h3 .sl{width:22px;height:22px;flex:none}
 .mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
@@ -146,6 +145,10 @@ section{padding:clamp(56px,9vw,104px) 0}
 .ino .v.big{font-family:'Disp';font-size:26px}
 .inobtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .inobtns .btn{flex:1 1 160px;justify-content:center}
+.callcard{align-self:center;background:var(--paper);border-radius:10px;padding:clamp(26px,4vw,40px);border:2px solid var(--tomato);box-shadow:0 0 0 6px var(--cream),0 0 0 8px rgba(211,61,43,.35)}
+.callcard .k{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--tomato)}
+.callcard .big{display:block;font-family:'Disp';font-weight:800;font-size:clamp(30px,4vw,44px);margin:10px 0;color:var(--ink)}
+.callcard p{color:var(--ink2)}
 .terr{margin:0;position:relative;border-radius:10px;overflow:hidden;align-self:center}
 .terr img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .terr figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 15px 11px;color:#fff;font-weight:700;background:linear-gradient(0deg,rgba(30,20,14,.9),rgba(30,20,14,0))}
@@ -217,7 +220,7 @@ footer .made a{color:var(--terra)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
-@media(max-width:760px){ .hero .cta{display:none} .inobtns .btn.p{display:none} }
+@media(max-width:760px){ .hero .cta{display:none} .inobtns{display:none} }
 
   /* hero type legibility */
   /* Contrast comes from the type's own shadow rather than from darkening
@@ -252,13 +255,13 @@ footer .made a{color:var(--terra)}
     <div class="txt">
      <span class="eyebrow" data-i18n="hero_eyebrow">Restaurant Pizzeria</span>
      <h1>O Pastor</h1>
-     <p class="tag" data-i18n="hero_tag">Pizzas à pâte fine, pâtes, burgers et salades, à Consdorf dans le Mullerthal.</p>
+     <p class="tag" data-i18n="hero_tag">Pizzas à pâte fine, pâtes, burgers et salades, sous le plafond en bois ou en terrasse, à Consdorf.</p>
      <div class="cta">
       <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
       <a class="btn o" href="tel:+35226784370" data-i18n="hero_cta2">Appeler</a>
      </div>
     </div>
-    <figure class="heropic"><img src="assets/pizza.jpg" alt="Pizza à pâte fine garnie d'un œuf, d'oignons et de viande hachée"/></figure>
+    <figure class="heropic"><img src="assets/pizza-mer.jpg" alt="Pizza à pâte fine au saumon et aux crevettes, sur un set de table à carreaux"/></figure>
    </div>
   </div>
  </section>
@@ -266,7 +269,7 @@ footer .made a{color:var(--terra)}
   <div class="wrap"><div class="row">
     <div class="c"><div class="k" data-i18n="fact_k1">Dans l'assiette</div><div class="v" data-i18n="fact_v1"><b>Pizzas &amp; pâtes</b>burgers et salades</div></div>
     <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>3, route de Luxembourg</b>Consdorf, Mullerthal</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k3">Téléphone</div><div class="v" data-i18n="fact_v3"><b>+352 26 78 43 70</b>sur place ou en terrasse</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">Téléphone</div><div class="v" data-i18n="fact_v3"><b>+352 26 78 43 70</b>Consdorf</div></div>
   </div></div>
  </div>
  <section class="spot" id="pizza">
@@ -277,7 +280,7 @@ footer .made a{color:var(--terra)}
     <p class="lead" data-i18n="pz_lead">Une pâte fine, un bord doré et gonflé, une garniture généreuse.</p>
     <p class="body" data-i18n="pz_body">Pizza à l'œuf, pizza au saumon et aux crevettes : de grandes pizzas rondes, servies sur des sets de table à carreaux.</p>
    </div>
-   <div class="pic"><img src="assets/pizza-mer.jpg" alt="Pizza à pâte fine au saumon et aux crevettes, sur un set de table à carreaux"/></div>
+   <div class="pic"><img src="assets/pizza.jpg" alt="Pizza à pâte fine garnie d'un œuf, d'oignons et de viande hachée"/></div>
   </div>
  </section>
  <section id="table">
@@ -287,11 +290,11 @@ footer .made a{color:var(--terra)}
     <h2 data-i18n="tb_h">Pâtes, burgers et salades</h2>
    </div>
    <div class="gal">
-    <figure class="w2 h2"><img src="assets/penne2.jpg" alt="Penne au jambon, sauce rosée et persil"/><figcaption data-i18n="cap_penne2">Penne au jambon, sauce rosée</figcaption></figure>
+    <figure class="w2 h2"><img src="assets/penne2.jpg" alt="Penne au jambon, sauce rosée et persil"/><figcaption data-i18n="cap_penne2">Penne au jambon</figcaption></figure>
     <figure class="w2"><img src="assets/burger.jpg" alt="Hamburger et frites"/><figcaption data-i18n="cap_burger">Hamburger &amp; frites</figcaption></figure>
-    <figure><img src="assets/penne.jpg" alt="Penne à la crème et au parmesan"/><figcaption data-i18n="cap_penne">Penne à la crème et au parmesan</figcaption></figure>
+    <figure><img src="assets/penne.jpg" alt="Penne à la crème et au parmesan"/><figcaption data-i18n="cap_penne">Penne à la crème</figcaption></figure>
     <figure><img src="assets/salade.jpg" alt="Salade composée"/><figcaption data-i18n="cap_salade">Salade composée</figcaption></figure>
-    <figure class="w4"><img src="assets/plat.jpg" alt="Plat gratiné à l'œuf, frites et salade"/><figcaption data-i18n="cap_plat">Gratiné, œuf, frites &amp; salade</figcaption></figure>
+    <figure class="w4"><img src="assets/plat.jpg" alt="Plat gratiné à l'œuf, frites et salade"/><figcaption data-i18n="cap_plat">Gratiné à l'œuf</figcaption></figure>
    </div>
   </div>
  </section>
@@ -311,16 +314,17 @@ footer .made a{color:var(--terra)}
    <div class="sect-h">
     <span class="eyebrow" data-i18n="ct_eyebrow">Sur place</span>
     <h2 data-i18n="ct_h">La carte</h2>
-    <p data-i18n="ct_p">Pizzas, pâtes, burgers et salades.</p>
+    <p data-i18n="ct_p">Une sélection de la carte : pizzas, pâtes, burgers et salades.</p>
    </div>
+   <nav class="mjump" aria-label="Catégories"><a href="#mg1" data-i18n="mg1">Les pizzas</a><a href="#mg2" data-i18n="mg2">Les pâtes</a><a href="#mg3" data-i18n="mg3">Les burgers</a><a href="#mg4" data-i18n="mg4">Les salades</a></nav>
    <div class="cols">
     <div>
-     <div class="mgroup">
+     <div class="mgroup" id="mg1">
       <h3><span data-i18n="mg1">Les pizzas</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i1n">Pizza à l'œuf</div><div class="ds" data-i18n="i1d">Œuf, oignons, viande hachée</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i2n">Pizza saumon &amp; crevettes</div></div></div>
      </div>
-     <div class="mgroup">
+     <div class="mgroup" id="mg2">
       <h3><span data-i18n="mg2">Les pâtes</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i3n">Spaghetti carbonara</div><div class="ds" data-i18n="i3d">Lardons, crème, oignons, ail, parmesan</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i4n">Penne arrabiata</div><div class="ds" data-i18n="i4d">Sauce tomate, ail, piments rouges</div></div></div>
@@ -333,7 +337,7 @@ footer .made a{color:var(--terra)}
      </div>
     </div>
     <div>
-     <div class="mgroup">
+     <div class="mgroup" id="mg3">
       <h3><span data-i18n="mg3">Les burgers</span></h3>
       <p class="sub" data-i18n="mg3_sub">Avec frites, salade, tomate, oignons et sauce maison</p>
       <div class="mitem"><div><div class="nm" data-i18n="i11n">Hamburger</div></div></div>
@@ -341,7 +345,7 @@ footer .made a{color:var(--terra)}
       <div class="mitem"><div><div class="nm" data-i18n="i13n">Veggieburger</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i14n">Fishburger</div></div></div>
      </div>
-     <div class="mgroup">
+     <div class="mgroup" id="mg4">
       <h3><span data-i18n="mg4">Les salades</span></h3>
       <p class="sub" data-i18n="mg4_sub">Salade verte, oignons, carottes, concombres, tomate</p>
       <div class="mitem"><div><div class="nm" data-i18n="i15n">Petite salade mixte</div></div></div>
@@ -362,11 +366,13 @@ footer .made a{color:var(--terra)}
    <div class="grid">
     <div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="in_k1">Adresse</div><div class="v">3, route de Luxembourg<br>L-6210 Consdorf</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="in_k2">Téléphone</div><div class="v big"><a href="tel:+35226784370">+352 26 78 43 70</a></div></div></div>
      <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11a9 5 0 0 1 18 0zM12 11v10M8 21h8"/></svg><div><div class="k" data-i18n="in_k4">Terrasse</div><div class="v" data-i18n="in_terr">Une terrasse sur gazon, sous les parasols</div></div></div>
-     <div class="inobtns"><a class="btn p" href="tel:+35226784370" data-i18n="wwb_call">Appeler</a><a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Restaurant+Pizzeria+O+Pastor+3+Route+de+Luxembourg+Consdorf" target="_blank" rel="noopener" data-i18n="map_btn">Itinéraire ↗</a></div>
     </div>
-    <figure class="terr"><img src="assets/terrasse.jpg" alt="La terrasse d'O Pastor le soir, sous les parasols"/><figcaption data-i18n="cap_terr">La terrasse, le soir</figcaption></figure>
+    <div class="callcard">
+     <div class="k" data-i18n="cc_k">Pour une table ou une question</div>
+     <a class="big" href="tel:+35226784370">+352 26 78 43 70</a>
+    <div class="inobtns"><a class="btn p" href="tel:+35226784370" data-i18n="wwb_call">Appeler</a><a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Restaurant+Pizzeria+O+Pastor+3+Route+de+Luxembourg+Consdorf" target="_blank" rel="noopener" data-i18n="map_btn">Itinéraire ↗</a></div>
+    </div>
    </div>
   </div>
  </section>
@@ -394,7 +400,7 @@ const I18N={
   nav_carte:"La carte",
   nav_infos:"Infos &amp; accès",
   hero_eyebrow:"Restaurant Pizzeria",
-  hero_tag:"Pizzas à pâte fine, pâtes, burgers et salades, à Consdorf dans le Mullerthal.",
+  hero_tag:"Pizzas à pâte fine, pâtes, burgers et salades, sous le plafond en bois ou en terrasse, à Consdorf.",
   hero_cta1:"Voir la carte",
   hero_cta2:"Appeler",
   fact_k1:"Dans l'assiette",
@@ -402,25 +408,25 @@ const I18N={
   fact_k2:"Le lieu",
   fact_v2:"<b>3, route de Luxembourg</b>Consdorf, Mullerthal",
   fact_k3:"Téléphone",
-  fact_v3:"<b>+352 26 78 43 70</b>sur place ou en terrasse",
+  fact_v3:"<b>+352 26 78 43 70</b>Consdorf",
   pz_eyebrow:"Les pizzas",
   pz_h:"La pizza,<br><span>à pâte fine.</span>",
   pz_lead:"Une pâte fine, un bord doré et gonflé, une garniture généreuse.",
   pz_body:"Pizza à l'œuf, pizza au saumon et aux crevettes : de grandes pizzas rondes, servies sur des sets de table à carreaux.",
   tb_eyebrow:"À table",
   tb_h:"Pâtes, burgers et salades",
-  cap_penne2:"Penne au jambon, sauce rosée",
+  cap_penne2:"Penne au jambon",
   cap_burger:"Hamburger &amp; frites",
-  cap_penne:"Penne à la crème et au parmesan",
+  cap_penne:"Penne à la crème",
   cap_salade:"Salade composée",
-  cap_plat:"Gratiné, œuf, frites &amp; salade",
+  cap_plat:"Gratiné à l'œuf",
   ma_eyebrow:"La maison",
   ma_h:"Une salle<br><span>chaleureuse.</span>",
   ma_lead:"Un plafond en lambris de bois, une cave à vin vitrée, des tableaux et photos aux murs, dont une vue de Porto.",
   ma_body:"Et dehors, une terrasse sur gazon, sous les parasols.",
   ct_eyebrow:"Sur place",
   ct_h:"La carte",
-  ct_p:"Pizzas, pâtes, burgers et salades.",
+  ct_p:"Une sélection de la carte : pizzas, pâtes, burgers et salades.",
   mg1:"Les pizzas",
   i1n:"Pizza à l'œuf",
   i1d:"Œuf, oignons, viande hachée",
@@ -458,11 +464,10 @@ const I18N={
   in_eyebrow:"Infos &amp; accès",
   in_h:"Nous trouver",
   in_k1:"Adresse",
-  in_k2:"Téléphone",
   in_k4:"Terrasse",
   in_terr:"Une terrasse sur gazon, sous les parasols",
+  cc_k:"Pour une table ou une question",
   map_btn:"Itinéraire ↗",
-  cap_terr:"La terrasse, le soir",
   foot_p:"Restaurant Pizzeria à Consdorf : pizzas à pâte fine, pâtes, burgers et salades.",
   disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
  },
@@ -475,7 +480,7 @@ const I18N={
   nav_carte:"Speisekarte",
   nav_infos:"Anfahrt",
   hero_eyebrow:"Restaurant Pizzeria",
-  hero_tag:"Pizza mit dünnem Boden, Pasta, Burger und Salate, in Consdorf im Müllerthal.",
+  hero_tag:"Pizza mit dünnem Boden, Pasta, Burger und Salate, unter der Holzdecke oder auf der Terrasse, in Consdorf.",
   hero_cta1:"Zur Speisekarte",
   hero_cta2:"Anrufen",
   fact_k1:"Auf dem Teller",
@@ -483,25 +488,25 @@ const I18N={
   fact_k2:"Adresse",
   fact_v2:"<b>3, route de Luxembourg</b>Consdorf, Müllerthal",
   fact_k3:"Telefon",
-  fact_v3:"<b>+352 26 78 43 70</b>drinnen oder auf der Terrasse",
+  fact_v3:"<b>+352 26 78 43 70</b>Consdorf",
   pz_eyebrow:"Pizza",
   pz_h:"Pizza<br><span>mit dünnem Boden.</span>",
   pz_lead:"Dünner Boden, goldbraun aufgegangener Rand, reichlich belegt.",
   pz_body:"Pizza mit Ei, Pizza mit Lachs und Garnelen: große runde Pizzen auf karierten Tischsets.",
   tb_eyebrow:"Zu Tisch",
   tb_h:"Pasta, Burger und Salate",
-  cap_penne2:"Penne mit Schinken in Tomaten-Sahne-Sauce",
+  cap_penne2:"Penne mit Schinken",
   cap_burger:"Hamburger &amp; Pommes",
-  cap_penne:"Penne mit Sahne und Parmesan",
+  cap_penne:"Penne mit Sahne",
   cap_salade:"Gemischter Salat",
-  cap_plat:"Überbackenes mit Spiegelei, Pommes &amp; Salat",
+  cap_plat:"Überbackenes mit Ei",
   ma_eyebrow:"Das Haus",
   ma_h:"Ein warmer<br><span>Gastraum.</span>",
   ma_lead:"Eine Holzdecke, ein verglaster Weinschrank, Bilder und Fotos an den Wänden, darunter ein Blick auf Porto.",
   ma_body:"Und draußen eine Terrasse auf Rasen, unter Sonnenschirmen.",
   ct_eyebrow:"Vor Ort",
   ct_h:"Die Speisekarte",
-  ct_p:"Pizza, Pasta, Burger und Salate.",
+  ct_p:"Eine Auswahl aus der Karte: Pizza, Pasta, Burger und Salate.",
   mg1:"Pizza",
   i1n:"Pizza mit Ei",
   i1d:"Ei, Zwiebeln, Hackfleisch",
@@ -539,11 +544,10 @@ const I18N={
   in_eyebrow:"Anfahrt",
   in_h:"So finden Sie uns",
   in_k1:"Adresse",
-  in_k2:"Telefon",
   in_k4:"Terrasse",
   in_terr:"Eine Terrasse auf Rasen, unter Sonnenschirmen",
+  cc_k:"Für einen Tisch oder eine Frage",
   map_btn:"Route ↗",
-  cap_terr:"Die Terrasse am Abend",
   foot_p:"Restaurant Pizzeria in Consdorf: Pizza mit dünnem Boden, Pasta, Burger und Salate.",
   disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
  },
@@ -556,7 +560,7 @@ const I18N={
   nav_carte:"Menu",
   nav_infos:"Getting here",
   hero_eyebrow:"Restaurant Pizzeria",
-  hero_tag:"Thin-crust pizza, pasta, burgers and salads in Consdorf, in the Mullerthal.",
+  hero_tag:"Thin-crust pizza, pasta, burgers and salads, under the wooden ceiling or out on the terrace, in Consdorf.",
   hero_cta1:"See the menu",
   hero_cta2:"Call",
   fact_k1:"On the plate",
@@ -564,25 +568,25 @@ const I18N={
   fact_k2:"Address",
   fact_v2:"<b>3 Route de Luxembourg</b>Consdorf, Mullerthal",
   fact_k3:"Phone",
-  fact_v3:"<b>+352 26 78 43 70</b>inside or on the terrace",
+  fact_v3:"<b>+352 26 78 43 70</b>Consdorf",
   pz_eyebrow:"Pizza",
   pz_h:"Thin-crust<br><span>pizza.</span>",
   pz_lead:"A thin base, a puffed golden rim and generous toppings.",
   pz_body:"Egg pizza, salmon and prawn pizza: big round pizzas served on checked placemats.",
   tb_eyebrow:"At the table",
   tb_h:"Pasta, burgers and salads",
-  cap_penne2:"Penne with ham in a tomato-cream sauce",
+  cap_penne2:"Penne with ham",
   cap_burger:"Hamburger &amp; fries",
-  cap_penne:"Penne with cream and parmesan",
+  cap_penne:"Creamy penne",
   cap_salade:"Mixed salad",
-  cap_plat:"Cheese gratin with fried egg, fries &amp; salad",
+  cap_plat:"Egg gratin",
   ma_eyebrow:"The house",
   ma_h:"A warm<br><span>dining room.</span>",
   ma_lead:"A timber-clad ceiling, a glass-fronted wine cabinet, pictures and photos on the walls, including a view of Porto.",
   ma_body:"And outside, a terrace on the lawn under parasols.",
   ct_eyebrow:"Eat in",
   ct_h:"The menu",
-  ct_p:"Pizza, pasta, burgers and salads.",
+  ct_p:"A selection from the menu: pizza, pasta, burgers and salads.",
   mg1:"Pizza",
   i1n:"Egg pizza",
   i1d:"Egg, onions, minced meat",
@@ -620,11 +624,10 @@ const I18N={
   in_eyebrow:"Getting here",
   in_h:"Find us",
   in_k1:"Address",
-  in_k2:"Phone",
   in_k4:"Terrace",
   in_terr:"A terrace on the lawn, under parasols",
+  cc_k:"For a table or a question",
   map_btn:"Directions ↗",
-  cap_terr:"The terrace in the evening",
   foot_p:"Restaurant Pizzeria in Consdorf: thin-crust pizza, pasta, burgers and salads.",
   disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
  }
