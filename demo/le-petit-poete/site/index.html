@@ -27,11 +27,11 @@ h1,h2,h3,.disp{font-family:'Garamond','Figtree',serif;font-weight:600;line-heigh
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
 .eyebrow{font-family:'Figtree',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.24em;font-size:12px;color:var(--brass)}
 
-.nib-div{display:flex;align-items:center;gap:20px;padding:30px 0}
+.nib-div{display:flex;align-items:center;gap:20px;padding-block:12px}
 .nib-div .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
 .nib-div .nb{width:20px;height:34px;color:var(--brass);flex:none}
 
-header{position:sticky;top:0;z-index:50;transition:background .3s}
+header{position:sticky;top:0;z-index:50;transition:background .3s;background:var(--green-d)}
 header.solid{background:var(--green-d);box-shadow:0 2px 22px rgba(0,0,0,.3)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:13px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--parch)}
@@ -161,6 +161,7 @@ footer .made b{color:#e6ddc8}
 footer .made a{color:var(--gold)}
 .disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6a5f49;line-height:1.55;max-width:82ch}
 
+@media(max-width:760px){.hero .bg img{object-position:6% 50%}.hero .cta .btn.p{display:none}}
 @media(max-width:900px){
  .spot .grid,.place .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
@@ -259,7 +260,7 @@ footer .made a{color:var(--gold)}
 
  <div class="facts">
   <div class="wrap"><div class="row">
-    <div class="c"><div class="k" data-i18n="fact_k1">La table</div><div class="v" data-i18n="fact_v1"><b>Brasserie</b>cordon bleu, bouchée à la reine, black angus</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Non-stop</b>de 12h à 22h</div></div>
     <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>13, place du Marché</b>Echternach, avec terrasse</div></div>
     <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>Hôtel – Café – Restaurant</b>à deux pas de l'abbaye</div></div>
   </div></div>
@@ -270,9 +271,9 @@ footer .made a{color:var(--gold)}
   <div class="wrap grid">
    <div class="txt">
     <span class="eyebrow" data-i18n="tb_eyebrow">La table</span>
-    <h2 data-i18n="tb_h">La brasserie,<span>et ses viandes.</span></h2>
-    <p class="lead" data-i18n="tb_lead">Cordon bleu, bouchée à la reine, rognons de veau à la moutarde, francesinha ; côtes d'agneau grillées, filet de bœuf d'Argentine, maminha de black angus cuite à basse température.</p>
-    <p class="body" data-i18n="tb_body">Terrasse sur la place du Marché.</p>
+    <h2 data-i18n="tb_h">La brasserie,<span>sur la place du Marché.</span></h2>
+    <p class="lead" data-i18n="tb_lead">Cordon bleu, bouchée à la reine, rognons de veau à la moutarde, francesinha, côtes d'agneau grillées, maminha de black angus.</p>
+    <p class="body" data-i18n="tb_body">Hôtel, café et restaurant sous un même toit, avec terrasse sur la place du Marché. Cuisine non-stop de 12h à 22h.</p>
    </div>
    <div class="pic">
     <img src="assets/plat.jpg" alt="Côtes d'agneau, légumes et jus au vin rouge"/>
@@ -359,12 +360,12 @@ footer .made a{color:var(--gold)}
    </div>
    <div class="grid">
     <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">13, place du Marché<br>L-6460 Echternach<br><a class="btn p" style="margin-top:14px;padding:10px 18px;font-size:14px" href="https://www.google.com/maps/search/Le+Petit+Po%C3%A8te+13+Place+du+March%C3%A9+Echternach" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">13, place du Marché<br>L-6460 Echternach<br><span data-i18n="ino_hours">Cuisine non-stop de 12h à 22h</span><br><a class="btn p" style="margin-top:14px;padding:10px 18px;font-size:14px" href="https://www.google.com/maps/search/Le+Petit+Po%C3%A8te+13+Place+du+March%C3%A9+Echternach" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a></div></div></div>
     </div>
     <div class="callcard">
      <div class="k" data-i18n="ino_k2">Téléphone</div>
-     <div class="big"><a href="tel:+3527200721">72 00 72 1</a></div>
-     <p data-i18n="cc_p">Pour réserver une table ou une chambre, ou connaître les horaires.</p>
+     <div class="big"><a href="tel:+3527200721">+352 72 00 72 1</a></div>
+     <p data-i18n="cc_p">Pour réserver une table ou une chambre.</p>
      <a class="btn p" href="tel:+3527200721" data-i18n="hero_cta1">Appeler</a>
     </div>
    </div>
@@ -381,7 +382,7 @@ footer .made a{color:var(--gold)}
   </div>
   <div>
    <div style="font-family:'Figtree';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold)">Contact</div>
-   <p style="margin-top:10px">13, place du Marché<br>L-6460 Echternach<br><a href="tel:+3527200721">72 00 72 1</a></p>
+   <p style="margin-top:10px">13, place du Marché<br>L-6460 Echternach<br><a href="tel:+3527200721">+352 72 00 72 1</a></p>
   </div>
  </div>
  <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
@@ -394,12 +395,12 @@ const I18N={
   hero_eyebrow:"Hôtel – Café – Restaurant",
   hero_tag:"À la table du poète, sur la place du Marché d'Echternach, la plus vieille ville du pays.",
   hero_cta1:"Appeler",hero_cta2:"Voir la carte",
-  fact_k1:"La table",fact_v1:"<b>Brasserie</b>cordon bleu, bouchée à la reine, black angus",
+  fact_k1:"La cuisine",fact_v1:"<b>Non-stop</b>de 12h à 22h",
   fact_k2:"Le lieu",fact_v2:"<b>13, place du Marché</b>Echternach, avec terrasse",
   fact_k3:"La maison",fact_v3:"<b>Hôtel – Café – Restaurant</b>à deux pas de l'abbaye",
-  tb_eyebrow:"La table",tb_h:"La brasserie,<span>et ses viandes.</span>",
-  tb_lead:"Cordon bleu, bouchée à la reine, rognons de veau à la moutarde, francesinha ; côtes d'agneau grillées, filet de bœuf d'Argentine, maminha de black angus cuite à basse température.",
-  tb_body:"Terrasse sur la place du Marché.",
+  tb_eyebrow:"La table",tb_h:"La brasserie,<span>sur la place du Marché.</span>",
+  tb_lead:"Cordon bleu, bouchée à la reine, rognons de veau à la moutarde, francesinha, côtes d'agneau grillées, maminha de black angus.",
+  tb_body:"Hôtel, café et restaurant sous un même toit, avec terrasse sur la place du Marché. Cuisine non-stop de 12h à 22h.",
   gal_eyebrow:"Photos",gal_h:"À table",
   cap_plat:"Pièce de bœuf et sa sauce",cap_terrine:"Pâté en croûte &amp; jambon cru",cap_soupe:"Le potage",cap_banquet:"La salle, dressée pour un grand repas",cap_biere:"Une bière en terrasse",cap_terrasse:"La terrasse, face à la place du Marché",
   ech_eyebrow:"Le lieu",ech_h:"Au cœur<span>d'Echternach.</span>",
@@ -411,7 +412,7 @@ const I18N={
   i6n:"Spareribs sauce barbecue",i7n:"Côtes d'agneau grillées",i8n:"Filet de bœuf (Argentine)",i9n:"Maminha de bœuf black angus",i9d:"Cuit à basse température",
   i10n:"Gratin dauphinois ou frites",i11n:"Sauces",i11d:"Poivre, champignons, maître d'hôtel, vin rouge, béarnaise",
   infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
-  ino_k1:"Adresse",ino_k2:"Téléphone",cc_p:"Pour réserver une table ou une chambre, ou connaître les horaires.",
+  ino_k1:"Adresse",ino_hours:"Cuisine non-stop de 12h à 22h",ino_k2:"Téléphone",cc_p:"Pour réserver une table ou une chambre.",
   map_btn:"Ouvrir dans Maps ↗",
   foot_p:"Hôtel-café-restaurant sur la place du Marché d'Echternach.",
   disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
@@ -421,12 +422,12 @@ const I18N={
   hero_eyebrow:"Hotel – Café – Restaurant",
   hero_tag:"Am Tisch des Poeten, am Marktplatz von Echternach, der ältesten Stadt des Landes.",
   hero_cta1:"Anrufen",hero_cta2:"Zur Karte",
-  fact_k1:"Küche",fact_v1:"<b>Brasserie</b>Cordon bleu, Königinpastete, Black Angus",
+  fact_k1:"Küche",fact_v1:"<b>Durchgehend</b>von 12 bis 22 Uhr",
   fact_k2:"Der Ort",fact_v2:"<b>13, place du Marché</b>Echternach, mit Terrasse",
   fact_k3:"Das Haus",fact_v3:"<b>Hotel – Café – Restaurant</b>wenige Schritte von der Abtei",
-  tb_eyebrow:"Küche",tb_h:"Brasserie-<span>Klassiker.</span>",
-  tb_lead:"Cordon bleu, Königinpastete, Kalbsnieren in Senfsauce, Francesinha; gegrillte Lammkoteletts, argentinisches Rinderfilet, Maminha vom Black Angus, bei Niedertemperatur gegart.",
-  tb_body:"Terrasse am Marktplatz.",
+  tb_eyebrow:"Küche",tb_h:"Brasserie<span>am Marktplatz.</span>",
+  tb_lead:"Cordon bleu, Königinpastete, Kalbsnieren in Senfsauce, Francesinha, gegrillte Lammkoteletts, Maminha vom Black Angus.",
+  tb_body:"Hotel, Café und Restaurant unter einem Dach, mit Terrasse am Marktplatz. Durchgehend warme Küche von 12 bis 22 Uhr.",
   gal_eyebrow:"Fotos",gal_h:"Zu Tisch",
   cap_plat:"Rindfleisch mit Sauce",cap_terrine:"Pastete & Rohschinken",cap_soupe:"Die Suppe",cap_banquet:"Der Saal, für eine lange Tafel gedeckt",cap_biere:"Ein Bier auf der Terrasse",cap_terrasse:"Die Terrasse mit Blick auf den Marktplatz",
   ech_eyebrow:"Der Ort",ech_h:"Im Herzen<span>Echternachs.</span>",
@@ -438,7 +439,7 @@ const I18N={
   i6n:"Spareribs mit Barbecuesauce",i7n:"Gegrillte Lammkoteletts",i8n:"Rinderfilet (Argentinien)",i9n:"Maminha vom Black-Angus-Rind",i9d:"Bei Niedertemperatur gegart",
   i10n:"Gratin dauphinois oder Pommes",i11n:"Saucen",i11d:"Pfeffer, Champignon, Maître d'hôtel, Rotwein, Sauce béarnaise",
   infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
-  ino_k1:"Adresse",ino_k2:"Telefon",cc_p:"Für eine Tisch- oder Zimmerreservierung oder die Öffnungszeiten.",
+  ino_k1:"Adresse",ino_hours:"Küche durchgehend von 12 bis 22 Uhr",ino_k2:"Telefon",cc_p:"Für eine Tisch- oder Zimmerreservierung.",
   map_btn:"In Maps öffnen ↗",
   foot_p:"Hotel, Café und Restaurant am Marktplatz von Echternach.",
   disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
@@ -448,12 +449,12 @@ const I18N={
   hero_eyebrow:"Hotel – Café – Restaurant",
   hero_tag:"At the poet's table, on the market square of Echternach, the country's oldest town.",
   hero_cta1:"Call",hero_cta2:"See the menu",
-  fact_k1:"Food",fact_v1:"<b>Brasserie</b>cordon bleu, vol-au-vent, Black Angus",
+  fact_k1:"Kitchen",fact_v1:"<b>Non-stop</b>from 12:00 to 22:00",
   fact_k2:"The place",fact_v2:"<b>13 Place du Marché</b>Echternach, with a terrace",
   fact_k3:"The house",fact_v3:"<b>Hotel – Café – Restaurant</b>a few steps from the abbey",
-  tb_eyebrow:"Food",tb_h:"The brasserie,<span>and its meats.</span>",
-  tb_lead:"Cordon bleu, vol-au-vent, veal kidneys in mustard sauce, francesinha; grilled lamb chops, Argentinian beef fillet, Black Angus maminha cooked low and slow.",
-  tb_body:"Terrace on the market square.",
+  tb_eyebrow:"Food",tb_h:"The brasserie,<span>on the market square.</span>",
+  tb_lead:"Cordon bleu, vol-au-vent, veal kidneys in mustard sauce, francesinha, grilled lamb chops, Black Angus maminha.",
+  tb_body:"Hotel, café and restaurant under one roof, with a terrace on the market square. Kitchen open non-stop from 12:00 to 22:00.",
   gal_eyebrow:"Photos",gal_h:"At the table",
   cap_plat:"Beef with its sauce",cap_terrine:"Pâté en croûte & cured ham",cap_soupe:"Soup",cap_banquet:"The dining room set for a long table",cap_biere:"A beer on the terrace",cap_terrasse:"The terrace, looking onto the market square",
   ech_eyebrow:"The place",ech_h:"In the heart<span>of Echternach.</span>",
@@ -465,7 +466,7 @@ const I18N={
   i6n:"Spare ribs with barbecue sauce",i7n:"Grilled lamb chops",i8n:"Argentinian beef fillet",i9n:"Black Angus maminha",i9d:"Cooked low and slow",
   i10n:"Gratin dauphinois or fries",i11n:"Sauces",i11d:"Pepper, mushroom, maître d'hôtel, red wine, béarnaise",
   infos_eyebrow:"Find us",infos_h:"Find <em>us</em>",
-  ino_k1:"Address",ino_k2:"Phone",cc_p:"To book a table or a room, or to check opening hours.",
+  ino_k1:"Address",ino_hours:"Kitchen non-stop, 12:00 to 22:00",ino_k2:"Phone",cc_p:"To book a table or a room.",
   map_btn:"Open in Maps ↗",
   foot_p:"Hotel, café and restaurant on Echternach's market square.",
   disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
