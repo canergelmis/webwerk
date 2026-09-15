@@ -35,7 +35,7 @@ header{position:sticky;top:0;z-index:50;background:var(--teak-d)}
 header.solid{background:var(--teak-d);box-shadow:0 2px 22px rgba(0,0,0,.32)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:11px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
-.brand img{width:46px;height:46px;flex:none;border-radius:50%}
+.brand img{width:46px;height:46px;flex:none;border-radius:50%;background:var(--cream);padding:3px;box-shadow:0 0 0 1px rgba(243,233,214,.4)}
 .brand .nm{font-family:'Chonburi',serif;font-weight:400;font-size:23px;letter-spacing:.01em;line-height:.95;color:var(--cream)}
 .brand .nm small{display:block;font-family:'Kanit';font-size:9px;letter-spacing:.2em;color:var(--amber);font-weight:700;margin-top:4px;text-transform:uppercase}
 nav.links{display:flex;align-items:center;gap:26px}
@@ -56,6 +56,7 @@ nav.links a:hover{color:var(--amber);opacity:1}
 .hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(24,14,8,0.66) 0%,rgba(24,14,8,0.38) 32%,rgba(24,14,8,0.58) 64%,rgba(18,10,5,0.95) 100%)}
 .hero .inner{padding-bottom:clamp(40px,7vw,88px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
 .hero .eyebrow{color:var(--amber);margin-bottom:16px}
+.hero h1 .nw{white-space:nowrap}
 .hero h1{color:#fff;font-size:clamp(52px,10vw,130px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.5)}
 .hero .tag{font-family:'Kanit',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f2e6d0;max-width:31ch;margin:20px 0 0;line-height:1.4}
 .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
@@ -110,10 +111,15 @@ section{padding:clamp(56px,9vw,102px) 0}
 .carte{background:var(--stone)}
 .carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
 .mgroup{margin-bottom:30px}
+.mgroup{scroll-margin-top:90px}
+.mjump{display:flex;flex-wrap:wrap;gap:8px;margin:-14px 0 28px}
+.mjump a{border:1.5px solid var(--teak);border-radius:999px;padding:6px 14px;font-family:'Kanit';font-weight:600;font-size:14px;color:var(--teak)}
 .mgroup h3{font-family:'Chonburi';font-size:25px;color:var(--teak);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--chili);margin-bottom:14px}
 .mgroup h3 .lo{width:18px;height:14px;flex:none;color:var(--gold)}
 .mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
-.mitem .nm{font-family:'Kanit';font-weight:700;font-size:17px;color:var(--ink)}
+.mitem .nm{font-family:'Kanit';font-weight:500;font-size:17px;color:var(--ink)}
+.mitem{border-bottom:1px solid var(--line)}
+.mitem:last-child{border-bottom:0}
 .mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
 .mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
 .mitem .pr{font-family:'Chonburi';color:var(--chili);font-size:16px;white-space:nowrap}
@@ -124,16 +130,17 @@ section{padding:clamp(56px,9vw,102px) 0}
 .ino .ic{width:22px;height:22px;flex:none;color:var(--chili);margin-top:3px}
 .ino .k{font-family:'Kanit';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
 .ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
-.ino .v.big{font-family:'Chonburi',serif;font-size:28px}
+.ino .v.big{font-family:'Kanit',sans-serif;font-weight:600;font-size:28px}
 .inobtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .inobtns .btn{flex:1 1 180px;justify-content:center}
 .btn.o2{background:transparent;color:var(--ink);border:2px solid var(--ink)}
 .hours-today{font-family:'Chonburi';color:var(--jade);font-size:18px}
 .mapcard{position:relative;border-radius:4px;overflow:hidden;min-height:280px;display:flex;align-items:flex-end}
 .mapcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mapcard .ov{position:relative;width:100%;padding:24px;background:linear-gradient(0deg,rgba(20,12,6,.9),transparent);color:#fff}
+.mapcard .ov{position:relative;width:100%;padding:18px 22px;background:var(--teak-d);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.mapcard .ov .btn{margin-top:0}
 .mapcard .big{font-family:'Chonburi';font-size:26px;color:#fff}
-.mapcard .btn{margin-top:14px}
+
 
 footer{background:#20130a;color:#b8a789;padding:0 0 40px}
 footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
@@ -141,7 +148,7 @@ footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparen
 footer .band .lo{width:30px;height:22px;color:var(--gold)}
 footer .in{padding-block:4px 0;display:grid;grid-template-columns:1fr;gap:40px}
 footer .fbrand{display:flex;align-items:center;gap:12px}
-footer .fbrand img{width:52px;height:52px;border-radius:50%}
+footer .fbrand img{width:52px;height:52px;border-radius:50%;background:var(--cream);padding:3px}
 footer .nm{font-family:'Chonburi';font-weight:400;font-size:25px;color:var(--cream)}
 footer .nm small{display:block;font-family:'Kanit';font-size:10px;letter-spacing:.2em;color:var(--amber);margin-top:4px;text-transform:uppercase}
 footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a89777}
@@ -161,7 +168,7 @@ footer .made a{color:var(--amber)}
  nav.links a{padding:12px;font-size:17px}
  .burger{display:flex}
  header{background:var(--teak-d)}
- .hero h1{font-size:clamp(46px,15vw,86px)}
+ .hero h1{font-size:clamp(40px,12.5vw,70px)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
@@ -192,14 +199,14 @@ footer .made a{color:var(--amber)}
   body{padding-bottom:78px}
 }
 @media(min-width:761px){ .wwbar{display:none} }
-@media(max-width:760px){ .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .inobtns .btn.p{display:none} }
+@media(max-width:760px){ .wwbar a{font-size:.86rem} .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .inobtns .btn.p{display:none} }
 @media(min-width:901px){
-  .hero{align-items:center;margin-top:0;padding-top:0;min-height:min(86vh,760px)}
+  .hero{align-items:center;margin-top:0;padding-top:0;min-height:min(74vh,660px)}
   .hero .bg{left:auto;width:52%}
   .hero .scrim{background:linear-gradient(90deg,var(--teak-d) 0%,rgba(39,22,9,0) 14%)}
   .hero .inner{padding-block:90px;padding-right:calc(52vw - (100vw - min(100vw,var(--maxw))) / 2 + 40px)}
   .hero{background:var(--teak-d);isolation:isolate}
-  .hero h1{font-size:clamp(52px,6.4vw,96px)}
+  .hero h1{font-size:clamp(44px,5vw,74px)}
 }
 
   /* hero type legibility */
@@ -241,11 +248,11 @@ footer .made a{color:var(--amber)}
   <div class="scrim"></div>
   <div class="wrap inner">
    <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine thaïe et chinoise à Limpertsberg</span>
-   <h1>Mont St-Lambert</h1>
-   <p class="tag" data-i18n="hero_tag">Bar-restaurant thaï et chinois : le wok, le canard et une belle carte de bières.</p>
+   <h1>Mont <span class="nw">St-Lambert</span></h1>
+   <p class="tag" data-i18n="hero_tag">Bar-restaurant thaï et chinois, sur place, à emporter ou en livraison : le wok, le canard et une belle carte de bières.</p>
    <div class="cta">
     <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
-    <a class="btn o" href="tel:+352224950" data-i18n="hero_cta2">Appeler</a>
+    <a class="btn o" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="hero_cta2">Commander sur Wedely ↗</a>
    </div>
   </div>
  </section>
@@ -263,7 +270,7 @@ footer .made a{color:var(--amber)}
     <h2 data-i18n="ma_h">Avenue du Bois,<span>à Limpertsberg.</span></h2>
     <p class="lead" data-i18n="ma_lead">Mont St-Lambert est un bar-restaurant : cuisine thaïe et chinoise en salle, dans la véranda côté rue, à emporter ou en livraison.</p>
    </div>
-   <div class="pic"><img src="assets/salle.jpg" alt="La salle, banquettes en bois, chaises bistrot et étagères"/></div>
+   <div class="pic"><img src="assets/salle.jpg" alt="La salle, banquette en bois, chaises bistrot et le logo Mont St-Lambert au mur"/></div>
   </div>
  </section>
  <section id="gal">
@@ -278,8 +285,6 @@ footer .made a{color:var(--amber)}
     <figure><img src="assets/rice.jpg" alt="Riz sauté aux légumes et à la viande"/><figcaption data-i18n="cap_rice">Riz sauté</figcaption></figure>
     <figure><img src="assets/nems.jpg" alt="Nems et sauce aigre-douce"/><figcaption data-i18n="cap_nems">Nems</figcaption></figure>
     <figure class="w2"><img src="assets/noodles.jpg" alt="Nouilles sautées au poulet et aux légumes"/><figcaption data-i18n="cap_noodles">Nouilles sautées au poulet</figcaption></figure>
-    <figure><img src="assets/dessert.jpg" alt="Moelleux au chocolat, crème et glace"/><figcaption data-i18n="cap_dessert">Moelleux au chocolat</figcaption></figure>
-    <figure><img src="assets/repas.jpg" alt="Une table vue d'en haut : riz sauté et salade de nouilles"/><figcaption data-i18n="cap_repas">À table</figcaption></figure>
    </div>
   </div>
  </section>
@@ -290,7 +295,7 @@ footer .made a{color:var(--amber)}
     <h2 data-i18n="bar_h">Aussi<span>un bar.</span></h2>
     <p class="lead" data-i18n="bar_lead">Une carte de bières, de la Leffe et de la Chouffe à la Tsingtao, la Hoegaarden et la Vedette, et des vins de Luxembourg, de France et d'Italie.</p>
    </div>
-   <div class="pic"><img src="assets/bar.jpg" alt="La salle et le logo Mont St-Lambert au mur"/></div>
+   <div class="pic"><img src="assets/bar.jpg" alt="Le comptoir, la tireuse à bière et la salle au fond"/></div>
   </div>
  </section>
  <section class="carte" id="carte">
@@ -299,9 +304,10 @@ footer .made a{color:var(--amber)}
     <span class="eyebrow" data-i18n="carte_eyebrow">Sur place, à emporter ou en livraison</span>
     <h2 data-i18n="carte_h">La carte</h2>
    </div>
+   <nav class="mjump" aria-label="Catégories"><a href="#mg1" data-i18n="mg1">Soupes &amp; entrées</a><a href="#mg2" data-i18n="mg2">Le canard</a><a href="#mg3" data-i18n="mg3">Le wok</a><a href="#mg4" data-i18n="mg4">Nouilles &amp; riz</a><a href="#mg5" data-i18n="mg5">Desserts</a></nav>
    <div class="cols">
     <div>
-     <div class="mgroup">
+     <div class="mgroup" id="mg1">
       <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg1">Soupes &amp; entrées</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i1n">Soupe thaïe au curry rouge et scampis</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i2n">Soupe aux raviolis chinois</div></div></div>
@@ -310,7 +316,7 @@ footer .made a{color:var(--amber)}
       <div class="mitem"><div><div class="nm" data-i18n="i5n">Gyoza</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i6n">Raviolis vapeur aux crevettes</div></div></div>
      </div>
-     <div class="mgroup">
+     <div class="mgroup" id="mg2">
       <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg2">Le canard</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i7n">Canard spécial maison</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i8n">Canard façon thaï</div></div></div>
@@ -319,7 +325,7 @@ footer .made a{color:var(--amber)}
      </div>
     </div>
     <div>
-     <div class="mgroup">
+     <div class="mgroup" id="mg3">
       <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg3">Le wok</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i11n">Poulet aux noix de cajou</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i12n">Poulet à la citronnelle</div></div></div>
@@ -328,13 +334,13 @@ footer .made a{color:var(--amber)}
       <div class="mitem"><div><div class="nm" data-i18n="i15n">Scampis au sel et poivre</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i16n">Tofu façon grand-mère</div></div></div>
      </div>
-     <div class="mgroup">
+     <div class="mgroup" id="mg4">
       <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg4">Nouilles &amp; riz</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i17n">Nouilles sautées</div><div class="ds" data-i18n="i17d">Légumes, poulet, bœuf ou scampis</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i18n">Riz sauté</div><div class="ds" data-i18n="i18d">Légumes, poulet, bœuf ou scampis</div></div></div>
       <div class="mitem"><div><div class="nm" data-i18n="i19n">Pad thaï aux scampis</div></div></div>
      </div>
-     <div class="mgroup">
+     <div class="mgroup" id="mg5">
       <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg5">Desserts</span></h3>
       <div class="mitem"><div><div class="nm" data-i18n="i20n">Moelleux au chocolat, cheesecake, mochis</div></div></div>
      </div>
@@ -355,7 +361,7 @@ footer .made a{color:var(--amber)}
      <div class="inobtns"><a class="btn p" href="tel:+352224950" data-i18n="wwb_call">Appeler</a><a class="btn o2" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="ino_order">Commander sur Wedely ↗</a></div>
     </div>
     <div class="mapcard">
-     <img src="assets/facade.jpg" alt="La façade rose et la véranda de Mont St-Lambert, avenue du Bois"/>
+     <img src="assets/facade.jpg" alt="La véranda de Mont St-Lambert et son enseigne peinte, avenue du Bois"/>
      <div class="ov">
       <div class="big" data-i18n="map_big">Avenue du Bois</div>
       <a class="btn p" href="https://www.google.com/maps/search/?api=1&query=Mont-Saint-Lambert+97+Avenue+du+Bois+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Itinéraire ↗</a>
@@ -380,15 +386,16 @@ const I18N={
  fr:{
   wwb_call:"Appeler",
   wwb_dir:"Itinéraire",
+  wwb_order:"Commander",
   brand_sub:"Bar-restaurant, Limpertsberg",
   nav_maison:"La maison",
   nav_carte:"La carte",
   nav_bar:"Le bar",
   nav_infos:"Infos &amp; accès",
   hero_eyebrow:"Cuisine thaïe et chinoise à Limpertsberg",
-  hero_tag:"Bar-restaurant thaï et chinois : le wok, le canard et une belle carte de bières.",
+  hero_tag:"Bar-restaurant thaï et chinois, sur place, à emporter ou en livraison : le wok, le canard et une belle carte de bières.",
   hero_cta1:"Voir la carte",
-  hero_cta2:"Appeler",
+  hero_cta2:"Commander sur Wedely ↗",
   fact_k1:"La cuisine",
   fact_v1:"<b>Thaïe &amp; chinoise</b>wok, nouilles, canard",
   fact_k2:"L'adresse",
@@ -405,8 +412,6 @@ const I18N={
   cap_rice:"Riz sauté",
   cap_nems:"Nems",
   cap_noodles:"Nouilles sautées au poulet",
-  cap_dessert:"Moelleux au chocolat",
-  cap_repas:"À table",
   bar_eyebrow:"Le bar",
   bar_h:"Aussi<span>un bar.</span>",
   bar_lead:"Une carte de bières, de la Leffe et de la Chouffe à la Tsingtao, la Hoegaarden et la Vedette, et des vins de Luxembourg, de France et d'Italie.",
@@ -452,15 +457,16 @@ const I18N={
  de:{
   wwb_call:"Anrufen",
   wwb_dir:"Route",
+  wwb_order:"Bestellen",
   brand_sub:"Bar-Restaurant, Limpertsberg",
   nav_maison:"Das Haus",
   nav_carte:"Speisekarte",
   nav_bar:"Die Bar",
   nav_infos:"Anfahrt",
   hero_eyebrow:"Thailändische und chinesische Küche in Limpertsberg",
-  hero_tag:"Thailändisch-chinesisches Bar-Restaurant: Wok, Ente und eine gute Bierkarte.",
+  hero_tag:"Thailändisch-chinesisches Bar-Restaurant, vor Ort, zum Mitnehmen oder geliefert: Wok, Ente und eine gute Bierkarte.",
   hero_cta1:"Zur Speisekarte",
-  hero_cta2:"Anrufen",
+  hero_cta2:"Auf Wedely bestellen ↗",
   fact_k1:"Küche",
   fact_v1:"<b>Thailändisch &amp; chinesisch</b>Wok, Nudeln, Ente",
   fact_k2:"Adresse",
@@ -477,8 +483,6 @@ const I18N={
   cap_rice:"Gebratener Reis",
   cap_nems:"Frühlingsrollen",
   cap_noodles:"Gebratene Nudeln mit Hähnchen",
-  cap_dessert:"Schokoladenküchlein",
-  cap_repas:"Zu Tisch",
   bar_eyebrow:"Die Bar",
   bar_h:"Auch<span>eine Bar.</span>",
   bar_lead:"Eine Bierkarte von Leffe und La Chouffe bis Tsingtao, Hoegaarden und Vedette, dazu Weine aus Luxemburg, Frankreich und Italien.",
@@ -524,15 +528,16 @@ const I18N={
  en:{
   wwb_call:"Call",
   wwb_dir:"Directions",
+  wwb_order:"Order",
   brand_sub:"Bar-restaurant, Limpertsberg",
   nav_maison:"The house",
   nav_carte:"Menu",
   nav_bar:"The bar",
   nav_infos:"Getting here",
   hero_eyebrow:"Thai and Chinese cooking in Limpertsberg",
-  hero_tag:"A Thai and Chinese bar-restaurant: wok dishes, duck and a good beer list.",
+  hero_tag:"A Thai and Chinese bar-restaurant, eat in, take away or delivered: wok dishes, duck and a good beer list.",
   hero_cta1:"See the menu",
-  hero_cta2:"Call",
+  hero_cta2:"Order on Wedely ↗",
   fact_k1:"The food",
   fact_v1:"<b>Thai &amp; Chinese</b>wok, noodles, duck",
   fact_k2:"Address",
@@ -549,8 +554,6 @@ const I18N={
   cap_rice:"Fried rice",
   cap_nems:"Spring rolls",
   cap_noodles:"Chicken fried noodles",
-  cap_dessert:"Chocolate fondant",
-  cap_repas:"At the table",
   bar_eyebrow:"The bar",
   bar_h:"Also<span>a bar.</span>",
   bar_lead:"A beer list from Leffe and La Chouffe to Tsingtao, Hoegaarden and Vedette, plus wines from Luxembourg, France and Italy.",
@@ -614,6 +617,7 @@ try{const sv=localStorage.getItem("msl_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
 
 <div class="wwbar" role="navigation" aria-label="Actions rapides">
   <a class="btn p" href="tel:+352224950" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
   <a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Mont-Saint-Lambert+97+Avenue+du+Bois+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
 </body>
