@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍜</text></svg>" />
-<title>Thanh's — Fusion Lunch · Boulevard Royal & Kirchberg</title>
-<meta name="description" content="Un midi à Saïgon, boulevard Royal — le meilleur Bò Bún du Luxembourg, cuisine vietnamienne fraîche. Aperçu de site composé par Webwerk." />
+<title>Thanh's — Cuisine vietnamienne, boulevard Royal et Kirchberg</title>
+<meta name="description" content="Thanh's, cuisine vietnamienne le midi en semaine, boulevard Royal et au Kirchberg : Bò Bún, phở, nems et bánh mì." />
 <style>
 /* ===================== FONTS (self-hosted, 0 external) ===================== */
 @font-face{font-family:'Newsreader';font-weight:500 700;font-style:normal;font-display:swap;src:url('assets/fonts/newsreader-latin.woff2') format('woff2');
@@ -157,10 +157,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,243,232,.93);backdro
 .loc .tag .pin{color:var(--chili)}
 .loc .a{font-size:.98rem;color:var(--ink2);margin-top:6px}
 .loc .map{margin-top:14px}
+.loc .locbtns{display:flex;flex-wrap:wrap;gap:10px}
+.loc .a a{color:var(--herb-deep);font-weight:600}
 .hours{list-style:none;margin-top:16px;border-top:1px solid rgba(63,125,78,.2);padding-top:12px}
 .hours li{display:flex;justify-content:space-between;padding:6px 0;font-size:.92rem}
-.hours li.today{color:var(--herb-deep);font-weight:700}
-.hours li.today .day::before{content:"▸ ";color:var(--chili)}
 .hours .cl{color:var(--muted)}
 .adr .note{text-align:center;color:var(--muted);font-size:.84rem;margin-top:20px}
 .socials{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
@@ -225,12 +225,12 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
 <!-- ===================== HEADER ===================== -->
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="Thanh's — Fusion Lunch">
+    <a class="brand" href="#top" aria-label="Thanh's">
       <svg class="mk" viewBox="0 0 52 40" aria-hidden="true">
         <ellipse cx="26" cy="22" rx="23" ry="10" fill="#d2a15f"/>
         <path d="M13 19 l4.5 8 M20 17.5 l4.5 9 M27 17 l4.5 9 M34 17.5 l4.5 9 M40.5 19 l3.5 7" fill="none" stroke="#a9803f" stroke-width="1.7" stroke-linecap="round" opacity=".75"/>
       </svg>
-      <span class="bt">Thanh's<small data-i18n="brand_sub">Fusion Lunch</small></span>
+      <span class="bt">Thanh's<small data-i18n="brand_sub">Cuisine vietnamienne</small></span>
     </a>
     <div class="navright">
       <nav class="menu" id="menu">
@@ -248,11 +248,11 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
 
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="top">
-  <div class="bg"><img src="assets/hero.jpg" alt="Un bol de Bò Bún coloré chez Thanh's — vermicelles, nems, herbes fraîches" /></div>
+  <div class="bg"><img src="assets/hero.jpg" alt="Bol de vermicelles au poulet, nems, cacahuètes et menthe" /></div>
   <div class="wrap">
-    <div class="kick"><span class="dot"></span><span class="eyebrow" data-i18n="hero_kick">Cuisine vietnamienne · Boulevard Royal &amp; Kirchberg</span></div>
+    <div class="kick"><span class="dot"></span><span class="eyebrow" data-i18n="hero_kick">Cuisine vietnamienne, boulevard Royal et Kirchberg</span></div>
     <h1>Thanh<span class="ap">'s</span></h1>
-    <p class="best"><span data-i18n="hero_best">Le meilleur</span> <span class="bobun" id="bobun" aria-label="Bò Bún"></span> <span data-i18n="hero_best2">du Luxembourg.</span></p>
+    <p class="best"><span class="bobun" id="bobun" aria-label="Bò Bún"></span><span data-i18n="hero_best2">, phở et nems, le midi en semaine.</span></p>
     <p class="tag" data-i18n="hero_tag">Saveurs fraîches et exotiques du Vietnam — la cantine du midi, à deux pas du bureau.</p>
     <div class="cta">
       <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
@@ -264,11 +264,9 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
 <!-- facts -->
 <div class="facts">
   <div class="wrap">
-    <span class="f" data-i18n="fact_1"><b>Vietnamien</b> · frais, fait minute</span>
-    <span class="sep">·</span>
+    <span class="f" data-i18n="fact_1"><b>Cuisine vietnamienne</b></span>
     <span class="f" data-i18n="fact_2">Le <b>midi</b> en semaine</span>
-    <span class="sep">·</span>
-    <span class="f" data-i18n="fact_3"><b>Deux adresses</b> · Royal &amp; Infinity</span>
+    <span class="f" data-i18n="fact_3"><b>Deux adresses</b> : Royal et Infinity</span>
   </div>
 </div>
 
@@ -277,13 +275,9 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
   <div class="wrap">
     <figure class="fig reveal"><img src="assets/bobun.jpg" alt="Bò Bún au bœuf — vermicelles de riz, nems, herbes, cacahuètes" loading="lazy" /></figure>
     <div class="reveal">
-      <span class="badge" data-i18n="bb_badge">◆ La spécialité de la maison</span>
+      <span class="eyebrow" data-i18n="bb_badge">À la carte</span>
       <h2><span class="vn">Bò Bún</span></h2>
-      <p class="lead" data-i18n="bb_lead">« Le meilleur du Luxembourg », d'après Paperjam.</p>
-      <p data-i18n="bb_p">Un grand bol de vermicelles de riz tièdes, du bœuf mariné saisi, des nems croustillants coupés dessus, une pluie d'herbes fraîches et de cacahuètes, et le nuoc-cham qui lie le tout. Frais, généreux, fait minute — et décliné au poulet, aux crevettes ou en version végé.</p>
-      <div class="chips">
-        <span data-i18n="bb_c1">Vermicelles de riz</span><span data-i18n="bb_c2">Bœuf mariné</span><span data-i18n="bb_c3">Nems croustillants</span><span data-i18n="bb_c4">Herbes fraîches</span><span data-i18n="bb_c5">Nuoc-cham</span>
-      </div>
+      <p data-i18n="bb_p">Vermicelles de riz, bœuf mariné, nems croustillants coupés, herbes fraîches, cacahuètes et nuoc-cham. Aussi au poulet, aux crevettes ou en version végétarienne.</p>
     </div>
   </div>
 </section>
@@ -293,16 +287,9 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow" data-i18n="house_kick">La maison</span>
-      <h2 data-i18n="house_h">Un midi à Saïgon, boulevard Royal</h2>
-      <span class="lead" data-i18n="house_lead">On vient pour le Bò Bún, on revient pour le bouillon.</span>
-      <p data-i18n="house_p1">Thanh's, c'est la cantine vietnamienne du déjeuner : on entre, on commande au comptoir, ça arrive frais et fumant, et on repart calé pour l'après-midi. Herbes coupées le jour même, bouillons longs, portions honnêtes, options végé partout.</p>
-      <p class="quote" data-i18n="house_quote">« Saveurs fraîches et exotiques du Vietnam et d'ailleurs. »</p>
-      <p data-i18n="house_p2">Deux adresses au cœur de la ville — boulevard Royal, face à l'Hôtel Le Royal, et à l'Infinity, au Kirchberg. Service le midi, en semaine.</p>
-      <div class="details">
-        <div class="detail"><span class="ic">🌿</span><div><h3 data-i18n="d1_h">Frais, fait minute</h3><p data-i18n="d1_p">Herbes, vermicelles, bouillons — préparés le jour, pas la veille.</p></div></div>
-        <div class="detail"><span class="ic">🍜</span><div><h3 data-i18n="d2_h">Phở &amp; soupes</h3><p data-i18n="d2_p">Le bouillon Thanh's et le phở, en portion normale ou grande.</p></div></div>
-        <div class="detail"><span class="ic">🥢</span><div><h3 data-i18n="d3_h">Pour tout le monde</h3><p data-i18n="d3_p">Bœuf, poulet, crevettes ou végé — chaque plat se décline.</p></div></div>
-      </div>
+      <h2 data-i18n="house_h">Le midi, boulevard Royal et au Kirchberg</h2>
+      <p data-i18n="house_p1">Thanh's est une cantine vietnamienne du midi : Bò Bún, phở, nems et bánh mì.</p>
+      <p data-i18n="house_p2">Deux adresses : boulevard Royal, face à l'Hôtel Le Royal, et à l'Infinity, au Kirchberg. Le midi, en semaine.</p>
     </div>
   </div>
 </section>
@@ -312,40 +299,35 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow" data-i18n="menu_kick">La carte</span>
-      <h2 data-i18n="menu_h">Frais, simple, vietnamien</h2>
-      <p data-i18n="menu_p">Une carte courte qui va à l'essentiel — chaque plat se décline bœuf, poulet, crevettes ou végé.</p>
-      <p class="menu-note" data-i18n="menu_note">Carte complète et tarifs disponibles sur place.</p>
+      <h2 data-i18n="menu_h">Bò Bún, phở et nems</h2>
     </div>
     <div class="cats">
       <div class="cat reveal">
-        <h3 data-i18n="cat_start">◆ Pour commencer</h3>
-        <div class="mrow"><div class="l"><div class="n">Nem <span style="font-weight:400;font-size:.82rem;color:#c6bda6">(2 pcs)</span></div><div class="d" data-i18n="m_nem_d">Porc, poulet ou végé — croustillant.</div></div></div>
-        <div class="mrow"><div class="l"><div class="n">Rouleau de printemps</div><div class="d" data-i18n="m_roll_d">Frais — bœuf, poulet, scampis ou végé.</div></div></div>
-        <div class="mrow"><div class="l"><div class="n" data-i18n="m_salad_n">Salade vietnamienne</div><div class="d" data-i18n="m_salad_d">Bœuf, poulet, scampis ou tofu.</div></div></div>
+        <h3 data-i18n="cat_start">Pour commencer</h3>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_nem_n">Nems</div><div class="d" data-i18n="m_nem_d">Rouleaux frits</div></div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_roll_n">Gỏi cuốn</div><div class="d" data-i18n="m_roll_d">Rouleaux de printemps frais</div></div></div>
       </div>
       <div class="cat reveal">
-        <h3 data-i18n="cat_bobun">◆ Bò Bún</h3>
-        <div class="mrow"><div class="l"><div class="n">Bò Bún <span style="font-weight:400;font-size:.82rem;color:#c6bda6">(2 nems)</span></div><div class="d" data-i18n="m_bb_d">Vermicelles, herbes, cacahuètes, nuoc-cham.</div></div></div>
-        <div class="mrow"><div class="l"><div class="n">Bò Bún Gourmand <span style="font-weight:400;font-size:.82rem;color:#c6bda6">(4 nems)</span></div><div class="d" data-i18n="m_bbg_d">La version copieuse.</div></div></div>
-        <div class="mrow"><div class="l"><div class="n" data-i18n="m_sand_n">Sandwich vietnamien</div><div class="d" data-i18n="m_sand_d">Bánh mì — poulet/porc ou bœuf/tofu.</div></div></div>
+        <h3 data-i18n="cat_bobun">Bò Bún &amp; bánh mì</h3>
+        <div class="mrow"><div class="l"><div class="n">Bò Bún</div><div class="d" data-i18n="m_bb_d">Vermicelles, herbes, cacahuètes, nuoc-cham.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n">Bánh mì</div><div class="d" data-i18n="m_sand_d">Sandwich vietnamien</div></div></div>
       </div>
       <div class="cat reveal">
-        <h3 data-i18n="cat_soup">◆ Soupes &amp; Phở</h3>
-        <div class="mrow"><div class="l"><div class="n">Soupe Thanh's</div><div class="d" data-i18n="m_soup_d">Poulet, scampis ou végé.</div></div><div class="pr"><small data-i18n="m_ng">N / G</small></div></div>
-        <div class="mrow"><div class="l"><div class="n">Phở</div><div class="d" data-i18n="m_pho_d">Bouillon long, herbes, citron vert.</div></div><div class="pr"><small data-i18n="m_ng2">N / G</small></div></div>
+        <h3 data-i18n="cat_soup">Phở</h3>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_pho_n">Phở bò / phở gà</div><div class="d" data-i18n="m_pho_d">Bouillon long, herbes, citron vert.</div></div></div>
       </div>
       <div class="cat reveal">
-        <h3 data-i18n="cat_more">◆ Bon à savoir</h3>
-        <div class="mrow"><div class="l"><div class="n" data-i18n="m_veg_n">Version végé</div><div class="d" data-i18n="m_veg_d">Sur presque tout — tofu, légumes.</div></div><div class="pr">✓</div></div>
-        <div class="mrow"><div class="l"><div class="n" data-i18n="m_take_n">À emporter</div><div class="d" data-i18n="m_take_d">Sur place ou à emporter, le midi.</div></div><div class="pr">✓</div></div>
-        <div class="mrow"><div class="l"><div class="n" data-i18n="m_lunch_n">Le midi, en semaine</div><div class="d" data-i18n="m_lunch_d">Service 7h30–15h30, du lundi au vendredi.</div></div><div class="pr">🕛</div></div>
+        <h3 data-i18n="cat_more">Bon à savoir</h3>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_veg_n">Version végétarienne</div><div class="d" data-i18n="m_veg_d">Le Bò Bún existe en version végétarienne.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_lunch_n">Le midi, en semaine</div><div class="d" data-i18n="m_lunch_d">Du lundi au vendredi.</div></div></div>
+        <div class="mrow"><div class="l"><div class="n" data-i18n="m_del_n">Livraison</div><div class="d" data-i18n="m_del_d">Sur Wolt, depuis les deux adresses.</div></div></div>
       </div>
     </div>
     <div class="food-strip reveal">
-      <figure><img src="assets/pho.jpg" alt="Phở — bouillon de bœuf, nouilles de riz, herbes" loading="lazy" /></figure>
-      <figure><img src="assets/freshrolls.jpg" alt="Rouleaux de printemps frais et sauce" loading="lazy" /></figure>
-      <figure><img src="assets/banhmi.jpg" alt="Bánh mì — sandwich vietnamien" loading="lazy" /></figure>
-      <figure><img src="assets/nems.jpg" alt="Nems croustillants" loading="lazy" /></figure>
+      <figure><img src="assets/pho.jpg" alt="Phở au bœuf, nouilles de riz et herbes" loading="lazy" /></figure>
+      <figure><img src="assets/freshrolls.jpg" alt="Nems, salade et menthe" loading="lazy" /></figure>
+      <figure><img src="assets/banhmi.jpg" alt="Bánh mì au bœuf, piment et coriandre" loading="lazy" /></figure>
+      <figure><img src="assets/nems.jpg" alt="Bò Bún garni de nems croustillants" loading="lazy" /></figure>
     </div>
   </div>
 </section>
@@ -358,11 +340,9 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
       <h2 data-i18n="gal_h">Frais dans le bol</h2>
     </div>
     <div class="gal reveal">
-      <figure class="w2 h2"><img src="assets/grill.jpg" alt="Bœuf grillé et vermicelles, herbes fraîches" loading="lazy" /><figcaption data-i18n="g_grill">Bœuf grillé &amp; vermicelles</figcaption></figure>
-      <figure><img src="assets/salad.jpg" alt="Salade vietnamienne aux crevettes" loading="lazy" /><figcaption data-i18n="g_salad">Salade aux crevettes</figcaption></figure>
-      <figure><img src="assets/freshrolls.jpg" alt="Rouleaux de printemps frais" loading="lazy" /><figcaption data-i18n="g_rolls">Rouleaux frais</figcaption></figure>
+      <figure class="w2 h2"><img src="assets/grill.jpg" alt="Phở au bœuf servi en terrasse" loading="lazy" /><figcaption data-i18n="g_grill">Phở au bœuf</figcaption></figure>
+      <figure class="h2"><img src="assets/storefront.jpg" alt="La devanture de Thanh's et son enseigne" loading="lazy" /><figcaption data-i18n="g_store">La devanture</figcaption></figure>
     </div>
-    <p class="menu-note" style="color:var(--muted)" data-i18n="gal_note">Photos de sources publiques, non fournies par la maison.</p>
   </div>
 </section>
 
@@ -371,29 +351,22 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow" data-i18n="adr_kick">Nos adresses</span>
-      <h2 data-i18n="adr_h">Deux comptoirs, un même Bò Bún</h2>
+      <h2 data-i18n="adr_h">Deux adresses</h2>
     </div>
     <div class="grid">
       <div class="loc reveal">
         <div class="tag"><span class="pin">◉</span> Thanh's — Royal</div>
-        <div class="a" data-i18n="adr_royal">25, boulevard Royal · L-2449 Luxembourg<br>(face à l'Hôtel Le Royal)</div>
-        <a class="btn p map" target="_blank" rel="noopener" data-i18n="adr_map1"
-           href="https://www.google.com/maps/search/?api=1&query=Thanh's+Taste+of+Vietnam+Royal+Boulevard+Royal+Luxembourg">Itinéraire ↗</a>
-        <ul class="hours" id="hours1"></ul>
+        <div class="a" data-i18n="adr_royal">Boulevard Royal, Luxembourg<br>(face à l'Hôtel Le Royal)</div>
+        <div class="locbtns"><a class="btn p map" target="_blank" rel="noopener" data-i18n="adr_map1" href="https://www.google.com/maps/search/?api=1&query=Thanh's+Taste+of+Vietnam+Royal+Boulevard+Royal+Luxembourg">Itinéraire ↗</a> <a class="btn g map" target="_blank" rel="noopener" data-i18n="adr_wolt1" href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-royal">Commander sur Wolt ↗</a></div>
       </div>
       <div class="loc reveal">
         <div class="tag"><span class="pin">◉</span> Thanh's — Infinity</div>
-        <div class="a" data-i18n="adr_inf">Infinity Shopping · 7, avenue J. F. Kennedy<br>L-1855 Kirchberg</div>
-        <a class="btn p map" target="_blank" rel="noopener" data-i18n="adr_map2"
-           href="https://www.google.com/maps/search/?api=1&query=Thanh's+Taste+of+Vietnam+Infinity+Kirchberg+Luxembourg">Itinéraire ↗</a>
-        <ul class="hours" id="hours2"></ul>
+        <div class="a" data-i18n="adr_inf">Infinity Shopping, 7, avenue John F. Kennedy<br>L-1499 Luxembourg-Kirchberg</div>
+        <div class="a"><a href="tel:+35226102136">+352 26 10 21 36</a></div>
+        <div class="locbtns"><a class="btn p map" target="_blank" rel="noopener" data-i18n="adr_map2" href="https://www.google.com/maps/search/?api=1&query=Thanh's+Taste+of+Vietnam+Infinity+7+Avenue+John+F+Kennedy+Luxembourg">Itinéraire ↗</a> <a class="btn g map" target="_blank" rel="noopener" data-i18n="adr_wolt2" href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-infinity">Commander sur Wolt ↗</a></div>
       </div>
     </div>
-    <p class="note" data-i18n="adr_note">Service du midi, du lundi au vendredi — fermé le week-end. Horaires indicatifs, à confirmer avec la maison.</p>
-    <div class="socials" style="justify-content:center">
-      <a href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-royal" target="_blank" rel="noopener">Wolt · Royal ↗</a>
-      <a href="https://wolt.com/en/lux/luxembourg/restaurant/thanhs-infinity" target="_blank" rel="noopener">Wolt · Infinity ↗</a>
-    </div>
+    <p class="note" data-i18n="adr_note">Le midi, du lundi au vendredi. Fermé le week-end.</p>
   </div>
 </section>
 
@@ -401,142 +374,184 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
 <footer>
   <div class="wrap">
     <div class="top">
-      <div class="bn">Thanh's<small data-i18n="foot_sub">Fusion Lunch · Luxembourg</small></div>
-      <div class="wk">
-        <div data-i18n="foot_made" class="made">Aperçu de site composé pour la maison par</div>
-        <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk · studio web · Luxembourg ↗</a>
-      </div>
+      <div class="bn">Thanh's<small data-i18n="foot_sub">Cuisine vietnamienne</small></div>
     </div>
-    <p class="disc" data-i18n="disclaimer">Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site de Thanh's. Le logotype est proposé ; la carte et les prix sont relevés sur place et restent à confirmer avec la maison, tout comme les adresses exactes et les horaires. Photographies de sources publiques.</p>
+    <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
   </div>
 </footer>
 
 <script>
 /* ===================== i18n ===================== */
 var I18N = {
-  fr:{wwb_dir:"Itinéraire",wwb_order:"Commander",
-    brand_sub:"Fusion Lunch", nav_bobun:"Le Bò Bún", nav_carte:"La carte", nav_adr:"Nos adresses",
-    hero_kick:"Cuisine vietnamienne · Boulevard Royal & Kirchberg", hero_best:"Le meilleur", hero_best2:"du Luxembourg.",
+  fr:{wwb_dir:"Itinéraire",
+    wwb_order:"Commander",
+    brand_sub:"Cuisine vietnamienne",
+    nav_bobun:"Le Bò Bún",
+    nav_carte:"La carte",
+    nav_adr:"Nos adresses",
+    hero_kick:"Cuisine vietnamienne, boulevard Royal et Kirchberg",
+    hero_best2:", phở et nems, le midi en semaine.",
     hero_tag:"Saveurs fraîches et exotiques du Vietnam — la cantine du midi, à deux pas du bureau.",
-    hero_cta1:"Voir la carte", hero_cta2:"Nos deux adresses ↓",
-    fact_1:"<b>Vietnamien</b> · frais, fait minute", fact_2:"Le <b>midi</b> en semaine", fact_3:"<b>Deux adresses</b> · Royal & Infinity",
-    bb_badge:"◆ La spécialité de la maison", bb_lead:"« Le meilleur du Luxembourg », d'après Paperjam.",
-    bb_p:"Un grand bol de vermicelles de riz tièdes, du bœuf mariné saisi, des nems croustillants coupés dessus, une pluie d'herbes fraîches et de cacahuètes, et le nuoc-cham qui lie le tout. Frais, généreux, fait minute — et décliné au poulet, aux crevettes ou en version végé.",
-    bb_c1:"Vermicelles de riz", bb_c2:"Bœuf mariné", bb_c3:"Nems croustillants", bb_c4:"Herbes fraîches", bb_c5:"Nuoc-cham",
-    house_kick:"La maison", house_h:"Un midi à Saïgon, boulevard Royal", house_lead:"On vient pour le Bò Bún, on revient pour le bouillon.",
-    house_p1:"Thanh's, c'est la cantine vietnamienne du déjeuner : on entre, on commande au comptoir, ça arrive frais et fumant, et on repart calé pour l'après-midi. Herbes coupées le jour même, bouillons longs, portions honnêtes, options végé partout.",
-    house_quote:"« Saveurs fraîches et exotiques du Vietnam et d'ailleurs. »",
-    house_p2:"Deux adresses au cœur de la ville — boulevard Royal, face à l'Hôtel Le Royal, et à l'Infinity, au Kirchberg. Service le midi, en semaine.",
-    d1_h:"Frais, fait minute", d1_p:"Herbes, vermicelles, bouillons — préparés le jour, pas la veille.",
-    d2_h:"Phở & soupes", d2_p:"Le bouillon Thanh's et le phở, en portion normale ou grande.",
-    d3_h:"Pour tout le monde", d3_p:"Bœuf, poulet, crevettes ou végé — chaque plat se décline.",
-    menu_kick:"La carte", menu_h:"Frais, simple, vietnamien",
-    menu_p:"Une carte courte qui va à l'essentiel — chaque plat se décline bœuf, poulet, crevettes ou végé.",
-    cat_start:"◆ Pour commencer", cat_bobun:"◆ Bò Bún", cat_soup:"◆ Soupes & Phở", cat_more:"◆ Bon à savoir",
-    m_nem_d:"Porc, poulet ou végé — croustillant.", m_roll_d:"Frais — bœuf, poulet, scampis ou végé.", m_pc:"/ pc", ac:"à conf.",
-    m_salad_n:"Salade vietnamienne", m_salad_d:"Bœuf, poulet, scampis ou tofu.",
-    m_bb_d:"Vermicelles, herbes, cacahuètes, nuoc-cham.", m_bbg_d:"La version copieuse.",
-    m_sand_n:"Sandwich vietnamien", m_sand_d:"Bánh mì — poulet/porc ou bœuf/tofu.",
-    m_soup_d:"Poulet, scampis ou végé.", m_ng:"N / G", m_pho_d:"Bouillon long, herbes, citron vert.", m_ng2:"N / G",
-    m_veg_n:"Version végé", m_veg_d:"Sur presque tout — tofu, légumes.",
-    m_take_n:"À emporter", m_take_d:"Sur place ou à emporter, le midi.",
-    m_lunch_n:"Le midi, en semaine", m_lunch_d:"Service 7h30–15h30, du lundi au vendredi.",
-    menu_note:"Carte complète et tarifs disponibles sur place.",
-    gal_kick:"En images", gal_h:"Frais dans le bol",
-    g_grill:"Bœuf grillé & vermicelles", g_salad:"Salade aux crevettes", g_store:"Boulevard Royal", g_rolls:"Rouleaux frais",
-    gal_note:"Photos de sources publiques, non fournies par la maison.",
-    adr_kick:"Nos adresses", adr_h:"Deux comptoirs, un même Bò Bún",
-    adr_royal:"25, boulevard Royal · L-2449 Luxembourg<br>(face à l'Hôtel Le Royal)",
-    adr_inf:"Infinity Shopping · 7, avenue J. F. Kennedy<br>L-1855 Kirchberg",
-    adr_map1:"Itinéraire ↗", adr_map2:"Itinéraire ↗",
-    adr_note:"Service du midi, du lundi au vendredi — fermé le week-end. Horaires indicatifs, à confirmer avec la maison.",
-    foot_sub:"Fusion Lunch · Luxembourg", foot_made:"Aperçu de site composé pour la maison par",
-    disclaimer:"Cette page est une proposition non officielle réalisée par Webwerk à partir de sources publiques, pour montrer à quoi pourrait ressembler le site de Thanh's. Le logotype est proposé ; la carte et les prix sont relevés sur place et restent à confirmer avec la maison, tout comme les adresses exactes et les horaires. Photographies de sources publiques.",
-    days:["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"], closed:"Fermé", lunch:"07:30–15:30"
+    hero_cta1:"Voir la carte",
+    hero_cta2:"Nos deux adresses ↓",
+    fact_1:"<b>Cuisine vietnamienne</b>",
+    fact_2:"Le <b>midi</b> en semaine",
+    fact_3:"<b>Deux adresses</b> : Royal et Infinity",
+    bb_badge:"À la carte",
+    bb_p:"Vermicelles de riz, bœuf mariné, nems croustillants coupés, herbes fraîches, cacahuètes et nuoc-cham. Aussi au poulet, aux crevettes ou en version végétarienne.",
+    house_kick:"La maison",
+    house_h:"Le midi, boulevard Royal et au Kirchberg",
+    house_p1:"Thanh's est une cantine vietnamienne du midi : Bò Bún, phở, nems et bánh mì.",
+    house_p2:"Deux adresses : boulevard Royal, face à l'Hôtel Le Royal, et à l'Infinity, au Kirchberg. Le midi, en semaine.",
+    menu_kick:"La carte",
+    menu_h:"Bò Bún, phở et nems",
+    cat_start:"Pour commencer",
+    cat_bobun:"Bò Bún &amp; bánh mì",
+    cat_soup:"Phở",
+    cat_more:"Bon à savoir",
+    m_nem_n:"Nems",
+    m_nem_d:"Rouleaux frits",
+    m_roll_n:"Gỏi cuốn",
+    m_roll_d:"Rouleaux de printemps frais",
+    m_bb_d:"Vermicelles, herbes, cacahuètes, nuoc-cham.",
+    m_sand_d:"Sandwich vietnamien",
+    m_pho_n:"Phở bò / phở gà",
+    m_pho_d:"Bouillon long, herbes, citron vert.",
+    m_veg_n:"Version végétarienne",
+    m_veg_d:"Le Bò Bún existe en version végétarienne.",
+    m_lunch_n:"Le midi, en semaine",
+    m_lunch_d:"Du lundi au vendredi.",
+    m_del_n:"Livraison",
+    m_del_d:"Sur Wolt, depuis les deux adresses.",
+    gal_kick:"En images",
+    gal_h:"Frais dans le bol",
+    g_grill:"Phở au bœuf",
+    g_store:"La devanture",
+    adr_kick:"Nos adresses",
+    adr_h:"Deux adresses",
+    adr_royal:"Boulevard Royal, Luxembourg<br>(face à l'Hôtel Le Royal)",
+    adr_inf:"Infinity Shopping, 7, avenue John F. Kennedy<br>L-1499 Luxembourg-Kirchberg",
+    adr_map1:"Itinéraire ↗",
+    adr_map2:"Itinéraire ↗",
+    adr_wolt1:"Commander sur Wolt ↗",
+    adr_wolt2:"Commander sur Wolt ↗",
+    adr_note:"Le midi, du lundi au vendredi. Fermé le week-end.",
+    foot_sub:"Cuisine vietnamienne",
+    disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
   },
-  de:{wwb_dir:"Route",wwb_order:"Bestellen",
-    brand_sub:"Fusion Lunch", nav_bobun:"Das Bò Bún", nav_carte:"Die Karte", nav_adr:"Adressen",
-    hero_kick:"Vietnamesische Küche · Boulevard Royal & Kirchberg", hero_best:"Das beste", hero_best2:"Luxemburgs.",
-    hero_tag:"Frische, exotische Aromen aus Vietnam — die Mittagskantine, zwei Schritte vom Büro.",
-    hero_cta1:"Zur Karte", hero_cta2:"Unsere zwei Adressen ↓",
-    fact_1:"<b>Vietnamesisch</b> · frisch, à la minute", fact_2:"<b>Mittags</b> unter der Woche", fact_3:"<b>Zwei Adressen</b> · Royal & Infinity",
-    bb_badge:"◆ Die Spezialität des Hauses", bb_lead:"„Das beste Luxemburgs“, so Paperjam.",
-    bb_p:"Eine große Schale mit lauwarmen Reisnudeln, mariniertem, scharf angebratenem Rindfleisch, knusprigen Nems obendrauf, einer Fülle frischer Kräuter und Erdnüsse — und dem Nuoc-Cham, das alles verbindet. Frisch, großzügig, à la minute — auch mit Hähnchen, Garnelen oder vegetarisch.",
-    bb_c1:"Reisnudeln", bb_c2:"Mariniertes Rind", bb_c3:"Knusprige Nems", bb_c4:"Frische Kräuter", bb_c5:"Nuoc-Cham",
-    house_kick:"Das Haus", house_h:"Mittags in Saigon, am Boulevard Royal", house_lead:"Man kommt für das Bò Bún, man kommt wieder für die Brühe.",
-    house_p1:"Thanh's ist die vietnamesische Mittagskantine: hereinkommen, am Tresen bestellen, frisch und dampfend serviert, gesättigt in den Nachmittag. Kräuter am selben Tag geschnitten, lange Brühen, ehrliche Portionen, überall vegetarische Optionen.",
-    house_quote:"„Frische, exotische Aromen aus Vietnam und darüber hinaus.“",
-    house_p2:"Zwei Adressen mitten in der Stadt — Boulevard Royal, gegenüber dem Hôtel Le Royal, und im Infinity am Kirchberg. Mittagsservice, unter der Woche.",
-    d1_h:"Frisch, à la minute", d1_p:"Kräuter, Nudeln, Brühen — am selben Tag zubereitet, nicht am Vortag.",
-    d2_h:"Phở & Suppen", d2_p:"Die Thanh's-Brühe und Phở, in normaler oder großer Portion.",
-    d3_h:"Für alle", d3_p:"Rind, Hähnchen, Garnelen oder vegetarisch — jedes Gericht.",
-    menu_kick:"Die Karte", menu_h:"Frisch, einfach, vietnamesisch",
-    menu_p:"Eine kurze Karte, die aufs Wesentliche geht — jedes Gericht mit Rind, Hähnchen, Garnelen oder vegetarisch.",
-    cat_start:"◆ Zum Beginnen", cat_bobun:"◆ Bò Bún", cat_soup:"◆ Suppen & Phở", cat_more:"◆ Gut zu wissen",
-    m_nem_d:"Schwein, Hähnchen oder vegetarisch — knusprig.", m_roll_d:"Frisch — Rind, Hähnchen, Garnelen oder vegetarisch.", m_pc:"/ St.", ac:"auf Anfrage",
-    m_salad_n:"Vietnamesischer Salat", m_salad_d:"Rind, Hähnchen, Garnelen oder Tofu.",
-    m_bb_d:"Reisnudeln, Kräuter, Erdnüsse, Nuoc-Cham.", m_bbg_d:"Die üppige Version.",
-    m_sand_n:"Vietnamesisches Sandwich", m_sand_d:"Bánh mì — Hähnchen/Schwein oder Rind/Tofu.",
-    m_soup_d:"Hähnchen, Garnelen oder vegetarisch.", m_ng:"N / G", m_pho_d:"Lange Brühe, Kräuter, Limette.", m_ng2:"N / G",
-    m_veg_n:"Vegetarisch", m_veg_d:"Bei fast allem — Tofu, Gemüse.",
-    m_take_n:"Zum Mitnehmen", m_take_d:"Vor Ort oder mitnehmen, mittags.",
-    m_lunch_n:"Mittags, unter der Woche", m_lunch_d:"Service ~07:30–15:30, Montag bis Freitag.",
-    menu_note:"Vollständige Karte und Preise vor Ort erhältlich.",
-    gal_kick:"In Bildern", gal_h:"Frisch in der Schale",
-    g_grill:"Gegrilltes Rind & Nudeln", g_salad:"Salat mit Garnelen", g_store:"Boulevard Royal", g_rolls:"Frische Rollen",
-    gal_note:"Öffentliche Fotos, nicht vom Betrieb bereitgestellt.",
-    adr_kick:"Adressen", adr_h:"Zwei Theken, ein und dasselbe Bò Bún",
-    adr_royal:"25, boulevard Royal · L-2449 Luxemburg<br>(gegenüber dem Hôtel Le Royal)",
-    adr_inf:"Infinity Shopping · 7, avenue J. F. Kennedy<br>L-1855 Kirchberg",
-    adr_map1:"Route ↗", adr_map2:"Route ↗",
-    adr_note:"Mittagsservice, Montag bis Freitag — am Wochenende geschlossen. Zeiten als Richtwert, mit dem Haus zu bestätigen.",
-    foot_sub:"Fusion Lunch · Luxemburg", foot_made:"Website-Vorschau für das Haus, gestaltet von",
-    disclaimer:"Diese Seite ist ein inoffizieller Vorschlag von Webwerk auf Basis öffentlicher Quellen und zeigt, wie die Website von Thanh's aussehen könnte. Das Logotype ist ein Vorschlag; Karte und Preise wurden vor Ort erfasst und sind mit dem Haus zu bestätigen, ebenso die genauen Adressen und Öffnungszeiten. Fotos aus öffentlichen Quellen.",
-    days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen", lunch:"07:30–15:30"
+  de:{wwb_dir:"Route",
+    wwb_order:"Bestellen",
+    brand_sub:"Vietnamesische Küche",
+    nav_bobun:"Bò Bún",
+    nav_carte:"Die Karte",
+    nav_adr:"Adressen",
+    hero_kick:"Vietnamesische Küche, Boulevard Royal und Kirchberg",
+    hero_best2:", Phở und Nems – mittags unter der Woche.",
+    hero_tag:"Frische, exotische Aromen aus Vietnam – die Mittagskantine, nur ein paar Schritte vom Büro.",
+    hero_cta1:"Zur Karte",
+    hero_cta2:"Unsere zwei Adressen ↓",
+    fact_1:"<b>Vietnamesische Küche</b>",
+    fact_2:"<b>Mittags</b> unter der Woche",
+    fact_3:"<b>Zwei Adressen</b>: Royal und Infinity",
+    bb_badge:"Auf der Karte",
+    bb_p:"Reisnudeln, mariniertes Rindfleisch, geschnittene knusprige Nems, frische Kräuter, Erdnüsse und Nuoc-Cham. Auch mit Hähnchen, Garnelen oder vegetarisch.",
+    house_kick:"Das Haus",
+    house_h:"Mittags am Boulevard Royal und auf Kirchberg",
+    house_p1:"Thanh's ist eine vietnamesische Mittagskantine: Bò Bún, Phở, Nems und Bánh mì.",
+    house_p2:"Zwei Adressen: Boulevard Royal, gegenüber dem Hôtel Le Royal, und im Infinity auf Kirchberg. Mittags, unter der Woche.",
+    menu_kick:"Die Karte",
+    menu_h:"Bò Bún, Phở und Nems",
+    cat_start:"Vorspeisen",
+    cat_bobun:"Bò Bún &amp; Bánh mì",
+    cat_soup:"Phở",
+    cat_more:"Gut zu wissen",
+    m_nem_n:"Nems",
+    m_nem_d:"Frittierte Frühlingsrollen",
+    m_roll_n:"Gỏi cuốn",
+    m_roll_d:"Frische Sommerrollen",
+    m_bb_d:"Reisnudeln, Kräuter, Erdnüsse, Nuoc-Cham.",
+    m_sand_d:"Vietnamesisches Sandwich",
+    m_pho_n:"Phở bò / Phở gà",
+    m_pho_d:"Lange gekochte Brühe, Kräuter, Limette.",
+    m_veg_n:"Vegetarisch",
+    m_veg_d:"Bò Bún gibt es auch vegetarisch.",
+    m_lunch_n:"Mittags, unter der Woche",
+    m_lunch_d:"Montag bis Freitag.",
+    m_del_n:"Lieferung",
+    m_del_d:"Über Wolt, von beiden Adressen.",
+    gal_kick:"In Bildern",
+    gal_h:"Frisch in der Schale",
+    g_grill:"Phở mit Rindfleisch",
+    g_store:"Die Fassade",
+    adr_kick:"Adressen",
+    adr_h:"Zwei Adressen",
+    adr_royal:"Boulevard Royal, Luxemburg<br>(gegenüber dem Hôtel Le Royal)",
+    adr_inf:"Infinity Shopping, 7, avenue John F. Kennedy<br>L-1499 Luxemburg-Kirchberg",
+    adr_map1:"Route ↗",
+    adr_map2:"Route ↗",
+    adr_wolt1:"Auf Wolt bestellen ↗",
+    adr_wolt2:"Auf Wolt bestellen ↗",
+    adr_note:"Mittags, Montag bis Freitag. Am Wochenende geschlossen.",
+    foot_sub:"Vietnamesische Küche",
+    disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
   },
-  en:{wwb_dir:"Directions",wwb_order:"Order",
-    brand_sub:"Fusion Lunch", nav_bobun:"The Bò Bún", nav_carte:"The menu", nav_adr:"Find us",
-    hero_kick:"Vietnamese cuisine · Boulevard Royal & Kirchberg", hero_best:"The best", hero_best2:"in Luxembourg.",
-    hero_tag:"Fresh, exotic flavours from Vietnam — the lunch canteen, two steps from the office.",
-    hero_cta1:"See the menu", hero_cta2:"Our two locations ↓",
-    fact_1:"<b>Vietnamese</b> · fresh, made to order", fact_2:"<b>Lunch</b> on weekdays", fact_3:"<b>Two locations</b> · Royal & Infinity",
-    bb_badge:"◆ The house speciality", bb_lead:"“The best in Luxembourg,” says Paperjam.",
-    bb_p:"A big bowl of warm rice vermicelli, seared marinated beef, crispy nems sliced on top, a shower of fresh herbs and peanuts, and the nuoc-cham that ties it together. Fresh, generous, made to order — and available with chicken, prawns or veggie.",
-    bb_c1:"Rice vermicelli", bb_c2:"Marinated beef", bb_c3:"Crispy nems", bb_c4:"Fresh herbs", bb_c5:"Nuoc-cham",
-    house_kick:"The house", house_h:"A little Saigon at lunch, on Boulevard Royal", house_lead:"You come for the Bò Bún, you come back for the broth.",
-    house_p1:"Thanh's is the Vietnamese lunch canteen: walk in, order at the counter, it arrives fresh and steaming, and you head back to the afternoon well fed. Herbs cut the same day, long broths, honest portions, veggie options throughout.",
-    house_quote:"“Fresh, exotic flavours from Vietnam and beyond.”",
-    house_p2:"Two locations in the heart of the city — Boulevard Royal, opposite the Hôtel Le Royal, and at Infinity in Kirchberg. Lunch service, on weekdays.",
-    d1_h:"Fresh, made to order", d1_p:"Herbs, noodles, broths — prepared the same day, not the day before.",
-    d2_h:"Phở & soups", d2_p:"The Thanh's broth and phở, in a normal or large portion.",
-    d3_h:"For everyone", d3_p:"Beef, chicken, prawns or veggie — every dish, your way.",
-    menu_kick:"The menu", menu_h:"Fresh, simple, Vietnamese",
-    menu_p:"A short menu that gets to the point — every dish comes beef, chicken, prawn or veggie.",
-    cat_start:"◆ To start", cat_bobun:"◆ Bò Bún", cat_soup:"◆ Soups & Phở", cat_more:"◆ Good to know",
-    m_nem_d:"Pork, chicken or veggie — crispy.", m_roll_d:"Fresh — beef, chicken, prawn or veggie.", m_pc:"/ pc", ac:"tbc",
-    m_salad_n:"Vietnamese salad", m_salad_d:"Beef, chicken, prawn or tofu.",
-    m_bb_d:"Vermicelli, herbs, peanuts, nuoc-cham.", m_bbg_d:"The generous version.",
-    m_sand_n:"Vietnamese sandwich", m_sand_d:"Bánh mì — chicken/pork or beef/tofu.",
-    m_soup_d:"Chicken, prawn or veggie.", m_ng:"N / L", m_pho_d:"Long broth, herbs, lime.", m_ng2:"N / L",
-    m_veg_n:"Veggie option", m_veg_d:"On almost everything — tofu, vegetables.",
-    m_take_n:"Takeaway", m_take_d:"Eat in or take away, at lunch.",
-    m_lunch_n:"Lunch, on weekdays", m_lunch_d:"Service ~07:30–15:30, Monday to Friday.",
-    menu_note:"Full menu and pricing available in-house.",
-    gal_kick:"In pictures", gal_h:"Fresh in the bowl",
-    g_grill:"Grilled beef & vermicelli", g_salad:"Prawn salad", g_store:"Boulevard Royal", g_rolls:"Fresh rolls",
-    gal_note:"Public-source photos, not supplied by the venue.",
-    adr_kick:"Find us", adr_h:"Two counters, the same Bò Bún",
-    adr_royal:"25, boulevard Royal · L-2449 Luxembourg<br>(opposite the Hôtel Le Royal)",
-    adr_inf:"Infinity Shopping · 7, avenue J. F. Kennedy<br>L-1855 Kirchberg",
-    adr_map1:"Directions ↗", adr_map2:"Directions ↗",
-    adr_note:"Lunch service, Monday to Friday — closed at the weekend. Hours indicative, to be confirmed with the venue.",
-    foot_sub:"Fusion Lunch · Luxembourg", foot_made:"Website preview composed for the venue by",
-    disclaimer:"This page is an unofficial proposal by Webwerk, built from public sources to show what Thanh's website could look like. The logotype is proposed; the menu and prices were noted on site and remain to be confirmed with the venue, as do the exact addresses and hours. Public-source photographs.",
-    days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], closed:"Closed", lunch:"07:30–15:30"
+  en:{wwb_dir:"Directions",
+    wwb_order:"Order",
+    brand_sub:"Vietnamese cuisine",
+    nav_bobun:"Bò Bún",
+    nav_carte:"The menu",
+    nav_adr:"Find us",
+    hero_kick:"Vietnamese cuisine, Boulevard Royal and Kirchberg",
+    hero_best2:", phở and nems, weekday lunchtimes.",
+    hero_tag:"Fresh, exotic flavours from Vietnam — a lunch canteen a short walk from the office.",
+    hero_cta1:"See the menu",
+    hero_cta2:"Our two locations ↓",
+    fact_1:"<b>Vietnamese cuisine</b>",
+    fact_2:"<b>Lunch</b> on weekdays",
+    fact_3:"<b>Two locations</b>: Royal and Infinity",
+    bb_badge:"On the menu",
+    bb_p:"Rice vermicelli, marinated beef, sliced crispy nems, fresh herbs, peanuts and nuoc-cham. Also with chicken, prawns or vegetarian.",
+    house_kick:"About",
+    house_h:"Lunchtime on Boulevard Royal and in Kirchberg",
+    house_p1:"Thanh's is a Vietnamese lunch canteen: Bò Bún, phở, nems and bánh mì.",
+    house_p2:"Two locations: Boulevard Royal, opposite the Hôtel Le Royal, and Infinity in Kirchberg. Weekday lunchtimes.",
+    menu_kick:"The menu",
+    menu_h:"Bò Bún, phở and nems",
+    cat_start:"Starters",
+    cat_bobun:"Bò Bún &amp; bánh mì",
+    cat_soup:"Phở",
+    cat_more:"Good to know",
+    m_nem_n:"Nems",
+    m_nem_d:"Crispy fried rolls",
+    m_roll_n:"Gỏi cuốn",
+    m_roll_d:"Fresh spring rolls",
+    m_bb_d:"Vermicelli, herbs, peanuts, nuoc-cham.",
+    m_sand_d:"Vietnamese sandwich",
+    m_pho_n:"Phở bò / phở gà",
+    m_pho_d:"Long-simmered broth, herbs, lime.",
+    m_veg_n:"Vegetarian",
+    m_veg_d:"The Bò Bún also comes vegetarian.",
+    m_lunch_n:"Lunch, on weekdays",
+    m_lunch_d:"Monday to Friday.",
+    m_del_n:"Delivery",
+    m_del_d:"On Wolt, from both locations.",
+    gal_kick:"In pictures",
+    gal_h:"Fresh in the bowl",
+    g_grill:"Beef phở",
+    g_store:"The storefront",
+    adr_kick:"Find us",
+    adr_h:"Two locations",
+    adr_royal:"Boulevard Royal, Luxembourg<br>(opposite the Hôtel Le Royal)",
+    adr_inf:"Infinity Shopping, 7 Avenue John F. Kennedy<br>L-1499 Luxembourg-Kirchberg",
+    adr_map1:"Directions ↗",
+    adr_map2:"Directions ↗",
+    adr_wolt1:"Order on Wolt ↗",
+    adr_wolt2:"Order on Wolt ↗",
+    adr_note:"Lunchtimes, Monday to Friday. Closed at weekends.",
+    foot_sub:"Vietnamese cuisine",
+    disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
   }
 };
-/* Hours by getDay() (0=Sun..6=Sat): weekday lunch only; closed Sat+Sun */
-function hoursFor(i){ return (i>=1 && i<=5) ? I18N[lang].lunch : null; }
 
 var lang="fr";
 function t(k){return (I18N[lang] && I18N[lang][k]!=null)?I18N[lang][k]:I18N.fr[k];}
@@ -544,16 +559,6 @@ function applyLang(l){
   lang=l; document.documentElement.lang=l;
   document.querySelectorAll("[data-i18n]").forEach(function(el){var v=t(el.getAttribute("data-i18n")); if(v!=null) el.innerHTML=v;});
   document.querySelectorAll(".langs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-lang")===l);});
-  buildHours("hours1"); buildHours("hours2");
-}
-function buildHours(id){
-  var ul=document.getElementById(id); if(!ul) return;
-  var D=I18N[lang].days, order=[1,2,3,4,5,6,0]; ul.innerHTML="";
-  order.forEach(function(i){
-    var h=hoursFor(i), li=document.createElement("li");
-    var val=h?h:('<span class="cl">'+I18N[lang].closed+'</span>');
-    li.innerHTML='<span class="day">'+D[i]+'</span><span>'+val+'</span>'; ul.appendChild(li);
-  });
 }
 document.querySelectorAll(".langs button").forEach(function(b){b.addEventListener("click",function(){applyLang(b.getAttribute("data-lang"));});});
 
