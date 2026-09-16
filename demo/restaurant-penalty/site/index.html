@@ -115,7 +115,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(25,21,18,.9);backdrop-fi
 .item{display:flex;gap:6px 12px;align-items:baseline;margin:10px 0;flex-wrap:wrap}
 .item .nm{font-weight:700;color:var(--cream);min-width:0}
 .item .ds{color:var(--muted);font-size:.86rem}
-.pop{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);border:1px solid rgba(255,138,69,.4);border-radius:999px;padding:2px 8px;margin-left:8px}
 .wines{margin-top:8px;padding:20px 22px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
 .wines .k{font-family:var(--disp);font-size:1.2rem;color:var(--ember)}
 .wines p{margin-top:5px;color:var(--cream2);font-size:.96rem}
@@ -267,7 +266,7 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
         <div>
           <div class="mgroup">
             <h3><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg><span data-i18n="g_grillades">Grillades</span></h3>
-            <div class="item"><span class="nm" data-i18n="d_mix">Mix grill croate</span><span class="pop" data-i18n="pop">populaire · Google</span></div>
+            <div class="item"><span class="nm" data-i18n="d_mix">Mix grill croate</span></div>
             <div class="item"><span class="nm">Ćevapčići</span></div>
             <div class="item"><span class="nm">Pljeskavica</span></div>
             <div class="item"><span class="nm" data-i18n="d_broch">Brochettes (ražnjići)</span></div>
@@ -282,8 +281,8 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
           <div class="mgroup">
             <h3><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg><span data-i18n="g_meats">Viandes</span></h3>
             <div class="item"><span class="nm" data-i18n="d_entrecote">Entrecôte grillée</span></div>
-            <div class="item"><span class="nm" data-i18n="d_cordon">Cordon bleu, crème de champignons</span><span class="pop" data-i18n="pop2">populaire · Google</span></div>
-            <div class="item"><span class="nm" data-i18n="d_cheval">Filet de cheval, sauce vin rouge</span><span class="pop" data-i18n="pop3">populaire · Google</span></div>
+            <div class="item"><span class="nm" data-i18n="d_cordon">Cordon bleu, crème de champignons</span></div>
+            <div class="item"><span class="nm" data-i18n="d_cheval">Filet de cheval, sauce vin rouge</span></div>
           </div>
           <div class="mgroup">
             <h3><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg>Dolci</h3>
@@ -295,7 +294,7 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
         <span class="k" data-i18n="w_k">Cave croate</span>
         <p data-i18n="w_p">Des vins de Croatie à la carte — Dingač, Plavac Mali — pour accompagner la grillade.</p>
       </div>
-      <p class="pricenote reveal" data-i18n="c_pricenote">Plats d'après nos photos ; les plats « populaires » sont signalés par Google. Carte et prix en salle — à confirmer avec la maison.</p>
+      <p class="pricenote reveal" data-i18n="c_pricenote">Un aperçu de la carte.</p>
     </div>
   </section>
 
@@ -342,7 +341,7 @@ footer{background:#0f0b09;color:#8b8071;padding:44px 0 40px;font-size:.86rem;lin
       <span class="bt"><svg class="grate-mk" viewBox="0 0 100 100"><use href="#grate"/></svg>Restaurant Penalty</span>
       <span>22 Rue de la Gare, L-4571 Oberkorn · <a href="tel:+352586984" style="color:#e9c3ad">58 69 84</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps ; façade Google Street View, 2023). La maison n'a pas de logo — seulement son nom ; identité proposée. Carte sans prix : plats d'après photos, plats « populaires » signalés par Google, carte et prix en salle. À revérifier avant tout contact.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -368,16 +367,15 @@ const I18N = {
   g_sea:"Poissons & salades", d_scampi:"Salade de scampis", d_moules:"Moules",
   g_meats:"Viandes", d_entrecote:"Entrecôte grillée", d_cordon:"Cordon bleu, crème de champignons", d_cheval:"Filet de cheval, sauce vin rouge",
   d_dessert:"Fraises chantilly & profiterole",
-  pop:"populaire · Google", pop2:"populaire · Google", pop3:"populaire · Google",
   w_k:"Cave croate", w_p:"Des vins de Croatie à la carte — Dingač, Plavac Mali — pour accompagner la grillade.",
-  c_pricenote:"Plats d'après nos photos ; les plats « populaires » sont signalés par Google. Carte et prix en salle — à confirmer avec la maison.",
+  c_pricenote:"Un aperçu de la carte.",
   s_eyebrow:"La salle", s_head:"Bois sombre, lumière basse.",
   s_p:"Une salle chaleureuse et feutrée, à deux pas de la gare d'Oberkorn — pour un dîner tranquille ou une tablée qui s'attarde. Repas sur place ou à emporter.",
   vi_eyebrow:"Infos", vi_head:"Rue de la Gare, Oberkorn.",
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_days:"Lun · Mer–Dim : 11h30–14h & 18h–21h30", h_tue:"Mardi : fermé",
   l_serv:"Services", serv_val:"Sur place · à emporter",
   vi_call:"Appeler pour réserver", vi_dir:"Itinéraire",
-  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps ; façade Google Street View, 2023). La maison n'a pas de logo — seulement son nom ; identité proposée. Carte sans prix : plats d'après photos, plats « populaires » signalés par Google, carte et prix en salle. À revérifier avant tout contact.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
   foot_made:"Un aperçu",
   mob_call:"Appeler", mob_dir:"Itinéraire"
  },
@@ -395,16 +393,15 @@ const I18N = {
   g_sea:"Fisch & Salate", d_scampi:"Scampi-Salat", d_moules:"Muscheln",
   g_meats:"Fleisch", d_entrecote:"Gegrilltes Entrecôte", d_cordon:"Cordon bleu, Champignonrahm", d_cheval:"Pferdefilet, Rotweinsauce",
   d_dessert:"Erdbeeren mit Sahne & Profiterole",
-  pop:"beliebt · Google", pop2:"beliebt · Google", pop3:"beliebt · Google",
   w_k:"Kroatischer Weinkeller", w_p:"Kroatische Weine auf der Karte — Dingač, Plavac Mali — zum Grill.",
-  c_pricenote:"Gerichte nach unseren Fotos; die „beliebten“ Gerichte sind von Google markiert. Karte und Preise im Restaurant — vor Ort zu bestätigen.",
+  c_pricenote:"Ein Auszug aus der Karte.",
   s_eyebrow:"Der Saal", s_head:"Dunkles Holz, gedämpftes Licht.",
   s_p:"Ein warmer, gemütlicher Saal, wenige Schritte vom Bahnhof Oberkorn — für ein ruhiges Abendessen oder eine Runde, die bleibt. Vor Ort oder zum Mitnehmen.",
   vi_eyebrow:"Infos", vi_head:"Rue de la Gare, Oberkorn.",
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_days:"Mo · Mi–So: 11:30–14 & 18–21:30", h_tue:"Dienstag: geschlossen",
   l_serv:"Services", serv_val:"Vor Ort · zum Mitnehmen",
   vi_call:"Zum Reservieren anrufen", vi_dir:"Route",
-  foot_disc:"Demo-Vorschau von Webwerk aus öffentlichen Fotos (Google Maps; Fassade Google Street View, 2023). Das Haus hat kein Logo — nur den Namen; Identität als Vorschlag. Karte ohne Preise: Gerichte nach Fotos, „beliebte” Gerichte von Google markiert, Karte und Preise im Restaurant. Vor Kontakt zu prüfen.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
   foot_made:"Eine Vorschau von",
   mob_call:"Anrufen", mob_dir:"Route"
  },
@@ -422,16 +419,15 @@ const I18N = {
   g_sea:"Fish & salads", d_scampi:"Scampi salad", d_moules:"Mussels",
   g_meats:"Meats", d_entrecote:"Grilled entrecôte", d_cordon:"Cordon bleu, mushroom cream", d_cheval:"Horse fillet, red-wine sauce",
   d_dessert:"Strawberries & cream, profiterole",
-  pop:"popular · Google", pop2:"popular · Google", pop3:"popular · Google",
   w_k:"Croatian cellar", w_p:"Croatian wines on the list — Dingač, Plavac Mali — to go with the grill.",
-  c_pricenote:"Dishes from our photos; the “popular” dishes are flagged by Google. Menu and prices in-house — to be confirmed with the venue.",
+  c_pricenote:"A selection from the menu.",
   s_eyebrow:"The room", s_head:"Dark wood, low light.",
   s_p:"A warm, snug room a step from the Oberkorn station — for a quiet dinner or a table that lingers. Dine-in or takeaway.",
   vi_eyebrow:"Find us", vi_head:"Rue de la Gare, Oberkorn.",
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_days:"Mon · Wed–Sun: 11:30–14 & 18–21:30", h_tue:"Tuesday: closed",
   l_serv:"Services", serv_val:"Dine-in · takeaway",
   vi_call:"Call to reserve", vi_dir:"Directions",
-  foot_disc:"Demonstration preview composed by Webwerk from public photos (Google Maps; facade Google Street View, 2023). The venue has no logo — only its name; identity proposed. Menu without prices: dishes from photos, “popular” dishes flagged by Google, menu and prices in-house. To be re-verified before any contact.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
   foot_made:"A preview by",
   mob_call:"Call", mob_dir:"Directions"
  }
