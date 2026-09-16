@@ -1,164 +1,509 @@
 <!DOCTYPE html>
-<!--
-  WEBWERK — reveal page for Restaurant Gurman (Spécialités croates, Belvaux).
-  The real site is in ./site/ (copied from lux-restaurant-sites/mockups/gurman/rebuild/).
-  Site fonts self-hosted in ./site/assets/fonts/ (0 Google requests). The Gurman logo is the venue's own.
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex,nofollow" />
-<title>Restaurant Gurman — une proposition de site · Webwerk</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#0b2c52" />
-<meta property="og:title" content="Restaurant Gurman — une proposition de site" />
-<meta property="og:description" content="Gurman n'a pas de site internet. En voici un — les grillades croates, la carte et les horaires, en français, en allemand et en anglais, pensé pour le téléphone." />
-<link rel="preload" href="/fonts/archivo-79dc5e10-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<title>Gurman — Grillades croates à Belvaux</title>
+<meta name="theme-color" content="#1a1310" />
+<meta name="description" content="Restaurant Gurman, spécialités croates à Belvaux : ćevapčići, pljeskavica, grillades." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><pattern id='s' width='8' height='8' patternUnits='userSpaceOnUse'><rect width='8' height='8' fill='%23f6ece0'/><rect width='4' height='4' fill='%23d0261c'/><rect x='4' y='4' width='4' height='4' fill='%23d0261c'/></pattern></defs><circle cx='16' cy='16' r='15' fill='url(%23s)'/><circle cx='16' cy='16' r='15' fill='none' stroke='%23181109' stroke-width='2'/></svg>" />
+
 <style>
-  :root{ --blue:#0b2c52; --blue2:#0e3360; --cy:#bcd7f2; --wht:#eaf3ff;
-    --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; --maxw:1080px; }
+  /* ---------- self-hosted fonts (latin + latin-ext for ć/č/ž/š; 0 external requests) ---------- */
+  @font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage-600-latin-ext.woff2') format('woff2');font-weight:600;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage-600-latin.woff2') format('woff2');font-weight:600;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage-800-latin-ext.woff2') format('woff2');font-weight:800;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage-800-latin.woff2') format('woff2');font-weight:800;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-400-latin-ext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-400-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-500-latin-ext.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-500-latin.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-700-latin-ext.woff2') format('woff2');font-weight:700;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'Schibsted';src:url('assets/fonts/schibsted-700-latin.woff2') format('woff2');font-weight:700;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  @font-face{font-family:'SplineMono';src:url('assets/fonts/spline-mono-500-latin-ext.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+  @font-face{font-family:'SplineMono';src:url('assets/fonts/spline-mono-500-latin.woff2') format('woff2');font-weight:500;font-display:swap;unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+  :root{
+    --char:#181109;        /* warm near-black */
+    --char2:#241811;       /* raised dark */
+    --ink:#2a1d12;
+    --cream:#f6ece0;       /* stone / paper */
+    --cream2:#efe1d0;
+    --ochre:#d9a441;       /* wall yellow */
+    --ember:#cf4a1e;       /* terracotta-ember (primary accent) */
+    --ember2:#ef8b3b;      /* flame highlight */
+    --adriatic:#2f7690;    /* mural blue (restrained accent) */
+    --muted:#8c7a67;
+    --line:rgba(246,236,224,.14);
+    --maxw:1160px;
+    --disp:'Bricolage',Georgia,serif;
+    --body:'Schibsted','Segoe UI',system-ui,sans-serif;
+    --mono:'SplineMono',ui-monospace,'Cascadia Mono',monospace;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--blue);color:var(--cy);font-family:'Space Mono',ui-monospace,monospace;font-size:14px;line-height:1.6;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-    background-image:linear-gradient(var(--faint2) 1px,transparent 1px),linear-gradient(90deg,var(--faint2) 1px,transparent 1px);
-    background-size:34px 34px;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}
-  a{color:var(--amber);text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:1px}
-  .arch{font-family:'Archivo',sans-serif}
-  .hand{font-family:'Caveat',cursive;color:var(--amber);line-height:1}
-  .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-  .dim{color:rgba(188,215,242,.66)}
+  body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .disp{font-family:var(--disp);font-weight:800;line-height:.95;letter-spacing:-.01em}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase}
+  .skip{position:absolute;left:-9999px;top:auto}
+  .skip:focus{left:16px;top:12px;z-index:99;background:var(--ember);color:#fff;padding:8px 14px;border-radius:4px}
+  ::selection{background:var(--ember);color:#fff}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--ember2);outline-offset:3px}
 
-  header{border-bottom:1px solid var(--faint);position:relative;z-index:2}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
-  .brand{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--wht);font-size:1.15rem}
-  .brand .k{color:var(--red)}
-  .studio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(188,215,242,.6)}
+  /* ---------- header ---------- */
+  header{position:absolute;top:0;left:0;right:0;z-index:20}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{font-family:var(--disp);font-weight:800;font-size:1.35rem;letter-spacing:.02em;color:var(--cream);display:inline-flex;align-items:center;gap:9px}
+  .brand .fl{color:var(--ember2)}
+  .brand img{height:50px;width:auto;flex:none;display:block}
+  footer .brand img{height:96px;filter:brightness(1.25)}
+  footer .fcontact{font-size:.95rem;line-height:1.7;color:rgba(246,236,224,.8);text-align:right}
+  footer .fcontact a{color:var(--cream)}
+  @media(max-width:640px){ footer .fcontact{text-align:left} }
+  @media(max-width:640px){ .brand img{height:42px} footer .brand img{height:76px} }
+  .nav{display:flex;align-items:center;gap:26px}
+  .nav a{font-size:.82rem;color:rgba(246,236,224,.82);letter-spacing:.02em}
+  .nav a:hover{color:var(--cream)}
+  .langs{display:flex;gap:2px;border:1px solid rgba(246,236,224,.28);border-radius:20px;padding:3px}
+  .langs button{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;background:none;border:0;color:rgba(246,236,224,.7);
+    padding:4px 9px;border-radius:16px;cursor:pointer}
+  .langs button[aria-pressed=true]{background:var(--ember);color:#fff}
+  @media(max-width:760px){ .nav .navlink{display:none} }
 
-  .plate{padding:52px 0 0}
-  .plate .fig{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(188,215,242,.72)}
-  .plate h1{font-family:'Archivo',sans-serif;font-weight:800;color:var(--wht);font-size:clamp(34px,6vw,62px);
-    line-height:1.0;letter-spacing:-.01em;margin:14px 0 6px}
-  .plate h1 .sub{display:block;font-size:.42em;font-weight:600;color:var(--cy);letter-spacing:.01em;margin-top:8px}
-  .plate .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(-2.5deg);display:inline-block;margin-left:4px}
-  .lede{max-width:54ch;margin:18px 0 0;color:rgba(188,215,242,.82);font-size:.95rem}
-  .dimline{display:flex;align-items:center;gap:10px;margin:22px 0 0;color:var(--red);font-size:.7rem;max-width:620px}
-  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative;transform:scaleX(0);transform-origin:left;
-    animation:draw 1s .35s cubic-bezier(.6,0,.2,1) forwards}
-  @keyframes draw{to{transform:scaleX(1)}}
-  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
-  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);
+    background:#0d0906;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;z-index:0;background-image:url('assets/hero.jpg');background-size:cover;
+    background-position:62% 78%;transform:scale(1.05);filter:saturate(.95) brightness(.66)}
+  .hero .grad{position:absolute;inset:0;z-index:1;background:
+    linear-gradient(180deg, rgba(8,5,3,.6) 0%, rgba(8,5,3,.18) 30%, rgba(8,5,3,.3) 55%, rgba(8,5,3,.72) 82%, rgba(8,5,3,.94) 100%)}
+  /* ---- live charcoal grill ---- */
+  .hero .emberglow{position:absolute;left:-10%;right:-10%;bottom:-14%;height:50%;
+    background:radial-gradient(58% 100% at 50% 100%, rgba(255,150,54,.6), rgba(207,74,30,.24) 45%, transparent 72%);
+    mix-blend-mode:screen;animation:emberPulse 4.5s ease-in-out infinite}
+  @keyframes emberPulse{0%,100%{opacity:.72;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.05)}}
+  .hero .emberline{position:absolute;left:0;right:0;bottom:0;z-index:3;height:5px;
+    background:linear-gradient(90deg,transparent,var(--ember) 18%,var(--ember2) 50%,var(--ember) 82%,transparent);
+    filter:blur(.4px);opacity:.95;box-shadow:0 0 30px 4px rgba(239,139,59,.7)}
+  .hero .wrap{position:relative;z-index:3;padding-bottom:64px;padding-top:100px;width:100%}
+  .hero .grad::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 18% 62%, rgba(8,5,3,.72), rgba(8,5,3,0) 70%)}
+  .hero .eyebrow{color:#f6ece0;margin-bottom:20px;text-shadow:0 1px 14px rgba(0,0,0,.8)}
+  .hero .eyebrow .dot{color:var(--cream);opacity:.5}
+  .hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(4.6rem,20vw,15rem);line-height:.82;
+    letter-spacing:-.02em;text-transform:uppercase;
+    background:linear-gradient(174deg,#fff 8%,#ffe6c9 38%,var(--ember2) 78%,var(--ember) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 2px 40px rgba(239,139,59,.25);animation:heat 5s ease-in-out infinite}
+  @keyframes heat{0%,100%{filter:drop-shadow(0 0 22px rgba(239,139,59,.2))}50%{filter:drop-shadow(0 0 46px rgba(239,139,59,.5))}}
+  @media(prefers-reduced-motion:reduce){ .hero .emberglow,.hero h1,.hero .herologo img{animation:none} }
+  .hero h1.herologo{line-height:0;margin:8px 0 4px;animation:none;text-shadow:none;background:none}
+  .hero .herologo img{width:min(560px,86vw);height:auto;display:block;animation:heatlogo 5s ease-in-out infinite}
+  @keyframes heatlogo{0%,100%{filter:drop-shadow(0 8px 24px rgba(0,0,0,.5)) drop-shadow(0 0 20px rgba(239,139,59,.18))}50%{filter:drop-shadow(0 8px 24px rgba(0,0,0,.5)) drop-shadow(0 0 42px rgba(239,139,59,.42))}}
+  .hero .lead{max-width:44ch;margin:26px 0 4px;font-size:1.06rem;color:rgba(246,236,224,.9)}
+  .hero .propose{display:inline-block;margin-top:20px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;color:rgba(246,236,224,.55);border:1px solid var(--line);border-radius:20px;padding:5px 12px}
+  .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  @media(max-width:520px){ .hero .cta .btn{flex:1 1 100%;justify-content:center} }
+  .btn{font-family:var(--body);font-weight:700;font-size:.94rem;padding:14px 26px;border-radius:3px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:9px;border:1px solid transparent;transition:.18s}
+  .btn-fire{background:var(--ember);color:#fff;box-shadow:0 10px 34px -12px rgba(207,74,30,.9)}
+  .btn-fire:hover{background:var(--ember2);transform:translateY(-1px)}
+  .btn-ghost{border-color:rgba(246,236,224,.4);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--cream);background:rgba(246,236,224,.06)}
+  .scrollcue{position:absolute;right:26px;bottom:26px;z-index:4;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;
+    color:rgba(246,236,224,.6);writing-mode:vertical-rl;transform:rotate(180deg)}
+  @media(max-width:760px){ .hero h1{font-size:clamp(3.2rem,17vw,6rem)} .scrollcue{display:none} }
 
-  .stage{margin:40px 0 0;position:relative}
-  .stage .tag{position:absolute;right:-6px;top:-30px;z-index:3;font-family:'Caveat',cursive;color:var(--amber);
-    font-size:1.5rem;transform:rotate(3deg)}
-  .browser{border:1px solid var(--faint);border-radius:8px;overflow:hidden;background:#0a2547;
-    box-shadow:0 40px 80px -40px rgba(0,0,0,.6);}
-  .bbar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--blue2);border-bottom:1px solid var(--faint)}
-  .bbar .dot{width:11px;height:11px;border-radius:50%;background:rgba(188,215,242,.35)}
-  .bbar .url{flex:1;margin-left:10px;background:rgba(0,0,0,.22);border:1px solid var(--faint2);border-radius:20px;
-    padding:6px 14px;font-size:.72rem;color:var(--cy);display:flex;align-items:center;gap:8px}
-  .bbar .url b{color:var(--wht);font-weight:400}
-  .bbar .url .lock{color:var(--amber);font-size:.7rem}
-  .screen{position:relative;width:100%;overflow:hidden;background:#181109;height:600px}
-  .screen iframe{position:absolute;top:0;left:0;width:1280px;height:854px;border:0;transform-origin:top left}
-  .screen .veil{position:absolute;inset:0;cursor:pointer;background:transparent}
+  /* ---------- section frame ---------- */
+  section{position:relative}
+  .lead-in{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+  .lead-in .no{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--ember)}
+  .lead-in .rule{flex:1;height:1px;background:currentColor;opacity:.18}
+  h2.head{font-family:var(--disp);font-weight:800;font-size:clamp(2.1rem,5.4vw,3.5rem);line-height:1;letter-spacing:-.015em}
 
-  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:26px 0 0}
-  .btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;
-    background:var(--amber);color:#0a1f38;border:0;border-radius:4px;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-  .btn:hover{filter:brightness(1.06)}
-  .btn.ghost{background:transparent;color:var(--cy);border:1px solid var(--faint)}
-  .btn.ghost:hover{border-color:var(--amber);color:var(--wht)}
+  /* story (light) */
+  .story{background:var(--cream);padding:clamp(64px,10vw,120px) 0;
+    background-image:radial-gradient(rgba(42,29,18,.045) 1px,transparent 1px);background-size:22px 22px}
+  .story .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,72px);align-items:center}
+  .story h2{margin-bottom:22px;color:var(--ink)}
+  .story p{margin-bottom:16px;color:#4a3a2b;font-size:1.05rem;max-width:52ch}
+  .story .fig{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 40px 80px -50px rgba(24,17,9,.7)}
+  .story .fig img{width:100%;height:100%;object-fit:cover;aspect-ratio:1}
+  .story .fig .stat{position:absolute;left:0;bottom:0;background:var(--char);color:var(--cream);padding:18px 22px;
+    border-top-right-radius:6px}
+  .story .fig .stat b{font-family:var(--disp);font-weight:800;font-size:2rem;display:block;color:var(--ember2);line-height:1}
+  .story .fig .stat span{font-family:var(--body);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(246,236,224,.7)}
+  @media(max-width:820px){ .story .grid{grid-template-columns:1fr} .story .fig{order:-1} .story .fig img{aspect-ratio:16/11} }
 
-  .titleblock{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--faint);margin:52px 0 0}
-  .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:13px 15px}
-  .titleblock div:nth-child(3n){border-right:0}
-  .titleblock div:nth-last-child(-n+3){border-bottom:0}
-  .titleblock .k{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.66);display:block;margin-bottom:4px}
-  .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem}
+  /* menu / grill card */
+  .carte{background:var(--char);color:var(--cream);padding:clamp(64px,10vw,120px) 0;position:relative}
+  .carte::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,transparent,var(--ember) 30%,var(--ember2) 50%,var(--ember) 70%,transparent);opacity:.85}
+  .carte .lead-in{color:var(--cream)}
+  .carte h2{color:var(--cream)}
+  .carte .note{font-family:var(--body);font-size:.95rem;color:rgba(246,236,224,.78);margin-top:10px}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);margin-top:48px}
+  @media(max-width:760px){ .menu-grid{grid-template-columns:1fr;gap:34px} }
+  .mgroup h3{font-family:var(--disp);font-weight:600;font-size:1.25rem;color:var(--ochre);margin-bottom:4px;
+    display:flex;align-items:baseline;gap:10px}
+  .mgroup h3 .kr{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--ember2);text-transform:uppercase;opacity:.9}
+  .mgroup>.sub{font-size:.82rem;color:rgba(246,236,224,.55);margin-bottom:18px}
+  .item{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;justify-content:space-between;align-items:baseline}
+  .item .nm{font-weight:700;font-size:1.02rem}
+  .item .ds{display:block;font-weight:400;font-size:.86rem;color:rgba(246,236,224,.62);margin-top:3px}
+  .item .pr{font-family:var(--mono);font-size:.8rem;color:var(--ember2);white-space:nowrap;letter-spacing:.02em}
 
-  footer{margin:46px 0 60px;padding-top:22px;border-top:1px solid var(--faint);
-    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;justify-content:space-between}
-  footer .note{color:rgba(188,215,242,.6);font-size:.72rem;max-width:64ch}
-  footer a.home{font-family:'Archivo',sans-serif;font-weight:700;color:var(--wht)}
-  footer a.home .k{color:var(--red)}
+  /* feature band — mixed grill */
+  .feature{position:relative;color:var(--cream);overflow:hidden;background:#100a06}
+  .feature .fbg{position:absolute;inset:0;background-image:url('assets/grill.jpg');background-size:cover;background-position:center 45%;
+    opacity:1}
+  .feature .fgrad{position:absolute;inset:0;background:
+    linear-gradient(90deg, rgba(16,10,6,.9) 0%, rgba(16,10,6,.72) 34%, rgba(16,10,6,0) 62%)}
+  @media(max-width:760px){ .feature .fbg{bottom:auto;height:240px} .feature .fgrad{top:auto;height:auto;bottom:0;top:180px;background:linear-gradient(180deg, rgba(16,10,6,0) 0, #100a06 60px)} .feature .wrap{padding-top:262px!important;padding-bottom:54px!important} }
+  .feature .wrap{position:relative;z-index:2;padding:clamp(70px,12vw,150px) 24px}
+  .feature .inner{max-width:36ch}
+  .feature .eyebrow{color:#f3b27a;margin-bottom:16px}
+  .feature h2{font-family:var(--disp);font-weight:800;font-size:clamp(2.4rem,7vw,5rem);line-height:.95;margin-bottom:16px}
+  .feature p{font-size:1.06rem;color:rgba(246,236,224,.9)}
 
-  @media(max-width:640px){
-    .titleblock{grid-template-columns:1fr 1fr}
-    .titleblock div:nth-child(3n){border-right:1px solid var(--faint)}
-    .titleblock div:nth-child(2n){border-right:0}
-    .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)}
-    .titleblock div:nth-last-child(-n+2){border-bottom:0}
-    .screen{height:420px}
-    .stage .tag{display:none}
-  }
-  @media(prefers-reduced-motion:reduce){ .dimline .bar{transform:scaleX(1);animation:none} }
+  /* gallery (light) */
+  .gallery{background:var(--cream2);padding:clamp(64px,10vw,120px) 0}
+  .gallery h2{color:var(--ink)}
+  .gg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;align-items:stretch}
+  .gg figure{position:relative;overflow:hidden;border-radius:6px;box-shadow:0 30px 60px -46px rgba(24,17,9,.7)}
+  .gg img{width:100%;height:100%;object-fit:cover}
+  .gg .big{grid-row:auto}
+  .gg .big img{aspect-ratio:3/2.7}
+  .gg .sm img{aspect-ratio:3/2}
+  .gg figcaption{position:absolute;left:0;bottom:0;right:0;padding:34px 16px 12px;font-family:var(--body)!important;font-size:.88rem!important;letter-spacing:0!important;
+    background:linear-gradient(0deg,rgba(16,10,6,0.95) 0%,rgba(16,10,6,0.86) 62%,rgba(16,10,6,0) 100%);color:var(--cream);
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.05em}
+  .gg figcaption b{color:var(--ember2);font-weight:500}
+  .gcap-note{margin-top:16px;font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.03em}
+  @media(max-width:680px){ .gg{grid-template-columns:1fr} .gg .big{grid-row:auto} .gg .big img,.gg .sm img{aspect-ratio:3/2} }
+
+  /* visit / almanac */
+  .visit{background:var(--char);color:var(--cream);padding:clamp(64px,10vw,120px) 0}
+  .visit h2{color:var(--cream)}
+  .vbtn{display:flex;justify-content:center;width:100%;margin-bottom:12px}
+  .visit .cols{display:grid;grid-template-columns:1fr 1.3fr .9fr;gap:clamp(24px,4vw,48px);margin-top:44px}
+  @media(max-width:820px){ .visit .cols{grid-template-columns:1fr 1fr} .visit .map{grid-column:1/-1} }
+  @media(max-width:520px){ .visit .cols{grid-template-columns:1fr} }
+  .vc h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ember2);margin-bottom:14px}
+  .vc .big{font-family:var(--disp);font-weight:600;font-size:1.15rem;color:var(--cream);line-height:1.3}
+  .vc a.big:hover{color:var(--ember2)}
+  .vc p{font-size:.92rem;color:rgba(246,236,224,.72);margin-top:8px}
+  .hours{list-style:none;font-size:.92rem}
+  .hours li{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line);color:rgba(246,236,224,.86)}
+  .hours li.today{color:var(--ember2)}
+  .hours li .cl{color:var(--muted)}
+  .confirm{font-family:var(--mono);font-size:.64rem;letter-spacing:.04em;color:var(--muted);margin-top:10px}
+  .map{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;min-height:210px;background:#120c07}
+  .map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .map .pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);z-index:2;text-align:center}
+  .map .pin .dot{width:16px;height:16px;border-radius:50%;background:var(--ember);margin:0 auto;box-shadow:0 0 0 6px rgba(207,74,30,.28)}
+  .map .pin span{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--cream);margin-top:6px}
+  .map .dir{position:absolute;right:10px;bottom:10px;z-index:3;background:var(--ember);color:#fff;font-family:var(--mono);
+    font-size:.66rem;letter-spacing:.06em;padding:7px 12px;border-radius:3px}
+
+  /* footer */
+  footer{background:#0d0906;color:rgba(246,236,224,.6);padding:0 0 60px}
+  .checkrule{height:9px;background:repeating-conic-gradient(#d0261c 0 25%, #f6ece0 0 50%) 0 0 / 18px 18px}
+  footer .top{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:baseline;
+    border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:22px}
+  footer .brand{color:var(--cream)}
+  footer .made{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em}
+  footer .made a{color:var(--ember2)}
+  footer .disc{font-size:.72rem;line-height:1.7;max-width:80ch;color:rgba(246,236,224,.42)}
+  footer .disc b{color:rgba(246,236,224,.6);font-weight:500}
+
+  /* sticky mobile action bar */
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:0;
+    background:var(--char);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s}
+  .dock.show{transform:translateY(0)}
+  .dock{border-top:1px solid rgba(246,236,224,.18)}
+  .dock a{flex:1;text-align:center;padding:15px 8px;font-weight:700;font-size:.9rem;color:var(--cream);
+    display:flex;align-items:center;justify-content:center;gap:8px}
+  .dock a.call{background:var(--ember);color:#fff}
+  @media(max-width:760px){ .dock{display:flex} body{padding-bottom:54px} }
+
 </style>
 </head>
 <body>
+<!-- decorative checker pattern -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+  <pattern id="sah" width="14" height="14" patternUnits="userSpaceOnUse">
+    <rect width="14" height="14" fill="#f6ece0"/><rect width="7" height="7" fill="#d0261c"/><rect x="7" y="7" width="7" height="7" fill="#d0261c"/>
+  </pattern>
+</defs></svg>
+<a class="skip" href="#carte" data-i18n="skip">Aller à la carte</a>
 
 <header>
   <div class="wrap">
-    <a class="brand" href="https://webwerk.lu/">WEBWER<span class="k">K</span></a>
-    <span class="studio">Studio web · Luxembourg</span>
+    <a class="brand" href="#top" aria-label="Restaurant Gurman"><img src="assets/logo-header.png" alt="Gurman" /></a>
+    <nav class="nav">
+      <a class="navlink" href="#carte" data-i18n="nav_menu">La carte</a>
+      <a class="navlink" href="#salle" data-i18n="nav_room">La salle</a>
+      <a class="navlink" href="#visite" data-i18n="nav_visit">Nous trouver</a>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" aria-pressed="true">FR</button>
+        <button data-lang="de" aria-pressed="false">DE</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
   </div>
 </header>
 
-<main class="wrap">
-  <section class="plate">
-    <span class="fig">FIG. — Proposition de site</span>
-    <h1>Restaurant Gurman<span class="sub">Spécialités croates · Belvaux, Luxembourg <span class="note">grillé pour vous ✎</span></span></h1>
-    <p class="lede">Gurman n'a pas de site internet. En voici un — les grillades croates, la carte et les horaires, le tout en français, en allemand et en anglais, à l'aise sur le téléphone.</p>
-    <div class="dimline"><span>Concept</span><span class="bar"></span><span>Mise en ligne</span></div>
-  </section>
-
-  <section class="stage">
-    <span class="tag">↙ votre nouveau site</span>
-    <div class="browser">
-      <div class="bbar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="url"><span class="lock">🔒</span> <b>gurman.lu</b> · aperçu</span>
-      </div>
-      <div class="screen">
-        <iframe title="Aperçu du site Restaurant Gurman" src="./site/index.html" loading="lazy" scrolling="no"></iframe>
-        <a class="veil" href="./site/index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
-      </div>
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="bg"></div><div class="grad"></div>
+  <div class="wrap">
+    <p class="eyebrow"><span data-i18n="hero_eyebrow">Belvaux</span> <span class="dot">·</span> Luxembourg</p>
+    <h1 class="herologo"><img src="assets/logo.png" alt="Restaurant Gurman — Spécialités Croates" /></h1>
+    <p class="lead" data-i18n="hero_lead">Les grillades croates et l'ajvar, à Belvaux.</p>
+    <div class="cta">
+      <a class="btn btn-fire" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+      <a class="btn btn-ghost" href="tel:+352593697" data-i18n="hero_cta2">Appeler pour réserver</a>
     </div>
-    <div class="actions">
-      <a class="btn" href="./site/index.html" target="_blank" rel="noopener">Ouvrir le site en grand ↗</a>
-      <a class="btn ghost" href="mailto:jean@webwerk.lu?subject=Restaurant%20Gurman%20—%20site">En parler avec nous</a>
-    </div>
-  </section>
-
-  <div class="titleblock">
-    <div><span class="k">Projet</span><span class="v">Restaurant Gurman — Spécialités croates</span></div>
-    <div><span class="k">Lieu</span><span class="v">Belvaux (LU)</span></div>
-    <div><span class="k">Échelle</span><span class="v">1:1 — taille réelle</span></div>
-    <div><span class="k">Studio</span><span class="v">Webwerk</span></div>
-    <div><span class="k">État</span><span class="v">Aperçu</span></div>
-    <div><span class="k">Contact</span><span class="v">jean@webwerk.lu</span></div>
   </div>
+  <div class="emberline"></div>
+</section>
 
-  <footer>
-    <a class="home" href="https://webwerk.lu/">WEBWER<span class="k">K</span> — nous dessinons le web.</a>
-    <span class="note">Aperçu non officiel réalisé à partir de sources publiques ; le logotype est celui de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
-  </footer>
-</main>
+<!-- STORY -->
+<section class="story" id="histoire">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="lead-in"><span class="no">01</span><span data-i18n="s1_kicker" class="eyebrow" style="color:var(--ember)">La maison</span><span class="rule"></span></div>
+        <h2 class="head" data-i18n="s1_head">Les spécialités croates du gril.</h2>
+        <p data-i18n="s1_p1">Chez Gurman, la carte est croate : ćevapčići, pljeskavica, grill mixte et steak makedonski, servis avec l'ajvar et la salade.</p>
+        <p data-i18n="s1_p2">La salle a ses arches de pierre, ses murs ocre et ses poutres en bois.</p>
+      </div>
+      <div class="fig">
+        <img src="assets/ceva.jpg" alt="Ćevapčići, ajvar, oignon cru et salade" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="carte" id="carte">
+  <div class="wrap">
+    <div class="lead-in"><span class="no">02</span><span class="eyebrow" data-i18n="s2_kicker">La carte</span><span class="rule"></span></div>
+    <h2 class="head" data-i18n="s2_head">Sa žara — du gril</h2>
+    <p class="note" data-i18n="s2_note">Un aperçu de la carte.</p>
+    <div class="menu-grid">
+      <div class="mgroup">
+        <h3><span data-i18n="g_gril">Les grillades</span></h3>
+        <p class="sub" data-i18n="g_gril_sub">Servies avec ajvar et salade.</p>
+        <div class="item"><span><span class="nm">Ćevapčići</span><span class="ds" data-i18n="d_cevapi">Petits rouleaux de viande hachée grillés, oignon cru</span></span></div>
+        <div class="item"><span><span class="nm">Pljeskavica</span><span class="ds" data-i18n="d_plje">Grande galette de viande hachée grillée</span></span></div>
+        <div class="item"><span><span class="nm">Grill mixte</span><span class="ds" data-i18n="d_mix">Assortiment de grillades de la maison</span></span></div>
+      </div>
+      <div class="mgroup">
+        <h3><span data-i18n="g_mer">Et aussi</span></h3>
+        <p class="sub" data-i18n="g_mer_sub">Viande, poisson et plats de la maison.</p>
+        <div class="item"><span><span class="nm">Steak makedonski</span><span class="ds" data-i18n="d_mak">Steak haché au fromage de chèvre</span></span></div>
+        <div class="item"><span><span class="nm">Plateau de poissons</span><span class="ds" data-i18n="d_poi">Assiette de poissons et fruits de mer</span></span></div>
+        <div class="item"><span><span class="nm">Cordon bleu</span><span class="ds" data-i18n="d_esc">Sauce crème aux champignons</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE — grill mixte -->
+<section class="feature" id="plateau">
+  <div class="fbg"></div><div class="fgrad"></div>
+  <div class="wrap">
+    <div class="inner">
+      <p class="eyebrow" data-i18n="f_kicker">À la carte</p>
+      <h2 data-i18n="f_head">Grill mixte</h2>
+      <p data-i18n="f_p">L'assiette de grillades : brochette, saucisse, ćevapčići et viande grillée, avec l'ajvar et l'oignon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="salle">
+  <div class="wrap">
+    <div class="lead-in"><span class="no">03</span><span class="eyebrow" style="color:var(--ember)" data-i18n="s3_kicker">En salle</span><span class="rule"></span></div>
+    <h2 class="head" data-i18n="s3_head">Arches de pierre, à Belvaux</h2>
+    <div class="gg">
+      <figure class="big"><img src="assets/salle.jpg" alt="La salle — arches de pierre et murs ocre" loading="lazy" />
+        <figcaption><b data-i18n="c_salle_l">La salle</b> — <span data-i18n="c_salle">arches de pierre, murs ocre et bois chaud.</span></figcaption></figure>
+      <figure class="big"><img src="assets/mer.jpg" alt="Pâtes aux fruits de mer" loading="lazy" />
+        <figcaption><b data-i18n="c_mer_l">De la mer</b> — <span data-i18n="c_mer">pâtes aux fruits de mer.</span></figcaption></figure>
+    </div>
+    
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visite">
+  <div class="wrap">
+    <div class="lead-in"><span class="no">04</span><span class="eyebrow" data-i18n="s4_kicker">Nous trouver</span><span class="rule"></span></div>
+    <h2 class="head" data-i18n="s4_head">Passez nous voir</h2>
+    <div class="cols">
+      <div class="vc">
+        <h4 data-i18n="v_hours">Horaires</h4>
+        <p class="big" data-i18n="v_hours_line">Midi et soir, fermé le lundi</p>
+      </div>
+      <div class="vc">
+        <h4 data-i18n="v_contact">Adresse &amp; contact</h4>
+        <span class="big">2, rue Grande-Duchesse Charlotte<br>L-4430 Belvaux</span>
+        <a class="big" href="tel:+352593697" style="display:block;margin-top:14px">+352 59 36 97</a>
+      </div>
+      <div class="vc">
+        <a class="btn btn-fire vbtn" href="tel:+352593697" data-i18n="dock_call">Appeler</a>
+        <a class="btn btn-ghost vbtn" href="https://www.google.com/maps/search/?api=1&query=Restaurant+Gurman+2+Rue+Grande-Duchesse+Charlotte+Belvaux" target="_blank" rel="noopener" data-i18n="v_dir">Itinéraire ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding-top:52px">
+    <div class="top">
+      <a class="brand" href="#top" aria-label="Restaurant Gurman — Spécialités Croates"><img src="assets/logo.png" alt="Restaurant Gurman — Spécialités Croates" /></a>
+    </div>
+    <p class="disc"><span data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span></p>
+  </div>
+</footer>
+
+<!-- sticky mobile dock -->
+<div class="dock" id="dock">
+  <a href="#carte" data-i18n="dock_menu">La carte</a>
+  <a href="https://www.google.com/maps/search/?api=1&query=Restaurant+Gurman+2+Rue+Grande-Duchesse+Charlotte+Belvaux" target="_blank" rel="noopener" data-i18n="dock_dir">Itinéraire</a>
+  <a class="call" href="tel:+352593697" data-i18n="dock_call">Appeler</a>
+</div>
 
 <script>
+  /* ---------------- i18n ---------------- */
+  var I18N = {
+    fr:{
+      skip:"Aller à la carte",
+      nav_menu:"La carte", nav_room:"La salle", nav_visit:"Nous trouver",
+      hero_eyebrow:"Belvaux",
+      hero_lead:"Les grillades croates et l'ajvar, à Belvaux.",
+      hero_cta1:"Voir la carte", hero_cta2:"Appeler pour réserver",
+      s1_kicker:"La maison", s1_head:"Les spécialités croates du gril.",
+      s1_p1:"Chez Gurman, la carte est croate : ćevapčići, pljeskavica, grill mixte et steak makedonski, servis avec l'ajvar et la salade.", s1_p2:"La salle a ses arches de pierre, ses murs ocre et ses poutres en bois.",
+      s2_kicker:"La carte", s2_head:"Sa žara — du gril",
+      s2_note:"Un aperçu de la carte.",
+      g_gril:"Les grillades", g_gril_sub:"Servies avec ajvar et salade.",
+      d_cevapi:"Petits rouleaux de viande hachée grillés, oignon cru",
+      d_plje:"Grande galette de viande hachée grillée",
+      d_mak:"Steak haché au fromage de chèvre",
+      d_mix:"Assortiment de grillades de la maison",
+      g_mer:"Et aussi", g_mer_sub:"Viande, poisson et plats de la maison.",
+      d_poi:"Assiette de poissons et fruits de mer",
+      d_esc:"Sauce crème aux champignons",
+      f_kicker:"À la carte", f_head:"Grill mixte",
+      f_p:"L'assiette de grillades : brochette, saucisse, ćevapčići et viande grillée, avec l'ajvar et l'oignon.",
+      s3_kicker:"En salle", s3_head:"Arches de pierre, à Belvaux",
+      c_salle_l:"La salle", c_salle:"arches de pierre, murs ocre et bois chaud.",
+      c_mer_l:"De la mer", c_mer:"pâtes aux fruits de mer.",
+      s4_kicker:"Nous trouver", s4_head:"Passez nous voir",
+      v_hours:"Horaires", v_hours_line:"Midi et soir, fermé le lundi", disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.", 
+      v_contact:"Adresse & contact", 
+       v_dir:"Itinéraire ↗",
+      dock_menu:"La carte", dock_call:"Appeler", dock_dir:"Itinéraire"
+    },
+    de:{
+      skip:"Zur Speisekarte",
+      nav_menu:"Speisekarte", nav_room:"Der Saal", nav_visit:"Anfahrt",
+      hero_eyebrow:"Belvaux",
+      hero_lead:"Kroatische Grillgerichte und Ajvar – in Belvaux.",
+      hero_cta1:"Zur Speisekarte", hero_cta2:"Anrufen und reservieren",
+      s1_kicker:"Das Haus", s1_head:"Kroatische Spezialitäten vom Grill.",
+      s1_p1:"Bei Gurman ist die Karte kroatisch: Ćevapčići, Pljeskavica, gemischte Grillplatte und Steak makedonski, serviert mit Ajvar und Salat.", s1_p2:"Der Gastraum hat Steinbögen, ockerfarbene Wände und Holzbalken.",
+      s2_kicker:"Die Karte", s2_head:"Sa žara — vom Grill",
+      s2_note:"Ein Auszug aus der Karte.",
+      g_gril:"Vom Grill", g_gril_sub:"Serviert mit Ajvar und Salat.",
+      d_cevapi:"Gegrillte Hackfleischröllchen, rohe Zwiebeln",
+      d_plje:"Großes gegrilltes Hacksteak",
+      d_mak:"Hacksteak mit Ziegenkäse",
+      d_mix:"Gemischte Grillplatte des Hauses",
+      g_mer:"Außerdem", g_mer_sub:"Fleisch, Fisch und Klassiker des Hauses.",
+      d_poi:"Fisch- und Meeresfrüchteplatte",
+      d_esc:"Mit Champignon-Rahmsauce",
+      f_kicker:"Auf der Karte", f_head:"Gemischte Grillplatte",
+      f_p:"Der Grillteller: Spieß, Wurst, Ćevapčići und gegrilltes Fleisch, mit Ajvar und Zwiebeln.",
+      s3_kicker:"Im Saal", s3_head:"Steinbögen, in Belvaux",
+      c_salle_l:"Der Saal", c_salle:"Steinbögen, ockerfarbene Wände und warmes Holz.",
+      c_mer_l:"Aus dem Meer", c_mer:"Pasta mit Meeresfrüchten.",
+      s4_kicker:"Anfahrt", s4_head:"Besuchen Sie uns",
+      v_hours:"Öffnungszeiten", v_hours_line:"Mittags und abends, montags Ruhetag", 
+      v_contact:"Adresse & Kontakt", 
+       v_dir:"Route ↗",
+      disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+      dock_menu:"Speisekarte", dock_call:"Anrufen", dock_dir:"Route"
+    },
+    en:{
+      skip:"Skip to the menu",
+      nav_menu:"Menu", nav_room:"The room", nav_visit:"Find us",
+      hero_eyebrow:"Belvaux",
+      hero_lead:"Croatian grills and ajvar, in Belvaux.",
+      hero_cta1:"See the menu", hero_cta2:"Call to book",
+      s1_kicker:"The house", s1_head:"Croatian specialities off the grill.",
+      s1_p1:"At Gurman the menu is Croatian: ćevapčići, pljeskavica, mixed grill and steak makedonski, served with ajvar and salad.", s1_p2:"The dining room has stone arches, ochre walls and wooden beams.",
+      s2_kicker:"The menu", s2_head:"Sa žara — off the grill",
+      s2_note:"A selection from the menu.",
+      g_gril:"Off the grill", g_gril_sub:"Served with ajvar and salad.",
+      d_cevapi:"Grilled minced-meat rolls, raw onion",
+      d_plje:"Large grilled minced-meat patty",
+      d_mak:"Minced steak with goat's cheese",
+      d_mix:"The house mixed grill",
+      g_mer:"Also", g_mer_sub:"Meat, fish and house classics.",
+      d_poi:"Fish and seafood platter",
+      d_esc:"With creamy mushroom sauce",
+      f_kicker:"On the menu", f_head:"Mixed grill",
+      f_p:"The grill plate: skewer, sausage, ćevapčići and grilled meat, with ajvar and onion.",
+      s3_kicker:"The room", s3_head:"Stone arches, in Belvaux",
+      c_salle_l:"The room", c_salle:"stone arches, ochre walls and warm wood.",
+      c_mer_l:"From the sea", c_mer:"seafood pasta.",
+      s4_kicker:"Find us", s4_head:"Come and see us",
+      v_hours:"Hours", v_hours_line:"Lunch and dinner, closed on Mondays", 
+      v_contact:"Address & contact", 
+       v_dir:"Directions ↗",
+      disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+      dock_menu:"Menu", dock_call:"Call", dock_dir:"Directions"
+    }
+  };
+  var current="fr";
+  function applyLang(lang){
+    current=lang;
+    document.documentElement.lang=lang;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k=el.getAttribute("data-i18n"), v=I18N[lang][k];
+      if(v==null) v=I18N.fr[k];
+      if(v!=null){ if(v.indexOf("<")>-1) el.innerHTML=v; else el.textContent=v; }
+    });
+    document.querySelectorAll(".langs button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang")===lang ? "true":"false");
+    });
+  }
+  document.querySelectorAll(".langs button").forEach(function(b){
+    b.addEventListener("click",function(){ applyLang(b.getAttribute("data-lang")); });
+  });
+
+
+  /* sticky dock appears after the hero */
   (function(){
-    var screen=document.querySelector('.screen'), frame=document.querySelector('.screen iframe');
-    var BASE=1280;
-    function fit(){ var s=screen.clientWidth/BASE; frame.style.transform='scale('+s+')'; }
-    fit(); window.addEventListener('resize',fit); frame.addEventListener('load',fit);
+    var dock=document.getElementById("dock"), hero=document.querySelector(".hero");
+    if(!dock||!hero||!("IntersectionObserver" in window)) return;
+    new IntersectionObserver(function(e){
+      dock.classList.toggle("show", !e[0].isIntersecting);
+    },{rootMargin:"-40% 0px 0px 0px"}).observe(hero);
   })();
+
+
 </script>
-<!-- cookieless, GDPR-clean analytics (same as webwerk.lu) — if/when the reveal is opened + visitor country -->
-<script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

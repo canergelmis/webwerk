@@ -1,150 +1,482 @@
 <!DOCTYPE html>
-<!--
-  WEBWERK — reveal page for Colomb (Brasserie Colomb, Gasperich, Luxembourg).
-  The real site is in ./site/ (copied from lux-restaurant-sites/mockups/brasserie-colomb/rebuild/).
-  Site fonts self-hosted in ./site/assets/fonts/ (0 Google requests). Proposal — not affiliated with the venue.
-  Note: brasseriecolomb.lu is genuinely dead (NXDOMAIN, re-verified 2026-09-09) — walzstrooss-style
-  "dead domain" framing applies, not the il-salento "thin placeholder" framing.
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>Colomb — une proposition de site · Webwerk</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#0b2c52" />
-<meta property="og:title" content="Colomb — une proposition de site" />
-<meta property="og:description" content="Brasserie Colomb n'a plus de site — brasseriecolomb.lu ne répond plus. En voici un : le menu du jour, la pizzeria et l'enseigne au navire, en français, allemand et anglais, pensé pour le téléphone." />
-<link rel="preload" href="/fonts/archivo-79dc5e10-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%231b3253'/><text x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23c9a35f' text-anchor='middle'>C</text></svg>" />
+<title>Colomb — Brasserie franco-italienne, Gasperich</title>
+<meta name="description" content="Brasserie franco-italienne à Gasperich, Luxembourg. Menu du jour, pizzeria et pâtes. Aperçu de site composé par Webwerk." />
 <style>
-  :root{ --blue:#0b2c52; --blue2:#0e3360; --cy:#bcd7f2; --wht:#eaf3ff;
-    --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; --maxw:1080px; }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--blue);color:var(--cy);font-family:'Space Mono',ui-monospace,monospace;font-size:14px;line-height:1.6;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-    background-image:linear-gradient(var(--faint2) 1px,transparent 1px),linear-gradient(90deg,var(--faint2) 1px,transparent 1px);
-    background-size:34px 34px;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}
-  a{color:var(--amber);text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:1px}
-  .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-  header{border-bottom:1px solid var(--faint);position:relative;z-index:2}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
-  .brand{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--wht);font-size:1.15rem}
-  .brand .k{color:var(--red)}
-  .studio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(188,215,242,.6)}
-  .plate{padding:52px 0 0}
-  .plate .fig{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(188,215,242,.72)}
-  .plate h1{font-family:'Archivo',sans-serif;font-weight:800;color:var(--wht);font-size:clamp(34px,6vw,62px);
-    line-height:1.0;letter-spacing:-.01em;margin:14px 0 6px}
-  .plate h1 .sub{display:block;font-size:.42em;font-weight:600;color:var(--cy);letter-spacing:.01em;margin-top:8px}
-  .plate .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(-2.5deg);display:inline-block;margin-left:4px}
-  .lede{max-width:58ch;margin:18px 0 0;color:rgba(188,215,242,.82);font-size:.95rem}
-  .dimline{display:flex;align-items:center;gap:10px;margin:22px 0 0;color:var(--red);font-size:.7rem;max-width:620px}
-  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative;transform:scaleX(0);transform-origin:left;
-    animation:draw 1s .35s cubic-bezier(.6,0,.2,1) forwards}
-  @keyframes draw{to{transform:scaleX(1)}}
-  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
-  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
-  .stage{margin:40px 0 0;position:relative}
-  .stage .tag{position:absolute;right:-6px;top:-30px;z-index:3;font-family:'Caveat',cursive;color:var(--amber);
-    font-size:1.5rem;transform:rotate(3deg)}
-  .browser{border:1px solid var(--faint);border-radius:8px;overflow:hidden;background:#0a2547;
-    box-shadow:0 40px 80px -40px rgba(0,0,0,.6);}
-  .bbar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--blue2);border-bottom:1px solid var(--faint)}
-  .bbar .dot{width:11px;height:11px;border-radius:50%;background:rgba(188,215,242,.35)}
-  .bbar .url{flex:1;margin-left:10px;background:rgba(0,0,0,.22);border:1px solid var(--faint2);border-radius:20px;
-    padding:6px 14px;font-size:.72rem;color:var(--cy);display:flex;align-items:center;gap:8px}
-  .bbar .url b{color:var(--wht);font-weight:400}
-  .bbar .url .lock{color:var(--amber);font-size:.7rem}
-  .screen{position:relative;width:100%;overflow:hidden;background:#1c140c;height:600px}
-  .screen iframe{position:absolute;top:0;left:0;width:1280px;height:854px;border:0;transform-origin:top left}
-  .screen .veil{position:absolute;inset:0;cursor:pointer;background:transparent}
-  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:26px 0 0}
-  .btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;
-    background:var(--amber);color:#0a1f38;border:0;border-radius:4px;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-  .btn:hover{filter:brightness(1.06)}
-  .btn.ghost{background:transparent;color:var(--cy);border:1px solid var(--faint)}
-  .btn.ghost:hover{border-color:var(--amber);color:var(--wht)}
-  .titleblock{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--faint);margin:52px 0 0}
-  .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:13px 15px}
-  .titleblock div:nth-child(3n){border-right:0}
-  .titleblock div:nth-last-child(-n+3){border-bottom:0}
-  .titleblock .k{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.66);display:block;margin-bottom:4px}
-  .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem}
-  footer{margin:46px 0 60px;padding-top:22px;border-top:1px solid var(--faint);
-    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;justify-content:space-between}
-  footer .note{color:rgba(188,215,242,.6);font-size:.72rem;max-width:66ch}
-  footer a.home{font-family:'Archivo',sans-serif;font-weight:700;color:var(--wht)}
-  footer a.home .k{color:var(--red)}
-  @media(max-width:640px){
-    .titleblock{grid-template-columns:1fr 1fr}
-    .titleblock div:nth-child(3n){border-right:1px solid var(--faint)}
-    .titleblock div:nth-child(2n){border-right:0}
-    .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)}
-    .titleblock div:nth-last-child(-n+2){border-bottom:0}
-    .screen{height:420px}
-    .stage .tag{display:none}
-  }
-  @media(prefers-reduced-motion:reduce){ .dimline .bar{transform:scaleX(1);animation:none} }
+/* ===== FONTS (self-hosted, 0 external requests) ===== */
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/eb-garamond-500-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/eb-garamond-500-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:500;font-display:swap;src:url('assets/fonts/eb-garamond-500-italic-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'EB Garamond';font-style:italic;font-weight:500;font-display:swap;src:url('assets/fonts/eb-garamond-500-italic-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/eb-garamond-600-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/eb-garamond-600-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/eb-garamond-700-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'EB Garamond';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/eb-garamond-700-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/manrope-400-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/manrope-400-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/manrope-500-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/manrope-500-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/manrope-600-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/manrope-600-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/manrope-700-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/manrope-700-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/manrope-800-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/manrope-800-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+
+/* ===== TOKENS ===== */
+:root{
+  --navy:#132b47; --navy2:#1e3a5f; --navy-d:#0d1f34;
+  --gold:#b5985a; --gold2:#8f7640; --gold-br:#cba967;
+  --paper:#f6f1e6; --cream:#fbf8f1; --card:#fffdf8;
+  --ink:#1c2430; --ink2:#4a4636; --muted:#8b8371; --line:#e1d6bb;
+  --maxw:1180px;
+  --disp:'EB Garamond',Georgia,serif; --body:'Manrope',system-ui,-apple-system,sans-serif;
+  --sh:0 24px 50px rgba(19,30,45,.22); --sh-s:0 10px 24px rgba(19,30,45,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.64;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,46px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.08;color:var(--navy)}
+.accent{font-family:var(--disp);font-style:italic;font-weight:500;font-size:1.18rem}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:700;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2)}
+.eyebrow::before{content:'';width:20px;height:2px;background:var(--gold2)}
+.blk{padding:clamp(56px,8vw,104px) 0}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* route divider — a genuine motif echoing the ship's mast-line in the real logo, not decoration bolted on */
+.route{display:flex;align-items:center;justify-content:center;gap:14px;padding:26px 0;background:var(--cream)}
+.route .ln{height:1px;flex:1;max-width:220px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px)}
+.route img{height:22px;width:auto;opacity:.85}
+.route.dark{background:var(--navy-d)}
+.route.dark .ln{background:repeating-linear-gradient(90deg,rgba(203,169,103,.4) 0 8px,transparent 8px 16px)}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:60;background:rgba(246,241,230,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--navy)}
+.brand img{height:40px;width:auto}
+.brand .bt{font-family:var(--disp);font-weight:600;font-size:1.5rem;letter-spacing:.01em;line-height:.86;color:var(--navy)}
+.brand .bt small{display:block;font-family:var(--body);font-weight:600;font-size:.5rem;letter-spacing:.22em;color:var(--muted);margin-top:6px;text-transform:uppercase}
+.navright{display:flex;align-items:center;gap:20px}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{font-family:var(--body);font-weight:600;font-size:.94rem;letter-spacing:.01em;color:var(--ink2)}
+.menu a:hover{color:var(--gold2)}
+.langs{display:flex;gap:2px;background:var(--line);border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--ink2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--navy);color:#fff}
+.burger{display:none;background:transparent;border:0;color:var(--navy);cursor:pointer;padding:6px}
+@media(max-width:860px){
+  .menu{position:fixed;inset:74px 0 auto 0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 0;transform:translateY(-140%);transition:transform .32s ease;box-shadow:var(--sh-s)}
+  .menu.open{transform:none}
+  .menu a{padding:15px clamp(20px,5vw,46px);width:100%;border-top:1px solid var(--line)}
+  .burger{display:block}
+}
+@media(max-width:520px){.brand .bt{font-size:1.22rem}.navright{gap:10px}}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:clamp(600px,88vh,820px);display:flex;align-items:flex-end;color:#fff;background:var(--navy-d);overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(184deg,rgba(13,25,40,0.5) 0%,rgba(13,25,40,0.38) 30%,rgba(11,20,32,0.8) 78%,rgba(9,17,28,0.95) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:100px;padding-bottom:clamp(46px,6vw,78px)}
+.hero .brandmark{margin-bottom:14px}
+.hero .brandmark img{height:58px;width:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.4))}
+.hero h1{color:#fff;font-size:clamp(46px,9vw,104px);letter-spacing:.005em;text-shadow:0 3px 40px rgba(0,0,0,.5)}
+.hero .tag{font-family:var(--body);font-weight:600;font-size:clamp(15px,1.9vw,19px);letter-spacing:.04em;color:var(--gold-br);margin:12px 0 0}
+.hero .sub{font-family:var(--body);font-size:1.05rem;color:#eee6d4;margin:16px 0 0;max-width:54ch;line-height:1.62;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
+.hero .chip{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--body);font-size:.88rem;color:#e5d9bd}
+.btn{font-family:var(--body);font-weight:700;font-size:.98rem;letter-spacing:.01em;border:0;border-radius:8px;padding:13px 25px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn.p{background:var(--gold-br);color:#1c1607}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(203,169,103,.4)}
+.btn.g{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5)}
+.btn.g:hover{background:rgba(255,255,255,.2)}
+
+/* ===== MAISON (identity) ===== */
+.maison{background:var(--cream)}
+.mgrid{display:grid;grid-template-columns:.62fr 1.38fr;gap:clamp(30px,5vw,66px);align-items:center}
+.mbadge{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:clamp(28px,3vw,40px) clamp(22px,3vw,32px);background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-s)}
+.mbadge img{width:100%;max-width:190px}
+.mbadge .est{font-family:var(--body);font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-top:6px}
+.maison h2{font-size:clamp(32px,4.4vw,50px);margin:14px 0 0}
+.maison p{color:var(--ink2);margin:16px 0 0;max-width:60ch}
+.maison p.accent{color:var(--gold2)}
+@media(max-width:860px){.mgrid{grid-template-columns:1fr}.mbadge{max-width:280px;margin:0 auto}}
+
+/* ===== SALLE (floor blocks) ===== */
+.floor{position:relative;overflow:hidden}
+.floor.dark{background:var(--navy-d);color:#e8e2d2}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.fgrid.rev{grid-template-columns:1fr 1fr}
+.fgrid.rev .pic{order:-1}
+.floor .txt{padding:clamp(50px,7vw,96px) clamp(22px,5vw,64px);display:flex;flex-direction:column;justify-content:center}
+.floor.dark .eyebrow{color:var(--gold-br)}.floor.dark .eyebrow::before{background:var(--gold-br)}
+.floor h2{font-size:clamp(30px,4.4vw,52px);margin:14px 0 0}
+.floor.dark h2{color:#fff}
+.floor.light h2{color:var(--navy)}
+.floor p{margin:18px 0 0;max-width:48ch;font-size:1.04rem}
+.floor.dark p{color:#cfc7b0}
+.floor.light p{color:var(--ink2)}
+.floor .pic{min-height:360px}
+.floor .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.floor.light{background:var(--paper)}
+@media(max-width:860px){.fgrid,.fgrid.rev{grid-template-columns:1fr}.fgrid.rev .pic{order:0}.floor .pic{min-height:260px}}
+
+/* ===== CARTE (menu, editorial not cards) ===== */
+.carte{position:relative;background:var(--paper)}
+.carte .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.carte .head-c .eyebrow{justify-content:center}
+.carte h2{font-size:clamp(32px,4.4vw,48px);margin:12px 0 0}
+.carte .intro{color:var(--ink2);max-width:58ch;margin:14px auto 0;text-align:center}
+.mwrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3vw,30px);margin-top:clamp(34px,4vw,50px)}
+.menu-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(26px,3.4vw,36px);box-shadow:var(--sh-s)}
+.menu-card.wide{grid-column:1/-1}
+.menu-card h3{font-family:var(--body);font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);margin-bottom:14px}
+.item{display:flex;gap:10px;align-items:baseline;margin:9px 0}
+.item .nm{font-weight:500;color:var(--ink);font-family:var(--body)}
+.item.sig .nm{font-weight:700;color:var(--navy)}
+.sig-tag{display:inline-block;margin-left:8px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-br);background:var(--navy);border-radius:999px;padding:2px 9px;vertical-align:middle}
+.proof{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line)}
+.proof img{width:100%;border-radius:8px;box-shadow:var(--sh-s)}
+.proof p{margin-top:9px;font-size:.82rem;color:var(--muted);font-style:italic}
+.pricenote{margin-top:22px;font-size:.86rem;color:var(--muted);text-align:center;max-width:60ch;margin-left:auto;margin-right:auto}
+@media(max-width:760px){.mwrap{grid-template-columns:1fr}}
+
+/* ===== VISIT ===== */
+.visit{background:var(--cream)}
+.visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+.info{margin-top:24px}
+.info .row{padding:15px 0;border-top:1px solid var(--line)}
+.info .row:last-child{border-bottom:1px solid var(--line)}
+.info .k{font-family:var(--body);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2)}
+.info .v{margin-top:5px;color:var(--ink)}
+.info .v a{border-bottom:1px solid var(--line)}
+.info .v .note{display:block;font-size:.84rem;color:var(--muted);margin-top:3px}
+.visit .cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.visit .cta .btn.p{background:var(--navy);color:#fff}
+.visit .cta .btn.p:hover{box-shadow:0 14px 30px rgba(19,43,71,.3)}
+.visit .cta .btn.g{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.deadsite{margin-top:26px;padding:18px 20px;background:var(--card);border:1px dashed var(--muted);border-radius:12px}
+.deadsite .k{font-family:var(--body);font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2)}
+.deadsite p{margin-top:6px;color:var(--ink2);font-size:.92rem}
+.mapcard{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start;min-height:300px}
+.mapcard svg{width:100%;height:100%;display:block;min-height:300px}
+.mapcta{position:absolute;left:18px;bottom:16px;font-family:var(--body);font-weight:700;font-size:.86rem;color:#fff;background:rgba(13,25,40,.6);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 14px}
+@media(max-width:860px){.visit .vgrid2{grid-template-columns:1fr}}
+
+/* ===== FOOTER ===== */
+footer{background:var(--navy-d);color:#b3ab95;padding:44px 0 40px;font-size:.86rem;line-height:1.6}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-top .bt{font-family:var(--disp);font-weight:600;font-size:1.4rem;color:#f2ece0;display:flex;align-items:center;gap:11px}
+.foot-top .bt img{height:30px;width:auto}
+.disc{margin-top:22px;color:#8f8770;max-width:82ch}
+.madeby{margin-top:14px;color:var(--gold-br)}
+.madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
-<body>
+<body id="top">
+
 <header>
-  <div class="wrap">
-    <a class="brand" href="https://webwerk.lu/">WEBWER<span class="k">K</span></a>
-    <span class="studio">Studio web · Luxembourg</span>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Colomb">
+      <img src="assets/logo-mark.png" alt="" />
+      <span class="bt">Colomb<small data-i18n="brand_sub">Gasperich · brasserie franco-italienne</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#maison" data-i18n="n_maison">La maison</a>
+        <a href="#salle" data-i18n="n_salle">La salle</a>
+        <a href="#carte" data-i18n="n_carte">La carte</a>
+        <a href="#visit" data-i18n="n_visit">Infos</a>
+      </nav>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 32 22" width="22" height="16"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M1 2H31M1 11H31M1 20H31"/></g></svg></button>
+    </div>
   </div>
 </header>
-<main class="wrap">
-  <section class="plate">
-    <span class="fig">FIG. — Proposition de site</span>
-    <h1>Colomb<span class="sub">Brasserie · restaurant · Gasperich <span class="note">composé pour vous ✎</span></span></h1>
-    <p class="lede">Brasserie Colomb n'a plus de site : brasseriecolomb.lu ne répond plus du tout, et rien en ligne ne lui appartient — tout passe par les plateformes d'avis et une page Facebook. En voici un, à vous : le menu du jour et la pizzeria sous la même enseigne au navire, jusqu'à la pizza « Colomb » que la maison a nommée d'après elle-même, en français, en allemand et en anglais, pensé pour le téléphone.</p>
-    <div class="dimline"><span>Concept</span><span class="bar"></span><span>Mise en ligne</span></div>
-  </section>
-  <section class="stage">
-    <span class="tag">↙ votre nouveau site</span>
-    <div class="browser">
-      <div class="bbar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="url"><span class="lock">🔒</span> <b>brasseriecolomb.lu</b> · aperçu</span>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="bg"><img src="assets/hero.jpg" alt="La salle de Colomb, tables dressées sous le tableau du menu du jour" /></div>
+    <div class="shade"></div>
+    <div class="wrap">
+      <div class="brandmark"><img src="assets/logo-mark.png" alt="" /></div>
+      <h1>Colomb</h1>
+      <p class="tag" data-i18n="hero_tag">Brasserie franco-italienne · Gasperich</p>
+      <p class="sub" data-i18n="hero_sub">Une brasserie de quartier à Gasperich, où le menu du jour côtoie la pizzeria — sur la rue qui porte le nom du navigateur.</p>
+      <div class="cta">
+        <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
+        <a href="tel:+35226649611" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 26 64 96 11</a>
       </div>
-      <div class="screen">
-        <iframe title="Aperçu du site Colomb" src="./site/index.html" loading="lazy" scrolling="no"></iframe>
-        <a class="veil" href="./site/index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
-      </div>
-    </div>
-    <div class="actions">
-      <a class="btn" href="./site/index.html" target="_blank" rel="noopener">Ouvrir le site en grand ↗</a>
-      <a class="btn ghost" href="mailto:jean@webwerk.lu?subject=Colomb%20—%20site">En parler avec nous</a>
+      <div class="chip" data-i18n="hero_chip">1, Rue Christophe Colomb, Gasperich</div>
     </div>
   </section>
-  <div class="titleblock">
-    <div><span class="k">Projet</span><span class="v">Colomb — brasserie franco-italienne</span></div>
-    <div><span class="k">Lieu</span><span class="v">Gasperich, Luxembourg</span></div>
-    <div><span class="k">Échelle</span><span class="v">1:1 — taille réelle</span></div>
-    <div><span class="k">Studio</span><span class="v">Webwerk</span></div>
-    <div><span class="k">État</span><span class="v">Aperçu · sans engagement</span></div>
-    <div><span class="k">Contact</span><span class="v">jean@webwerk.lu</span></div>
-  </div>
-  <footer>
-    <a class="home" href="https://webwerk.lu/">WEBWER<span class="k">K</span> — nous dessinons le web.</a>
-    <span class="note">Aperçu réalisé à titre indicatif à partir de sources publiques (menu.lu, rankeat.fr, TripAdvisor, la page Facebook de la maison) — proposition non officielle, sans lien avec la maison. Logo reproduit fidèlement à partir de leur enseigne réelle. Menu affiché à titre d'exemple déjà servi — la pizza « Colomb » figurait bel et bien sur leur tableau du menu du jour ; si elle est toujours au menu, sa recette exacte et son prix restent à confirmer, comme le reste de la carte. Deux numéros de téléphone circulent (26 64 96 11 / 26 48 17 06) — à confirmer lequel est actif. Horaires à confirmer. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
-  </footer>
+
+  <!-- MAISON -->
+  <section class="maison blk" id="maison">
+    <div class="wrap mgrid">
+      <div class="mbadge reveal">
+        <img src="assets/logo-crop.png" alt="Le logo de Colomb : une coque de navire, fourchette et cuillère croisées en guise de voile" />
+        <span class="est" data-i18n="m_est">Gasperich · depuis la rue Colomb</span>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="m_eyebrow">L'enseigne</span>
+        <h2 data-i18n="m_head">Le nom d'une rue, le geste d'un navigateur.</h2>
+        <p data-i18n="m_p1">La maison tient son nom de son adresse : 1, rue Christophe Colomb, à Gasperich. Elle en a fait une enseigne — une coque de navire, fourchette et cuillère croisées en guise de voile, suspendue à un mât.</p>
+        <p class="accent" data-i18n="m_p2">Deux cuisines qui se rencontrent dans la même salle, sans façon — jusqu'à la pizza que la maison a nommée d'après elle-même : la « Colomb ».</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="route"><span class="ln"></span><img src="assets/logo-mark.png" alt="" /><span class="ln"></span></div>
+
+  <!-- SALLE -->
+  <section id="salle">
+    <div class="floor dark">
+      <div class="fgrid">
+        <div class="txt reveal">
+          <span class="eyebrow" data-i18n="t_eyebrow">La traversée</span>
+          <h2 data-i18n="t_head">Deux traditions, la même salle.</h2>
+          <p data-i18n="t_p">Plats du jour, suggestions du chef et grillades côté brasserie ; pizzas, pâtes et desserts italiens côté pizzeria — servis sous le même toit, à Gasperich.</p>
+        </div>
+        <div class="pic reveal"><img src="assets/interior-1-duo.jpg" alt="La salle vue à travers la cloison de bambous" /></div>
+      </div>
+    </div>
+    <div class="floor light">
+      <div class="fgrid rev">
+        <div class="pic reveal"><img src="assets/interior-3-duo.jpg" alt="Le coin BAR, écrans et grandes baies vitrées sur la verdure de Gasperich" /></div>
+        <div class="txt reveal">
+          <span class="eyebrow" data-i18n="s_eyebrow">La salle</span>
+          <h2 data-i18n="s_head">Un coin BAR, un match, une table pour dix.</h2>
+          <p data-i18n="s_p">Gasperich s'est fait quartier d'affaires — Cloche d'Or n'est pas loin — et la maison en a gardé l'esprit : un coin BAR avec écrans pour le sport, de grandes tables pour les collègues ou la famille, et le rythme d'une adresse de semaine plutôt que d'une sortie du dimanche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="route dark"><span class="ln"></span><img src="assets/logo-mark.png" alt="" style="filter:brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(10deg)" /><span class="ln"></span></div>
+
+  <!-- CARTE -->
+  <section class="carte blk" id="carte">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow" data-i18n="ca_eyebrow">La carte</span>
+        <h2 data-i18n="ca_head">Un exemple de carte — le format de la maison.</h2>
+        <p class="intro" data-i18n="ca_intro">La carte évolue avec les saisons.</p>
+      </div>
+      <div class="mwrap reveal">
+        <div class="menu-card">
+          <h3 data-i18n="g_jour">Menu du jour</h3>
+          <div class="item"><span class="nm" data-i18n="i_jour1">Formule du jour, midi — un plat qui change chaque jour de la semaine (exemples déjà servis : escalope, lasagne, pâtes, roulade)</span></div>
+          <div class="item"><span class="nm" data-i18n="i_jour2">Suggestions du chef — grillades, poisson, carpaccio de bœuf, risotto</span></div>
+        </div>
+        <div class="menu-card">
+          <h3 data-i18n="g_pizze">Pizzeria &amp; pâtes</h3>
+          <div class="item"><span class="nm" data-i18n="i_marg">Margherita</span></div>
+          <div class="item"><span class="nm" data-i18n="i_prosc">Prosciutto e funghi</span></div>
+          <div class="item"><span class="nm" data-i18n="i_diav">Diavola</span></div>
+          <div class="item sig"><span class="nm" data-i18n="i_colomb">Colomb</span><span class="sig-tag" data-i18n="sig_tag">Signature maison</span></div>
+          <div class="item"><span class="nm" data-i18n="i_pasta">Pâtes du jour (lasagne, penne…)</span></div>
+          <div class="proof">
+            <img src="assets/proof-colomb-pizza.jpg" alt="Le tableau du menu du jour de la maison, où « Colomb » figure entre la Diavola et la Margherita" />
+            <p data-i18n="proof_cap">Vue réelle du tableau affiché en salle — la « Colomb » y figurait bel et bien (toujours au menu ?</p>
+          </div>
+        </div>
+        <div class="menu-card wide">
+          <h3 data-i18n="g_dessert">Desserts</h3>
+          <div class="item"><span class="nm" data-i18n="i_tiramisu">Tiramisu</span></div>
+          <div class="item"><span class="nm" data-i18n="i_moelleux">Moelleux au chocolat</span></div>
+          <div class="item"><span class="nm" data-i18n="i_panna">Panna cotta</span></div>
+          <div class="item"><span class="nm" data-i18n="i_mousse">Mousse au chocolat</span></div>
+          <div class="item"><span class="nm" data-i18n="i_caffe">Caffè shakerato</span></div>
+        </div>
+      </div>
+      <p class="pricenote" data-i18n="ca_pricenote">Exemple de carte déjà servie à l'enseigne — la pizza « Colomb » figurait bel et bien sur leur tableau du menu du jour.</p>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit blk" id="visit">
+    <div class="wrap vgrid2">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="v_eyebrow">Infos pratiques</span>
+        <h2 data-i18n="v_head">1, rue Christophe Colomb, Gasperich.</h2>
+        <div class="info">
+          <div class="row"><div class="k" data-i18n="l_addr">Adresse</div><div class="v">1, Rue Christophe Colomb, L-1349 Luxembourg</div></div>
+          <div class="row"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+35226649611">26 64 96 11</a><span class="note" data-i18n="tel_note">Un second numéro circule (26 48 17 06).</span></div></div>
+          <div class="row"><div class="k" data-i18n="l_mail">E-mail</div><div class="v"><a href="mailto:brasseriecolomb@pt.lu">brasseriecolomb@pt.lu</a><span class="note" data-i18n="mail_note">Adresse historique.</span></div></div>
+          <div class="row"><div class="k" data-i18n="l_hours">Horaires</div></div>
+        </div>
+        <div class="cta">
+          <a href="tel:+35226649611" class="btn p" data-i18n="v_call">Appeler</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Brasserie+Colomb+1+Rue+Christophe+Colomb+Luxembourg" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
+        </div>
+      </div>
+      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&amp;query=Brasserie+Colomb+1+Rue+Christophe+Colomb+Luxembourg" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
+        <svg viewBox="0 0 400 300" width="100%" height="100%" role="img" aria-hidden="true">
+          <rect width="400" height="300" fill="#0d1f34"/>
+          <g stroke="#233a56" stroke-width="10" opacity=".6">
+            <path d="M30 60 H140"/><path d="M220 40 H340"/><path d="M50 230 H160"/><path d="M210 250 H330"/><path d="M60 140 H150"/><path d="M240 150 H360"/>
+          </g>
+          <g transform="translate(200,150)">
+            <circle r="34" fill="rgba(203,169,103,.16)"/>
+            <path d="M0 -22 C12 -22 20 -13 20 -2 C20 12 0 30 0 30 C0 30 -20 12 -20 -2 C-20 -13 -12 -22 0 -22 Z" fill="#cba967"/>
+            <circle r="6" fill="#0d1f34"/>
+          </g>
+          <text x="200" y="270" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#d8cbab" letter-spacing="1">RUE CHRISTOPHE COLOMB · GASPERICH</text>
+        </svg>
+        <span class="mapcta" data-i18n="v_dir2">Ouvrir l'itinéraire ↗</span>
+      </a>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="bt"><img src="assets/logo-mark.png" alt="" />Colomb</span>
+      <span>1, Rue Christophe Colomb, L-1349 Luxembourg · <a href="tel:+35226649611" style="color:#e7dcc3">26 64 96 11</a></span>
+    </div>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
+  </div>
+</footer>
+
 <script>
-  (function(){
-    var screen=document.querySelector('.screen'), frame=document.querySelector('.screen iframe');
-    var BASE=1280;
-    function fit(){ var s=screen.clientWidth/BASE; frame.style.transform='scale('+s+')'; }
-    fit(); window.addEventListener('resize',fit); frame.addEventListener('load',fit);
-  })();
+const I18N = {
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
+  brand_sub:"Gasperich · brasserie franco-italienne", n_maison:"La maison", n_salle:"La salle", n_carte:"La carte", n_visit:"Infos",
+  hero_tag:"Brasserie franco-italienne · Gasperich",
+  hero_sub:"Une brasserie de quartier à Gasperich, où le menu du jour côtoie la pizzeria — sur la rue qui porte le nom du navigateur.",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler", hero_chip:"1, Rue Christophe Colomb, Gasperich",
+  m_eyebrow:"L'enseigne", m_est:"Gasperich · depuis la rue Colomb", m_head:"Le nom d'une rue, le geste d'un navigateur.",
+  m_p1:"La maison tient son nom de son adresse : 1, rue Christophe Colomb, à Gasperich. Elle en a fait une enseigne — une coque de navire, fourchette et cuillère croisées en guise de voile, suspendue à un mât.",
+  m_p2:"Deux cuisines qui se rencontrent dans la même salle, sans façon — jusqu'à la pizza que la maison a nommée d'après elle-même : la « Colomb ».",
+  t_eyebrow:"La traversée", t_head:"Deux traditions, la même salle.",
+  t_p:"Plats du jour, suggestions du chef et grillades côté brasserie ; pizzas, pâtes et desserts italiens côté pizzeria — servis sous le même toit, à Gasperich.",
+  s_eyebrow:"La salle", s_head:"Un coin BAR, un match, une table pour dix.",
+  s_p:"Gasperich s'est fait quartier d'affaires — Cloche d'Or n'est pas loin — et la maison en a gardé l'esprit : un coin BAR avec écrans pour le sport, de grandes tables pour les collègues ou la famille, et le rythme d'une adresse de semaine plutôt que d'une sortie du dimanche.",
+  ca_eyebrow:"La carte", ca_head:"Un exemple de carte — le format de la maison.", ca_intro:"La carte évolue avec les saisons.",
+  g_jour:"Menu du jour", i_jour1:"Formule du jour, midi — un plat qui change chaque jour de la semaine (exemples déjà servis : escalope, lasagne, pâtes, roulade)", i_jour2:"Suggestions du chef — grillades, poisson, carpaccio de bœuf, risotto",
+  g_pizze:"Pizzeria & pâtes", i_marg:"Margherita", i_prosc:"Prosciutto e funghi", i_diav:"Diavola", i_colomb:"Colomb", sig_tag:"Signature maison", i_pasta:"Pâtes du jour (lasagne, penne…)", proof_cap:"Vue réelle du tableau affiché en salle — la « Colomb » y figurait bel et bien (toujours au menu ?",
+  g_dessert:"Desserts", i_tiramisu:"Tiramisu", i_moelleux:"Moelleux au chocolat", i_panna:"Panna cotta", i_mousse:"Mousse au chocolat", i_caffe:"Caffè shakerato",
+  ca_pricenote:"Exemple de carte déjà servie à l'enseigne — la pizza « Colomb » figurait bel et bien sur leur tableau du menu du jour.",
+  v_eyebrow:"Infos pratiques", v_head:"1, rue Christophe Colomb, Gasperich.",
+  l_addr:"Adresse", l_tel:"Téléphone", tel_note:"Un second numéro circule (26 48 17 06).", l_mail:"E-mail", mail_note:"Adresse historique.", l_hours:"Horaires",
+  v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_made:"Un aperçu"
+ },
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
+  brand_sub:"Gasperich · Franko-italienische Brasserie", n_maison:"Das Haus", n_salle:"Der Saal", n_carte:"Die Karte", n_visit:"Infos",
+  hero_tag:"Franko-italienische Brasserie · Gasperich",
+  hero_sub:"Eine Nachbarschaftsbrasserie in Gasperich, wo das Tagesmenü neben der Pizzeria steht — in der Straße, die den Namen des Seefahrers trägt.",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", hero_chip:"1, Rue Christophe Colomb, Gasperich",
+  m_eyebrow:"Das Zeichen", m_est:"Gasperich · seit der Rue Colomb", m_head:"Der Name einer Straße, die Geste eines Seefahrers.",
+  m_p1:"Das Haus trägt den Namen seiner Adresse: 1, rue Christophe Colomb, in Gasperich. Daraus wurde ein Zeichen — ein Schiffsrumpf, Gabel und Löffel gekreuzt als Segel, an einem Mast hängend.",
+  m_p2:"Zwei Küchen, die sich im selben Saal treffen, ohne viel Aufhebens — bis hin zu der Pizza, die das Haus nach sich selbst benannt hat: die „Colomb“.",
+  t_eyebrow:"Die Überfahrt", t_head:"Zwei Traditionen, ein Saal.",
+  t_p:"Tagesgerichte, Empfehlungen des Chefs und Gegrilltes auf der Brasserie-Seite; Pizzen, Pasta und italienische Desserts auf der Pizzeria-Seite — serviert unter demselben Dach, in Gasperich.",
+  s_eyebrow:"Der Saal", s_head:"Eine BAR-Ecke, ein Spiel, ein Tisch für zehn.",
+  s_p:"Gasperich ist zum Geschäftsviertel geworden — Cloche d'Or liegt nicht weit — und das Haus hat sich diesen Geist bewahrt: eine BAR-Ecke mit Bildschirmen für Sport, große Tische für Kollegen oder die Familie, und der Rhythmus einer Wochentagsadresse statt eines Sonntagsausflugs.",
+  ca_eyebrow:"Die Karte", ca_head:"Ein Beispiel für eine Karte — das Format des Hauses.", ca_intro:"Die Karte ändert sich mit den Jahreszeiten; hier ein Beispiel, das im Haus bereits serviert wurde.",
+  g_jour:"Tagesmenü", i_jour1:"Tagesformel, mittags — ein Gericht, das jeden Wochentag wechselt (bereits servierte Beispiele: Schnitzel, Lasagne, Pasta, Roulade)", i_jour2:"Empfehlungen des Chefs — Gegrilltes, Fisch, Rindercarpaccio, Risotto",
+  g_pizze:"Pizzeria & Pasta", i_marg:"Margherita", i_prosc:"Prosciutto e funghi", i_diav:"Diavola", i_colomb:"Colomb", sig_tag:"Hausspezialität", i_pasta:"Pasta des Tages (Lasagne, Penne…)", proof_cap:"Echte Aufnahme der im Restaurant hängenden Tafel.",
+  g_dessert:"Desserts", i_tiramisu:"Tiramisu", i_moelleux:"Schokoladenkuchen", i_panna:"Panna cotta", i_mousse:"Schokoladenmousse", i_caffe:"Caffè shakerato",
+  ca_pricenote:"Beispiel einer bereits im Haus servierten Karte — die Pizza „Colomb“ stand tatsächlich auf deren Tagesmenütafel.",
+  v_eyebrow:"Praktische Infos", v_head:"1, rue Christophe Colomb, Gasperich.",
+  l_addr:"Adresse", l_tel:"Telefon", tel_note:"Eine zweite Nummer ist im Umlauf (26 48 17 06).", l_mail:"E-Mail", mail_note:"Historische Adresse.", l_hours:"Öffnungszeiten", h_val:"Die Quellen stimmen nicht überein (laut einigen sonntags geschlossen, laut anderen 7 Tage geöffnet).",
+  v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_made:"Eine Vorschau von"
+ },
+ en:{wwb_call:"Call",wwb_dir:"Directions",
+  brand_sub:"Gasperich · Franco-Italian brasserie", n_maison:"The house", n_salle:"The room", n_carte:"The menu", n_visit:"Find us",
+  hero_tag:"Franco-Italian brasserie · Gasperich",
+  hero_sub:"A neighbourhood brasserie in Gasperich, where the daily menu sits alongside the pizzeria — on the street named after the navigator.",
+  hero_cta1:"See the menu", hero_cta2:"Call", hero_chip:"1, Rue Christophe Colomb, Gasperich",
+  m_eyebrow:"The sign", m_est:"Gasperich · since Rue Colomb", m_head:"A street's name, a navigator's gesture.",
+  m_p1:"The house takes its name from its address: 1, rue Christophe Colomb, in Gasperich. It turned that into a sign — a ship's hull, fork and spoon crossed as a sail, hanging from a mast.",
+  m_p2:"Two cuisines meeting in the same room, without fuss — down to the pizza the house named after itself: the \"Colomb\".",
+  t_eyebrow:"The crossing", t_head:"Two traditions, one room.",
+  t_p:"Daily specials, chef's suggestions and grills on the brasserie side; pizzas, pasta and Italian desserts on the pizzeria side — served under the same roof, in Gasperich.",
+  s_eyebrow:"The room", s_head:"A BAR corner, a match, a table for ten.",
+  s_p:"Gasperich has become a business district — Cloche d'Or is close by — and the house has kept that spirit: a BAR corner with screens for sport, big tables for colleagues or family, and the rhythm of a weekday address rather than a Sunday outing.",
+  ca_eyebrow:"The menu", ca_head:"An example menu — the house's format.", ca_intro:"The menu changes with the seasons; here is one already served at the house, as an example.",
+  g_jour:"Daily menu", i_jour1:"Lunchtime daily formula — a dish that changes each weekday (examples already served: escalope, lasagne, pasta, roulade)", i_jour2:"Chef's suggestions — grills, fish, beef carpaccio, risotto",
+  g_pizze:"Pizzeria & pasta", i_marg:"Margherita", i_prosc:"Prosciutto e funghi", i_diav:"Diavola", i_colomb:"Colomb", sig_tag:"House signature", i_pasta:"Pasta of the day (lasagne, penne…)", proof_cap:"A real photo of the board hanging in the dining room.",
+  g_dessert:"Desserts", i_tiramisu:"Tiramisu", i_moelleux:"Chocolate moelleux", i_panna:"Panna cotta", i_mousse:"Chocolate mousse", i_caffe:"Caffè shakerato",
+  ca_pricenote:"Example of a menu already served at the house — the \"Colomb\" pizza genuinely was on their own daily-menu board.",
+  v_eyebrow:"Find us", v_head:"1, rue Christophe Colomb, Gasperich.",
+  l_addr:"Address", l_tel:"Phone", tel_note:"A second number is in circulation (26 48 17 06).", l_mail:"Email", mail_note:"Historic address.", l_hours:"Hours",
+  v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_made:"A preview by"
+ }
+};
+function applyLang(l){
+  const d = I18N[l] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ const k=el.getAttribute('data-i18n'); if(d[k]!=null) el.textContent=d[k]; });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  try{ localStorage.setItem('colomb_lang', l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
+(function(){ let l='fr'; try{ l=localStorage.getItem('colomb_lang')||'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
-<!-- cookieless, GDPR-clean analytics (same as webwerk.lu) — did the reveal get opened + visitor country -->
-<script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226649611" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Brasserie+Colomb+1+Rue+Christophe+Colomb+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

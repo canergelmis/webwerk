@@ -1,150 +1,557 @@
 <!DOCTYPE html>
-<!--
-  WEBWERK — reveal page for Bhimas (cuisine indienne du Sud, Bonnevoie).
-  The real site is in ./site/ (copied from lux-restaurant-sites/mockups/bhimas/rebuild/).
-  Site fonts self-hosted in ./site/assets/fonts/ (0 Google requests). Proposal — not affiliated with the venue.
--->
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="noindex,nofollow" />
-<title>Bhimas — une proposition de site · Webwerk</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#0b2c52" />
-<meta property="og:title" content="Bhimas — une proposition de site" />
-<meta property="og:description" content="Bhimas n'a pas de site. En voici un — le biryani, le thali à volonté et la carte, en français, allemand et anglais, pensé pour le téléphone." />
-<link rel="preload" href="/fonts/archivo-79dc5e10-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Bhimas — Cuisine indienne du Sud, Bonnevoie</title>
+<meta name="description" content="Cuisine indienne du Sud à Bonnevoie — biryani hyderabadi, thali sud-indien à volonté, spécialités d'Andhra. À deux pas de la gare. Démonstration Webwerk."/>
 <style>
-  :root{ --blue:#0b2c52; --blue2:#0e3360; --cy:#bcd7f2; --wht:#eaf3ff;
-    --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; --maxw:1080px; }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--blue);color:var(--cy);font-family:'Space Mono',ui-monospace,monospace;font-size:14px;line-height:1.6;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-    background-image:linear-gradient(var(--faint2) 1px,transparent 1px),linear-gradient(90deg,var(--faint2) 1px,transparent 1px);
-    background-size:34px 34px;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}
-  a{color:var(--amber);text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:1px}
-  .arch{font-family:'Archivo',sans-serif}
-  .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-  .dim{color:rgba(188,215,242,.66)}
-  header{border-bottom:1px solid var(--faint);position:relative;z-index:2}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
-  .brand{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--wht);font-size:1.15rem}
-  .brand .k{color:var(--red)}
-  .studio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(188,215,242,.6)}
-  .plate{padding:52px 0 0}
-  .plate .fig{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(188,215,242,.72)}
-  .plate h1{font-family:'Archivo',sans-serif;font-weight:800;color:var(--wht);font-size:clamp(34px,6vw,62px);
-    line-height:1.0;letter-spacing:-.01em;margin:14px 0 6px}
-  .plate h1 .sub{display:block;font-size:.42em;font-weight:600;color:var(--cy);letter-spacing:.01em;margin-top:8px}
-  .plate .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(-2.5deg);display:inline-block;margin-left:4px}
-  .lede{max-width:54ch;margin:18px 0 0;color:rgba(188,215,242,.82);font-size:.95rem}
-  .dimline{display:flex;align-items:center;gap:10px;margin:22px 0 0;color:var(--red);font-size:.7rem;max-width:620px}
-  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative;transform:scaleX(0);transform-origin:left;
-    animation:draw 1s .35s cubic-bezier(.6,0,.2,1) forwards}
-  @keyframes draw{to{transform:scaleX(1)}}
-  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
-  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
-  .stage{margin:40px 0 0;position:relative}
-  .stage .tag{position:absolute;right:-6px;top:-30px;z-index:3;font-family:'Caveat',cursive;color:var(--amber);
-    font-size:1.5rem;transform:rotate(3deg)}
-  .browser{border:1px solid var(--faint);border-radius:8px;overflow:hidden;background:#0a2547;
-    box-shadow:0 40px 80px -40px rgba(0,0,0,.6);}
-  .bbar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--blue2);border-bottom:1px solid var(--faint)}
-  .bbar .dot{width:11px;height:11px;border-radius:50%;background:rgba(188,215,242,.35)}
-  .bbar .url{flex:1;margin-left:10px;background:rgba(0,0,0,.22);border:1px solid var(--faint2);border-radius:20px;
-    padding:6px 14px;font-size:.72rem;color:var(--cy);display:flex;align-items:center;gap:8px}
-  .bbar .url b{color:var(--wht);font-weight:400}
-  .bbar .url .lock{color:var(--amber);font-size:.7rem}
-  .screen{position:relative;width:100%;overflow:hidden;background:#241a1c;height:600px}
-  .screen iframe{position:absolute;top:0;left:0;width:1280px;height:854px;border:0;transform-origin:top left}
-  .screen .veil{position:absolute;inset:0;cursor:pointer;background:transparent}
-  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:26px 0 0}
-  .btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;
-    background:var(--amber);color:#0a1f38;border:0;border-radius:4px;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-  .btn:hover{filter:brightness(1.06)}
-  .btn.ghost{background:transparent;color:var(--cy);border:1px solid var(--faint)}
-  .btn.ghost:hover{border-color:var(--amber);color:var(--wht)}
-  .titleblock{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--faint);margin:52px 0 0}
-  .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:13px 15px}
-  .titleblock div:nth-child(3n){border-right:0}
-  .titleblock div:nth-last-child(-n+3){border-bottom:0}
-  .titleblock .k{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.66);display:block;margin-bottom:4px}
-  .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem}
-  footer{margin:46px 0 60px;padding-top:22px;border-top:1px solid var(--faint);
-    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;justify-content:space-between}
-  footer .note{color:rgba(188,215,242,.6);font-size:.72rem;max-width:64ch}
-  footer a.home{font-family:'Archivo',sans-serif;font-weight:700;color:var(--wht)}
-  footer a.home .k{color:var(--red)}
-  @media(max-width:640px){
-    .titleblock{grid-template-columns:1fr 1fr}
-    .titleblock div:nth-child(3n){border-right:1px solid var(--faint)}
-    .titleblock div:nth-child(2n){border-right:0}
-    .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)}
-    .titleblock div:nth-last-child(-n+2){border-bottom:0}
-    .screen{height:420px}
-    .stage .tag{display:none}
-  }
-  @media(prefers-reduced-motion:reduce){ .dimline .bar{transform:scaleX(1);animation:none} }
+@font-face{font-family:'Rozha';src:url('assets/fonts/rozha-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Rozha';src:url('assets/fonts/rozha-latinext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Mukta';src:url('assets/fonts/mukta400-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Mukta';src:url('assets/fonts/mukta400-latinext.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Mukta';src:url('assets/fonts/mukta700-latin.woff2') format('woff2');font-weight:700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Mukta';src:url('assets/fonts/mukta700-latinext.woff2') format('woff2');font-weight:700;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+ --paper:#f6efe2; --cream:#ede2cc; --card:#fdf8ec;
+ --char:#241a1c; --char2:#3d2f2e; --ink2:#4c3f3c;
+ --red:#b4231f; --red-d:#921a17;
+ --gold:#e2971a; --gold-d:#bd7d13;
+ --green:#2e5e3a; --green-d:#234a2d; --green-l:#3f7a4d;
+ --brass:#9c6b30; --indigo:#26324d;
+ --line:#dccdaf; --muted:#8a7c63;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--char);font-family:'Mukta',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Rozha','Mukta',serif;font-weight:400;line-height:1.04}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Mukta',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--red)}
+
+.muggu-divider{display:flex;align-items:center;gap:18px;padding:14px 0}
+.muggu-divider .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.muggu-divider .mg{width:44px;height:44px;color:var(--gold-d);flex:none}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s;background:linear-gradient(180deg,rgba(18,12,12,.82) 0%,rgba(18,12,12,.55) 60%,rgba(18,12,12,0) 100%)}
+header.solid{background:var(--green-d);box-shadow:0 2px 22px rgba(0,0,0,.3)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:13px}
+.brand{display:flex;align-items:center;gap:12px;color:#f6efe2}
+.brand .mk{width:40px;height:40px;flex:none;color:var(--gold)}
+.brand .nm{font-family:'Rozha',serif;font-weight:400;font-size:24px;letter-spacing:.04em;line-height:.95;color:#f6efe2}
+.brand .nm small{display:block;font-family:'Mukta';font-size:9px;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-top:3px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Mukta',sans-serif;font-weight:600;font-size:15px;color:#eadfc9;opacity:.92}
+nav.links a:hover{color:var(--gold);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
+.langs button{font-family:'Mukta',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#ede2cc;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--red);color:#fff}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:#f6efe2;border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;margin-top:-66px;padding-top:66px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,14,14,0.58) 0%,rgba(20,14,14,0.38) 32%,rgba(20,14,14,0.5) 66%,rgba(15,10,10,0.92) 100%)}
+.hero .mgwm{position:absolute;right:-40px;top:8%;width:360px;height:360px;color:rgba(226,151,26,.16);z-index:-1}
+.hero .kolam{display:none;position:absolute;z-index:0;right:clamp(-150px,-6vw,-40px);top:50%;transform:translateY(-50%);width:clamp(260px,26vw,380px);height:clamp(260px,26vw,380px);opacity:.55;pointer-events:none;color:var(--gold);filter:drop-shadow(0 0 14px rgba(0,0,0,.55))}
+.hero .kolam .krot{transform-box:fill-box;transform-origin:center;animation:kspin 96s linear infinite}
+.hero .kolam .kd{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:kolamDraw 9s ease-in-out infinite}
+.hero .kolam .kdot{fill:currentColor;opacity:0;animation:kdotPulse 9s ease-in-out infinite}
+@keyframes kolamDraw{0%{stroke-dashoffset:1;opacity:0}6%{opacity:1}44%{stroke-dashoffset:0;opacity:1}74%{stroke-dashoffset:0;opacity:1}86%{stroke-dashoffset:0;opacity:0}92%{stroke-dashoffset:1;opacity:0}100%{stroke-dashoffset:1;opacity:0}}
+@keyframes kdotPulse{0%{opacity:0}20%{opacity:0}32%{opacity:1}74%{opacity:1}86%{opacity:0}100%{opacity:0}}
+@keyframes kspin{to{transform:rotate(360deg)}}
+.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
+.hero .eyebrow{color:var(--gold);margin-bottom:14px;text-shadow:0 1px 12px rgba(0,0,0,.9),0 0 2px rgba(0,0,0,.8)}
+.hero h1{color:#fff;font-size:clamp(66px,13vw,168px);letter-spacing:.02em;text-shadow:0 4px 40px rgba(0,0,0,.45)}
+.hero .tag{font-family:'Mukta',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f4ead6;max-width:31ch;margin:18px 0 0;line-height:1.4}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{font-family:'Mukta',sans-serif;font-weight:700;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--red);color:#fff}
+.btn.p:hover{background:var(--red-d)}
+.btn.o{background:transparent;color:#f6efe2;border-color:rgba(246,239,226,.5)}
+.btn.o:hover{border-color:var(--gold);color:var(--gold)}
+
+.facts{background:var(--green);color:#eadfc9}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12)}
+.facts .c{background:var(--green);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Mukta';font-weight:700;letter-spacing:.14em;font-size:11px;color:var(--gold);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#eadfc9}
+.facts .v b{color:#fff;font-weight:400;font-family:'Rozha';font-size:21px;display:block;margin-bottom:2px}
+
+section{padding:clamp(48px,7vw,86px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--char);line-height:1.06}
+.sect-h h2 em{font-style:normal;color:var(--red)}
+.sect-h p{font-family:'Mukta',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+/* thali spotlight */
+.spot{background:var(--green);color:#eadfc9;position:relative;overflow:hidden}
+.spot .mgwm{position:absolute;left:-60px;bottom:-60px;width:320px;height:320px;color:rgba(226,151,26,.12)}
+.spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center;position:relative}
+.spot .eyebrow{color:var(--gold)}
+.spot h2{font-family:'Rozha';font-size:clamp(38px,6vw,76px);color:#fff;margin:14px 0 0;line-height:1.04}
+.spot h2 span{color:var(--gold);display:block}
+.spot .lead{font-family:'Mukta';font-size:clamp(18px,2.2vw,25px);line-height:1.5;color:#eadfc9;margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#c2cbb9;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.42)}
+.spot .pic .pill{position:absolute;right:-12px;bottom:24px;background:var(--gold);color:var(--char);font-family:'Mukta';font-weight:700;font-size:15px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:4px;background:var(--cream)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(15,10,10,0.94) 0%,rgba(15,10,10,0.82) 62%,rgba(15,10,10,0) 100%);color:#fff;font-family:'Mukta',sans-serif;font-weight:600;font-size:16px;letter-spacing:.01em}
+
+/* menu */
+.carte{background:var(--cream)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Rozha';font-size:26px;color:var(--green-d);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--gold);margin-bottom:14px}
+.mgroup h3 .mg{width:20px;height:20px;flex:none;color:var(--gold-d)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
+.mitem .nm{font-family:'Mukta';font-weight:700;font-size:17px;color:var(--char)}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Rozha';color:var(--red);font-size:17px;white-space:nowrap}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--gold);padding-left:14px;max-width:80ch}
+
+/* maison */
+.maison{background:var(--char);color:#eadfc9;position:relative;overflow:hidden}
+.maison .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
+.maison h2{font-family:'Rozha';font-size:clamp(34px,5vw,60px);color:#fff}
+.maison h2 span{color:var(--gold);display:block}
+.maison .lead{font-size:18px;color:#e2d6bf;margin-top:18px;line-height:1.62;max-width:44ch}
+.maison .body{font-size:16px;color:#c0b39a;margin-top:14px;max-width:44ch}
+.maison .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px}
+
+/* infos */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--red);margin-top:3px}
+.ino .k{font-family:'Mukta';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--char);margin-top:3px}
+.ino .v a{border-bottom:1px solid var(--gold-d)}
+.ino .fl{color:var(--ink2);font-size:15px}
+.mapcard{background:#1c1414 url(assets/facade.jpg) top center/100% auto no-repeat;border-radius:4px;overflow:hidden;position:relative;display:block;color:#eadfc9;text-align:left;padding:calc(41.8% + 22px) 26px 26px}
+.mapcard .mgwm{position:absolute;right:-30px;top:-30px;width:180px;height:180px;color:rgba(226,151,26,.2)}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Rozha';font-size:30px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#1c1414;color:#b5a88f;padding:0 0 40px}
+footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+footer .band .mg{width:34px;height:34px;color:var(--gold-d)}
+footer .in{padding-block:4px 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Rozha';font-weight:400;font-size:27px;color:#f6efe2;letter-spacing:.04em}
+footer .nm small{display:block;font-family:'Mukta';font-size:10px;letter-spacing:.2em;color:var(--gold);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a4977e}
+footer .made{font-size:12.5px;color:#7e7259;margin-top:22px}
+footer .made b{color:#eadfc9}
+footer .made a{color:var(--gold)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6c624c;line-height:1.55;max-width:82ch}
+
+/* mobile sticky CTA — call / directions, thumb-reachable on a phone */
+.mobile-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:65;gap:10px;padding:10px clamp(14px,4vw,20px) calc(10px + env(safe-area-inset-bottom,0px));background:var(--char);border-top:1px solid rgba(255,255,255,.1);box-shadow:0 -10px 26px rgba(0,0,0,.35)}
+.mobile-cta a{flex:1;justify-content:center;text-align:center;padding:13px 16px;font-size:14.5px}
+.mobile-cta a.o{border-color:rgba(246,239,226,.4)}
+
+@media(max-width:1200px) and (min-width:761px){.hero .kolam{right:-12vw;width:clamp(220px,26vw,320px);height:clamp(220px,26vw,320px)}}
+@media(max-width:900px){
+ .spot .grid,.maison .grid,.infos .grid,.carte .cols,footer .in{grid-template-columns:1fr}
+ .facts .row{grid-template-columns:1fr 1fr}.facts .c{padding:16px 18px}.facts .c:last-child{grid-column:1 / -1}.facts .v{font-size:14.5px}.facts .v b{font-size:18px}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.maison .pic{order:-1}
+ .hero .mgwm{display:none}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:66px 0 auto 0;flex-direction:column;background:var(--green-d);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--green-d)}
+ .hero h1{font-size:clamp(54px,17vw,100px)}
+ .hero .kolam{right:-8vw;left:auto;top:14%;transform:none;width:min(62vw,280px);height:min(62vw,280px)}
+ .mobile-cta{display:flex}
+ body{padding-bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+}
+@media(prefers-reduced-motion:reduce){
+ *{scroll-behavior:auto!important;transition:none!important}
+ .hero .kolam .kd{stroke-dashoffset:0;opacity:.9;animation:none}
+ .hero .kolam .kdot{opacity:.9;animation:none}
+ .hero .kolam .krot{animation:none}
+}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(108, 98, 76)); set to meet WCAG AA
+     against its own footer ground at 4.62:1, at a readable size. */
+  .disc{color:#88806e !important;font-size:12.5px !important;line-height:1.5}
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="https://webwerk.lu/">WEBWER<span class="k">K</span></a>
-    <span class="studio">Studio web · Luxembourg</span>
-  </div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<!-- muggu: Telugu rangoli/kolam rosette (line-art + dots) -->
+<g id="muggu" viewBox="-60 -60 120 120">
+  <g id="mpetal"><path d="M0 0 C-9 -18 -9 -40 0 -50 C9 -40 9 -18 0 0 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="0" cy="-53" r="2.6" fill="currentColor"/></g>
+  <use href="#mpetal"/><use href="#mpetal" transform="rotate(45)"/><use href="#mpetal" transform="rotate(90)"/><use href="#mpetal" transform="rotate(135)"/><use href="#mpetal" transform="rotate(180)"/><use href="#mpetal" transform="rotate(225)"/><use href="#mpetal" transform="rotate(270)"/><use href="#mpetal" transform="rotate(315)"/>
+  <circle r="17" fill="none" stroke="currentColor" stroke-width="1.4"/><circle r="4" fill="currentColor"/>
+</g>
+<!-- handi pot (BHIMAS logo mark) -->
+<g id="handi">
+  <path d="M20 30 Q10 30 12 42 Q14 62 32 62 Q50 62 52 42 Q54 30 44 30 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+  <path d="M16 30 h32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <path d="M27 20 Q24 15 28 11 M37 20 Q34 15 38 11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M14 46 Q4 44 6 52 Q14 52 16 47 M50 46 Q60 44 58 52 Q50 52 48 47" fill="none" stroke="currentColor" stroke-width="2"/>
+</g>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Bhimas">
+   <svg class="mk" viewBox="0 0 64 66" aria-hidden="true"><use href="#handi"/></svg>
+   <span class="nm">BHIMAS<small>Indian Kitchen &amp; Bar · Bonnevoie</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#thali" data-i18n="nav_thali">Le thali</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#maison" data-i18n="nav_maison">La maison</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
 </header>
-<main class="wrap">
-  <section class="plate">
-    <span class="fig">FIG. — Proposition de site</span>
-    <h1>Bhimas<span class="sub">Cuisine indienne du Sud · Bonnevoie <span class="note">composé pour vous ✎</span></span></h1>
-    <p class="lede">Bhimas n'a pas de site internet. En voici un — le biryani hyderabadi, le thali à volonté et la carte, le tout en français, en allemand et en anglais, à l'aise sur le téléphone.</p>
-    <div class="dimline"><span>Concept</span><span class="bar"></span><span>Mise en ligne</span></div>
-  </section>
-  <section class="stage">
-    <span class="tag">↙ votre nouveau site</span>
-    <div class="browser">
-      <div class="bbar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="url"><span class="lock">🔒</span> <b>bhimas</b> · aperçu</span>
-      </div>
-      <div class="screen">
-        <iframe title="Aperçu du site Bhimas" src="./site/index.html" loading="lazy" scrolling="no"></iframe>
-        <a class="veil" href="./site/index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
-      </div>
-    </div>
-    <div class="actions">
-      <a class="btn" href="./site/index.html" target="_blank" rel="noopener">Ouvrir le site en grand ↗</a>
-      <a class="btn ghost" href="mailto:jean@webwerk.lu?subject=Bhimas%20—%20site">En parler avec nous</a>
-    </div>
-  </section>
-  <div class="titleblock">
-    <div><span class="k">Projet</span><span class="v">Bhimas — cuisine indienne du Sud</span></div>
-    <div><span class="k">Lieu</span><span class="v">Bonnevoie, Luxembourg</span></div>
-    <div><span class="k">Échelle</span><span class="v">1:1 — taille réelle</span></div>
-    <div><span class="k">Studio</span><span class="v">Webwerk</span></div>
-    <div><span class="k">État</span><span class="v">Aperçu · sans engagement</span></div>
-    <div><span class="k">Contact</span><span class="v">jean@webwerk.lu</span></div>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="La salle de Bhimas, à Bonnevoie"/></div>
+  <div class="scrim"></div>
+  <svg class="kolam" viewBox="-64 -64 128 128" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+   <g class="krot">
+    <circle class="kd" pathLength="1" cx="0" cy="0" r="56" style="animation-delay:.05s"/>
+    <path class="kd" pathLength="1" d="M0 0 C-9 -18 -9 -40 0 -50 C9 -40 9 -18 0 0 Z" style="animation-delay:0s"/>
+    <path class="kd" pathLength="1" transform="rotate(45)" d="M0 0 C-9 -18 -9 -40 0 -50 C9 -40 9 -18 0 0 Z" style="animation-delay:.09s"/>
+    <path class="kd" pathLength="1" transform="rotate(90)" d="M0 0 C-9 -18 -9 -40 0 -50 C9 -40 9 -18 0 0 Z" style="animation-delay:.18s"/>
+    <path class="kd" pathLength="1" transform="rotate(135)" d="M0 0 C-9 -18 -9 -40 0 -50 C9 -40 9 -18 0 0 Z" style="animation-delay:.27s"/>
+    <path class="kd" pathLength="1" transform="rotate(180)" d="M0 0 C-9 -18 -9 -40 0 -50 C9 -40 9 -18 0 0 Z" style="animation-delay:.36s"/>
+    <path class="kd" pathLength="1" transform="rotate(225)" d="M0 0 C-9 -18 -9 -40 0 -50 C9 -40 9 -18 0 0 Z" style="animation-delay:.45s"/>
+    <path class="kd" pathLength="1" transform="rotate(270)" d="M0 0 C-9 -18 -9 -40 0 -50 C9 -40 9 -18 0 0 Z" style="animation-delay:.54s"/>
+    <path class="kd" pathLength="1" transform="rotate(315)" d="M0 0 C-9 -18 -9 -40 0 -50 C9 -40 9 -18 0 0 Z" style="animation-delay:.63s"/>
+    <circle class="kd" pathLength="1" cx="0" cy="0" r="18" style="animation-delay:.8s"/>
+    <circle class="kdot" cx="0" cy="-53" r="2.6" style="animation-delay:.5s"/>
+    <circle class="kdot" cx="0" cy="-53" r="2.6" transform="rotate(45)" style="animation-delay:.56s"/>
+    <circle class="kdot" cx="0" cy="-53" r="2.6" transform="rotate(90)" style="animation-delay:.62s"/>
+    <circle class="kdot" cx="0" cy="-53" r="2.6" transform="rotate(135)" style="animation-delay:.68s"/>
+    <circle class="kdot" cx="0" cy="-53" r="2.6" transform="rotate(180)" style="animation-delay:.74s"/>
+    <circle class="kdot" cx="0" cy="-53" r="2.6" transform="rotate(225)" style="animation-delay:.8s"/>
+    <circle class="kdot" cx="0" cy="-53" r="2.6" transform="rotate(270)" style="animation-delay:.86s"/>
+    <circle class="kdot" cx="0" cy="-53" r="2.6" transform="rotate(315)" style="animation-delay:.92s"/>
+    <circle class="kdot" cx="0" cy="0" r="4" style="animation-delay:1s"/>
+   </g>
+  </svg>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine indienne du Sud · Bonnevoie</span>
+   <h1>Bhimas</h1>
+   <p class="tag" data-i18n="hero_tag">Le biryani d'Hyderabad et les épices d'Andhra, cuisinés à la maison — à deux pas de la gare.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
+    <a class="btn o" href="#thali" data-i18n="hero_cta2">Le thali à volonté ↓</a>
+   </div>
   </div>
-  <footer>
-    <a class="home" href="https://webwerk.lu/">WEBWER<span class="k">K</span> — nous dessinons le web.</a>
-    <span class="note">Aperçu réalisé à titre indicatif à partir de sources publiques — proposition non officielle, sans lien avec la maison. Les plats et les photos proviennent de sources publiques. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
-  </footer>
+ </section>
+
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Inde du Sud</b>Andhra &amp; Hyderabad, maison</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le thali</div><div class="v" data-i18n="fact_v2"><b>Végétarien à volonté</b>le midi</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">L'adresse</div><div class="v" data-i18n="fact_v3"><b>4b Dernier Sol</b>Bonnevoie · à deux pas de la gare</div></div>
+  </div></div>
+ </div>
+
+ <!-- THALI SPOTLIGHT -->
+ <section class="spot" id="thali">
+  <svg class="mgwm" viewBox="-60 -60 120 120" aria-hidden="true"><use href="#muggu"/></svg>
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="thali_eyebrow">La signature</span>
+    <h2 data-i18n="thali_h">Le thali<span>du Sud, à&nbsp;volonté.</span></h2>
+    <p class="lead" data-i18n="thali_lead">Un grand plateau végétarien : riz, plusieurs curries et accompagnements — resservi à volonté, le midi.</p>
+    <p class="body" data-i18n="thali_body">C'est la table du Sud comme à la maison : végétarienne, généreuse, épicée juste comme il faut. On goûte à tout, on se ressert, et on repart calé. Une belle façon de découvrir la cuisine d'Andhra.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/thali.jpg" alt="Le thali sud-indien à volonté"/>
+    <span class="pill" data-i18n="thali_pill">À volonté</span>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap muggu-divider"><span class="ln"></span><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span class="ln"></span></div>
+
+ <!-- GALLERY -->
+ <section id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
+    <h2 data-i18n="gal_h">La cuisine <em>d'Andhra</em></h2>
+    <p data-i18n="gal_p">Biryani hyderabadi, curries épicés, dosa et idli, grillades du tandoor, et un lassi frais pour apaiser le piment.</p>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/raagi.jpg" alt="Raagi mudda, spécialité d'Andhra, sur feuille de bananier"/><figcaption data-i18n="cap_rag">Raagi mudda · Andhra</figcaption></figure>
+    <figure><img src="assets/biryani.jpg" alt="Biryani hyderabadi"/><figcaption data-i18n="cap_bir">Biryani hyderabadi</figcaption></figure>
+    <figure><img src="assets/tandoori.jpg" alt="Brochettes du tandoor"/><figcaption data-i18n="cap_tan">Grillades du tandoor</figcaption></figure>
+    <figure class="w2"><img src="assets/curry.jpg" alt="Curry avec naan et riz"/><figcaption data-i18n="cap_cur">Curry &amp; naan</figcaption></figure>
+    <figure class="w2"><img src="assets/friedchicken.jpg" alt="Chicken 65"/><figcaption data-i18n="cap_c65">Chicken 65</figcaption></figure>
+    <figure class="w2"><img src="assets/marigold.jpg" alt="Le comptoir d'accueil fleuri de Bhimas"/><figcaption data-i18n="cap_mar">Le comptoir d'accueil</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
+    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
+    <p data-i18n="carte_p">La cuisine télougou d'Andhra et le biryani d'Hyderabad. Voici un aperçu des plats — <b>la carte complète est sur place.</b></p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span data-i18n="mg1">Le thali &amp; le riz</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Thali sud-indien végétarien</div><div class="ds" data-i18n="i1d">À volonté, le midi — riz, curries et accompagnements</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Thali non-végétarien</div><div class="ds" data-i18n="i2d">Le plateau du Sud, avec viande ou poisson</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Biryani hyderabadi</div><div class="ds" data-i18n="i3d">Riz basmati cuit au dum, à la façon d'Hyderabad</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Dosa masala</div><div class="ds" data-i18n="i4d">Crêpe croustillante, pomme de terre, chutneys</div></div></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span data-i18n="mg2">Du tandoor &amp; le bar</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Brochettes tandoori</div><div class="ds" data-i18n="i5d">Marinées et cuites au tandoor</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Chicken 65</div><div class="ds" data-i18n="i6d">Poulet frit épicé</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Lassi / chaas</div><div class="ds" data-i18n="i7d">Yaourt frais, doux ou salé</div></div></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span data-i18n="mg3">Spécialités d'Andhra</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Raagi mudda &amp; curry de poulet</div><div class="ds" data-i18n="i8d">Boulette de millet, curry télougou</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Raagi mudda &amp; curry de mouton</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Nellore chepala pulusu</div><div class="ds" data-i18n="i10d">Curry de poisson aigre-épicé de Nellore</div></div></div>
+     </div>
+     <div class="mgroup">
+      <h3><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span data-i18n="mg4">À côté</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Naan &amp; pains</div><div class="ds" data-i18n="i11d">Pains indiens, cuits au tandoor</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i12n">Dal &amp; légumes</div><div class="ds" data-i18n="i12d">Lentilles et légumes mijotés aux épices</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i13n">Samosa</div><div class="ds" data-i18n="i13d">Chausson croustillant et épicé</div></div></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- MAISON -->
+ <section class="maison" id="maison">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--gold)" data-i18n="maison_eyebrow">La maison</span>
+    <h2 data-i18n="maison_h">Une cuisine<span>télougou, à Bonnevoie.</span></h2>
+    <p class="lead" data-i18n="maison_lead">Bhimas, c'est la cuisine de l'Andhra et de Hyderabad — celle des maisons télougou du sud de l'Inde — installée à Bonnevoie.</p>
+    <p class="body" data-i18n="maison_body">On y est accueilli par un comptoir fleuri, on y sert le biryani au dum et les curries d'Andhra. Végétarien ou non, à midi ou le soir : la table du Sud, sans détour.</p>
+   </div>
+   <div class="pic"><img src="assets/interior2.jpg" alt="La salle de Bhimas"/></div>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
+    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">4b, Dernier Sol<br>L-2543 Bonnevoie</div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver / commander</div><div class="v"><a href="tel:+35227532549">+352 27 53 25 49</a><br><span class="fl" data-i18n="ino_fl2b">Sur place, à emporter &amp; livraison</span></div></div></div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="fl" data-i18n="ino_fl3">Le midi (thali à volonté) et le soir, fermé le lundi</span></div></div></div>
+    </div>
+    <div class="mapcard" role="img" aria-label="La devanture de Bhimas, 4b Dernier Sol">
+     <div class="in">
+      <div class="big" data-i18n="map_big">Bonnevoie</div>
+      <div style="color:#c2cbb9;margin-top:8px" data-i18n="map_sub">Dernier Sol, à 3 min de la Gare</div>
+      <a class="btn p" href="https://www.google.com/maps/search/Bhimas+Indian+Kitchen+Dernier+Sol+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
 </main>
+
+<div class="mobile-cta" role="group" aria-label="Actions rapides">
+ <a class="btn p" href="tel:+35227532549" data-i18n="cta_call">Appeler</a>
+ <a class="btn o" href="https://www.google.com/maps/search/Bhimas+Indian+Kitchen+Dernier+Sol+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="cta_dir">Itinéraire ↗</a>
+</div>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="mg" viewBox="-60 -60 120 120"><use href="#muggu"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">BHIMAS<small>Indian Kitchen &amp; Bar · Bonnevoie</small></div>
+   <p data-i18n="foot_p">Cuisine indienne du Sud à Bonnevoie — Andhra &amp; Hyderabad. Biryani, thali à volonté, spécialités télougou.</p>
+  </div>
+  <div>
+   <div style="font-family:'Mukta';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold)">Contact</div>
+   <p style="margin-top:10px">4b, Dernier Sol<br>L-2543 Bonnevoie<br><a href="tel:+35227532549" style="border-bottom:1px solid var(--gold)">+352 27 53 25 49</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+</footer>
+
 <script>
-  (function(){
-    var screen=document.querySelector('.screen'), frame=document.querySelector('.screen iframe');
-    var BASE=1280;
-    function fit(){ var s=screen.clientWidth/BASE; frame.style.transform='scale('+s+')'; }
-    fit(); window.addEventListener('resize',fit); frame.addEventListener('load',fit);
-  })();
+const I18N={
+ fr:{
+  nav_thali:"Le thali",nav_carte:"La carte",nav_maison:"La maison",nav_infos:"Infos & accès",
+  hero_eyebrow:"Cuisine indienne du Sud · Bonnevoie",
+  hero_tag:"Le biryani d'Hyderabad et les épices d'Andhra, cuisinés à la maison — à deux pas de la gare.",
+  hero_cta1:"Voir la carte",hero_cta2:"Le thali à volonté ↓",
+  fact_k1:"La cuisine",fact_v1:"<b>Inde du Sud</b>Andhra & Hyderabad, maison",
+  fact_k2:"Le thali",fact_v2:"<b>Végétarien à volonté</b>le midi",
+  fact_k3:"L'adresse",fact_v3:"<b>4b Dernier Sol</b>Bonnevoie · à deux pas de la gare",
+  thali_eyebrow:"La signature",thali_h:"Le thali<span>du Sud, à&nbsp;volonté.</span>",
+  thali_lead:"Un grand plateau végétarien : riz, plusieurs curries et accompagnements — resservi à volonté, le midi.",
+  thali_body:"C'est la table du Sud comme à la maison : végétarienne, généreuse, épicée juste comme il faut. On goûte à tout, on se ressert, et on repart calé. Une belle façon de découvrir la cuisine d'Andhra.",
+  thali_pill:"À volonté",
+  gal_eyebrow:"À table",gal_h:"La cuisine <em>d'Andhra</em>",
+  gal_p:"Biryani hyderabadi, curries épicés, dosa et idli, grillades du tandoor, et un lassi frais pour apaiser le piment.",
+  cap_rag:"Raagi mudda · Andhra",cap_bir:"Biryani hyderabadi",cap_tan:"Grillades du tandoor",cap_cur:"Curry & naan",cap_c65:"Chicken 65",cap_mar:"Le comptoir d'accueil",
+  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
+  carte_p:"La cuisine télougou d'Andhra et le biryani d'Hyderabad. Voici un aperçu des plats — <b>la carte complète est sur place.</b>",
+  mg1:"Le thali & le riz",mg2:"Du tandoor & le bar",mg3:"Spécialités d'Andhra",mg4:"À côté",
+  i1n:"Thali sud-indien végétarien",i1d:"À volonté, le midi — riz, curries et accompagnements",i2n:"Thali non-végétarien",i2d:"Le plateau du Sud, avec viande ou poisson",
+  i3n:"Biryani hyderabadi",i3d:"Riz basmati cuit au dum, à la façon d'Hyderabad",i4n:"Dosa masala",i4d:"Crêpe croustillante, pomme de terre, chutneys",
+  i5n:"Brochettes tandoori",i5d:"Marinées et cuites au tandoor",i6n:"Chicken 65",i6d:"Poulet frit épicé",i7n:"Lassi / chaas",i7d:"Yaourt frais, doux ou salé",
+  i8n:"Raagi mudda & curry de poulet",i8d:"Boulette de millet, curry télougou",i9n:"Raagi mudda & curry de mouton",i10n:"Nellore chepala pulusu",i10d:"Curry de poisson aigre-épicé de Nellore",
+  i11n:"Naan & pains",i11d:"Pains indiens, cuits au tandoor",i12n:"Dal & légumes",i12d:"Lentilles et légumes mijotés aux épices",i13n:"Samosa",i13d:"Chausson croustillant et épicé",
+  maison_eyebrow:"La maison",maison_h:"Une cuisine<span>télougou, à Bonnevoie.</span>",
+  maison_lead:"Bhimas, c'est la cuisine de l'Andhra et de Hyderabad — celle des maisons télougou du sud de l'Inde — installée à Bonnevoie.",
+  maison_body:"On y est accueilli par un comptoir fleuri, on y sert le biryani au dum et les curries d'Andhra. Végétarien ou non, à midi ou le soir : la table du Sud, sans détour.",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
+  ino_k1:"Adresse",ino_k2:"Réserver / commander",ino_fl2b:"Sur place, à emporter & livraison",
+  ino_k3:"Horaires",ino_fl3:"Le midi (thali à volonté) et le soir, fermé le lundi",
+  map_big:"Bonnevoie",map_sub:"Dernier Sol, à 3 min de la Gare",map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Cuisine indienne du Sud à Bonnevoie — Andhra & Hyderabad. Biryani, thali à volonté, spécialités télougou.",
+  
+  cta_call:"Appeler",cta_dir:"Itinéraire ↗",
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+ },
+ de:{
+  nav_thali:"Das Thali",nav_carte:"Karte",nav_maison:"Das Haus",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Südindische Küche · Bonnevoie",
+  hero_tag:"Das Biryani aus Hyderabad und die Gewürze Andhras, hausgemacht — ein paar Schritte vom Bahnhof.",
+  hero_cta1:"Zur Karte",hero_cta2:"Das Thali nach Belieben ↓",
+  fact_k1:"Die Küche",fact_v1:"<b>Südindien</b>Andhra & Hyderabad, hausgemacht",
+  fact_k2:"Das Thali",fact_v2:"<b>Vegetarisch, nach Belieben</b>mittags",
+  fact_k3:"Die Adresse",fact_v3:"<b>4b Dernier Sol</b>Bonnevoie · ein paar Schritte vom Bahnhof",
+  thali_eyebrow:"Die Spezialität",thali_h:"Das Thali<span>des Südens, nach Belieben.</span>",
+  thali_lead:"Eine große vegetarische Platte: Reis, mehrere Currys und Beilagen — mittags so oft Sie möchten nachgefüllt.",
+  thali_body:"So isst man im Süden zu Hause: vegetarisch, großzügig, genau richtig gewürzt. Man probiert alles, nimmt nach und geht satt nach Hause. Ein schöner Einstieg in die Küche Andhras.",
+  thali_pill:"Nach Belieben",
+  gal_eyebrow:"Zu Tisch",gal_h:"Die Küche <em>Andhras</em>",
+  gal_p:"Hyderabad-Biryani, würzige Currys, Dosa und Idli, Gegrilltes aus dem Tandoor und ein frisches Lassi gegen die Schärfe.",
+  cap_rag:"Raagi Mudda · Andhra",cap_bir:"Hyderabad-Biryani",cap_tan:"Aus dem Tandoor",cap_cur:"Curry & Naan",cap_c65:"Chicken 65",cap_mar:"Die Empfangstheke",
+  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
+  carte_p:"Die Telugu-Küche Andhras und das Biryani aus Hyderabad. Hier ein Einblick in die Gerichte — <b>die vollständige Karte gibt es vor Ort.</b>",
+  mg1:"Das Thali & der Reis",mg2:"Aus dem Tandoor & die Bar",mg3:"Spezialitäten aus Andhra",mg4:"Dazu",
+  i1n:"Vegetarisches Südindien-Thali",i1d:"Mittags, so viel Sie möchten — Reis, Currys und Beilagen",i2n:"Nicht-vegetarisches Thali",i2d:"Die Südplatte, mit Fleisch oder Fisch",
+  i3n:"Hyderabad-Biryani",i3d:"Basmatireis im Dum gegart, nach Art von Hyderabad",i4n:"Masala Dosa",i4d:"Knuspriger Reispfannkuchen, Kartoffeln, Chutneys",
+  i5n:"Tandoori-Spieße",i5d:"Mariniert und im Tandoor gegart",i6n:"Chicken 65",i6d:"Würzig frittiertes Hähnchen",i7n:"Lassi / Chaas",i7d:"Frischer Joghurt, süß oder salzig",
+  i8n:"Raagi Mudda & Hähnchen-Curry",i8d:"Hirsekloß, Telugu-Curry",i9n:"Raagi Mudda & Hammel-Curry",i10n:"Nellore Chepala Pulusu",i10d:"Säuerlich-scharfes Fischcurry aus Nellore",
+  i11n:"Naan & Brote",i11d:"Indisches Brot aus dem Tandoor",i12n:"Dal & Gemüse",i12d:"Linsen und Gemüse, würzig geschmort",i13n:"Samosa",i13d:"Knusprige, würzige Teigtasche",
+  maison_eyebrow:"Das Haus",maison_h:"Eine Telugu-Küche,<span>in Bonnevoie.</span>",
+  maison_lead:"Bhimas ist die Küche Andhras und Hyderabads — die Küche der Telugu-Familien Südindiens — mitten in Bonnevoie.",
+  maison_body:"Empfangen wird man an einer blumengeschmückten Theke, serviert werden Dum-Biryani und Currys aus Andhra. Vegetarisch oder nicht, mittags oder abends: Küche aus dem Süden, ohne Umwege.",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
+  ino_k1:"Adresse",ino_k2:"Reservieren / bestellen",ino_fl2b:"Vor Ort, zum Mitnehmen & Lieferung",
+  ino_k3:"Öffnungszeiten",ino_fl3:"Mittags (Thali nach Belieben) und abends, montags geschlossen",
+  map_big:"Bonnevoie",map_sub:"Dernier Sol, 3 Min. vom Bahnhof",map_btn:"In Maps öffnen ↗",
+  foot_p:"Südindische Küche in Bonnevoie — Andhra & Hyderabad. Biryani, Thali nach Belieben, Telugu-Spezialitäten.",
+  
+  cta_call:"Anrufen",cta_dir:"Route ↗",
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+ },
+ en:{
+  nav_thali:"The thali",nav_carte:"Menu",nav_maison:"About",nav_infos:"Find us",
+  hero_eyebrow:"South Indian kitchen · Bonnevoie",
+  hero_tag:"Hyderabad biryani and the spices of Andhra, home-cooked — a stone's throw from the station.",
+  hero_cta1:"See the menu",hero_cta2:"The all-you-can-eat thali ↓",
+  fact_k1:"The kitchen",fact_v1:"<b>South India</b>Andhra & Hyderabad, home-cooked",
+  fact_k2:"The thali",fact_v2:"<b>Veg, all you can eat</b>at lunch",
+  fact_k3:"The address",fact_v3:"<b>4b Dernier Sol</b>Bonnevoie · steps from the station",
+  thali_eyebrow:"The signature",thali_h:"The thali<span>of the South, unlimited.</span>",
+  thali_lead:"A big vegetarian platter: rice, several curries and sides — refilled as often as you like at lunch.",
+  thali_body:"Southern home cooking at its most generous: vegetarian and spiced just right. Try a bit of everything, go back for more, leave full. A good way into the cooking of Andhra.",
+  thali_pill:"All you can eat",
+  gal_eyebrow:"At the table",gal_h:"The food <em>of Andhra</em>",
+  gal_p:"Hyderabad biryani, spiced curries, dosa and idli, tandoor grills, and a fresh lassi to cool the chilli.",
+  cap_rag:"Raagi mudda · Andhra",cap_bir:"Hyderabad biryani",cap_tan:"From the tandoor",cap_cur:"Curry & naan",cap_c65:"Chicken 65",cap_mar:"The welcome counter",
+  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
+  carte_p:"The Telugu cooking of Andhra and the biryani of Hyderabad. Here's a look at the dishes — <b>the full menu is at the restaurant.</b>",
+  mg1:"The thali & rice",mg2:"From the tandoor & the bar",mg3:"Andhra specialities",mg4:"On the side",
+  i1n:"Vegetarian South Indian thali",i1d:"All you can eat at lunch — rice, curries and sides",i2n:"Non-vegetarian thali",i2d:"The southern platter, with meat or fish",
+  i3n:"Hyderabad biryani",i3d:"Basmati rice slow-cooked dum-style, the Hyderabad way",i4n:"Masala dosa",i4d:"Crisp crêpe, potato, chutneys",
+  i5n:"Tandoori skewers",i5d:"Marinated and cooked in the tandoor",i6n:"Chicken 65",i6d:"Spiced fried chicken",i7n:"Lassi / chaas",i7d:"Fresh yogurt, sweet or salted",
+  i8n:"Raagi mudda & chicken curry",i8d:"Millet ball, Telugu curry",i9n:"Raagi mudda & mutton curry",i10n:"Nellore chepala pulusu",i10d:"Tangy-spiced Nellore fish curry",
+  i11n:"Naan & breads",i11d:"Indian breads from the tandoor",i12n:"Dal & vegetables",i12d:"Lentils and vegetables, slow-cooked with spices",i13n:"Samosa",i13d:"Crisp, spiced pastry",
+  maison_eyebrow:"About",maison_h:"A Telugu kitchen,<span>in Bonnevoie.</span>",
+  maison_lead:"Bhimas is the cooking of Andhra and Hyderabad — the home cooking of South India's Telugu families — in Bonnevoie.",
+  maison_body:"A flower-garlanded counter greets you, and the kitchen serves dum biryani and Andhra curries. Vegetarian or not, lunch or dinner: the food of the South, straight up.",
+  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
+  ino_k1:"Address",ino_k2:"Book / order",ino_fl2b:"Dine-in, takeaway & delivery",
+  ino_k3:"Opening hours",ino_fl3:"Lunch (all-you-can-eat thali) and dinner, closed Mondays",
+  map_big:"Bonnevoie",map_sub:"Dernier Sol, 3 min from the station",map_btn:"Open in Maps ↗",
+  foot_p:"South Indian kitchen in Bonnevoie — Andhra & Hyderabad. Biryani, all-you-can-eat thali, Telugu specialities.",
+  
+  cta_call:"Call",cta_dir:"Directions ↗",
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  try{localStorage.setItem("bh_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("bh_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
 </script>
-<!-- cookieless, GDPR-clean analytics (same as webwerk.lu) — did the reveal get opened + visitor country -->
-<script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

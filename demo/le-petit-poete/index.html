@@ -1,145 +1,507 @@
 <!DOCTYPE html>
-<!--
-  WEBWERK — reveal page for Le Petit Poète.
-  The real site is in ./site/ (copied from lux-restaurant-sites/mockups/le-petit-poete/rebuild/).
-  Site fonts self-hosted in ./site/assets/fonts/ (0 Google requests). Proposal — not affiliated with the venue.
--->
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="noindex,nofollow" />
-<title>Le Petit Poète — une proposition de site · Webwerk</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#0b2c52" />
-<meta property="og:title" content="Le Petit Poète — une proposition de site" />
-<meta property="og:description" content="Le Petit Poète — la brasserie au cœur d'Echternach. Une proposition de site, en FR/DE/EN." />
-<link rel="preload" href="/fonts/archivo-79dc5e10-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Le Petit Poète, Echternach</title>
+<meta name="description" content="Le Petit Poète, hôtel-café-restaurant sur la place du Marché d'Echternach, à deux pas de l'abbaye."/>
 <style>
-  :root{ --blue:#0b2c52; --blue2:#0e3360; --cy:#bcd7f2; --wht:#eaf3ff;
-    --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; --maxw:1080px; }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--blue);color:var(--cy);font-family:'Space Mono',ui-monospace,monospace;font-size:14px;line-height:1.6;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-    background-image:linear-gradient(var(--faint2) 1px,transparent 1px),linear-gradient(90deg,var(--faint2) 1px,transparent 1px);
-    background-size:34px 34px;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}
-  a{color:var(--amber);text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:1px}
-  .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-  header{border-bottom:1px solid var(--faint);position:relative;z-index:2}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
-  .brand{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--wht);font-size:1.15rem}
-  .brand .k{color:var(--red)}
-  .studio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(188,215,242,.6)}
-  .plate{padding:52px 0 0}
-  .plate .fig{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(188,215,242,.72)}
-  .plate h1{font-family:'Archivo',sans-serif;font-weight:800;color:var(--wht);font-size:clamp(34px,6vw,62px);
-    line-height:1.0;letter-spacing:-.01em;margin:14px 0 6px}
-  .plate h1 .sub{display:block;font-size:.42em;font-weight:600;color:var(--cy);letter-spacing:.01em;margin-top:8px}
-  .plate .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(-2.5deg);display:inline-block;margin-left:4px}
-  .lede{max-width:56ch;margin:18px 0 0;color:rgba(188,215,242,.82);font-size:.95rem}
-  .dimline{display:flex;align-items:center;gap:10px;margin:22px 0 0;color:var(--red);font-size:.7rem;max-width:620px}
-  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative;transform:scaleX(0);transform-origin:left;
-    animation:draw 1s .35s cubic-bezier(.6,0,.2,1) forwards}
-  @keyframes draw{to{transform:scaleX(1)}}
-  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
-  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
-  .stage{margin:40px 0 0;position:relative}
-  .stage .tag{position:absolute;right:-6px;top:-30px;z-index:3;font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(3deg)}
-  .browser{border:1px solid var(--faint);border-radius:8px;overflow:hidden;background:#0a2547;box-shadow:0 40px 80px -40px rgba(0,0,0,.6);}
-  .bbar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--blue2);border-bottom:1px solid var(--faint)}
-  .bbar .dot{width:11px;height:11px;border-radius:50%;background:rgba(188,215,242,.35)}
-  .bbar .url{flex:1;margin-left:10px;background:rgba(0,0,0,.22);border:1px solid var(--faint2);border-radius:20px;
-    padding:6px 14px;font-size:.72rem;color:var(--cy);display:flex;align-items:center;gap:8px}
-  .bbar .url b{color:var(--wht);font-weight:400}
-  .bbar .url .lock{color:var(--amber);font-size:.7rem}
-  .screen{position:relative;width:100%;overflow:hidden;background:#1b2a20;height:600px}
-  .screen iframe{position:absolute;top:0;left:0;width:1280px;height:854px;border:0;transform-origin:top left}
-  .screen .veil{position:absolute;inset:0;cursor:pointer;background:transparent}
-  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:26px 0 0}
-  .btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;
-    background:var(--amber);color:#0a1f38;border:0;border-radius:4px;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-  .btn:hover{filter:brightness(1.06)}
-  .btn.ghost{background:transparent;color:var(--cy);border:1px solid var(--faint)}
-  .btn.ghost:hover{border-color:var(--amber);color:var(--wht)}
-  .titleblock{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--faint);margin:52px 0 0}
-  .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:13px 15px}
-  .titleblock div:nth-child(3n){border-right:0}
-  .titleblock div:nth-last-child(-n+3){border-bottom:0}
-  .titleblock .k{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.66);display:block;margin-bottom:4px}
-  .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem}
-  footer{margin:46px 0 60px;padding-top:22px;border-top:1px solid var(--faint);
-    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;justify-content:space-between}
-  footer .note{color:rgba(188,215,242,.6);font-size:.72rem;max-width:64ch}
-  footer a.home{font-family:'Archivo',sans-serif;font-weight:700;color:var(--wht)}
-  footer a.home .k{color:var(--red)}
-  @media(max-width:640px){
-    .titleblock{grid-template-columns:1fr 1fr}
-    .titleblock div:nth-child(3n){border-right:1px solid var(--faint)}
-    .titleblock div:nth-child(2n){border-right:0}
-    .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)}
-    .titleblock div:nth-last-child(-n+2){border-bottom:0}
-    .screen{height:420px}
-    .stage .tag{display:none}
-  }
-  @media(prefers-reduced-motion:reduce){ .dimline .bar{transform:scaleX(1);animation:none} }
+@font-face{font-family:'Garamond';src:url('assets/fonts/garamond-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+ --ink:#241f18; --ink2:#463d2f; --char:#161009;
+ --parch:#f3ecdd; --stone:#e6ddc8; --card:#fbf6ea;
+ --green:#2e4636; --green-d:#213528; --green-l:#436a51;
+ --brass:#b0863c; --brass-l:#cba14f; --gold:#d8b25e;
+ --line:#d8cdb2; --muted:#8a7c62;
+ --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--parch);color:var(--ink);font-family:'Figtree',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:'Garamond','Figtree',serif;font-weight:600;line-height:1.06}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
+.eyebrow{font-family:'Figtree',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.24em;font-size:12px;color:#84601e}
+
+.nib-div{display:flex;align-items:center;gap:20px;padding-block:12px}
+.nib-div .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
+.nib-div .nb{width:20px;height:34px;color:var(--brass);flex:none}
+
+header{position:sticky;top:0;z-index:50;transition:background .3s;background:var(--green-d)}
+header.solid{background:var(--green-d);box-shadow:0 2px 22px rgba(0,0,0,.3)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:13px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--parch)}
+.brand .nb{width:16px;height:34px;flex:none;color:var(--gold)}
+.brand .plp{width:38px;height:38px;flex:none}
+.brand .nm{font-family:'Garamond',serif;font-weight:600;font-size:26px;letter-spacing:.01em;line-height:.95;color:var(--parch)}
+.brand .nm small{display:block;font-family:'Figtree';font-size:9px;letter-spacing:.24em;color:var(--gold);font-weight:700;margin-top:3px;text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:26px}
+nav.links a{font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;color:#eae2d0;opacity:.92}
+nav.links a:hover{color:var(--gold);opacity:1}
+.langs{display:flex;gap:2px;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
+.langs button{font-family:'Figtree',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#e6ddc8;padding:5px 11px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--brass);color:#241f18}
+.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.burger span{width:26px;height:2.5px;background:var(--parch);border-radius:2px;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-64px;padding-top:64px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,14,9,.5) 0%,rgba(12,14,9,0) 58%),linear-gradient(180deg,rgba(18,14,9,0.62) 0%,rgba(18,14,9,0.38) 32%,rgba(20,22,16,0.55) 64%,rgba(12,16,10,0.94) 100%)}
+.hero .inner{width:100%;padding-bottom:clamp(40px,7vw,84px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
+.hero .eyebrow{color:var(--gold);margin-bottom:16px}
+.hero h1{color:#fff;font-size:clamp(46px,9vw,116px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.5)}
+.penflourish{display:block;width:clamp(260px,58%,540px);height:auto;margin:6px 0 0;color:var(--gold)}
+.penflourish path{fill:none;stroke:currentColor;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:penwrite 6.5s ease-in-out infinite}
+@keyframes penwrite{0%{stroke-dashoffset:1;opacity:0}6%{opacity:1}44%{stroke-dashoffset:0;opacity:1}78%{stroke-dashoffset:0;opacity:1}90%{opacity:0}100%{stroke-dashoffset:1;opacity:0}}
+.hero .tag{font-family:'Figtree',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,26px);color:#f1e8d6;max-width:32ch;margin:18px 0 0;line-height:1.42}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{font-family:'Figtree',sans-serif;font-weight:700;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btn.p{background:var(--brass);color:#241f18}
+.btn.p:hover{background:var(--brass-l)}
+.btn.o{background:transparent;color:var(--parch);border-color:rgba(243,236,221,.5)}
+.btn.o:hover{border-color:var(--gold);color:var(--gold)}
+
+.facts{background:var(--green-d);color:#e9e1cf}
+.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12)}
+.facts .c{background:var(--green-d);padding:26px clamp(18px,4vw,40px)}
+.facts .k{font-family:'Figtree';font-weight:700;letter-spacing:.14em;font-size:11px;color:var(--gold);text-transform:uppercase}
+.facts .v{font-size:16px;margin-top:8px;color:#e9e1cf}
+.facts .v b{color:#fff;font-weight:600;font-family:'Garamond';font-size:21px;display:block;margin-bottom:2px}
+
+section{padding:clamp(56px,9vw,102px) 0}
+.sect-h{max-width:730px;margin-bottom:42px}
+.sect-h .eyebrow{margin-bottom:14px;display:block}
+.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--ink);line-height:1.06}
+.sect-h h2 em{font-style:normal;color:var(--green)}
+.sect-h p{font-family:'Figtree',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+
+/* table spotlight */
+.spot{background:var(--ink);color:#eee4d0;position:relative;overflow:hidden}
+.spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center}
+.spot .eyebrow{color:var(--gold)}
+.spot h2{font-family:'Garamond';font-size:clamp(38px,6vw,74px);color:#fff;margin:14px 0 0;line-height:1.05}
+.spot h2 span{color:var(--gold);display:block;font-style:normal}
+.spot .lead{font-family:'Figtree';font-size:clamp(18px,2.2vw,24px);line-height:1.5;color:#eee4d0;margin:22px 0 0}
+.spot .body{font-size:16.5px;color:#c8bb9d;margin:16px 0 0;max-width:46ch}
+.spot .pic{position:relative}
+.spot .pic img{width:100%;aspect-ratio:1;object-fit:cover;object-position:20% 50%;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.45)}
+.spot .pic .pill{position:absolute;right:-12px;bottom:24px;background:var(--gold);color:var(--ink);font-family:'Figtree';font-weight:700;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+
+/* place / heritage band */
+.place{background:var(--green);color:#eef0e4;position:relative;overflow:hidden}
+.place .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,64px);align-items:center}
+.place h2{font-family:'Garamond';font-size:clamp(34px,5vw,62px);color:#fff}
+.place h2 span{color:var(--gold);display:block;font-style:normal}
+.place .lead{font-size:18px;color:#e4e7d6;margin-top:18px;line-height:1.62;max-width:44ch}
+.place .body{font-size:16px;color:#c4cbb4;margin-top:14px;max-width:46ch}
+.place .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.place .chip{font-family:'Figtree';font-weight:700;font-size:12.5px;color:var(--ink);background:var(--gold);padding:8px 15px;border-radius:999px}
+.place .chip.b{background:transparent;color:#eef0e4;border:1.5px solid rgba(238,240,228,.4)}
+.place .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;box-shadow:0 24px 50px rgba(0,0,0,.4)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+.gal figure{position:relative;overflow:hidden;border-radius:4px;background:var(--stone)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:saturate(.94) contrast(1.05) brightness(1.01)}
+.gal figure:hover img{transform:scale(1.05)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+.gal figure::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(160deg,rgba(46,70,54,.15),rgba(176,134,60,.07));mix-blend-mode:multiply}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(16,12,8,0.95) 0%,rgba(16,12,8,0.85) 62%,rgba(16,12,8,0) 100%);color:#fff;font-family:'Garamond',serif;font-weight:600;font-size:17px}
+
+/* menu */
+.carte{background:var(--stone)}
+.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-family:'Garamond';font-weight:600;font-size:26px;color:var(--green-d);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--green);margin-bottom:14px}
+.mgroup h3 .nb{width:11px;height:22px;flex:none;color:var(--brass)}
+.mitem{display:flex;gap:13px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line)}
+.mitem:last-child{border-bottom:0}
+.mitem .nm{font-family:'Garamond',serif;font-weight:600;font-size:21px;color:var(--ink);line-height:1.2}
+.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:48ch}
+.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mitem .pr{font-family:'Garamond';color:var(--green);font-size:17px;white-space:nowrap;font-weight:700}
+.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--brass);padding-left:14px;max-width:80ch}
+.mgroup.side{background:rgba(255,255,255,.55);border-radius:4px;padding:18px 22px 8px}
+.mgroup.side h3{font-size:21px}
+.mgroup.side .mitem .nm{font-size:17px}
+.carte .sub{font-size:13px;color:var(--muted);margin:-6px 0 8px;font-style:italic}
+
+/* infos */
+.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,40px)}
+.infos .grid>div:first-child{background:#fff;border:1px solid var(--line);border-radius:4px;padding:clamp(8px,2vw,22px) clamp(22px,4vw,40px)}
+.infos .grid>div:first-child .ino:last-child{border-bottom:0}
+.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.ino .ic{width:22px;height:22px;flex:none;color:var(--green);margin-top:3px}
+.ino .k{font-family:'Figtree';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
+.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
+.hours-today{font-family:'Garamond';color:var(--green);font-size:18px;font-weight:700}
+.callcard{background:var(--green-d);color:#e9e1cf;border-radius:4px;padding:clamp(24px,4vw,40px)}
+.callcard .k{font-family:'Figtree',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold)}
+.callcard .big{font-family:'Garamond',serif;font-size:clamp(30px,4vw,44px);margin:10px 0 6px}
+.callcard .big a{color:#fff}
+.callcard p{margin:0 0 18px;font-size:15.5px;line-height:1.5}
+.mapcard{display:none}
+.mapcard .in{position:relative}
+.mapcard .big{font-family:'Garamond';font-size:28px;color:#fff}
+.mapcard .btn{margin-top:20px}
+
+footer{background:#12100a;color:#b3aa90;padding:0 0 40px}
+footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
+footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--brass),transparent)}
+footer .band .nb{width:16px;height:32px;color:var(--brass)}
+footer .in{padding-block:4px 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+footer .nm{font-family:'Garamond';font-weight:600;font-size:27px;color:var(--parch)}
+footer .nm small{display:block;font-family:'Figtree';font-size:10px;letter-spacing:.2em;color:var(--gold);margin-top:5px;text-transform:uppercase}
+footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a4997e}
+footer .made{font-size:12.5px;color:#7f725a;margin-top:22px}
+footer .made b{color:#e6ddc8}
+footer .made a{color:var(--gold)}
+.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6a5f49;line-height:1.55;max-width:none}
+
+.hero .bg img{object-position:50% 100%}
+@media(max-width:760px){.hero .bg{top:-30%}.hero .bg img{object-position:6% 100%}.hero .cta a[href^="tel:"]{display:none}}
+@media(max-width:900px){
+ .spot .grid,.place .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+ .spot .pic,.place .pic{order:-1}
+ .penflourish{width:clamp(240px,72%,460px)}
+}
+@media(max-width:760px){
+ nav.links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:var(--green-d);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
+ nav.links.open{transform:translateY(0)}
+ nav.links a{padding:12px;font-size:17px}
+ .burger{display:flex}
+ header{background:var(--green-d)}
+ .hero h1{font-size:clamp(40px,13vw,74px)}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.penflourish path{animation:none;stroke-dashoffset:0;opacity:1}}
+
+  /* disclosure legibility */
+  /* This is the one line that makes the page honest about what it is.
+     It was the least legible text here (rgb(106, 95, 73)); set to meet WCAG AA
+     against its own footer ground at 4.61:1, at a readable size. */
+  .disc{color:#857c6a !important;font-size:12.5px !important;line-height:1.5}
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--parch);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
+@media(max-width:760px){ .callcard .btn{display:none} .callcard p{margin-bottom:0} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="https://webwerk.lu/">WEBWER<span class="k">K</span></a>
-    <span class="studio">Studio web · Luxembourg</span>
-  </div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="nib" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M20 5 C11 5 9 22 9 33 L20 60 L31 33 C31 22 29 5 20 5 Z"/>
+  <path d="M20 24 L20 52"/>
+  <circle cx="20" cy="19" r="2.4" fill="currentColor" stroke="none"/>
+</g>
+</defs></svg>
+
+<header id="hd">
+ <div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Le Petit Poète">
+   <img class="plp" src="assets/logo-plp.png" alt="" width="38" height="38"/>
+   <span class="nm">Le Petit Poète<small>Echternach</small></span>
+  </a>
+  <nav class="links" id="nav">
+   <a href="#table" data-i18n="nav_table">La table</a>
+   <a href="#carte" data-i18n="nav_carte">La carte</a>
+   <a href="#echternach" data-i18n="nav_ech">Echternach</a>
+   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
+   <div class="langs" role="group" aria-label="Langue">
+     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+   </div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+ </div>
 </header>
-<main class="wrap">
-  <section class="plate">
-    <span class="fig">FIG. — Proposition de site</span>
-    <h1>Le Petit Poète<span class="sub">Hôtel-café-restaurant à Echternach <span class="note">composé pour vous ✎</span></span></h1>
-    <p class="lede">Le Petit Poète a un site — il est suspendu. En voici un nouveau : la table du poète au cœur d'Echternach, la carte et le lieu, en français, en allemand et en anglais.</p>
-    <div class="dimline"><span>Concept</span><span class="bar"></span><span>Mise en ligne</span></div>
-  </section>
-  <section class="stage">
-    <span class="tag">↙ votre nouveau site</span>
-    <div class="browser">
-      <div class="bbar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="url"><span class="lock">🔒</span> <b>le-petit-poete</b> · aperçu</span>
-      </div>
-      <div class="screen">
-        <iframe title="Aperçu du site Le Petit Poète" src="./site/index.html" loading="lazy" scrolling="no"></iframe>
-        <a class="veil" href="./site/index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
-      </div>
-    </div>
-    <div class="actions">
-      <a class="btn" href="./site/index.html" target="_blank" rel="noopener">Ouvrir le site en grand ↗</a>
-      <a class="btn ghost" href="mailto:jean@webwerk.lu?subject=Le%20Petit%20Po%C3%A8te%20%E2%80%94%20site">En parler avec nous</a>
-    </div>
-  </section>
-  <div class="titleblock">
-    <div><span class="k">Projet</span><span class="v">Le Petit Poète — hôtel-café-restaurant</span></div>
-    <div><span class="k">Lieu</span><span class="v">Echternach</span></div>
-    <div><span class="k">Échelle</span><span class="v">1:1 — taille réelle</span></div>
-    <div><span class="k">Studio</span><span class="v">Webwerk</span></div>
-    <div><span class="k">État</span><span class="v">Aperçu · sans engagement</span></div>
-    <div><span class="k">Contact</span><span class="v">jean@webwerk.lu</span></div>
+
+<main id="top">
+ <section class="hero" id="hero">
+  <div class="bg"><img src="assets/hero.jpg" alt="La devanture du Petit Poète, à la tombée du soir"/></div>
+  <div class="scrim"></div>
+  <div class="wrap inner">
+   <span class="eyebrow" data-i18n="hero_eyebrow">Hôtel – Café – Restaurant</span>
+   <h1>Le Petit Poète</h1>
+   <svg class="penflourish" viewBox="0 0 640 100" aria-hidden="true"><path pathLength="1" d="M28 62 C 150 22 300 20 384 54 C 424 70 344 88 332 60 C 320 34 500 26 612 52"/></svg>
+   <p class="tag" data-i18n="hero_tag">À la table du poète, sur la place du Marché d'Echternach, la plus vieille ville du pays.</p>
+   <div class="cta">
+    <a class="btn p" href="#carte" data-i18n="hero_cta2">Voir la carte</a>
+    <a class="btn o" href="tel:+3527200721" data-i18n="hero_cta1">Appeler</a>
+   </div>
   </div>
-  <footer>
-    <a class="home" href="https://webwerk.lu/">WEBWER<span class="k">K</span> — nous dessinons le web.</a>
-    <span class="note">Aperçu réalisé à titre indicatif à partir de sources publiques — proposition non officielle, sans lien avec la maison. Les plats et les photos proviennent de sources publiques. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
-  </footer>
+ </section>
+
+ <div class="facts">
+  <div class="wrap"><div class="row">
+    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Non-stop</b>de 12h à 22h</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>13, place du Marché</b>Echternach, avec terrasse</div></div>
+    <div class="c"><div class="k" data-i18n="fact_k3">La maison</div><div class="v" data-i18n="fact_v3"><b>Hôtel – Café – Restaurant</b>à deux pas de l'abbaye</div></div>
+  </div></div>
+ </div>
+
+ <!-- TABLE SPOTLIGHT -->
+ <section class="spot" id="table">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" data-i18n="tb_eyebrow">La table</span>
+    <h2 data-i18n="tb_h">La brasserie,<span>sur la place du Marché.</span></h2>
+    <p class="lead" data-i18n="tb_lead">Cordon bleu, bouchée à la reine, rognons de veau à la moutarde, francesinha, côtes d'agneau grillées, maminha de black angus.</p>
+    <p class="body" data-i18n="tb_body">Hôtel, café et restaurant sous un même toit, avec terrasse sur la place du Marché. Cuisine non-stop de 12h à 22h.</p>
+   </div>
+   <div class="pic">
+    <img src="assets/boeuf.jpg" alt="Pièce de bœuf grillée, sa sauce et ses légumes"/>
+   </div>
+  </div>
+ </section>
+
+ <div class="wrap nib-div"><span class="ln"></span><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span class="ln"></span></div>
+
+ <!-- GALLERY -->
+ <section id="gal">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="gal_eyebrow">Photos</span>
+    <h2 data-i18n="gal_h">À table</h2>
+   </div>
+   <div class="gal">
+    <figure class="w2 h2"><img src="assets/plat.jpg" alt="Côtes d'agneau, légumes et jus au vin rouge"/><figcaption data-i18n="cap_plat">Côtes d'agneau grillées</figcaption></figure>
+    <figure><img src="assets/terrine.jpg" alt="Pâté en croûte et jambon cru sur ardoise"/><figcaption data-i18n="cap_terrine">Pâté en croûte &amp; jambon cru</figcaption></figure>
+    <figure><img src="assets/dessert.jpg" alt="Crème brûlée et fruits rouges sur ardoise"/><figcaption data-i18n="cap_dessert">Crème brûlée</figcaption></figure>
+    <figure class="w2"><img src="assets/salle.jpg" alt="La salle du restaurant, tables nappées et suspensions en rotin"/><figcaption data-i18n="cap_salle">La salle du restaurant</figcaption></figure>
+    <figure><img src="assets/biere.jpg" alt="Une bière en terrasse, face à la place du Marché"/><figcaption data-i18n="cap_biere">Une bière en terrasse</figcaption></figure>
+    <figure><img src="assets/terrasse.jpg" alt="La terrasse, avec vue sur la place du Marché et le Dënzelt"/><figcaption data-i18n="cap_terrasse">La terrasse, face à la place du Marché</figcaption></figure>
+    <figure class="w2"><img src="assets/place.jpg" alt="La place du Marché d'Echternach et ses terrasses, au soleil"/><figcaption data-i18n="cap_place">La place du Marché</figcaption></figure>
+   </div>
+  </div>
+ </section>
+
+ <!-- ECHTERNACH / HERITAGE -->
+ <section class="place" id="echternach">
+  <div class="wrap grid">
+   <div class="txt">
+    <span class="eyebrow" style="color:var(--gold)" data-i18n="ech_eyebrow">Le lieu</span>
+    <h2 data-i18n="ech_h">Au cœur<span>d'Echternach.</span></h2>
+    <p class="lead" data-i18n="ech_lead">Le Petit Poète est sur la place du Marché de la plus vieille ville du Luxembourg — à deux pas de l'abbaye bénédictine et de la basilique, aux portes du Mullerthal, la « Petite Suisse » luxembourgeoise.</p>
+   </div>
+   <div class="pic"><img src="assets/facade.jpg" alt="La maison, sur la place d'Echternach"/></div>
+  </div>
+ </section>
+
+ <!-- MENU -->
+ <section class="carte" id="carte">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="carte_eyebrow">La brasserie</span>
+    <h2 data-i18n="carte_h">La carte</h2>
+    <p data-i18n="carte_p">Plats de brasserie et viandes, avec accompagnement et sauce au choix.</p>
+   </div>
+   <div class="cols">
+    <div>
+     <div class="mgroup">
+      <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg1">Les classiques de brasserie</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i1n">Escalope de volaille panée</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i2n">Cordon bleu de volaille</div><div class="ds" data-i18n="i2d">Sauce champignons</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i3n">Bouchée à la reine</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i4n">Francesinha</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i5n">Rognons de veau à la moutarde</div></div></div>
+     </div>
+    </div>
+    <div>
+     <div class="mgroup">
+      <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg2">Les viandes</span></h3>
+      <div class="mitem"><div><div class="nm" data-i18n="i6n">Spareribs sauce barbecue</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i7n">Côtes d'agneau grillées</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i8n">Filet de bœuf (Argentine)</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i9n">Maminha de bœuf black angus</div><div class="ds" data-i18n="i9d">Cuit à basse température</div></div></div>
+     </div>
+     <div class="mgroup side">
+      <h3><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span data-i18n="mg3">Les à-côtés</span></h3>
+      <p class="sub" data-i18n="mg3_sub">Au choix, avec les viandes</p>
+      <div class="mitem"><div><div class="nm" data-i18n="i10n">Gratin dauphinois ou frites</div></div></div>
+      <div class="mitem"><div><div class="nm" data-i18n="i11n">Sauces</div><div class="ds" data-i18n="i11d">Poivre, champignons, maître d'hôtel, vin rouge, béarnaise</div></div></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- INFOS -->
+ <section class="infos" id="infos">
+  <div class="wrap">
+   <div class="sect-h">
+    <span class="eyebrow" data-i18n="infos_eyebrow">Infos & accès</span>
+    <h2 data-i18n="infos_h">Nous trouver</h2>
+   </div>
+   <div class="grid">
+    <div>
+     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">13, place du Marché<br>L-6460 Echternach<br><span data-i18n="ino_hours">Cuisine non-stop de 12h à 22h</span><br><a class="btn p" style="margin-top:14px;padding:10px 18px;font-size:14px" href="https://www.google.com/maps/search/Le+Petit+Po%C3%A8te+13+Place+du+March%C3%A9+Echternach" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a></div></div></div>
+    </div>
+    <div class="callcard">
+     <div class="k" data-i18n="ino_k2">Téléphone</div>
+     <div class="big"><a href="tel:+3527200721">+352 72 00 72 1</a></div>
+     <p data-i18n="cc_p">Pour réserver une table ou une chambre.</p>
+     <a class="btn p" href="tel:+3527200721" data-i18n="hero_cta1">Appeler</a>
+    </div>
+   </div>
+  </div>
+ </section>
 </main>
+
+<footer>
+ <div class="wrap band"><span class="ln"></span><svg class="nb" viewBox="0 0 40 64"><use href="#nib"/></svg><span class="ln"></span></div>
+ <div class="wrap in">
+  <div>
+   <div class="nm">Le Petit Poète<small>Echternach</small></div>
+   <p data-i18n="foot_p">Hôtel-café-restaurant sur la place du Marché d'Echternach.</p>
+  </div>
+  <div>
+   <div style="font-family:'Figtree';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold)">Contact</div>
+   <p style="margin-top:10px">13, place du Marché<br>L-6460 Echternach<br><a href="tel:+3527200721">+352 72 00 72 1</a></p>
+  </div>
+ </div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+</footer>
+
 <script>
-  (function(){
-    var screen=document.querySelector('.screen'), frame=document.querySelector('.screen iframe');
-    var BASE=1280;
-    function fit(){ var s=screen.clientWidth/BASE; frame.style.transform='scale('+s+')'; }
-    fit(); window.addEventListener('resize',fit); frame.addEventListener('load',fit);
-  })();
+const I18N={
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
+  nav_table:"La table",nav_carte:"La carte",nav_ech:"Echternach",nav_infos:"Infos & accès",
+  hero_eyebrow:"Hôtel – Café – Restaurant",
+  hero_tag:"À la table du poète, sur la place du Marché d'Echternach, la plus vieille ville du pays.",
+  hero_cta1:"Appeler",hero_cta2:"Voir la carte",
+  fact_k1:"La cuisine",fact_v1:"<b>Non-stop</b>de 12h à 22h",
+  fact_k2:"Le lieu",fact_v2:"<b>13, place du Marché</b>Echternach, avec terrasse",
+  fact_k3:"La maison",fact_v3:"<b>Hôtel – Café – Restaurant</b>à deux pas de l'abbaye",
+  tb_eyebrow:"La table",tb_h:"La brasserie,<span>sur la place du Marché.</span>",
+  tb_lead:"Cordon bleu, bouchée à la reine, rognons de veau à la moutarde, francesinha, côtes d'agneau grillées, maminha de black angus.",
+  tb_body:"Hôtel, café et restaurant sous un même toit, avec terrasse sur la place du Marché. Cuisine non-stop de 12h à 22h.",
+  gal_eyebrow:"Photos",gal_h:"À table",
+  cap_plat:"Côtes d'agneau grillées",cap_terrine:"Pâté en croûte &amp; jambon cru",cap_dessert:"Crème brûlée",cap_salle:"La salle du restaurant",cap_biere:"Une bière en terrasse",cap_terrasse:"La terrasse, face à la place du Marché",cap_place:"La place du Marché",
+  ech_eyebrow:"Le lieu",ech_h:"Au cœur<span>d'Echternach.</span>",
+  ech_lead:"Le Petit Poète est sur la place du Marché de la plus vieille ville du Luxembourg — à deux pas de l'abbaye bénédictine et de la basilique, aux portes du Mullerthal, la « Petite Suisse » luxembourgeoise.",
+  carte_eyebrow:"La brasserie",carte_h:"La carte",
+  carte_p:"Plats de brasserie et viandes, avec accompagnement et sauce au choix.",
+  mg1:"Les classiques de brasserie",mg2:"Les viandes",mg3:"Les à-côtés",mg3_sub:"Au choix, avec les viandes",
+  i1n:"Escalope de volaille panée",i2n:"Cordon bleu de volaille",i2d:"Sauce champignons",i3n:"Bouchée à la reine",i4n:"Francesinha",i5n:"Rognons de veau à la moutarde",
+  i6n:"Spareribs sauce barbecue",i7n:"Côtes d'agneau grillées",i8n:"Filet de bœuf (Argentine)",i9n:"Maminha de bœuf black angus",i9d:"Cuit à basse température",
+  i10n:"Gratin dauphinois ou frites",i11n:"Sauces",i11d:"Poivre, champignons, maître d'hôtel, vin rouge, béarnaise",
+  infos_eyebrow:"Infos & accès",infos_h:"Nous trouver",
+  ino_k1:"Adresse",ino_hours:"Cuisine non-stop de 12h à 22h",ino_k2:"Téléphone",cc_p:"Pour réserver une table ou une chambre.",
+  map_btn:"Ouvrir dans Maps ↗",
+  foot_p:"Hôtel-café-restaurant sur la place du Marché d'Echternach.",
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+ },
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
+  nav_table:"Küche",nav_carte:"Karte",nav_ech:"Echternach",nav_infos:"Infos & Anfahrt",
+  hero_eyebrow:"Hotel – Café – Restaurant",
+  hero_tag:"Am Tisch des Poeten, am Marktplatz von Echternach, der ältesten Stadt des Landes.",
+  hero_cta1:"Anrufen",hero_cta2:"Zur Karte",
+  fact_k1:"Küche",fact_v1:"<b>Durchgehend</b>von 12 bis 22 Uhr",
+  fact_k2:"Der Ort",fact_v2:"<b>13, place du Marché</b>Echternach, mit Terrasse",
+  fact_k3:"Das Haus",fact_v3:"<b>Hotel – Café – Restaurant</b>wenige Schritte von der Abtei",
+  tb_eyebrow:"Küche",tb_h:"Brasserie<span>am Marktplatz.</span>",
+  tb_lead:"Cordon bleu, Königinpastete, Kalbsnieren in Senfsauce, Francesinha, gegrillte Lammkoteletts, Maminha vom Black Angus.",
+  tb_body:"Hotel, Café und Restaurant unter einem Dach, mit Terrasse am Marktplatz. Durchgehend warme Küche von 12 bis 22 Uhr.",
+  gal_eyebrow:"Fotos",gal_h:"Zu Tisch",
+  cap_plat:"Gegrillte Lammkoteletts",cap_terrine:"Pastete & Rohschinken",cap_dessert:"Crème brûlée",cap_salle:"Das Restaurant",cap_biere:"Ein Bier auf der Terrasse",cap_terrasse:"Die Terrasse mit Blick auf den Marktplatz",cap_place:"Der Marktplatz",
+  ech_eyebrow:"Der Ort",ech_h:"Im Herzen<span>Echternachs.</span>",
+  ech_lead:"Le Petit Poète liegt am Marktplatz der ältesten Stadt Luxemburgs — wenige Schritte von der Benediktinerabtei und der Basilika, am Tor zum Müllerthal, der „Kleinen Schweiz“ Luxemburgs.",
+  carte_eyebrow:"Die Brasserie",carte_h:"Die Karte",
+  carte_p:"Brasserie-Klassiker und Fleischgerichte, mit Beilage und Sauce nach Wahl.",
+  mg1:"Brasserie-Klassiker",mg2:"Fleisch",mg3:"Die Beilagen",mg3_sub:"Nach Wahl zu allen Fleischgerichten",
+  i1n:"Paniertes Geflügelschnitzel",i2n:"Cordon bleu vom Geflügel",i2d:"Champignonsauce",i3n:"Königinpastete",i4n:"Francesinha",i5n:"Kalbsnieren in Senfsauce",
+  i6n:"Spareribs mit Barbecuesauce",i7n:"Gegrillte Lammkoteletts",i8n:"Rinderfilet (Argentinien)",i9n:"Maminha vom Black-Angus-Rind",i9d:"Bei Niedertemperatur gegart",
+  i10n:"Gratin dauphinois oder Pommes",i11n:"Saucen",i11d:"Pfeffer, Champignon, Maître d'hôtel, Rotwein, Sauce béarnaise",
+  infos_eyebrow:"Infos & Anfahrt",infos_h:"So finden Sie uns",
+  ino_k1:"Adresse",ino_hours:"Küche durchgehend von 12 bis 22 Uhr",ino_k2:"Telefon",cc_p:"Für eine Tisch- oder Zimmerreservierung.",
+  map_btn:"In Maps öffnen ↗",
+  foot_p:"Hotel, Café und Restaurant am Marktplatz von Echternach.",
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+ },
+ en:{wwb_call:"Call",wwb_dir:"Directions",
+  nav_table:"Food",nav_carte:"Menu",nav_ech:"Echternach",nav_infos:"Find us",
+  hero_eyebrow:"Hotel – Café – Restaurant",
+  hero_tag:"At the poet's table, on the market square of Echternach, the country's oldest town.",
+  hero_cta1:"Call",hero_cta2:"See the menu",
+  fact_k1:"Kitchen",fact_v1:"<b>Non-stop</b>from 12:00 to 22:00",
+  fact_k2:"The place",fact_v2:"<b>13 Place du Marché</b>Echternach, with a terrace",
+  fact_k3:"The house",fact_v3:"<b>Hotel – Café – Restaurant</b>a few steps from the abbey",
+  tb_eyebrow:"Food",tb_h:"The brasserie,<span>on the market square.</span>",
+  tb_lead:"Cordon bleu, vol-au-vent, veal kidneys in mustard sauce, francesinha, grilled lamb chops, Black Angus maminha.",
+  tb_body:"Hotel, café and restaurant under one roof, with a terrace on the market square. Kitchen open non-stop from 12:00 to 22:00.",
+  gal_eyebrow:"Photos",gal_h:"At the table",
+  cap_plat:"Grilled lamb chops",cap_terrine:"Pâté en croûte & cured ham",cap_dessert:"Crème brûlée",cap_salle:"The dining room",cap_biere:"A beer on the terrace",cap_terrasse:"The terrace, looking onto the market square",cap_place:"The market square",
+  ech_eyebrow:"The place",ech_h:"In the heart<span>of Echternach.</span>",
+  ech_lead:"Le Petit Poète stands on the market square of Luxembourg's oldest town — a few steps from the Benedictine abbey and the basilica, at the gateway to the Mullerthal, Luxembourg's “Little Switzerland”.",
+  carte_eyebrow:"The brasserie",carte_h:"The menu",
+  carte_p:"Brasserie classics and meat dishes, with a side and a sauce of your choice.",
+  mg1:"Brasserie classics",mg2:"Meats",mg3:"On the side",mg3_sub:"Your choice, with the meats",
+  i1n:"Breaded chicken escalope",i2n:"Chicken cordon bleu",i2d:"Mushroom sauce",i3n:"Vol-au-vent (bouchée à la reine)",i4n:"Francesinha",i5n:"Veal kidneys in mustard sauce",
+  i6n:"Spare ribs with barbecue sauce",i7n:"Grilled lamb chops",i8n:"Argentinian beef fillet",i9n:"Black Angus maminha",i9d:"Cooked low and slow",
+  i10n:"Gratin dauphinois or fries",i11n:"Sauces",i11d:"Pepper, mushroom, maître d'hôtel, red wine, béarnaise",
+  infos_eyebrow:"Find us",infos_h:"Find us",
+  ino_k1:"Address",ino_hours:"Kitchen non-stop, 12:00 to 22:00",ino_k2:"Phone",cc_p:"To book a table or a room.",
+  map_btn:"Open in Maps ↗",
+  foot_p:"Hotel, café and restaurant on Echternach's market square.",
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+ }
+};
+let lang="fr";
+function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
+function applyLang(l){
+  lang=l; document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+  try{localStorage.setItem("lpp_lang",l);}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
+burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
+navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
+const hd=document.getElementById("hd");
+const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+try{const sv=localStorage.getItem("lpp_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
 </script>
-<script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+3527200721" data-i18n="wwb_call">Appeler</a>
+  <a class="btn o" href="https://www.google.com/maps/search/Le+Petit+Po%C3%A8te+13+Place+du+March%C3%A9+Echternach" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

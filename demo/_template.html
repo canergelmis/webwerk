@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <!--
-  WEBWERK — per-venue "reveal" TEMPLATE. Copy to demo/<slug>/index.html and replace the
-  {{TOKENS}} below. The real site goes in demo/<slug>/site/ (copied from
-  lux-restaurant-sites/mockups/<slug>/rebuild/) with its fonts self-hosted (drop any
-  fonts.googleapis.com link — the deploy gate + GDPR require it). See demo/README.md.
+  WEBWERK — per-venue preview TEMPLATE. Copy to demo/<slug>/apercu/index.html and replace the
+  {{TOKENS}} below.
+
+  Since 2026-09-16 the venue's site lives at demo/<slug>/ itself, because that is the address in
+  every postcard and message: the owner lands on their own site, not on a page about it. This
+  preview page is kept for our own use at demo/<slug>/apercu/ and is not linked from outreach.
+  The site's fonts are self-hosted (drop any fonts.googleapis.com link — the deploy gate + GDPR
+  require it). See demo/README.md.
 
   TOKENS:
     {{TITLE}}     browser-tab title, e.g. "Maartplaz — une proposition de site · Webwerk"
@@ -136,12 +140,12 @@
         <span class="url"><span class="lock">🔒</span> <b>{{DOMAIN}}</b> · aperçu</span>
       </div>
       <div class="screen">
-        <iframe title="Aperçu du site {{VENUE}}" src="./site/index.html" loading="lazy" scrolling="no"></iframe>
-        <a class="veil" href="./site/index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
+        <iframe title="Aperçu du site {{VENUE}}" src="../index.html" loading="lazy" scrolling="no"></iframe>
+        <a class="veil" href="../index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
       </div>
     </div>
     <div class="actions">
-      <a class="btn" href="./site/index.html" target="_blank" rel="noopener">Ouvrir le site en grand ↗</a>
+      <a class="btn" href="../index.html" target="_blank" rel="noopener">Ouvrir le site en grand ↗</a>
       <a class="btn ghost" href="mailto:jean@webwerk.lu?subject={{VENUE}}%20—%20site">En parler avec nous</a>
     </div>
   </section>

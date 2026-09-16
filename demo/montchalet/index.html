@@ -1,148 +1,496 @@
 <!DOCTYPE html>
-<!--
-  WEBWERK — reveal page for MontChalet (bistro/brasserie, Dudelange).
-  The real site is in ./site/ (copied from lux-restaurant-sites/mockups/montchalet/rebuild/).
-  Site fonts self-hosted in ./site/assets/fonts/ (0 Google requests). Proposal — not affiliated with the venue.
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>MontChalet — une proposition de site · Webwerk</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#0b2c52" />
-<meta property="og:title" content="MontChalet — une proposition de site" />
-<meta property="og:description" content="MontChalet n'a pas de site — son ancien domaine est éteint. En voici un : la carte, le décor de chalet et les infos, en français, allemand et anglais, pensé pour le téléphone." />
-<link rel="preload" href="/fonts/archivo-79dc5e10-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 72'><g fill='none' stroke='%231b5e58' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'><path d='M50 68 L50 50'/><path d='M50 52 C43 49 36 43 31 30 C30 27 30 24 31 20'/><path d='M39 40 C34 39 29 39 23 42'/><path d='M34 31 C31 27 29 22 30 16'/><path d='M50 52 C57 49 64 43 69 30 C70 27 70 24 69 20'/><path d='M61 40 C66 39 71 39 77 42'/><path d='M66 31 C69 27 71 22 70 16'/></g></svg>" />
+<title>MontChalet — Bistro · Brasserie · Dudelange</title>
+<meta name="description" content="Un chalet au cœur de Dudelange — pinsa romana, burgers, planches et une belle carte de bières et de vins, dans un décor de montagne. Aperçu de site composé par Webwerk." />
 <style>
-  :root{ --blue:#0b2c52; --blue2:#0e3360; --cy:#bcd7f2; --wht:#eaf3ff;
-    --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; --maxw:1080px; }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--blue);color:var(--cy);font-family:'Space Mono',ui-monospace,monospace;font-size:14px;line-height:1.6;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-    background-image:linear-gradient(var(--faint2) 1px,transparent 1px),linear-gradient(90deg,var(--faint2) 1px,transparent 1px);
-    background-size:34px 34px;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}
-  a{color:var(--amber);text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:1px}
-  .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-  header{border-bottom:1px solid var(--faint);position:relative;z-index:2}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
-  .brand{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--wht);font-size:1.15rem}
-  .brand .k{color:var(--red)}
-  .studio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(188,215,242,.6)}
-  .plate{padding:52px 0 0}
-  .plate .fig{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(188,215,242,.72)}
-  .plate h1{font-family:'Archivo',sans-serif;font-weight:800;color:var(--wht);font-size:clamp(34px,6vw,62px);
-    line-height:1.0;letter-spacing:-.01em;margin:14px 0 6px}
-  .plate h1 .sub{display:block;font-size:.42em;font-weight:600;color:var(--cy);letter-spacing:.01em;margin-top:8px}
-  .plate .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(-2.5deg);display:inline-block;margin-left:4px}
-  .lede{max-width:58ch;margin:18px 0 0;color:rgba(188,215,242,.82);font-size:.95rem}
-  .dimline{display:flex;align-items:center;gap:10px;margin:22px 0 0;color:var(--red);font-size:.7rem;max-width:620px}
-  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative;transform:scaleX(0);transform-origin:left;
-    animation:draw 1s .35s cubic-bezier(.6,0,.2,1) forwards}
-  @keyframes draw{to{transform:scaleX(1)}}
-  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
-  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
-  .stage{margin:40px 0 0;position:relative}
-  .stage .tag{position:absolute;right:-6px;top:-30px;z-index:3;font-family:'Caveat',cursive;color:var(--amber);
-    font-size:1.5rem;transform:rotate(3deg)}
-  .browser{border:1px solid var(--faint);border-radius:8px;overflow:hidden;background:#0a2547;
-    box-shadow:0 40px 80px -40px rgba(0,0,0,.6);}
-  .bbar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--blue2);border-bottom:1px solid var(--faint)}
-  .bbar .dot{width:11px;height:11px;border-radius:50%;background:rgba(188,215,242,.35)}
-  .bbar .url{flex:1;margin-left:10px;background:rgba(0,0,0,.22);border:1px solid var(--faint2);border-radius:20px;
-    padding:6px 14px;font-size:.72rem;color:var(--cy);display:flex;align-items:center;gap:8px}
-  .bbar .url b{color:var(--wht);font-weight:400}
-  .bbar .url .lock{color:var(--amber);font-size:.7rem}
-  .screen{position:relative;width:100%;overflow:hidden;background:#1a1712;height:600px}
-  .screen iframe{position:absolute;top:0;left:0;width:1280px;height:854px;border:0;transform-origin:top left}
-  .screen .veil{position:absolute;inset:0;cursor:pointer;background:transparent}
-  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:26px 0 0}
-  .btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;
-    background:var(--amber);color:#0a1f38;border:0;border-radius:4px;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-  .btn:hover{filter:brightness(1.06)}
-  .btn.ghost{background:transparent;color:var(--cy);border:1px solid var(--faint)}
-  .btn.ghost:hover{border-color:var(--amber);color:var(--wht)}
-  .titleblock{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--faint);margin:52px 0 0}
-  .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:13px 15px}
-  .titleblock div:nth-child(3n){border-right:0}
-  .titleblock div:nth-last-child(-n+3){border-bottom:0}
-  .titleblock .k{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.66);display:block;margin-bottom:4px}
-  .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem}
-  footer{margin:46px 0 60px;padding-top:22px;border-top:1px solid var(--faint);
-    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;justify-content:space-between}
-  footer .note{color:rgba(188,215,242,.6);font-size:.72rem;max-width:66ch}
-  footer a.home{font-family:'Archivo',sans-serif;font-weight:700;color:var(--wht)}
-  footer a.home .k{color:var(--red)}
-  @media(max-width:640px){
-    .titleblock{grid-template-columns:1fr 1fr}
-    .titleblock div:nth-child(3n){border-right:1px solid var(--faint)}
-    .titleblock div:nth-child(2n){border-right:0}
-    .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)}
-    .titleblock div:nth-last-child(-n+2){border-bottom:0}
-    .screen{height:420px}
-    .stage .tag{display:none}
-  }
-  @media(prefers-reduced-motion:reduce){ .dimline .bar{transform:scaleX(1);animation:none} }
+/* ===== FONTS (self-hosted, 0 external) ===== */
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/barlowcondensed-7B4Lwz3bWuQ.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/barlowcondensed-4Lwz3jWuZEC.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+1E00-1E9F,U+2020,U+20A0-20AB,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/barlowcondensed-7B4873z3bWuQ.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/barlowcondensed-4873z3jWuZEC.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+1E00-1E9F,U+2020,U+20A0-20AB,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/barlowcondensed-7B46r2z3bWuQ.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/barlowcondensed-46r2z3jWuZEC.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+1E00-1E9F,U+2020,U+20A0-20AB,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:300 700;font-display:swap;src:url('assets/fonts/sourcesans3-WudFR3w8aZQ.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:300 700;font-display:swap;src:url('assets/fonts/sourcesans3-dFR3wEaZfrc.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+1E00-1E9F,U+2020,U+20A0-20AB,U+2C60-2C7F,U+A720-A7FF;}
+
+/* ===== TOKENS ===== */
+:root{
+  --paper:#f2efe8; --paper2:#e9e3d5; --cream:#f8f5ee; --card:#fbf9f2;
+  --ink:#232323; --ink2:#4f4a40; --muted:#8b8174;
+  --teal:#1b5e58; --teal-deep:#12403b; --teal-lite:#5a8b83;
+  --copper:#b0763c; --copper2:#8f5f2d; --pine:#a6825a;
+  --line:#ddd5c4;
+  --maxw:1180px; --disp:'Barlow Condensed',Impact,sans-serif; --body:'Source Sans 3',system-ui,-apple-system,sans-serif;
+  --sh:0 22px 48px rgba(30,26,16,.17); --sh-s:0 10px 24px rgba(30,26,16,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,46px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:.98;letter-spacing:.005em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:1rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+.eyebrow.cop{color:var(--copper)}
+.blk{padding:clamp(58px,8.5vw,108px) 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.antler{height:26px;width:auto;flex:0 0 auto}
+.antler path{fill:none;stroke:currentColor;stroke-width:6.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:60;background:rgba(242,239,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--ink)}
+.brand .antler{color:var(--teal);height:30px}
+.brand .bt{font-family:var(--disp);font-weight:700;font-size:1.62rem;letter-spacing:.03em;text-transform:uppercase;line-height:.82}
+.brand .bt small{display:block;font-family:var(--body);font-weight:600;font-size:.5rem;letter-spacing:.28em;color:var(--muted);margin-top:3px;text-transform:uppercase}
+.navright{display:flex;align-items:center;gap:22px}
+.menu{display:flex;align-items:center;gap:26px}
+.menu a{font-family:var(--disp);font-weight:600;font-size:1.06rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.menu a:hover{color:var(--copper)}
+.langs{display:flex;gap:2px;background:var(--paper2);border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--ink2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--teal);color:#fff}
+.burger{display:none;background:transparent;border:0;color:var(--ink);cursor:pointer;padding:6px;font-size:1.5rem;line-height:1}
+@media(max-width:860px){
+  .menu{position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 0;transform:translateY(-140%);transition:transform .32s ease;box-shadow:var(--sh-s)}
+  .menu.open{transform:none}
+  .menu a{padding:15px clamp(20px,5vw,46px);width:100%;border-top:1px solid var(--line)}
+  .burger{display:block}
+}
+@media(max-width:520px){.brand .bt{font-size:1.4rem}.navright{gap:12px}}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:clamp(580px,90vh,820px);display:flex;align-items:flex-end;color:#fff;background:#1a1712;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+#snow{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.62}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(15,13,9,0.34) 0%,rgba(15,13,9,0.38) 34%,rgba(12,26,24,0.66) 76%,rgba(9,20,18,0.9) 100%)}
+.hero .wrap{position:relative;z-index:3;width:100%;padding-top:92px;padding-bottom:clamp(42px,6vw,72px)}
+.hero .eyebrow{color:#c9dcd6}.hero .eyebrow::before{background:#9ec0b8}
+.hero h1{color:#fff;font-size:clamp(74px,17vw,196px);letter-spacing:.02em;margin:14px 0 0;text-shadow:0 3px 40px rgba(0,0,0,.45)}
+.hero .tag{font-family:var(--disp);font-weight:500;font-size:clamp(21px,3.4vw,36px);letter-spacing:.04em;text-transform:uppercase;color:#e7c99b;margin:8px 0 0}
+.hero .sub{font-family:var(--body);font-size:1.05rem;color:#eee7d8;margin:16px 0 0;max-width:52ch;line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
+.btn{font-family:var(--disp);font-weight:600;font-size:1.06rem;letter-spacing:.06em;text-transform:uppercase;border:0;border-radius:8px;padding:13px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn.p{background:var(--copper);color:#fff}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(176,118,60,.42)}
+.btn.g{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5)}
+.btn.g:hover{background:rgba(255,255,255,.2)}
+
+/* ===== SIGNATURE / CHALET ===== */
+.chalet{background:var(--cream)}
+.cgrid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,66px);align-items:center}
+.chalet h2{font-size:clamp(34px,5vw,60px);margin:14px 0 0;color:var(--ink)}
+.chalet .lede{font-size:1.16rem;color:var(--ink2);margin:22px 0 0;max-width:42ch}
+.chalet p.body{color:var(--ink2);margin:15px 0 0;max-width:46ch}
+.cpics{position:relative}
+.cpics .main{border-radius:14px;overflow:hidden;box-shadow:var(--sh);aspect-ratio:4/3.1}
+.cpics .main img{width:100%;height:100%;object-fit:cover}
+.cpics .chip{position:absolute;right:-14px;bottom:-22px;width:44%;border-radius:12px;overflow:hidden;border:5px solid var(--cream);box-shadow:var(--sh-s);aspect-ratio:3/2.4}
+.cpics .chip img{width:100%;height:100%;object-fit:cover}
+.badge{display:flex;align-items:center;gap:12px;margin-top:26px;color:var(--teal)}
+.badge .antler{height:40px;color:var(--teal)}
+.badge span{font-family:var(--disp);font-weight:600;font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper)}
+
+/* ===== CARTE ===== */
+.carte{background:var(--paper)}
+.carte .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.carte h2{font-size:clamp(34px,5vw,60px);margin:12px 0 0}
+.carte .intro{color:var(--ink2);max-width:56ch;margin:14px auto 0;text-align:center}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:clamp(30px,4vw,48px)}
+.mosaic figure{position:relative;border-radius:12px;overflow:hidden;box-shadow:var(--sh-s);margin:0;aspect-ratio:1/1}
+.mosaic figure.w2{grid-column:span 2;aspect-ratio:2/1}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 13px 9px;font-family:var(--disp);font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:linear-gradient(transparent,rgba(15,13,9,.72))}
+@media(max-width:760px){.mosaic{grid-template-columns:repeat(2,1fr)}}
+.menucols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,62px);margin-top:clamp(34px,4.5vw,56px)}
+.mgroup{margin-bottom:30px}
+.mgroup h3{font-size:1.6rem;color:var(--teal);display:flex;align-items:center;gap:12px;padding-bottom:11px;border-bottom:1px solid var(--line);margin-bottom:14px;letter-spacing:.06em}
+.mgroup h3 .antler{height:22px;color:var(--copper)}
+.item{display:flex;gap:12px;align-items:baseline;margin:11px 0}
+.item .nm{font-weight:600;color:var(--ink)}
+.item .ds{color:var(--muted);font-size:.88rem}
+.item .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:16px}
+.item .pr{font-family:var(--disp);font-weight:600;font-size:1.12rem;color:var(--copper);white-space:nowrap;letter-spacing:.02em}
+.bar-note{margin-top:8px;padding:20px 22px;background:var(--teal);color:#eaf1ee;border-radius:12px}
+.bar-note .k{font-family:var(--disp);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e7c99b;font-size:1.05rem}
+.bar-note p{margin-top:6px;font-size:.96rem;color:#dbe7e2}
+.pricenote{margin-top:22px;font-size:.86rem;color:var(--muted);text-align:center}
+@media(max-width:760px){.menucols{grid-template-columns:1fr;gap:0}}
+
+/* ===== TERRASSE ===== */
+.terr{position:relative;background:#12403b;color:#eaf1ee;overflow:hidden}
+.terr .tgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.terr .txt{padding:clamp(48px,7vw,96px) clamp(22px,5vw,64px)}
+.terr .eyebrow{color:#9ec0b8}.terr .eyebrow::before{background:#9ec0b8}
+.terr h2{color:#fff;font-size:clamp(32px,4.6vw,54px);margin:14px 0 0}
+.terr p{color:#cfe0da;margin:18px 0 0;max-width:44ch;font-size:1.05rem}
+.terr .pics{display:grid;grid-template-rows:1fr 1fr;gap:0}
+.terr .pics img{width:100%;height:100%;object-fit:cover;min-height:220px}
+@media(max-width:860px){.terr .tgrid{grid-template-columns:1fr}.terr .pics{grid-template-columns:1fr 1fr;grid-template-rows:none}}
+
+/* ===== VISIT ===== */
+.visit{background:var(--ink);color:#e7ddcb}
+.visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+.visit .eyebrow{color:var(--copper)}.visit .eyebrow::before{background:var(--copper)}
+.visit h2{color:#fff;font-size:clamp(30px,4.4vw,50px);margin:14px 0 0}
+.info{margin-top:24px}
+.info .row{padding:15px 0;border-top:1px solid rgba(255,255,255,.14)}
+.info .row:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.info .k{font-family:var(--disp);font-weight:600;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:#c9a06a}
+.info .v{margin-top:5px;color:#f2ece0}
+.info .v a{border-bottom:1px solid rgba(255,255,255,.4)}
+.visit .cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.mapcard{border-radius:14px;overflow:hidden;box-shadow:var(--sh);align-self:start}
+.mapcard img{width:100%;height:100%;object-fit:cover;min-height:300px}
+@media(max-width:760px){.visit .vgrid2{grid-template-columns:1fr}}
+
+/* ===== FOOTER ===== */
+footer{background:#161310;color:#b4ab98;padding:44px 0 40px;font-size:.86rem;line-height:1.6}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-top .bt{font-family:var(--disp);font-weight:700;font-size:1.6rem;letter-spacing:.03em;text-transform:uppercase;color:#f2efe8;display:flex;align-items:center;gap:11px}
+.foot-top .bt .antler{height:28px;color:var(--teal-lite)}
+.disc{margin-top:22px;color:#8c8474;max-width:80ch}
+.madeby{margin-top:14px;color:#c9a06a}
+.madeby a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.4)}
+@media(max-width:860px){.cgrid{grid-template-columns:1fr;gap:44px}.cpics .chip{width:38%}}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
-<body>
+<body id="top">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="antlers" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 68 L50 50"/><path d="M50 52 C43 49 36 43 31 30 C30 27 30 24 31 20"/><path d="M39 40 C34 39 29 39 23 42"/><path d="M34 31 C31 27 29 22 30 16"/><path d="M50 52 C57 49 64 43 69 30 C70 27 70 24 69 20"/><path d="M61 40 C66 39 71 39 77 42"/><path d="M66 31 C69 27 71 22 70 16"/></g>
+</defs></svg>
+
 <header>
-  <div class="wrap">
-    <a class="brand" href="https://webwerk.lu/">WEBWER<span class="k">K</span></a>
-    <span class="studio">Studio web · Luxembourg</span>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="MontChalet">
+      <svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg>
+      <span class="bt">MontChalet<small data-i18n="brand_sub">Bistro · Brasserie · Dudelange</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#chalet" data-i18n="n_chalet">Le chalet</a>
+        <a href="#carte" data-i18n="n_carte">La carte</a>
+        <a href="#terrasse" data-i18n="n_terr">La terrasse</a>
+        <a href="#visit" data-i18n="n_visit">Infos</a>
+      </nav>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </div>
   </div>
 </header>
-<main class="wrap">
-  <section class="plate">
-    <span class="fig">FIG. — Proposition de site</span>
-    <h1>MontChalet<span class="sub">Bistro · Brasserie · Dudelange <span class="note">composé pour vous ✎</span></span></h1>
-    <p class="lede">MontChalet n'a plus de site : l'ancien domaine (montchalet.lu) est éteint, et rien en ligne ne lui appartient — tout passe par des plateformes. En voici un, à vous : la carte, le décor de chalet et les infos, en français, en allemand et en anglais, pensé pour le téléphone.</p>
-    <div class="dimline"><span>Concept</span><span class="bar"></span><span>Mise en ligne</span></div>
-  </section>
-  <section class="stage">
-    <span class="tag">↙ votre nouveau site</span>
-    <div class="browser">
-      <div class="bbar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="url"><span class="lock">🔒</span> <b>montchalet.lu</b> · aperçu</span>
-      </div>
-      <div class="screen">
-        <iframe title="Aperçu du site MontChalet" src="./site/index.html" loading="lazy" scrolling="no"></iframe>
-        <a class="veil" href="./site/index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="bg"><img src="assets/salle.jpg" alt="La salle de MontChalet — décor de chalet, murs vert sapin, cerf blanc" /></div>
+    <canvas id="snow" aria-hidden="true"></canvas>
+    <div class="shade"></div>
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="hero_eyebrow">Bistro · Brasserie · Biergarten</span>
+      <h1>MontChalet</h1>
+      <p class="tag" data-i18n="hero_tag">Un chalet au cœur de Dudelange.</p>
+      <p class="sub" data-i18n="hero_sub">Un décor de montagne — bois, cerf blanc et vert sapin — pour une cuisine bistro généreuse : pinsa romana, burgers, planches, et une belle carte de bières et de vins.</p>
+      <div class="cta">
+        <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
+        <a href="tel:+35226511156" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 26 51 11 56</a>
       </div>
     </div>
-    <div class="actions">
-      <a class="btn" href="./site/index.html" target="_blank" rel="noopener">Ouvrir le site en grand ↗</a>
-      <a class="btn ghost" href="mailto:jean@webwerk.lu?subject=MontChalet%20—%20site">En parler avec nous</a>
+  </section>
+
+  <!-- CHALET -->
+  <section class="chalet blk" id="chalet">
+    <div class="wrap cgrid">
+      <div class="cpics reveal">
+        <div class="main"><img src="assets/deco-cerf.jpg" alt="Le décor signature — cerf blanc, cheminée et mur de photos" /></div>
+        <div class="chip"><img src="assets/salle-bar.jpg" alt="Le comptoir et les chaises en peau de mouton" /></div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="c_eyebrow">Le chalet</span>
+        <h2 data-i18n="c_head">Le décor de montagne, en pleine ville.</h2>
+        <p class="lede" data-i18n="c_lede">Un cerf blanc, du bois clair et un vert sapin profond — l'esprit chalet posé au milieu de la place Am Duerf, entre les façades de verre de Dudelange.</p>
+        <p class="body" data-i18n="c_p1">On s'y installe au chaud, dans une salle chaleureuse et un peu éclectique — mur de photos en noir et blanc, étagères de livres, chaises drapées de peau de mouton.</p>
+        <div class="badge"><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg><span data-i18n="c_badge">Bistro · Brasserie · Biergarten</span></div>
+      </div>
     </div>
   </section>
-  <div class="titleblock">
-    <div><span class="k">Projet</span><span class="v">MontChalet — bistro &amp; brasserie</span></div>
-    <div><span class="k">Lieu</span><span class="v">Dudelange, Luxembourg</span></div>
-    <div><span class="k">Échelle</span><span class="v">1:1 — taille réelle</span></div>
-    <div><span class="k">Studio</span><span class="v">Webwerk</span></div>
-    <div><span class="k">État</span><span class="v">Aperçu · sans engagement</span></div>
-    <div><span class="k">Contact</span><span class="v">jean@webwerk.lu</span></div>
-  </div>
-  <footer>
-    <a class="home" href="https://webwerk.lu/">WEBWER<span class="k">K</span> — nous dessinons le web.</a>
-    <span class="note">Aperçu réalisé à titre indicatif à partir de sources publiques (Google Maps, Wolt) — proposition non officielle, sans lien avec la maison. La maison n'a pas de logo : l'identité typographique est une proposition ; le nom apparaît aussi sous la forme « Mont Chalet ». Carte et prix relevés sur la carte de livraison, à confirmer en salle. Photographies de sources publiques, à remplacer par les visuels de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
-  </footer>
+
+  <!-- CARTE -->
+  <section class="carte blk" id="carte">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow cop" data-i18n="ca_eyebrow">La carte</span>
+        <h2 data-i18n="ca_head">Pinsa, burgers &amp; planches.</h2>
+        <p class="intro" data-i18n="ca_intro">Une cuisine bistro à l'accent italien. Voici une sélection — la carte complète est servie en salle.</p>
+      </div>
+
+      <div class="mosaic reveal">
+        <figure class="w2"><img src="assets/pizza.jpg" alt="Pinsa romana" /><figcaption>Pinsa romana</figcaption></figure>
+        <figure><img src="assets/burrata.jpg" alt="Salade burrata" /><figcaption>Burrata</figcaption></figure>
+        <figure><img src="assets/croque-monsieur.jpg" alt="Croque-monsieur" /><figcaption>Croque-monsieur</figcaption></figure>
+        <figure><img src="assets/tartine-raclette.jpg" alt="Tartine raclette" /><figcaption data-i18n="m_tartine">Tartine</figcaption></figure>
+        <figure><img src="assets/cafe-croissant.jpg" alt="Café et croissant" /><figcaption data-i18n="m_cafe">Café</figcaption></figure>
+      </div>
+
+      <div class="menucols reveal">
+        <div>
+          <div class="mgroup">
+            <h3><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg>Pinsa Romana</h3>
+            <div class="item"><span class="nm">Margherita</span></div>
+            <div class="item"><span class="nm">Burrata</span> <span class="ds" data-i18n="d_burrata">tomate, mozzarella, roquette</span></div>
+            <div class="item"><span class="nm">Prosciutto &amp; funghi</span></div>
+            <div class="item"><span class="nm">Pinsa Chalet</span> <span class="ds" data-i18n="d_chalet">saumon fumé, stracciatella, pistache</span></div>
+          </div>
+          <div class="mgroup">
+            <h3><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg><span data-i18n="g_salads">Salades</span></h3>
+            <div class="item"><span class="nm" data-i18n="s_cesar">César au poulet</span></div>
+            <div class="item"><span class="nm">Burrata &amp; betterave</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="mgroup">
+            <h3><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg><span data-i18n="g_burgers">Burgers &amp; tartines</span></h3>
+            <div class="item"><span class="nm">Croque-Monsieur</span></div>
+            <div class="item"><span class="nm" data-i18n="b_beef">Burger bœuf effiloché</span></div>
+            <div class="item"><span class="nm" data-i18n="b_chicken">Burger poulet</span></div>
+            <div class="item"><span class="nm" data-i18n="b_veg">Burger végétarien</span></div>
+          </div>
+          <div class="mgroup">
+            <h3><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg><span data-i18n="g_share">À partager · Dolci</span></h3>
+            <div class="item"><span class="nm" data-i18n="sh_planche">Planche charcuterie &amp; fromage</span> <span class="ds" data-i18n="sh_planche_d">2 pers.</span></div>
+            <div class="item"><span class="nm" data-i18n="do_cheese">Cheesecake pistache</span></div>
+            <div class="item"><span class="nm">Carrot cake</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bar-note reveal">
+        <span class="k" data-i18n="bar_k">Au bar · Biergarten</span>
+        <p data-i18n="bar_p">Bières, prosecco et crémant, vins d'ici et d'Italie — de la Rivaner luxembourgeoise au Valpolicella Ripasso.</p>
+      </div>
+      <p class="pricenote reveal" data-i18n="ca_pricenote">Sélection issue de la carte de livraison ; la carte complète et les prix définitifs sont servis en salle.</p>
+    </div>
+  </section>
+
+  <!-- TERRASSE -->
+  <section class="terr" id="terrasse">
+    <div class="tgrid">
+      <div class="txt reveal">
+        <span class="eyebrow" data-i18n="t_eyebrow">La terrasse</span>
+        <h2 data-i18n="t_head">Un café sur la place, du matin au soir.</h2>
+        <p data-i18n="t_p">La terrasse donne sur la place piétonne Am Duerf — un café le matin, une bière à l'ombre l'après-midi, un verre au chaud le soir venu.</p>
+      </div>
+      <div class="pics">
+        <img src="assets/terrasse.jpg" alt="La terrasse sur la place Am Duerf" />
+        <img src="assets/terrasse-soir.jpg" alt="La terrasse au crépuscule" />
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit blk" id="visit">
+    <div class="wrap vgrid2">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="vi_eyebrow">Infos</span>
+        <h2 data-i18n="vi_head">Place Am Duerf, Dudelange.</h2>
+        <div class="info">
+          <div class="row"><div class="k" data-i18n="l_addr">Adresse</div><div class="v">6 Am Duerf, L-3436 Dudelange</div></div>
+          <div class="row"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+35226511156">26 51 11 56</a></div></div>
+          <div class="row"><div class="k" data-i18n="l_hours">Horaires</div><div class="v"><span data-i18n="h_val">Ouvert jusqu'à minuit.</span></div></div>
+          <div class="row"><div class="k" data-i18n="l_serv">Services</div><div class="v" data-i18n="serv_val">Sur place · à emporter · livraison (Wolt)</div></div>
+        </div>
+        <div class="cta">
+          <a href="tel:+35226511156" class="btn p" data-i18n="vi_call">Appeler pour réserver</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange" target="_blank" rel="noopener" class="btn g" data-i18n="vi_dir">Itinéraire</a>
+        </div>
+      </div>
+      <div class="mapcard reveal"><img src="assets/salle-2.jpg" alt="La salle et les grandes baies vitrées" /></div>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="bt"><svg class="antler" viewBox="0 0 100 70"><use href="#antlers"/></svg>MontChalet</span>
+      <span>6 Am Duerf, L-3436 Dudelange · <a href="tel:+35226511156" style="color:#e7dcc3">26 51 11 56</a></span>
+    </div>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
+  </div>
+</footer>
+
 <script>
-  (function(){
-    var screen=document.querySelector('.screen'), frame=document.querySelector('.screen iframe');
-    var BASE=1280;
-    function fit(){ var s=screen.clientWidth/BASE; frame.style.transform='scale('+s+')'; }
-    fit(); window.addEventListener('resize',fit); frame.addEventListener('load',fit);
-  })();
+const I18N = {
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
+  brand_sub:"Bistro · Brasserie · Dudelange", n_chalet:"Le chalet", n_carte:"La carte", n_terr:"La terrasse", n_visit:"Infos",
+  hero_eyebrow:"Bistro · Brasserie · Biergarten", hero_tag:"Un chalet au cœur de Dudelange.",
+  hero_sub:"Un décor de montagne — bois, cerf blanc et vert sapin — pour une cuisine bistro généreuse : pinsa romana, burgers, planches, et une belle carte de bières et de vins.",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler",
+  c_eyebrow:"Le chalet", c_head:"Le décor de montagne, en pleine ville.",
+  c_lede:"Un cerf blanc, du bois clair et un vert sapin profond — l'esprit chalet posé au milieu de la place Am Duerf, entre les façades de verre de Dudelange.",
+  c_p1:"On s'y installe au chaud, dans une salle chaleureuse et un peu éclectique — mur de photos en noir et blanc, étagères de livres, chaises drapées de peau de mouton.",
+  c_badge:"Bistro · Brasserie · Biergarten",
+  ca_eyebrow:"La carte", ca_head:"Pinsa, burgers & planches.", ca_intro:"Une cuisine bistro à l'accent italien. Voici une sélection — la carte complète est servie en salle.",
+  m_tartine:"Tartine", m_cafe:"Café",
+  d_burrata:"tomate, mozzarella, roquette", d_chalet:"saumon fumé, stracciatella, pistache",
+  g_salads:"Salades", s_cesar:"César au poulet",
+  g_burgers:"Burgers & tartines", b_beef:"Burger bœuf effiloché", b_chicken:"Burger poulet", b_veg:"Burger végétarien",
+  g_share:"À partager · Dolci", sh_planche:"Planche charcuterie & fromage", sh_planche_d:"2 pers.", do_cheese:"Cheesecake pistache",
+  bar_k:"Au bar · Biergarten", bar_p:"Bières, prosecco et crémant, vins d'ici et d'Italie — de la Rivaner luxembourgeoise au Valpolicella Ripasso.",
+  ca_pricenote:"Sélection issue de la carte de livraison ; la carte complète et les prix définitifs sont servis en salle.",
+  t_eyebrow:"La terrasse", t_head:"Un café sur la place, du matin au soir.",
+  t_p:"La terrasse donne sur la place piétonne Am Duerf — un café le matin, une bière à l'ombre l'après-midi, un verre au chaud le soir venu.",
+  vi_eyebrow:"Infos", vi_head:"Place Am Duerf, Dudelange.",
+  l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Ouvert jusqu'à minuit.",
+  l_serv:"Services", serv_val:"Sur place · à emporter · livraison (Wolt)",
+  vi_call:"Appeler pour réserver", vi_dir:"Itinéraire",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_made:"Un aperçu"
+ },
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
+  brand_sub:"Bistro · Brasserie · Dudelange", n_chalet:"Das Chalet", n_carte:"Die Karte", n_terr:"Die Terrasse", n_visit:"Infos",
+  hero_eyebrow:"Bistro · Brasserie · Biergarten", hero_tag:"Ein Chalet mitten in Düdelingen.",
+  hero_sub:"Ein Bergdekor — Holz, weißer Hirsch und tiefes Tannengrün — für eine großzügige Bistroküche: Pinsa Romana, Burger, Platten und eine schöne Bier- und Weinkarte.",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen",
+  c_eyebrow:"Das Chalet", c_head:"Bergdekor, mitten in der Stadt.",
+  c_lede:"Ein weißer Hirsch, helles Holz und ein tiefes Tannengrün — Chalet-Stimmung mitten auf dem Platz Am Duerf, zwischen den Glasfassaden von Düdelingen.",
+  c_p1:"Man sitzt hier warm, in einem gemütlichen, leicht eklektischen Raum — eine Schwarz-Weiß-Fotowand, Bücherregale, mit Schaffell bezogene Stühle.",
+  c_badge:"Bistro · Brasserie · Biergarten",
+  ca_eyebrow:"Die Karte", ca_head:"Pinsa, Burger & Platten.", ca_intro:"Eine Bistroküche mit italienischem Akzent. Hier eine Auswahl — die vollständige Karte gibt es im Restaurant.",
+  m_tartine:"Tartine", m_cafe:"Kaffee",
+  d_burrata:"Tomate, Mozzarella, Rucola", d_chalet:"Räucherlachs, Stracciatella, Pistazie",
+  g_salads:"Salate", s_cesar:"Caesar mit Hähnchen",
+  g_burgers:"Burger & Tartines", b_beef:"Pulled-Beef-Burger", b_chicken:"Hähnchenburger", b_veg:"Vegetarischer Burger",
+  g_share:"Zum Teilen · Dolci", sh_planche:"Wurst- & Käseplatte", sh_planche_d:"2 Pers.", do_cheese:"Pistazien-Cheesecake",
+  bar_k:"An der Bar · Biergarten", bar_p:"Biere, Prosecco und Crémant, Weine von hier und aus Italien — vom luxemburgischen Rivaner bis zum Valpolicella Ripasso.",
+  ca_pricenote:"Auswahl aus der Lieferkarte; die vollständige Karte und die endgültigen Preise gibt es im Restaurant.",
+  t_eyebrow:"Die Terrasse", t_head:"Ein Kaffee am Platz, von morgens bis abends.",
+  t_p:"Die Terrasse liegt an der Fußgängerzone Am Duerf — ein Kaffee am Morgen, ein Bier im Schatten am Nachmittag, ein Glas im Warmen am Abend.",
+  vi_eyebrow:"Infos", vi_head:"Platz Am Duerf, Düdelingen.",
+  l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Bis Mitternacht geöffnet.",
+  l_serv:"Services", serv_val:"Vor Ort · zum Mitnehmen · Lieferung (Wolt)",
+  vi_call:"Zum Reservieren anrufen", vi_dir:"Route",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_made:"Eine Vorschau von"
+ },
+ en:{wwb_call:"Call",wwb_dir:"Directions",
+  brand_sub:"Bistro · Brasserie · Dudelange", n_chalet:"The chalet", n_carte:"The menu", n_terr:"The terrace", n_visit:"Find us",
+  hero_eyebrow:"Bistro · Brasserie · Biergarten", hero_tag:"A chalet in the heart of Dudelange.",
+  hero_sub:"A mountain-lodge setting — timber, a white stag and deep fir-green — for hearty bistro cooking: pinsa romana, burgers, sharing boards, and a proper beer and wine list.",
+  hero_cta1:"See the menu", hero_cta2:"Call",
+  c_eyebrow:"The chalet", c_head:"A mountain lodge, in the middle of town.",
+  c_lede:"A white stag, pale timber and a deep fir-green — the chalet spirit set in the middle of the Am Duerf square, among the glass fronts of Dudelange.",
+  c_p1:"You settle in warm, in a cosy, slightly eclectic room — a black-and-white photo wall, shelves of books, sheepskin-draped chairs.",
+  c_badge:"Bistro · Brasserie · Biergarten",
+  ca_eyebrow:"The menu", ca_head:"Pinsa, burgers & boards.", ca_intro:"Bistro cooking with an Italian accent. Here is a selection — the full menu is served in-house.",
+  m_tartine:"Tartine", m_cafe:"Coffee",
+  d_burrata:"tomato, mozzarella, rocket", d_chalet:"smoked salmon, stracciatella, pistachio",
+  g_salads:"Salads", s_cesar:"Chicken Caesar",
+  g_burgers:"Burgers & tartines", b_beef:"Shredded-beef burger", b_chicken:"Chicken burger", b_veg:"Vegetarian burger",
+  g_share:"To share · Dolci", sh_planche:"Charcuterie & cheese board", sh_planche_d:"for 2", do_cheese:"Pistachio cheesecake",
+  bar_k:"At the bar · Biergarten", bar_p:"Beers, prosecco and crémant, wines from here and Italy — from Luxembourg Rivaner to Valpolicella Ripasso.",
+  ca_pricenote:"A selection from the delivery menu; the full carte and final prices are served in-house.",
+  t_eyebrow:"The terrace", t_head:"A coffee on the square, morning to night.",
+  t_p:"The terrace opens onto the Am Duerf pedestrian square — a coffee in the morning, a beer in the shade in the afternoon, a warm glass come evening.",
+  vi_eyebrow:"Find us", vi_head:"Am Duerf square, Dudelange.",
+  l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Open until midnight.",
+  l_serv:"Services", serv_val:"Dine-in · takeaway · delivery (Wolt)",
+  vi_call:"Call to reserve", vi_dir:"Directions",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_made:"A preview by"
+ }
+};
+function applyLang(l){
+  const d = I18N[l] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ const k=el.getAttribute('data-i18n'); if(d[k]!=null) el.textContent=d[k]; });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  try{ localStorage.setItem('montchalet_lang', l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
+(function(){ let l='fr'; try{ l=localStorage.getItem('montchalet_lang')||'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* ===== subtle falling snow over the hero ===== */
+(function(){
+  const c=document.getElementById('snow'); if(!c) return;
+  const hero=document.getElementById('hero'), ctx=c.getContext('2d');
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  let W=0,H=0,flakes=[],raf=null,running=false;
+  function build(){
+    flakes=[];
+    const n=Math.max(24,Math.round(W*H/22000));
+    for(let i=0;i<n;i++){ flakes.push({ x:Math.random()*W, y:Math.random()*H, r:.8+Math.random()*2.2, vy:.25+Math.random()*.7, drift:.3+Math.random()*.8, ph:Math.random()*6.28, a:.35+Math.random()*.5 }); }
+  }
+  function size(){ const r=hero.getBoundingClientRect(); W=r.width; H=r.height; c.width=Math.round(W*dpr); c.height=Math.round(H*dpr); c.style.width=W+'px'; c.style.height=H+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); build(); if(reduce) draw(true); }
+  function draw(stat){
+    ctx.clearRect(0,0,W,H);
+    for(const f of flakes){
+      if(!stat){ f.y+=f.vy; f.x+=Math.sin(f.y/40+f.ph)*f.drift*0.35; if(f.y-f.r>H){ f.y=-4; f.x=Math.random()*W; } }
+      ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,6.2832); ctx.fillStyle='rgba(255,255,255,'+f.a.toFixed(2)+')'; ctx.fill();
+    }
+  }
+  function frame(){ draw(false); raf=requestAnimationFrame(frame); }
+  function start(){ if(running||reduce) return; running=true; frame(); }
+  function stop(){ running=false; if(raf) cancelAnimationFrame(raf); raf=null; }
+  size();
+  const vis=new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?start():stop(); }); }, {threshold:.02});
+  vis.observe(hero);
+  let rt=null; window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(size,180); });
+})();
 </script>
-<!-- cookieless, GDPR-clean analytics (same as webwerk.lu) — did the reveal get opened + visitor country -->
-<script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35226511156" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>
