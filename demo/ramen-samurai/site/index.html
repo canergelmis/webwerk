@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!--
-  RAMEN SAMURAI · demo site by Webwerk (proposition, non officielle).
-  Bespoke build. Self-hosted fonts (assets/fonts/, 0 Google requests). Real venue photos only.
-  Concept: dark, lantern-lit Tokyo-alley — the "Ramen Neko" (拉麺猫) ukiyo-e spirit; rising-steam hero.
-  Trilingual FR (native) / DE / EN (drafts). NO prices (sources conflict). Honest flags on hours, phone, logotype.
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
@@ -175,7 +169,6 @@ section.blk{padding:78px 0}
 .info .card{background:var(--sumi);border:1px solid var(--line);border-radius:16px;padding:26px}
 .info h3{color:var(--gold2);font-size:1.1rem;margin-bottom:14px}
 .info .hrow{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.info .hrow.today{color:var(--gold2);font-weight:700}
 .info .hrow .cl{color:var(--cream-fade)}
 .info .card p{color:var(--cream-dim);font-size:.98rem}
 .info .card a.line{display:block;color:var(--cream);font-weight:700;margin-top:6px}
@@ -392,7 +385,6 @@ footer a.wk{color:var(--gold);font-weight:700}
           </div>
         </div>
       </div>
-      <p class="mnote reveal" data-i18n="menu_note">Carte indicative, établie à partir de sources publiques — sélection non exhaustive, prix à confirmer avec la maison.</p>
     </div>
   </section>
 
@@ -408,7 +400,6 @@ footer a.wk{color:var(--gold);font-weight:700}
         <div class="card">
           <h3 data-i18n="info_hours">Horaires</h3>
           <div id="hours"></div>
-          <p class="flag" data-i18n="info_hours_flag">⚠ Horaires indicatifs — à confirmer avec la maison.</p>
         </div>
         <div class="card">
           <h3 data-i18n="info_find">Nous trouver</h3>
@@ -432,7 +423,7 @@ footer a.wk{color:var(--gold);font-weight:700}
       <span class="bn"><span class="dot"></span>RAMEN SAMURAI</span>
       <span style="font-size:.9rem" data-i18n="foot_tag">Ramen d'Osaka · 17 Avenue Monterey · Luxembourg</span>
     </div>
-    <p class="disc" data-i18n="disc">Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé et non définitif. Carte, horaires et coordonnées sont à confirmer avec la maison ; les prix ne sont pas affichés faute de source fiable. Photographies de sources publiques.</p>
+    <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
     <p class="disc" style="margin-top:8px">© <span id="yr"></span> · <a class="wk" href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk — nous dessinons le web.</a></p>
   </div>
 </footer>
@@ -459,15 +450,13 @@ var I18N = {
     d_udon_v:"Udon végétarien",d_udon_b:"Udon au bœuf",
     s_gyoza:"Gyoza (poulet ou légumes)",s_edamame:"Edamame",s_menma:"Menma (bambou)",s_algues:"Salade d'algues",
     s_tofu:"Tofu froid",s_fries:"Frites à la japonaise",s_bubble:"Bubble tea maison",s_beer:"Bières japonaises",s_sake:"Saké",s_tea:"Thé japonais",
-    menu_note:"Carte indicative, établie à partir de sources publiques — sélection non exhaustive, prix à confirmer avec la maison.",
     room_kick:"La salle",room_h:"Une ruelle de Tokyo, deux étages plus bas que la ville",
     cap_bowl:"Le bol signature, dressé minute",cap_mural:"La fresque matsuri",cap_karaage:"Karaage croustillant",cap_gyoza:"Ramen & gyoza",cap_chashu:"Chashu fondant",
     info_kick:"En pratique",info_h:"Passer la porte",info_hours:"Horaires",
-    info_hours_flag:"⚠ Horaires indicatifs — à confirmer avec la maison.",
     info_find:"Nous trouver",info_addr:"17, Avenue Monterey<br/>L-2163 Luxembourg-Ville",info_maps:"Ouvrir dans Maps ↗",
     info_contact:"Contact",info_contact_p:"Sur place, à emporter ou en livraison.",
     foot_tag:"Ramen d'Osaka · 17 Avenue Monterey · Luxembourg",
-    disc:"Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé et non définitif. Carte, horaires et coordonnées sont à confirmer avec la maison ; les prix ne sont pas affichés faute de source fiable. Photographies de sources publiques.",
+    disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],closed:"Fermé",
     story_h:"Le ramen d'Osaka, <span class='u'>au cœur de Luxembourg.</span>"
   },
@@ -491,15 +480,15 @@ var I18N = {
     d_udon_v:"Vegetarischer Udon",d_udon_b:"Udon mit Rind",
     s_gyoza:"Gyoza (Huhn oder Gemüse)",s_edamame:"Edamame",s_menma:"Menma (Bambus)",s_algues:"Algensalat",
     s_tofu:"Kalter Tofu",s_fries:"Pommes auf japanische Art",s_bubble:"Hausgemachter Bubble Tea",s_beer:"Japanische Biere",s_sake:"Sake",s_tea:"Japanischer Tee",
-    menu_note:"Richtkarte aus öffentlichen Quellen — keine vollständige Auswahl, Preise mit dem Haus zu bestätigen.",
+    menu_note:"Richtkarte aus öffentlichen Quellen.",
     room_kick:"Der Raum",room_h:"Eine Gasse in Tokio, zwei Etagen unter der Stadt",
     cap_bowl:"Die Signature-Bowl, à la minute angerichtet",cap_mural:"Das Matsuri-Wandbild",cap_karaage:"Knuspriges Karaage",cap_gyoza:"Ramen & Gyoza",cap_chashu:"Zartes Chashu",
     info_kick:"Praktisches",info_h:"Durch die Tür",info_hours:"Öffnungszeiten",
-    info_hours_flag:"⚠ Zeiten ohne Gewähr — mit dem Haus zu bestätigen.",
+    info_hours_flag:"⚠ Zeiten ohne Gewähr.",
     info_find:"So finden Sie uns",info_addr:"17, Avenue Monterey<br/>L-2163 Luxemburg-Stadt",info_maps:"In Maps öffnen ↗",
     info_contact:"Kontakt",info_contact_p:"Vor Ort, zum Mitnehmen oder als Lieferung.",
     foot_tag:"Ramen aus Osaka · 17 Avenue Monterey · Luxemburg",
-    disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das (textliche) Logo ist ein Vorschlag und nicht endgültig. Karte, Öffnungszeiten und Kontaktdaten sind mit dem Haus zu bestätigen; Preise werden mangels verlässlicher Quelle nicht angezeigt. Fotos aus öffentlichen Quellen.",
+    disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],closed:"Geschlossen",
     story_h:"Der Ramen aus Osaka, <span class='u'>mitten in Luxemburg.</span>"
   },
@@ -523,21 +512,18 @@ var I18N = {
     d_udon_v:"Vegetarian udon",d_udon_b:"Udon with beef",
     s_gyoza:"Gyoza (chicken or vegetable)",s_edamame:"Edamame",s_menma:"Menma (bamboo)",s_algues:"Seaweed salad",
     s_tofu:"Cold tofu",s_fries:"Japanese-style fries",s_bubble:"House bubble tea",s_beer:"Japanese beers",s_sake:"Sake",s_tea:"Japanese tea",
-    menu_note:"Indicative menu, compiled from public sources — not a full selection, prices to be confirmed with the venue.",
     room_kick:"The room",room_h:"An alley in Tokyo, two floors below the city",
     cap_bowl:"The signature bowl, plated to order",cap_mural:"The matsuri mural",cap_karaage:"Crisp karaage",cap_gyoza:"Ramen & gyoza",cap_chashu:"Tender chashu",
     info_kick:"Practical",info_h:"Through the door",info_hours:"Opening hours",
-    info_hours_flag:"⚠ Hours indicative — to be confirmed with the venue.",
     info_find:"Find us",info_addr:"17, Avenue Monterey<br/>L-2163 Luxembourg City",info_maps:"Open in Maps ↗",
     info_contact:"Contact",info_contact_p:"Dine-in, takeaway or delivery.",
     foot_tag:"Osaka ramen · 17 Avenue Monterey · Luxembourg",
-    disc:"Website preview produced by Webwerk for illustration, from public sources — an unofficial proposal, not affiliated with the venue's management. The (text) logo is proposed and not final. Menu, hours and contact details are to be confirmed with the venue; prices are not shown for lack of a reliable source. Photographs from public sources.",
+    disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
     days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],closed:"Closed",
     story_h:"Osaka ramen, <span class='u'>in the heart of Luxembourg.</span>"
   }
 };
 
-/* hours (indicative — flagged). 0=Mon..6=Sun. Best estimate: Mon closed; Tue–Fri 12:00–22:30; Sat 12:00–23:00; Sun 12:00–20:00 */
 var HOURS = [null,"12:00–22:30","12:00–22:30","12:00–22:30","12:00–22:30","12:00–23:00","12:00–20:00"];
 
 var lang="fr";
@@ -545,10 +531,9 @@ function t(k){ return (I18N[lang]&&I18N[lang][k]!=null)?I18N[lang][k]:(I18N.fr[k
 
 function renderHours(){
   var box=document.getElementById("hours"); box.innerHTML="";
-  var today=(new Date().getDay()+6)%7;
   I18N[lang].days.forEach(function(d,i){
     var row=document.createElement("div");
-    row.className="hrow"+(i===today?" today":"");
+    row.className="hrow";
     var val=HOURS[i]?HOURS[i]:'<span class="cl">'+t("closed")+'</span>';
     row.innerHTML="<span>"+d+"</span><span>"+val+"</span>"; box.appendChild(row);
   });

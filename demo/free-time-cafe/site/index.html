@@ -546,7 +546,6 @@ footer{background:var(--navy3);color:#cfc6ab;padding:50px 0 36px}
       <div class="burg-item"><div><span class="nm" data-i18n="bi_fishchips_nm">Fish &amp; Chips</span><span class="ds" data-i18n="bi_fishchips">Cabillaud, salade, sauce tartare</span></div></div>
       <div class="burg-item"><div><span class="nm" data-i18n="bi_veggie_nm">Veggie</span><span class="ds" data-i18n="bi_veggie">Veggie, salade, champignons, tomate</span></div></div>
     </div>
-    <p class="burg-foot" data-i18n="burg_foot">Carte non-contractuelle, sous réserve de modification. Double bœuf ou fromage supplémentaire disponibles, supplément à confirmer.</p>
   </div>
 </section>
 
@@ -681,24 +680,21 @@ footer{background:var(--navy3);color:#cfc6ab;padding:50px 0 36px}
       </span>
       <span data-i18n="foot_addr">90, rue de la Gare, L-4460 Belvaux · <a href="tel:+35228203684" style="color:var(--gold)">28 20 36 84</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos et informations publiques : le site freetimecafe.lu et Google Maps. Logo recréé à partir de l'enseigne réelle de la maison, telle qu'elle figure sur sa propre carte. Horaires et carte repris du site freetimecafe.lu (2026) — non-contractuels, à confirmer en salle.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu par</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
 
 <script>
-/* ===== live clock hands (decorative, real time — no open/closed claim) ===== */
+/* ===== clock hands, set to a fixed decorative time (a static page shows no live time) ===== */
 function tickClock(){
-  const now = new Date();
-  const h = now.getHours() % 12, m = now.getMinutes(), s = now.getSeconds();
-  const hDeg = (h + m/60) * 30, mDeg = (m + s/60) * 6, sDeg = s * 6;
+  const hDeg = 310, mDeg = 60, sDeg = 180;
   document.querySelectorAll('#hh1,#hh2,#hh3').forEach(function(el){ el.style.transform = 'rotate('+hDeg+'deg)'; el.style.transformOrigin = '50% 50%'; });
   document.querySelectorAll('#mh1,#mh2,#mh3').forEach(function(el){ el.style.transform = 'rotate('+mDeg+'deg)'; el.style.transformOrigin = '50% 50%'; });
   document.querySelectorAll('#sh1,#sh2').forEach(function(el){ el.style.transform = 'rotate('+sDeg+'deg)'; el.style.transformOrigin = '50% 50%'; });
 }
 tickClock();
-var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(!reduceMotion){ setInterval(tickClock, 1000); }
+
 
 /* ===== i18n ===== */
 const I18N = {
@@ -730,7 +726,6 @@ const I18N = {
   bi_irish:"Bœuf mariné au whisky, oignons, bacon",
   bi_fishchips_nm:"Fish & Chips", bi_fishchips:"Cabillaud, salade, sauce tartare",
   bi_veggie_nm:"Veggie", bi_veggie:"Veggie, salade, champignons, tomate",
-  burg_foot:"Carte non-contractuelle, sous réserve de modification. Double bœuf ou fromage supplémentaire disponibles, supplément à confirmer.",
   ca_eyebrow:"La carte", ca_head:"Des classiques de brasserie, généreux.",
   ca_sub:"Planchas, tartes flambées, viandes et pâtes — la cuisine française et luxembourgeoise de la maison, à partager ou pour soi.",
   cg_sugg:"Suggestions", ci_escargots:"Escargots de Bourgogne (6p)", ci_carpaccio:"Carpaccio de bœuf", ci_calamars:"Calamars frits (plat)",
@@ -752,7 +747,7 @@ const I18N = {
   map_addr:"90, rue de la Gare<br>L-4460 Belvaux",
   map_gmaps:"Ouvrir dans Google Maps ↗",
   foot_addr:"90, rue de la Gare, L-4460 Belvaux · <a href=\"tel:+35228203684\" style=\"color:var(--gold)\">28 20 36 84</a>",
-  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos et informations publiques : le site freetimecafe.lu et Google Maps. Logo recréé à partir de l'enseigne réelle de la maison, telle qu'elle figure sur sa propre carte. Horaires et carte repris du site freetimecafe.lu (2026) — non-contractuels, à confirmer en salle.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
   foot_made:"Un aperçu par"
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
@@ -783,7 +778,7 @@ const I18N = {
   bi_irish:"Rind mariniert in Whisky, Zwiebeln, Speck",
   bi_fishchips_nm:"Fish & Chips", bi_fishchips:"Kabeljau, Salat, Sauce Tartare",
   bi_veggie_nm:"Veggie", bi_veggie:"Vegetarisch, Salat, Champignons, Tomate",
-  burg_foot:"Karte unverbindlich, Änderungen vorbehalten. Doppeltes Rind oder zusätzlicher Käse möglich, Aufpreis auf Anfrage.",
+  burg_foot:"Karte unverbindlich, Änderungen vorbehalten.",
   ca_eyebrow:"Die Karte", ca_head:"Großzügige Brasserie-Klassiker.",
   ca_sub:"Platten, Flammkuchen, Fleischgerichte und Pasta — die französisch-luxemburgische Küche des Hauses, zum Teilen oder für sich allein.",
   cg_sugg:"Vorschläge", ci_escargots:"Burgunder Schnecken (6 St.)", ci_carpaccio:"Rinder-Carpaccio", ci_calamars:"Frittierte Calamari (Hauptgericht)",
@@ -805,7 +800,7 @@ const I18N = {
   map_addr:"90, rue de la Gare<br>L-4460 Belvaux",
   map_gmaps:"In Google Maps öffnen ↗",
   foot_addr:"90, rue de la Gare, L-4460 Belvaux · <a href=\"tel:+35228203684\" style=\"color:var(--gold)\">28 20 36 84</a>",
-  foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos und Informationen: der Website freetimecafe.lu und Google Maps. Logo neu erstellt nach dem echten Zeichen des Hauses, wie es auf dessen eigener Speisekarte erscheint. Öffnungszeiten und Karte von freetimecafe.lu (2026) übernommen — unverbindlich, im Restaurant zu bestätigen.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
   foot_made:"Eine Vorschau von"
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -836,7 +831,7 @@ const I18N = {
   bi_irish:"Beef marinated in whisky, onions, bacon",
   bi_fishchips_nm:"Fish & Chips", bi_fishchips:"Cod, lettuce, tartar sauce",
   bi_veggie_nm:"Veggie", bi_veggie:"Veggie patty, lettuce, mushrooms, tomato",
-  burg_foot:"Menu non-binding, subject to change. Double beef or extra cheese available, surcharge tbc.",
+  burg_foot:"Menu non-binding, subject to change.",
   ca_eyebrow:"The menu", ca_head:"Generous brasserie classics.",
   ca_sub:"Sharing boards, flambé tarts, meats and pasta — the house's French and Luxembourgish cooking, to share or for yourself.",
   cg_sugg:"Starters", ci_escargots:"Burgundy snails (6 pc.)", ci_carpaccio:"Beef carpaccio", ci_calamars:"Fried calamari (main)",
@@ -858,7 +853,7 @@ const I18N = {
   map_addr:"90, rue de la Gare<br>L-4460 Belvaux",
   map_gmaps:"Open in Google Maps ↗",
   foot_addr:"90, rue de la Gare, L-4460 Belvaux · <a href=\"tel:+35228203684\" style=\"color:var(--gold)\">28 20 36 84</a>",
-  foot_disc:"Demonstration preview composed by Webwerk from public photos and information: the freetimecafe.lu website and Google Maps. Logo recreated from the house's real sign, as it appears on its own menu. Hours and menu taken from freetimecafe.lu (2026) — non-binding, to be confirmed in-house.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
   foot_made:"A preview by"
  }
 };

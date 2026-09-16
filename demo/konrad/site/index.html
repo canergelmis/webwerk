@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!--
-  KONRAD Café & Bar · demo site by Webwerk (proposition, non officielle).
-  Bespoke build. Self-hosted fonts (assets/fonts/, 0 Google requests). Real venue photo (Google Maps, verified) — more to come from the house.
-  Concept "Le salon bohème de la Ville-Haute" — bohemian coffee house by day, live music + comedy club in the cellar by night.
-  Trilingual FR (native) / DE / EN (drafts). Honest flags: menu/hours/phone à confirmer; no prices; logotype proposé; 1 real photo (gallery to be enriched).
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
@@ -178,7 +172,6 @@ section.blk{padding:74px 0}
 .info .card{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:24px}
 .info h3{color:var(--ink);font-size:1.14rem;margin-bottom:12px;display:flex;align-items:center;gap:9px}
 .info .hrow{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.94rem}
-.info .hrow.today{color:var(--red);font-weight:700}
 .info .card p{color:var(--ink2);font-size:.97rem}
 .info .card a.line{display:block;color:var(--olive);font-weight:700;margin-top:6px}
 .info .card a.line:hover{color:var(--ink)}
@@ -360,7 +353,6 @@ html.night body{background-image:radial-gradient(120% 60% at 50% -8%,rgba(193,15
           <div class="mrow"><div class="n" data-i18n="m_bar">Bières locales, cocktails, vins</div><div class="d" data-i18n="m_bar_d">Le soir, jusque tard.</div></div>
         </div>
       </div>
-      <p class="menu-note reveal" data-i18n="menu_note">Carte indicative d'après des sources publiques — plats, disponibilité et prix à confirmer avec la maison.</p>
     </div>
   </section>
 
@@ -386,7 +378,6 @@ html.night body{background-image:radial-gradient(120% 60% at 50% -8%,rgba(193,15
           <span>Concerts live&nbsp;·&nbsp;<b>Comedy Club</b>&nbsp;·&nbsp;Jazz sessions&nbsp;·&nbsp;<b>Open mic</b>&nbsp;·&nbsp;DJ sets&nbsp;·&nbsp;<b>Musique &amp; rires</b>&nbsp;·&nbsp;</span>
         </span></div>
       </div>
-      <p class="note reveal" data-i18n="ev_note">Programmation indicative — dates et affiches à confirmer avec la maison (suivez @konrad.cafe).</p>
     </div>
   </section>
 
@@ -419,7 +410,6 @@ html.night body{background-image:radial-gradient(120% 60% at 50% -8%,rgba(193,15
         <div class="card">
           <h3>🕑 <span data-i18n="info_hours">Horaires</span></h3>
           <div id="hours"></div>
-          <p class="flag" data-i18n="info_hours_flag">⚠ Horaires indicatifs — à confirmer avec la maison.</p>
         </div>
         <div class="card">
           <h3>📍 <span data-i18n="info_find">Nous trouver</span></h3>
@@ -429,7 +419,6 @@ html.night body{background-image:radial-gradient(120% 60% at 50% -8%,rgba(193,15
         <div class="card">
           <h3>💬 <span data-i18n="info_contact">Contact</span></h3>
           <a class="line" href="tel:+35226201894">+352 26 20 18 94</a>
-          <p class="flag" data-i18n="info_phone_flag">Numéro à confirmer.</p>
           <div class="socials">
             <a href="https://www.instagram.com/konrad.cafe/" target="_blank" rel="noopener">Instagram ↗</a>
             <a class="alt" href="https://www.facebook.com/konrad.cafe" target="_blank" rel="noopener">Facebook ↗</a>
@@ -446,7 +435,7 @@ html.night body{background-image:radial-gradient(120% 60% at 50% -8%,rgba(193,15
       <span class="bn">Konrad<span class="dot">.</span></span>
       <span style="font-size:.9rem" data-i18n="foot_tag">Café &amp; bar · Ville-Haute · Luxembourg</span>
     </div>
-    <p class="disc" data-i18n="disc">Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé. Carte, horaires, téléphone et programmation à confirmer avec la maison. Photographies de sources publiques. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
+    <p class="disc" data-i18n="disc">Proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé. Photographies de sources publiques. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="disc" style="margin-top:8px">© <span id="yr"></span> · <a class="wk" href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk — nous dessinons le web.</a></p>
   </div>
 </footer>
@@ -469,17 +458,15 @@ var I18N={
     menu_savoury:"Le salé du midi",m_pinsa_d:"La pizza romaine, légère et croustillante.",m_salad:"Chicken salad",m_sandwich:"Sandwichs au jambon",m_soup:"Soupe maison du jour",
     menu_coffee:"Le café",m_coffee:"Espresso, filtre, cappuccino",m_coffee_d:"Grains de spécialité.",
     menu_bar:"Le bar",m_bar:"Bières locales, cocktails, vins",m_bar_d:"Le soir, jusque tard.",
-    menu_note:"Carte indicative d'après des sources publiques — plats, disponibilité et prix à confirmer avec la maison.",
     ev_kick:"Au sous-sol",ev_h:"La cave prend le micro",
     ev_p:"Sous le café, une cave voûtée où le Konrad se transforme, le soir : musique live et rires. C'est ce qui fait de cette adresse bien plus qu'un café.",
     ev1_k:"Musique",ev1_h:"Concerts live",ev1_p:"Des sets intimistes dans la cave — jazz, folk, découvertes.",
     ev2_k:"Rires",ev2_h:"Comedy club",ev2_p:"Un rendez-vous mensuel de stand-up, en petit comité.",
     ev3_k:"Scène ouverte",ev3_h:"Open mic & DJ",ev3_p:"La scène est à qui la prend — et la nuit s'étire.",
-    ev_note:"Programmation indicative — dates et affiches à confirmer avec la maison (suivez @konrad.cafe).",
     room_kick:"Le décor",room_h:"Entrez, installez-vous",g_arch:"La grande salle",g_sign:"L'enseigne",g_cellar:"La cave",g_facade:"La terrasse",g_cozy:"Le coin lecture",
-    info_kick:"En pratique",info_h:"Passer nous voir",info_hours:"Horaires",info_hours_flag:"⚠ Horaires indicatifs — à confirmer avec la maison.",
+    info_kick:"En pratique",info_h:"Passer nous voir",info_hours:"Horaires",
     info_find:"Nous trouver",info_addr:"7, rue du Nord<br/>L-2229 Luxembourg (Ville-Haute)",info_maps:"Ouvrir dans Maps ↗",
-    info_contact:"Contact",info_phone_flag:"Numéro à confirmer.",
+    info_contact:"Contact",
     foot_tag:"Café & bar · Ville-Haute · Luxembourg",
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"]
   },
@@ -499,19 +486,19 @@ var I18N={
     menu_savoury:"Herzhaft mittags",m_pinsa_d:"Die römische Pizza, leicht und knusprig.",m_salad:"Chicken Salad",m_sandwich:"Schinken-Sandwiches",m_soup:"Hausgemachte Tagessuppe",
     menu_coffee:"Der Kaffee",m_coffee:"Espresso, Filter, Cappuccino",m_coffee_d:"Spezialitätenbohnen.",
     menu_bar:"Die Bar",m_bar:"Lokale Biere, Cocktails, Weine",m_bar_d:"Abends, bis spät.",
-    menu_note:"Richtkarte aus öffentlichen Quellen — Gerichte, Verfügbarkeit und Preise mit dem Haus zu bestätigen.",
+    menu_note:"Richtkarte aus öffentlichen Quellen.",
     ev_kick:"Im Keller",ev_h:"Der Keller greift zum Mikrofon",
     ev_p:"Unter dem Café ein Gewölbekeller, in dem sich das Konrad abends verwandelt: Live-Musik und Lachen. Das macht diese Adresse zu weit mehr als einem Café.",
     ev1_k:"Musik",ev1_h:"Live-Konzerte",ev1_p:"Intime Sets im Keller — Jazz, Folk, Entdeckungen.",
     ev2_k:"Lachen",ev2_h:"Comedy-Club",ev2_p:"Ein monatlicher Stand-up-Termin, im kleinen Kreis.",
     ev3_k:"Offene Bühne",ev3_h:"Open Mic & DJ",ev3_p:"Die Bühne gehört, wer sie nimmt — und die Nacht wird lang.",
-    ev_note:"Programm ohne Gewähr — Daten und Plakate mit dem Haus zu bestätigen (@konrad.cafe).",
+    ev_note:"Programm ohne Gewähr.",
     room_kick:"Das Interieur",room_h:"Kommen Sie herein, setzen Sie sich",g_arch:"Der große Saal",g_sign:"Das Leuchtschild",g_cellar:"Der Keller",g_facade:"Die Terrasse",g_cozy:"Die Leseecke",
-    info_kick:"Praktisches",info_h:"Kommen Sie vorbei",info_hours:"Öffnungszeiten",info_hours_flag:"⚠ Zeiten ohne Gewähr — mit dem Haus zu bestätigen.",
+    info_kick:"Praktisches",info_h:"Kommen Sie vorbei",info_hours:"Öffnungszeiten",info_hours_flag:"⚠ Zeiten ohne Gewähr.",
     info_find:"So finden Sie uns",info_addr:"7, rue du Nord<br/>L-2229 Luxemburg (Oberstadt)",info_maps:"In Maps öffnen ↗",
-    info_contact:"Kontakt",info_phone_flag:"Nummer zu bestätigen.",
+    info_contact:"Kontakt",
     foot_tag:"Café & Bar · Oberstadt · Luxemburg",
-    disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das (textliche) Logo ist ein Vorschlag. Karte, Öffnungszeiten, Telefon und Programm mit dem Haus zu bestätigen. Fotos aus öffentlichen Quellen. Anonyme Besuchsstatistik, ohne Cookie oder personenbezogene Daten.",
+    disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"]
   },
   en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -530,31 +517,27 @@ var I18N={
     menu_savoury:"Savoury at lunch",m_pinsa_d:"The Roman pizza — light and crisp.",m_salad:"Chicken salad",m_sandwich:"Ham sandwiches",m_soup:"Homemade soup of the day",
     menu_coffee:"The coffee",m_coffee:"Espresso, filter, cappuccino",m_coffee_d:"Specialty beans.",
     menu_bar:"The bar",m_bar:"Local beers, cocktails, wines",m_bar_d:"In the evening, until late.",
-    menu_note:"Indicative menu from public sources — dishes, availability and prices to be confirmed with the venue.",
     ev_kick:"Downstairs",ev_h:"The cellar takes the mic",
     ev_p:"Below the café, a vaulted cellar where Konrad transforms in the evening: live music and laughter. It's what makes this address far more than a café.",
     ev1_k:"Music",ev1_h:"Live concerts",ev1_p:"Intimate sets in the cellar — jazz, folk, discoveries.",
     ev2_k:"Laughter",ev2_h:"Comedy club",ev2_p:"A monthly stand-up night, up close.",
     ev3_k:"Open stage",ev3_h:"Open mic & DJ",ev3_p:"The stage is anyone's to take — and the night runs long.",
-    ev_note:"Indicative programme — dates and line-ups to be confirmed with the venue (follow @konrad.cafe).",
     room_kick:"The room",room_h:"Come in, sit down",g_arch:"The main room",g_sign:"The sign",g_cellar:"The cellar",g_facade:"The terrace",g_cozy:"The reading nook",
-    info_kick:"Practical",info_h:"Come and see us",info_hours:"Opening hours",info_hours_flag:"⚠ Hours indicative — to be confirmed with the venue.",
+    info_kick:"Practical",info_h:"Come and see us",info_hours:"Opening hours",
     info_find:"Find us",info_addr:"7, rue du Nord<br/>L-2229 Luxembourg (Old Town)",info_maps:"Open in Maps ↗",
-    info_contact:"Contact",info_phone_flag:"Number to be confirmed.",
+    info_contact:"Contact",
     foot_tag:"Café & bar · Old Town · Luxembourg",
-    disc:"Website preview produced by Webwerk for illustration, from public sources — an unofficial proposal, not affiliated with the venue's management. The (text) logo is proposed. Menu, hours, phone and programme to be confirmed with the venue. Public-source photographs. Anonymous visit statistics, no cookie or personal data.",
+    disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
     days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
   }
 };
-/* hours: 9:00–01:00 daily (listing, à confirmer). 0=Mon..6=Sun */
 var HOURS=["09:00–01:00","09:00–01:00","09:00–01:00","09:00–01:00","09:00–01:00","09:00–01:00","09:00–01:00"];
 var lang="fr";
 function t(k){return (I18N[lang]&&I18N[lang][k]!=null)?I18N[lang][k]:(I18N.fr[k]||"");}
 function renderHours(){
   var box=document.getElementById("hours");box.innerHTML="";
-  var today=(new Date().getDay()+6)%7;
   I18N[lang].days.forEach(function(d,i){
-    var row=document.createElement("div");row.className="hrow"+(i===today?" today":"");
+    var row=document.createElement("div");row.className="hrow";
     row.innerHTML="<span>"+d+"</span><span>"+HOURS[i]+"</span>";box.appendChild(row);
   });
 }
@@ -577,8 +560,7 @@ document.getElementById("yr").textContent=new Date().getFullYear();
     btn.setAttribute('aria-pressed',night?'true':'false');
     if(save){ try{ localStorage.setItem('konrad-mode',night?'night':'day'); }catch(e){} } }
   var saved=null; try{ saved=localStorage.getItem('konrad-mode'); }catch(e){}
-  var h=new Date().getHours();
-  var night = saved ? (saved==='night') : (h>=19 || h<7);
+  var night = saved === 'night';
   set(night,false);
   btn.addEventListener('click',function(){ set(!root.classList.contains('night'),true); });
 })();

@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!--
-  PERLE NOIRE · demo site by Webwerk (proposition, non officielle).
-  Bespoke build. Self-hosted fonts (assets/fonts/, 0 Google requests). Real venue photos (editorial press).
-  Concept "Le bar-parfumeur" — cocktails composés comme des parfums (the head bartender is a former perfumer).
-  Dark 1920s Art Deco. Trilingual FR (native) / DE / EN (drafts). Confirmed price tiers (16/18); bartender name omitted (sources disagree).
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
@@ -156,7 +150,6 @@ section.blk{padding:92px 0}
 .info .card{border:1px solid var(--line);padding:28px}
 .info h3{color:var(--gold2);font-size:1.15rem;margin-bottom:16px;font-weight:600}
 .info .hrow{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.92rem}
-.info .hrow.today{color:var(--gold2)}
 .info .hrow .cl{color:var(--fade)}
 .info .card p{color:var(--dim);font-size:.96rem}
 .info .card a.line{display:block;color:var(--pearl);margin-top:6px;letter-spacing:.04em}
@@ -334,7 +327,7 @@ footer a.wk{color:var(--gold);font-weight:500}
             <div class="cat" data-i18n="cat_sig">Signature</div>
           </div>
         </div>
-        <p class="foot" data-i18n="menu_foot">Sélection d'après la presse d'ouverture — carte complète et millésimes à confirmer avec la maison. Cocktails classiques (Negroni, Old Fashioned…) également au comptoir.</p>
+        <p class="foot" data-i18n="menu_foot">Sélection d'après la presse d'ouverture. Cocktails classiques (Negroni, Old Fashioned…) également au comptoir.</p>
       </div>
     </div>
   </section>
@@ -390,7 +383,7 @@ footer a.wk{color:var(--gold);font-weight:500}
       <span class="bn">Perle Noire</span>
       <span style="font-size:.86rem;letter-spacing:.08em" data-i18n="foot_tag">Bar à cocktails · Place d'Armes · Luxembourg</span>
     </div>
-    <p class="disc" data-i18n="disc">Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé. La carte reprend des cocktails cités dans la presse d'ouverture ; carte complète et prix à confirmer avec la maison. Photographies de presse (à titre indicatif). Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
+    <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
     <p class="disc" style="margin-top:8px">© <span id="yr"></span> · <a class="wk" href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk — nous dessinons le web.</a></p>
   </div>
 </footer>
@@ -415,15 +408,15 @@ var I18N={
     d3_ing:"Bloody Mary réinventé — tomate, poivre, framboise",
     d4_notes:"Fumé, amer, agrume",d5_notes:"Caramel au beurre salé, pétillant",d5_ing:"Création sans alcool",
     d6_notes:"Frais, végétal, complexe",d6_ing:"Composition du moment",
-    menu_foot:"Sélection d'après la presse d'ouverture — carte complète et millésimes à confirmer avec la maison. Cocktails classiques (Negroni, Old Fashioned…) également au comptoir.",
+    menu_foot:"Sélection d'après la presse d'ouverture. Cocktails classiques (Negroni, Old Fashioned…) également au comptoir.",
     room_kick:"Le lieu",room_h:"Velours, laiton, coquilles d'huître",
     cap_room:"La salle",cap_mood:"L'heure bleue",cap_drink:"Au comptoir",cap_deco:"Le détail Art déco",cap_corner:"Le salon",
     info_kick:"En pratique",info_h:"Ce soir, Place d'Armes",info_hours:"Les soirs",
     info_walkin:"Sans réservation — on se présente au comptoir.",
     info_find:"Nous trouver",info_addr:"7, Place d'Armes<br/>L-1136 Luxembourg<br/><span style='color:var(--fade)'>Au dernier étage, au-dessus de La Lorraine</span>",
-    info_maps:"Ouvrir dans Maps ↗",info_contact:"Contact",info_phone_flag:"Numéro à confirmer.",
+    info_maps:"Ouvrir dans Maps ↗",info_contact:"Contact",
     foot_tag:"Bar à cocktails · Place d'Armes · Luxembourg",
-    disc:"Aperçu de site réalisé par Webwerk à titre indicatif, à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement. Le logotype (texte) est proposé. La carte reprend des cocktails cités dans la presse d'ouverture ; carte complète et prix à confirmer avec la maison. Photographies de presse (à titre indicatif). Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
+    disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],closed:"Fermé"
   },
   de:{wwb_call:"Anrufen",wwb_dir:"Route",
@@ -444,15 +437,15 @@ var I18N={
     d3_ing:"Neu gedachte Bloody Mary — Tomate, Pfeffer, Himbeere",
     d4_notes:"Rauchig, bitter, Zitrus",d5_notes:"Gesalzenes Butterkaramell, prickelnd",d5_ing:"Alkoholfreie Kreation",
     d6_notes:"Frisch, pflanzlich, komplex",d6_ing:"Komposition des Moments",
-    menu_foot:"Auswahl nach der Eröffnungspresse — vollständige Karte und Jahrgänge mit dem Haus zu bestätigen. Klassische Cocktails (Negroni, Old Fashioned…) ebenfalls am Tresen.",
+    menu_foot:"Auswahl nach der Eröffnungspresse. Klassische Cocktails (Negroni, Old Fashioned…) ebenfalls am Tresen.",
     room_kick:"Der Ort",room_h:"Samt, Messing, Austernschalen",
     cap_room:"Der Saal",cap_mood:"Die blaue Stunde",cap_drink:"Am Tresen",cap_deco:"Das Art-déco-Detail",cap_corner:"Die Lounge",
     info_kick:"Praktisches",info_h:"Heute Abend, Place d'Armes",info_hours:"Die Abende",
     info_walkin:"Ohne Reservierung — man kommt an den Tresen.",
     info_find:"So finden Sie uns",info_addr:"7, Place d'Armes<br/>L-1136 Luxemburg<br/><span style='color:var(--fade)'>Oberstes Stockwerk, über La Lorraine</span>",
-    info_maps:"In Maps öffnen ↗",info_contact:"Kontakt",info_phone_flag:"Nummer zu bestätigen.",
+    info_maps:"In Maps öffnen ↗",info_contact:"Kontakt",
     foot_tag:"Cocktailbar · Place d'Armes · Luxemburg",
-    disc:"Website-Vorschau von Webwerk, unverbindlich und aus öffentlichen Quellen erstellt — inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals. Das (textliche) Logo ist ein Vorschlag. Die Karte nennt in der Eröffnungspresse erwähnte Cocktails; vollständige Karte und Preise mit dem Haus zu bestätigen. Pressefotos (indikativ). Anonyme Besuchsstatistik, ohne Cookie oder personenbezogene Daten.",
+    disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],closed:"Geschlossen"
   },
   en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -473,15 +466,15 @@ var I18N={
     d3_ing:"Bloody Mary reimagined — tomato, pepper, raspberry",
     d4_notes:"Smoky, bitter, citrus",d5_notes:"Salted butter caramel, sparkling",d5_ing:"Alcohol-free creation",
     d6_notes:"Fresh, green, complex",d6_ing:"Composition of the moment",
-    menu_foot:"Selection from opening-night press — full menu and vintages to be confirmed with the venue. Classic cocktails (Negroni, Old Fashioned…) also at the bar.",
+    menu_foot:"Selection from opening-night press. Classic cocktails (Negroni, Old Fashioned…) also at the bar.",
     room_kick:"The room",room_h:"Velvet, brass, oyster shells",
     cap_room:"The room",cap_mood:"The blue hour",cap_drink:"At the bar",cap_deco:"The Art Deco detail",cap_corner:"The lounge",
     info_kick:"Practical",info_h:"Tonight, Place d'Armes",info_hours:"The nights",
     info_walkin:"No reservations — just come to the bar.",
     info_find:"Find us",info_addr:"7, Place d'Armes<br/>L-1136 Luxembourg<br/><span style='color:var(--fade)'>Top floor, above La Lorraine</span>",
-    info_maps:"Open in Maps ↗",info_contact:"Contact",info_phone_flag:"Number to be confirmed.",
+    info_maps:"Open in Maps ↗",info_contact:"Contact",
     foot_tag:"Cocktail bar · Place d'Armes · Luxembourg",
-    disc:"Website preview produced by Webwerk for illustration, from public sources — an unofficial proposal, not affiliated with the venue's management. The (text) logo is proposed. The menu lists cocktails mentioned in opening-night press; full menu and prices to be confirmed with the venue. Press photos (indicative). Anonymous visit statistics, no cookie or personal data.",
+    disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
     days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],closed:"Closed"
   }
 };
@@ -491,9 +484,8 @@ var lang="fr";
 function t(k){return (I18N[lang]&&I18N[lang][k]!=null)?I18N[lang][k]:(I18N.fr[k]||"");}
 function renderHours(){
   var box=document.getElementById("hours");box.innerHTML="";
-  var today=(new Date().getDay()+6)%7;
   I18N[lang].days.forEach(function(d,i){
-    var row=document.createElement("div");row.className="hrow"+(i===today?" today":"");
+    var row=document.createElement("div");row.className="hrow";
     var val=HOURS[i]?HOURS[i]:'<span class="cl">'+t("closed")+'</span>';
     row.innerHTML="<span>"+d+"</span><span>"+val+"</span>";box.appendChild(row);
   });
