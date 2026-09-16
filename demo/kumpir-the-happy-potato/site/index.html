@@ -1,19 +1,4 @@
 <!DOCTYPE html>
-<!--
-  KUMPIR — The Happy Potato · demo site by Webwerk (proposition, non officielle).
-  Bespoke build. Self-hosted fonts (assets/fonts/, 0 Google requests). Real venue photos only.
-  Concept "Composez votre kumpir" (build-your-own) — rooted in the venue's real chalkboard line.
-  Trilingual FR (native) / DE / EN (drafts).
-
-  DISCLOSURE POLICY (2026-09-11): exactly ONE disclosure ships — the i18n key
-  `disc` in the footer. Every other "à confirmer" note was addressed to the owner
-  or the developer and now lives in the build brief, under "BUILD NOTES — not for
-  the live page", at lux-restaurant-sites/mockups/kumpir-the-happy-potato/content.md.
-  Unverified but essential values (phone, hours) are stated plainly without badges;
-  the postcode is genuinely disputed and non-essential, so it is OMITTED rather
-  than printed under a warning. Never add a price, a star rating, or a computed
-  open/closed status.
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
@@ -263,7 +248,6 @@ section.blk{padding-block:66px}
 .info h3{color:#fff;font-size:1.16rem;margin-bottom:12px;display:flex;align-items:center;gap:9px}
 .info .card{background:rgba(251,246,236,.06);border:1.5px solid rgba(251,246,236,.14);border-radius:18px;padding:24px}
 .info .hrow{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px solid rgba(251,246,236,.12);font-size:.96rem}
-.info .hrow.today{color:var(--mustard);font-weight:700}
 .info .hrow .cl{color:rgba(244,234,214,.8)}
 .info .card p{color:rgba(244,234,214,.85);font-size:.98rem}
 .info .card a.line{display:block;color:#fff;font-weight:700;margin-top:4px}
@@ -522,10 +506,7 @@ footer a.wk{color:var(--mustard);font-weight:700}
         </div>
         <div class="card">
           <h3>📍 <span data-i18n="info_find">Nous trouver</span></h3>
-          <!-- Postcode deliberately omitted: sources disagree (L-2613 vs L-1660) and
-               Place du Théâtre is the constant a visitor actually navigates by.
-               Omitting it is honest; printing it under a warning badge is not. -->
-          <p data-i18n="info_addr">Place du Théâtre<br/>Luxembourg-Ville</p>
+                    <p data-i18n="info_addr">Place du Théâtre<br/>Luxembourg-Ville</p>
           <a class="line" href="https://www.google.com/maps/search/?api=1&query=Kumpir+The+Happy+Potato+Place+du+Théâtre+Luxembourg" target="_blank" rel="noopener" data-i18n="info_maps">Ouvrir dans Maps ↗</a>
         </div>
         <div class="card">
@@ -554,7 +535,7 @@ footer a.wk{color:var(--mustard);font-weight:700}
       <span style="font-size:.9rem" data-i18n="foot_tag">Street food turc · Place du Théâtre · Luxembourg</span>
     </div>
     <!-- THE ONE DISCLOSURE — see the build brief's "BUILD NOTES" section. -->
-    <p class="disc" data-i18n="disc">Aperçu de site réalisé par Webwerk à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement.</p>
+    <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
     <p class="disc" style="margin-top:8px">© <span id="yr"></span> · <a class="wk" href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk — nous dessinons le web.</a></p>
   </div>
 </footer>
@@ -582,7 +563,7 @@ var I18N = {
     menu_kick:"La carte",menu_h:"Les kumpirs de la maison",
     menu_p:"Onze recettes signature, chacune bâtie sur la grande pomme de terre — puis garnie au comptoir. Version viande ou 100 % végé. <b>Carte complète et tarifs disponibles sur place.</b>",
     menu_meat:"Avec viande",menu_veg:"Végétarien",menu_cold:"froid",menu_drinks:"Boissons",
-    dr_gloriette:"Limonades Gloriette",dr_bio:"Limonades bio",ac:"à conf.",
+    dr_gloriette:"Limonades Gloriette",dr_bio:"Limonades bio",
     menu_note:"La composition exacte de chaque kumpir se choisit au comptoir.",
     house_kick:"La maison",house_h:"La happy potato, Place du Théâtre",
     house_p1:"Sous la fresque pop, les parasols rouges et les grandes tables en bois, on s'installe, on discute, on choisit ses garnitures une à une. Le patron explique volontiers chaque option — et vous fait goûter avant de choisir.",
@@ -594,7 +575,7 @@ var I18N = {
     info_contact:"Contact",info_contact_p:"Commande à emporter, sur place ou en livraison.",
     info_delivery:"Commander sur Wedely ↗",bar_call:"Appeler",bar_dir:"Itinéraire",
     foot_tag:"Street food turc · Place du Théâtre · Luxembourg",
-    disc:"Aperçu de site réalisé par Webwerk à partir de sources publiques — proposition non officielle, sans lien avec la direction de l'établissement.",
+    disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
     days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],closed:"Fermé",
     msgs:["Prêt quand vous l'êtes 🥔","Bon début !","Ça prend forme…","Généreux 👏","Un vrai festin !","Là, c'est un chef-d'œuvre 🎉"]
   },
@@ -610,9 +591,9 @@ var I18N = {
     build_pick:"Der Tresen",build_hint:"Frische Toppings, so viel Sie mögen — hier eine Auswahl.",
     build_count:"Toppings",build_reset:"Nochmal",build_msg0:"Bereit, wenn Sie es sind 🥔",
     menu_kick:"Die Karte",menu_h:"Die Kumpirs des Hauses",
-    menu_p:"Elf Signature-Rezepte, jedes auf der großen Kartoffel aufgebaut — dann am Tresen belegt. Mit Fleisch oder 100 % vegetarisch. <b>Vollständige Karte und Preise vor Ort.</b>",
+    menu_p:"Elf Signature-Rezepte, jedes auf der großen Kartoffel aufgebaut — dann am Tresen belegt. Mit Fleisch oder 100 % vegetarisch.",
     menu_meat:"Mit Fleisch",menu_veg:"Vegetarisch",menu_cold:"kalt",menu_drinks:"Getränke",
-    dr_gloriette:"Gloriette-Limonaden",dr_bio:"Bio-Limonaden",ac:"auf Anfrage",
+    dr_gloriette:"Gloriette-Limonaden",dr_bio:"Bio-Limonaden",
     menu_note:"Die genaue Zusammenstellung jedes Kumpir wählen Sie am Tresen.",
     house_kick:"Das Haus",house_h:"Die Happy Potato, Place du Théâtre",
     house_p1:"Unter der Pop-Wandmalerei, den roten Sonnenschirmen und an den großen Holztischen setzt man sich, plaudert und wählt seine Toppings eins nach dem anderen. Der Inhaber erklärt gern jede Option — und lässt Sie vorher probieren.",
@@ -624,7 +605,7 @@ var I18N = {
     info_contact:"Kontakt",info_contact_p:"Zum Mitnehmen, vor Ort oder als Lieferung.",
     info_delivery:"Auf Wedely bestellen ↗",bar_call:"Anrufen",bar_dir:"Route",
     foot_tag:"Türkisches Street Food · Place du Théâtre · Luxemburg",
-    disc:"Website-Vorschau von Webwerk, aus öffentlichen Quellen erstellt — ein inoffizieller Entwurf, ohne Verbindung zur Leitung des Lokals.",
+    disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"],closed:"Geschlossen",
     msgs:["Bereit, wenn Sie es sind 🥔","Guter Anfang!","Nimmt Form an…","Großzügig 👏","Ein echtes Festmahl!","Jetzt ein Meisterwerk 🎉"]
   },
@@ -642,7 +623,7 @@ var I18N = {
     menu_kick:"The menu",menu_h:"The house kumpirs",
     menu_p:"Eleven signature recipes, each built on the big potato — then loaded at the counter. With meat, or fully vegetarian. <b>Full menu and prices available in person.</b>",
     menu_meat:"With meat",menu_veg:"Vegetarian",menu_cold:"cold",menu_drinks:"Drinks",
-    dr_gloriette:"Gloriette lemonades",dr_bio:"Organic lemonades",ac:"tbc",
+    dr_gloriette:"Gloriette lemonades",dr_bio:"Organic lemonades",
     menu_note:"Each kumpir's exact toppings are chosen at the counter.",
     house_kick:"The place",house_h:"The happy potato, Place du Théâtre",
     house_p1:"Under the pop mural, the red parasols and the big wooden tables, you sit down, you chat, you pick your toppings one by one. The owner is happy to explain every option — and lets you taste before you choose.",
@@ -654,13 +635,12 @@ var I18N = {
     info_contact:"Contact",info_contact_p:"Takeaway, dine-in or delivery.",
     info_delivery:"Order on Wedely ↗",bar_call:"Call",bar_dir:"Directions",
     foot_tag:"Turkish street food · Place du Théâtre · Luxembourg",
-    disc:"A website preview produced by Webwerk from public sources — an unofficial proposal, not affiliated with the venue's management.",
+    disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
     days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],closed:"Closed",
     msgs:["Ready when you are 🥔","Good start!","Coming together…","Generous 👏","A proper feast!","Now that's a masterpiece 🎉"]
   }
 };
 
-/* hours model (indicative — flagged in UI). index 0=Mon..6=Sun */
 var HOURS = ["11:30–18:00","11:30–18:00",null,"11:30–18:00","11:30–18:00","10:00–18:00",null];
 
 /* toppings: real counter items + representative colour */
@@ -785,10 +765,9 @@ document.getElementById("reset").addEventListener("click", function(){
 
 function renderHours(){
   var box = document.getElementById("hours"); box.innerHTML = "";
-  var today = (new Date().getDay()+6)%7; // JS 0=Sun -> our 0=Mon
   I18N[lang].days.forEach(function(d,i){
     var row = document.createElement("div");
-    row.className = "hrow" + (i===today ? " today":"");
+    row.className = "hrow";
     var val = HOURS[i] ? HOURS[i] : '<span class="cl">'+t("closed")+'</span>';
     row.innerHTML = "<span>"+d+"</span><span>"+val+"</span>";
     box.appendChild(row);
