@@ -500,6 +500,8 @@
     .splash-text h2{font-size:2rem}
   }
   @media (max-width:760px){
+    /* the fixed bottom bar carries these actions on phones */
+    .ticket-actions{display:none}
     :root{--gut:16px}
     nav.mast-nav .link{display:none}
     .mast-reserve{display:none}
@@ -639,7 +641,7 @@
       </article>
     </div>
     <div class="menu-foot reveal">
-      <span class="gf" data-i18n="menu.gf">Pain sans gluten sur tous les burgers · supplément à confirmer</span>
+      <span class="gf" data-i18n="menu.gf">Pain sans gluten sur tous les burgers</span>
       <span class="drinks" data-i18n="menu.drinks">Bières artisanales (dont la belge Lupulus), vins au verre, cafés et digestifs.</span>
       <a class="bubble bubble--down-r" href="tel:+35226383761" data-i18n="menu.cta">J'en veux un — réserver ☎</a>
     </div>
@@ -672,7 +674,6 @@
     <div class="visit-grid">
       <div class="hours-ticket panel reveal">
         <h2 data-i18n="visit.hoursT">Horaires</h2>
-        <div class="flag"><span class="stamp" data-i18n="flag.tbc">à confirmer</span></div>
         <div class="hrow"><span class="d" data-i18n="day.monwed">Lundi – Mercredi</span><span class="t" data-i18n="hours.monwed">11h45–15h00 · 17h30–23h00</span></div>
         <div class="hrow"><span class="d" data-i18n="day.thu">Jeudi</span><span class="t" data-i18n="hours.thu">11h45–15h00 · 17h30–00h00</span></div>
         <div class="hrow"><span class="d" data-i18n="day.fri">Vendredi</span><span class="t" data-i18n="hours.fri">11h45–23h00</span></div>
@@ -737,7 +738,6 @@ const I18N = {
     "hero.title":"Burgers artisanaux,<br>c&oelig;ur de <span class='accent'>quartier</span>.",
     "hero.sub":"Le petit bistrot dont tout Luxembourg parle. Les tables partent vite — réservez la vôtre.",
     "hero.book":"Réserver une table ☎",
-    "ess.hint":"Horaires à confirmer",
     "splash.kicker":"Sur nos murs",
     "splash.title":"Les murs racontent <span class='accent'>l'histoire</span>",
     "splash.body":"La carte des burgers arrive écrite sur de vieux comics ; les vins, eux, sont à la craie sur le mur noir — entre plaques de bière vintage et une pub Tintin qui n'a pas pris une ride. Rien n'est imprimé pour faire joli : c'est vraiment comme ça, chaque soir.",
@@ -751,8 +751,8 @@ const I18N = {
     "d.falafel":"Galette de falafel maison, fraîche et parfumée.",
     "d.dessertT":"Desserts · Pain de Mary",
     "d.dessertB":"La pâtisserie artisanale du quartier.",
-    "flag.signature":"Signature","flag.veg":"Végétarien","flag.tbc":"à confirmer",
-    "menu.gf":"Pain sans gluten sur tous les burgers · supplément à confirmer",
+    "flag.signature":"Signature","flag.veg":"Végétarien",
+    "menu.gf":"Pain sans gluten sur tous les burgers",
     "menu.drinks":"Bières artisanales (dont la belge Lupulus), vins au verre, cafés et digestifs.",
     "menu.cta":"J'en veux un — réserver ☎",
     "why.kicker":"Le secret","why.title":"Pourquoi on l'aime",
@@ -777,7 +777,6 @@ const I18N = {
     "hero.title":"Handgemachte Burger,<br>Seele des <span class='accent'>Viertels</span>.",
     "hero.sub":"Das kleine Bistro, über das ganz Luxemburg spricht. Die Tische sind schnell weg — sichern Sie sich Ihre.",
     "hero.book":"Tisch reservieren ☎",
-    "ess.hint":"Öffnungszeiten noch zu bestätigen",
     "splash.kicker":"An unseren Wänden",
     "splash.title":"Die Wände erzählen <span class='accent'>die Geschichte</span>",
     "splash.body":"Die Burgerkarte kommt auf alten Comicheften geschrieben; die Weine stehen in Kreide an der schwarzen Wand — zwischen Vintage-Bierschildern und einer Tintin-Werbung, die kein bisschen gealtert ist. Nichts davon ist Dekoration: so ist es jeden Abend wirklich.",
@@ -791,8 +790,8 @@ const I18N = {
     "d.falafel":"Hausgemachtes Falafel-Patty, frisch und würzig.",
     "d.dessertT":"Desserts · Pain de Mary",
     "d.dessertB":"Das handwerkliche Gebäck aus dem Viertel.",
-    "flag.signature":"Klassiker","flag.veg":"Vegetarisch","flag.tbc":"zu bestätigen",
-    "menu.gf":"Glutenfreies Brötchen bei allen Burgern · Aufpreis noch zu bestätigen",
+    "flag.signature":"Klassiker","flag.veg":"Vegetarisch",
+    "menu.gf":"Glutenfreies Brötchen bei allen Burgern",
     "menu.drinks":"Craft-Biere (darunter das belgische Lupulus), Weine im Glas, Kaffee und Digestifs.",
     "menu.cta":"Den will ich — reservieren ☎",
     "why.kicker":"Das Geheimnis","why.title":"Warum man es liebt",
@@ -817,7 +816,6 @@ const I18N = {
     "hero.title":"Craft burgers,<br>neighbourhood <span class='accent'>heart</span>.",
     "hero.sub":"The little bistro all of Luxembourg talks about. Tables go fast — secure yours.",
     "hero.book":"Book a table ☎",
-    "ess.hint":"Hours to be confirmed",
     "splash.kicker":"On our walls",
     "splash.title":"The walls tell <span class='accent'>the story</span>",
     "splash.body":"The burger menu arrives written on old comic books; the wine list is chalked straight onto the black wall — next to vintage beer signs and a Tintin soda-pop ad that hasn't aged a day. None of it is decoration for show: it's really like that, every night.",
@@ -831,8 +829,8 @@ const I18N = {
     "d.falafel":"House falafel patty, fresh and fragrant.",
     "d.dessertT":"Desserts · Pain de Mary",
     "d.dessertB":"The neighbourhood's artisan bakery.",
-    "flag.signature":"Signature","flag.veg":"Vegetarian","flag.tbc":"to confirm",
-    "menu.gf":"Gluten-free bun on any burger · surcharge to be confirmed",
+    "flag.signature":"Signature","flag.veg":"Vegetarian",
+    "menu.gf":"Gluten-free bun on any burger",
     "menu.drinks":"Craft beers (including Belgian Lupulus), wines by the glass, coffee and digestives.",
     "menu.cta":"I want one — book now ☎",
     "why.kicker":"The secret","why.title":"Why people love it",
