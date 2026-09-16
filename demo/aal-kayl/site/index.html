@@ -138,7 +138,6 @@ figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 11px;font
 .item .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:16px}
 .item .pr{font-family:var(--disp);font-weight:600;color:var(--terra);white-space:nowrap}
 .item .pr.room{font-family:var(--body);font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.02em}
-.pop{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);border:1px solid var(--green-lite);border-radius:999px;padding:2px 8px;margin-left:8px;transform:translateY(-1px)}
 .pricenote{margin-top:22px;font-size:.86rem;color:var(--muted);text-align:center}
 @media(max-width:760px){.menucols{grid-template-columns:1fr;gap:0}}
 
@@ -302,7 +301,7 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
         <div>
           <div class="mgroup">
             <h3><svg class="sprig" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg>Antipasti</h3>
-            <div class="item"><span class="nm">Carpaccio de bœuf<span class="pop" data-i18n="pop">populaire · Google</span></span></div>
+            <div class="item"><span class="nm">Carpaccio de bœuf</span></div>
             <div class="item"><span class="nm">Antipasti de la maison</span></div>
             <div class="item"><span class="nm">Caprese</span> <span class="ds" data-i18n="d_caprese">tomate, mozzarella, basilic</span></div>
           </div>
@@ -318,7 +317,7 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
             <h3><svg class="sprig" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg><span data-i18n="g_pasta">Pâtes &amp; risotto</span></h3>
             <div class="item"><span class="nm">Tagliatelle carbonara</span></div>
             <div class="item"><span class="nm" data-i18n="pa_salmon">Tagliatelle au saumon</span></div>
-            <div class="item"><span class="nm" data-i18n="pa_riso">Risotto aux légumes</span><span class="pop" data-i18n="pop2">populaire · Google</span></div>
+            <div class="item"><span class="nm" data-i18n="pa_riso">Risotto aux légumes</span></div>
           </div>
           <div class="mgroup">
             <h3><svg class="sprig" viewBox="0 0 100 100" aria-hidden="true"><use href="#leaf"/></svg><span data-i18n="g_grill">Grillades &amp; poissons</span></h3>
@@ -334,7 +333,7 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
           </div>
         </div>
       </div>
-      <p class="pricenote reveal" data-i18n="c_pricenote">Menu du jour, desserts et plats à la carte : prix à confirmer en salle — sélection donnée à titre indicatif.</p>
+      <p class="pricenote reveal" data-i18n="c_pricenote">Un aperçu de la carte.</p>
     </div>
   </section>
 
@@ -370,7 +369,7 @@ footer{background:var(--ink);color:#b7ae9c;padding:44px 0 40px;font-size:.86rem;
       <span class="bt">Aal Kayl<small>Pizzeria · Kayl</small></span>
       <span>90 Rue Notre Dame, L-3620 Kayl · <a href="tel:+35226560550" style="color:#e7dcc0">26 56 05 50</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps). Identité typographique proposée — aucun logo officiel. Carte : sélection indicative, prix des plats confirmés en salle. Horaires et coordonnées à vérifier.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -391,18 +390,17 @@ const I18N = {
   c_eyebrow:"La carte", c_head:"Pizze, pâtes, grillades.", c_intro:"Une sélection de la maison. Menu du jour le midi ; carte complète servie en salle.",
   m_grill:"Grillades", m_sea:"Fruits de mer", m_veg:"Légumes grillés",
   c_formule:"Menu du jour", c_formule_nt:"le midi · l'entrée et le plat changent chaque jour",
-  pop:"populaire · Google", pop2:"populaire · Google",
   d_caprese:"tomate, mozzarella, basilic",
   pz_veg:"Légumes grillés", pz_salmon:"Saumon fumé",
   g_pasta:"Pâtes & risotto", pa_salmon:"Tagliatelle au saumon", pa_riso:"Risotto aux légumes",
   g_grill:"Grillades & poissons", gr_entre:"Entrecôte grillée", gr_sea:"Fruits de mer grillés",
   do_tira:"Tiramisu maison", do_panna:"Panna cotta maison", do_fondant:"Fondant au chocolat maison",
-  c_pricenote:"Menu du jour, desserts et plats à la carte : prix à confirmer en salle — sélection donnée à titre indicatif.",
+  c_pricenote:"Un aperçu de la carte.",
   vi_eyebrow:"Nous trouver", vi_head:"Au bord de la vallée, à Kayl.",
   l_addr:"Adresse", l_tel:"Téléphone", vi_resa:"réservation & renseignements", l_hours:"Horaires",
   h_all:"Tous les jours", h_wed:"Mercredi", h_wed_v:"soir fermé", l_serv:"Services",
   vi_call:"Appeler pour réserver", vi_dir:"Itinéraire",
-  foot_disc:"Aperçu de démonstration composé par Webwerk à partir de photos publiques (Google Maps). Identité typographique proposée — aucun logo officiel. Carte : sélection indicative, prix des plats confirmés en salle. Horaires et coordonnées à vérifier.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
   foot_made:"Un aperçu"
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
@@ -419,18 +417,18 @@ const I18N = {
   c_eyebrow:"Die Karte", c_head:"Pizza, Pasta, Grill.", c_intro:"Eine Auswahl des Hauses. Mittags ein Tagesmenü; die vollständige Karte im Restaurant.",
   m_grill:"Grill", m_sea:"Meeresfrüchte", m_veg:"Gegrilltes Gemüse",
   c_formule:"Tagesmenü", c_formule_nt:"mittags · Vorspeise und Hauptgang wechseln täglich",
-  pop:"beliebt · Google", pop2:"beliebt · Google", room:"im Restaurant", room2:"im Restaurant", room3:"im Restaurant", room4:"im Restaurant", room5:"im Restaurant", room6:"im Restaurant", room7:"im Restaurant", room8:"im Restaurant", room9:"im Restaurant", room10:"im Restaurant", room11:"im Restaurant",
+    room:"im Restaurant", room2:"im Restaurant", room3:"im Restaurant", room4:"im Restaurant", room5:"im Restaurant", room6:"im Restaurant", room7:"im Restaurant", room8:"im Restaurant", room9:"im Restaurant", room10:"im Restaurant", room11:"im Restaurant",
   d_caprese:"Tomate, Mozzarella, Basilikum",
   pz_veg:"Gegrilltes Gemüse", pz_salmon:"Räucherlachs",
   g_pasta:"Pasta & Risotto", pa_salmon:"Tagliatelle mit Lachs", pa_riso:"Risotto mit Gemüse",
   g_grill:"Grill & Fisch", gr_entre:"Gegrilltes Entrecôte", gr_sea:"Gegrillte Meeresfrüchte",
   do_tira:"Hausgemachtes Tiramisu", do_panna:"Hausgemachte Panna cotta", do_fondant:"Hausgemachter Schokoladenfondant",
-  c_pricenote:"Tagesmenü, Desserts und Gerichte à la carte: Preise auf Anfrage im Restaurant — Auswahl beispielhaft.",
+  c_pricenote:"Ein Auszug aus der Karte.",
   vi_eyebrow:"Anfahrt", vi_head:"Am Rand des Tals, in Kayl.",
   l_addr:"Adresse", l_tel:"Telefon", vi_resa:"Reservierung & Auskunft", l_hours:"Öffnungszeiten",
   h_all:"Täglich", h_wed:"Mittwoch", h_wed_v:"abends geschlossen", l_serv:"Services",
   vi_call:"Zum Reservieren anrufen", vi_dir:"Route",
-  foot_disc:"Demo-Vorschau von Webwerk, erstellt aus öffentlichen Fotos (Google Maps). Typografische Identität als Vorschlag — kein offizielles Logo. Karte: beispielhafte Auswahl, Gerichtpreise im Restaurant. Öffnungszeiten und Kontaktdaten zu prüfen.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
   foot_made:"Eine Vorschau von"
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -447,18 +445,18 @@ const I18N = {
   c_eyebrow:"The menu", c_head:"Pizza, pasta, grill.", c_intro:"A selection from the kitchen. A daily lunch menu; the full carte served in-house.",
   m_grill:"Grills", m_sea:"Seafood", m_veg:"Grilled vegetables",
   c_formule:"Lunch menu", c_formule_nt:"lunchtime · starter and main change every day",
-  pop:"popular · Google", pop2:"popular · Google", room:"in-house", room2:"in-house", room3:"in-house", room4:"in-house", room5:"in-house", room6:"in-house", room7:"in-house", room8:"in-house", room9:"in-house", room10:"in-house", room11:"in-house",
+    room:"in-house", room2:"in-house", room3:"in-house", room4:"in-house", room5:"in-house", room6:"in-house", room7:"in-house", room8:"in-house", room9:"in-house", room10:"in-house", room11:"in-house",
   d_caprese:"tomato, mozzarella, basil",
   pz_veg:"Grilled vegetables", pz_salmon:"Smoked salmon",
   g_pasta:"Pasta & risotto", pa_salmon:"Tagliatelle with salmon", pa_riso:"Vegetable risotto",
   g_grill:"Grills & fish", gr_entre:"Grilled entrecôte", gr_sea:"Grilled seafood",
   do_tira:"House tiramisu", do_panna:"House panna cotta", do_fondant:"House chocolate fondant",
-  c_pricenote:"Lunch menu, desserts and à-la-carte dishes: prices tbc in-house — selection indicative.",
+  c_pricenote:"A selection from the menu.",
   vi_eyebrow:"Find us", vi_head:"On the edge of the valley, in Kayl.",
   l_addr:"Address", l_tel:"Phone", vi_resa:"reservations & enquiries", l_hours:"Hours",
   h_all:"Every day", h_wed:"Wednesday", h_wed_v:"closed in the evening", l_serv:"Services",
   vi_call:"Call to reserve", vi_dir:"Directions",
-  foot_disc:"Demonstration preview composed by Webwerk from public photos (Google Maps). Typographic identity proposed — no official logo. Menu: indicative selection, dish prices confirmed in-house. Hours and contact details to be verified.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
   foot_made:"A preview by"
  }
 };
