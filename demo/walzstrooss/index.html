@@ -1,148 +1,507 @@
 <!DOCTYPE html>
-<!--
-  WEBWERK — reveal page for D'Walzstrooss (BistroBar, Differdange).
-  The real site is in ./site/ (copied from lux-restaurant-sites/mockups/walzstrooss/rebuild/).
-  Site fonts self-hosted in ./site/assets/fonts/ (0 Google requests). Proposal — not affiliated with the venue.
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>D'Walzstrooss — une proposition de site · Webwerk</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#0b2c52" />
-<meta property="og:title" content="D'Walzstrooss — une proposition de site" />
-<meta property="og:description" content="D'Walzstrooss n'a plus de site — cafe-walzstrooss.lu ne répond plus. En voici un : le bar, la terrasse et la planche, en français, allemand et anglais, pensé pour le téléphone." />
-<link rel="preload" href="/fonts/archivo-79dc5e10-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231a1a1a'/><g fill='none' stroke='%23e0a838' stroke-width='6'><path d='M30 78 L30 30 L38 30 L38 78'/><path d='M20 78 H80'/><path d='M45 78 L45 55 L58 55 L58 78'/><path d='M65 78 L65 45 L75 45 L75 78'/></g></svg>" />
+<title>D'Walzstrooss — BistroBar, Differdange</title>
+<meta name="description" content="Bar, terrasse et cuisine bistrot au cœur de Differdange, la ville des aciéries. Aperçu de site composé par Webwerk." />
 <style>
-  :root{ --blue:#0b2c52; --blue2:#0e3360; --cy:#bcd7f2; --wht:#eaf3ff;
-    --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; --maxw:1080px; }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--blue);color:var(--cy);font-family:'Space Mono',ui-monospace,monospace;font-size:14px;line-height:1.6;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-    background-image:linear-gradient(var(--faint2) 1px,transparent 1px),linear-gradient(90deg,var(--faint2) 1px,transparent 1px);
-    background-size:34px 34px;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}
-  a{color:var(--amber);text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:1px}
-  .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-  header{border-bottom:1px solid var(--faint);position:relative;z-index:2}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
-  .brand{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--wht);font-size:1.15rem}
-  .brand .k{color:var(--red)}
-  .studio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(188,215,242,.6)}
-  .plate{padding:52px 0 0}
-  .plate .fig{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(188,215,242,.72)}
-  .plate h1{font-family:'Archivo',sans-serif;font-weight:800;color:var(--wht);font-size:clamp(34px,6vw,62px);
-    line-height:1.0;letter-spacing:-.01em;margin:14px 0 6px}
-  .plate h1 .sub{display:block;font-size:.42em;font-weight:600;color:var(--cy);letter-spacing:.01em;margin-top:8px}
-  .plate .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(-2.5deg);display:inline-block;margin-left:4px}
-  .lede{max-width:58ch;margin:18px 0 0;color:rgba(188,215,242,.82);font-size:.95rem}
-  .dimline{display:flex;align-items:center;gap:10px;margin:22px 0 0;color:var(--red);font-size:.7rem;max-width:620px}
-  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative;transform:scaleX(0);transform-origin:left;
-    animation:draw 1s .35s cubic-bezier(.6,0,.2,1) forwards}
-  @keyframes draw{to{transform:scaleX(1)}}
-  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
-  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
-  .stage{margin:40px 0 0;position:relative}
-  .stage .tag{position:absolute;right:-6px;top:-30px;z-index:3;font-family:'Caveat',cursive;color:var(--amber);
-    font-size:1.5rem;transform:rotate(3deg)}
-  .browser{border:1px solid var(--faint);border-radius:8px;overflow:hidden;background:#0a2547;
-    box-shadow:0 40px 80px -40px rgba(0,0,0,.6);}
-  .bbar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--blue2);border-bottom:1px solid var(--faint)}
-  .bbar .dot{width:11px;height:11px;border-radius:50%;background:rgba(188,215,242,.35)}
-  .bbar .url{flex:1;margin-left:10px;background:rgba(0,0,0,.22);border:1px solid var(--faint2);border-radius:20px;
-    padding:6px 14px;font-size:.72rem;color:var(--cy);display:flex;align-items:center;gap:8px}
-  .bbar .url b{color:var(--wht);font-weight:400}
-  .bbar .url .lock{color:var(--amber);font-size:.7rem}
-  .screen{position:relative;width:100%;overflow:hidden;background:#1c140c;height:600px}
-  .screen iframe{position:absolute;top:0;left:0;width:1280px;height:854px;border:0;transform-origin:top left}
-  .screen .veil{position:absolute;inset:0;cursor:pointer;background:transparent}
-  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:26px 0 0}
-  .btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;
-    background:var(--amber);color:#0a1f38;border:0;border-radius:4px;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-  .btn:hover{filter:brightness(1.06)}
-  .btn.ghost{background:transparent;color:var(--cy);border:1px solid var(--faint)}
-  .btn.ghost:hover{border-color:var(--amber);color:var(--wht)}
-  .titleblock{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--faint);margin:52px 0 0}
-  .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:13px 15px}
-  .titleblock div:nth-child(3n){border-right:0}
-  .titleblock div:nth-last-child(-n+3){border-bottom:0}
-  .titleblock .k{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.66);display:block;margin-bottom:4px}
-  .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem}
-  footer{margin:46px 0 60px;padding-top:22px;border-top:1px solid var(--faint);
-    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;justify-content:space-between}
-  footer .note{color:rgba(188,215,242,.6);font-size:.72rem;max-width:66ch}
-  footer a.home{font-family:'Archivo',sans-serif;font-weight:700;color:var(--wht)}
-  footer a.home .k{color:var(--red)}
-  @media(max-width:640px){
-    .titleblock{grid-template-columns:1fr 1fr}
-    .titleblock div:nth-child(3n){border-right:1px solid var(--faint)}
-    .titleblock div:nth-child(2n){border-right:0}
-    .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)}
-    .titleblock div:nth-last-child(-n+2){border-bottom:0}
-    .screen{height:420px}
-    .stage .tag{display:none}
-  }
-  @media(prefers-reduced-motion:reduce){ .dimline .bar{transform:scaleX(1);animation:none} }
+/* ===== FONTS (self-hosted, 0 external) ===== */
+@font-face{font-family:'Big Shoulders Display';font-style:normal;font-weight:600 800;font-display:swap;src:url('assets/fonts/big-shoulders-display-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Big Shoulders Display';font-style:normal;font-weight:600 800;font-display:swap;src:url('assets/fonts/big-shoulders-display-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Big Shoulders Display';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/big-shoulders-display-800-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/work-sans-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/work-sans-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/work-sans-500-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/work-sans-500-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/work-sans-600-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/work-sans-600-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/work-sans-700-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/work-sans-700-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+
+/* ===== TOKENS ===== */
+:root{
+  --paper:#f2ede4; --paper2:#e6dcc9; --cream:#f8f4ec; --card:#fffdf8;
+  --ink:#1a1a1a; --ink2:#4d473e; --muted:#8f8676;
+  --gold:#c98a2e; --gold2:#8a5a16; --gold-eye:#8a5a16; --steel:#5a6470; --steel-d:#2a3038;
+  --line:#ddd2b8;
+  --maxw:1180px; --disp:'Big Shoulders Display',Impact,sans-serif; --body:'Work Sans',system-ui,-apple-system,sans-serif;
+  --sh:0 22px 48px rgba(20,18,14,.2); --sh-s:0 10px 24px rgba(20,18,14,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,46px)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:.92;letter-spacing:.01em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:1.22rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-eye)}
+.eyebrow::before{content:'';width:24px;height:3px;background:var(--gold-eye)}
+.blk{padding:clamp(58px,8.5vw,108px) 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ===== HEADER ===== */
+header{position:sticky;top:0;z-index:60;background:rgba(242,237,228,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink)}
+.brand .mark{height:32px;width:32px;color:var(--gold)}
+.brand .bt{font-family:var(--disp);font-weight:800;font-size:1.5rem;letter-spacing:.01em;line-height:.82;text-transform:uppercase}
+.brand .bt small{display:block;font-family:var(--body);font-weight:600;font-size:.5rem;letter-spacing:.24em;color:var(--muted);margin-top:5px;text-transform:uppercase}
+.navright{display:flex;align-items:center;gap:20px}
+.menu{display:flex;align-items:center;gap:24px}
+.menu a{font-family:var(--disp);font-weight:700;font-size:.98rem;letter-spacing:.03em;color:var(--ink2);text-transform:uppercase}
+.menu a:hover{color:var(--gold)}
+.langs{display:flex;gap:2px;background:var(--paper2);border-radius:999px;padding:3px}
+.langs button{font-family:var(--body);font-weight:700;font-size:.72rem;border:0;background:transparent;color:var(--ink2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.langs button.on{background:var(--ink);color:#fff}
+.burger{display:none;background:transparent;border:0;color:var(--ink);cursor:pointer;padding:6px}
+@media(max-width:860px){
+  .menu{position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 0;transform:translateY(-140%);transition:transform .32s ease;box-shadow:var(--sh-s)}
+  .menu.open{transform:none}
+  .menu a{padding:15px clamp(20px,5vw,46px);width:100%;border-top:1px solid var(--line)}
+  .burger{display:block}
+}
+@media(max-width:520px){.brand .bt{font-size:1.24rem}.navright{gap:10px}}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:clamp(600px,90vh,840px);display:flex;align-items:flex-end;color:#fff;background:#171310;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+#smoke{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.7}
+.hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(15,12,9,0.44) 0%,rgba(15,12,9,0.38) 32%,rgba(15,12,9,0.76) 78%,rgba(10,8,6,0.94) 100%)}
+.hero .wrap{position:relative;z-index:3;width:100%;padding-top:96px;padding-bottom:clamp(44px,6vw,76px)}
+.hero .brandmark{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.hero .brandmark .mark{height:52px;width:52px;color:var(--gold)}
+.hero h1{color:#fff;font-size:clamp(44px,9vw,100px);letter-spacing:.005em;text-shadow:0 3px 40px rgba(0,0,0,.5)}
+.hero .tag{font-family:var(--body);font-weight:600;font-size:clamp(15px,1.9vw,19px);letter-spacing:.05em;text-transform:uppercase;color:#e6c88a;margin:12px 0 0}
+.hero .sub{font-family:var(--body);font-size:1.04rem;color:#efe6d3;margin:16px 0 0;max-width:52ch;line-height:1.6;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
+.hero .chip{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--body);font-size:.88rem;color:#e6d9bd}
+.btn{font-family:var(--disp);font-weight:700;font-size:1rem;letter-spacing:.03em;text-transform:uppercase;border:0;border-radius:7px;padding:13px 25px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .15s ease,box-shadow .2s ease,background .2s ease}
+.btn.p{background:var(--gold);color:#1a1a1a}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(201,138,46,.4)}
+.btn.g{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5)}
+.btn.g:hover{background:rgba(255,255,255,.2)}
+
+/* ===== MAISON ===== */
+.maison{background:var(--cream)}
+.mgrid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(26px,5vw,76px);align-items:start}
+.maison h2{font-size:clamp(32px,4.6vw,52px);margin:14px 0 0;color:var(--ink)}
+.maison .mcopy p{color:var(--ink2);margin:0 0 20px;max-width:66ch;font-size:1.02rem}
+.maison .mcopy p:last-child{margin-bottom:0}
+.maison .mrule{width:64px;height:3px;background:var(--gold-eye);margin-top:26px}
+@media(max-width:860px){.mgrid{grid-template-columns:1fr;gap:22px}.maison .mrule{display:none}}
+
+/* ===== TERRACE (dark) ===== */
+.floor{position:relative;overflow:hidden}
+.floor.terrace{background:var(--steel-d);color:#e9e4d6}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.floor .txt{padding:clamp(50px,7vw,98px) clamp(22px,5vw,64px);display:flex;flex-direction:column;justify-content:center}
+.floor.terrace .eyebrow{color:#e6c88a}.floor.terrace .eyebrow::before{background:#e6c88a}
+.floor h2{font-size:clamp(32px,4.6vw,54px);margin:14px 0 0;color:#fff}
+.floor p{margin:18px 0 0;max-width:46ch;font-size:1.05rem;color:#cfc7b3}
+.floor .pic{min-height:340px}
+.floor .pic img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:860px){.fgrid{grid-template-columns:1fr}.floor .pic{min-height:260px}}
+
+/* ===== CUISINE spotlight ===== */
+.cuisine{background:var(--paper)}
+.spot-card{display:grid;grid-template-columns:.85fr 1fr .95fr .85fr;grid-template-rows:300px;gap:0;border-radius:16px;overflow:hidden;box-shadow:var(--sh);margin-top:clamp(30px,4vw,50px)}
+.spot-card img{width:100%;height:100%;object-fit:cover;display:block}
+.spot-txt{background:var(--ink);color:#f0e6d3;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;justify-content:center}
+.spot-txt .k{font-family:var(--disp);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#e6c88a;font-size:1.08rem}
+.spot-txt p{margin-top:11px;color:#e6dcc6;max-width:34ch;font-size:1rem;line-height:1.6}
+@media(max-width:760px){.spot-card{grid-template-columns:1fr;grid-template-rows:200px auto 200px 200px}}
+
+/* ===== MENU (editorial, not cards) ===== */
+.carte{background:var(--cream)}
+.carte .head-c{text-align:center;display:flex;flex-direction:column;align-items:center}
+.carte .head-c .eyebrow{justify-content:center}
+.carte h2{font-size:clamp(32px,4.6vw,50px);margin:12px 0 0}
+.carte .intro{color:var(--ink2);max-width:60ch;margin:14px auto 0;text-align:center;font-size:1.02rem}
+.menu-card{max-width:640px;margin:clamp(32px,4vw,48px) auto 0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(28px,4vw,40px);box-shadow:var(--sh-s)}
+.mgroup{margin-bottom:24px}
+.mgroup h3{font-size:1.3rem;color:var(--gold-eye);margin-bottom:10px}
+.item{display:flex;gap:10px;align-items:baseline;margin:9px 0}
+.item .nm{font-weight:500;color:var(--ink);font-family:var(--body);font-size:1.02rem}
+.pricenote{margin-top:24px;font-size:.95rem;color:var(--ink2);text-align:center}
+
+/* ===== VISIT ===== */
+.visit{background:var(--paper)}
+.visit .vgrid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px)}
+.info{margin-top:24px}
+.info .row{padding:16px 0;border-top:1px solid var(--line)}
+.info .row:last-child{border-bottom:1px solid var(--line)}
+.info .k{font-family:var(--disp);font-weight:700;font-size:.98rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-eye)}
+.info .v{margin-top:6px;color:var(--ink);font-size:1.02rem}
+.info .v a{border-bottom:1px solid var(--line)}
+.info .row.tel .v{margin-top:8px}
+.info .row.tel .v a{font-family:var(--disp);font-weight:800;font-size:clamp(30px,4vw,42px);line-height:1;letter-spacing:.015em;color:var(--ink);border-bottom:0}
+.info .row.tel .v a:hover{color:var(--gold-eye)}
+.info .row.mail .v{font-size:.95rem;color:var(--ink2)}
+.visit .cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.visit .cta .btn.g{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.place{align-self:start;padding-top:4px}
+.place-k{display:block;font-family:var(--disp);font-weight:700;font-size:1.02rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-eye)}
+.place-addr{font-family:var(--disp);font-weight:800;text-transform:uppercase;line-height:.96;letter-spacing:.01em;font-size:clamp(32px,4.6vw,50px);color:var(--ink);margin-top:14px}
+.place-addr span{display:block;font-family:var(--body);font-weight:600;font-size:.3em;letter-spacing:.14em;color:var(--ink2);margin-top:14px}
+.place-note{margin-top:20px;color:var(--ink2);max-width:42ch;font-size:1.02rem}
+.place-link{display:inline-block;margin-top:24px;font-family:var(--disp);font-weight:700;font-size:1.06rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);border-bottom:2px solid var(--gold-eye);padding-bottom:5px}
+.place-link:hover{color:var(--gold-eye)}
+@media(max-width:860px){.visit .vgrid2{grid-template-columns:1fr}.place{padding-top:8px}}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:#c3b9a6;padding:44px 0 40px;font-size:.94rem;line-height:1.6}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-top .bt{font-family:var(--disp);font-weight:800;font-size:1.4rem;color:#f2ece0;display:flex;align-items:center;gap:11px;text-transform:uppercase}
+.foot-top .bt .mark{height:28px;width:28px;color:var(--gold)}
+.disc{margin-top:22px;color:#b8ae9c;max-width:78ch;font-size:.94rem;line-height:1.62}
+.disc a{color:#e7dcc3;border-bottom:1px solid rgba(231,220,195,.45)}
+.disc a:hover{color:#e6c88a;border-bottom-color:#e6c88a}
+
+/* Mobile action bar — pins the one or two things a hungry visitor actually
+   needs, so they stay reachable anywhere in a long scroll instead of only at
+   the top and bottom. Mobile only. */
+@media(max-width:760px){
+  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
+    display:flex;gap:8px;padding:10px 12px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--paper);color:var(--ink);
+    border-top:1px solid rgba(128,128,128,.28);
+    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
+  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
+    display:inline-flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-size:.92rem;min-height:46px}
+  /* The page's secondary button is often a ghost styled for a dark hero, so
+     it can vanish on this bar. Re-ground it on the bar's own colours, which
+     are the body's and therefore legible by construction. */
+  .wwbar a:not(:first-child){background:transparent;color:inherit;
+    border:1px solid currentColor;opacity:.92}
+  body{padding-bottom:78px}
+}
+@media(min-width:761px){ .wwbar{display:none} }
+
+  /* hero type legibility */
+  /* Contrast comes from the type's own shadow rather than from darkening
+     the photograph behind it. */
+  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
+    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
+
+  /* strip colour consistency */
+  /* Measured average warmth (r-b) across the three frames: planche 61,
+     fishchips 57, pasta 102 — the pasta frame reads strongly yellow beside
+     the other two. A moderate grade closes most of that gap; matching it
+     exactly would need desaturation heavy enough to make the food look
+     washed out, so this stops short deliberately. */
+  .spot-card img[src*="pasta"]{filter:saturate(.84) hue-rotate(-5deg)}
 </style>
 </head>
-<body>
+<body id="top">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="mill">
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square"><path d="M30 78 L30 30 L38 30 L38 78"/><path d="M20 78 H80"/><path d="M45 78 L45 55 L58 55 L58 78"/><path d="M65 78 L65 45 L75 45 L75 78"/></g>
+  <rect x="31" y="33" width="6" height="14" fill="#ED2939"/><rect x="31" y="47" width="6" height="14" fill="#FFFFFF"/><rect x="31" y="61" width="6" height="14" fill="#00A1DE"/>
+</g>
+</defs></svg>
+
 <header>
-  <div class="wrap">
-    <a class="brand" href="https://webwerk.lu/">WEBWER<span class="k">K</span></a>
-    <span class="studio">Studio web · Luxembourg</span>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="D'Walzstrooss">
+      <svg class="mark" viewBox="0 0 100 100"><use href="#mill"/></svg>
+      <span class="bt">D'Walzstrooss<small data-i18n="brand_sub">Differdange · BistroBar</small></span>
+    </a>
+    <div class="navright">
+      <nav class="menu" id="menu">
+        <a href="#maison" data-i18n="n_maison">La maison</a>
+        <a href="#terrasse" data-i18n="n_terrasse">La terrasse</a>
+        <a href="#carte" data-i18n="n_carte">La carte</a>
+        <a href="#visit" data-i18n="n_visit">Infos</a>
+      </nav>
+      <div class="langs" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 32 22" width="22" height="16"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M1 2H31M1 11H31M1 20H31"/></g></svg></button>
+    </div>
   </div>
 </header>
-<main class="wrap">
-  <section class="plate">
-    <span class="fig">FIG. — Proposition de site</span>
-    <h1>D'Walzstrooss<span class="sub">BistroBar · Differdange <span class="note">composé pour vous ✎</span></span></h1>
-    <p class="lede">D'Walzstrooss n'a plus de site : cafe-walzstrooss.lu ne répond plus du tout, et rien en ligne ne lui appartient — tout passe par Google Maps et Facebook. En voici un, à vous : le bar et sa terrasse, la planche et les cocktails, en français, en allemand et en anglais, pensé pour le téléphone.</p>
-    <div class="dimline"><span>Concept</span><span class="bar"></span><span>Mise en ligne</span></div>
-  </section>
-  <section class="stage">
-    <span class="tag">↙ votre nouveau site</span>
-    <div class="browser">
-      <div class="bbar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="url"><span class="lock">🔒</span> <b>cafe-walzstrooss.lu</b> · aperçu</span>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="bg"><img src="assets/img/terrace-beer.jpg" alt="Une Battin sur la terrasse, rue J.-F. Kennedy à Differdange" /></div>
+    <canvas id="smoke" aria-hidden="true"></canvas>
+    <div class="shade"></div>
+    <div class="wrap">
+      <div class="brandmark"><svg class="mark" viewBox="0 0 100 100"><use href="#mill"/></svg></div>
+      <h1>D'Walzstrooss</h1>
+      <p class="tag" data-i18n="hero_tag">BistroBar · Differdange</p>
+      <p class="sub" data-i18n="hero_sub">Bar, terrasse et cuisine bistrot au cœur de Differdange — sur la Walzstrooss, la rue du laminoir, là où l'acier a fait la ville.</p>
+      <div class="cta">
+        <a href="#carte" class="btn p" data-i18n="hero_cta1">Voir la carte</a>
+        <a href="tel:+35228999996" class="btn g"><span data-i18n="hero_cta2">Appeler</span> · 28 99 99 96</a>
       </div>
-      <div class="screen">
-        <iframe title="Aperçu du site D'Walzstrooss" src="./site/index.html" loading="lazy" scrolling="no"></iframe>
-        <a class="veil" href="./site/index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
-      </div>
-    </div>
-    <div class="actions">
-      <a class="btn" href="./site/index.html" target="_blank" rel="noopener">Ouvrir le site en grand ↗</a>
-      <a class="btn ghost" href="mailto:jean@webwerk.lu?subject=D'Walzstrooss%20—%20site">En parler avec nous</a>
+      <div class="chip" data-i18n="hero_chip">51 rue J.-F. Kennedy, Differdange</div>
     </div>
   </section>
-  <div class="titleblock">
-    <div><span class="k">Projet</span><span class="v">D'Walzstrooss — bistro-bar luxembourgeois</span></div>
-    <div><span class="k">Lieu</span><span class="v">Differdange, Luxembourg</span></div>
-    <div><span class="k">Échelle</span><span class="v">1:1 — taille réelle</span></div>
-    <div><span class="k">Studio</span><span class="v">Webwerk</span></div>
-    <div><span class="k">État</span><span class="v">Aperçu · sans engagement</span></div>
-    <div><span class="k">Contact</span><span class="v">jean@webwerk.lu</span></div>
-  </div>
-  <footer>
-    <a class="home" href="https://webwerk.lu/">WEBWER<span class="k">K</span> — nous dessinons le web.</a>
-    <span class="note">Aperçu réalisé à titre indicatif à partir de sources publiques (Google Maps, menu imprimé photographié, Facebook) — proposition non officielle, sans lien avec la maison. Logotype recréé d'après leur enseigne réelle. Carte présentée à titre d'exemple daté (avril 2023), sans prix actuels — carte et prix à confirmer en salle. Horaires à confirmer. Photographies de sources publiques, à remplacer par les visuels de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
-  </footer>
+
+  <!-- MAISON -->
+  <section class="maison blk" id="maison">
+    <div class="wrap mgrid">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="m_eyebrow">La maison</span>
+        <h2 data-i18n="m_head">Sur la rue du laminoir.</h2>
+        <div class="mrule" aria-hidden="true"></div>
+      </div>
+      <div class="reveal mcopy">
+        <p data-i18n="m_p1">« Walzstrooss » — la rue du laminoir — porte le nom du vieux Differdange sidérurgique : la ville qui a longtemps vécu de ses aciéries. La maison en a fait son nom et son enseigne, une cheminée dessinée aux couleurs du pays.</p>
+        <p data-i18n="m_p2">On y vient pour un verre en terrasse, un cocktail bien fait, ou un plat de bistrot — une adresse de quartier, sans façon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERRASSE -->
+  <section class="floor terrace" id="terrasse">
+    <div class="fgrid">
+      <div class="txt reveal">
+        <span class="eyebrow" data-i18n="t_eyebrow">La terrasse</span>
+        <h2 data-i18n="t_head">Une Battin, à l'ombre.</h2>
+        <p data-i18n="t_p">La terrasse donne sur la rue J.-F. Kennedy — un verre de Battin, une bière luxembourgeoise servie depuis 1937, ou un cocktail bien fait (Gin Mum, Jack Daniels Honey), entre les façades du vieux Differdange.</p>
+      </div>
+      <div class="pic reveal"><img src="assets/img/cocktail.jpg" alt="Un cocktail dressé, servi en terrasse" /></div>
+    </div>
+  </section>
+
+  <!-- CUISINE spotlight -->
+  <section class="cuisine blk" id="cuisine">
+    <div class="wrap">
+      <div class="reveal" style="max-width:640px">
+        <span class="eyebrow" data-i18n="c_eyebrow">En cuisine</span>
+        <h2 data-i18n="c_head">De la cuisine bistrot, sans chichi.</h2>
+        <p data-i18n="c_p">Planches à partager, pâtes du jour, plats généreux — une cuisine simple, pensée pour accompagner un verre entre amis.</p>
+      </div>
+      <div class="spotlight reveal">
+        <div class="spot-card">
+          <img src="assets/img/planche.jpg" alt="Planche de charcuterie et fromages à partager" />
+          <div class="spot-txt">
+            <span class="k" data-i18n="c_spot_k">Planches, pâtes &amp; plats du jour</span>
+            <p data-i18n="c_spot_p">Charcuterie et fromages à partager, pâtes du jour au saumon, poisson pané et frites — un aperçu de ce qui sort de la cuisine un soir ordinaire.</p>
+          </div>
+          <img src="assets/img/pasta.jpg" alt="Pâtes du jour, saumon et crème" />
+          <img src="assets/img/fishchips.jpg" alt="Poisson pané et frites, plat généreux" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTE -->
+  <section class="carte blk" id="carte">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow" data-i18n="ca_eyebrow">La carte</span>
+        <h2 data-i18n="ca_head">Une cuisine du marché, qui change chaque mois.</h2>
+        <p class="intro" data-i18n="ca_intro">La carte suit les saisons et tourne au fil des mois. Voici quelques plats représentatifs de ce qui sort de la cuisine.</p>
+      </div>
+      <div class="menu-card reveal">
+        <div class="mgroup">
+          <h3 data-i18n="g_entrees">Entrées</h3>
+          <div class="item"><span class="nm" data-i18n="i_veloute">Velouté de légumes au bouillon de poule</span></div>
+          <div class="item"><span class="nm" data-i18n="i_rillettes">Rillettes de truite à l'estragon et moutarde</span></div>
+        </div>
+        <div class="mgroup">
+          <h3 data-i18n="g_plats">Plats</h3>
+          <div class="item"><span class="nm" data-i18n="i_spaghetti">Spaghettis bolognaise</span></div>
+          <div class="item"><span class="nm" data-i18n="i_cabillaud">Filet de cabillaud, sauce gingembre citronnée, riz trois couleurs</span></div>
+          <div class="item"><span class="nm" data-i18n="i_omelette">Omelette aux herbes, purée de carotte, salade verte</span></div>
+        </div>
+        <div class="mgroup">
+          <h3 data-i18n="g_desserts">Desserts</h3>
+          <div class="item"><span class="nm" data-i18n="i_cake">Cake aux ananas</span></div>
+          <div class="item"><span class="nm" data-i18n="i_creme">Crème caramel</span></div>
+        </div>
+        <div class="mgroup" style="margin-bottom:0">
+          <h3 data-i18n="g_prix">Formules</h3>
+          <div class="item"><span class="nm" data-i18n="i_p1">Menu complet</span></div>
+          <div class="item"><span class="nm" data-i18n="i_p2">Entrée + plat ou plat + dessert</span></div>
+          <div class="item"><span class="nm" data-i18n="i_p3">Plat seul</span></div>
+        </div>
+      </div>
+      <p class="pricenote" data-i18n="ca_pricenote">Plats et prix affichés en salle.</p>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit blk" id="visit">
+    <div class="wrap vgrid2">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="v_eyebrow">Infos pratiques</span>
+        <h2 data-i18n="v_head">Passer nous voir.</h2>
+        <div class="info">
+          <div class="row tel"><div class="k" data-i18n="l_tel">Téléphone</div><div class="v"><a href="tel:+35228999996">28 99 99 96</a></div></div>
+          <div class="row mail"><div class="k" data-i18n="l_mail">E-mail</div><div class="v"><a href="mailto:walzstrooss2022@gmail.com">walzstrooss2022@gmail.com</a></div></div>
+        </div>
+        <div class="cta">
+          <a href="tel:+35228999996" class="btn p" data-i18n="v_call">Appeler</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=D%27Walzstrooss+51+rue+J-F+Kennedy+Differdange" target="_blank" rel="noopener" class="btn g" data-i18n="v_dir">Itinéraire</a>
+        </div>
+      </div>
+      <div class="place reveal">
+        <span class="place-k" data-i18n="v_place_k">Où nous trouver</span>
+        <p class="place-addr">51, rue J.-F. Kennedy<span>L-4599 Differdange</span></p>
+        <p class="place-note" data-i18n="v_place_note">La terrasse donne directement sur la rue J.-F. Kennedy, entre les façades du vieux Differdange.</p>
+        <a class="place-link" href="https://www.google.com/maps/search/?api=1&amp;query=D%27Walzstrooss+51+rue+J-F+Kennedy+Differdange" target="_blank" rel="noopener" data-i18n="v_dir2">Ouvrir dans Google Maps →</a>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="bt"><svg class="mark" viewBox="0 0 100 100"><use href="#mill"/></svg>D'Walzstrooss</span>
+      <span>51 rue J.-F. Kennedy, L-4599 Differdange · <a href="tel:+35228999996" style="color:#e7dcc3">28 99 99 96</a></span>
+    </div>
+    <p class="disc"><span data-i18n="foot_disc">Aperçu de site composé par Webwerk à partir de photos et d'informations publiques — ce n'est pas le site officiel de la maison.</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">webwerk.lu</a></p>
+  </div>
+</footer>
+
 <script>
-  (function(){
-    var screen=document.querySelector('.screen'), frame=document.querySelector('.screen iframe');
-    var BASE=1280;
-    function fit(){ var s=screen.clientWidth/BASE; frame.style.transform='scale('+s+')'; }
-    fit(); window.addEventListener('resize',fit); frame.addEventListener('load',fit);
-  })();
+const I18N = {
+ fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",
+  brand_sub:"Differdange · BistroBar", n_maison:"La maison", n_terrasse:"La terrasse", n_carte:"La carte", n_visit:"Infos",
+  hero_tag:"BistroBar · Differdange",
+  hero_sub:"Bar, terrasse et cuisine bistrot au cœur de Differdange — sur la Walzstrooss, la rue du laminoir, là où l'acier a fait la ville.",
+  hero_cta1:"Voir la carte", hero_cta2:"Appeler", hero_chip:"51 rue J.-F. Kennedy, Differdange",
+  m_eyebrow:"La maison", m_head:"Sur la rue du laminoir.",
+  m_p1:"« Walzstrooss » — la rue du laminoir — porte le nom du vieux Differdange sidérurgique : la ville qui a longtemps vécu de ses aciéries. La maison en a fait son nom et son enseigne, une cheminée dessinée aux couleurs du pays.",
+  m_p2:"On y vient pour un verre en terrasse, un cocktail bien fait, ou un plat de bistrot — une adresse de quartier, sans façon.",
+  t_eyebrow:"La terrasse", t_head:"Une Battin, à l'ombre.",
+  t_p:"La terrasse donne sur la rue J.-F. Kennedy — un verre de Battin, une bière luxembourgeoise servie depuis 1937, ou un cocktail bien fait (Gin Mum, Jack Daniels Honey), entre les façades du vieux Differdange.",
+  c_eyebrow:"En cuisine", c_head:"De la cuisine bistrot, sans chichi.",
+  c_p:"Planches à partager, pâtes du jour, plats généreux — une cuisine simple, pensée pour accompagner un verre entre amis.",
+  c_spot_k:"Planches, pâtes & plats du jour", c_spot_p:"Charcuterie et fromages à partager, pâtes du jour au saumon, poisson pané et frites — un aperçu de ce qui sort de la cuisine un soir ordinaire.",
+  ca_eyebrow:"La carte", ca_head:"Une cuisine du marché, qui change chaque mois.", ca_intro:"La carte suit les saisons et tourne au fil des mois. Voici quelques plats représentatifs de ce qui sort de la cuisine.",
+  g_entrees:"Entrées", i_veloute:"Velouté de légumes au bouillon de poule", i_rillettes:"Rillettes de truite à l'estragon et moutarde",
+  g_plats:"Plats", i_spaghetti:"Spaghettis bolognaise", i_cabillaud:"Filet de cabillaud, sauce gingembre citronnée, riz trois couleurs", i_omelette:"Omelette aux herbes, purée de carotte, salade verte",
+  g_desserts:"Desserts", i_cake:"Cake aux ananas", i_creme:"Crème caramel",
+  g_prix:"Formules", i_p1:"Menu complet", i_p2:"Entrée + plat ou plat + dessert", i_p3:"Plat seul",
+  ca_pricenote:"Plats et prix affichés en salle.",
+  v_eyebrow:"Infos pratiques", v_head:"Passer nous voir.",
+  l_tel:"Téléphone", l_mail:"E-mail",
+  v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir dans Google Maps →",
+  v_place_k:"Où nous trouver", v_place_note:"La terrasse donne directement sur la rue J.-F. Kennedy, entre les façades du vieux Differdange.",
+  foot_disc:"Aperçu de site composé par Webwerk à partir de photos et d'informations publiques — ce n'est pas le site officiel de la maison."
+ },
+ de:{wwb_call:"Anrufen",wwb_dir:"Route",
+  brand_sub:"Differdingen · BistroBar", n_maison:"Das Haus", n_terrasse:"Die Terrasse", n_carte:"Die Karte", n_visit:"Infos",
+  hero_tag:"BistroBar · Differdingen",
+  hero_sub:"Bar, Terrasse und Bistroküche mitten in Differdingen — an der Walzstrooss, der Straße des Walzwerks, dort wo der Stahl die Stadt geprägt hat.",
+  hero_cta1:"Zur Karte", hero_cta2:"Anrufen", hero_chip:"51 rue J.-F. Kennedy, Differdingen",
+  m_eyebrow:"Das Haus", m_head:"An der Straße des Walzwerks.",
+  m_p1:"„Walzstrooss“ — die Straße des Walzwerks — trägt den Namen des alten, stahlgeprägten Differdingen: der Stadt, die lange von ihren Hütten lebte. Das Haus hat daraus seinen Namen und sein Zeichen gemacht — ein Schornstein in den Farben des Landes.",
+  m_p2:"Man kommt hierher für ein Glas auf der Terrasse, einen guten Cocktail oder ein Bistrogericht — eine Adresse aus der Nachbarschaft, ohne viel Aufhebens.",
+  t_eyebrow:"Die Terrasse", t_head:"Eine Battin, im Schatten.",
+  t_p:"Die Terrasse liegt an der Rue J.-F. Kennedy — ein Glas Battin, ein luxemburgisches Bier seit 1937, oder ein gut gemachter Cocktail (Gin Mum, Jack Daniels Honey), zwischen den Fassaden des alten Differdingen.",
+  c_eyebrow:"In der Küche", c_head:"Bistroküche, ohne viel Federlesens.",
+  c_p:"Platten zum Teilen, Pasta des Tages, großzügige Gerichte — eine einfache Küche, gedacht als Begleitung zu einem Glas unter Freunden.",
+  c_spot_k:"Platten, Pasta & Tagesgerichte", c_spot_p:"Wurst und Käse zum Teilen, Pasta des Tages mit Lachs, paniertes Fischfilet mit Pommes — ein Einblick, was an einem gewöhnlichen Abend aus der Küche kommt.",
+  ca_eyebrow:"Die Karte", ca_head:"Marktküche, die jeden Monat wechselt.", ca_intro:"Die Karte folgt den Jahreszeiten und wechselt von Monat zu Monat. Hier einige Gerichte, die zeigen, was aus der Küche kommt.",
+  g_entrees:"Vorspeisen", i_veloute:"Gemüsecremesuppe mit Hühnerbrühe", i_rillettes:"Forellenrillette mit Estragon und Senf",
+  g_plats:"Hauptgerichte", i_spaghetti:"Spaghetti Bolognese", i_cabillaud:"Kabeljaufilet mit Ingwer-Zitronen-Sauce, dreifarbigem Reis", i_omelette:"Kräuteromelette mit Karottenpüree und grünem Salat",
+  g_desserts:"Desserts", i_cake:"Ananaskuchen", i_creme:"Crème Caramel",
+  g_prix:"Menüs", i_p1:"Komplettmenü", i_p2:"Vorspeise + Hauptgericht oder Hauptgericht + Dessert", i_p3:"Nur Hauptgericht",
+  ca_pricenote:"Gerichte und Preise im Lokal ausgehängt.",
+  v_eyebrow:"Praktische Infos", v_head:"Kommen Sie vorbei.",
+  l_tel:"Telefon", l_mail:"E-Mail",
+  v_call:"Anrufen", v_dir:"Route", v_dir2:"In Google Maps öffnen →",
+  v_place_k:"So finden Sie uns", v_place_note:"Die Terrasse liegt direkt an der Rue J.-F. Kennedy, zwischen den Fassaden des alten Differdingen.",
+  foot_disc:"Website-Vorschau, von Webwerk aus öffentlichen Fotos und Informationen erstellt — dies ist nicht die offizielle Website des Hauses."
+ },
+ en:{wwb_call:"Call",wwb_dir:"Directions",
+  brand_sub:"Differdange · BistroBar", n_maison:"The house", n_terrasse:"The terrace", n_carte:"The menu", n_visit:"Find us",
+  hero_tag:"BistroBar · Differdange",
+  hero_sub:"Bar, terrace and bistro cooking in the heart of Differdange — on the Walzstrooss, the rolling-mill road, where steel once built the town.",
+  hero_cta1:"See the menu", hero_cta2:"Call", hero_chip:"51 rue J.-F. Kennedy, Differdange",
+  m_eyebrow:"The house", m_head:"On the rolling-mill road.",
+  m_p1:"\"Walzstrooss\" — the rolling-mill road — carries the name of old, steel-built Differdange: the town that long lived off its steelworks. The house made it their name and their sign, a chimney drawn in the colours of the country.",
+  m_p2:"People come here for a drink on the terrace, a well-made cocktail, or a bistro dish — a neighbourhood address, no fuss.",
+  t_eyebrow:"The terrace", t_head:"A Battin, in the shade.",
+  t_p:"The terrace opens onto rue J.-F. Kennedy — a glass of Battin, a Luxembourg beer served since 1937, or a well-made cocktail (Gin Mum, Jack Daniels Honey), among the facades of old Differdange.",
+  c_eyebrow:"In the kitchen", c_head:"Bistro cooking, no fuss.",
+  c_p:"Sharing boards, pasta of the day, generous dishes — simple cooking, built to go with a drink among friends.",
+  c_spot_k:"Boards, pasta & daily specials", c_spot_p:"Charcuterie and cheese to share, salmon pasta of the day, breaded fish and fries — a look at what actually comes out of the kitchen on any given night.",
+  ca_eyebrow:"The menu", ca_head:"Market cooking, changing every month.", ca_intro:"The menu follows the seasons and turns over month by month. Here are a few dishes that show what comes out of the kitchen.",
+  g_entrees:"Starters", i_veloute:"Vegetable velouté with chicken broth", i_rillettes:"Trout rillettes with tarragon and mustard",
+  g_plats:"Mains", i_spaghetti:"Spaghetti bolognese", i_cabillaud:"Cod filet, lemon-ginger sauce, three-colour rice", i_omelette:"Herb omelette, carrot purée, green salad",
+  g_desserts:"Desserts", i_cake:"Pineapple cake", i_creme:"Crème caramel",
+  g_prix:"Set menus", i_p1:"Full menu", i_p2:"Starter + main or main + dessert", i_p3:"Main only",
+  ca_pricenote:"Dishes and prices posted in-house.",
+  v_eyebrow:"Find us", v_head:"Come and see us.",
+  l_tel:"Phone", l_mail:"Email",
+  v_call:"Call", v_dir:"Directions", v_dir2:"Open in Google Maps →",
+  v_place_k:"Where to find us", v_place_note:"The terrace opens straight onto rue J.-F. Kennedy, among the facades of old Differdange.",
+  foot_disc:"Site preview composed by Webwerk from public photos and information — this is not the venue's official website."
+ }
+};
+function applyLang(l){
+  const d = I18N[l] || I18N.fr;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){ const k=el.getAttribute('data-i18n'); if(d[k]!=null) el.textContent=d[k]; });
+  document.documentElement.lang = l;
+  document.querySelectorAll('.langs button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  try{ localStorage.setItem('walzstrooss_lang', l); }catch(e){}
+}
+document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
+(function(){ let l='fr'; try{ l=localStorage.getItem('walzstrooss_lang')||'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+const io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* ===== signature: a soft plume of smoke rising from the chimney mark, ties to the real "rolling-mill road" heritage ===== */
+(function(){
+  const c=document.getElementById('smoke'); if(!c) return;
+  const hero=document.getElementById('hero'), ctx=c.getContext('2d');
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  let W=0,H=0,puffs=[],raf=null,running=false;
+  const originX = ()=> W*0.5, originY = ()=> H*0.03;
+  function build(){
+    puffs=[];
+    const n=22;
+    for(let i=0;i<n;i++){ puffs.push({ x:originX()+(Math.random()-.5)*14, y:originY()+Math.random()*H*0.9, r:6+Math.random()*16, vy:.15+Math.random()*.3, sway:.2+Math.random()*.5, ph:Math.random()*6.28, a:.06+Math.random()*.14 }); }
+  }
+  function size(){ const r=hero.getBoundingClientRect(); W=r.width; H=r.height; c.width=Math.round(W*dpr); c.height=Math.round(H*dpr); c.style.width=W+'px'; c.style.height=H+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); build(); if(reduce) draw(true); }
+  function draw(stat){
+    ctx.clearRect(0,0,W,H);
+    for(const p of puffs){
+      if(!stat){ p.y-=p.vy; p.x+=Math.sin(p.y/38+p.ph)*p.sway*0.4; if(p.y+p.r<0){ p.y=H*0.6+Math.random()*H*0.3; p.x=originX()+(Math.random()-.5)*14; } }
+      const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);
+      g.addColorStop(0,'rgba(224,168,56,'+p.a.toFixed(2)+')');
+      g.addColorStop(1,'rgba(224,168,56,0)');
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.2832); ctx.fill();
+    }
+  }
+  function frame(){ draw(false); raf=requestAnimationFrame(frame); }
+  function start(){ if(running||reduce) return; running=true; frame(); }
+  function stop(){ running=false; if(raf) cancelAnimationFrame(raf); raf=null; }
+  size();
+  const vis=new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?start():stop(); }); }, {threshold:.02});
+  vis.observe(hero);
+  let rt=null; window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(size,180); });
+})();
 </script>
-<!-- cookieless, GDPR-clean analytics (same as webwerk.lu) — did the reveal get opened + visitor country -->
-<script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<div class="wwbar" role="navigation" aria-label="Actions rapides">
+  <a class="btn p" href="tel:+35228999996" data-i18n="wwb_call">Appeler</a>
+  <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=D%27Walzstrooss+51+rue+J-F+Kennedy+Differdange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
+</div>
 </body>
 </html>

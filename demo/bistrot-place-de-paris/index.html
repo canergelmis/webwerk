@@ -1,164 +1,780 @@
 <!DOCTYPE html>
-<!--
-  WEBWERK — reveal page for Le Bistrot de la Place de Paris. Built from demo/_template.html.
-  The real site is in ./site/ (copied from lux-restaurant-sites/mockups/bistrot-place-de-paris/rebuild/).
-  Site fonts self-hosted in ./site/fonts/ (0 Google requests).
--->
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex,nofollow" />
-<title>Le Bistrot de la Place de Paris — une proposition de site · Webwerk</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#0b2c52" />
-<meta property="og:title" content="Le Bistrot de la Place de Paris — une proposition de site" />
-<meta property="og:description" content="Une autre idée de site pour le Bistrot : la carte de la maison, le comptoir et la terrasse, en français, en allemand et en anglais, à l'aise sur le téléphone." />
-<link rel="preload" href="/fonts/archivo-79dc5e10-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<title>Bistrot Place de Paris — brasserie française depuis 1972, Luxembourg-Gare</title>
+<meta name="theme-color" content="#2b1b12" />
+<meta name="description" content="Bistrot Place de Paris, brasserie française depuis 1972 : la carte, le comptoir et la terrasse, 31 rue du Fort Elisabeth, Luxembourg-Gare." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%23f6eedf'/><ellipse cx='16' cy='16' rx='13' ry='8.5' fill='none' stroke='%239a1f1f' stroke-width='1.8'/><ellipse cx='16' cy='16' rx='10' ry='5.6' fill='none' stroke='%239a1f1f' stroke-width='1'/></svg>" />
+<link rel="preload" href="fonts/cormorant-garamond-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/figtree-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="fonts/fonts.css" />
 <style>
-  :root{ --blue:#0b2c52; --blue2:#0e3360; --cy:#bcd7f2; --wht:#eaf3ff;
-    --faint:rgba(188,215,242,.22); --faint2:rgba(188,215,242,.10); --red:#ff5b51; --amber:#ffcf6b; --maxw:1080px; }
+  :root{
+    --ink:#241710; --wood:#2b1b12; --wood2:#38251a;
+    --paper:#f6eedf; --paper2:#eee2cd; --line:rgba(36,23,16,.16);
+    --bord:#9a1f1f; --bord2:#7d1717; --brass:#a97c33;
+    --muted:rgba(36,23,16,.72); --cream:#f6eedf;
+    --disp:'Cormorant Garamond',Garamond,Georgia,serif;
+    --sans:'Figtree',system-ui,-apple-system,sans-serif;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--blue);color:var(--cy);font-family:'Space Mono',ui-monospace,monospace;font-size:14px;line-height:1.6;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-    background-image:linear-gradient(var(--faint2) 1px,transparent 1px),linear-gradient(90deg,var(--faint2) 1px,transparent 1px);
-    background-size:34px 34px;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px;position:relative}
-  a{color:var(--amber);text-decoration:none}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:1px}
-  .arch{font-family:'Archivo',sans-serif}
-  .hand{font-family:'Caveat',cursive;color:var(--amber);line-height:1}
-  .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-  .dim{color:rgba(188,215,242,.66)}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:var(--bord);text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--bord);outline-offset:3px}
+  .wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,44px)}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:10px;top:10px;background:var(--wood);color:var(--cream);padding:10px 14px;z-index:99}
 
-  header{border-bottom:1px solid var(--faint);position:relative;z-index:2}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
-  .brand{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--wht);font-size:1.15rem}
-  .brand .k{color:var(--red)}
-  .studio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(188,215,242,.6)}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--bord)}
+  h2{font-family:var(--disp);font-weight:700;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.08;letter-spacing:.005em}
+  h3{font-family:var(--disp);font-weight:700;font-size:1.5rem;line-height:1.15}
+  .lead{font-size:1.09rem;color:var(--muted)}
+  section{padding-block:clamp(48px,7vw,86px)}
 
-  .plate{padding:52px 0 0}
-  .plate .fig{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(188,215,242,.72)}
-  .plate h1{font-family:'Archivo',sans-serif;font-weight:800;color:var(--wht);font-size:clamp(34px,6vw,62px);
-    line-height:1.0;letter-spacing:-.01em;margin:14px 0 6px}
-  .plate h1 .sub{display:block;font-size:.42em;font-weight:600;color:var(--cy);letter-spacing:.01em;margin-top:8px}
-  .plate .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;transform:rotate(-2.5deg);display:inline-block;margin-left:4px}
-  .lede{max-width:52ch;margin:18px 0 0;color:rgba(188,215,242,.82);font-size:.95rem}
-  .dimline{display:flex;align-items:center;gap:10px;margin:22px 0 0;color:var(--red);font-size:.7rem;max-width:620px}
-  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative;transform:scaleX(0);transform-origin:left;
-    animation:draw 1s .35s cubic-bezier(.6,0,.2,1) forwards}
-  @keyframes draw{to{transform:scaleX(1)}}
-  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
-  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:.95rem;
+    padding:14px 22px;border:1.5px solid var(--bord);color:var(--bord);background:transparent;cursor:pointer;
+    border-radius:2px;transition:background .15s ease,color .15s ease}
+  .btn svg{width:17px;height:17px}
+  .btn:hover{background:var(--bord);color:var(--cream)}
+  .btn.solid{background:var(--bord);color:var(--cream)}
+  .btn.solid:hover{background:var(--bord2)}
+  .btn.onwood{border-color:rgba(246,238,223,.5);color:var(--cream)}
+  .btn.onwood:hover{background:var(--cream);color:var(--wood)}
+  .btn.onwood.solid{background:var(--cream);color:var(--wood);border-color:var(--cream)}
+  .btn.onwood.solid:hover{background:#fff}
 
-  .stage{margin:40px 0 0;position:relative}
-  .stage .tag{position:absolute;right:-6px;top:-30px;z-index:3;font-family:'Caveat',cursive;color:var(--amber);
-    font-size:1.5rem;transform:rotate(3deg)}
-  .browser{border:1px solid var(--faint);border-radius:8px;overflow:hidden;background:#0a2547;
-    box-shadow:0 40px 80px -40px rgba(0,0,0,.6);}
-  .bbar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--blue2);border-bottom:1px solid var(--faint)}
-  .bbar .dot{width:11px;height:11px;border-radius:50%;background:rgba(188,215,242,.35)}
-  .bbar .url{flex:1;margin-left:10px;background:rgba(0,0,0,.22);border:1px solid var(--faint2);border-radius:20px;
-    padding:6px 14px;font-size:.72rem;color:var(--cy);display:flex;align-items:center;gap:8px}
-  .bbar .url b{color:var(--wht);font-weight:400}
-  .bbar .url .lock{color:var(--amber);font-size:.7rem}
-  .screen{position:relative;width:100%;overflow:hidden;background:#fff;height:600px}
-  .screen iframe{position:absolute;top:0;left:0;width:1280px;height:854px;border:0;transform-origin:top left}
-  .screen .veil{position:absolute;inset:0;cursor:pointer;background:transparent}
+  /* ---------- header ---------- */
+  .bar{position:sticky;top:0;z-index:50;background:rgba(246,238,223,.96);border-bottom:1px solid var(--line);
+    backdrop-filter:saturate(1.2) blur(6px)}
+  .bar .wrap{display:flex;align-items:center;gap:18px;min-height:70px;padding-block:8px}
+  .bar .mark img{display:none}
+  .bar .mark-txt{display:block;font-family:var(--disp);font-weight:600;font-size:1.2rem;color:var(--bord);line-height:1.02}
+  .bar .mark-txt b{display:block;font-weight:700;letter-spacing:.02em}
+  @media(min-width:641px){ .bar .mark-txt{font-size:1.5rem} }
+  .bar nav{display:flex;gap:22px;margin-left:auto}
+  .bar nav a{font-size:.9rem;font-weight:600;color:var(--ink)}
+  .bar nav a:hover{color:var(--bord)}
+  .langs{display:flex;align-items:center;gap:2px;margin-left:auto}
+  .bar nav+.langs{margin-left:26px}
+  .langs button{font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.06em;background:none;
+    border:0;color:var(--muted);padding:6px 8px;cursor:pointer}
+  .langs button[aria-pressed="true"]{color:var(--bord);border-bottom:2px solid var(--bord)}
+  .bar .btn{padding:10px 16px;font-size:.88rem}
 
-  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:26px 0 0}
-  .btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:.92rem;letter-spacing:.01em;
-    background:var(--amber);color:#0a1f38;border:0;border-radius:4px;padding:13px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-  .btn:hover{filter:brightness(1.06)}
-  .btn.ghost{background:transparent;color:var(--cy);border:1px solid var(--faint)}
-  .btn.ghost:hover{border-color:var(--amber);color:var(--wht)}
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:0;background:var(--wood);isolation:isolate}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 58%;z-index:-2}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;
+    background:radial-gradient(64% 52% at 26% 74%, rgba(10,6,3,.82), rgba(10,6,3,0) 72%),linear-gradient(180deg,rgba(20,12,7,.55) 0%,rgba(20,12,7,.26) 30%,rgba(20,12,7,.9) 100%)}
+  .hero .wrap{min-height:min(84vh,720px);display:flex;flex-direction:column;justify-content:flex-end;
+    padding-block:clamp(40px,8vw,74px);gap:22px}
+  .hero h1{margin:0}
+  .hero h1 img{width:clamp(250px,34vw,430px)}
+  .hero .hline{font-family:var(--disp);font-weight:600;font-size:clamp(1.3rem,2.7vw,2rem);line-height:1.2;
+    color:var(--cream);max-width:24ch}
+  .hero .cta{display:flex;flex-wrap:wrap;gap:14px}
 
-  .titleblock{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--faint);margin:52px 0 0}
-  .titleblock div{border-right:1px solid var(--faint);border-bottom:1px solid var(--faint);padding:13px 15px}
-  .titleblock div:nth-child(3n){border-right:0}
-  .titleblock div:nth-last-child(-n+3){border-bottom:0}
-  .titleblock .k{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.66);display:block;margin-bottom:4px}
-  .titleblock .v{color:var(--wht);font-family:'Archivo',sans-serif;font-weight:600;font-size:.9rem}
+  /* ---------- facts ---------- */
+  .facts{background:var(--bord);color:var(--cream);padding-block:0}
+  .facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .facts .c{padding-block:22px;padding-inline:0}
+  .facts .c+.c{border-left:1px solid rgba(246,238,223,.28);padding-left:26px}
+  .facts .k{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.82}
+  .facts .v{font-family:var(--disp);font-weight:600;font-size:1.35rem;line-height:1.2;margin-top:4px}
 
-  footer{margin:46px 0 60px;padding-top:22px;border-top:1px solid var(--faint);
-    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;justify-content:space-between}
-  footer .note{color:rgba(188,215,242,.6);font-size:.72rem;max-width:60ch}
-  footer a.home{font-family:'Archivo',sans-serif;font-weight:700;color:var(--wht)}
-  footer a.home .k{color:var(--red)}
+  /* ---------- la maison ---------- */
+  .maison .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center}
+  .maison h2{margin:10px 0 18px}
+  .maison p+p{margin-top:14px}
+  figure{margin:0}
+  figure img{width:100%;object-fit:cover}
+  figcaption{font-size:.9rem;color:var(--muted);padding-top:9px}
+  figcaption b{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--bord);display:block;margin-bottom:3px}
+  .maison figure img{aspect-ratio:4/3;border-radius:2px}
 
-  @media(max-width:640px){
-    .titleblock{grid-template-columns:1fr 1fr}
-    .titleblock div:nth-child(3n){border-right:1px solid var(--faint)}
-    .titleblock div:nth-child(2n){border-right:0}
-    .titleblock div:nth-last-child(-n+3){border-bottom:1px solid var(--faint)}
-    .titleblock div:nth-last-child(-n+2){border-bottom:0}
-    .screen{height:420px}
-    .stage .tag{display:none}
+  /* ---------- la carte ---------- */
+  .carte{background:var(--paper2)}
+  .carte .head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:8px}
+  .carte h2{margin:8px 0 0}
+  .plat-line{display:inline-block;margin-top:6px}
+  .plat-line b{font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--bord);margin-right:8px}
+  .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3vw,44px);align-items:start;margin-top:34px}
+  .grp{margin-bottom:0}
+  .grp h3{border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:6px}
+  .grp .note{font-size:.86rem;color:var(--muted);font-style:italic;margin-bottom:8px}
+  .it{padding-top:13px}
+  .it .n{font-family:var(--disp);font-weight:700;font-size:1.22rem;line-height:1.25}
+  .it .d{font-size:.92rem;color:var(--muted);line-height:1.4}
+  .grp figure{margin:18px 0 0}
+  .grp figure img{aspect-ratio:4/3;border-radius:2px}
+  .grp figcaption{font-size:.84rem;padding-top:6px}
+  .jump{display:none}
+  .grp{scroll-margin-top:76px}
+  .allerg{font-size:.9rem;color:var(--muted);margin-top:26px}
+
+  /* ---------- comptoir ---------- */
+  .comptoir{background:var(--wood);color:var(--cream)}
+  .comptoir .eyebrow{color:#e0b069}
+  .comptoir h2{margin:10px 0 16px}
+  .comptoir .lead{color:rgba(246,238,223,.8)}
+  .comptoir .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(24px,4vw,56px);align-items:center}
+  .comptoir .pics{display:grid;grid-template-columns:1fr;gap:14px}
+  .comptoir .pics figure img{aspect-ratio:3/4;border-radius:2px}
+  .comptoir figcaption{color:rgba(246,238,223,.7)}
+  .comptoir figcaption b{color:#e0b069}
+  .cocks{columns:2;column-gap:32px;margin-top:22px}
+  .cocks li{list-style:none;font-family:var(--disp);font-weight:600;font-size:1.16rem;line-height:1.5;
+    break-inside:avoid;border-bottom:1px solid rgba(246,238,223,.14);padding-block:5px}
+  .sans{margin-top:22px;font-size:.95rem;color:rgba(246,238,223,.82)}
+  .sans b{display:block;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;color:#e0b069;margin-bottom:4px}
+  .slogan{font-family:var(--disp);font-weight:600;font-size:clamp(1.1rem,2.2vw,1.5rem);color:#e0b069;
+    border-top:1px solid rgba(246,238,223,.2);margin-top:44px;padding-top:22px;text-align:center}
+
+  /* ---------- terrasse ---------- */
+  .terr .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center}
+  .terr h2{margin:10px 0 14px}
+  .terr figure img{aspect-ratio:4/3;border-radius:2px}
+
+  /* ---------- évènements ---------- */
+  .event .card{border:1px solid var(--line);border-top:3px solid var(--bord);background:#fff;
+    padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,3vw,40px);align-items:center}
+  .event h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:12px}
+  .event .acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+  .event .acts .btn{justify-content:center}
+
+  /* ---------- infos ---------- */
+  .infos{background:var(--paper2);scroll-margin-top:70px}
+  .infos .grid{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(24px,4vw,56px);align-items:start}
+  .infos .rows{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px}
+  .infos .k{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--bord);margin-bottom:4px}
+  .infos .v{font-size:1.05rem}
+  .infos .v .sub{display:block;font-size:.92rem;color:var(--muted)}
+  .infos .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--wood);color:rgba(246,238,223,.78);padding-block:40px 46px;font-size:.92rem}
+  footer .wrap{display:flex;gap:22px 34px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  footer img{height:66px;width:auto}
+  footer .disc{max-width:62ch;line-height:1.55}
+
+  /* ---------- sticky dock (phones) ---------- */
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;background:var(--wood);
+    border-top:2px solid var(--bord)}
+  .dock a{flex:1;text-align:center;padding:14px 6px;font-size:.86rem;font-weight:700;color:var(--cream);
+    border-left:1px solid rgba(246,238,223,.18)}
+  .dock a:first-child{border-left:0}
+  .dock a.call{background:var(--bord)}
+
+  @media(max-width:960px){
+    .bar nav{display:none}
+    .maison .grid,.comptoir .grid,.infos .grid,.event .card,.terr .grid{grid-template-columns:1fr}
+    .groups{grid-template-columns:1fr 1fr}
+    .plates{grid-template-columns:1fr 1fr}
+    .event .acts{flex-direction:row}
+    .event .acts .btn{flex:1}
   }
-  @media(prefers-reduced-motion:reduce){ .dimline .bar{transform:scaleX(1);animation:none} }
+  @media(max-width:640px){
+    body{font-size:16px;padding-bottom:54px}
+    .bar .wrap{min-height:58px}
+    .bar .btn{display:none}
+    .hero .wrap{min-height:min(72svh,560px)}
+    .hero img.bg{object-position:74% 60%}
+    .hero .cta{display:none}
+    .facts .wrap{grid-template-columns:1fr}
+    .facts .c+.c{border-left:0;border-top:1px solid rgba(246,238,223,.28);padding-left:0;padding-top:16px}
+    .facts .c{padding-block:16px}
+    .groups{grid-template-columns:1fr}
+    .jump{display:flex;flex-wrap:wrap;gap:8px;padding-block:16px 2px}
+    .jump a{flex:none;font-size:.82rem;font-weight:600;color:var(--ink);border:1px solid var(--line);
+      padding:8px 13px;border-radius:2px;white-space:nowrap;background:#fff}
+    .cocks{columns:2;column-gap:20px}
+    .plates figure img{aspect-ratio:16/9}
+    .cocks{columns:1}
+    .infos .rows{grid-template-columns:1fr}
+    .event .acts{flex-direction:column}
+    .dock{display:flex}
+  }
+  @media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
 </style>
 </head>
-<body>
 
-<header>
+<body>
+<a class="skip" href="#carte" data-i18n="skip">Aller à la carte</a>
+
+<header class="bar">
   <div class="wrap">
-    <a class="brand" href="https://webwerk.lu/">WEBWER<span class="k">K</span></a>
-    <span class="studio">Studio web · Luxembourg</span>
+    <a class="mark" href="#top" aria-label="Bistrot Place de Paris"><img src="assets/logo.png" alt="Bistrot Place de Paris, Luxembourg, 1972" /><span class="mark-txt" aria-hidden="true">Bistrot <b>Place de Paris</b></span></a>
+    <nav aria-label="Sections">
+      <a href="#maison" data-i18n="nav_maison">La maison</a>
+      <a href="#carte" data-i18n="nav_carte">La carte</a>
+      <a href="#comptoir" data-i18n="nav_comptoir">Le comptoir</a>
+      <a href="#infos" data-i18n="nav_infos">Nous trouver</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Langue">
+      <button data-lang="fr" aria-pressed="true" lang="fr">FR</button>
+      <button data-lang="de" aria-pressed="false" lang="de">DE</button>
+      <button data-lang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
+    <a class="btn solid" href="tel:+352496139" data-i18n="cta_book">Réserver</a>
   </div>
 </header>
 
-<main class="wrap">
-  <section class="plate">
-    <span class="fig">FIG. — Proposition de site</span>
-    <h1>Le Bistrot de la Place de Paris<span class="sub">Brasserie · Place de Paris, Luxembourg-Gare <span class="note">esquissé pour vous ✎</span></span></h1>
-    <p class="lede">Une autre idée de site pour le Bistrot : la carte de la maison, le comptoir et la terrasse, en français, en allemand et en anglais, à l'aise sur le téléphone.</p>
-    <div class="dimline"><span>Concept</span><span class="bar"></span><span>Mise en ligne</span></div>
-  </section>
+<main id="top">
 
-  <section class="stage">
-    <span class="tag">↙ votre nouveau site</span>
-    <div class="browser">
-      <div class="bbar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="url"><span class="lock">🔒</span> <b>bistrot-place-de-paris</b> · aperçu</span>
+  <section class="hero" aria-label="Bistrot Place de Paris">
+    <img class="bg" src="assets/hero.jpg" alt="Le comptoir du Bistrot Place de Paris, ses banquettes de cuir et ses tables de marbre" />
+    <div class="wrap">
+      <h1><img src="assets/logo-cream.png" alt="Bistrot Place de Paris, Luxembourg, 1972" /></h1>
+      <p class="hline" data-i18n="hero_line">Brasserie française sur la place de Paris, depuis 1972.</p>
+      <div class="cta">
+        <a class="btn onwood solid" href="#carte" data-i18n="cta_menu">Voir la carte</a>
+        <a class="btn onwood" href="tel:+352496139">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+          <span data-i18n="cta_call">Appeler la maison</span>
+        </a>
       </div>
-      <div class="screen">
-        <iframe title="Aperçu du site Le Bistrot de la Place de Paris" src="./site/index.html?embed=1" loading="lazy" scrolling="no"></iframe>
-        <a class="veil" href="./site/index.html" target="_blank" rel="noopener" aria-label="Ouvrir le site en grand"></a>
-      </div>
-    </div>
-    <div class="actions">
-      <a class="btn" href="./site/index.html" target="_blank" rel="noopener">Ouvrir le site en grand ↗</a>
-      <a class="btn ghost" href="mailto:jean@webwerk.lu?subject=Le%20Bistrot%20de%20la%20Place%20de%20Paris%20—%20site">En parler avec nous</a>
     </div>
   </section>
 
-  <div class="titleblock">
-    <div><span class="k">Projet</span><span class="v">Le Bistrot — Place de Paris</span></div>
-    <div><span class="k">Lieu</span><span class="v">Luxembourg-Gare (LU)</span></div>
-    <div><span class="k">Échelle</span><span class="v">1:1 — taille réelle</span></div>
-    <div><span class="k">Studio</span><span class="v">Webwerk</span></div>
-    <div><span class="k">État</span><span class="v">Aperçu</span></div>
-    <div><span class="k">Contact</span><span class="v">jean@webwerk.lu</span></div>
-  </div>
+  <section class="facts" aria-label="En bref">
+    <div class="wrap">
+      <div class="c"><div class="k" data-i18n="f1k">La maison</div><div class="v" data-i18n="f1v">Brasserie depuis 1972</div></div>
+      <div class="c"><div class="k" data-i18n="f2k">Le service</div><div class="v" data-i18n="f2v">Ouvert du matin à minuit</div></div>
+      <div class="c"><div class="k" data-i18n="f3k">Dehors</div><div class="v" data-i18n="f3v">Terrasse sur la place de Paris</div></div>
+    </div>
+  </section>
 
-  <footer>
-    <a class="home" href="https://webwerk.lu/">WEBWER<span class="k">K</span> — nous dessinons le web.</a>
-    <span class="note">Aperçu non officiel réalisé à partir de sources publiques ; le logotype est celui de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
-  </footer>
+  <section class="maison" id="maison">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow" data-i18n="m_eyebrow">La maison</p>
+        <h2 data-i18n="m_h">L’une des plus anciennes brasseries du Luxembourg.</h2>
+        <p data-i18n="m_p1">Le Bistrot est sur la place de Paris depuis 1972. La salle a gardé ses banquettes de cuir capitonnées, ses boiseries et ses appliques en globe.</p>
+        <p data-i18n="m_p2">On y vient pour le petit-déjeuner, le déjeuner ou le dîner : une cuisine française de brasserie, et un plat du jour du lundi au vendredi midi.</p>
+      </div>
+      <figure>
+        <img src="assets/salle.jpg" alt="La salle : banquettes de cuir, tables et porte-manteaux" loading="lazy" />
+        <figcaption><b data-i18n="cap_salle_l">La salle</b><span data-i18n="cap_salle">Banquettes de cuir, boiseries et appliques en globe.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="carte" id="carte" tabindex="-1">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow" data-i18n="c_eyebrow">À table</p>
+          <h2 data-i18n="c_h">La carte</h2>
+        </div>
+        <p class="lead"><span data-i18n="c_sub">Cuisine française de brasserie, servie midi et soir.</span><br /><span class="plat-line"><b data-i18n="plat_l">Plat du jour</b> <span data-i18n="plat_t">du lundi au vendredi, à midi.</span></span></p>
+      </div>
+
+
+      <nav class="jump" aria-label="Rubriques">
+        <a href="#g-viande" data-i18n="jump_viande">Viandes</a><a href="#g-autres" data-i18n="jump_autres">Autres</a><a href="#g-pates" data-i18n="g_pates">Pâtes</a><a href="#g-salades" data-i18n="g_salades">Salades</a><a href="#g-snacks" data-i18n="jump_snacks">Omelettes</a><a href="#g-glaces" data-i18n="jump_glaces">Desserts</a>
+      </nav>
+      <div class="groups">
+        <div class="grp" id="g-viande">
+          <h3 data-i18n="g_viande">Viandes</h3>
+          <p class="note" data-i18n="n_viande">Servies avec frites et salade mixte.</p>
+          <div class="it"><div class="n">Bouchée à la reine</div></div>
+          <div class="it"><div class="n">Escalope de veau viennoise</div></div>
+          <div class="it"><div class="n">Escalope de veau à la milanaise</div><div class="d" data-i18n="d_milan">Avec spaghetti à la tomate</div></div>
+          <div class="it"><div class="n">Escalope de veau</div><div class="d" data-i18n="d_esc">Crème de champignons frais</div></div>
+          <div class="it"><div class="n">Cordon bleu de veau</div><div class="d" data-i18n="d_cordon">Crème de champignons frais</div></div>
+          <div class="it"><div class="n">Entrecôte de bœuf</div><div class="d" data-i18n="d_entre">Sauce poivre vert, crème de champignons frais ou beurre maître d’hôtel</div></div>
+          <figure>
+            <img src="assets/bouchee.jpg" alt="Bouchée à la reine, frites et salade mixte" loading="lazy" />
+            <figcaption><span data-i18n="cap_bouchee">Bouchée à la reine, frites et salade.</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="grp" id="g-autres">
+          <h3 data-i18n="g_autres">Autres plats</h3>
+          <div class="it"><div class="n">Faux-filet de bœuf</div><div class="d" data-i18n="d_faux">Sauce poivre vert, crème de champignons frais ou beurre maître d’hôtel ; frites et salade mixte</div></div>
+          <div class="it"><div class="n">Hamburger de bœuf</div><div class="d" data-i18n="d_burger">Oignons, tomates, cornichons ; frites et salade mixte</div></div>
+          <div class="it"><div class="n">Scampis à l’ail décortiqués</div><div class="d" data-i18n="d_scampi">Riz ou frites, salade mixte</div></div>
+          <div class="it"><div class="n">Pavé de saumon grillé</div><div class="d" data-i18n="d_saumon">Pommes nature, riz ou frites ; salade mixte</div></div>
+          <div class="it"><div class="n">Assiette jambon mixte</div><div class="d" data-i18n="d_jambon">Jambon cru et cuit, frites et salade mixte</div></div>
+          <div class="it"><div class="n">Jambon et melon</div><div class="d" data-i18n="d_melon">Frites et salade mixte</div></div>
+          <div class="it"><div class="n">Carpaccio de bœuf</div><div class="d" data-i18n="d_carpaccio">Roquette, parmesan, frites</div></div>
+          <figure>
+            <img src="assets/saumon.jpg" alt="Pavé de saumon grillé, pommes nature et salade" loading="lazy" />
+            <figcaption><span data-i18n="cap_saumon">Pavé de saumon grillé.</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="grp" id="g-pates">
+          <h3 data-i18n="g_pates">Pâtes</h3>
+          <div class="it"><div class="n">Spaghetti carbonara</div><div class="d" data-i18n="d_carbo">Lardons, œuf, crème</div></div>
+          <div class="it"><div class="n">Spaghetti aux scampis</div></div>
+          <div class="it"><div class="n">Spaghetti à la tomate</div></div>
+          <figure>
+            <img src="assets/scampis.jpg" alt="Spaghetti aux scampis, sauce crémeuse et persil" loading="lazy" />
+            <figcaption><span data-i18n="cap_scampis">Spaghetti aux scampis.</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="grp" id="g-salades">
+          <h3 data-i18n="g_salades">Salades</h3>
+          <div class="it"><div class="n">Salade campagnarde</div><div class="d" data-i18n="d_campagne">Lardons, fromage, jambon cuit, œuf, pommes de terre, champignons frais, olives</div></div>
+          <div class="it"><div class="n">Salade bergère</div><div class="d" data-i18n="d_bergere">Fromage de chèvre, olives, pommes de terre, champignons frais, noix</div></div>
+          <div class="it"><div class="n">Salade de poulet</div><div class="d" data-i18n="d_poulet">Poulet, oignons, champignons frais, pommes de terre, croûtons, olives</div></div>
+          <div class="it"><div class="n">Salade de scampis</div></div>
+          <div class="it"><div class="n">Salade niçoise</div></div>
+        </div>
+
+        <div class="grp" id="g-snacks">
+          <h3 data-i18n="g_omelettes">Omelettes et snacks</h3>
+          <div class="it"><div class="n">Omelette</div><div class="d" data-i18n="d_omelette">Nature, jambon cuit, champignons frais ou fromage ; frites et salade mixte</div></div>
+          <div class="it"><div class="n">Quiche lorraine maison</div><div class="d" data-i18n="d_salade_mixte">Salade mixte</div></div>
+          <div class="it"><div class="n">Croque-monsieur maison</div><div class="d" data-i18n="d_salade_mixte2">Salade mixte</div></div>
+          <div class="it"><div class="n">Menu enfant</div><div class="d" data-i18n="d_enfant">Saucisse Knacky et frites</div></div>
+        </div>
+
+        <div class="grp" id="g-glaces">
+          <h3 data-i18n="g_glaces">Glaces et desserts</h3>
+          <div class="it"><div class="n">Tarte aux pommes maison</div><div class="d" data-i18n="d_tarte">Chantilly, avec ou sans boule de glace vanille</div></div>
+          <div class="it"><div class="n">Coupes glacées</div><div class="d" data-i18n="d_coupes">Dame blanche, Forêt noire, Brésilienne, Banana split, Colonel, rhum-raisin</div></div>
+          <div class="it"><div class="n">Crêpes</div><div class="d" data-i18n="d_crepes">Au sucre, au Nutella ou avec une glace vanille</div></div>
+          <div class="it"><div class="n">Milkshakes</div><div class="d" data-i18n="d_shakes">Vanille ou banane</div></div>
+          <div class="it"><div class="n">Sorbets</div></div>
+        </div>
+      </div>
+
+
+      <p class="allerg" data-i18n="allerg">Une carte des allergènes est disponible sur place.</p>
+    </div>
+  </section>
+
+  <section class="comptoir" id="comptoir">
+    <div class="wrap">
+      <div class="grid">
+        <div class="pics">
+          <figure>
+            <img src="assets/comptoir.jpg" alt="Le comptoir en bois, ses tabourets et ses verres suspendus" loading="lazy" />
+            <figcaption><b data-i18n="cap_comptoir_l">Le comptoir</b><span data-i18n="cap_comptoir">Le bois, les tabourets et les verres au-dessus du bar.</span></figcaption>
+          </figure>
+        </div>
+        <div>
+          <p class="eyebrow" data-i18n="b_eyebrow">Au comptoir</p>
+          <h2 data-i18n="b_h">Les cocktails de la maison.</h2>
+          <p class="lead" data-i18n="b_p">La carte des cocktails se boit au comptoir ou en terrasse, sur la place.</p>
+          <ul class="cocks">
+            <li>Aperol Spritz</li>
+            <li>Hugo</li>
+            <li>Mojito</li>
+            <li>Caipirinha</li>
+            <li>Cuba Libre</li>
+            <li>Margarita</li>
+            <li>Margarita Strawberry</li>
+            <li>Tequila Sunrise</li>
+            <li>Piña Colada</li>
+            <li>Paradise Dream</li>
+            <li>Swimming Pool</li>
+          </ul>
+          <p class="sans"><b data-i18n="b_sans_l">Sans alcool</b><span data-i18n="b_sans">Virgin Hugo, Blue Hawai, Coconut King.</span></p>
+        </div>
+      </div>
+      <p class="slogan">Good Food — Great Friends — Terrasse — Football — Good Vibes</p>
+    </div>
+  </section>
+
+  <section class="terr" aria-label="La terrasse">
+    <div class="wrap grid">
+      <div class="box">
+        <p class="eyebrow" data-i18n="t_eyebrow">La terrasse</p>
+        <h2 data-i18n="t_h">En plein cœur de la place de Paris.</h2>
+        <p class="lead" data-i18n="t_p">Une terrasse agréable pour les beaux jours d’été, à deux pas de la gare.</p>
+      </div>
+      <figure>
+        <img src="assets/terrasse.jpg" alt="Un Tequila Sunrise et un Aperol Spritz sur une table en terrasse, au soleil" loading="lazy" />
+        <figcaption><b data-i18n="cap_terr_l">En terrasse</b><span data-i18n="cap_terr">Un Tequila Sunrise et un Aperol Spritz, au soleil.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="event">
+    <div class="wrap">
+      <div class="card">
+        <div>
+          <h2 data-i18n="e_h">Un mariage, un baptême, un anniversaire ?</h2>
+          <p class="lead" data-i18n="e_p">Pour un évènement ou une soirée entre amis ou en famille, contactez la maison à l’avance pour réserver.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="infos" id="infos" tabindex="-1">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow" data-i18n="i_eyebrow">Nous trouver</p>
+        <h2 data-i18n="i_h">Place de Paris, Luxembourg-Gare.</h2>
+        <div class="acts">
+          <a class="btn solid" href="tel:+352496139" data-i18n="e_call">Appeler : +352 49 61 39</a>
+          <a class="btn" href="mailto:info@bistrotplacedeparis.lu" data-i18n="e_mail">Écrire un e-mail</a>
+        </div>
+      </div>
+      <div class="rows">
+        <div>
+          <div class="k" data-i18n="i_addr_k">Adresse</div>
+          <div class="v">31, rue du Fort Elisabeth<span class="sub">L-1463 Luxembourg-Gare</span></div>
+        </div>
+        <div>
+          <div class="k" data-i18n="i_hours_k">Horaires</div>
+          <div class="v"><span data-i18n="i_hours_v">Lundi à vendredi, 9h – minuit</span><br /><span data-i18n="i_hours_v3">Samedi, dimanche et jours fériés, 10h – minuit</span><span class="sub" data-i18n="i_hours_v2">En hiver, la maison ferme plus tôt.</span></div>
+        </div>
+        <div>
+          <div class="k" data-i18n="i_phone_k">Téléphone</div>
+          <div class="v"><a href="tel:+352496139">+352 49 61 39</a></div>
+        </div>
+        <div>
+          <div class="k" data-i18n="i_mail_k">E-mail</div>
+          <div class="v"><a href="mailto:info@bistrotplacedeparis.lu">info@bistrotplacedeparis.lu</a></div>
+        </div>
+        <div class="acts">
+          <a class="btn solid" href="https://www.google.com/maps/search/?api=1&amp;query=Brasserie+Le+Bistrot+de+la+Place+de+Paris+31+Rue+du+Fort+Elisabeth+Luxembourg" target="_blank" rel="noopener" data-i18n="i_dir">Itinéraire</a>
+          <a class="btn" href="https://www.facebook.com/LeBistrotDeLaPlaceDeParis/" target="_blank" rel="noopener" data-i18n="i_fb">Page Facebook</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
+<footer>
+  <div class="wrap">
+    <img src="assets/logo-cream.png" alt="Bistrot Place de Paris, Luxembourg, 1972" />
+    <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Actions rapides">
+  <a href="#carte" data-i18n="dock_menu">La carte</a>
+  <a class="call" href="tel:+352496139" data-i18n="dock_call">Appeler</a>
+  <a href="#infos" data-i18n="dock_info">Horaires et adresse</a>
+</nav>
+
 <script>
-  (function(){
-    var screen=document.querySelector('.screen'), frame=document.querySelector('.screen iframe');
-    var BASE=1280;
-    function fit(){ var s=screen.clientWidth/BASE; frame.style.transform='scale('+s+')'; }
-    fit(); window.addEventListener('resize',fit); frame.addEventListener('load',fit);
-  })();
+  /* ---------------- i18n ---------------- */
+  var I18N = {
+    fr:{
+      jump_viande:"Viandes",
+      jump_autres:"Autres",
+      jump_snacks:"Omelettes",
+      jump_glaces:"Desserts",
+      skip:"Aller à la carte",
+      nav_maison:"La maison",
+      nav_carte:"La carte",
+      nav_comptoir:"Le comptoir",
+      nav_infos:"Nous trouver",
+      cta_book:"Réserver",
+      hero_line:"Brasserie française sur la place de Paris, depuis 1972.",
+      cta_menu:"Voir la carte",
+      cta_call:"Appeler la maison",
+      f1k:"La maison",
+      f1v:"Brasserie depuis 1972",
+      f2k:"Le service",
+      f2v:"Ouvert du matin à minuit",
+      f3k:"Dehors",
+      f3v:"Terrasse sur la place de Paris",
+      m_eyebrow:"La maison",
+      m_h:"L’une des plus anciennes brasseries du Luxembourg.",
+      m_p1:"Le Bistrot est sur la place de Paris depuis 1972. La salle a gardé ses banquettes de cuir capitonnées, ses boiseries et ses appliques en globe.",
+      m_p2:"On y vient pour le petit-déjeuner, le déjeuner ou le dîner : une cuisine française de brasserie, et un plat du jour du lundi au vendredi midi.",
+      cap_salle_l:"La salle",
+      cap_salle:"Banquettes de cuir, boiseries et appliques en globe.",
+      c_eyebrow:"À table",
+      c_h:"La carte",
+      c_sub:"Cuisine française de brasserie, servie midi et soir.",
+      plat_l:"Plat du jour",
+      plat_t:"du lundi au vendredi, à midi.",
+      g_viande:"Viandes",
+      n_viande:"Servies avec frites et salade mixte.",
+      d_milan:"Avec spaghetti à la tomate",
+      d_esc:"Crème de champignons frais",
+      d_cordon:"Crème de champignons frais",
+      d_entre:"Sauce poivre vert, crème de champignons frais ou beurre maître d’hôtel",
+      g_autres:"Autres plats",
+      d_faux:"Sauce poivre vert, crème de champignons frais ou beurre maître d’hôtel ; frites et salade mixte",
+      d_burger:"Oignons, tomates, cornichons ; frites et salade mixte",
+      d_scampi:"Riz ou frites, salade mixte",
+      d_saumon:"Pommes nature, riz ou frites ; salade mixte",
+      d_jambon:"Jambon cru et cuit, frites et salade mixte",
+      d_melon:"Frites et salade mixte",
+      d_carpaccio:"Roquette, parmesan, frites",
+      g_pates:"Pâtes",
+      d_carbo:"Lardons, œuf, crème",
+      g_salades:"Salades",
+      d_campagne:"Lardons, fromage, jambon cuit, œuf, pommes de terre, champignons frais, olives",
+      d_bergere:"Fromage de chèvre, olives, pommes de terre, champignons frais, noix",
+      d_poulet:"Poulet, oignons, champignons frais, pommes de terre, croûtons, olives",
+      g_omelettes:"Omelettes et snacks",
+      d_omelette:"Nature, jambon cuit, champignons frais ou fromage ; frites et salade mixte",
+      d_salade_mixte:"Salade mixte",
+      d_salade_mixte2:"Salade mixte",
+      d_enfant:"Saucisse Knacky et frites",
+      g_glaces:"Glaces et desserts",
+      d_tarte:"Chantilly, avec ou sans boule de glace vanille",
+      d_coupes:"Dame blanche, Forêt noire, Brésilienne, Banana split, Colonel, rhum-raisin",
+      d_crepes:"Au sucre, au Nutella ou avec une glace vanille",
+      d_shakes:"Vanille ou banane",
+      cap_scampis:"Spaghetti aux scampis.",
+      cap_bouchee:"Bouchée à la reine, frites et salade.",
+      cap_saumon:"Pavé de saumon grillé.",
+      allerg:"Une carte des allergènes est disponible sur place.",
+      b_eyebrow:"Au comptoir",
+      b_h:"Les cocktails de la maison.",
+      b_p:"La carte des cocktails se boit au comptoir ou en terrasse, sur la place.",
+      b_sans_l:"Sans alcool",
+      b_sans:"Virgin Hugo, Blue Hawai, Coconut King.",
+      cap_comptoir_l:"Le comptoir",
+      cap_comptoir:"Le bois, les tabourets et les verres au-dessus du bar.",
+      t_eyebrow:"La terrasse",
+      t_h:"En plein cœur de la place de Paris.",
+      t_p:"Une terrasse agréable pour les beaux jours d’été, à deux pas de la gare.",
+      cap_terr_l:"En terrasse",
+      cap_terr:"Un Tequila Sunrise et un Aperol Spritz, au soleil.",
+      e_h:"Un mariage, un baptême, un anniversaire ?",
+      e_p:"Pour un évènement ou une soirée entre amis ou en famille, contactez la maison à l’avance pour réserver.",
+      e_call:"Appeler : +352 49 61 39",
+      e_mail:"Écrire un e-mail",
+      i_eyebrow:"Nous trouver",
+      i_h:"Place de Paris, Luxembourg-Gare.",
+      i_addr_k:"Adresse",
+      i_hours_k:"Horaires",
+      i_hours_v:"Lundi à vendredi, 9h – minuit",
+      i_hours_v3:"Samedi, dimanche et jours fériés, 10h – minuit",
+      i_hours_v2:"En hiver, la maison ferme plus tôt.",
+      i_phone_k:"Téléphone",
+      i_mail_k:"E-mail",
+      i_dir:"Itinéraire",
+      i_fb:"Page Facebook",
+      dock_menu:"La carte",
+      dock_call:"Appeler",
+      dock_info:"Horaires et adresse",
+      disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+    },
+    de:{
+      jump_viande:"Fleisch",
+      jump_autres:"Weitere",
+      jump_snacks:"Omeletts",
+      jump_glaces:"Nachtisch",
+      skip:"Zur Speisekarte",
+      nav_maison:"Das Haus",
+      nav_carte:"Die Karte",
+      nav_comptoir:"Die Theke",
+      nav_infos:"Anfahrt",
+      cta_book:"Reservieren",
+      hero_line:"Französische Brasserie an der Place de Paris, seit 1972.",
+      cta_menu:"Zur Karte",
+      cta_call:"Brasserie anrufen",
+      f1k:"Das Haus",
+      f1v:"Brasserie seit 1972",
+      f2k:"Service",
+      f2v:"Geöffnet von morgens bis Mitternacht",
+      f3k:"Draußen",
+      f3v:"Terrasse an der Place de Paris",
+      m_eyebrow:"Das Haus",
+      m_h:"Eine der ältesten Brasserien Luxemburgs.",
+      m_p1:"Seit 1972 gehört das Bistrot zur Place de Paris. Der Gastraum hat seine gepolsterten Lederbänke, die Holzvertäfelung und die Kugelleuchten behalten.",
+      m_p2:"Man kommt zum Frühstück, zum Mittag- oder zum Abendessen: französische Brasserieküche, und mittags von Montag bis Freitag ein Tagesgericht.",
+      cap_salle_l:"Der Gastraum",
+      cap_salle:"Lederbänke, Holzvertäfelung und Kugelleuchten.",
+      c_eyebrow:"Bei Tisch",
+      c_h:"Die Karte",
+      c_sub:"Französische Brasserieküche, mittags und abends.",
+      plat_l:"Tagesgericht",
+      plat_t:"montags bis freitags, mittags.",
+      g_viande:"Fleisch",
+      n_viande:"Mit Pommes frites und gemischtem Salat.",
+      d_milan:"Mit Spaghetti in Tomatensauce",
+      d_esc:"Mit frischer Champignonrahmsauce",
+      d_cordon:"Mit frischer Champignonrahmsauce",
+      d_entre:"Grüne Pfeffersauce, frische Champignonrahmsauce oder Kräuterbutter",
+      g_autres:"Weitere Gerichte",
+      d_faux:"Grüne Pfeffersauce, frische Champignonrahmsauce oder Kräuterbutter; Pommes frites und gemischter Salat",
+      d_burger:"Zwiebeln, Tomaten, Gewürzgurken; Pommes frites und gemischter Salat",
+      d_scampi:"Reis oder Pommes frites, gemischter Salat",
+      d_saumon:"Salzkartoffeln, Reis oder Pommes frites; gemischter Salat",
+      d_jambon:"Roher und gekochter Schinken, Pommes frites und gemischter Salat",
+      d_melon:"Pommes frites und gemischter Salat",
+      d_carpaccio:"Rucola, Parmesan, Pommes frites",
+      g_pates:"Nudelgerichte",
+      d_carbo:"Speckwürfel, Ei, Sahne",
+      g_salades:"Salate",
+      d_campagne:"Speck, Käse, gekochter Schinken, Ei, Kartoffeln, frische Champignons, Oliven",
+      d_bergere:"Ziegenkäse, Oliven, Kartoffeln, frische Champignons, Walnüsse",
+      d_poulet:"Hähnchen, Zwiebeln, frische Champignons, Kartoffeln, Croûtons, Oliven",
+      g_omelettes:"Omeletts und Snacks",
+      d_omelette:"Natur, gekochter Schinken, frische Champignons oder Käse; Pommes frites und gemischter Salat",
+      d_salade_mixte:"Gemischter Salat",
+      d_salade_mixte2:"Gemischter Salat",
+      d_enfant:"Knacky-Würstchen mit Pommes frites",
+      g_glaces:"Eis und Desserts",
+      d_tarte:"Mit Sahne, auf Wunsch mit einer Kugel Vanilleeis",
+      d_coupes:"Dame blanche, Schwarzwald, Brasilianisch, Banana Split, Colonel, Rum-Rosine",
+      d_crepes:"Mit Zucker, mit Nutella oder mit Vanilleeis",
+      d_shakes:"Vanille oder Banane",
+      cap_scampis:"Spaghetti mit Scampi.",
+      cap_bouchee:"Königinpastete, Pommes frites und Salat.",
+      cap_saumon:"Gegrilltes Lachsfilet.",
+      allerg:"Eine Allergenkarte liegt im Lokal aus.",
+      b_eyebrow:"An der Theke",
+      b_h:"Die Cocktails des Hauses.",
+      b_p:"Die Cocktailkarte gibt es an der Theke oder draußen auf dem Platz.",
+      b_sans_l:"Ohne Alkohol",
+      b_sans:"Virgin Hugo, Blue Hawai, Coconut King.",
+      cap_comptoir_l:"Die Theke",
+      cap_comptoir:"Das Holz, die Hocker und die Gläser über der Bar.",
+      t_eyebrow:"Die Terrasse",
+      t_h:"Mitten auf der Place de Paris.",
+      t_p:"Eine angenehme Terrasse für schöne Sommertage, ein paar Schritte vom Bahnhof.",
+      cap_terr_l:"Auf der Terrasse",
+      cap_terr:"Ein Tequila Sunrise und ein Aperol Spritz in der Sonne.",
+      e_h:"Hochzeit, Taufe oder Geburtstag?",
+      e_p:"Für eine Feier oder einen Abend mit Freunden und Familie melden Sie sich am besten früh im Voraus.",
+      e_call:"Anrufen: +352 49 61 39",
+      e_mail:"E-Mail schreiben",
+      i_eyebrow:"Anfahrt",
+      i_h:"Place de Paris, Luxemburg-Gare.",
+      i_addr_k:"Adresse",
+      i_hours_k:"Öffnungszeiten",
+      i_hours_v:"Montag bis Freitag, 9 – 24 Uhr",
+      i_hours_v3:"Samstag, Sonntag und feiertags, 10 – 24 Uhr",
+      i_hours_v2:"Im Winter schließt das Haus früher.",
+      i_phone_k:"Telefon",
+      i_mail_k:"E-Mail",
+      i_dir:"Route",
+      i_fb:"Facebook-Seite",
+      dock_menu:"Karte",
+      dock_call:"Anrufen",
+      dock_info:"Zeiten und Adresse",
+      disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+    },
+    en:{
+      jump_viande:"Meat",
+      jump_autres:"More",
+      jump_snacks:"Omelettes",
+      jump_glaces:"Puddings",
+      skip:"Skip to the menu",
+      nav_maison:"The brasserie",
+      nav_carte:"The menu",
+      nav_comptoir:"The bar",
+      nav_infos:"Find us",
+      cta_book:"Book a table",
+      hero_line:"A French brasserie on Place de Paris, since 1972.",
+      cta_menu:"See the menu",
+      cta_call:"Call the brasserie",
+      f1k:"The brasserie",
+      f1v:"Serving since 1972",
+      f2k:"Service",
+      f2v:"Open from morning until midnight",
+      f3k:"Outside",
+      f3v:"Terrace on Place de Paris",
+      m_eyebrow:"The brasserie",
+      m_h:"One of the oldest brasseries in Luxembourg.",
+      m_p1:"The Bistrot has been on Place de Paris since 1972. The room has kept its buttoned leather banquettes, its wood panelling and its globe lamps.",
+      m_p2:"Come for breakfast, lunch or dinner: French brasserie cooking, with a dish of the day from Monday to Friday at lunchtime.",
+      cap_salle_l:"The room",
+      cap_salle:"Leather banquettes, wood panelling and globe lamps.",
+      c_eyebrow:"At the table",
+      c_h:"The menu",
+      c_sub:"French brasserie cooking, served at lunch and dinner.",
+      plat_l:"Dish of the day",
+      plat_t:"Monday to Friday, at lunchtime.",
+      g_viande:"Meat",
+      n_viande:"Served with chips and mixed salad.",
+      d_milan:"With spaghetti in tomato sauce",
+      d_esc:"Fresh mushroom cream sauce",
+      d_cordon:"Fresh mushroom cream sauce",
+      d_entre:"Green peppercorn sauce, fresh mushroom cream or maître d’hôtel butter",
+      g_autres:"More dishes",
+      d_faux:"Green peppercorn sauce, fresh mushroom cream or maître d’hôtel butter; chips and mixed salad",
+      d_burger:"Onions, tomatoes, gherkins; chips and mixed salad",
+      d_scampi:"Rice or chips, mixed salad",
+      d_saumon:"Boiled potatoes, rice or chips; mixed salad",
+      d_jambon:"Cured and cooked ham, chips and mixed salad",
+      d_melon:"Chips and mixed salad",
+      d_carpaccio:"Rocket, parmesan, chips",
+      g_pates:"Pasta",
+      d_carbo:"Bacon, egg, cream",
+      g_salades:"Salads",
+      d_campagne:"Bacon, cheese, cooked ham, egg, potatoes, fresh mushrooms, olives",
+      d_bergere:"Goat’s cheese, olives, potatoes, fresh mushrooms, walnuts",
+      d_poulet:"Chicken, onions, fresh mushrooms, potatoes, croutons, olives",
+      g_omelettes:"Omelettes and snacks",
+      d_omelette:"Plain, cooked ham, fresh mushrooms or cheese; chips and mixed salad",
+      d_salade_mixte:"Mixed salad",
+      d_salade_mixte2:"Mixed salad",
+      d_enfant:"Knacky sausage with chips",
+      g_glaces:"Ice cream and puddings",
+      d_tarte:"With whipped cream, and a scoop of vanilla ice cream if you like",
+      d_coupes:"Dame blanche, Black Forest, Brazilian, banana split, Colonel, rum and raisin",
+      d_crepes:"With sugar, with Nutella or with vanilla ice cream",
+      d_shakes:"Vanilla or banana",
+      cap_scampis:"Spaghetti with scampi.",
+      cap_bouchee:"Chicken vol-au-vent, chips and salad.",
+      cap_saumon:"Grilled salmon fillet.",
+      allerg:"An allergen menu is available at the restaurant.",
+      b_eyebrow:"At the bar",
+      b_h:"The house cocktails.",
+      b_p:"The cocktail list is served at the bar or outside on the square.",
+      b_sans_l:"Alcohol-free",
+      b_sans:"Virgin Hugo, Blue Hawai, Coconut King.",
+      cap_comptoir_l:"The bar",
+      cap_comptoir:"The wood, the stools and the glasses above the counter.",
+      t_eyebrow:"The terrace",
+      t_h:"Right on Place de Paris.",
+      t_p:"A pleasant terrace for fine summer days, a short walk from the station.",
+      cap_terr_l:"On the terrace",
+      cap_terr:"A Tequila Sunrise and an Aperol Spritz in the sun.",
+      e_h:"A wedding, a christening, a birthday?",
+      e_p:"For an event or an evening with friends and family, get in touch with the brasserie well in advance.",
+      e_call:"Call: +352 49 61 39",
+      e_mail:"Send an email",
+      i_eyebrow:"Find us",
+      i_h:"Place de Paris, Luxembourg-Gare.",
+      i_addr_k:"Address",
+      i_hours_k:"Opening hours",
+      i_hours_v:"Monday to Friday, 9am – midnight",
+      i_hours_v3:"Saturday, Sunday and public holidays, 10am – midnight",
+      i_hours_v2:"In winter the brasserie closes earlier.",
+      i_phone_k:"Phone",
+      i_mail_k:"Email",
+      i_dir:"Directions",
+      i_fb:"Facebook page",
+      dock_menu:"Menu",
+      dock_call:"Call",
+      dock_info:"Hours and address",
+      disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+    }
+  };
+
+  function applyLang(lang){
+    if(!I18N[lang]) lang = "fr";
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n"), v = I18N[lang][k];
+      if(v == null) v = I18N.fr[k];
+      if(v != null) el.textContent = v;
+    });
+    document.querySelectorAll(".langs button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+  }
+  document.querySelectorAll(".langs button").forEach(function(b){
+    b.addEventListener("click", function(){ applyLang(b.getAttribute("data-lang")); });
+  });
+  applyLang("fr");
 </script>
-<!-- cookieless, GDPR-clean analytics (same as webwerk.lu) — tells us if/when the reveal is opened + visitor country (e.g. Luxembourg) -->
-<script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
