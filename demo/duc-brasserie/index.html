@@ -673,7 +673,7 @@
   </div>
   <div class="foot-bottom">
     <span>Duc Café &amp; Snack · Snack Kebab Duc · Hesperange</span>
-    <span class="confirm-note"><span data-i18n="confirmNote">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">webwerk.lu</a></span>
+    <span class="confirm-note"><span data-i18n="confirmNote">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">webwerk.lu</a></span>
   </div>
 </footer>
 
@@ -722,7 +722,7 @@
       footContact:"Contact", footOrder:"Commander", footHours:"Horaires",
       fh1:"Café · 06:00–22:00", fh2:"Cuisine · 11:00–22:00", fh3:"Tous les jours",
       ctaWolt3:"Commander", ctaCall3:"Appeler",
-      confirmNote:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+      confirmNote:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
       mCall:"Appeler"
     },
     de:{
@@ -753,7 +753,7 @@
       footContact:"Kontakt", footOrder:"Bestellen", footHours:"Öffnungszeiten",
       fh1:"Café · 06:00–22:00", fh2:"Küche · 11:00–22:00", fh3:"Täglich",
       ctaWolt3:"Bestellen", ctaCall3:"Anrufen",
-      confirmNote:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+      confirmNote:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
       mCall:"Anrufen"
     },
     en:{
@@ -785,7 +785,7 @@
       footContact:"Contact", footOrder:"Order", footHours:"Hours",
       fh1:"Café · 06:00–22:00", fh2:"Kitchen · 11:00–22:00", fh3:"Every day",
       ctaWolt3:"Order", ctaCall3:"Call",
-      confirmNote:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+      confirmNote:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
       mCall:"Call"
     }
   };
@@ -823,6 +823,17 @@
   } else if(mbar){
     mbar.classList.add("is-visible");
   }
+})();
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
 })();
 </script>
 </body>

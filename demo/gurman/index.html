@@ -372,7 +372,7 @@
     <div class="top">
       <a class="brand" href="#top" aria-label="Restaurant Gurman — Spécialités Croates"><img src="assets/logo.png" alt="Restaurant Gurman — Spécialités Croates" /></a>
     </div>
-    <p class="disc"><span data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span></p>
+    <p class="disc"><span data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span></p>
   </div>
 </footer>
 
@@ -410,7 +410,7 @@
       c_salle_l:"La salle", c_salle:"arches de pierre, murs ocre et bois chaud.",
       c_mer_l:"De la mer", c_mer:"pâtes aux fruits de mer.",
       s4_kicker:"Nous trouver", s4_head:"Passez nous voir",
-      v_hours:"Horaires", v_hours_line:"Midi et soir, fermé le lundi", disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.", 
+      v_hours:"Horaires", v_hours_line:"Midi et soir, fermé le lundi", disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.", 
       v_contact:"Adresse & contact", 
        v_dir:"Itinéraire ↗",
       dock_menu:"La carte", dock_call:"Appeler", dock_dir:"Itinéraire"
@@ -442,7 +442,7 @@
       v_hours:"Öffnungszeiten", v_hours_line:"Mittags und abends, montags Ruhetag", 
       v_contact:"Adresse & Kontakt", 
        v_dir:"Route ↗",
-      disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+      disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
       dock_menu:"Speisekarte", dock_call:"Anrufen", dock_dir:"Route"
     },
     en:{
@@ -472,7 +472,7 @@
       v_hours:"Hours", v_hours_line:"Lunch and dinner, closed on Mondays", 
       v_contact:"Address & contact", 
        v_dir:"Directions ↗",
-      disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+      disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
       dock_menu:"Menu", dock_call:"Call", dock_dir:"Directions"
     }
   };
@@ -504,6 +504,17 @@
   })();
 
 
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
 </script>
 </body>
 </html>

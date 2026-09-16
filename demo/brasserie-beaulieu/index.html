@@ -808,7 +808,7 @@
   </div>
   <div class="ribbon foot-hem" aria-hidden="true"></div>
   <div class="foot-bottom">
-    <span data-i18n="foot_demo">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span>
+    <span data-i18n="foot_demo">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
   </div>
 </footer>
 
@@ -857,7 +857,7 @@ const I18N = {
     foot_tag:"Bistro de quartier à Bonnevoie. Cuisine canaille, ambiance de quartier — venez comme vous êtes.",
     foot_visit:"Nous rendre visite", foot_hours:"Voir les horaires",
     foot_follow:"Suivez-nous", foot_book:"Réserver une table",
-    foot_demo:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+    foot_demo:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
   },
   de:{
     skip:"Zur Karte springen",
@@ -901,7 +901,7 @@ const I18N = {
     foot_tag:"Quartiersbistro in Bonnevoie. Herzhafte Küche, nachbarschaftliches Flair — kommen Sie, wie Sie sind.",
     foot_visit:"Besuchen Sie uns", foot_hours:"Öffnungszeiten ansehen",
     foot_follow:"Folgen Sie uns", foot_book:"Tisch reservieren",
-    foot_demo:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+    foot_demo:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
   },
   en:{
     skip:"Skip to menu",
@@ -945,7 +945,7 @@ const I18N = {
     foot_tag:"Neighbourhood bistro in Bonnevoie. Hearty food, neighbourhood soul — come as you are.",
     foot_visit:"Visit us", foot_hours:"See opening hours",
     foot_follow:"Follow us", foot_book:"Book a table",
-    foot_demo:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+    foot_demo:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
   }
 };
 
@@ -1232,6 +1232,17 @@ applyLang("fr");
     sync();
     if(window.MutationObserver) new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
   })();
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
 </script>
 </body>
 </html>

@@ -412,7 +412,7 @@ footer{background:var(--ink);color:#b9ac9e;padding:44px 0 40px;font-size:.86rem;
       <span class="bt"><img src="assets/img/logo.png" alt="" />Restaurant Lusitânia</span>
       <span>163 Route de Luxembourg, L-4973 Dippach · <a href="tel:+35226374742" style="color:#e7dcc3">26 37 47 42</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -442,7 +442,7 @@ const I18N = {
   h_val:"Lun-jeu & dim 11h30-14h30, 18h30-22h — ven-sam 11h30-14h30, 18h30-22h30.",
   l_serv:"Services", serv_val:"Parking · WiFi gratuit · terrasse d'été · terrasse fumeurs couverte",
   v_call:"Appeler pour réserver", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
   foot_made:"Un aperçu"
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
@@ -468,7 +468,7 @@ const I18N = {
   h_val:"Mo-Do & So 11:30-14:30, 18:30-22 Uhr — Fr-Sa 11:30-14:30, 18:30-22:30 Uhr.",
   l_serv:"Services", serv_val:"Parkplatz · Kostenloses WLAN · Sommerterrasse · überdachte Raucherterrasse",
   v_call:"Zum Reservieren anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
   foot_made:"Eine Vorschau von"
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -494,7 +494,7 @@ const I18N = {
   h_val:"Mon-Thu & Sun 11:30am-2:30pm, 6:30-10pm — Fri-Sat 11:30am-2:30pm, 6:30-10:30pm.",
   l_serv:"Amenities", serv_val:"Parking · Free WiFi · summer terrace · covered smoking terrace",
   v_call:"Call to book", v_dir:"Directions", v_dir2:"Open directions ↗",
-  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
   foot_made:"A preview by"
  }
 };
@@ -520,5 +520,16 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   <a class="btn p" href="tel:+35226374742" data-i18n="wwb_call">Appeler</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurant+Lusitania+163+Route+de+Luxembourg+Dippach" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

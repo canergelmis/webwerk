@@ -397,7 +397,7 @@ footer .made a{color:var(--gold)}
    <p style="margin-top:10px">2, quai de la Moselle<br>L-5553 Remich<br><a href="tel:+35223698685" style="border-bottom:1px solid var(--gold)">+352 23 69 86 85</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -434,7 +434,7 @@ const I18N={
   map_big:"Remich",map_sub:"Sur l'esplanade, au bord de la Moselle",map_btn:"Ouvrir dans Maps ↗",
   foot_p:"La friture de la Moselle, en terrasse au bord de la rivière, à Remich. Poissons frits, moules-frites et Riesling, à la belle saison.",
   foot_made:"Webwerk · studio web · Luxembourg",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_fri:"Die Friture",nav_carte:"Karte",nav_terr:"Die Terrasse",nav_infos:"Infos & Anfahrt",
@@ -468,7 +468,7 @@ const I18N={
   map_big:"Remich",map_sub:"Auf der Esplanade, direkt an der Mosel",map_btn:"In Maps öffnen ↗",
   foot_p:"Die Friture de la Moselle, auf der Terrasse am Fluss, in Remich. Frittierter Fisch, Muscheln & Pommes und Riesling, zur schönen Jahreszeit.",
   foot_made:"Webwerk · Webstudio · Luxemburg",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_fri:"The friture",nav_carte:"Menu",nav_terr:"The terrace",nav_infos:"Find us",
@@ -502,7 +502,7 @@ const I18N={
   map_big:"Remich",map_sub:"On the esplanade, by the Moselle",map_btn:"Open in Maps ↗",
   foot_p:"The Moselle friture, on the terrace by the river, in Remich. Fried fish, mussels & chips and Riesling, in the fine season.",
   foot_made:"Webwerk · web studio · Luxembourg",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -552,5 +552,16 @@ try{const sv=localStorage.getItem("fm_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   <a class="btn p" href="tel:+35223698685" data-i18n="wwb_call">Appeler</a>
   <a class="btn o" href="https://www.google.com/maps/search/Friture+de+la+Moselle+Quai+de+la+Moselle+Remich" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

@@ -718,7 +718,7 @@
       <a href="tel:+35226383761" data-i18n="foot.callline">Ou appelez-nous directement</a>
     </div>
   </div>
-  <div class="wrap"><p class="disclaimer" data-i18n="foot.disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+  <div class="wrap"><p class="disclaimer" data-i18n="foot.disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <!-- ============ MOBILE BOTTOM BAR ============ -->
@@ -766,7 +766,7 @@ const I18N = {
     "hours.monwed":"11h45–15h00 · 17h30–23h00","hours.thu":"11h45–15h00 · 17h30–00h00","hours.fri":"11h45–23h00",
     "foot.tag":"Burgers artisanaux, cœur de quartier. Belair, Luxembourg.",
     "foot.contact":"Contact","foot.book":"Une table&nbsp;?","foot.callline":"Ou appelez-nous directement",
-    "foot.disc":"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+    "foot.disc":"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
   },
   de:{
     "issue":"N&ordm; 99 &middot; Belair",
@@ -805,7 +805,7 @@ const I18N = {
     "hours.monwed":"11:45–15:00 · 17:30–23:00","hours.thu":"11:45–15:00 · 17:30–00:00","hours.fri":"11:45–23:00",
     "foot.tag":"Handgemachte Burger, Seele des Viertels. Belair, Luxemburg.",
     "foot.contact":"Kontakt","foot.book":"Einen Tisch&nbsp;?","foot.callline":"Oder rufen Sie uns direkt an",
-    "foot.disc":"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+    "foot.disc":"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
   },
   en:{
     "issue":"N&ordm; 99 &middot; Belair",
@@ -844,7 +844,7 @@ const I18N = {
     "hours.monwed":"11:45–15:00 · 17:30–23:00","hours.thu":"11:45–15:00 · 17:30–00:00","hours.fri":"11:45–23:00",
     "foot.tag":"Craft burgers, neighbourhood heart. Belair, Luxembourg.",
     "foot.contact":"Contact","foot.book":"A table&nbsp;?","foot.callline":"Or call us directly",
-    "foot.disc":"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+    "foot.disc":"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
   }
 };
 
@@ -872,6 +872,17 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
 </script>
 </body>
 </html>

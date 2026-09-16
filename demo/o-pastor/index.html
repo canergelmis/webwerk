@@ -378,7 +378,7 @@ footer .made a{color:var(--terra)}
    <p style="margin-top:6px">3, route de Luxembourg<br>L-6210 Consdorf<br><a href="tel:+35226784370">+352 26 78 43 70</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 <script>
 const I18N={
@@ -449,7 +449,7 @@ const I18N={
   cc_k:"Pour une table ou une question",
   map_btn:"Itinéraire ↗",
   foot_p:"Restaurant Pizzeria à Consdorf : pizzas à pâte fine, pâtes, burgers et salades.",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{
   wwb_call:"Anrufen",
@@ -518,7 +518,7 @@ const I18N={
   cc_k:"Für einen Tisch oder eine Frage",
   map_btn:"Route ↗",
   foot_p:"Restaurant Pizzeria in Consdorf: Pizza mit dünnem Boden, Pasta, Burger und Salate.",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{
   wwb_call:"Call",
@@ -587,7 +587,7 @@ const I18N={
   cc_k:"For a table or a question",
   map_btn:"Directions ↗",
   foot_p:"Restaurant Pizzeria in Consdorf: thin-crust pizza, pasta, burgers and salads.",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -612,5 +612,16 @@ try{const sv=localStorage.getItem("opa_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   <a class="btn p" href="tel:+35226784370" data-i18n="wwb_call">Appeler</a>
   <a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Restaurant+Pizzeria+O+Pastor+3+Route+de+Luxembourg+Consdorf" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

@@ -850,7 +850,7 @@ html[data-theme="soir"] footer{background:#081E29}
     </div>
     <div class="foot-bottom">
       <p>Restaurant L'Annexe · Luxembourg</p>
-      <span class="disclaimer" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span>
+      <span class="disclaimer" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
     </div>
   </div>
 </footer>
@@ -954,7 +954,7 @@ const I18N={
   foot_visit:{de:'Besuch',en:'Visit'},
   foot_follow:{de:'Folgen & reservieren',en:'Follow & book'},
   foot_reserve:{de:'Online-Reservierung',en:'Online booking'},
-  disclaimer:{de:'Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.',en:'An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.'}
+  disclaimer:{de:'Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.',en:'An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.'}
 };
 const FR_CACHE={};
 function setLang(lang){
@@ -985,5 +985,16 @@ window.addEventListener('resize',()=>{
   <a class="btn-solid" href="tel:+35226262507" data-i18n="wwb_call">Appeler</a>
   <a class="btn-book" href="https://www.google.com/maps/search/?api=1&query=L%27Annexe+7+Rue+du+Saint-Esprit+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

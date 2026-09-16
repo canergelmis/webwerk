@@ -384,7 +384,7 @@ footer .made a{color:var(--gold-l)}
    <p style="margin-top:10px">Schifflange, Luxembourg</p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -420,7 +420,7 @@ const I18N={
   map_big:"Schifflange",map_sub:"Grande salle · parking devant",map_btn:"Ouvrir dans Maps ↗",
   foot_p:"Le buffet asiatique à volonté de Schifflange — sushis, grillades, wok et desserts, midi et soir.",
   foot_made:"Webwerk · studio web · Luxembourg",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_dir:"Route",
   nav_buffet:"Das Buffet",nav_stations:"Das Angebot",nav_salle:"Der Saal",nav_infos:"Infos & Anfahrt",
@@ -454,7 +454,7 @@ const I18N={
   foot_p:"Das asiatische All-you-can-eat-Buffet von Schifflingen — Sushi, Grill, Wok und Desserts, mittags und abends.",
   foot_made:"Webwerk · Webstudio · Luxemburg",
   foot_conf:"Adresse & ",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_dir:"Directions",
   nav_buffet:"The buffet",nav_stations:"What's on",nav_salle:"The room",nav_infos:"Find us",
@@ -487,7 +487,7 @@ const I18N={
   map_big:"Schifflange",map_sub:"Large room · parking out front",map_btn:"Open in Maps ↗",
   foot_p:"The Asian all-you-can-eat buffet of Schifflange — sushi, grill, wok and desserts, midday and evening.",
   foot_made:"Webwerk · web studio · Luxembourg",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -568,5 +568,16 @@ try{const sv=localStorage.getItem("gbf_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
 <div class="wwbar" role="navigation" aria-label="Actions rapides">
   <a class="btn p" href="https://www.google.com/maps/search/Grand+Buffet+Schifflange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

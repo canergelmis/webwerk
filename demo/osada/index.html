@@ -369,7 +369,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a4957a;line-height:1.55;margi
       <div class="bn">Osada<small data-i18n="foot_sub">Brasserie polonaise au Pfaffenthal</small></div>
       <div class="fc">35, rue Laurent Ménager<br>L-2143 Luxembourg<br><a href="tel:+35226202114">+352 26 20 21 14</a><br><a href="https://www.facebook.com/brasserieosada" target="_blank" rel="noopener">Facebook ↗</a></div>
     </div>
-    <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
   </div>
 </footer>
 <script>
@@ -429,7 +429,7 @@ var I18N = {
     info_tel_k:"Téléphone",
     info_call:"Appeler",
     foot_sub:"Brasserie polonaise au Pfaffenthal",
-    disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+    disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
   },
   de:{
     wwb_call:"Anrufen",
@@ -486,7 +486,7 @@ var I18N = {
     info_tel_k:"Telefon",
     info_call:"Anrufen",
     foot_sub:"Polnische Brasserie im Pfaffenthal",
-    disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+    disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
   },
   en:{
     wwb_call:"Call",
@@ -543,7 +543,7 @@ var I18N = {
     info_tel_k:"Phone",
     info_call:"Call",
     foot_sub:"Polish brasserie in Pfaffenthal",
-    disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+    disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
   }
 };
 var lang="fr";
@@ -575,5 +575,16 @@ applyLang("fr");
   <a class="btn p" href="tel:+35226202114" data-i18n="wwb_call">Appeler</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Brasserie+Osada+35+Rue+Laurent+M%C3%A9nager+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

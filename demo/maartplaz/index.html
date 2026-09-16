@@ -785,7 +785,7 @@
     </div>
     <div class="disclaimer" data-i18n="foot.disc">
       Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.
-    </div>
+     Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</div>
   </div>
 </footer>
 
@@ -838,7 +838,7 @@ const I18N = {
     "visit.park.b":"Parking gratuit","visit.park.t":"à proximité, 12:00–14:00 le midi.",
     "d.mon":"Lundi","d.tue":"Mardi","d.wed":"Mercredi","d.thu":"Jeudi","d.fri":"Vendredi","d.sat":"Samedi","d.sun":"Dimanche",
     "foot.tag":"« La brasserie de la Place, à Ettelbruck »","foot.call":"Réserver une table",
-    "foot.disc":"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+    "foot.disc":"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
   },
   de:{
     "mast.top":"Brasserie · Restaurant","mast.m1":"Französische & luxemburgische Küche",
@@ -888,7 +888,7 @@ const I18N = {
     "visit.park.b":"Kostenloses Parken","visit.park.t":"in der Nähe, mittags 12:00–14:00.",
     "d.mon":"Montag","d.tue":"Dienstag","d.wed":"Mittwoch","d.thu":"Donnerstag","d.fri":"Freitag","d.sat":"Samstag","d.sun":"Sonntag",
     "foot.tag":"„Die Brasserie am Marktplatz, in Ettelbrück“","foot.call":"Tisch reservieren",
-    "foot.disc":"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+    "foot.disc":"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
   },
   en:{
     "mast.top":"Brasserie · Restaurant","mast.m1":"French & Luxembourgish cuisine",
@@ -937,7 +937,7 @@ const I18N = {
     "visit.park.b":"Free parking","visit.park.t":"nearby, 12:00–14:00 at lunch.",
     "d.mon":"Monday","d.tue":"Tuesday","d.wed":"Wednesday","d.thu":"Thursday","d.fri":"Friday","d.sat":"Saturday","d.sun":"Sunday",
     "foot.tag":"“The brasserie on the Square, in Ettelbruck”","foot.call":"Book a table",
-    "foot.disc":"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+    "foot.disc":"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
   }
 };
 
@@ -1249,6 +1249,17 @@ btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
     sync();
     if(window.MutationObserver) new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
   })();
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
 </script>
 </body>
 </html>

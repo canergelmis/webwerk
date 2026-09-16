@@ -680,7 +680,7 @@ footer{background:var(--navy3);color:#cfc6ab;padding:50px 0 36px}
       </span>
       <span data-i18n="foot_addr">90, rue de la Gare, L-4460 Belvaux · <a href="tel:+35228203684" style="color:var(--gold)">28 20 36 84</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu par</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -747,7 +747,7 @@ const I18N = {
   map_addr:"90, rue de la Gare<br>L-4460 Belvaux",
   map_gmaps:"Ouvrir dans Google Maps ↗",
   foot_addr:"90, rue de la Gare, L-4460 Belvaux · <a href=\"tel:+35228203684\" style=\"color:var(--gold)\">28 20 36 84</a>",
-  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
   foot_made:"Un aperçu par"
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
@@ -800,7 +800,7 @@ const I18N = {
   map_addr:"90, rue de la Gare<br>L-4460 Belvaux",
   map_gmaps:"In Google Maps öffnen ↗",
   foot_addr:"90, rue de la Gare, L-4460 Belvaux · <a href=\"tel:+35228203684\" style=\"color:var(--gold)\">28 20 36 84</a>",
-  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
   foot_made:"Eine Vorschau von"
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -853,7 +853,7 @@ const I18N = {
   map_addr:"90, rue de la Gare<br>L-4460 Belvaux",
   map_gmaps:"Open in Google Maps ↗",
   foot_addr:"90, rue de la Gare, L-4460 Belvaux · <a href=\"tel:+35228203684\" style=\"color:var(--gold)\">28 20 36 84</a>",
-  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
   foot_made:"A preview by"
  }
 };
@@ -886,5 +886,16 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   <a class="btn g" href="tel:+35228203684" data-i18n="wwb_call">Appeler</a>
   <a class="btn p" href="https://www.google.com/maps/search/?api=1&amp;query=Free+Time+Caf%C3%A9+90+Rue+de+la+Gare+Belvaux" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

@@ -385,7 +385,7 @@ footer .made a{color:var(--amber)}
    <p style="margin-top:10px">2, rue Zénon Bernard<br>L-4030 Esch-sur-Alzette<br><a href="tel:+352621427592" style="border-bottom:1px solid var(--amber)">+352 621 427 592</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -422,7 +422,7 @@ const I18N={
   map_big:"Esch-sur-Alzette",map_sub:"Rue Zénon Bernard, au centre d'Esch",map_btn:"Ouvrir dans Maps ↗",
   foot_p:"La table des îles du Cap-Vert à Esch — cachupa, poisson de l'Atlantique, bitoque et morabeza.",
   foot_made:"Webwerk · studio web · Luxembourg",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_poisson:"Der Fisch",nav_carte:"Karte",nav_mora:"Morabeza",nav_infos:"Infos & Anfahrt",
@@ -456,7 +456,7 @@ const I18N={
   map_big:"Esch-sur-Alzette",map_sub:"Rue Zénon Bernard, im Zentrum von Esch",map_btn:"In Maps öffnen ↗",
   foot_p:"Die Tafel der Kapverden in Esch — Cachupa, Atlantik-Fisch, Bitoque und Morabeza.",
   foot_made:"Webwerk · Webstudio · Luxemburg",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_poisson:"The fish",nav_carte:"Menu",nav_mora:"Morabeza",nav_infos:"Find us",
@@ -490,7 +490,7 @@ const I18N={
   map_big:"Esch-sur-Alzette",map_sub:"Rue Zénon Bernard, in central Esch",map_btn:"Open in Maps ↗",
   foot_p:"The table of the Cape Verde islands in Esch — cachupa, Atlantic fish, bitoque and morabeza.",
   foot_made:"Webwerk · web studio · Luxembourg",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -546,5 +546,16 @@ try{const sv=localStorage.getItem("sb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   <a class="btn p" href="tel:+352621427592" data-i18n="wwb_call">Appeler</a>
   <a class="btn o" href="https://www.google.com/maps/search/Sabor+Di+Terra+Rue+Zenon+Bernard+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

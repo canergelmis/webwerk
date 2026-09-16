@@ -369,7 +369,7 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
       <span class="bt"><svg class="mark" viewBox="0 0 100 100"><use href="#mark"/></svg>Euro Kebab</span>
       <span>6, rue d'Audun, L-4018 Esch-sur-Alzette · <a href="tel:+35226532202" style="color:#e7dcc3">26 53 22 02</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -399,7 +399,7 @@ const I18N = {
   v_eyebrow:"Infos pratiques", v_head:"6, rue d'Audun, Esch-sur-Alzette.",
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Mar–dim, 11h–00h (fermé lundi).",
   v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
   foot_made:"Un aperçu"
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
@@ -425,7 +425,7 @@ const I18N = {
   v_eyebrow:"Praktische Infos", v_head:"6, rue d'Audun, Esch-sur-Alzette.",
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Di–So, 11–00 Uhr (montags geschlossen).",
   v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
   foot_made:"Eine Vorschau von"
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -451,7 +451,7 @@ const I18N = {
   v_eyebrow:"Find us", v_head:"6, rue d'Audun, Esch-sur-Alzette.",
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Tue–Sun, 11am–midnight (closed Monday).",
   v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
-  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
   foot_made:"A preview by"
  }
 };
@@ -477,5 +477,16 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   <a class="btn p" href="tel:+35226532202" data-i18n="wwb_call">Appeler</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Euro+Kebab+6+rue+d%27Audun+Esch-sur-Alzette" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

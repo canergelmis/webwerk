@@ -713,7 +713,7 @@
     <div class="colophon-grid">
       <div><p class="col-name">Bistrot de <span class="la">la</span> Presse</p>
       <p class="col-sub" data-i18n="underdeck">Cuisine luxembourgeoise et brasserie, Ville-Haute</p></div>
-      <p class="disclosure"><span data-i18n="disc_text">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span></p>
+      <p class="disclosure"><span data-i18n="disc_text">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span></p>
     </div>
   </footer>
 </div>
@@ -793,7 +793,7 @@
       place_label:"Pour venir",
       place_orient:"En face du Palais grand-ducal et de la Chambre des députés.",
       map_open:"Itinéraire →",
-      disc_text:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+      disc_text:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
       ns_menu:"Menu",
       ns_call:"Appeler",
       ns_dir:"Itinéraire",
@@ -864,7 +864,7 @@
       place_label:"Anfahrt",
       place_orient:"Gegenüber dem großherzoglichen Palast und der Abgeordnetenkammer.",
       map_open:"Route →",
-      disc_text:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+      disc_text:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
       ns_menu:"Menü",
       ns_call:"Anrufen",
       ns_dir:"Route",
@@ -935,7 +935,7 @@
       place_label:"Getting there",
       place_orient:"Opposite the Grand Ducal Palace and the Chamber of Deputies.",
       map_open:"Directions →",
-      disc_text:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+      disc_text:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
       ns_menu:"Menu",
       ns_call:"Call",
       ns_dir:"Directions",
@@ -1038,6 +1038,17 @@
   applyLang(initLang, false);
   onScroll();
 
+})();
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
 })();
 </script>
 </body>

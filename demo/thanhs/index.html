@@ -387,7 +387,7 @@ footer .disc{max-width:62ch;font-size:.8rem;color:#a89e88;line-height:1.55;margi
         <div><a href="https://www.instagram.com/thanhs.luxembourg/" target="_blank" rel="noopener">Instagram ↗</a></div>
       </div>
     </div>
-    <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
   </div>
 </footer>
 
@@ -453,7 +453,7 @@ var I18N = {
     adr_wolt2:"Commander sur Wolt ↗",
     adr_note:"Fermé le samedi et le dimanche.",
     foot_sub:"Cuisine vietnamienne",
-    disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+    disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
   },
   de:{wwb_order:"Bestellen",
     wwb_call:"Anrufen",
@@ -514,7 +514,7 @@ var I18N = {
     adr_wolt2:"Auf Wolt bestellen ↗",
     adr_note:"Samstag und Sonntag geschlossen.",
     foot_sub:"Vietnamesische Küche",
-    disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+    disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
   },
   en:{wwb_order:"Order",
     wwb_call:"Call",
@@ -575,7 +575,7 @@ var I18N = {
     adr_wolt2:"Order on Wolt ↗",
     adr_note:"Closed on Saturdays and Sundays.",
     foot_sub:"Vietnamese cuisine",
-    disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+    disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
   }
 };
 
@@ -643,5 +643,16 @@ applyLang("fr");
   <button class="btn p" type="button" data-sheet="order" aria-expanded="false" aria-controls="sheet-order" data-i18n="wwb_order">Commander</button>
   <button class="btn p" type="button" data-sheet="call" aria-expanded="false" aria-controls="sheet-call" data-i18n="wwb_call">Appeler</button>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>
