@@ -446,7 +446,7 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
       <span class="bt"><svg class="mark" viewBox="0 0 100 100"><use href="#mark"/></svg>Chinai's Curry</span>
       <span>29 Rue Joseph Junck, L-1839 Luxembourg · <a href="tel:+35226481808" style="color:#e7dcc3">26 48 18 08</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -488,7 +488,7 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Lun–ven : 10h30–20h00 (Wolt) ou 11h00–20h30 (rankeat.fr), sam & dim horaires réduits", h_note:"Les deux sources ne concordent pas exactement.",
   l_delivery:"Livraison", v_delivery:"Wolt uniquement — pas de réservation en ligne connue",
   v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
   foot_made:"Un aperçu"
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
@@ -527,7 +527,7 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Mo–Fr: 10:30–20:00 (Wolt) oder 11:00–20:30 (rankeat.fr), Sa & So verkürzt", h_note:"Die beiden Quellen stimmen nicht genau überein.",
   l_delivery:"Lieferung", v_delivery:"Nur über Wolt — keine bekannte Online-Reservierung",
   v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
   foot_made:"Eine Vorschau von"
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
@@ -565,7 +565,7 @@ const I18N = {
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Mon–Fri: 10:30am–8pm (Wolt) or 11am–8:30pm (rankeat.fr), shorter Sat & Sun", h_note:"The two sources don't quite agree.",
   l_delivery:"Delivery", v_delivery:"Wolt only — no known online booking",
   v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
-  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
   foot_made:"A preview by"
  }
 };
@@ -592,5 +592,16 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   <a class="btn g" href="https://wolt.com/en/lux/luxembourg/restaurant/chinais-curry-lux" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Chinai%27s+Curry+29+Rue+Joseph+Junck+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

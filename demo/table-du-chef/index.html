@@ -331,7 +331,7 @@ footer{background:var(--ink);color:#b9ab98;padding:44px 0 40px;font-size:.86rem;
       <span class="bt">Table du Chef</span>
       <span>19 Rue du Commerce, L-3450 Dudelange · <a href="tel:+35226521043" style="color:#e7dcc3">26 52 10 43</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -359,7 +359,7 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Téléphone", l_hours:"Horaires", h_val:"Lun-mar 12h-14h — mer-dim 12h-14h & 18h30-21h.",
   l_resa:"Réservation", resa_val:"Conseillée — petite salle",
   v_call:"Appeler pour réserver", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
   foot_made:"Un aperçu"
  },
  de:{loc_note:"Im Zentrum von Dudelange, Rue du Commerce.",wwb_call:"Anrufen",wwb_dir:"Route",
@@ -383,7 +383,7 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Telefon", l_hours:"Öffnungszeiten", h_val:"Mo-Di 12-14 Uhr — Mi-So 12-14 & 18:30-21 Uhr.",
   l_resa:"Reservierung", resa_val:"Empfohlen — kleiner Saal",
   v_call:"Zum Reservieren anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
   foot_made:"Eine Vorschau von"
  },
  en:{loc_note:"In the centre of Dudelange, on Rue du Commerce.",wwb_call:"Call",wwb_dir:"Directions",
@@ -407,7 +407,7 @@ const I18N = {
   l_addr:"Address", l_tel:"Phone", l_hours:"Hours", h_val:"Mon-Tue 12-2pm — Wed-Sun 12-2pm & 6:30-9pm.",
   l_resa:"Reservation", resa_val:"Recommended — small dining room",
   v_call:"Call to book", v_dir:"Directions", v_dir2:"Open directions ↗",
-  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
   foot_made:"A preview by"
  }
 };
@@ -433,5 +433,16 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   <a class="btn p" href="tel:+35226521043" data-i18n="wwb_call">Appeler</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Table+du+Chef+19+Rue+du+Commerce+Dudelange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

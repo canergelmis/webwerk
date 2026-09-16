@@ -446,7 +446,7 @@ footer .ck{font-family:'Body';font-weight:700;letter-spacing:.13em;text-transfor
    <p style="margin-top:10px">50, Roudbaach<br>L-8558 Platen (Préizerdaul)<br><a href="tel:+35223620797" style="border-bottom:1px solid var(--terra-l)">23 62 07 97</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -484,7 +484,7 @@ const I18N={
   map_btn:"Ouvrir dans Maps ↗",
   foot_p:"Auberge de village à Roudbaach, Préizerdaul : sushis et maki, classiques français, pâtes et desserts, avec une terrasse au soleil.",
   foot_contact:"Contact",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_envies:"Die Küche",nav_terrasse:"Die Terrasse",nav_maison:"Das Haus",nav_carte:"Karte",nav_infos:"Infos & Anfahrt",
@@ -519,7 +519,7 @@ const I18N={
   map_btn:"In Maps öffnen ↗",
   foot_p:"Die Auberge Roudbaach in Préizerdaul: Sushi und Maki, französische Klassiker, Pasta und Desserts, mit sonniger Terrasse.",
   foot_contact:"Kontakt",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_envies:"The food",nav_terrasse:"The terrace",nav_maison:"The house",nav_carte:"Menu",nav_infos:"Find us",
@@ -554,7 +554,7 @@ const I18N={
   map_btn:"Open in Maps ↗",
   foot_p:"Auberge Roudbaach in Préizerdaul: sushi and maki, French classics, pasta and desserts, with a sunny terrace.",
   foot_contact:"Contact",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -639,5 +639,16 @@ try{const sv=localStorage.getItem("rdb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   <a class="btn p" href="tel:+35223620797" data-i18n="wwb_call">Appeler</a>
   <a class="btn o" href="https://www.google.com/maps/search/Auberge+Roudbaach+50+Roudbaach+Platen+Pr%C3%A9izerdaul" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

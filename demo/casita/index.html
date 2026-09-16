@@ -411,7 +411,7 @@ footer .made a{color:var(--marigold)}
    <p style="margin-top:10px">23, rue Saint-Ulric<br>Grund, Luxembourg<br><a href="tel:+35220221537" style="border-bottom:1px solid var(--marigold)">+352 20 22 15 37</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -446,7 +446,7 @@ const I18N={
   map_big:"Le Grund",map_sub:"Rue Saint-Ulric, la vieille ville au bord de l'eau",map_btn:"Ouvrir dans Maps ↗",
   foot_p:"La petite taqueria mexicaine du Grund. Tacos al pastor, tortillas de maïs, guacamole et paletas.",
   foot_made:"Webwerk · studio web · Luxembourg",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_tacos:"Die Tacos",nav_carte:"Karte",nav_casita:"La Casita",nav_infos:"Infos & Anfahrt",
@@ -479,7 +479,7 @@ const I18N={
   map_big:"Der Grund",map_sub:"Rue Saint-Ulric, die Altstadt am Wasser",map_btn:"In Maps öffnen ↗",
   foot_p:"Die kleine mexikanische Taqueria im Grund. Tacos al pastor, Maistortillas, Guacamole und Paletas.",
   foot_made:"Webwerk · Webstudio · Luxemburg",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_tacos:"The tacos",nav_carte:"Menu",nav_casita:"La casita",nav_infos:"Find us",
@@ -512,7 +512,7 @@ const I18N={
   map_big:"The Grund",map_sub:"Rue Saint-Ulric, the old town by the water",map_btn:"Open in Maps ↗",
   foot_p:"The little Mexican taqueria in the Grund. Tacos al pastor, corn tortillas, guacamole and paletas.",
   foot_made:"Webwerk · web studio · Luxembourg",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -537,5 +537,16 @@ try{const sv=localStorage.getItem("tc_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   <a class="btn p" href="tel:+35220221537" data-i18n="wwb_call">Appeler</a>
   <a class="btn o" href="https://www.google.com/maps/search/Taqueria+Casita+Rue+Saint-Ulric+Grund+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

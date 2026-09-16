@@ -425,7 +425,7 @@ footer .brand .bt small{color:#a6906f}
       </a>
       <div class="madeby" data-i18n="foot_made">Un aperçu par <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a></div>
     </div>
-    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
   </div>
 </footer>
 
@@ -462,7 +462,7 @@ const I18N = {
   v_call:"Appeler", v_dir:"Itinéraire ↗",
   l_addr:"Adresse", l_tel:"Téléphone",
   foot_made:"Webwerk · studio web · Luxembourg",
-  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"北之寳 · Luxemburg-Bahnhof", brand_sub2:"北之寳 · regionale chinesische Küche",
@@ -495,7 +495,7 @@ const I18N = {
   v_call:"Anrufen", v_dir:"Route ↗",
   l_addr:"Adresse", l_tel:"Telefon",
   foot_made:"Webwerk · Webstudio · Luxemburg",
-  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"北之寳 · Luxembourg-Gare", brand_sub2:"北之寳 · regional Chinese cuisine",
@@ -528,7 +528,7 @@ const I18N = {
   v_call:"Call", v_dir:"Directions ↗",
   l_addr:"Address", l_tel:"Phone",
   foot_made:"Webwerk · web studio · Luxembourg",
-  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 function applyLang(l){
@@ -566,5 +566,16 @@ document.querySelectorAll('.reveal').forEach(function(el){ if(io) io.observe(el)
   <a class="btn p" href="tel:+35226845468" data-i18n="wwb_call">Appeler</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Bak+Gi+Bo+15+Rue+Andr%C3%A9+Duchscher+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

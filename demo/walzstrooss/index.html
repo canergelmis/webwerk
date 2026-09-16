@@ -366,7 +366,7 @@ footer{background:var(--ink);color:#c3b9a6;padding:44px 0 40px;font-size:.94rem;
       <span class="bt"><svg class="mark" viewBox="0 0 100 100"><use href="#mill"/></svg>D'Walzstrooss</span>
       <span>51 rue J.-F. Kennedy, L-4599 Differdange · <a href="tel:+35228999996" style="color:#e7dcc3">28 99 99 96</a></span>
     </div>
-    <p class="disc"><span data-i18n="foot_disc">Aperçu de site composé par Webwerk à partir de photos et d'informations publiques — ce n'est pas le site officiel de la maison.</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">webwerk.lu</a></p>
+    <p class="disc"><span data-i18n="foot_disc">Aperçu de site composé par Webwerk à partir de photos et d'informations publiques — ce n'est pas le site officiel de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">webwerk.lu</a></p>
   </div>
 </footer>
 
@@ -395,7 +395,7 @@ const I18N = {
   l_tel:"Téléphone", l_mail:"E-mail",
   v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir dans Google Maps →",
   v_place_k:"Où nous trouver", v_place_note:"La terrasse donne directement sur la rue J.-F. Kennedy, entre les façades du vieux Differdange.",
-  foot_disc:"Aperçu de site composé par Webwerk à partir de photos et d'informations publiques — ce n'est pas le site officiel de la maison."
+  foot_disc:"Aperçu de site composé par Webwerk à partir de photos et d'informations publiques — ce n'est pas le site officiel de la maison. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
   brand_sub:"Differdingen · BistroBar", n_maison:"Das Haus", n_terrasse:"Die Terrasse", n_carte:"Die Karte", n_visit:"Infos",
@@ -420,7 +420,7 @@ const I18N = {
   l_tel:"Telefon", l_mail:"E-Mail",
   v_call:"Anrufen", v_dir:"Route", v_dir2:"In Google Maps öffnen →",
   v_place_k:"So finden Sie uns", v_place_note:"Die Terrasse liegt direkt an der Rue J.-F. Kennedy, zwischen den Fassaden des alten Differdingen.",
-  foot_disc:"Website-Vorschau, von Webwerk aus öffentlichen Fotos und Informationen erstellt — dies ist nicht die offizielle Website des Hauses."
+  foot_disc:"Website-Vorschau, von Webwerk aus öffentlichen Fotos und Informationen erstellt — dies ist nicht die offizielle Website des Hauses. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
   brand_sub:"Differdange · BistroBar", n_maison:"The house", n_terrasse:"The terrace", n_carte:"The menu", n_visit:"Find us",
@@ -445,7 +445,7 @@ const I18N = {
   l_tel:"Phone", l_mail:"Email",
   v_call:"Call", v_dir:"Directions", v_dir2:"Open in Google Maps →",
   v_place_k:"Where to find us", v_place_note:"The terrace opens straight onto rue J.-F. Kennedy, among the facades of old Differdange.",
-  foot_disc:"Site preview composed by Webwerk from public photos and information — this is not the venue's official website."
+  foot_disc:"Site preview composed by Webwerk from public photos and information — this is not the venue's official website. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 function applyLang(l){
@@ -503,5 +503,16 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   <a class="btn p" href="tel:+35228999996" data-i18n="wwb_call">Appeler</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=D%27Walzstrooss+51+rue+J-F+Kennedy+Differdange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

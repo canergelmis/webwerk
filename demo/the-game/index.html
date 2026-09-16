@@ -766,7 +766,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-h
       </div>
       <div class="foot-bottom">
         <span>The Game Sports Bar &amp; Steakhouse</span>
-        <span data-i18n="ftMade">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</span>
+        <span data-i18n="ftMade">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span>
       </div>
     </div>
   </footer>
@@ -813,7 +813,7 @@ const I18N = {
     fxCall:"Appeler pour réserver",ms_note:"Au Kirchberg, sur l'avenue J.F. Kennedy.",ms_open:"Ouvrir dans Google Maps →",fxDir:"Itinéraire",
     ftCall:"Réserver une table",ftWolt:"Commander sur Wolt",
     ftVisit:"Visite",ftHours:"Horaires",ftHours1:"Lun–jeu &amp; dim · 11:00 – 23:45",ftHours2:"Ven–sam · 11:00 – 00:00",
-    ftMade:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+    ftMade:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
   },
   de:{
     navMatch:"Spieltag",navMenu:"Die Aufstellung",navReserve:"Reservieren",navGameroom:"Game Room",navVisit:"Standort",
@@ -852,7 +852,7 @@ const I18N = {
     fxCall:"Anrufen & reservieren",ms_note:"Auf Kirchberg, an der Avenue J.F. Kennedy.",ms_open:"In Google Maps öffnen →",fxDir:"Route",
     ftCall:"Tisch reservieren",ftWolt:"Auf Wolt bestellen",
     ftVisit:"Besuch",ftHours:"Öffnungszeiten",ftHours1:"Mo–Do &amp; So · 11:00 – 23:45",ftHours2:"Fr–Sa · 11:00 – 00:00",
-    ftMade:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+    ftMade:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
   },
   en:{
     navMatch:"Match Night",navMenu:"The Line-up",navReserve:"Reserve",navGameroom:"Game Room",navVisit:"Find Us",
@@ -891,7 +891,7 @@ const I18N = {
     fxCall:"Call to book",ms_note:"On Kirchberg, on Avenue J.F. Kennedy.",ms_open:"Open in Google Maps →",fxDir:"Get directions",
     ftCall:"Book a table",ftWolt:"Order on Wolt",
     ftVisit:"Visit",ftHours:"Hours",ftHours1:"Mon–Thu &amp; Sun · 11:00 – 23:45",ftHours2:"Fri–Sat · 11:00 – 00:00",
-    ftMade:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+    ftMade:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
   }
 };
 
@@ -1206,6 +1206,17 @@ applyLang("fr");
     sync();
     if(window.MutationObserver) new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
   })();
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
 </script>
 </body>
 </html>

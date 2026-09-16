@@ -381,7 +381,7 @@ footer .made a{color:var(--amber)}
    <p data-i18n="foot_p">Bar-restaurant thaï et chinois à Limpertsberg.</p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 <script>
 const I18N={
@@ -452,7 +452,7 @@ const I18N={
   map_big:"Avenue du Bois",
   map_btn:"Itinéraire ↗",
   foot_p:"Bar-restaurant thaï et chinois à Limpertsberg.",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{
   wwb_call:"Anrufen",
@@ -521,7 +521,7 @@ const I18N={
   map_big:"Avenue du Bois",
   map_btn:"Route ↗",
   foot_p:"Thailändisch-chinesisches Bar-Restaurant in Limpertsberg.",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{
   wwb_call:"Call",
@@ -590,7 +590,7 @@ const I18N={
   map_big:"Avenue du Bois",
   map_btn:"Directions ↗",
   foot_p:"Thai and Chinese bar-restaurant in Limpertsberg.",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -616,5 +616,16 @@ try{const sv=localStorage.getItem("msl_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   <a class="btn o" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
   <a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Mont-Saint-Lambert+97+Avenue+du+Bois+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

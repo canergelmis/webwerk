@@ -413,7 +413,7 @@ footer{background:var(--ink);color:#b8ae9c;padding:44px 0 40px;font-size:.86rem;
       <span class="bt"><svg class="mark" viewBox="0 0 100 100" style="color:#E30613"><use href="#crest"/></svg>Café Benfica</span>
       <span>179 rue de la Libération, L-3512 Dudelange · <a href="tel:+352518255" style="color:#f2c9c6">51 82 55</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -451,7 +451,7 @@ const I18N = {
   h_note:"Horaires relevés sur des annuaires publics, qui ne s'accordent pas tous sur l'heure de fermeture en soirée.",
   p_1:"Ticket Restaurant", p_2:"Chèque Repas", p_3:"Visa / Mastercard", p_4:"Parking gratuit", p_5:"Accès fauteuil roulant",
   v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗",
-  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
   foot_made:"Un aperçu"
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
@@ -484,7 +484,7 @@ const I18N = {
   h_note:"Öffnungszeiten aus öffentlichen Verzeichnissen.",
   p_1:"Ticket Restaurant", p_2:"Chèque Repas", p_3:"Visa / Mastercard", p_4:"Kostenlose Parkplätze", p_5:"Rollstuhlzugang",
   v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗",
-  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
   foot_made:"Eine Vorschau von"
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -518,7 +518,7 @@ const I18N = {
   h_note:"Hours recorded from public directories, which don't all agree on the evening closing time — to confirm with the venue.",
   p_1:"Ticket Restaurant", p_2:"Luncheon vouchers", p_3:"Visa / Mastercard", p_4:"Free parking", p_5:"Wheelchair access",
   v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗",
-  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
   foot_made:"A preview by"
  }
 };
@@ -544,5 +544,16 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   <a class="btn p" href="tel:+352518255" data-i18n="wwb_call">Appeler</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Benfica+179+rue+de+la+Lib%C3%A9ration+Dudelange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

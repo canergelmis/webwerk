@@ -498,7 +498,7 @@ var I18N={
     info_find:"So finden Sie uns",info_addr:"7, rue du Nord<br/>L-2229 Luxemburg (Oberstadt)",info_maps:"In Maps öffnen ↗",
     info_contact:"Kontakt",
     foot_tag:"Café & Bar · Oberstadt · Luxemburg",
-    disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+    disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
     days:["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"]
   },
   en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -527,7 +527,7 @@ var I18N={
     info_find:"Find us",info_addr:"7, rue du Nord<br/>L-2229 Luxembourg (Old Town)",info_maps:"Open in Maps ↗",
     info_contact:"Contact",
     foot_tag:"Café & bar · Old Town · Luxembourg",
-    disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+    disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
     days:["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
   }
 };
@@ -572,5 +572,16 @@ applyLang("fr");
   <a class="btn p" href="tel:+35226201894" data-i18n="wwb_call">Appeler</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Konrad+Café+7+rue+du+Nord+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

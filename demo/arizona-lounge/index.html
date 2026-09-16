@@ -873,7 +873,7 @@
       <span class="dc-note" data-i18n="footCta">Appelez pour réserver</span>
     </div>
   </div>
-  <p class="desert-legal" data-i18n="footLegal">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+  <p class="desert-legal" data-i18n="footLegal">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
 </footer>
 
 <!-- MOBILE FIXED CALL BAR -->
@@ -918,7 +918,7 @@ const I18N = {
     plateLabel:"L'adresse",
     plateOrient:"Nous sommes dans le <strong>parc d'activité Edmond Reuter</strong>, à Contern — le <strong>château d'eau</strong> se dresse juste à côté, visible depuis la terrasse : si vous le voyez, vous y êtes.",
     footHours:"Lun–Sam 08:00–20:00 · dimanche fermé", footCta:"Appelez pour réserver",
-    footLegal:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+    footLegal:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
     mCall:"Appeler", mDir:"Itinéraire",
     locale:"fr-FR"
   },
@@ -949,7 +949,7 @@ const I18N = {
     plateLabel:"Die Adresse",
     plateOrient:"Wir liegen im <strong>Gewerbepark Edmond Reuter</strong> in Contern — der <strong>Wasserturm</strong> steht gleich nebenan und ist von der Terrasse aus zu sehen: wer ihn sieht, ist da.",
     footHours:"Mo–Sa 08:00–20:00 · Sonntag geschlossen", footCta:"Anrufen & reservieren",
-    footLegal:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+    footLegal:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
     mCall:"Anrufen", mDir:"Route",
     locale:"de-DE"
   },
@@ -980,7 +980,7 @@ const I18N = {
     plateLabel:"The address",
     plateOrient:"We are in the <strong>Edmond Reuter business park</strong> in Contern — Contern's <strong>water tower</strong> stands right next door and is visible from the terrace: if you can see it, you're here.",
     footHours:"Mon–Sat 08:00–20:00 · Sunday closed", footCta:"Call to book",
-    footLegal:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+    footLegal:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
     mCall:"Call", mDir:"Directions",
     locale:"en-GB"
   }
@@ -1007,5 +1007,16 @@ function setLang(lang){
 </script>
 
 
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

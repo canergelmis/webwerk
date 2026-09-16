@@ -453,7 +453,7 @@
 <footer>
   <div class="wrap">
     <img src="assets/logo-cream.png" alt="Bistrot Place de Paris, Luxembourg, 1972" />
-    <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
   </div>
 </footer>
 
@@ -561,7 +561,7 @@
       dock_menu:"La carte",
       dock_call:"Appeler",
       dock_info:"Horaires et adresse",
-      disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+      disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
     },
     de:{
       jump_viande:"Fleisch",
@@ -658,7 +658,7 @@
       dock_menu:"Karte",
       dock_call:"Anrufen",
       dock_info:"Zeiten und Adresse",
-      disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+      disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
     },
     en:{
       jump_viande:"Meat",
@@ -755,7 +755,7 @@
       dock_menu:"Menu",
       dock_call:"Call",
       dock_info:"Hours and address",
-      disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+      disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
     }
   };
 
@@ -775,6 +775,17 @@
     b.addEventListener("click", function(){ applyLang(b.getAttribute("data-lang")); });
   });
   applyLang("fr");
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
 </script>
 </body>
 </html>

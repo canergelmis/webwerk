@@ -425,7 +425,7 @@ footer .made a{color:var(--gold)}
    <p style="margin-top:10px">4b, Dernier Sol<br>L-2543 Bonnevoie<br><a href="tel:+35227532549" style="border-bottom:1px solid var(--gold)">+352 27 53 25 49</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -463,7 +463,7 @@ const I18N={
   foot_p:"Cuisine indienne du Sud à Bonnevoie — Andhra & Hyderabad. Biryani, thali à volonté, spécialités télougou.",
   
   cta_call:"Appeler",cta_dir:"Itinéraire ↗",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{
   nav_thali:"Das Thali",nav_carte:"Karte",nav_maison:"Das Haus",nav_infos:"Infos & Anfahrt",
@@ -498,7 +498,7 @@ const I18N={
   foot_p:"Südindische Küche in Bonnevoie — Andhra & Hyderabad. Biryani, Thali nach Belieben, Telugu-Spezialitäten.",
   
   cta_call:"Anrufen",cta_dir:"Route ↗",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{
   nav_thali:"The thali",nav_carte:"Menu",nav_maison:"About",nav_infos:"Find us",
@@ -533,7 +533,7 @@ const I18N={
   foot_p:"South Indian kitchen in Bonnevoie — Andhra & Hyderabad. Biryani, all-you-can-eat thali, Telugu specialities.",
   
   cta_call:"Call",cta_dir:"Directions ↗",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -552,6 +552,17 @@ const hd=document.getElementById("hd");
 const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
 try{const sv=localStorage.getItem("bh_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
 </script>
 </body>
 </html>

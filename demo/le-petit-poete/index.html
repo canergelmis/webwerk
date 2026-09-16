@@ -394,7 +394,7 @@ footer .made a{color:var(--gold)}
    <p style="margin-top:10px">13, place du Marché<br>L-6460 Echternach<br><a href="tel:+3527200721">+352 72 00 72 1</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -424,7 +424,7 @@ const I18N={
   ino_k1:"Adresse",ino_hours:"Cuisine non-stop de 12h à 22h",ino_k2:"Téléphone",cc_p:"Pour réserver une table ou une chambre.",
   map_btn:"Ouvrir dans Maps ↗",
   foot_p:"Hôtel-café-restaurant sur la place du Marché d'Echternach.",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_table:"Küche",nav_carte:"Karte",nav_ech:"Echternach",nav_infos:"Infos & Anfahrt",
@@ -451,7 +451,7 @@ const I18N={
   ino_k1:"Adresse",ino_hours:"Küche durchgehend von 12 bis 22 Uhr",ino_k2:"Telefon",cc_p:"Für eine Tisch- oder Zimmerreservierung.",
   map_btn:"In Maps öffnen ↗",
   foot_p:"Hotel, Café und Restaurant am Marktplatz von Echternach.",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_table:"Food",nav_carte:"Menu",nav_ech:"Echternach",nav_infos:"Find us",
@@ -478,7 +478,7 @@ const I18N={
   ino_k1:"Address",ino_hours:"Kitchen non-stop, 12:00 to 22:00",ino_k2:"Phone",cc_p:"To book a table or a room.",
   map_btn:"Open in Maps ↗",
   foot_p:"Hotel, café and restaurant on Echternach's market square.",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -503,5 +503,16 @@ try{const sv=localStorage.getItem("lpp_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   <a class="btn p" href="tel:+3527200721" data-i18n="wwb_call">Appeler</a>
   <a class="btn o" href="https://www.google.com/maps/search/Le+Petit+Po%C3%A8te+13+Place+du+March%C3%A9+Echternach" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

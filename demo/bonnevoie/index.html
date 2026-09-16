@@ -449,7 +449,7 @@ footer .made a{color:var(--ochre)}
    <p style="margin-top:10px">29, rue de Bonnevoie<br>L-1260 Luxembourg<br><a href="tel:+352661465501" style="border-bottom:1px solid var(--ochre)">+352 661 465 501</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -485,7 +485,7 @@ const I18N={
   map_sub:"À 4 min à pied de la Gare de Luxembourg",map_btn:"Ouvrir dans Maps ↗",
   foot_p:"Cuisine ouest-africaine et afrobeats, à Bonnevoie. On mange le midi, on danse le soir.",
   foot_made:"Webwerk · studio web · Luxembourg",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
   nav_mafe:"Mafé",nav_carte:"Karte",nav_night:"Abends",nav_infos:"Infos & Anfahrt",
@@ -519,7 +519,7 @@ const I18N={
   map_sub:"4 Minuten zu Fuß vom Bahnhof Luxemburg",map_btn:"In Maps öffnen ↗",
   foot_p:"Westafrikanische Küche und Afrobeats, in Bonnevoie. Mittags essen, abends tanzen.",
   foot_made:"Webwerk · Webstudio · Luxemburg",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
   nav_mafe:"The mafé",nav_carte:"Menu",nav_night:"After dark",nav_infos:"Find us",
@@ -553,7 +553,7 @@ const I18N={
   map_sub:"A 4-minute walk from Luxembourg station",map_btn:"Open in Maps ↗",
   foot_p:"West African kitchen and afrobeats, in Bonnevoie. Eat at noon, dance at night.",
   foot_made:"Webwerk · web studio · Luxembourg",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -579,5 +579,16 @@ try{const sv=localStorage.getItem("bb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   <a class="btn o" href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-bonnevoie-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
   <a class="btn o" href="https://www.google.com/maps/search/Bistrot+de+Bonnevoie+29+Rue+de+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

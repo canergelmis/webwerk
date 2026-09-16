@@ -441,7 +441,7 @@ footer .wrap{padding:52px clamp(20px,5vw,48px) 40px}
         <a href="https://www.instagram.com/trattoriadagino_luxembourg/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
-    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
 </footer>
@@ -478,7 +478,7 @@ const I18N = {
   find_eyebrow:"Nous trouver", find_h2:"Réserver &amp; venir", find_addr_l:"Adresse", find_district:"quartier Gare", find_phone_l:"Téléphone", find_email_l:"E-mail", find_hours_l:"Horaires",
   day_mon:"Lundi", day_tue:"Mardi", day_wed:"Mercredi", day_thu:"Jeudi", day_fri:"Vendredi", day_sat:"Samedi", day_sun:"Dimanche", closed:"Fermé",
   cta_call2:"Réserver une table", cta_online:"Réserver en ligne", ms_note:"Quartier Gare, à deux pas de la gare centrale.",ms_open:"Ouvrir dans Google Maps →",cta_route:"Itinéraire", card_proof_cap:"Coordonnées telles qu'affichées sur la carte de visite de la maison",
-  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
   foot_made:"Un aperçu", mbar_call:"Appeler", mbar_dir:"Itinéraire"
  },
  de:{
@@ -506,7 +506,7 @@ const I18N = {
   find_eyebrow:"Finden Sie uns", find_h2:"Reservieren &amp; kommen", find_addr_l:"Adresse", find_district:"Viertel Gare", find_phone_l:"Telefon", find_email_l:"E-Mail", find_hours_l:"Öffnungszeiten",
   day_mon:"Montag", day_tue:"Dienstag", day_wed:"Mittwoch", day_thu:"Donnerstag", day_fri:"Freitag", day_sat:"Samstag", day_sun:"Sonntag", closed:"Geschlossen",
   cta_call2:"Tisch reservieren", cta_online:"Online reservieren", ms_note:"Bahnhofsviertel, wenige Schritte vom Hauptbahnhof.",ms_open:"In Google Maps öffnen →",cta_route:"Route", card_proof_cap:"Kontaktdaten wie auf der Visitenkarte des Hauses angegeben",
-  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
   foot_made:"Eine Vorschau von", mbar_call:"Anrufen", mbar_dir:"Route"
  },
  en:{
@@ -534,7 +534,7 @@ const I18N = {
   find_eyebrow:"Find us", find_h2:"Reserve &amp; visit", find_addr_l:"Address", find_district:"Gare district", find_phone_l:"Phone", find_email_l:"Email", find_hours_l:"Hours",
   day_mon:"Monday", day_tue:"Tuesday", day_wed:"Wednesday", day_thu:"Thursday", day_fri:"Friday", day_sat:"Saturday", day_sun:"Sunday", closed:"Closed",
   cta_call2:"Reserve a table", cta_online:"Book online", ms_note:"Gare district, a short walk from the central station.",ms_open:"Open in Google Maps →",cta_route:"Directions", card_proof_cap:"Contact details as shown on the venue's own business card",
-  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
   foot_made:"A preview by", mbar_call:"Call", mbar_dir:"Directions"
  }
 };
@@ -550,6 +550,17 @@ function applyLang(l){
 }
 document.querySelectorAll('.langs button').forEach(function(b){ b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); }); });
 (function(){ let l='fr'; try{ l = localStorage.getItem('trattoriadagino_lang') || 'fr'; }catch(e){} if(l!=='fr') applyLang(l); })();
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
 </script>
 </body>
 </html>

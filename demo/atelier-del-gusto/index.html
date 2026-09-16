@@ -470,7 +470,7 @@
 <footer>
   <div class="wrap">
     <span class="fbrand">Atelier del Gusto</span>
-    <p class="disclosure" data-i18n="footer.disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disclosure" data-i18n="footer.disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
   </div>
 </footer>
 
@@ -528,7 +528,7 @@ const I18N = {
     "visit.delivery.label":"Livraison",
     "visit.foodtruck.label":"Aussi sur roues","visit.foodtruck":"Le food truck Atelier del Gusto circule à Gasperich, Kirchberg et Limpertsberg.",
     "visit.map.cta":"Voir l'itinéraire",
-    "footer.disclaimer":"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+    "footer.disclaimer":"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
   },
   de:{
     "brand.sub":"Trattoria · Pizzeria · Italienisches Feinkostgeschäft",
@@ -577,7 +577,7 @@ const I18N = {
     "visit.delivery.label":"Lieferung",
     "visit.foodtruck.label":"Auch auf Rädern","visit.foodtruck":"Der Food Truck Atelier del Gusto fährt in Gasperich, Kirchberg und Limpertsberg.",
     "visit.map.cta":"Route anzeigen",
-    "footer.disclaimer":"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+    "footer.disclaimer":"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
   },
   en:{
     "brand.sub":"Trattoria · Pizzeria · Italian grocery",
@@ -626,7 +626,7 @@ const I18N = {
     "visit.delivery.label":"Delivery",
     "visit.foodtruck.label":"Also on wheels","visit.foodtruck":"The Atelier del Gusto food truck roams Gasperich, Kirchberg and Limpertsberg.",
     "visit.map.cta":"Get directions",
-    "footer.disclaimer":"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+    "footer.disclaimer":"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
   }
 };
 
@@ -676,6 +676,17 @@ if('IntersectionObserver' in window){
   },{threshold:0});
   io2.observe(hero);
 }
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
 </script>
 </body>
 </html>

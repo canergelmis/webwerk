@@ -410,7 +410,7 @@ footer .made a{color:var(--amber)}
    <p style="margin-top:10px">4, rue d'Esch<br>L-3920 Mondercange</p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -450,7 +450,7 @@ const I18N={
   foot_p:"Le bar à vin et brasserie de Mondercange — planches à partager, fruits de mer, et de la musique certains soirs.",
   foot_made:"Webwerk · studio web · Luxembourg",
   foot_phone:"",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_dir:"Route",
   nav_planche:"Die Platte",nav_carte:"Karte",nav_soir:"Am Abend",nav_infos:"Infos & Anfahrt",
@@ -487,7 +487,7 @@ const I18N={
   foot_p:"Die Weinbar und Brasserie von Mondercange — Platten zum Teilen, Meeresfrüchte und an manchen Abenden Musik.",
   foot_made:"Webwerk · Webstudio · Luxemburg",
   foot_phone:"",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_dir:"Directions",
   nav_planche:"The board",nav_carte:"Menu",nav_soir:"After dark",nav_infos:"Find us",
@@ -524,7 +524,7 @@ const I18N={
   foot_p:"The wine bar and brasserie of Mondercange — boards to share, seafood, and music on some evenings.",
   foot_made:"Webwerk · web studio · Luxembourg",
   foot_phone:"",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -588,5 +588,16 @@ try{const sv=localStorage.getItem("atb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
 <div class="wwbar" role="navigation" aria-label="Actions rapides">
   <a class="btn p" href="https://www.google.com/maps/search/Au+Tire-Bouchon+4+Rue+d%27Esch+Mondercange" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

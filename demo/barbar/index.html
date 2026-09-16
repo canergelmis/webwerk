@@ -396,7 +396,7 @@ footer{background:var(--ink);color:var(--muted);padding:44px 0 84px;font-size:.8
       <span class="bt">BAR:BAR</span>
       <span>14 rue de la Boucherie, L-1247 Luxembourg · <a href="tel:+352661909185" style="color:#e9dcb8">661 909 185</a></span>
     </div>
-    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="foot_disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="echo" data-i18n="foot_echo">BAR:BAR — le même mot, deux fois, une seule adresse.</p>
     <p class="madeby"><span data-i18n="foot_made">Un aperçu</span> <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk</a> — webwerk.lu</p>
   </div>
@@ -435,7 +435,7 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Téléphone",  l_hours:"Horaires", h_val:"Mar–Jeu 16h–00h · Ven–Sam 17h–01h · Dim–Lun fermé",
   l_transport:"Accès", v_transport:"Tram 1, arrêt Hamilius — env. 550 m",
   v_call:"Appeler", v_dir:"Itinéraire", v_dir2:"Ouvrir l'itinéraire ↗", mapsCta:"Ouvrir dans Google Maps →",
-  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.",
+  foot_disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.",
   foot_echo:"BAR:BAR — le même mot, deux fois, une seule adresse.",
   foot_made:"Un aperçu", sb_call:"Appeler", sb_dir:"Itinéraire"
  },
@@ -465,7 +465,7 @@ const I18N = {
   l_addr:"Adresse", l_tel:"Telefon",  l_hours:"Öffnungszeiten", h_val:"Di–Do 16–00 Uhr · Fr–Sa 17–01 Uhr · So–Mo geschlossen",
   l_transport:"Anfahrt", v_transport:"Straßenbahn 1, Halt Hamilius — ca. 550 m",
   v_call:"Anrufen", v_dir:"Route", v_dir2:"Route öffnen ↗", mapsCta:"In Google Maps öffnen →",
-  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+  foot_disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
   foot_echo:"BAR:BAR — dasselbe Wort, zweimal, eine einzige Adresse.",
   foot_made:"Eine Vorschau von", sb_call:"Anrufen", sb_dir:"Route"
  },
@@ -495,7 +495,7 @@ const I18N = {
   l_addr:"Address", l_tel:"Phone",  l_hours:"Hours", h_val:"Tue–Thu 4pm–midnight · Fri–Sat 5pm–1am · Sun–Mon closed",
   l_transport:"Getting there", v_transport:"Tram 1, Hamilius stop — approx. 550 m",
   v_call:"Call", v_dir:"Directions", v_dir2:"Open directions ↗", mapsCta:"Open in Google Maps →",
-  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+  foot_disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
   foot_echo:"BAR:BAR — the same word, twice, one single address.",
   foot_made:"A preview by", sb_call:"Call", sb_dir:"Directions"
  }
@@ -530,6 +530,17 @@ if(doodle){
   if(!bar||!hero) return;
   const vis=new IntersectionObserver(function(es){ es.forEach(function(e){ bar.classList.toggle('show', !e.isIntersecting); }); }, {threshold:0});
   vis.observe(hero);
+})();
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
 })();
 </script>
 </body>

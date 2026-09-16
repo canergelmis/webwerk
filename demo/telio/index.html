@@ -417,7 +417,7 @@ footer .made a{color:var(--ochre)}
    <p style="margin-top:10px">7, Grand-Rue<br>L-1660 Luxembourg<br><a href="tel:+35227567787">+352 27 56 77 87</a><br><a href="https://www.instagram.com/telio_luxembourg/" target="_blank" rel="noopener">Instagram ↗</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 <script>
 const I18N={
@@ -524,7 +524,7 @@ const I18N={
   cc_p:"Pour commander à emporter, ou pour une question.",
   cc_wolt:"Commander sur Wolt ↗",
   foot_p:"Grill méditerranéen au 7, Grand-Rue, dans la vieille ville de Luxembourg.",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{
   wwb_call:"Anrufen",
@@ -629,7 +629,7 @@ const I18N={
   cc_p:"Zum Bestellen zum Mitnehmen oder bei Fragen.",
   cc_wolt:"Auf Wolt bestellen ↗",
   foot_p:"Mediterraner Grill an der Grand-Rue 7, in der Luxemburger Altstadt.",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{
   wwb_call:"Call",
@@ -734,7 +734,7 @@ const I18N={
   cc_p:"To order a takeaway, or for any question.",
   cc_wolt:"Order on Wolt ↗",
   foot_p:"Mediterranean grill at 7 Grand-Rue, in the old town of Luxembourg.",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -757,5 +757,16 @@ try{const sv=localStorage.getItem("te_lang");applyLang(sv&&I18N[sv]?sv:"fr");}ca
   <a class="btn o" href="https://wolt.com/en/lux/luxembourg/restaurant/telio-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Wolt ↗</a>
   <a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Restaurant+T%C3%A9lio+7+Grand-Rue+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

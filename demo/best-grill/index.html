@@ -410,7 +410,7 @@ footer .ct{font-family:'Body';font-weight:800;letter-spacing:.14em;text-transfor
    <p style="margin-top:10px">63, Rue de Clausen<br>L-1342 Luxembourg<br><a href="tel:+35227848386" style="border-bottom:1px solid var(--gold)">27 84 83 86</a></p>
   </div>
  </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p></div>
+ <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
 </footer>
 
 <script>
@@ -446,7 +446,7 @@ const I18N={
   foot_p:"Le döner de Clausen, à la broche — assiettes, dürüm et grillades, frais et généreux.",
   foot_made:"Webwerk · studio web · Luxembourg",
   foot_contact:"Contact",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  de:{wwb_call:"Anrufen",wwb_dir:"Route",
   nav_broche:"Vom Spieß",nav_carte:"Karte",nav_gal:"Bilder",nav_infos:"Infos & Anfahrt",
@@ -480,7 +480,7 @@ const I18N={
   foot_p:"Der Döner von Clausen, vom Spieß — Teller, Dürüm und Grill, frisch und großzügig.",
   foot_made:"Webwerk · Webstudio · Luxemburg",
   foot_contact:"Kontakt",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{wwb_call:"Call",wwb_dir:"Directions",
   nav_broche:"On the spit",nav_carte:"Menu",nav_gal:"In pictures",nav_infos:"Find us",
@@ -514,7 +514,7 @@ const I18N={
   foot_p:"The döner of Clausen, on the spit — plates, dürüm and grilled dishes, fresh and generous.",
   foot_made:"Webwerk · web studio · Luxembourg",
   foot_contact:"Contact",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 let lang="fr";
@@ -645,5 +645,16 @@ try{const sv=localStorage.getItem("bgr_lang");applyLang(sv&&I18N[sv]?sv:"fr");}c
   <a class="btn p" href="tel:+35227848386" data-i18n="wwb_call">Appeler</a>
   <a class="btn o" href="https://www.google.com/maps/search/Best+Grill+63+Rue+de+Clausen+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

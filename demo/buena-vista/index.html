@@ -357,7 +357,7 @@ footer a.wk{color:var(--orange2);font-weight:700}
       <span class="bn"><span class="sun"></span>Buena Vista</span>
       <span style="font-size:.9rem" data-i18n="foot_tag">Street food latine · Bonnevoie · Luxembourg</span>
     </div>
-    <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
     <p class="disc" style="margin-top:8px">© <span id="yr"></span> · <a class="wk" href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk — nous dessinons le web.</a></p>
   </div>
 </footer>
@@ -385,7 +385,7 @@ var I18N={
     info_find:"Nous trouver",info_addr:"174, Route de Thionville<br/>L-2610 Luxembourg-Bonnevoie",info_maps:"Ouvrir dans Maps ↗",
     info_contact:"Contact",info_contact_p:"À emporter, sur place ou en livraison.",
     foot_tag:"Street food latine · Bonnevoie · Luxembourg",
-    disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
+    disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
   },
   de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
     nav_menu:"Die Karte",nav_house:"Das Haus",nav_gal:"In Bildern",nav_info:"Infos",
@@ -409,7 +409,7 @@ var I18N={
     info_find:"So finden Sie uns",info_addr:"174, Route de Thionville<br/>L-2610 Luxemburg-Bonneweg",info_maps:"In Maps öffnen ↗",
     info_contact:"Kontakt",info_contact_p:"Zum Mitnehmen, vor Ort oder als Lieferung.",
     foot_tag:"Latino Street Food · Bonneweg · Luxemburg",
-    disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
+    disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
   },
   en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
     nav_menu:"The menu",nav_house:"The place",nav_gal:"In pictures",nav_info:"Info",
@@ -432,7 +432,7 @@ var I18N={
     info_find:"Find us",info_addr:"174, Route de Thionville<br/>L-2610 Luxembourg-Bonnevoie",info_maps:"Open in Maps ↗",
     info_contact:"Contact",info_contact_p:"Takeaway, dine-in or delivery.",
     foot_tag:"Latin street food · Bonnevoie · Luxembourg",
-    disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue."
+    disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
   }
 };
 var lang="fr";
@@ -457,5 +457,16 @@ applyLang("fr");
   <a class="btn g" href="https://wolt.com/en/lux/luxembourg/restaurant/buena-vista-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Buena+Vista+174+Route+de+Thionville+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>

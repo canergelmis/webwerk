@@ -445,7 +445,7 @@ footer .wk .made{color:#8f836d}
         <a href="https://webwerk.lu" target="_blank" rel="noopener">Webwerk · studio web · Luxembourg ↗</a>
       </div>
     </div>
-    <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement.</p>
+    <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
   </div>
 </footer>
 
@@ -524,7 +524,7 @@ var I18N = {
     hours_kick:"Öffnungszeiten", hours_h:"Wann wir öffnen",
     hours_note:"Service 11:30–14:00 und 18:30–21:30. Dienstag und Sonntagabend geschlossen.",
     foot_sub:"Diekirch · Luxemburg", foot_made:"Website-Vorschau für das Haus, gestaltet von",
-    disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal.",
+    disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
     days:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"], closed:"Geschlossen"
   },
   en:{wwb_call:"Call",wwb_dir:"Directions",
@@ -562,7 +562,7 @@ var I18N = {
     hours_kick:"Opening hours", hours_h:"When we open",
     hours_note:"Service 11:30–14:00 and 18:30–21:30. Closed Tuesday and Sunday evening.",
     foot_sub:"Diekirch · Luxembourg", foot_made:"Website preview composed for the venue by",
-    disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue.",
+    disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
     days:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], closed:"Closed"
   }
 };
@@ -628,5 +628,16 @@ applyLang("fr");
   <a class="btn p" href="tel:+35226803705" data-i18n="wwb_call">Appeler</a>
   <a class="btn g" href="https://www.google.com/maps/search/?api=1&query=Jardin+du+Portugal+33+Avenue+de+la+Gare+Diekirch" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
 </div>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
 </body>
 </html>
