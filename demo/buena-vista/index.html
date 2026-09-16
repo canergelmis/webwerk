@@ -187,6 +187,8 @@ footer a.wk{color:var(--orange2);font-weight:700}
    needs, so they stay reachable anywhere in a long scroll instead of only at
    the top and bottom. Mobile only. */
 @media(max-width:760px){
+  /* the hero buttons sat under the fixed bar; the bar calls and orders, the nav carries La carte */
+  .hero .cta{display:none}
   .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
     display:flex;gap:8px;padding:10px 12px;
     padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));

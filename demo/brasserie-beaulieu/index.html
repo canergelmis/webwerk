@@ -1142,7 +1142,9 @@ applyLang("fr");
   background:var(--rk-bg); border-top:1px solid var(--rk-line);
   box-shadow:0 -6px 20px rgba(20,18,15,.10); font-family:var(--rk-font);
 }
-@media (max-width:639.98px){ .rk-sticky{ display:flex; } body{ scroll-padding-bottom:4.5rem; } }
+@media (max-width:639.98px){ .rk-sticky{ display:flex; } body{ scroll-padding-bottom:4.5rem; }
+  /* the sticky bar carries these two actions here, and the hero pair fell under it */
+  .hero-actions{ display:none; } }
 .rk-sticky__btn{
   flex:1; display:inline-flex; align-items:center; justify-content:center; gap:.45em;
   min-height:2.9rem; padding:.6rem .8rem; border-radius:8px; text-decoration:none;

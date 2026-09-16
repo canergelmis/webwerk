@@ -187,6 +187,8 @@ footer .ct{font-family:'Body';font-weight:800;letter-spacing:.14em;text-transfor
    needs, so they stay reachable anywhere in a long scroll instead of only at
    the top and bottom. Mobile only. */
 @media(max-width:760px){
+  /* the hero text block carried no side padding, so it sat 11px from the screen edge */
+  .hero .inner{padding-left:18px;padding-right:18px}
   .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
     display:flex;gap:8px;padding:10px 12px;
     padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
