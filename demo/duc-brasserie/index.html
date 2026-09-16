@@ -168,7 +168,7 @@
   .hero-left{background:var(--charcoal);color:var(--cream);
     display:flex;flex-direction:column;justify-content:center;
     padding:70px clamp(40px,6vw,110px) 90px;position:relative}
-  .hero-brand{display:flex;align-items:flex-start;gap:18px;margin-bottom:6px}
+  .hero-brand{display:flex;align-items:flex-start;gap:18px;margin:0 0 6px}
   .wordmark{font-family:var(--display);font-weight:800;font-size:clamp(4.4rem,11vw,8.5rem);
     line-height:.82;color:var(--cream);letter-spacing:-.02em;position:relative}
   .wordmark .cr{color:var(--amber);font-size:.34em;vertical-align:top;display:inline-block;margin-left:.04em}
@@ -281,7 +281,7 @@
   .why-text h2{font-size:clamp(2rem,3.6vw,3rem);margin-bottom:8px}
   .why-text .kicker{margin-bottom:16px}
   .why-text p{font-size:1.05rem;max-width:46ch;margin-bottom:28px}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
   .stat{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:18px 16px}
   .stat .big{font-family:var(--display);font-weight:800;font-size:1.7rem;color:var(--red);line-height:1}
   .stat .sm{font-family:var(--sans);font-size:.82rem;color:var(--slate);margin-top:8px;line-height:1.35}
@@ -398,6 +398,7 @@
     .fmt col.c-f{width:19%}
     .fmt td.rn{font-size:.92rem}
     .fmt thead th{font-size:.56rem;letter-spacing:.08em}
+    .stats{grid-template-columns:1fr}
     .subs{grid-template-columns:1fr;gap:36px}
     .why-media{grid-template-columns:1fr}
     .why-media .frame{height:220px}
@@ -443,9 +444,9 @@
 <!-- HERO -->
 <header class="hero">
   <div class="hero-left">
-    <div class="hero-brand">
+    <h1 class="hero-brand">
       <span class="wordmark">Duc<span class="cr coronet"></span></span>
-    </div>
+    </h1>
     <div class="brasserie">Café &amp; Snack</div>
     <div class="dualkick">Snack · Kebab · Duc</div>
     <p class="appetite" data-i18n="appetite">Kebab frais, portions généreuses, à Hesperange de 6h à 22h.</p>
