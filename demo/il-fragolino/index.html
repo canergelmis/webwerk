@@ -282,7 +282,8 @@
 
   /* section shell */
   section{scroll-margin-top:1rem}
-  .sec-pad{padding:clamp(3.4rem,6vw,6rem) 0}
+  /* a padding shorthand here wiped the side gutter .zone sets, so text touched both edges */
+  .sec-pad{padding-block:clamp(3.4rem,6vw,6rem)}
   .sec-label{
     color:var(--chianti);margin-bottom:1.4rem;display:flex;align-items:center;gap:.7rem;
   }
@@ -471,7 +472,7 @@
 <aside class="rail" aria-label="Réservation et navigation">
   <div class="rail__brand">
     <span class="kicker rail__kicker" data-fr="Ristorante Italiano · Depuis 1999" data-en="Ristorante Italiano · Since 1999" data-de="Ristorante Italiano · Seit 1999">Ristorante Italiano · Depuis 1999</span>
-    <div class="wordmark serif">Il Fragol<span class="bulb-i">i</span>no</div>
+    <h1 class="wordmark serif">Il Fragol<span class="bulb-i">i</span>no</h1>
     <p class="rail__promise" data-fr="Quatre salles, une véranda, un braséro sous les statues — la maison italienne du Grund." data-en="Four rooms, a veranda, a fire pit beneath the statues — the Italian house of the Grund." data-de="Vier Säle, ein Wintergarten, eine Feuerschale unter den Statuen — das italienische Haus im Grund.">Quatre salles, une véranda, un braséro sous les statues — la maison italienne du Grund.</p>
   </div>
 
@@ -515,7 +516,7 @@
     </div>
     <div class="opening__text">
       <span class="kicker opening__kicker" data-fr="Luxembourg-Ville · Montée de la Pétrusse" data-en="Luxembourg City · Montée de la Pétrusse" data-de="Luxemburg-Stadt · Montée de la Pétrusse">Luxembourg-Ville · Montée de la Pétrusse</span>
-      <h1 class="opening__h serif" data-fr="Une terrasse taillée dans la falaise, <em>depuis 1999</em>." data-en="A terrace carved into the cliff, <em>since 1999</em>." data-de="Eine in den Fels gehauene Terrasse, <em>seit 1999</em>.">Une terrasse taillée dans la falaise, <em>depuis 1999</em>.</h1>
+      <h2 class="opening__h serif" data-fr="Une terrasse taillée dans la falaise, <em>depuis 1999</em>." data-en="A terrace carved into the cliff, <em>since 1999</em>." data-de="Eine in den Fels gehauene Terrasse, <em>seit 1999</em>.">Une terrasse taillée dans la falaise, <em>depuis 1999</em>.</h2>
       <button class="opening__echo" data-open-modal data-fr="Réserver votre table" data-en="Reserve your table" data-de="Ihren Tisch reservieren">Réserver votre table</button>
     </div>
   </section>

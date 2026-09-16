@@ -229,6 +229,8 @@
     background:var(--stone);
     overflow:hidden;
   }
+  /* on a desktop the portrait photo drove the hero to ~1195px, pushing the venue name below the fold */
+  @media(min-width:961px){ .hero-photo{height:min(82vh,720px)} }
   .hero-photo img{
     width:100%;height:100%;object-fit:cover;object-position:center 42%;
     filter:saturate(1.02);
