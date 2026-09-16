@@ -52,10 +52,11 @@
   /* ---------- header ---------- */
   .bar{position:sticky;top:0;z-index:50;background:rgba(246,238,223,.96);border-bottom:1px solid var(--line);
     backdrop-filter:saturate(1.2) blur(6px)}
-  .bar .wrap{display:flex;align-items:center;gap:18px;min-height:78px;padding-block:8px}
-  .bar .mark img{height:66px;width:auto}
-  .bar .mark-txt{display:none;font-family:var(--disp);font-weight:600;font-size:1.2rem;color:var(--bord);line-height:1.02}
+  .bar .wrap{display:flex;align-items:center;gap:18px;min-height:70px;padding-block:8px}
+  .bar .mark img{display:none}
+  .bar .mark-txt{display:block;font-family:var(--disp);font-weight:600;font-size:1.2rem;color:var(--bord);line-height:1.02}
   .bar .mark-txt b{display:block;font-weight:700;letter-spacing:.02em}
+  @media(min-width:641px){ .bar .mark-txt{font-size:1.5rem} }
   .bar nav{display:flex;gap:22px;margin-left:auto}
   .bar nav a{font-size:.9rem;font-weight:600;color:var(--ink)}
   .bar nav a:hover{color:var(--bord)}
@@ -183,19 +184,15 @@
   @media(max-width:640px){
     body{font-size:16px;padding-bottom:54px}
     .bar .wrap{min-height:58px}
-    .bar .mark img{display:none}
-    .bar .mark-txt{display:block}
     .bar .btn{display:none}
     .hero .wrap{min-height:min(72svh,560px)}
+    .hero img.bg{object-position:74% 60%}
     .hero .cta{display:none}
     .facts .wrap{grid-template-columns:1fr}
     .facts .c+.c{border-left:0;border-top:1px solid rgba(246,238,223,.28);padding-left:0;padding-top:16px}
     .facts .c{padding-block:16px}
     .groups{grid-template-columns:1fr}
-    .jump{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-block:16px 4px;position:sticky;top:58px;z-index:20;
-      background:linear-gradient(180deg,var(--paper2) 72%,rgba(238,226,205,0));
-      -webkit-mask-image:linear-gradient(90deg,#000 88%,rgba(0,0,0,.15));mask-image:linear-gradient(90deg,#000 88%,rgba(0,0,0,.15))}
-    .jump::-webkit-scrollbar{display:none}
+    .jump{display:flex;flex-wrap:wrap;gap:8px;padding-block:16px 2px}
     .jump a{flex:none;font-size:.82rem;font-weight:600;color:var(--ink);border:1px solid var(--line);
       padding:8px 13px;border-radius:2px;white-space:nowrap;background:#fff}
     .cocks{columns:2;column-gap:20px}
@@ -282,7 +279,7 @@
 
 
       <nav class="jump" aria-label="Rubriques">
-        <a href="#g-viande" data-i18n="g_viande">Viandes</a><a href="#g-autres" data-i18n="g_autres">Autres plats</a><a href="#g-pates" data-i18n="g_pates">Pâtes</a><a href="#g-salades" data-i18n="g_salades">Salades</a><a href="#g-snacks" data-i18n="g_omelettes">Omelettes et snacks</a><a href="#g-glaces" data-i18n="g_glaces">Glaces et desserts</a>
+        <a href="#g-viande" data-i18n="jump_viande">Viandes</a><a href="#g-autres" data-i18n="jump_autres">Autres</a><a href="#g-pates" data-i18n="g_pates">Pâtes</a><a href="#g-salades" data-i18n="g_salades">Salades</a><a href="#g-snacks" data-i18n="jump_snacks">Omelettes</a><a href="#g-glaces" data-i18n="jump_glaces">Desserts</a>
       </nav>
       <div class="groups">
         <div class="grp" id="g-viande">
@@ -470,6 +467,10 @@
   /* ---------------- i18n ---------------- */
   var I18N = {
     fr:{
+      jump_viande:"Viandes",
+      jump_autres:"Autres",
+      jump_snacks:"Omelettes",
+      jump_glaces:"Desserts",
       skip:"Aller à la carte",
       nav_maison:"La maison",
       nav_carte:"La carte",
@@ -563,6 +564,10 @@
       disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement."
     },
     de:{
+      jump_viande:"Fleisch",
+      jump_autres:"Weitere",
+      jump_snacks:"Omeletts",
+      jump_glaces:"Nachtisch",
       skip:"Zur Speisekarte",
       nav_maison:"Das Haus",
       nav_carte:"Die Karte",
@@ -656,6 +661,10 @@
       disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal."
     },
     en:{
+      jump_viande:"Meat",
+      jump_autres:"More",
+      jump_snacks:"Omelettes",
+      jump_glaces:"Puddings",
       skip:"Skip to the menu",
       nav_maison:"The brasserie",
       nav_carte:"The menu",
