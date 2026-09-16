@@ -75,7 +75,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(242,239,232,.92);backdro
 .hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(182deg,rgba(15,13,9,0.34) 0%,rgba(15,13,9,0.38) 34%,rgba(12,26,24,0.66) 76%,rgba(9,20,18,0.9) 100%)}
 .hero .wrap{position:relative;z-index:3;width:100%;padding-top:92px;padding-bottom:clamp(42px,6vw,72px)}
 .hero .eyebrow{color:#c9dcd6}.hero .eyebrow::before{background:#9ec0b8}
-.hero h1{color:#fff;font-size:clamp(74px,17vw,196px);letter-spacing:.02em;margin:14px 0 0;text-shadow:0 3px 40px rgba(0,0,0,.45)}
+.hero h1{color:#fff;font-size:clamp(54px,17vw,196px);letter-spacing:.02em;margin:14px 0 0;text-shadow:0 3px 40px rgba(0,0,0,.45)}
 .hero .tag{font-family:var(--disp);font-weight:500;font-size:clamp(21px,3.4vw,36px);letter-spacing:.04em;text-transform:uppercase;color:#e7c99b;margin:8px 0 0}
 .hero .sub{font-family:var(--body);font-size:1.05rem;color:#eee7d8;margin:16px 0 0;max-width:52ch;line-height:1.55;text-shadow:0 1px 12px rgba(0,0,0,.4)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px;align-items:center}
@@ -191,6 +191,13 @@ footer{background:#161310;color:#b4ab98;padding:44px 0 40px;font-size:.86rem;lin
      the photograph behind it. */
   .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
     text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
+
+/* at 360 the wordmark ran 26px past the screen and the drawer links touched both edges */
+@media(max-width:400px){
+  .brand .bt{font-size:1.24rem}
+  .brand .antler{height:24px}
+  .menu a{padding-left:20px;padding-right:20px}
+}
 </style>
 </head>
 <body id="top">

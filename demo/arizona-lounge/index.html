@@ -579,8 +579,12 @@
     body{font-size:16px;}
     /* The phone must open on the RESTAURANT, not on the utility rail. Flex
        order pushes the whole rail (logo, address, hours) below the content. */
-    .layout{display:flex;flex-direction:column;}
-    .content{order:1;}
+    .layout{display:flex;flex-direction:column;align-items:stretch;}
+    /* the content column was sized by its widest child, so the page ran 30px past a 360px screen */
+    .content{order:1;max-width:100%;min-width:0;}
+    .hero{grid-template-columns:minmax(0,1fr);}
+    .track-in{min-width:0;}
+    .hero h1.anton{overflow-wrap:anywhere;}
     .rail{
       order:2;
       position:static;height:auto;
@@ -603,7 +607,7 @@
     .plate{padding:26px 22px;}
     .langbar{padding:16px 22px 0;}
     section{padding:44px 22px;}
-    .hero{grid-template-columns:1fr;padding-top:26px;gap:30px;}
+    .hero{grid-template-columns:minmax(0,1fr);padding-top:26px;gap:30px;}
     .postcard{justify-self:center;transform:rotate(-2deg);}
     .desert{padding:40px 22px 96px;}
     .desert-in{grid-template-columns:1fr;gap:24px;text-align:center;justify-items:center;}

@@ -134,6 +134,8 @@ em{font-style:italic}
     linear-gradient(90deg, rgba(34,26,21,0.55) 0%, transparent 42%);
 }
 .hero-copy{
+  /* above the image and its gradient, or the name is covered on every width */
+  z-index:2;
   position:absolute;left:0;right:0;bottom:0;padding:clamp(28px,5vw,64px) clamp(18px,4vw,48px) clamp(40px,6vw,64px);
   max-width:920px;
 }

@@ -53,6 +53,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,246,238,.94);backdro
 .langs{display:flex;gap:2px;background:var(--pink);border-radius:999px;padding:3px}
 .langs button{font-family:var(--body);font-weight:800;font-size:.7rem;border:0;background:transparent;color:var(--pink-ink);padding:5px 10px;border-radius:999px;cursor:pointer}
 .langs button.on{background:var(--ink);color:#fff}
+@media(max-width:400px){
+  /* the header row ran 9px past a 360px screen */
+  .wrap{padding-left:16px;padding-right:16px}
+  .navright{gap:10px}
+  .langs button{padding:5px 7px;font-size:.66rem}
+}
 .order-pill{display:inline-flex;align-items:center;gap:7px;background:var(--curry);color:var(--ink);font-family:var(--disp);font-weight:600;font-size:.86rem;padding:9px 16px;border-radius:999px;white-space:nowrap}
 .order-pill:hover{background:var(--curry-d);color:#fff}
 .burger{display:none;background:transparent;border:0;color:var(--ink);cursor:pointer;padding:6px}
