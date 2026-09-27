@@ -3,41 +3,33 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>404 — Webwerk</title>
+<title>Page not found, Webwerk</title>
 <meta name="robots" content="noindex" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<link rel="stylesheet" href="/fonts/archivo-var.css" />
 <style>
-  :root{--blue:#0b2c52;--cy:#bcd7f2;--wht:#eaf3ff;--faint:rgba(188,215,242,.10);--red:#ff5b51;--amber:#ffcf6b}
+  /* the site's design (index.html): navy, Archivo, WEB/WERK with the red slash */
+  :root{--navy:#0b2c52;--ink:#eaf3ff;--ice:#bcd7f2;--red:#ff5b51;--amber:#ffcf6b;--m:clamp(20px,4vw,64px)}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{min-height:100svh;background:var(--blue);color:var(--cy);font-family:'Space Mono',monospace;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;
-    background-image:linear-gradient(var(--faint) 1px,transparent 1px),linear-gradient(90deg,var(--faint) 1px,transparent 1px);background-size:36px 36px}
-  .plate{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:20px}
-  h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(5rem,22vw,13rem);line-height:.9;letter-spacing:-.03em;
-    color:transparent;-webkit-text-stroke:2px var(--wht)}
-  h1 em{font-style:normal;-webkit-text-stroke:2px var(--red)}
-  .dimline{display:flex;align-items:center;gap:10px;margin:14px auto 0;max-width:360px;color:var(--red);font-size:.72rem}
-  .dimline .bar{flex:1;height:1px;background:var(--red);position:relative}
-  .dimline .bar::before,.dimline .bar::after{content:"";position:absolute;top:-3px;width:1px;height:7px;background:var(--red)}
-  .dimline .bar::before{left:0}.dimline .bar::after{right:0}
-  p{margin-top:26px;color:var(--cy);max-width:42ch;font-size:.95rem}
-  .note{font-family:'Caveat',cursive;color:var(--amber);font-size:1.5rem;display:block;margin-top:10px;transform:rotate(-2deg)}
-  a.home{display:inline-block;margin-top:30px;font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
-    font-size:.82rem;color:var(--blue);background:var(--amber);padding:.85em 1.6em;text-decoration:none;transition:.18s}
-  a.home:hover{background:var(--wht)}
-  footer{position:fixed;bottom:20px;left:0;right:0;font-size:.72rem;color:rgba(188,215,242,.45);letter-spacing:.1em}
+  body{min-height:100svh;display:flex;flex-direction:column;background:var(--navy);color:var(--ink);font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  header{height:72px;display:flex;align-items:center;padding:0 var(--m);border-bottom:1px solid rgba(188,215,242,.18)}
+  .brand{font-weight:800;font-size:1.5rem;line-height:1;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+  .x{color:var(--red)}
+  main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:48px var(--m)}
+  h1{font-weight:800;font-size:clamp(6rem,30vw,22rem);line-height:.85;letter-spacing:-.03em}
+  p{margin-top:24px;font-size:clamp(1.25rem,3vw,1.75rem);font-weight:600;color:var(--ice)}
+  a.home{align-self:flex-start;margin-top:32px;font-weight:700;color:var(--navy);background:var(--amber);padding:12px 28px;min-height:48px;display:inline-flex;align-items:center;text-decoration:none}
+  a.home:hover{background:var(--ink)}
 </style>
 </head>
 <body>
-  <div class="plate">FIG. 404 · sheet not found</div>
-  <h1>4<em>0</em>4</h1>
-  <div class="dimline"><span>here</span><span class="bar"></span><span>nowhere</span></div>
-  <p>This drawing doesn't exist — the page was moved, renamed, or never drafted.
-    <span class="note">let's get you back ✦</span>
-  </p>
-  <a class="home" href="/">← Back to webwerk.lu</a>
-  <footer>WEBWERK · WEB STUDIO · LUXEMBOURG</footer>
+  <header><a class="brand" href="/">WEB<span class="x">/</span>WERK</a></header>
+  <main>
+    <h1>4<span class="x">0</span>4</h1>
+    <p>This page doesn't exist.</p>
+    <a class="home" href="/">Back to webwerk.lu</a>
+  </main>
+<!-- privacy-friendly, cookieless analytics (no consent banner needed) -->
 <script data-goatcounter="https://webwerklu.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

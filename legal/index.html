@@ -6,43 +6,45 @@
 <title>Legal · Privacy — Webwerk</title>
 <meta name="description" content="Legal notice, privacy policy and terms for webwerk.lu — published by Lux Lucis Consulting S.à r.l. S, Luxembourg." />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<link rel="stylesheet" href="/fonts/archivo-var.css" />
 <style>
-  :root{--blue:#0b2c52;--cy:#bcd7f2;--wht:#eaf3ff;--faint:rgba(188,215,242,.10);--red:#ff5b51;--amber:#ffcf6b}
+  /* the site's design (index.html): navy, Archivo, WEB/WERK with the red slash */
+  :root{--navy:#0b2c52;--ink:#eaf3ff;--ice:#bcd7f2;--red:#ff5b51;--amber:#ffcf6b;--line:rgba(188,215,242,.18);--m:clamp(20px,4vw,64px)}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--blue);color:var(--cy);font-family:'Space Mono',monospace;line-height:1.7;
-    background-image:linear-gradient(var(--faint) 1px,transparent 1px),linear-gradient(90deg,var(--faint) 1px,transparent 1px);background-size:38px 38px;
-    -webkit-font-smoothing:antialiased}
-  a{color:var(--amber)}
-  header{position:sticky;top:0;background:rgba(11,44,82,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--faint);z-index:5}
-  .bar{max-width:860px;margin:0 auto;padding:16px 26px;display:flex;justify-content:space-between;align-items:center;gap:14px}
-  .brand{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.15rem;color:var(--wht);text-decoration:none;letter-spacing:.01em}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--navy);color:var(--ink);font-family:Archivo,system-ui,sans-serif;font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--ink);text-decoration-color:var(--amber);text-underline-offset:3px}
+  a:hover{color:var(--amber)}
+  header{position:sticky;top:0;z-index:5;background:rgba(11,44,82,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar{max-width:1568px;margin:0 auto;height:72px;padding:0 var(--m);display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .brand{font-weight:800;font-size:1.5rem;line-height:1;letter-spacing:.02em;color:var(--ink);text-decoration:none}
   .brand .x{color:var(--red)}
-  .nav{display:flex;align-items:center;gap:16px;font-size:.74rem}
-  .nav a{color:var(--cy);text-decoration:none}
-  .nav a:hover{color:var(--amber)}
-  .lang b{cursor:pointer;color:var(--wht);font-weight:700}
-  .lang b.off{color:rgba(188,215,242,.4);font-weight:400}
-  .lang .sep{color:rgba(188,215,242,.4)}
-  main{max-width:860px;margin:0 auto;padding:46px 26px 90px}
-  .plate{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
-  h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(2rem,6vw,3rem);color:var(--wht);text-transform:uppercase;letter-spacing:-.02em;line-height:1;margin-bottom:10px}
-  .sub{color:rgba(188,215,242,.7);font-size:.92rem;margin-bottom:8px}
-  .updated{color:rgba(188,215,242,.7);font-size:.74rem;letter-spacing:.04em;margin-bottom:40px}
-  section{border-top:1px solid var(--faint);padding:34px 0}
-  h2{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.18rem;color:var(--wht);text-transform:uppercase;letter-spacing:.02em;margin-bottom:18px;display:flex;align-items:baseline;gap:12px}
-  h2 .fig{font-family:'Space Mono',monospace;font-size:.66rem;color:var(--red);letter-spacing:.12em;font-weight:400}
-  h3{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin:22px 0 6px;font-weight:700}
-  p{margin:0 0 12px;color:rgba(234,243,255,.86);font-size:.92rem}
-  .idblock{border:1px solid var(--faint);padding:18px 20px;margin:6px 0 4px;font-size:.86rem;line-height:1.9}
-  .idblock b{color:var(--wht)}
-  .k{color:rgba(188,215,242,.72);display:inline-block;min-width:150px;padding-right:14px;vertical-align:top}
-  ul{margin:0 0 12px 18px;color:rgba(234,243,255,.86);font-size:.92rem}
-  li{margin-bottom:5px}
-  .back{display:inline-block;margin-top:34px;font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:.78rem;color:var(--blue);background:var(--amber);padding:.8em 1.5em;text-decoration:none;transition:.18s}
-  .back:hover{background:var(--wht)}
-  footer{border-top:1px solid var(--faint);max-width:860px;margin:0 auto;padding:22px 26px;color:rgba(188,215,242,.7);font-size:.72rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .nav{display:flex;align-items:center;gap:24px;font-size:1rem;font-weight:600}
+  .nav a{text-decoration:none}
+  .nav a:hover{text-decoration:underline}
+  .lang b{cursor:pointer;color:var(--ink);font-weight:700}
+  .lang b.off{color:rgba(188,215,242,.55);font-weight:500}
+  .lang .sep{color:var(--red)}
+  main{max-width:880px;margin:0 auto;padding:clamp(48px,9vw,112px) var(--m) 96px}
+  h1{font-weight:800;font-size:clamp(2.4rem,7vw,4.5rem);line-height:1;letter-spacing:-.02em;margin-bottom:20px}
+  .sub{color:var(--ice);font-size:1.125rem;margin-bottom:6px}
+  .updated{color:rgba(188,215,242,.7);font-size:.9375rem;margin-bottom:48px}
+  section{border-top:1px solid var(--line);padding:40px 0}
+  h2{font-weight:800;font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.15;margin-bottom:20px;display:flex;align-items:baseline;gap:14px}
+  h2 .fig{font-size:.8rem;font-weight:700;color:var(--red);letter-spacing:.06em}
+  h3{font-size:.875rem;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin:26px 0 8px;font-weight:700}
+  p{margin:0 0 14px;color:rgba(234,243,255,.9)}
+  p b{color:var(--ink)}
+  .idblock{border:1px solid var(--line);padding:20px 22px;margin:6px 0 4px;line-height:1.85}
+  .idblock b{color:var(--ink)}
+  .k{color:var(--ice);display:inline-block;min-width:160px;padding-right:14px;vertical-align:top}
+  ul{margin:0 0 14px 20px;color:rgba(234,243,255,.9)}
+  li{margin-bottom:6px}
+  .back{display:inline-block;margin-top:32px;font-weight:700;color:var(--navy);background:var(--amber);padding:12px 28px;min-height:48px;text-decoration:none}
+  .back:hover{background:var(--ink);color:var(--navy)}
+  footer{max-width:1568px;margin:0 auto;padding:28px var(--m) 32px;color:rgba(188,215,242,.75);font-size:.875rem;border-top:1px solid var(--line)}
   [hidden]{display:none !important}
+  @media (max-width:560px){.k{display:block;min-width:0}.nav{gap:16px}.brand{font-size:1.25rem}}
 </style>
 </head>
 <body>
@@ -59,7 +61,6 @@
 <main>
   <!-- ============ ENGLISH ============ -->
   <div class="lng" data-lng="en">
-    <div class="plate">FIG. 00 · administrative sheet</div>
     <h1>Legal &amp; privacy</h1>
     <p class="sub">Legal notice, privacy policy and terms for webwerk.lu.</p>
     <p class="updated">Last updated: July 2026</p>
@@ -110,7 +111,6 @@
 
   <!-- ============ FRANÇAIS ============ -->
   <div class="lng" data-lng="fr" hidden>
-    <div class="plate">FIG. 00 · feuille administrative</div>
     <h1>Mentions &amp; confidentialité</h1>
     <p class="sub">Mentions légales, politique de confidentialité et conditions pour webwerk.lu.</p>
     <p class="updated">Dernière mise à jour : juillet 2026</p>
@@ -161,7 +161,6 @@
 
   <!-- ============ DEUTSCH ============ -->
   <div class="lng" data-lng="de" hidden>
-    <div class="plate">FIG. 00 · Verwaltungsblatt</div>
     <h1>Impressum &amp; Datenschutz</h1>
     <p class="sub">Impressum, Datenschutzerklärung und Nutzungsbedingungen für webwerk.lu.</p>
     <p class="updated">Zuletzt aktualisiert: Juli 2026</p>
@@ -213,7 +212,6 @@
 
 <footer>
   <span>© 2026 WEBWERK · Lux Lucis Consulting S.à r.l. S</span>
-  <span>WW-2026 · SHEET 00/01</span>
 </footer>
 
 <script>
