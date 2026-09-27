@@ -263,6 +263,15 @@ footer{padding-block:var(--gap) 32px}
 .glf{position:fixed;inset:0;width:100%;height:100%;z-index:8;pointer-events:none;mix-blend-mode:screen}
 .bg .vid2{width:100%;height:100%;object-fit:cover;display:block;opacity:var(--cv,1)}
 .line.invite .bg{background:rgb(12,19,42)}   /* the video's own dark, so the section stays dark while the video is hidden */
+.hstance{pointer-events:none}   /* the line sits over the hero until it forms; clicks go to the arrow under it */
+.hero .cue{position:absolute;z-index:4;right:var(--m);bottom:var(--m);opacity:var(--fo,1)}
+.cue{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;border:1.5px solid rgba(234,243,255,.55);background:rgba(11,44,82,.35);color:var(--ink);cursor:pointer;transition:background-color .2s,border-color .2s}
+.cue:hover,.cue:focus-visible{background:var(--ink);color:var(--navy);border-color:var(--ink)}
+.cue svg{animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+@media (max-width:899px){.cue{width:48px;height:48px}}
+html[lang=fr] .k1 h2{font-size:calc(var(--t-display) * .9)}
+@media (min-width:960px){html[lang=fr] .k1 h2{font-size:calc(min(3.5vw,54px,6.8svh) * .9)!important}}
 </style>
 <noscript><style>
 /* without the script: no scroll sequence; the line sits at the top of the hero, the name at the foot */
@@ -291,6 +300,7 @@ footer{padding-block:var(--gap) 32px}
     <h1 id="h"><span class="mark" id="mark">WEB<span class="sl">/</span>WERK</span><span class="sr" data-t="h1_sr"> — Design studio, Luxembourg</span></h1>
     <p class="lead" data-t="lead">Design studio, Luxembourg.</p>
   </div>
+  <button class="cue" type="button"><span class="sr" data-t="cue">Scroll down</span><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <canvas class="dust" aria-hidden="true"></canvas>
   <div class="hstance"><p><span class="fit" data-t="line1">The web looks the same.</span><em class="fit" data-t="line2">Yours won't.</em></p></div>
 </section>
@@ -365,7 +375,7 @@ footer{padding-block:var(--gap) 32px}
   const hseq = document.querySelector('.hseq'), heroEl = hseq.querySelector('.hero');
   const glc = document.querySelector('canvas.glf');
   const cv = heroEl.querySelector('canvas.dust'), dx = cv.getContext('2d');
-  const hst = heroEl.querySelector('.hstance'), topBar = document.querySelector('.top');
+  const hst = heroEl.querySelector('.hstance'), topBar = document.querySelector('.top'), cue = heroEl.querySelector('.cue');
   const built = document.querySelector('.built'), contact = document.getElementById('contact');
   const bgEl = contact.querySelector('.bg'), vid = contact.querySelector('video');
   let dpr = 1, vw = 0, vh = 0, hTop = 0, hSpan = 1, cTop = 0, maxS = 0, cutPx = 0, lastW = 0;
@@ -643,13 +653,20 @@ void main(){
     cTop = contact.getBoundingClientRect().top + scrollY; maxS = Math.max(document.documentElement.scrollHeight - innerHeight, 1);
     // the ribbons are complete (and the video has taken over) once the contact reaches the top of the screen,
     // so nobody fills in the form under drifting dust, however tall the section is
-    const c0 = cTop - vh, c1 = Math.min(maxS, cTop - vh * .08), c = clamp((sy - c0) / Math.max(c1 - c0, vh * .3), 0, 1);
-    const v = c > .999 ? 1 : clamp((c - .9) / .1, 0, 1);   // snap: (1 - .9) / .1 is 0.9999999999999998 in floating point
-    return { p, m: ease(clamp((p - .79) / .08, 0, 1)), rel, shift, trail: shift, c, v };
+    return { p, m: ease(clamp((p - .79) / .08, 0, 1)), rel, shift, trail: shift, c: cT, v: vT };
+  }
+  // the contact plays on its own: once a third of it is on screen the dust falls into the ribbons (1.8 s),
+  // then the video crossfades in and starts moving (0.6 s). Scrolled right away, it resets for next time.
+  let cT = 0, vT = 0;
+  function contactTick(dt) {
+    const r = contact.getBoundingClientRect(), vis = clamp((vh - r.top) / Math.min(vh, r.height), 0, 1);
+    if (vis >= .3 && ribReady) { if (cT < 1) cT = Math.min(1, cT + dt / 1.8); else vT = Math.min(1, vT + dt / .6); }
+    else if (vis <= .02 && (cT || vT)) { cT = 0; vT = 0; }
   }
   function render(now = performance.now()) {
     const u = state();
     heroEl.style.setProperty('--fo', (1 - clamp((u.p - .03) / .14, 0, 1)).toFixed(3));
+    cue.style.visibility = u.p > .17 ? 'hidden' : '';     // gone with the name; not clickable while invisible
     topBar.style.setProperty('--bar', (u.p > .12 || sy > hTop + hSpan) ? 1 : 0);
     if (reduce.matches || !gl || !prog) { heroEl.style.setProperty('--so', clamp((u.p - .3) / .2, 0, 1).toFixed(3)); return; }
     heroEl.style.setProperty('--vo', (1 - ease(clamp((u.p - .02) / .16, 0, 1))).toFixed(3));
@@ -658,7 +675,7 @@ void main(){
     if (sy > cTop - vh * 2) vidSrc();
     // the video shows only once the points have become it; it plays only then
     contact.style.setProperty('--cv', u.v.toFixed(3));
-    if (u.v >= 1 && !vidOn) vidOn = true;
+    if (u.v > 0 && !vidOn) vidOn = true;                      // the ribbons start moving as the video fades in
     if (vidOn && vid.paused && !vid.dataset.asked) { vid.dataset.asked = 1; vid.play().then(() => { delete vid.dataset.asked; }, e => { delete vid.dataset.asked; vid.dataset.err = e.name; }); }
     if (u.v <= 0 && vidOn) { vidOn = false; vid.pause(); try { vid.currentTime = 0; } catch (e) {} }
     if (!vid.dataset.hook) { vid.dataset.hook = 1; vid.addEventListener('canplay', () => { if (vidOn && vid.paused) vid.play().catch(() => {}); }); }
@@ -675,17 +692,38 @@ void main(){
   }
   // --- the loop: glide toward the real scroll position; keep going while grains are in the air ---
   function loop(t) {
-    const dt = lastT ? Math.min((t - lastT) / 1000, .05) : .016; lastT = t;
+    const raw = lastT ? (t - lastT) / 1000 : .016, dt = Math.min(raw, .05); lastT = t;
+    if (glideTo) {                                              // the arrow: an even, eased glide the engine follows exactly
+      const k = clamp((t - glideTo.t0) / glideTo.dur, 0, 1), e = .5 - Math.cos(Math.PI * k) / 2;
+      scrollTo({ top: glideTo.from + (glideTo.to - glideTo.from) * e, behavior: 'instant' });
+      sy = scrollY; if (k >= 1) glideTo = null;
+    }
     const target = scrollY;
-    sy += (target - sy) * (1 - Math.exp(-dt * 10));
+    sy += (target - sy) * (1 - Math.exp(-dt * 8));           // wheel steps blend over ~0.3 s
     if (Math.abs(target - sy) < .5) sy = target;
+    contactTick(Math.min(raw, .25));                        // real time, so the contact takes 1.8 s on any machine
     render(t);
     const u = state();
     const airborne = (u.p > .06 && u.p < .80) || (u.rel > 0 && u.rel < 1) || (u.c > 0 && u.v < 1);
-    if (sy !== target || (live && airborne && !document.hidden)) requestAnimationFrame(loop);
+    if (glideTo || sy !== target || (live && airborne && !document.hidden) || (cT > 0 && vT < 1)) requestAnimationFrame(loop);
     else { running = false; lastT = 0; }
   }
   function kick() { if (!running) { running = true; requestAnimationFrame(loop); } }
+  // --- the arrow (and ↓ / Page Down / Space in the hero): glide to the formed line at an even pace ---
+  let glideTo = null;
+  function glide() {
+    const to = hTop + hSpan * .9, from = scrollY;
+    if (to - from < 4) return;
+    if (reduce.matches) { scrollTo({ top: to, behavior: 'instant' }); return; }
+    glideTo = { from, to, t0: performance.now(), dur: clamp((to - from) / hSpan * 4600, 900, 4600) };
+    kick();
+  }
+  heroEl.querySelector('.cue').addEventListener('click', glide);
+  addEventListener('keydown', e => {
+    if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || /^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(document.activeElement.tagName)) return;
+    if (['ArrowDown', 'PageDown', ' '].includes(e.key) && !e.shiftKey && scrollY < hTop + hSpan * .86) { e.preventDefault(); glide(); }
+  });
+  ['wheel', 'touchstart', 'mousedown'].forEach(n => addEventListener(n, () => { glideTo = null; }, { passive: true }));
   addEventListener('scroll', kick, { passive: true });
   document.addEventListener('visibilitychange', kick);
   let rz = 0;

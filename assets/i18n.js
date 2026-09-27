@@ -1,9 +1,69 @@
-// Webwerk translations. English lives in index.html; add FR and DE here, one line per key.
-// A missing key shows the English. Keys: see data-t="..." in index.html, plus the ones used from script:
+// Webwerk translations. English lives in index.html; FR and DE here, one line per key.
+// A missing key shows the English. Keys: data-t="..." in index.html, plus the ones used from script:
 // cap0..cap4 (the line under each site in "We built"), f_sending, f_sent, f_thanks, f_failed.
+// DRAFT 2026-09-27: needs a native read before merge. Wording reuses the previous site's approved
+// phrases where they fit (FR "Construisons le vôtre", "revue de recherche"; DE "Bauen wir Ihre Seite").
 window.WW_I18N = {
   fr: {
+    nav_contact: 'Contact',
+    cue: 'Défiler vers le bas',
+    h1_sr: ' — Studio de design, Luxembourg',
+    lead: 'Studio de design, Luxembourg.',
+    line1: 'Tous les sites se ressemblent.',
+    line2: 'Pas le vôtre.',
+    built: 'Nous avons créé',
+    end0: 'une revue de recherche',
+    end1: 'un programme de mentorat',
+    end2: 'un catalogue de livres',
+    end3: 'un logiciel de paie',
+    and: 'et',
+    end4: 'un cabinet de conseil',
+    cap0: 'Une revue de recherche en libre accès, avec soumission des articles et archives consultables.',
+    cap1: 'Le site d’un programme de mentorat en recherche.',
+    cap2: 'Un catalogue de 1 285 livres de 620 intervenants TED, chacun associé à sa conférence.',
+    cap3: 'Un logiciel de conformité de la paie pour les employeurs de travailleurs frontaliers.',
+    cap4: 'Le site d’un cabinet de conseil, avec sa série de publications.',
+    contact: 'Construisons le vôtre.',
+    f_name: 'Nom',
+    f_email: 'E-mail',
+    f_business: 'Votre entreprise',
+    f_message: 'Message',
+    f_send: 'Envoyer',
+    f_sending: 'Envoi…',
+    f_sent: 'Envoyé ✓',
+    f_thanks: 'Merci. Votre message nous est bien parvenu.',
+    f_failed: 'L’envoi n’a pas abouti : votre messagerie s’ouvre avec le message déjà rempli.',
+    legal: 'Mentions légales'
   },
   de: {
+    nav_contact: 'Kontakt',
+    cue: 'Nach unten scrollen',
+    h1_sr: ' — Designstudio, Luxemburg',
+    lead: 'Designstudio, Luxemburg.',
+    line1: 'Alle Websites sehen gleich aus.',
+    line2: 'Ihre nicht.',
+    built: 'Von uns gebaut:',
+    end0: 'ein Forschungsjournal',
+    end1: 'ein Mentoring-Programm',
+    end2: 'ein Buchkatalog',
+    end3: 'eine Lohnsoftware',
+    and: 'und',
+    end4: 'eine Beratungsfirma',
+    cap0: 'Ein frei zugängliches Forschungsjournal mit Einreichungen und durchsuchbarem Archiv.',
+    cap1: 'Die Website eines Mentoring-Programms für Forschung.',
+    cap2: 'Ein Katalog mit 1.285 Büchern von 620 TED-Speakern, jedes mit dem passenden Talk.',
+    cap3: 'Lohn-Compliance-Software für Arbeitgeber mit Grenzgängern.',
+    cap4: 'Die Website einer Beratungsfirma mit ihrer Publikationsreihe.',
+    contact: 'Bauen wir Ihre Seite.',
+    f_name: 'Name',
+    f_email: 'E-Mail',
+    f_business: 'Ihr Unternehmen',
+    f_message: 'Nachricht',
+    f_send: 'Senden',
+    f_sending: 'Wird gesendet…',
+    f_sent: 'Gesendet ✓',
+    f_thanks: 'Danke. Ihre Nachricht ist bei uns angekommen.',
+    f_failed: 'Das hat nicht geklappt: Ihr E-Mail-Programm öffnet sich mit der ausgefüllten Nachricht.',
+    legal: 'Impressum'
   }
 };
