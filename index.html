@@ -264,7 +264,10 @@ footer{padding-block:var(--gap) 32px}
 .bg .vid2{width:100%;height:100%;object-fit:cover;display:block;opacity:var(--cv,1)}
 .line.invite .bg{background:rgb(12,19,42)}   /* the video's own dark, so the section stays dark while the video is hidden */
 .hstance{pointer-events:none}   /* the line sits over the hero until it forms; clicks go to the arrow under it */
-.hero .cue{position:absolute;z-index:4;right:var(--m);bottom:var(--m);opacity:var(--fo,1)}
+.cue{position:fixed;z-index:9;right:var(--m);bottom:var(--m);transition:background-color .2s,border-color .2s,color .2s,opacity .35s,visibility .35s}
+.cue.gone{opacity:0;visibility:hidden}
+.cue.on-amber{border-color:rgba(11,44,82,.6);color:var(--navy);background:rgba(255,207,107,.5)}
+.cue.on-amber:hover,.cue.on-amber:focus-visible{background:var(--navy);color:var(--amber);border-color:var(--navy)}
 .cue{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;border:1.5px solid rgba(234,243,255,.55);background:rgba(11,44,82,.35);color:var(--ink);cursor:pointer;transition:background-color .2s,border-color .2s}
 .cue:hover,.cue:focus-visible{background:var(--ink);color:var(--navy);border-color:var(--ink)}
 .cue svg{animation:cue 2.4s ease-in-out infinite}
@@ -283,6 +286,7 @@ html[lang=fr] .k1 h2{font-size:calc(var(--t-display) * .9)}
 <body>
 
 <canvas class="glf" aria-hidden="true"></canvas>
+<button class="cue" type="button"><span class="sr" data-t="cue">Scroll down</span><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <header class="top">
   <a class="wm" href="#top" aria-label="Webwerk">WEB<span class="sl">/</span>WERK</a>
   <nav class="nav" aria-label="Main">
@@ -300,7 +304,6 @@ html[lang=fr] .k1 h2{font-size:calc(var(--t-display) * .9)}
     <h1 id="h"><span class="mark" id="mark">WEB<span class="sl">/</span>WERK</span><span class="sr" data-t="h1_sr"> — Design studio, Luxembourg</span></h1>
     <p class="lead" data-t="lead">Design studio, Luxembourg.</p>
   </div>
-  <button class="cue" type="button"><span class="sr" data-t="cue">Scroll down</span><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <canvas class="dust" aria-hidden="true"></canvas>
   <div class="hstance"><p><span class="fit" data-t="line1">The web looks the same.</span><em class="fit" data-t="line2">Yours won't.</em></p></div>
 </section>
@@ -375,7 +378,7 @@ html[lang=fr] .k1 h2{font-size:calc(var(--t-display) * .9)}
   const hseq = document.querySelector('.hseq'), heroEl = hseq.querySelector('.hero');
   const glc = document.querySelector('canvas.glf');
   const cv = heroEl.querySelector('canvas.dust'), dx = cv.getContext('2d');
-  const hst = heroEl.querySelector('.hstance'), topBar = document.querySelector('.top'), cue = heroEl.querySelector('.cue');
+  const hst = heroEl.querySelector('.hstance'), topBar = document.querySelector('.top'), cue = document.querySelector('.cue');
   const built = document.querySelector('.built'), contact = document.getElementById('contact');
   const bgEl = contact.querySelector('.bg'), vid = contact.querySelector('video');
   let dpr = 1, vw = 0, vh = 0, hTop = 0, hSpan = 1, cTop = 0, maxS = 0, cutPx = 0, lastW = 0;
@@ -465,17 +468,18 @@ void main(){
     size = shown ? mix(1.8, 1.6, rr) : 1.6;
     // ---- 3. at the contact the dust comes back out from behind the amber and becomes the ribbons ----
     if (u_c > 0.0) {
-      vec3 S2 = vec3((r4 - 0.5) * u_res.x * 1.1, u_ct - u_res.y * 0.5 - (0.04 + 0.45 * r1) * u_res.y, r3 * u_D * 0.3);
       vec3 R = vec3(u_rcover.zw + a_rib * u_rcover.xy - u_res * 0.5, 0.0);
-      float d2 = 0.38 * (a_rib.x * 0.6 + r2 * 0.4);
-      float rc = easeC(clamp((u_c - d2) / 0.58, 0.0, 1.0));
+      vec3 S2 = R + vec3((r4 - 0.5) * u_res.x * 0.22, -(0.28 + 0.5 * r1) * u_res.y, r3 * u_D * 0.3);   // each grain falls onto its own place
+      float d2 = 0.35 * (a_rib.x * 0.55 + r2 * 0.45);
+      float lin = clamp((u_c - d2) / 0.65, 0.0, 1.0);
+      float rc = 1.0 - pow(1.0 - lin, 3.0);                       // falls in quickly, settles softly
       vec3 sw2 = curl(vec3(S2.xy / u_D * 1.3, u_time * 0.03 + r4)) * u_D * 0.16 * sin(3.14159 * rc);
       P = mix(S2, R, rc) + sw2;
       float yn = clamp((R.y + u_res.y * 0.5 - u_bgy.x) / u_bgy.y, 0.0, 1.0);
       vec3 seen = mix(a_rcol, vec3(8.0, 24.0, 48.0) / 255.0, shade(yn));
       float lum = dot(seen, vec3(0.3, 0.55, 0.15));
       col = mix(pal * 1.3, mix(vec3(lum), seen, 1.35) * 1.15, smoothstep(0.3, 1.0, rc));
-      a = mix(0.6, 0.5, rc) * smoothstep(0.0, 0.05, rc) * (1.0 - u_v);
+      a = mix(0.6, 0.5, rc) * smoothstep(0.0, 0.12, lin) * (1.0 - u_v);
       size = mix(1.7, 2.1, rc);
     }
     blur = 0.0;
@@ -655,18 +659,20 @@ void main(){
     // so nobody fills in the form under drifting dust, however tall the section is
     return { p, m: ease(clamp((p - .79) / .08, 0, 1)), rel, shift, trail: shift, c: cT, v: vT };
   }
-  // the contact plays on its own: once a third of it is on screen the dust falls into the ribbons (1.8 s),
-  // then the video crossfades in and starts moving (0.6 s). Scrolled right away, it resets for next time.
-  let cT = 0, vT = 0;
+  // the contact plays on its own: once the ribbons' band is on screen the dust falls into the ribbons (2 s),
+  // then, as soon as the video can play, it crossfades in and starts moving (1 s). Scrolled away, it resets.
+  let cT = 0, vT = 0, vidWait = 0;
   function contactTick(dt) {
-    const r = contact.getBoundingClientRect(), vis = clamp((vh - r.top) / Math.min(vh, r.height), 0, 1);
-    if (vis >= .3 && ribReady) { if (cT < 1) cT = Math.min(1, cT + dt / 1.8); else vT = Math.min(1, vT + dt / .6); }
-    else if (vis <= .02 && (cT || vT)) { cT = 0; vT = 0; }
+    const r = contact.getBoundingClientRect(), br = bgEl.getBoundingClientRect(), band = br.top + br.height * .45;
+    const inView = band < vh * .72 && band > vh * .05;            // the ribbons' band is on screen, not just the section edge
+    if (inView && ribReady && cT < 1) cT = Math.min(1, cT + dt / 2);
+    else if (cT >= 1 && (vid.readyState >= 3 || vid.error || vidWait > 3)) vT = Math.min(1, vT + dt / 1);   // crossfade once the video can play (or after 3 s regardless)
+    else if (cT >= 1) { vidSrc(); vidWait += dt; }
+    if (r.top > vh * 1.02 && (cT || vT)) { cT = 0; vT = 0; vidWait = 0; }   // scrolled away above it: reset for next time
   }
   function render(now = performance.now()) {
     const u = state();
     heroEl.style.setProperty('--fo', (1 - clamp((u.p - .03) / .14, 0, 1)).toFixed(3));
-    cue.style.visibility = u.p > .17 ? 'hidden' : '';     // gone with the name; not clickable while invisible
     topBar.style.setProperty('--bar', (u.p > .12 || sy > hTop + hSpan) ? 1 : 0);
     if (reduce.matches || !gl || !prog) { heroEl.style.setProperty('--so', clamp((u.p - .3) / .2, 0, 1).toFixed(3)); return; }
     heroEl.style.setProperty('--vo', (1 - ease(clamp((u.p - .02) / .16, 0, 1))).toFixed(3));
@@ -702,7 +708,7 @@ void main(){
     sy += (target - sy) * (1 - Math.exp(-dt * 8));           // wheel steps blend over ~0.3 s
     if (Math.abs(target - sy) < .5) sy = target;
     contactTick(Math.min(raw, .25));                        // real time, so the contact takes 1.8 s on any machine
-    render(t);
+    render(t); cueState();
     const u = state();
     const airborne = (u.p > .06 && u.p < .80) || (u.rel > 0 && u.rel < 1) || (u.c > 0 && u.v < 1);
     if (glideTo || sy !== target || (live && airborne && !document.hidden) || (cT > 0 && vT < 1)) requestAnimationFrame(loop);
@@ -711,14 +717,31 @@ void main(){
   function kick() { if (!running) { running = true; requestAnimationFrame(loop); } }
   // --- the arrow (and ↓ / Page Down / Space in the hero): glide to the formed line at an even pace ---
   let glideTo = null;
-  function glide() {
-    const to = hTop + hSpan * .9, from = scrollY;
-    if (to - from < 4) return;
+  // the stops: the formed line, the work ("We built ..."), the contact
+  function stops() {
+    const grid = document.querySelector('.k1-grid').getBoundingClientRect();
+    const work = grid.top + scrollY + grid.height / 2 - (vh + 72) / 2;
+    const cont = Math.min(Math.max(document.documentElement.scrollHeight - innerHeight, 0), contact.getBoundingClientRect().top + scrollY);
+    return [hTop + hSpan * .9, work, cont];
+  }
+  const nextStop = () => stops().find(y => y > scrollY + 24);
+  function glide(to = nextStop()) {
+    const from = scrollY;
+    if (to == null || to - from < 4) return;
     if (reduce.matches) { scrollTo({ top: to, behavior: 'instant' }); return; }
-    glideTo = { from, to, t0: performance.now(), dur: clamp((to - from) / hSpan * 4600, 900, 4600) };
+    const inHero = from < hTop + hSpan * .86;                  // through the hero: the animation's own pace
+    const dur = inHero ? clamp((to - from) / hSpan * 4600, 900, 4600) : clamp((to - from) / vh * 1100, 900, 2000);
+    glideTo = { from, to, t0: performance.now(), dur };
     kick();
   }
-  heroEl.querySelector('.cue').addEventListener('click', glide);
+  cue.addEventListener('click', () => glide());
+  // the arrow disappears at the last stop, and turns navy over the amber section
+  function cueState() {
+    cue.classList.toggle('gone', nextStop() == null);
+    const r = cue.getBoundingClientRect(), bt = built.getBoundingClientRect(), ct = contact.getBoundingClientRect();
+    const y = r.top + r.height / 2;
+    cue.classList.toggle('on-amber', y > bt.top + cutPx * .5 && y < ct.top + cutPx * .5);
+  }
   addEventListener('keydown', e => {
     if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || /^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(document.activeElement.tagName)) return;
     if (['ArrowDown', 'PageDown', ' '].includes(e.key) && !e.shiftKey && scrollY < hTop + hSpan * .86) { e.preventDefault(); glide(); }
@@ -730,7 +753,7 @@ void main(){
   addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { measure(); sy = scrollY; render(); kick(); }, 150); });
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(() => { measure(); sy = scrollY; render(); kick(); }, 80));
   addEventListener('load', () => { measure(); sy = scrollY; render(); kick(); });
-  measure(); render();
+  measure(); render(); cueState();
   addEventListener('ww:lang', () => { fitLines(); glyphs = null; targetsFor = ''; buildTargets(); render(); });
 
   const mark = document.getElementById('mark'), foot = mark.parentElement.parentElement;
