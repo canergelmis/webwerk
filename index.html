@@ -840,7 +840,9 @@ void main(){
   // the stops: the formed line, the work ("We built ..."), the contact
   function stops() {
     const grid = document.querySelector('.k1-grid').getBoundingClientRect();
-    const work = grid.top + scrollY + grid.height / 2 - (vh + 72) / 2;
+    // centre the block when it fits under the header; when it is taller (phones), start at "We designed" instead
+    const h2t = document.getElementById('built-h').getBoundingClientRect().top + scrollY;
+    const work = Math.min(grid.top + scrollY + grid.height / 2 - (vh + 72) / 2, h2t - 72 - 20);
     const cont = Math.min(Math.max(document.documentElement.scrollHeight - innerHeight, 0), contact.getBoundingClientRect().top + scrollY);
     return [hTop + hSpan * .9, work, cont];
   }
