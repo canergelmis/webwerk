@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Webwerk, design studio in Luxembourg</title>
-<meta name="description" content="Webwerk is a design studio in Luxembourg. The web looks the same. Yours won't. We designed a research journal, an academic mentorship programme, a book catalogue, a payroll software, an advisory firm, and others.">
+<meta name="description" content="Webwerk is a design studio in Luxembourg. The web looks the same. Yours won't. We designed a research journal, an academic mentorship programme, a book catalogue, payroll software, an advisory firm, and others.">
 <link rel="canonical" href="https://webwerk.lu/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Webwerk, design studio in Luxembourg">
@@ -184,7 +184,8 @@ footer{padding-block:var(--gap) 32px}
 /* ---------- contact: one screen, the line + email + form over the moving pigment ---------- */
 .line.invite{min-height:100svh!important;align-items:flex-end}
 .line.invite .bg::after{background:linear-gradient(to top,rgba(8,24,48,.94) 0,rgba(8,24,48,.72) 45%,rgba(8,24,48,.25) 80%)!important}
-.invite .txt{display:grid;gap:32px}
+.invite .txt{display:grid;gap:32px;grid-template-columns:minmax(0,1fr)}
+.invite .txt > *{min-width:0}   /* the fitted heading sizes to the column, so the column must not grow with it */
 .cgrid{display:grid;gap:32px}
 .reach p{margin:0 0 8px;font-size:var(--t-body);color:var(--ice)}
 .reach .mail{margin-top:0!important}
@@ -273,6 +274,14 @@ footer{padding-block:var(--gap) 32px}
 @media (max-width:899px){.cue{width:48px;height:48px}}
 html[lang=fr] .k1 h2{font-size:calc(var(--t-display) * .9)}
 @media (min-width:960px){html[lang=fr] .k1 h2{font-size:calc(min(3.5vw,54px,6.8svh) * .9)!important}}
+/* phones: the example window is a real scrolling window through the whole site (swipe inside it; at its ends the page carries on) */
+@media (max-width:959px){
+  .k1-shot{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;touch-action:pan-y;aspect-ratio:auto;height:min(64svh,520px)}
+  .k1-img{position:relative;inset:auto;display:none;opacity:1;transition:none}
+  .k1-img.on{display:block}
+  .k1-img img{height:auto;object-fit:initial;transition:none}
+  .k1-shot:hover .k1-img.on img{object-position:initial}
+}
 </style>
 <noscript><style>
 /* without the script: no scroll sequence; the line sits at the top of the hero, the name at the foot */
@@ -309,7 +318,7 @@ html[lang=fr] .k1 h2{font-size:calc(var(--t-display) * .9)}
 
 <section class="built slab k1" aria-labelledby="built-h">
   <div class="wrap k1-grid">
-    <h2 id="built-h"><span data-t="built">We designed</span><br><span class="nw"><button class="end" type="button" data-i="0" aria-controls="stage" data-t="end0">a research journal</button>,</span><br><span class="nw"><button class="end" type="button" data-i="1" aria-controls="stage" data-t="end1">an academic mentorship programme</button>,</span><br><span class="nw"><button class="end" type="button" data-i="2" aria-controls="stage" data-t="end2">a book catalogue</button>,</span><br><span class="nw"><button class="end" type="button" data-i="3" aria-controls="stage" data-t="end3">a payroll software</button>,</span><br><span class="nw"><button class="end" type="button" data-i="4" aria-controls="stage" data-t="end4">an advisory firm</button>,</span><br><span data-t="others">and others.</span></h2>
+    <h2 id="built-h"><span data-t="built">We designed</span><br><span class="nw"><button class="end" type="button" data-i="0" aria-controls="stage" data-t="end0">a research journal</button>,</span><br><span class="nw"><button class="end" type="button" data-i="1" aria-controls="stage" data-t="end1">an academic mentorship programme</button>,</span><br><span class="nw"><button class="end" type="button" data-i="2" aria-controls="stage" data-t="end2">a book catalogue</button>,</span><br><span class="nw"><button class="end" type="button" data-i="3" aria-controls="stage" data-t="end3">payroll software</button>,</span><br><span class="nw"><button class="end" type="button" data-i="4" aria-controls="stage" data-t="end4">an advisory firm</button>,</span><br><span data-t="others">and others.</span></h2>
     <figure class="k1-view">
       <a class="k1-shot" href="https://emberreview.org" target="_blank" rel="noopener" aria-label="Open The Ember Review"><span class="k1-img on" data-i="0"><picture><source media="(max-width:959px)" srcset="/assets/work/emberreview-strip.webp"><img class="" src="/assets/work/emberreview-desk.webp" alt=""></picture></span><span class="k1-img" data-i="1"><picture><source media="(max-width:959px)" srcset="/assets/work/emberscholars-strip.webp"><img class="" src="/assets/work/emberscholars-desk.webp" alt="" loading="lazy"></picture></span><span class="k1-img" data-i="2"><picture><source media="(max-width:959px)" srcset="/assets/work/bwr-strip.webp"><img class="" src="/assets/work/bwr-desk.webp" alt="" loading="lazy"></picture></span><span class="k1-img" data-i="3"><picture><source media="(max-width:959px)" srcset="/assets/work/lounbreck-strip.webp"><img class="" src="/assets/work/lounbreck-desk.webp" alt="" loading="lazy"></picture></span><span class="k1-img" data-i="4"><picture><source media="(max-width:959px)" srcset="/assets/work/luxlucis-strip.webp"><img class="" src="/assets/work/luxlucis-desk.webp" alt="" loading="lazy"></picture></span></a>
       <figcaption aria-live="polite"><b class="k1-n">The Ember Review</b><span class="k1-l">An open research journal, with submissions and a searchable archive.</span><a class="k1-d" href="https://emberreview.org" target="_blank" rel="noopener">emberreview.org&nbsp;↗</a></figcaption>
@@ -901,6 +910,7 @@ void main(){
     if (i === cur && !force) return; cur = i;
     ends.forEach((e, k) => e.setAttribute('aria-pressed', k === i));
     imgs.forEach((e, k) => e.classList.toggle('on', k === i));
+    shot.scrollTop = 0;                                          // each site starts at its top
     const [name, en, dom] = S[i], line = wwT('cap' + i, en);
     shot.href = d.href = 'https://' + dom; shot.setAttribute('aria-label', 'Open ' + name);
     n.textContent = name; l.textContent = line; d.innerHTML = dom + '&nbsp;↗';
@@ -931,6 +941,7 @@ void main(){
   ends.forEach(e => ['pointerdown', 'focus'].forEach(t => e.addEventListener(t, stop)));
   ends.forEach(e => e.addEventListener('mouseenter', () => { if (fine.matches) stop(); }));
   shot.addEventListener('pointerdown', stop);
+  shot.addEventListener('scroll', () => { if (shot.scrollTop > 4) stop(); }, { passive: true });   // reading inside the window: never switch sites under the visitor
   if (!reduceM.matches && 'IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(en => {
     if (en.isIntersecting && !touched) { if (!timer) timer = setInterval(() => pick((cur + 1) % S.length), 3200); }
     else { clearInterval(timer); timer = 0; }
