@@ -1,7 +1,7 @@
 // Webwerk translations. English lives in index.html; FR and DE here, one line per key.
 // A missing key shows the English. Keys: data-t="..." in index.html, plus the ones used from script:
 // cap0..cap4 (the line under each site in "We built"), f_sending, f_sent, f_thanks, f_failed.
-// DRAFT 2026-09-27: needs a native read before merge. Wording reuses the previous site's approved
+// 2026-09-28: reviewed (grammar, register, typography); a native read by Can is still the final word. Wording reuses the previous site's approved
 // phrases where they fit (FR "Construisons le vôtre", "revue de recherche"; DE "Bauen wir Ihre Seite").
 window.WW_I18N = {
   fr: {
@@ -18,9 +18,9 @@ window.WW_I18N = {
     end3: 'un logiciel de paie',
     and: 'et',
     end4: 'un cabinet de conseil',
-    cap0: 'Une revue de recherche en libre accès, avec soumission des articles et archives consultables.',
+    cap0: 'Une revue de recherche en libre accès, avec soumission d’articles et recherche dans les archives.',
     cap1: 'Le site d’un programme de mentorat en recherche.',
-    cap2: 'Un catalogue de 1 285 livres de 620 intervenants TED, chacun associé à sa conférence.',
+    cap2: 'Un catalogue de 1 285 livres de 620 intervenants TED, chacun relié à la conférence de son auteur.',
     cap3: 'Un logiciel de conformité de la paie pour les employeurs de travailleurs frontaliers.',
     cap4: 'Le site d’un cabinet de conseil, avec sa série de publications.',
     contact: 'Construisons le vôtre.',
@@ -29,10 +29,10 @@ window.WW_I18N = {
     f_business: 'Votre entreprise',
     f_message: 'Message',
     f_send: 'Envoyer',
-    f_sending: 'Envoi…',
+    f_sending: 'Envoi en cours…',
     f_sent: 'Envoyé ✓',
     f_thanks: 'Merci. Votre message nous est bien parvenu.',
-    f_failed: 'L’envoi n’a pas abouti : votre messagerie s’ouvre avec le message déjà rempli.',
+    f_failed: 'L’envoi n’a pas abouti : votre messagerie s’ouvre avec votre message prêt à partir.',
     legal: 'Mentions légales'
   },
   de: {
@@ -49,8 +49,8 @@ window.WW_I18N = {
     end3: 'eine Lohnsoftware',
     and: 'und',
     end4: 'eine Beratungsfirma',
-    cap0: 'Ein frei zugängliches Forschungsjournal mit Einreichungen und durchsuchbarem Archiv.',
-    cap1: 'Die Website eines Mentoring-Programms für Forschung.',
+    cap0: 'Ein frei zugängliches Forschungsjournal mit Online-Einreichung und durchsuchbarem Archiv.',
+    cap1: 'Die Website eines Mentoring-Programms in der Forschung.',
     cap2: 'Ein Katalog mit 1.285 Büchern von 620 TED-Speakern, jedes mit dem passenden Talk.',
     cap3: 'Lohn-Compliance-Software für Arbeitgeber mit Grenzgängern.',
     cap4: 'Die Website einer Beratungsfirma mit ihrer Publikationsreihe.',
@@ -62,8 +62,8 @@ window.WW_I18N = {
     f_send: 'Senden',
     f_sending: 'Wird gesendet…',
     f_sent: 'Gesendet ✓',
-    f_thanks: 'Danke. Ihre Nachricht ist bei uns angekommen.',
-    f_failed: 'Das hat nicht geklappt: Ihr E-Mail-Programm öffnet sich mit der ausgefüllten Nachricht.',
+    f_thanks: 'Vielen Dank. Ihre Nachricht ist bei uns angekommen.',
+    f_failed: 'Das Senden hat nicht funktioniert. Ihr E-Mail-Programm öffnet sich mit Ihrer vorbereiteten Nachricht.',
     legal: 'Impressum'
   }
 };

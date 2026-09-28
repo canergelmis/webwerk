@@ -1,42 +1,28 @@
 <!DOCTYPE html>
+<!-- Source of og.png (the link-preview card, 1200x630). Render: serve the repo root and screenshot this page
+     at 1200x630 (studio/tools/og.mjs does it). Same design as the home page: the red bridge, WEB/WERK, the line. -->
 <html><head><meta charset="UTF-8" />
 <meta name="robots" content="noindex,nofollow" />
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<link rel="stylesheet" href="/fonts/archivo-var.css" />
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{width:1200px;height:630px;overflow:hidden;background:#0b2c52;color:#bcd7f2;font-family:'Space Mono',monospace;
-    background-image:linear-gradient(rgba(188,215,242,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(188,215,242,.10) 1px,transparent 1px);background-size:40px 40px;position:relative}
-  .pad{padding:64px 70px;height:100%;display:flex;flex-direction:column;justify-content:space-between}
-  .top{display:flex;justify-content:space-between;align-items:flex-start}
-  .brand{font-family:'Archivo',sans-serif;font-weight:800;font-size:34px;color:#eaf3ff;letter-spacing:.01em}
-  .brand .x{color:#ff5b51}
-  .plate{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:rgba(188,215,242,.6);text-align:right;line-height:1.7}
-  h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:150px;line-height:.9;letter-spacing:-.03em;text-transform:uppercase;color:transparent;-webkit-text-stroke:2.5px #eaf3ff}
-  h1 em{font-style:normal;-webkit-text-stroke:2.5px #ff5b51}
-  .dim{display:flex;align-items:center;gap:14px;margin-top:18px;color:#ff5b51;font-size:15px}
-  .dim .bar{flex:1;max-width:520px;height:2px;background:#ff5b51;position:relative}
-  .dim .bar::before,.dim .bar::after{content:"";position:absolute;top:-4px;width:2px;height:10px;background:#ff5b51}
-  .dim .bar::before{left:0}.dim .bar::after{right:0}
-  .bottom{display:flex;justify-content:space-between;align-items:flex-end}
-  .sub{font-size:22px;color:#d4e2f5;max-width:560px}
-  .hand{font-family:'Caveat',cursive;color:#ffcf6b;font-size:40px;transform:rotate(-3deg)}
-  .tl,.tr{position:absolute;width:26px;height:26px;border:2px solid #ff5b51}
-  .tl{top:46px;left:46px;border-right:0;border-bottom:0}.tr{top:46px;right:46px;border-left:0;border-bottom:0}
+  body{width:1200px;height:630px;overflow:hidden;background:#0b2c52;color:#eaf3ff;font-family:Archivo,sans-serif;position:relative}
+  .img{position:absolute;inset:0;background:url(/assets/hero/bridge.jpg) 70% 40%/cover no-repeat}
+  .img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,44,82,.94) 0,rgba(11,44,82,.82) 42%,rgba(11,44,82,.2) 78%,rgba(11,44,82,.05) 100%)}
+  .pad{position:relative;height:100%;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between}
+  .mark{font-weight:800;font-size:44px;letter-spacing:.02em;line-height:1}
+  .x{color:#ff5b51}
+  h1{font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-.02em}
+  h1 em{display:block;font-style:normal;color:#ffcf6b;font-size:112px;line-height:.98}
+  .sub{margin-top:26px;font-size:26px;font-weight:500;color:#bcd7f2}
 </style></head>
 <body>
-  <span class="tl"></span><span class="tr"></span>
+  <div class="img"></div>
   <div class="pad">
-    <div class="top">
-      <div class="brand">WEB<span class="x">/</span>WERK</div>
-      <div class="plate">Working drawing № WW-2026<br>Web studio · Luxembourg</div>
-    </div>
+    <div class="mark">WEB<span class="x">/</span>WERK</div>
     <div>
-      <h1>We draft<br>the <em>web.</em></h1>
-      <div class="dim"><span>concept</span><span class="bar"></span><span>go-live</span></div>
-    </div>
-    <div class="bottom">
-      <div class="sub">Custom, multilingual websites — measured, drafted, built in Luxembourg. You see your site before you pay.</div>
-      <div class="plate" style="text-align:right">webwerk.lu</div>
+      <h1>The web looks the same.<em>Yours won't.</em></h1>
+      <p class="sub">Design studio, Luxembourg · webwerk.lu</p>
     </div>
   </div>
 </body></html>
