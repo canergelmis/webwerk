@@ -262,6 +262,7 @@ footer{padding-block:var(--gap) 32px}
 .glf{position:fixed;inset:0;width:100%;height:100%;z-index:8;pointer-events:none;mix-blend-mode:screen}
 .bg .vid2{width:100%;height:100%;object-fit:cover;display:block;opacity:var(--cv,1)}
 .line.invite .bg{background:rgb(12,19,42)}   /* the video's own dark, so the section stays dark while the video is hidden */
+.bg .cgl{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;transition:opacity .5s linear}   /* the contact's grains, under the gradient and the words */
 .hstance{pointer-events:none}   /* the line sits over the hero until it forms; clicks go to the arrow under it */
 .cue{position:fixed;z-index:9;right:var(--m);bottom:var(--m);transition:background-color .2s,border-color .2s,color .2s,opacity .35s,visibility .35s}
 .cue.gone{opacity:0;visibility:hidden}
@@ -328,7 +329,7 @@ html[lang=fr] .k1 h2{font-size:calc(var(--t-display) * .9)}
 
 <main>
   <section class="line wrap invite slab" id="contact" aria-labelledby="contact-h">
-    <div class="bg" aria-hidden="true"><video class="vid2" muted loop playsinline preload="none" poster="/assets/contact/ribbons.jpg" data-poster-m="/assets/contact/ribbons-m.jpg" data-src="/assets/contact/ribbons.mp4" data-src-m="/assets/contact/ribbons-m.mp4"></video></div>
+    <div class="bg" aria-hidden="true"><video class="vid2" muted loop playsinline preload="none" poster="/assets/contact/ribbons.jpg" data-poster-m="/assets/contact/ribbons-m.jpg" data-src="/assets/contact/ribbons.mp4" data-src-m="/assets/contact/ribbons-m.mp4"></video><canvas class="cgl"></canvas></div>
     <div class="txt">
       <h2 id="contact-h"><span class="fit" data-t="contact">Let's build yours.</span></h2>
       <div class="cgrid">
@@ -392,15 +393,7 @@ html[lang=fr] .k1 h2{font-size:calc(var(--t-display) * .9)}
   const gl = reduce.matches ? null : glc.getContext('webgl2', { alpha: true, premultipliedAlpha: true, antialias: false, powerPreference: 'high-performance' });
 
   // --- shaders ---
-  const VS = `#version 300 es
-precision highp float;
-layout(location=0) in vec2 a_img; layout(location=1) in float a_z; layout(location=2) in vec3 a_col;
-layout(location=3) in float a_cls; layout(location=4) in vec2 a_tgt; layout(location=5) in vec3 a_tcol;
-layout(location=6) in vec2 a_rib; layout(location=7) in vec3 a_rcol;
-uniform vec2 u_res; uniform vec4 u_cover, u_rcover, u_bgy; uniform float u_dpr, u_p, u_time, u_D, u_yaw, u_pitch, u_dolly, u_alpha;
-uniform float u_rel, u_shift, u_trail, u_c, u_v, u_phone, u_ct, u_live, u_hand;
-out vec4 v_col;
-float hash(float n){ return fract(sin(n) * 43758.5453123); }
+  const NOISE = `float hash(float n){ return fract(sin(n) * 43758.5453123); }
 vec4 perm(vec4 x){ return mod(((x * 34.0) + 1.0) * x, 289.0); }
 float noise(vec3 p){
   vec3 a = floor(p), d = p - a; d = d * d * (3.0 - 2.0 * d);
@@ -418,18 +411,21 @@ vec3 curl(vec3 p){
   vec3 y0 = field(p - vec3(0,e,0)), y1 = field(p + vec3(0,e,0));
   vec3 z0 = field(p - vec3(0,0,e)), z1 = field(p + vec3(0,0,e));
   return vec3(y1.z - y0.z - z1.y + z0.y, z1.x - z0.x - x1.z + x0.z, x1.y - x0.y - y1.x + y0.x) / (2.0 * e);
-}
+}`;
+  const VS = `#version 300 es
+precision highp float;
+layout(location=0) in vec2 a_img; layout(location=1) in float a_z; layout(location=2) in vec3 a_col;
+layout(location=3) in float a_cls; layout(location=4) in vec2 a_tgt; layout(location=5) in vec3 a_tcol;
+uniform vec2 u_res; uniform vec4 u_cover; uniform float u_dpr, u_p, u_time, u_D, u_yaw, u_pitch, u_dolly, u_alpha;
+uniform float u_rel, u_shift, u_trail;
+out vec4 v_col;
+${NOISE}
 vec3 rot(vec3 v, float yaw, float pitch){
   float cy = cos(yaw), sy = sin(yaw), cp = cos(pitch), sp = sin(pitch);
   v = vec3(cy * v.x + sy * v.z, v.y, -sy * v.x + cy * v.z);
   return vec3(v.x, cp * v.y - sp * v.z, sp * v.y + cp * v.z);
 }
 float easeC(float g){ return g < 0.5 ? 4.0 * g * g * g : 1.0 - pow(-2.0 * g + 2.0, 3.0) / 2.0; }
-// the contact video sits under a gradient; the points take the colour you actually see there
-float shade(float y){
-  if (u_phone > 0.5) { float t = 1.0 - y; return t < 0.45 ? mix(0.94, 0.72, t / 0.45) : t < 0.8 ? mix(0.72, 0.25, (t - 0.45) / 0.35) : 0.25; }
-  return y < 0.3 ? mix(0.2, 0.0, y / 0.3) : y < 0.6 ? 0.0 : mix(0.0, 1.0, (y - 0.6) / 0.4);
-}
 void main(){
   float id = float(gl_VertexID);
   float r1 = hash(id * 0.1234 + 1.0), r2 = hash(id * 0.731 + 7.0), r3 = hash(id * 1.37 + 3.0), r4 = hash(id * 2.113 + 5.0);
@@ -462,53 +458,17 @@ void main(){
     size = mix(mix(2.1, 1.7, ea), 1.7, g) * (1.0 + blur * 2.5);
   } else {
     yaw = 0.0; pitch = 0.0; dolly = 0.0;
-    if (u_c <= 0.0) {
-      // ---- 2. as the line scrolls away it pours dust down behind the amber section ----
-      vec3 L = T - vec3(0.0, u_shift, 0.0);                     // the letters move up with the page
-      float d = r1 * 0.5;
-      float rr = clamp((u_rel - d) / 0.5, 0.0, 1.0);
-      vec3 fall = vec3((r4 - 0.5) * u_D * 0.22 * rr, pow(rr, 1.6) * u_res.y * 1.15, r3 * u_D * 0.25 * rr);
-      bool shown = r3 < 0.38;
-      a = shown ? 0.8 * smoothstep(0.0, 0.06, rr) * (1.0 - smoothstep(0.75, 1.0, rr)) : 0.0;
-      vec3 sw = a > 0.0 ? curl(vec3(L.xy / u_D * 1.6, u_time * 0.03 + r3)) * u_D * 0.07 * sin(3.14159 * rr) : vec3(0.0);
-      P = L + fall + sw;
-      col = mix(a_tcol, pal * 1.3, smoothstep(0.0, 0.5, rr));
-      size = shown ? mix(1.8, 1.6, rr) : 1.6;
-    } else {
-      // ---- 3. at the contact the dust falls into the ribbons, which then keep living as particles ----
-      vec3 R = vec3(u_rcover.zw + a_rib * u_rcover.xy - u_res * 0.5, 0.0);
-      // a slow wave travels along the ribbons (each layer at its own phase) plus a faint breathing drift;
-      // plain sines, so the living ribbons stay cheap; u_live eases in so the motion starts from the formed shape
-      float ph = a_rib.x * 8.17 - u_time * 1.15 + a_rib.y * 4.0;   // the wave travels ~2x faster (Can: "move faster")
-      R.y += u_live * u_rcover.y * (0.035 * sin(ph) + 0.012 * sin(ph * 2.3 + 1.7 - u_time * 0.65));
-      R.x += u_live * u_rcover.x * 0.004 * sin(ph * 0.7 + 0.9);
-      R.xy += u_live * vec2(sin(u_time * 1.4 + r1 * 6.2832), cos(u_time * 1.2 + r2 * 6.2832)) * u_D * 0.004;
-      float d2 = 0.35 * (a_rib.x * 0.55 + r2 * 0.45);
-      float lin = clamp((u_c - d2) / 0.65, 0.0, 1.0);
-      float rc = 1.0 - pow(1.0 - lin, 3.0);                     // falls in quickly, settles softly
-      P = R;
-      if (lin < 1.0) {                                           // only while falling: the start point and the swirl
-        vec3 S2 = R + vec3((r4 - 0.5) * u_res.x * 0.22, -(0.28 + 0.5 * r1) * u_res.y, r3 * u_D * 0.3);   // each grain falls onto its own place
-        P = mix(S2, R, rc) + curl(vec3(S2.xy / u_D * 1.3, u_time * 0.03 + r4)) * u_D * 0.16 * sin(3.14159 * rc);
-      }
-      float yn = clamp((R.y + u_res.y * 0.5 - u_bgy.x) / u_bgy.y, 0.0, 1.0);
-      vec3 seen = mix(a_rcol, vec3(8.0, 24.0, 48.0) / 255.0, shade(yn));
-      float lum = dot(seen, vec3(0.3, 0.55, 0.15));
-      col = mix(pal * 1.3, mix(vec3(lum), seen, 1.6) * vec3(1.8, 1.3, 0.92) * (u_phone > 0.5 ? vec3(0.9, 0.98, 0.92) : vec3(1.0)), smoothstep(0.3, 1.0, rc));   // gain measured against the video frame
-      a = mix(0.6, u_phone > 0.5 ? 0.48 : 0.7, rc) * smoothstep(0.0, 0.12, lin);   // phones sit under a heavier gradient
-      size = mix(1.7, 2.9, rc);                                  // formed grains cover the ribbon like the video did
-      // living: darker so the headline and form read on top, and the grains swell with the wave (fuller on the
-      // crests), so the ribbons read as cloth rather than dust (Can: "more darker ... dots get a little bigger")
-      float crest = 0.5 + 0.5 * sin(ph);
-      size *= 1.0 + u_live * (u_phone > 0.5 ? 0.1 + 0.3 * crest : 0.25 + 0.55 * crest);   // less on phones: dense screens pay for every pixel
-      a *= 1.0 - u_live * (0.5 - 0.15 * crest);
-      col *= 1.0 - u_live * 0.4;
-      a *= 1.0 - u_live * 0.15;
-      // the handover: the video (held on this same frame) appears, and each grain melts into it at its own moment,
-      // shrinking as it goes, so the dust reads as hardening into cloth rather than a crossfade
-      float th = 0.7 * fract(r2 * 7.31 + r4 * 3.17), kk = smoothstep(th, th + 0.3, u_hand);
-      a *= 1.0 - kk; size *= 1.0 - 0.55 * kk;
-    }
+    // ---- 2. as the line scrolls away it pours dust down behind the amber section (the contact has its own canvas) ----
+    vec3 L = T - vec3(0.0, u_shift, 0.0);                     // the letters move up with the page
+    float d = r1 * 0.5;
+    float rr = clamp((u_rel - d) / 0.5, 0.0, 1.0);
+    vec3 fall = vec3((r4 - 0.5) * u_D * 0.22 * rr, pow(rr, 1.6) * u_res.y * 1.15, r3 * u_D * 0.25 * rr);
+    bool shown = r3 < 0.38;
+    a = shown ? 0.8 * smoothstep(0.0, 0.06, rr) * (1.0 - smoothstep(0.75, 1.0, rr)) : 0.0;
+    vec3 sw = a > 0.0 ? curl(vec3(L.xy / u_D * 1.6, u_time * 0.03 + r3)) * u_D * 0.07 * sin(3.14159 * rr) : vec3(0.0);
+    P = L + fall + sw;
+    col = mix(a_tcol, pal * 1.3, smoothstep(0.0, 0.5, rr));
+    size = shown ? mix(1.8, 1.6, rr) : 1.6;
     blur = 0.0;
   }
   vec3 pivot = vec3(0.0, 0.0, u_D * 0.45);
@@ -524,7 +484,6 @@ void main(){
 precision highp float;
 in vec4 v_col; out vec4 o;
 uniform vec4 u_mask; uniform float u_dpr, u_resy;
-uniform sampler2D u_tmask; uniform vec4 u_trect; uniform float u_tOn;   // the contact's text, as a soft mask
 float edge(float top, float x){                              // the slab's slanted top edge (clip-path in the CSS)
   float c = u_mask.w, sx = u_mask.z;
   return top + (x < sx ? c : x > sx + c * 0.249 ? 0.0 : c * (1.0 - (x - sx) / (c * 0.249)));
@@ -534,19 +493,15 @@ void main(){
   if (y > edge(u_mask.x, x) && y < edge(u_mask.y, x)) discard;   // behind the amber section
   vec2 c = gl_PointCoord * 2.0 - 1.0; float r = dot(c, c); if (r > 1.0) discard;
   float a = v_col.a * (0.55 * (1.0 - r) + 0.75 * exp(-r * 7.0));
-  if (u_tOn > 0.0) {                                          // the ribbons pass behind the words: a dark halo round each (u_tOn = strength)
-    vec2 uv = (vec2(x, y) - u_trect.xy) / u_trect.zw;
-    if (all(greaterThanEqual(uv, vec2(0.0))) && all(lessThanEqual(uv, vec2(1.0)))) { vec4 m = texture(u_tmask, uv) * u_tOn; a *= (1.0 - 0.95 * m.r) * (1.0 - smoothstep(0.7, 0.95, m.r)) * (1.0 - 0.72 * m.g); }   // a soft halo, and no grains at all on the letters themselves (grains add up)   // r: words, g: the form panel
-  }
   o = vec4(min(v_col.rgb * a, vec3(1.0)), a); }`;
 
-  let prog = null, U = {}, vao = null, tgtBuf = null, ribBuf = null, N = 0, order = null, ready = false, ribReady = false;
+  let prog = null, U = {}, vao = null, tgtBuf = null, N = 0, order = null, ready = false;
   let PTS = null, glyphs = null, targetsFor = '';
   function compile() {
     const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
     prog = gl.createProgram(); gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog);
     if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
-    for (const n of ['u_res', 'u_cover', 'u_rcover', 'u_bgy', 'u_dpr', 'u_p', 'u_time', 'u_D', 'u_yaw', 'u_pitch', 'u_dolly', 'u_alpha', 'u_rel', 'u_shift', 'u_trail', 'u_c', 'u_v', 'u_phone', 'u_mask', 'u_resy', 'u_ct', 'u_live', 'u_tmask', 'u_trect', 'u_tOn', 'u_hand']) U[n] = gl.getUniformLocation(prog, n);
+    for (const n of ['u_res', 'u_cover', 'u_rcover', 'u_bgy', 'u_dpr', 'u_p', 'u_time', 'u_D', 'u_yaw', 'u_pitch', 'u_dolly', 'u_alpha', 'u_rel', 'u_shift', 'u_trail', 'u_mask', 'u_resy']) U[n] = gl.getUniformLocation(prog, n);
   }
   const b64 = s => { const bin = atob(s), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u; };
   function upload() {
@@ -563,23 +518,11 @@ void main(){
     tgtBuf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, tgtBuf); gl.bufferData(gl.ARRAY_BUFFER, N * 12, gl.DYNAMIC_DRAW);
     gl.enableVertexAttribArray(4); gl.vertexAttribPointer(4, 2, gl.FLOAT, false, 12, 0);
     gl.enableVertexAttribArray(5); gl.vertexAttribPointer(5, 3, gl.UNSIGNED_BYTE, true, 12, 8);
-    ribBuf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, ribBuf); gl.bufferData(gl.ARRAY_BUFFER, N * 8, gl.STATIC_DRAW);
-    gl.enableVertexAttribArray(6); gl.vertexAttribPointer(6, 2, gl.UNSIGNED_SHORT, true, 8, 0);
-    gl.enableVertexAttribArray(7); gl.vertexAttribPointer(7, 3, gl.UNSIGNED_BYTE, true, 8, 4);
     gl.bindVertexArray(null);
     const xs = new Uint16Array(N); for (let i = 0; i < N; i++) xs[i] = bytes[i * 8] | (bytes[i * 8 + 1] << 8);
     order = Uint32Array.from({ length: N }, (_, i) => i).sort((a, b) => xs[a] - xs[b]);
     return true;
   }
-  function uploadRibbons() {
-    const R = window.WW_RIB; if (!R || !ribBuf || R.n !== N) return;
-    // 7-byte records: WebGL needs 16-bit values on 2-byte strides, so repack to 8 bytes
-    const src = b64(R.b64), out = new Uint8Array(N * 8);
-    for (let i = 0; i < N; i++) { out.set(src.subarray(i * 7, i * 7 + 7), i * 8); }
-    gl.bindBuffer(gl.ARRAY_BUFFER, ribBuf); gl.bufferData(gl.ARRAY_BUFFER, out, gl.STATIC_DRAW);
-    ribReady = true; RIBI = R;
-  }
-  let RIBI = null;
 
   // --- the letters: drawn at device resolution, each character where the page puts it ---
   function buildTargets() {
@@ -621,45 +564,6 @@ void main(){
     targetsFor = String(vw);
   }
 
-  // --- the contact's words and fields, drawn soft into a texture: grains fade around them so they read ---
-  let tTex = null, tBuilt = '', tPad = 0;
-  function buildTextMask() {
-    if (!gl || !prog) return;
-    const txt = contact.querySelector('.txt'), cr = txt.getBoundingClientRect(), k = .5, P = 64;   // padded, so the halo fades out naturally
-    const W = Math.max(1, Math.round((cr.width + 2 * P) * k)), H = Math.max(1, Math.round((cr.height + 2 * P) * k));
-    const layer = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.scale(k, k); g.translate(P, P); g.fillStyle = g.strokeStyle = '#fff'; g.lineJoin = 'round'; return [c, g]; };
-    const at = el => { const r = el.getBoundingClientRect(); return [r.left - cr.left, r.top - cr.top, r.width, r.height]; };
-    // words: each drawn in its own font, thickened, so the halo follows the letters
-    const [wc, wg] = layer();
-    contact.querySelectorAll('h2 .fit, .mail, label > span, button[type=submit], .legal span, .legal a, .fstat').forEach(el => {
-      if (!el.textContent.trim()) return;
-      const cs = getComputedStyle(el), [x, y, w, h] = at(el), fs = parseFloat(cs.fontSize);
-      wg.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily; wg.textBaseline = 'middle';
-      if (el.matches('button')) { wg.fillRect(x, y, w, h); return; }
-      wg.lineWidth = Math.max(10, fs * .34);   // small labels get a proportionally wider halo
-      wg.strokeText(el.textContent, x, y + h / 2); wg.fillText(el.textContent, x, y + h / 2);
-    });
-    // the form panel: the ribbons pass behind it, dimmed, so the fields and what the visitor types stay calm
-    const [fc, fg] = layer();
-    const form = contact.querySelector('form'); if (form) { const [x, y, w, h] = at(form); fg.fillRect(x - 12, y - 12, w + 24, h + 24); }
-    // soften: the words get a wide halo (blurred twice) around a solid core; the panel a soft edge
-    const out = document.createElement('canvas'); out.width = W; out.height = H; const o = out.getContext('2d');
-    const soft = (src, px, times) => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.filter = 'blur(' + Math.round(px * k) + 'px)'; for (let i = 0; i < times; i++) g.drawImage(src, 0, 0); g.filter = 'none'; return c; };
-    const words = soft(wc, 22, 3); words.getContext('2d').drawImage(wc, 0, 0);
-    const panel = soft(fc, 28, 1);
-    // pack: red = words, green = panel
-    const tint = (src, color) => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.drawImage(src, 0, 0); g.globalCompositeOperation = 'source-in'; g.fillStyle = color; g.fillRect(0, 0, W, H); return c; };
-    o.fillStyle = '#000'; o.fillRect(0, 0, W, H); o.globalCompositeOperation = 'lighter';
-    o.drawImage(tint(words, '#f00'), 0, 0); o.drawImage(tint(panel, '#0f0'), 0, 0);
-    if (!tTex) tTex = gl.createTexture();
-    gl.bindTexture(gl.TEXTURE_2D, tTex);
-    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, out);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    tPad = P;
-    tBuilt = vw + 'x' + Math.round(cr.width) + 'x' + Math.round(cr.height) + document.documentElement.lang;
-  }
   function measure() {
     vw = document.documentElement.clientWidth; vh = innerHeight; dpr = Math.min(devicePixelRatio || 1, 2);
     hTop = hseq.getBoundingClientRect().top + scrollY; hSpan = hseq.offsetHeight - vh;
@@ -668,6 +572,7 @@ void main(){
     cutPx = parseFloat(getComputedStyle(built).marginTop) * -1 || 0;
     glc.width = Math.round(vw * dpr); glc.height = Math.round(vh * dpr);
     cv.width = Math.round(vw * dpr); cv.height = Math.round(heroEl.clientHeight * dpr);
+    sizeC();
     // the phone's address bar changes the height while scrolling; the letters only move when the width does
     if (vw !== lastW) { lastW = vw; glyphs = null; targetsFor = ''; }
     if (!reduce.matches && !targetsFor) (document.fonts ? document.fonts.ready : Promise.resolve()).then(() =>
@@ -688,24 +593,191 @@ void main(){
   function warmUp() {
     if (warmed || !ready || !targetsFor) return;
     warmed = true;
-    drawGL({ p: .5, m: 1, rel: 0, shift: 0, trail: 0, c: 0, v: 0 }, performance.now());   // m = 1: every grain at alpha 0
+    drawGL({ p: .5, m: 1, rel: 0, shift: 0, trail: 0 }, performance.now());   // m = 1: every grain at alpha 0
     const px = new Uint8Array(4); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);   // forces the compile now, while idle (gl.finish() did not, reliably)
     gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
     render();
     idle(wantRibbons);
   }
-  function wantRibbons() { if (ribAsked || !ready) return; ribAsked = true; load('/assets/hero/rib-' + (small ? 'm' : 'd') + '.js', () => { uploadRibbons(); render(); }); }
+  function wantRibbons() { if (ribAsked || !ready) return; ribAsked = true; load('/assets/hero/rib-' + (small ? 'm' : 'd') + '.js', () => { ribLoaded(); kick(); }); }
 
-  // --- the contact video: held on its first frame until the points have become it, then it plays ---
+  // ================= the contact: its own canvas inside the section's background, under the gradient and the words =================
+  // Can, 2026-09-28: "the handover still shows". Grains on the canvas above the page could only imitate a video that sits
+  // under a gradient, so every crossfade showed. Now the grains live where the video lives: the dust falls onto the
+  // ribbons of the video's first frame; the video then starts (slowly) and every grain shows the video's own pixel under
+  // it while it grows, until the grains close into the picture, while the glow between the ribbons fills in; from then on
+  // the canvas keeps drawing the video itself, once per video frame. One surface, nothing swapped: nothing to match.
   if (small && vid.dataset.posterM) vid.poster = vid.dataset.posterM;
-  // with the engine running, the video stays invisible until it can play, so it needs no poster (the switch
-  // from poster to the playing video cost a ~200 ms frame at the start of the crossfade)
-  if (gl && prog) vid.removeAttribute('poster');
   function vidSrc() { if (!vid.src) { vid.src = (small && vid.dataset.srcM) ? vid.dataset.srcM : vid.dataset.src; vid.preload = 'auto'; } }
-  if (!gl || !prog) {                                           // no engine: the video simply plays when in view, as before
-    contact.style.setProperty('--cv', 1);
+  const CVS = `#version 300 es
+precision highp float;
+layout(location=0) in vec2 a_rib; layout(location=1) in vec3 a_rcol;
+uniform vec2 u_res; uniform vec4 u_rc; uniform float u_dpr, u_vh, u_time, u_c, u_live, u_hand, u_phone, u_mode;
+out vec3 v_col, v_pal; out float v_a, v_k, v_land;
+${NOISE}
+void main(){
+  if (u_mode > 0.5) {                                          // one triangle over the whole canvas: the picture itself
+    gl_Position = vec4(gl_VertexID == 1 ? 3.0 : -1.0, gl_VertexID == 2 ? 3.0 : -1.0, 0.0, 1.0);
+    v_col = v_pal = vec3(0.0); v_a = v_k = v_land = 1.0; return;
+  }
+  float id = float(gl_VertexID);
+  float r1 = hash(id * 0.1234 + 1.0), r2 = hash(id * 0.731 + 7.0), r3 = hash(id * 1.37 + 3.0), r4 = hash(id * 2.113 + 5.0);
+  vec3 pal = r2 < 0.42 ? vec3(1.0, 0.36, 0.32) : r2 < 0.72 ? vec3(1.0, 0.72, 0.45) : r2 < 0.9 ? vec3(0.74, 0.84, 0.95) : vec3(1.0, 0.93, 0.82);
+  vec2 R = u_rc.zw + a_rib * u_rc.xy;                          // the grain's place in the video's first frame (canvas px, y down)
+  // fallback only (no video): the ribbons keep living as particles, a slow wave along them plus a faint drift
+  float ph = a_rib.x * 8.17 - u_time * 1.15 + a_rib.y * 4.0;
+  R.y += u_live * u_rc.y * (0.035 * sin(ph) + 0.012 * sin(ph * 2.3 + 1.7 - u_time * 0.65));
+  R.x += u_live * u_rc.x * 0.004 * sin(ph * 0.7 + 0.9);
+  R += u_live * vec2(sin(u_time * 1.4 + r1 * 6.2832), cos(u_time * 1.2 + r2 * 6.2832)) * u_vh * 0.005;
+  // the fall: each grain drops onto its own place from above the section, falls in quickly and settles softly
+  float d2 = 0.35 * (a_rib.x * 0.55 + r2 * 0.45);
+  float lin = clamp((u_c - d2) / 0.65, 0.0, 1.0);
+  float rc = 1.0 - pow(1.0 - lin, 3.0);
+  vec2 P = R;
+  if (lin < 1.0) {
+    float D = u_vh * 1.25;
+    vec2 S = R + vec2((r4 - 0.5) * u_res.x * 0.22, -(0.28 + 0.5 * r1) * u_vh);
+    P = mix(S, R, rc) + curl(vec3(S / D * 1.3, u_time * 0.03 + r4)).xy * D * 0.16 * sin(3.14159 * rc);
+  }
+  float land = smoothstep(0.3, 1.0, rc);
+  vec3 col = mix(pal * 1.3, a_rcol, land);                     // lands in the frame's own colour (the gradient darkens both alike)
+  float a = mix(0.6, 0.9, rc) * smoothstep(0.0, 0.12, lin);
+  float size = mix(1.7, 2.9, rc);
+  float crest = 0.5 + 0.5 * sin(ph);
+  size *= 1.0 + u_live * (u_phone > 0.5 ? 0.1 + 0.3 * crest : 0.25 + 0.55 * crest);
+  a *= 1.0 - u_live * (0.3 - 0.15 * crest);
+  // the handover: each grain, at its own moment, shows the video under it and grows into its neighbours
+  float th = 0.6 * fract(r2 * 7.31 + r4 * 3.17), k = smoothstep(th, th + 0.4, u_hand) * smoothstep(0.85, 1.0, lin);   // only a grain that has landed
+  size = mix(size, u_phone > 0.5 ? 5.0 : 7.0, k); a = mix(a, 1.0, k);
+  gl_Position = vec4(P.x / u_res.x * 2.0 - 1.0, 1.0 - P.y / u_res.y * 2.0, 0.0, 1.0);
+  gl_PointSize = max(size * u_dpr, 1.0);
+  if (a <= 0.001) gl_Position = vec4(2.0, 2.0, 2.0, 1.0);      // skip invisible grains cheaply
+  v_col = col; v_pal = pal * 1.3; v_land = land; v_a = a; v_k = k;
+}`;
+  const CFS = `#version 300 es
+precision highp float;
+in vec3 v_col, v_pal; in float v_a, v_k, v_land; out vec4 o;
+uniform sampler2D u_vid; uniform vec4 u_vc; uniform float u_dpr, u_resy, u_tex, u_mode, u_quad;
+float h2(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float vn(vec2 p){ vec2 i = floor(p), f = p - i; f = f * f * (3.0 - 2.0 * f);   // smooth value noise: soft patches, never squares
+  return mix(mix(h2(i), h2(i + vec2(1.0, 0.0)), f.x), mix(h2(i + vec2(0.0, 1.0)), h2(i + vec2(1.0, 1.0)), f.x), f.y); }
+void main(){
+  vec2 px = vec2(gl_FragCoord.x, u_resy - gl_FragCoord.y) / u_dpr;
+  vec3 vc = u_tex > 0.5 ? texture(u_vid, (px - u_vc.zw) / u_vc.xy).rgb : v_col;   // the video's own pixel here (object-fit: cover)
+  if (u_mode > 0.5) {                                          // the glow between the ribbons fills in with the same picture, in soft patches
+    float t = 0.65 * vn(px / 110.0) + 0.35 * vn(px / 37.0 + 17.0), a = smoothstep(t - 0.4, t + 0.4, u_quad * 1.8 - 0.4);
+    o = vec4(vc * a, a); return;
+  }
+  vec2 c = gl_PointCoord * 2.0 - 1.0; float r = dot(c, c); if (r > 1.0) discard;
+  float a = min(v_a * mix(0.55 * (1.0 - r) + 0.75 * exp(-r * 7.0), 1.0, v_k), 1.0);   // soft dust; a solid disc once it has become the video
+  vec3 col = u_tex > 0.5 ? mix(v_pal, vc, v_land) : v_col;     // with the video's frame in hand, a grain lands in that exact pixel
+  o = vec4(min(col, vec3(1.0)) * a, a);
+}`;
+  const cc = bgEl.querySelector('canvas.cgl');
+  let cgl = null, cprog = null, CU = {}, cvao = null, vtex = null, CN = 0, RIBI = null, ribReady = false, noTex = false, cw = 0, chh = 0;
+  if (gl && prog && cc) {
+    cgl = cc.getContext('webgl2', { alpha: true, premultipliedAlpha: true, antialias: false });
+    try {
+      const sh = (type, src) => { const s = cgl.createShader(type); cgl.shaderSource(s, src); cgl.compileShader(s); if (!cgl.getShaderParameter(s, cgl.COMPILE_STATUS)) throw new Error(cgl.getShaderInfoLog(s)); return s; };
+      cprog = cgl.createProgram(); cgl.attachShader(cprog, sh(cgl.VERTEX_SHADER, CVS)); cgl.attachShader(cprog, sh(cgl.FRAGMENT_SHADER, CFS)); cgl.linkProgram(cprog);
+      if (!cgl.getProgramParameter(cprog, cgl.LINK_STATUS)) throw new Error(cgl.getProgramInfoLog(cprog));
+      for (const n of ['u_res', 'u_rc', 'u_dpr', 'u_vh', 'u_time', 'u_c', 'u_live', 'u_hand', 'u_phone', 'u_mode', 'u_vid', 'u_vc', 'u_resy', 'u_tex', 'u_quad']) CU[n] = cgl.getUniformLocation(cprog, n);
+    } catch (e) { cgl = null; console.warn('contact: WebGL shader failed', e); }
+  }
+  if (cgl) { vid.removeAttribute('poster'); contact.style.setProperty('--cv', 0); }   // the video is only the canvas's source now: it stays invisible
+  else {                                                        // no engine: the video simply plays when in view, as before
+    contact.style.setProperty('--cv', 1); if (cc) cc.remove();
     if ('IntersectionObserver' in window && !reduce.matches) new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { vidSrc(); vid.play().catch(() => {}); } else vid.pause(); }), { threshold: .45 }).observe(vid);
   }
+  function sizeC() { if (!cgl) return; cw = bgEl.clientWidth; chh = bgEl.clientHeight; cc.width = Math.max(1, Math.round(cw * dpr)); cc.height = Math.max(1, Math.round(chh * dpr)); }
+  const cover = (w, h) => { const s = Math.max(cw / w, chh / h); return [w * s, h * s, (cw - w * s) / 2, (chh - h * s) / 2]; };   // object-fit: cover, centred
+  function ribLoaded() {
+    const R = window.WW_RIB; if (!cgl || !R || ribReady) return;
+    // 7-byte records: WebGL needs 16-bit values on 2-byte strides, so repack to 8 bytes
+    const src = b64(R.b64), out = new Uint8Array(R.n * 8);
+    for (let i = 0; i < R.n; i++) out.set(src.subarray(i * 7, i * 7 + 7), i * 8);
+    cvao = cgl.createVertexArray(); cgl.bindVertexArray(cvao);
+    const buf = cgl.createBuffer(); cgl.bindBuffer(cgl.ARRAY_BUFFER, buf); cgl.bufferData(cgl.ARRAY_BUFFER, out, cgl.STATIC_DRAW);
+    cgl.enableVertexAttribArray(0); cgl.vertexAttribPointer(0, 2, cgl.UNSIGNED_SHORT, true, 8, 0);
+    cgl.enableVertexAttribArray(1); cgl.vertexAttribPointer(1, 3, cgl.UNSIGNED_BYTE, true, 8, 4);
+    cgl.bindVertexArray(null);
+    RIBI = R; CN = R.n; ribReady = true;
+    // compile on an invisible draw now, while idle, not on the first real frame (same freeze as the hero's shader)
+    idle(() => { cDraw(performance.now(), true); const px = new Uint8Array(4); cgl.readPixels(0, 0, 1, 1, cgl.RGBA, cgl.UNSIGNED_BYTE, px); cgl.clearColor(0, 0, 0, 0); cgl.clear(cgl.COLOR_BUFFER_BIT); });
+  }
+  function upTex() {                                            // the frame the video is showing now, as a texture
+    if (noTex || vid.readyState < 2 || !vid.videoWidth) return false;
+    if (!vtex) {
+      vtex = cgl.createTexture(); cgl.bindTexture(cgl.TEXTURE_2D, vtex);
+      cgl.texParameteri(cgl.TEXTURE_2D, cgl.TEXTURE_MIN_FILTER, cgl.LINEAR); cgl.texParameteri(cgl.TEXTURE_2D, cgl.TEXTURE_MAG_FILTER, cgl.LINEAR);
+      cgl.texParameteri(cgl.TEXTURE_2D, cgl.TEXTURE_WRAP_S, cgl.CLAMP_TO_EDGE); cgl.texParameteri(cgl.TEXTURE_2D, cgl.TEXTURE_WRAP_T, cgl.CLAMP_TO_EDGE);
+    }
+    cgl.activeTexture(cgl.TEXTURE0); cgl.bindTexture(cgl.TEXTURE_2D, vtex);
+    cgl.pixelStorei(cgl.UNPACK_FLIP_Y_WEBGL, false); cgl.pixelStorei(cgl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+    try { cgl.texImage2D(cgl.TEXTURE_2D, 0, cgl.RGBA, cgl.RGBA, cgl.UNSIGNED_BYTE, vid); }
+    catch (e) { noTex = true; if (stage === 'hand' || stage === 'video') stage = 'back'; return false; }   // pixels not readable (e.g. opened from file://): the particles carry on
+    return true;
+  }
+  function cDraw(now, warm) {
+    cgl.viewport(0, 0, cc.width, cc.height);
+    cgl.clearColor(0, 0, 0, 0); cgl.clear(cgl.COLOR_BUFFER_BIT);
+    cgl.useProgram(cprog); cgl.bindVertexArray(cvao);
+    cgl.enable(cgl.BLEND); cgl.blendFunc(cgl.ONE, cgl.ONE_MINUS_SRC_ALPHA);   // "over": overlapping samples of one picture add up to that picture
+    const tex = !warm && upTex();
+    const [rw, rh, rx, ry] = cover(RIBI.w, RIBI.h), [vw2, vh2, vx, vy] = cover(vid.videoWidth || RIBI.w, vid.videoHeight || RIBI.h);
+    cgl.uniform2f(CU.u_res, cw, chh); cgl.uniform4f(CU.u_rc, rw, rh, rx, ry); cgl.uniform4f(CU.u_vc, vw2, vh2, vx, vy);
+    cgl.uniform1f(CU.u_dpr, dpr); cgl.uniform1f(CU.u_resy, cc.height); cgl.uniform1f(CU.u_vh, vh); cgl.uniform1f(CU.u_time, now / 1000);
+    cgl.uniform1f(CU.u_c, warm ? 0 : cT); cgl.uniform1f(CU.u_live, ease(liveT)); cgl.uniform1f(CU.u_hand, hT); cgl.uniform1f(CU.u_phone, vw < 960 ? 1 : 0);
+    cgl.uniform1f(CU.u_tex, tex ? 1 : 0); cgl.uniform1i(CU.u_vid, 0); cgl.uniform1f(CU.u_quad, qT);
+    if (qT > 0 && tex) { cgl.uniform1f(CU.u_mode, 1); cgl.drawArrays(cgl.TRIANGLES, 0, 3); }
+    if (qT < 1 || !tex) { cgl.uniform1f(CU.u_mode, 0); cgl.drawArrays(cgl.POINTS, 0, CN); }
+    cc.dataset.s = [stage, cT, hT, qT].map(x => typeof x === 'number' ? x.toFixed(3) : x).join(' ');
+  }
+  // the video stage draws once per video frame (watchFrames); only without requestVideoFrameCallback does the loop draw it
+  function drawC(now) { if (cgl && ribReady && stage !== 'idle' && (stage !== 'video' || !hasRVFC)) cDraw(now, false); }
+  // the sequence: form (the dust falls, 2 s; the video loads meanwhile and gives the grains its first frame's colours)
+  // -> hand (from 80% of the fall: the video starts at 0.25x, every landed grain grows into its own pixel of it, 1.6 s,
+  // and from a third of the way the glow between the ribbons fills in, 1.2 s) -> video (the canvas draws each new video
+  // frame). The speed eases to 1x over 2.4 s. No frame in time, or frames that do not advance -> back to the particle
+  // ribbons, which keep living: never a blank or a frozen frame.
+  let cT = 0, hT = 0, qT = 0, liveT = 0, rateT = 0, cWait = 0, stage = 'idle', frameSeen = 0, playT0 = 0, fw = 0;
+  const hasRVFC = 'requestVideoFrameCallback' in HTMLVideoElement.prototype;
+  const watchFrames = () => { if (!hasRVFC) return; const tok = ++fw;
+    vid.requestVideoFrameCallback(function f(now) { if (tok !== fw || stage === 'idle') return; frameSeen++; if (stage === 'video') cDraw(now, false); vid.requestVideoFrameCallback(f); }); };
+  function resetContact() {
+    cT = hT = qT = liveT = rateT = cWait = 0; stage = 'idle'; fw++;
+    if (vid.src) { vid.pause(); vid.playbackRate = 1; try { vid.currentTime = 0; } catch (e) {} }
+    cgl.clearColor(0, 0, 0, 0); cgl.clear(cgl.COLOR_BUFFER_BIT);
+  }
+  function cTick(dt, now) {
+    if (!cgl) return;
+    const r = contact.getBoundingClientRect(), br = bgEl.getBoundingClientRect(), band = br.top + br.height * .45;
+    if (r.top < vh * 2) vidSrc();                               // load early, so a frame is decoded before it is needed
+    // starts when the ribbons' band reaches the upper 72% of the screen (or has already passed above it);
+    // once started it always finishes, even if the visitor keeps scrolling down to the form
+    if (stage === 'idle' && ribReady && band < vh * .72) stage = 'form';
+    const canPlay = vid.readyState >= 2 && !vid.seeking;
+    if (stage === 'form' || stage === 'hand') cT = Math.min(1, cT + dt / 2);          // the last grains keep landing while the first ones turn
+    if (stage === 'form' && cT >= .8) stage = noTex ? (cT >= 1 ? 'live' : 'form') : canPlay ? 'go' : cT >= 1 ? 'wait' : 'form';
+    if (stage === 'wait') { cWait += dt; if (canPlay) stage = 'go'; else if (cWait > 3) stage = 'live'; }   // no video in time: the particles carry on
+    if (stage === 'go') { stage = 'hand'; frameSeen = 0; playT0 = now; watchFrames(); vid.playbackRate = .25; vid.play().catch(() => { stage = 'back'; }); }
+    if (/^(hand|video)$/.test(stage) && rateT < 1) {             // the loop eases into motion while it takes over
+      rateT = Math.min(1, rateT + dt / 2.4);
+      vid.playbackRate = .25 + .75 * ease(rateT);
+      const stuck = now - playT0 > 1500 && (hasRVFC ? frameSeen < 2 : vid.paused || vid.currentTime < .02);
+      if (stuck) stage = 'back';                                // playing but frames not advancing (throttled, blocked)
+    }
+    if (stage === 'hand') {
+      hT = Math.min(1, hT + dt / 1.6);
+      if (hT > .35) qT = Math.min(1, qT + dt / 1.2);
+      if (hT >= 1 && qT >= 1 && cT >= 1) stage = 'video';
+    }
+    if (stage === 'back') { vid.pause(); hT = Math.max(0, hT - dt / .6); qT = Math.max(0, qT - dt / .3); if (hT <= 0 && qT <= 0) stage = 'live'; }
+    if (stage === 'live') liveT = Math.min(1, liveT + dt / 1.5);
+    if (r.top > vh * 1.02 && stage !== 'idle') resetContact();   // scrolled away above it: reset for next time
+  }
+  const cBusy = () => /^(form|wait|hand|back)$/.test(stage) || (stage === 'video' && (rateT < 1 || !hasRVFC)) ||
+    (stage === 'live' && !document.hidden && contact.getBoundingClientRect().top < vh);   // the fallback ribbons animate while on screen
 
   function drawGL(u, now) {
     if (!ready || !targetsFor) return false;
@@ -722,23 +794,10 @@ void main(){
     gl.uniform1f(U.u_yaw, -.36 * cam); gl.uniform1f(U.u_pitch, .10 * cam); gl.uniform1f(U.u_dolly, .18 * cam);
     gl.uniform1f(U.u_alpha, clamp(u.p / .035, 0, 1) * (1 - u.m));
     gl.uniform1f(U.u_rel, u.rel); gl.uniform1f(U.u_shift, u.shift); gl.uniform1f(U.u_trail, u.trail);
-    gl.uniform1f(U.u_c, ribReady ? u.c : 0); gl.uniform1f(U.u_v, 0); gl.uniform1f(U.u_live, u.live); gl.uniform1f(U.u_hand, u.hand); gl.uniform1f(U.u_phone, vw < 960 ? 1 : 0);
-    // the ribbons: the video's frame as the browser lays it out (object-fit: cover, centred)
-    const br = bgEl.getBoundingClientRect();
-    if (RIBI) { const s2 = Math.max(br.width / RIBI.w, br.height / RIBI.h), rw = RIBI.w * s2, rh = RIBI.h * s2;
-      gl.uniform4f(U.u_rcover, rw, rh, br.left + (br.width - rw) / 2, br.top + (br.height - rh) / 2); }
-    gl.uniform4f(U.u_bgy, br.top, br.height, 0, 0);
     const bt = built.getBoundingClientRect().top, ct = contact.getBoundingClientRect().top;
-    gl.uniform4f(U.u_mask, bt, ct, vw * .62, cutPx); gl.uniform1f(U.u_ct, ct);
-    const tr = contact.querySelector('.txt').getBoundingClientRect(), tKey = vw + 'x' + Math.round(tr.width) + 'x' + Math.round(tr.height) + document.documentElement.lang;
-    if (u.c > 0 && tBuilt !== tKey) buildTextMask();          // (re)built when the layout or the language changes
-    // light while the dust becomes the video (the video carries no halo, so a strong one would brighten at the handover);
-    // full only for the particle-only fallback, which has to be readable on its own
-    gl.uniform1f(U.u_tOn, u.c > 0 && tTex ? .3 + .7 * u.live : 0);
-    if (tTex) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tTex); gl.uniform1i(U.u_tmask, 0); }
-    gl.uniform4f(U.u_trect, tr.left - tPad, tr.top - tPad, tr.width + 2 * tPad, tr.height + 2 * tPad);
+    gl.uniform4f(U.u_mask, bt, ct, vw * .62, cutPx);
     gl.drawArrays(gl.POINTS, 0, N);
-    glc.dataset.s = [u.p, u.rel, u.c, u.v].map(x => x.toFixed(3)).join(' ');
+    glc.dataset.s = [u.p, u.rel].map(x => x.toFixed(3)).join(' ');
     return true;
   }
 
@@ -749,47 +808,7 @@ void main(){
     const rel = clamp((sy - hEnd) / (vh * .8), 0, 1), shift = Math.max(0, sy - hEnd);
     // the page's height can still change after load (fonts, images): read the contact's place live
     cTop = contact.getBoundingClientRect().top + scrollY; maxS = Math.max(document.documentElement.scrollHeight - innerHeight, 1);
-    // the ribbons are complete (and the video has taken over) once the contact reaches the top of the screen,
-    // so nobody fills in the form under drifting dust, however tall the section is
-    return { p, m: ease(clamp((p - .79) / .08, 0, 1)), rel, shift, trail: shift, c: cT, v: 0, live: ease(liveT), hand: hT };
-  }
-  // the contact plays on its own: once the ribbons' band is on screen the dust falls into the ribbons (2 s),
-  // then the particle ribbons start moving and keep living (no video: nothing depends on playback). Scrolled away, it resets.
-  // the sequence (option A, Can 2026-09-28): 1. the dust falls onto the ribbons of the video's first frame (2 s);
-  // 2. the video, loaded and held still on that same frame, appears while each grain melts into it (2 s);
-  // 3. the loop starts slowly and eases up to full speed (1.2 s). If the video cannot show a frame, or its frames
-  // do not advance once playing, the particle ribbons stay and keep moving instead: never a blank or a frozen frame.
-  let cT = 0, liveT = 0, hT = 0, rampT = 0, cWait = 0, stage = 'idle', frameSeen = 0, playT0 = 0;
-  const hasRVFC = 'requestVideoFrameCallback' in HTMLVideoElement.prototype;
-  const watchFrames = () => { if (hasRVFC) vid.requestVideoFrameCallback(function f() { frameSeen++; if (stage !== 'idle') vid.requestVideoFrameCallback(f); }); };
-  function resetContact() {
-    cT = 0; liveT = 0; hT = 0; rampT = 0; cWait = 0; stage = 'idle';
-    if (vid.src) { vid.pause(); vid.playbackRate = 1; try { vid.currentTime = 0; } catch (e) {} }
-  }
-  function contactTick(dt) {
-    const r = contact.getBoundingClientRect(), br = bgEl.getBoundingClientRect(), band = br.top + br.height * .45;
-    if (r.top < vh * 2) vidSrc();                               // load early, so frame 0 is decoded before it is needed
-    // starts when the ribbons' band reaches the upper 72% of the screen (or has already passed above it);
-    // once started it always finishes, even if the visitor keeps scrolling down to the form
-    const reached = band < vh * .72;
-    if (stage === 'idle' && ribReady && reached) stage = 'form';
-    if (stage === 'form') { cT = Math.min(1, cT + dt / 2); if (cT >= 1) stage = 'wait'; }
-    if (stage === 'wait') {                                       // the video must be showing frame 0, still
-      cWait += dt;
-      if (vid.readyState >= 2 && !vid.seeking && vid.currentTime < .05) stage = 'hand';
-      else if (cWait > 3) stage = 'live';                         // no video in time: the particles carry on
-    }
-    if (stage === 'hand') { hT = Math.min(1, hT + dt / 2); if (hT >= 1) { stage = 'ramp'; frameSeen = 0; playT0 = performance.now(); watchFrames(); vid.playbackRate = .25; vid.play().catch(() => { stage = 'back'; }); } }
-    if (stage === 'ramp') {                                       // the loop eases into motion
-      rampT = Math.min(1, rampT + dt / 1.2);
-      vid.playbackRate = Math.max(.25, .25 + .75 * ease(rampT));
-      const stuck = performance.now() - playT0 > 1500 && (hasRVFC ? frameSeen < 2 : vid.paused || vid.currentTime < .02);
-      if (stuck) stage = 'back';                                   // playing but frames not advancing (throttled, blocked)
-      else if (rampT >= 1) { vid.playbackRate = 1; stage = 'video'; }
-    }
-    if (stage === 'back') { vid.pause(); hT = Math.max(0, hT - dt / .6); if (hT <= 0) stage = 'live'; }
-    if (stage === 'live') liveT = Math.min(1, liveT + dt / 1.5);
-    if (r.top > vh * 1.02 && stage !== 'idle') resetContact();   // scrolled away above it: reset for next time
+    return { p, m: ease(clamp((p - .79) / .08, 0, 1)), rel, shift, trail: shift };
   }
   function render(now = performance.now()) {
     const u = state();
@@ -799,11 +818,8 @@ void main(){
     heroEl.style.setProperty('--vo', (1 - ease(clamp((u.p - .02) / .16, 0, 1))).toFixed(3));
     const done = u.p >= .87;
     if (u.p > .5) wantRibbons();
-    // the video shows only once the points have become it; it plays only then
-    contact.style.setProperty('--cv', (hT * hT * (3 - 2 * hT)).toFixed(3));   // the video appears under the melting grains (gentle curve)
     const heroPts = u.p > 0 && !(done && u.rel <= 0);
-    const contactOn = contact.getBoundingClientRect().top < vh;
-    const laterPts = (u.rel > 0 && u.rel < 1) || (u.c > 0 && contactOn && hT < 1);   // once the video has them, the particles rest
+    const laterPts = u.rel > 0 && u.rel < 1;
     live = (heroPts || laterPts) && drawGL(u, now);
     if (!live && ready) { gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); }
     if (!glyphs && u.p > .5) buildTargets();
@@ -827,11 +843,11 @@ void main(){
     const target = scrollY;
     sy += (target - sy) * (1 - Math.exp(-dt * 8));           // wheel steps blend over ~0.3 s
     if (Math.abs(target - sy) < .5) sy = target;
-    contactTick(Math.min(raw, .25));                        // real time, so the contact takes 1.8 s on any machine
-    render(t); cueState();
+    cTick(Math.min(raw, .25), t);                           // real time, so the contact runs at the same pace on any machine
+    render(t); drawC(t); cueState();
     const u = state();
-    const airborne = (u.p > .06 && u.p < .80) || (u.rel > 0 && u.rel < 1) || (u.c > 0 && liveT > 0 && contact.getBoundingClientRect().top < vh);   // fallback ribbons animate while on screen
-    if (glideTo || sy !== target || (live && airborne && !document.hidden) || /^(form|wait|hand|ramp|back)$/.test(stage)) requestAnimationFrame(loop);
+    const airborne = (u.p > .06 && u.p < .80) || (u.rel > 0 && u.rel < 1);
+    if (glideTo || sy !== target || (live && airborne && !document.hidden) || cBusy()) requestAnimationFrame(loop);
     else { running = false; lastT = 0; }
   }
   function kick() { if (!running) { running = true; requestAnimationFrame(loop); } }
