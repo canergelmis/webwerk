@@ -606,13 +606,29 @@ void main(){
   const load = (src, cb) => { const s = document.createElement('script'); s.src = src; s.onload = cb; document.head.appendChild(s); };
   if (gl) {
     try { compile(); } catch (e) { prog = null; console.warn('hero: WebGL shader failed', e); }
-    load('/assets/hero/pts-' + (small ? 'm' : 'd') + '.js', () => { if (prog && upload()) { ready = true; buildTargets(); render(); } });
+    load('/assets/hero/pts-' + (small ? 'm' : 'd') + '.js', () => { if (prog && upload()) { ready = true; buildTargets(); render(); idle(warmUp); } });
   }
   let ribAsked = false;
+  const idle = f => (window.requestIdleCallback || (g => setTimeout(g, 200)))(f, { timeout: 2000 });
+  // the graphics driver compiles the particle shader on its first real draw, which froze the first
+  // scroll for 1.5 s: draw one invisible frame while the page is idle instead, then fetch the ribbons
+  let warmed = false;
+  function warmUp() {
+    if (warmed || !ready || !targetsFor) return;
+    warmed = true;
+    drawGL({ p: .5, m: 1, rel: 0, shift: 0, trail: 0, c: 0, v: 0 }, performance.now());   // m = 1: every grain at alpha 0
+    const px = new Uint8Array(4); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);   // forces the compile now, while idle (gl.finish() did not, reliably)
+    gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
+    render();
+    idle(wantRibbons);
+  }
   function wantRibbons() { if (ribAsked || !ready) return; ribAsked = true; load('/assets/hero/rib-' + (small ? 'm' : 'd') + '.js', () => { uploadRibbons(); render(); }); }
 
   // --- the contact video: held on its first frame until the points have become it, then it plays ---
   if (small && vid.dataset.posterM) vid.poster = vid.dataset.posterM;
+  // with the engine running, the video stays invisible until it can play, so it needs no poster (the switch
+  // from poster to the playing video cost a ~200 ms frame at the start of the crossfade)
+  if (gl && prog) vid.removeAttribute('poster');
   let vidOn = false;
   function vidSrc() { if (!vid.src) { vid.src = (small && vid.dataset.srcM) ? vid.dataset.srcM : vid.dataset.src; vid.preload = 'auto'; } }
   if (!gl || !prog) {                                           // no engine: the video simply plays when in view, as before
@@ -649,7 +665,7 @@ void main(){
   }
 
   // --- render everything for one scroll value ---
-  let sy = scrollY, running = false, lastT = 0, live = false;
+  let sy = scrollY, running = false, lastT = 0, live = false, cvDirty = true;
   function state() {
     const p = clamp((sy - hTop) / hSpan, 0, 1), hEnd = hTop + hSpan;
     const rel = clamp((sy - hEnd) / (vh * .8), 0, 1), shift = Math.max(0, sy - hEnd);
@@ -664,8 +680,10 @@ void main(){
   let cT = 0, vT = 0, vidWait = 0;
   function contactTick(dt) {
     const r = contact.getBoundingClientRect(), br = bgEl.getBoundingClientRect(), band = br.top + br.height * .45;
-    const inView = band < vh * .72 && band > vh * .05;            // the ribbons' band is on screen, not just the section edge
-    if (inView && ribReady && cT < 1) cT = Math.min(1, cT + dt / 2);
+    // starts when the ribbons' band reaches the upper 72% of the screen (or has already passed above it);
+    // once started it always finishes, even if the visitor keeps scrolling down to the form
+    const reached = band < vh * .72;
+    if (ribReady && cT < 1 && (cT > 0 || reached)) cT = Math.min(1, cT + dt / 2);
     else if (cT >= 1 && (vid.readyState >= 3 || vid.error || vidWait > 3)) vT = Math.min(1, vT + dt / 1);   // crossfade once the video can play (or after 3 s regardless)
     else if (cT >= 1) { vidSrc(); vidWait += dt; }
     if (r.top > vh * 1.02 && (cT || vT)) { cT = 0; vT = 0; vidWait = 0; }   // scrolled away above it: reset for next time
@@ -690,8 +708,11 @@ void main(){
     live = (heroPts || laterPts) && drawGL(u, now);
     if (!live && ready) { gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); }
     if (!glyphs && u.p > .5) buildTargets();
-    dx.clearRect(0, 0, cv.width, cv.height);
-    if (u.m > 0 && !done && glyphs) { dx.globalAlpha = u.m; dx.drawImage(glyphs, 0, 0); dx.globalAlpha = 1; }
+    // the letters' canvas is only touched while it shows something (clearing it every frame kept the GPU busy)
+    const showGlyphs = u.m > 0 && !done && glyphs;
+    if (showGlyphs || cvDirty) dx.clearRect(0, 0, cv.width, cv.height);
+    if (showGlyphs) { dx.globalAlpha = u.m; dx.drawImage(glyphs, 0, 0); dx.globalAlpha = 1; }
+    cvDirty = !!showGlyphs;
     cv.style.opacity = done ? 0 : 1;
     heroEl.style.setProperty('--so', done ? 1 : 0);
     hst.style.transform = 'none';
