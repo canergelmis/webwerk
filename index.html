@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Webwerk, design studio in Luxembourg</title>
-<meta name="description" content="Webwerk is a design studio in Luxembourg. The web looks the same. Yours won't. We built a research journal, a mentorship programme, a book catalogue, payroll software and an advisory firm's site.">
+<meta name="description" content="Webwerk is a design studio in Luxembourg. The web looks the same. Yours won't. We designed a research journal, an academic mentorship programme, a book catalogue, a payroll software, an advisory firm, and others.">
 <link rel="canonical" href="https://webwerk.lu/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Webwerk, design studio in Luxembourg">
@@ -107,8 +107,6 @@ a{color:inherit}
   text-decoration:none;
   border-radius:.06em;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-color .2s,color .2s,text-decoration-color .2s}
 .end:hover,.end:focus-visible{text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.12em}
-.bd{display:none}
-@media (min-width:960px){ .bd{display:inline} .bm{display:none} }
 @keyframes in{from{opacity:0}to{opacity:1}}
 
 /* ---------- studio line: a full-bleed image chapter (Can, 2026-09-25: "more impactful big images") ---------- */
@@ -234,7 +232,8 @@ footer{padding-block:var(--gap) 32px}
 .invite .reach{align-self:start}
 .contact.invite,.invite.slab{padding-bottom:28px!important}
 /* option 1: the sentence is the portfolio */
-.k1-grid{display:grid;gap:28px}
+.k1-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+.k1-grid > *{min-width:0}   /* the no-wrap lines must not widen the column */
 .k1 .end{text-decoration:underline;text-decoration-thickness:max(1px,.025em);text-underline-offset:.12em;text-decoration-color:rgba(11,44,82,.45);transition:text-decoration-color .3s}
 .k1 .end[aria-pressed="true"]{text-decoration-thickness:.08em;text-decoration-color:var(--navy)}
 .k1-view{margin:0;--bleed:calc(var(--m) + max(0px, (100vw - 1568px) / 2))}
@@ -251,7 +250,6 @@ footer{padding-block:var(--gap) 32px}
 .k1-d{font-size:1rem;font-weight:600;color:var(--navy)}
 @media (min-width:960px){
   .k1-grid{grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:56px;align-items:center}
-  .k1 .bm{display:inline}.k1 .bd{display:none}
   .k1 h2{font-size:min(3.5vw,54px,6.8svh)!important;line-height:1.1!important}
   .k1-shot{aspect-ratio:1200/860}
 }
@@ -311,7 +309,7 @@ html[lang=fr] .k1 h2{font-size:calc(var(--t-display) * .9)}
 
 <section class="built slab k1" aria-labelledby="built-h">
   <div class="wrap k1-grid">
-    <h2 id="built-h"><span data-t="built">We built</span> <br class="bm"><span class="nw"><button class="end" type="button" data-i="0" aria-controls="stage" data-t="end0">a research journal</button>,</span><br> <span class="nw"><button class="end" type="button" data-i="1" aria-controls="stage" data-t="end1">a mentorship programme</button>,</span><br> <span class="nw"><button class="end" type="button" data-i="2" aria-controls="stage" data-t="end2">a book catalogue</button>,</span><br class="bm"> <button class="end" type="button" data-i="3" aria-controls="stage" data-t="end3">payroll software</button><br class="bd"> <span data-t="and">and</span><br class="bm"> <span class="nw"><button class="end" type="button" data-i="4" aria-controls="stage" data-t="end4">an advisory firm</button>.</span></h2>
+    <h2 id="built-h"><span data-t="built">We designed</span><br><span class="nw"><button class="end" type="button" data-i="0" aria-controls="stage" data-t="end0">a research journal</button>,</span><br><span class="nw"><button class="end" type="button" data-i="1" aria-controls="stage" data-t="end1">an academic mentorship programme</button>,</span><br><span class="nw"><button class="end" type="button" data-i="2" aria-controls="stage" data-t="end2">a book catalogue</button>,</span><br><span class="nw"><button class="end" type="button" data-i="3" aria-controls="stage" data-t="end3">a payroll software</button>,</span><br><span class="nw"><button class="end" type="button" data-i="4" aria-controls="stage" data-t="end4">an advisory firm</button>,</span><br><span data-t="others">and others.</span></h2>
     <figure class="k1-view">
       <a class="k1-shot" href="https://emberreview.org" target="_blank" rel="noopener" aria-label="Open The Ember Review"><span class="k1-img on" data-i="0"><picture><source media="(max-width:959px)" srcset="/assets/work/emberreview-strip.webp"><img class="" src="/assets/work/emberreview-desk.webp" alt=""></picture></span><span class="k1-img" data-i="1"><picture><source media="(max-width:959px)" srcset="/assets/work/emberscholars-strip.webp"><img class="" src="/assets/work/emberscholars-desk.webp" alt="" loading="lazy"></picture></span><span class="k1-img" data-i="2"><picture><source media="(max-width:959px)" srcset="/assets/work/bwr-strip.webp"><img class="" src="/assets/work/bwr-desk.webp" alt="" loading="lazy"></picture></span><span class="k1-img" data-i="3"><picture><source media="(max-width:959px)" srcset="/assets/work/lounbreck-strip.webp"><img class="" src="/assets/work/lounbreck-desk.webp" alt="" loading="lazy"></picture></span><span class="k1-img" data-i="4"><picture><source media="(max-width:959px)" srcset="/assets/work/luxlucis-strip.webp"><img class="" src="/assets/work/luxlucis-desk.webp" alt="" loading="lazy"></picture></span></a>
       <figcaption aria-live="polite"><b class="k1-n">The Ember Review</b><span class="k1-l">An open research journal, with submissions and a searchable archive.</span><a class="k1-d" href="https://emberreview.org" target="_blank" rel="noopener">emberreview.org&nbsp;↗</a></figcaption>
@@ -915,6 +913,17 @@ void main(){
   });
   pick(0);
   addEventListener('ww:lang', () => pick(cur, true));
+  // the sentence's longest line always fits its column (one item per line; the longest differs per language)
+  const h2 = document.getElementById('built-h');
+  function fitSentence() {
+    h2.style.removeProperty('font-size');
+    const base = parseFloat(getComputedStyle(h2).fontSize), col = h2.clientWidth, left = h2.getBoundingClientRect().left;
+    const rng = document.createRange(); rng.selectNodeContents(h2);
+    const widest = Math.max(...[...rng.getClientRects()].map(r => r.right - left));
+    if (widest > col) h2.style.setProperty('font-size', (base * col / widest * .985).toFixed(2) + 'px', 'important');   // beats the desktop !important
+  }
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(fitSentence);
+  addEventListener('resize', fitSentence); addEventListener('ww:lang', () => requestAnimationFrame(fitSentence));
   // until someone hovers, taps or tabs, the preview walks through the five on its own while in view
   const reduceM = matchMedia('(prefers-reduced-motion: reduce)');
   let timer = 0, touched = false;
