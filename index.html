@@ -391,7 +391,7 @@ layout(location=0) in vec2 a_img; layout(location=1) in float a_z; layout(locati
 layout(location=3) in float a_cls; layout(location=4) in vec2 a_tgt; layout(location=5) in vec3 a_tcol;
 layout(location=6) in vec2 a_rib; layout(location=7) in vec3 a_rcol;
 uniform vec2 u_res; uniform vec4 u_cover, u_rcover, u_bgy; uniform float u_dpr, u_p, u_time, u_D, u_yaw, u_pitch, u_dolly, u_alpha;
-uniform float u_rel, u_shift, u_trail, u_c, u_v, u_phone, u_ct, u_live;
+uniform float u_rel, u_shift, u_trail, u_c, u_v, u_phone, u_ct, u_live, u_hand;
 out vec4 v_col;
 float hash(float n){ return fract(sin(n) * 43758.5453123); }
 vec4 perm(vec4 x){ return mod(((x * 34.0) + 1.0) * x, 289.0); }
@@ -487,8 +487,8 @@ void main(){
       float yn = clamp((R.y + u_res.y * 0.5 - u_bgy.x) / u_bgy.y, 0.0, 1.0);
       vec3 seen = mix(a_rcol, vec3(8.0, 24.0, 48.0) / 255.0, shade(yn));
       float lum = dot(seen, vec3(0.3, 0.55, 0.15));
-      col = mix(pal * 1.3, mix(vec3(lum), seen, 1.6) * vec3(1.8, 1.3, 0.92), smoothstep(0.3, 1.0, rc));   // gain measured against the video frame
-      a = mix(0.6, u_phone > 0.5 ? 0.56 : 0.7, rc) * smoothstep(0.0, 0.12, lin);   // phones sit under a heavier gradient
+      col = mix(pal * 1.3, mix(vec3(lum), seen, 1.6) * vec3(1.8, 1.3, 0.92) * (u_phone > 0.5 ? vec3(0.9, 0.98, 0.92) : vec3(1.0)), smoothstep(0.3, 1.0, rc));   // gain measured against the video frame
+      a = mix(0.6, u_phone > 0.5 ? 0.48 : 0.7, rc) * smoothstep(0.0, 0.12, lin);   // phones sit under a heavier gradient
       size = mix(1.7, 2.9, rc);                                  // formed grains cover the ribbon like the video did
       // living: darker so the headline and form read on top, and the grains swell with the wave (fuller on the
       // crests), so the ribbons read as cloth rather than dust (Can: "more darker ... dots get a little bigger")
@@ -497,6 +497,10 @@ void main(){
       a *= 1.0 - u_live * (0.5 - 0.15 * crest);
       col *= 1.0 - u_live * 0.4;
       a *= 1.0 - u_live * 0.15;
+      // the handover: the video (held on this same frame) appears, and each grain melts into it at its own moment,
+      // shrinking as it goes, so the dust reads as hardening into cloth rather than a crossfade
+      float th = 0.7 * fract(r2 * 7.31 + r4 * 3.17), kk = smoothstep(th, th + 0.3, u_hand);
+      a *= 1.0 - kk; size *= 1.0 - 0.55 * kk;
     }
     blur = 0.0;
   }
@@ -523,9 +527,9 @@ void main(){
   if (y > edge(u_mask.x, x) && y < edge(u_mask.y, x)) discard;   // behind the amber section
   vec2 c = gl_PointCoord * 2.0 - 1.0; float r = dot(c, c); if (r > 1.0) discard;
   float a = v_col.a * (0.55 * (1.0 - r) + 0.75 * exp(-r * 7.0));
-  if (u_tOn > 0.5) {                                          // the ribbons pass behind the words: a dark halo round each
+  if (u_tOn > 0.0) {                                          // the ribbons pass behind the words: a dark halo round each (u_tOn = strength)
     vec2 uv = (vec2(x, y) - u_trect.xy) / u_trect.zw;
-    if (all(greaterThanEqual(uv, vec2(0.0))) && all(lessThanEqual(uv, vec2(1.0)))) { vec4 m = texture(u_tmask, uv); a *= (1.0 - 0.95 * m.r) * (1.0 - smoothstep(0.7, 0.95, m.r)) * (1.0 - 0.72 * m.g); }   // a soft halo, and no grains at all on the letters themselves (grains add up)   // r: words, g: the form panel
+    if (all(greaterThanEqual(uv, vec2(0.0))) && all(lessThanEqual(uv, vec2(1.0)))) { vec4 m = texture(u_tmask, uv) * u_tOn; a *= (1.0 - 0.95 * m.r) * (1.0 - smoothstep(0.7, 0.95, m.r)) * (1.0 - 0.72 * m.g); }   // a soft halo, and no grains at all on the letters themselves (grains add up)   // r: words, g: the form panel
   }
   o = vec4(min(v_col.rgb * a, vec3(1.0)), a); }`;
 
@@ -535,7 +539,7 @@ void main(){
     const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
     prog = gl.createProgram(); gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog);
     if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
-    for (const n of ['u_res', 'u_cover', 'u_rcover', 'u_bgy', 'u_dpr', 'u_p', 'u_time', 'u_D', 'u_yaw', 'u_pitch', 'u_dolly', 'u_alpha', 'u_rel', 'u_shift', 'u_trail', 'u_c', 'u_v', 'u_phone', 'u_mask', 'u_resy', 'u_ct', 'u_live', 'u_tmask', 'u_trect', 'u_tOn']) U[n] = gl.getUniformLocation(prog, n);
+    for (const n of ['u_res', 'u_cover', 'u_rcover', 'u_bgy', 'u_dpr', 'u_p', 'u_time', 'u_D', 'u_yaw', 'u_pitch', 'u_dolly', 'u_alpha', 'u_rel', 'u_shift', 'u_trail', 'u_c', 'u_v', 'u_phone', 'u_mask', 'u_resy', 'u_ct', 'u_live', 'u_tmask', 'u_trect', 'u_tOn', 'u_hand']) U[n] = gl.getUniformLocation(prog, n);
   }
   const b64 = s => { const bin = atob(s), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u; };
   function upload() {
@@ -690,7 +694,6 @@ void main(){
   // with the engine running, the video stays invisible until it can play, so it needs no poster (the switch
   // from poster to the playing video cost a ~200 ms frame at the start of the crossfade)
   if (gl && prog) vid.removeAttribute('poster');
-  let vidOn = false;
   function vidSrc() { if (!vid.src) { vid.src = (small && vid.dataset.srcM) ? vid.dataset.srcM : vid.dataset.src; vid.preload = 'auto'; } }
   if (!gl || !prog) {                                           // no engine: the video simply plays when in view, as before
     contact.style.setProperty('--cv', 1);
@@ -712,7 +715,7 @@ void main(){
     gl.uniform1f(U.u_yaw, -.36 * cam); gl.uniform1f(U.u_pitch, .10 * cam); gl.uniform1f(U.u_dolly, .18 * cam);
     gl.uniform1f(U.u_alpha, clamp(u.p / .035, 0, 1) * (1 - u.m));
     gl.uniform1f(U.u_rel, u.rel); gl.uniform1f(U.u_shift, u.shift); gl.uniform1f(U.u_trail, u.trail);
-    gl.uniform1f(U.u_c, ribReady ? u.c : 0); gl.uniform1f(U.u_v, 0); gl.uniform1f(U.u_live, u.live); gl.uniform1f(U.u_phone, vw < 960 ? 1 : 0);
+    gl.uniform1f(U.u_c, ribReady ? u.c : 0); gl.uniform1f(U.u_v, 0); gl.uniform1f(U.u_live, u.live); gl.uniform1f(U.u_hand, u.hand); gl.uniform1f(U.u_phone, vw < 960 ? 1 : 0);
     // the ribbons: the video's frame as the browser lays it out (object-fit: cover, centred)
     const br = bgEl.getBoundingClientRect();
     if (RIBI) { const s2 = Math.max(br.width / RIBI.w, br.height / RIBI.h), rw = RIBI.w * s2, rh = RIBI.h * s2;
@@ -722,7 +725,9 @@ void main(){
     gl.uniform4f(U.u_mask, bt, ct, vw * .62, cutPx); gl.uniform1f(U.u_ct, ct);
     const tr = contact.querySelector('.txt').getBoundingClientRect(), tKey = vw + 'x' + Math.round(tr.width) + 'x' + Math.round(tr.height) + document.documentElement.lang;
     if (u.c > 0 && tBuilt !== tKey) buildTextMask();          // (re)built when the layout or the language changes
-    gl.uniform1f(U.u_tOn, u.c > 0 && tTex ? 1 : 0);
+    // light while the dust becomes the video (the video carries no halo, so a strong one would brighten at the handover);
+    // full only for the particle-only fallback, which has to be readable on its own
+    gl.uniform1f(U.u_tOn, u.c > 0 && tTex ? .3 + .7 * u.live : 0);
     if (tTex) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tTex); gl.uniform1i(U.u_tmask, 0); }
     gl.uniform4f(U.u_trect, tr.left - tPad, tr.top - tPad, tr.width + 2 * tPad, tr.height + 2 * tPad);
     gl.drawArrays(gl.POINTS, 0, N);
@@ -739,19 +744,45 @@ void main(){
     cTop = contact.getBoundingClientRect().top + scrollY; maxS = Math.max(document.documentElement.scrollHeight - innerHeight, 1);
     // the ribbons are complete (and the video has taken over) once the contact reaches the top of the screen,
     // so nobody fills in the form under drifting dust, however tall the section is
-    return { p, m: ease(clamp((p - .79) / .08, 0, 1)), rel, shift, trail: shift, c: cT, v: 0, live: ease(liveT) };
+    return { p, m: ease(clamp((p - .79) / .08, 0, 1)), rel, shift, trail: shift, c: cT, v: 0, live: ease(liveT), hand: hT };
   }
   // the contact plays on its own: once the ribbons' band is on screen the dust falls into the ribbons (2 s),
   // then the particle ribbons start moving and keep living (no video: nothing depends on playback). Scrolled away, it resets.
-  let cT = 0, liveT = 0;
+  // the sequence (option A, Can 2026-09-28): 1. the dust falls onto the ribbons of the video's first frame (2 s);
+  // 2. the video, loaded and held still on that same frame, appears while each grain melts into it (2 s);
+  // 3. the loop starts slowly and eases up to full speed (1.2 s). If the video cannot show a frame, or its frames
+  // do not advance once playing, the particle ribbons stay and keep moving instead: never a blank or a frozen frame.
+  let cT = 0, liveT = 0, hT = 0, rampT = 0, cWait = 0, stage = 'idle', frameSeen = 0, playT0 = 0;
+  const hasRVFC = 'requestVideoFrameCallback' in HTMLVideoElement.prototype;
+  const watchFrames = () => { if (hasRVFC) vid.requestVideoFrameCallback(function f() { frameSeen++; if (stage !== 'idle') vid.requestVideoFrameCallback(f); }); };
+  function resetContact() {
+    cT = 0; liveT = 0; hT = 0; rampT = 0; cWait = 0; stage = 'idle';
+    if (vid.src) { vid.pause(); vid.playbackRate = 1; try { vid.currentTime = 0; } catch (e) {} }
+  }
   function contactTick(dt) {
     const r = contact.getBoundingClientRect(), br = bgEl.getBoundingClientRect(), band = br.top + br.height * .45;
+    if (r.top < vh * 2) vidSrc();                               // load early, so frame 0 is decoded before it is needed
     // starts when the ribbons' band reaches the upper 72% of the screen (or has already passed above it);
     // once started it always finishes, even if the visitor keeps scrolling down to the form
     const reached = band < vh * .72;
-    if (ribReady && cT < 1 && (cT > 0 || reached)) cT = Math.min(1, cT + dt / 2);
-    else if (cT >= 1) liveT = Math.min(1, liveT + dt / 1.5);     // the wave eases in over 1.5 s
-    if (r.top > vh * 1.02 && cT) { cT = 0; liveT = 0; }          // scrolled away above it: reset for next time
+    if (stage === 'idle' && ribReady && reached) stage = 'form';
+    if (stage === 'form') { cT = Math.min(1, cT + dt / 2); if (cT >= 1) stage = 'wait'; }
+    if (stage === 'wait') {                                       // the video must be showing frame 0, still
+      cWait += dt;
+      if (vid.readyState >= 2 && !vid.seeking && vid.currentTime < .05) stage = 'hand';
+      else if (cWait > 3) stage = 'live';                         // no video in time: the particles carry on
+    }
+    if (stage === 'hand') { hT = Math.min(1, hT + dt / 2); if (hT >= 1) { stage = 'ramp'; frameSeen = 0; playT0 = performance.now(); watchFrames(); vid.playbackRate = .25; vid.play().catch(() => { stage = 'back'; }); } }
+    if (stage === 'ramp') {                                       // the loop eases into motion
+      rampT = Math.min(1, rampT + dt / 1.2);
+      vid.playbackRate = Math.max(.25, .25 + .75 * ease(rampT));
+      const stuck = performance.now() - playT0 > 1500 && (hasRVFC ? frameSeen < 2 : vid.paused || vid.currentTime < .02);
+      if (stuck) stage = 'back';                                   // playing but frames not advancing (throttled, blocked)
+      else if (rampT >= 1) { vid.playbackRate = 1; stage = 'video'; }
+    }
+    if (stage === 'back') { vid.pause(); hT = Math.max(0, hT - dt / .6); if (hT <= 0) stage = 'live'; }
+    if (stage === 'live') liveT = Math.min(1, liveT + dt / 1.5);
+    if (r.top > vh * 1.02 && stage !== 'idle') resetContact();   // scrolled away above it: reset for next time
   }
   function render(now = performance.now()) {
     const u = state();
@@ -762,10 +793,10 @@ void main(){
     const done = u.p >= .87;
     if (u.p > .5) wantRibbons();
     // the video shows only once the points have become it; it plays only then
-    contact.style.setProperty('--cv', 0);                     // the video is only the fallback without WebGL
+    contact.style.setProperty('--cv', (hT * hT * (3 - 2 * hT)).toFixed(3));   // the video appears under the melting grains (gentle curve)
     const heroPts = u.p > 0 && !(done && u.rel <= 0);
     const contactOn = contact.getBoundingClientRect().top < vh;
-    const laterPts = (u.rel > 0 && u.rel < 1) || (u.c > 0 && contactOn);
+    const laterPts = (u.rel > 0 && u.rel < 1) || (u.c > 0 && contactOn && hT < 1);   // once the video has them, the particles rest
     live = (heroPts || laterPts) && drawGL(u, now);
     if (!live && ready) { gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); }
     if (!glyphs && u.p > .5) buildTargets();
@@ -792,8 +823,8 @@ void main(){
     contactTick(Math.min(raw, .25));                        // real time, so the contact takes 1.8 s on any machine
     render(t); cueState();
     const u = state();
-    const airborne = (u.p > .06 && u.p < .80) || (u.rel > 0 && u.rel < 1) || (u.c > 0 && contact.getBoundingClientRect().top < vh);   // the living ribbons animate while on screen
-    if (glideTo || sy !== target || (live && airborne && !document.hidden) || (cT > 0 && cT < 1)) requestAnimationFrame(loop);
+    const airborne = (u.p > .06 && u.p < .80) || (u.rel > 0 && u.rel < 1) || (u.c > 0 && liveT > 0 && contact.getBoundingClientRect().top < vh);   // fallback ribbons animate while on screen
+    if (glideTo || sy !== target || (live && airborne && !document.hidden) || /^(form|wait|hand|ramp|back)$/.test(stage)) requestAnimationFrame(loop);
     else { running = false; lastT = 0; }
   }
   function kick() { if (!running) { running = true; requestAnimationFrame(loop); } }
