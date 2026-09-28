@@ -472,10 +472,10 @@ void main(){
       vec3 R = vec3(u_rcover.zw + a_rib * u_rcover.xy - u_res * 0.5, 0.0);
       // a slow wave travels along the ribbons (each layer at its own phase) plus a faint breathing drift;
       // plain sines, so the living ribbons stay cheap; u_live eases in so the motion starts from the formed shape
-      float ph = a_rib.x * 8.17 - u_time * 0.55 + a_rib.y * 4.0;
-      R.y += u_live * u_rcover.y * (0.035 * sin(ph) + 0.012 * sin(ph * 2.3 + 1.7 - u_time * 0.3));
+      float ph = a_rib.x * 8.17 - u_time * 1.15 + a_rib.y * 4.0;   // the wave travels ~2x faster (Can: "move faster")
+      R.y += u_live * u_rcover.y * (0.035 * sin(ph) + 0.012 * sin(ph * 2.3 + 1.7 - u_time * 0.65));
       R.x += u_live * u_rcover.x * 0.004 * sin(ph * 0.7 + 0.9);
-      R.xy += u_live * vec2(sin(u_time * 0.7 + r1 * 6.2832), cos(u_time * 0.6 + r2 * 6.2832)) * u_D * 0.004;
+      R.xy += u_live * vec2(sin(u_time * 1.4 + r1 * 6.2832), cos(u_time * 1.2 + r2 * 6.2832)) * u_D * 0.004;
       float d2 = 0.35 * (a_rib.x * 0.55 + r2 * 0.45);
       float lin = clamp((u_c - d2) / 0.65, 0.0, 1.0);
       float rc = 1.0 - pow(1.0 - lin, 3.0);                     // falls in quickly, settles softly
@@ -490,6 +490,13 @@ void main(){
       col = mix(pal * 1.3, mix(vec3(lum), seen, 1.6) * vec3(1.8, 1.3, 0.92), smoothstep(0.3, 1.0, rc));   // gain measured against the video frame
       a = mix(0.6, u_phone > 0.5 ? 0.56 : 0.7, rc) * smoothstep(0.0, 0.12, lin);   // phones sit under a heavier gradient
       size = mix(1.7, 2.9, rc);                                  // formed grains cover the ribbon like the video did
+      // living: darker so the headline and form read on top, and the grains swell with the wave (fuller on the
+      // crests), so the ribbons read as cloth rather than dust (Can: "more darker ... dots get a little bigger")
+      float crest = 0.5 + 0.5 * sin(ph);
+      size *= 1.0 + u_live * (u_phone > 0.5 ? 0.1 + 0.3 * crest : 0.25 + 0.55 * crest);   // less on phones: dense screens pay for every pixel
+      a *= 1.0 - u_live * (0.5 - 0.15 * crest);
+      col *= 1.0 - u_live * 0.4;
+      a *= 1.0 - u_live * 0.15;
     }
     blur = 0.0;
   }
@@ -506,6 +513,7 @@ void main(){
 precision highp float;
 in vec4 v_col; out vec4 o;
 uniform vec4 u_mask; uniform float u_dpr, u_resy;
+uniform sampler2D u_tmask; uniform vec4 u_trect; uniform float u_tOn;   // the contact's text, as a soft mask
 float edge(float top, float x){                              // the slab's slanted top edge (clip-path in the CSS)
   float c = u_mask.w, sx = u_mask.z;
   return top + (x < sx ? c : x > sx + c * 0.249 ? 0.0 : c * (1.0 - (x - sx) / (c * 0.249)));
@@ -514,7 +522,12 @@ void main(){
   float x = gl_FragCoord.x / u_dpr, y = (u_resy - gl_FragCoord.y) / u_dpr;
   if (y > edge(u_mask.x, x) && y < edge(u_mask.y, x)) discard;   // behind the amber section
   vec2 c = gl_PointCoord * 2.0 - 1.0; float r = dot(c, c); if (r > 1.0) discard;
-  float a = v_col.a * (0.55 * (1.0 - r) + 0.75 * exp(-r * 7.0)); o = vec4(min(v_col.rgb * a, vec3(1.0)), a); }`;
+  float a = v_col.a * (0.55 * (1.0 - r) + 0.75 * exp(-r * 7.0));
+  if (u_tOn > 0.5) {                                          // the ribbons pass behind the words: a dark halo round each
+    vec2 uv = (vec2(x, y) - u_trect.xy) / u_trect.zw;
+    if (all(greaterThanEqual(uv, vec2(0.0))) && all(lessThanEqual(uv, vec2(1.0)))) { vec4 m = texture(u_tmask, uv); a *= (1.0 - 0.95 * m.r) * (1.0 - smoothstep(0.7, 0.95, m.r)) * (1.0 - 0.72 * m.g); }   // a soft halo, and no grains at all on the letters themselves (grains add up)   // r: words, g: the form panel
+  }
+  o = vec4(min(v_col.rgb * a, vec3(1.0)), a); }`;
 
   let prog = null, U = {}, vao = null, tgtBuf = null, ribBuf = null, N = 0, order = null, ready = false, ribReady = false;
   let PTS = null, glyphs = null, targetsFor = '';
@@ -522,7 +535,7 @@ void main(){
     const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
     prog = gl.createProgram(); gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog);
     if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
-    for (const n of ['u_res', 'u_cover', 'u_rcover', 'u_bgy', 'u_dpr', 'u_p', 'u_time', 'u_D', 'u_yaw', 'u_pitch', 'u_dolly', 'u_alpha', 'u_rel', 'u_shift', 'u_trail', 'u_c', 'u_v', 'u_phone', 'u_mask', 'u_resy', 'u_ct', 'u_live']) U[n] = gl.getUniformLocation(prog, n);
+    for (const n of ['u_res', 'u_cover', 'u_rcover', 'u_bgy', 'u_dpr', 'u_p', 'u_time', 'u_D', 'u_yaw', 'u_pitch', 'u_dolly', 'u_alpha', 'u_rel', 'u_shift', 'u_trail', 'u_c', 'u_v', 'u_phone', 'u_mask', 'u_resy', 'u_ct', 'u_live', 'u_tmask', 'u_trect', 'u_tOn']) U[n] = gl.getUniformLocation(prog, n);
   }
   const b64 = s => { const bin = atob(s), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u; };
   function upload() {
@@ -597,6 +610,45 @@ void main(){
     targetsFor = String(vw);
   }
 
+  // --- the contact's words and fields, drawn soft into a texture: grains fade around them so they read ---
+  let tTex = null, tBuilt = '', tPad = 0;
+  function buildTextMask() {
+    if (!gl || !prog) return;
+    const txt = contact.querySelector('.txt'), cr = txt.getBoundingClientRect(), k = .5, P = 64;   // padded, so the halo fades out naturally
+    const W = Math.max(1, Math.round((cr.width + 2 * P) * k)), H = Math.max(1, Math.round((cr.height + 2 * P) * k));
+    const layer = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.scale(k, k); g.translate(P, P); g.fillStyle = g.strokeStyle = '#fff'; g.lineJoin = 'round'; return [c, g]; };
+    const at = el => { const r = el.getBoundingClientRect(); return [r.left - cr.left, r.top - cr.top, r.width, r.height]; };
+    // words: each drawn in its own font, thickened, so the halo follows the letters
+    const [wc, wg] = layer();
+    contact.querySelectorAll('h2 .fit, .mail, label > span, button[type=submit], .legal span, .legal a, .fstat').forEach(el => {
+      if (!el.textContent.trim()) return;
+      const cs = getComputedStyle(el), [x, y, w, h] = at(el), fs = parseFloat(cs.fontSize);
+      wg.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily; wg.textBaseline = 'middle';
+      if (el.matches('button')) { wg.fillRect(x, y, w, h); return; }
+      wg.lineWidth = Math.max(10, fs * .34);   // small labels get a proportionally wider halo
+      wg.strokeText(el.textContent, x, y + h / 2); wg.fillText(el.textContent, x, y + h / 2);
+    });
+    // the form panel: the ribbons pass behind it, dimmed, so the fields and what the visitor types stay calm
+    const [fc, fg] = layer();
+    const form = contact.querySelector('form'); if (form) { const [x, y, w, h] = at(form); fg.fillRect(x - 12, y - 12, w + 24, h + 24); }
+    // soften: the words get a wide halo (blurred twice) around a solid core; the panel a soft edge
+    const out = document.createElement('canvas'); out.width = W; out.height = H; const o = out.getContext('2d');
+    const soft = (src, px, times) => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.filter = 'blur(' + Math.round(px * k) + 'px)'; for (let i = 0; i < times; i++) g.drawImage(src, 0, 0); g.filter = 'none'; return c; };
+    const words = soft(wc, 22, 3); words.getContext('2d').drawImage(wc, 0, 0);
+    const panel = soft(fc, 28, 1);
+    // pack: red = words, green = panel
+    const tint = (src, color) => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); g.drawImage(src, 0, 0); g.globalCompositeOperation = 'source-in'; g.fillStyle = color; g.fillRect(0, 0, W, H); return c; };
+    o.fillStyle = '#000'; o.fillRect(0, 0, W, H); o.globalCompositeOperation = 'lighter';
+    o.drawImage(tint(words, '#f00'), 0, 0); o.drawImage(tint(panel, '#0f0'), 0, 0);
+    if (!tTex) tTex = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, tTex);
+    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, out);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    tPad = P;
+    tBuilt = vw + 'x' + Math.round(cr.width) + 'x' + Math.round(cr.height) + document.documentElement.lang;
+  }
   function measure() {
     vw = document.documentElement.clientWidth; vh = innerHeight; dpr = Math.min(devicePixelRatio || 1, 2);
     hTop = hseq.getBoundingClientRect().top + scrollY; hSpan = hseq.offsetHeight - vh;
@@ -668,6 +720,11 @@ void main(){
     gl.uniform4f(U.u_bgy, br.top, br.height, 0, 0);
     const bt = built.getBoundingClientRect().top, ct = contact.getBoundingClientRect().top;
     gl.uniform4f(U.u_mask, bt, ct, vw * .62, cutPx); gl.uniform1f(U.u_ct, ct);
+    const tr = contact.querySelector('.txt').getBoundingClientRect(), tKey = vw + 'x' + Math.round(tr.width) + 'x' + Math.round(tr.height) + document.documentElement.lang;
+    if (u.c > 0 && tBuilt !== tKey) buildTextMask();          // (re)built when the layout or the language changes
+    gl.uniform1f(U.u_tOn, u.c > 0 && tTex ? 1 : 0);
+    if (tTex) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tTex); gl.uniform1i(U.u_tmask, 0); }
+    gl.uniform4f(U.u_trect, tr.left - tPad, tr.top - tPad, tr.width + 2 * tPad, tr.height + 2 * tPad);
     gl.drawArrays(gl.POINTS, 0, N);
     glc.dataset.s = [u.p, u.rel, u.c, u.v].map(x => x.toFixed(3)).join(' ');
     return true;
