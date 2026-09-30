@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="../assets/fonts/fonts.css" />
+<link rel="icon" type="image/webp" href="../assets/logo.webp" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pasharo — Corporate finance advisory for decisive moments</title>
+<meta name="description" content="London-based corporate finance advisory for founders, investors, and management teams. M&amp;A, capital raising, strategic advisory.">
+<link rel="preload" as="image" href="../assets/glide-wide-poster.webp" media="(min-aspect-ratio: 1/1)">
+<link rel="preload" as="image" href="../assets/glide-tall-poster.webp" media="(max-aspect-ratio: 1/1)">
+<style>
+/* ------------------------------------------------------------------
+   System
+   One family for everything (Inter Tight); one upright text serif
+   (Newsreader) for the About line only.
+   Four text styles: display / lead (serif) / body / small.
+   Spacing rhythm: 8px base; gutter 20px mobile, 64px desktop.
+------------------------------------------------------------------- */
+:root{
+  --cream:#FEF9F4; --cream-2:#F8F2EB; --cream-3:#F2ECE4;
+  --navy:#1B2A3D; --navy-deep:#131F2E; --water:#15263C;
+  --terra:#B87D5B; --terra-2:#C99B7D; --terra-3:#9A6542;
+  --gut:20px;
+  --sans:"Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --serif:"Newsreader", Georgia, serif;
+  --display: clamp(38px, 5.6vw + 12px, 92px);
+  --title: clamp(34px, 3.2vw + 14px, 64px);
+  --lead: clamp(21px, 1.1vw + 15px, 30px);
+  --body: clamp(16px, .25vw + 15px, 19px);
+  --small: 13px;
+}
+@media (min-width:900px){ :root{ --gut:64px; } }
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{ margin:0; background:var(--water); color:var(--cream); font-family:var(--sans); font-size:var(--body); line-height:1.5; font-weight:400; -webkit-font-smoothing:antialiased; }
+a{ color:inherit; }
+img{ display:block; max-width:100%; }
+section[id], .sub[id]{ scroll-margin-top:80px; }
+@media (max-width:899px){ section[id], .sub[id]{ scroll-margin-top:64px; } }
+.visually-hidden{ position:absolute!important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+/* shared text styles */
+.t-display{ font-size:var(--display); line-height:1.02; letter-spacing:-.028em; font-weight:500; margin:0; text-wrap:balance; }
+.t-title{ font-size:var(--title); line-height:1.04; letter-spacing:-.024em; font-weight:500; margin:0; }
+.t-lead{ font-family:var(--serif); font-size:var(--lead); line-height:1.36; font-weight:400; letter-spacing:-.005em; margin:0; font-optical-sizing:auto; }
+.t-body{ font-size:var(--body); line-height:1.55; margin:0; }
+.t-small{ font-size:var(--small); line-height:1.45; letter-spacing:.01em; font-weight:500; margin:0; }
+.link{ text-decoration:none; background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat; padding-bottom:3px; transition:background-size .3s ease; }
+.link:hover{ background-size:0 1px; background-position:100% 100%; }
+.enquire{ font-weight:500; color:var(--terra-2); }
+
+/* ------------------------------------------------------------------
+   Header (only on the first screen; scrolls away with the stage)
+------------------------------------------------------------------- */
+.site-head{ position:fixed; z-index:20; top:0; left:0; right:0; display:flex; align-items:center; justify-content:space-between; padding:12px var(--gut); transition:background-color .35s ease, padding .35s ease, box-shadow .35s ease; }
+.site-head.solid{ background:rgba(19,31,46,.92); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); padding-top:6px; padding-bottom:6px; box-shadow:0 1px 0 rgba(254,249,244,.08); }
+.brand{ display:block; line-height:0; }
+.brand img{ width:88px; height:88px; filter:brightness(0) invert(1) sepia(.12) saturate(1.4); opacity:.96; transition:width .35s ease, height .35s ease; }
+.site-head.solid .brand img{ width:56px; height:56px; }
+.nav{ display:flex; gap:32px; }
+.nav a{ font-size:var(--small); font-weight:500; letter-spacing:.01em; text-decoration:none; color:rgba(254,249,244,.82); }
+.nav a:hover{ color:var(--cream); }
+.nav .nav-top{ display:none; }
+.menu-btn{ display:none; font:inherit; font-size:15px; font-weight:500; color:var(--cream); background:transparent; border:0; border-bottom:1px solid var(--terra-2); padding:4px 0; cursor:pointer; position:relative; z-index:2; }
+@media (max-width:899px){
+  .brand img{ width:72px; height:72px; }
+  .site-head.solid .brand img{ width:48px; height:48px; }
+  .menu-btn{ display:block; }
+  .nav{ position:fixed; inset:0; z-index:1; flex-direction:column; justify-content:center; gap:22px; padding:0 var(--gut); background:var(--navy-deep); opacity:0; visibility:hidden; transition:opacity .25s ease, visibility 0s linear .25s; }
+  .nav a{ font-size:clamp(30px, 8vw, 40px); letter-spacing:-.02em; color:var(--cream); }
+  .nav .nav-top{ display:block; }
+  .site-head.open .nav{ opacity:1; visibility:visible; transition:opacity .25s ease; }
+  .site-head.open{ background:transparent; box-shadow:none; }
+}
+
+/* ------------------------------------------------------------------
+   Hero: a seamless loop of the albatross gliding (real footage)
+------------------------------------------------------------------- */
+.hero{ position:relative; height:100vh; height:100svh; min-height:560px; overflow:hidden; background:#1c2d45 center/cover no-repeat; }
+.film{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(19,31,46,.35) 0%, rgba(19,31,46,0) 22%, rgba(19,31,46,0) 50%, rgba(19,31,46,.55) 100%); pointer-events:none; }
+.hero-copy{ position:absolute; z-index:2; left:var(--gut); right:var(--gut); bottom:calc(56px + env(safe-area-inset-bottom)); }
+.hero-copy .t-display{ max-width:11.5ch; }
+.hero-copy .place{ margin-top:20px; color:rgba(254,249,244,.72); }
+@media (min-width:900px){
+  .hero-copy{ bottom:clamp(56px, 11vh, 120px); }
+  .hero-copy .t-display{ max-width:none; }
+  .hero-copy .t-display span{ display:block; }
+}
+@media (min-width:900px) and (max-height:700px){
+  :root{ --display: clamp(38px, 6.4vh + 16px, 76px); }
+}
+.about{ background:var(--water); padding:72px var(--gut) 80px; }
+.about .t-lead{ max-width:34ch; color:var(--cream); }
+@media (min-width:900px){ .about{ padding:112px var(--gut) 120px; } .about .t-lead{ grid-column:1 / 9; font-size:clamp(24px, 1.2vw + 16px, 34px); } }
+
+/* ------------------------------------------------------------------
+   After the stage: Exit Readiness (cream), Contact (navy), footer
+------------------------------------------------------------------- */
+.band{ padding:72px var(--gut) 80px; }
+@media (min-width:900px){ .band{ padding:104px var(--gut) 112px; } }
+.grid{ display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); column-gap:24px; max-width:1312px; margin:0 auto; }
+.grid > *{ grid-column:1 / -1; }
+
+.exit{ background:var(--cream); color:var(--navy); }
+.wwd-h{ margin-bottom:48px; }
+.svc{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; }
+.svc li{ border-top:1px solid rgba(27,42,61,.16); padding:22px 0 30px; }
+.svc-t{ font-size:clamp(22px, .9vw + 16px, 30px); line-height:1.12; letter-spacing:-.018em; font-weight:500; margin:0 0 12px; }
+.svc .t-body{ color:rgba(27,42,61,.74); }
+.sub{ margin-top:56px; padding-top:24px; border-top:1px solid rgba(27,42,61,.16); display:grid; grid-template-columns:1fr 1fr; gap:20px 24px; }
+.exit-h{ grid-column:1 / -1; font-size:clamp(22px, .9vw + 16px, 30px); line-height:1.12; letter-spacing:-.018em; font-weight:500; margin:0; }
+.facts{ display:contents; }
+.facts dt, .deliv-h{ font-size:var(--small); font-weight:500; color:var(--terra-3); margin:0 0 6px; letter-spacing:.01em; }
+.facts dd{ margin:0; font-size:clamp(20px, .6vw + 16px, 26px); line-height:1.1; letter-spacing:-.015em; font-weight:500; font-variant-numeric:lining-nums tabular-nums; white-space:nowrap; }
+.deliv{ grid-column:1 / -1; }
+.deliv ul{ list-style:none; margin:0; padding:0; }
+.deliv li{ font-size:var(--body); line-height:1.6; color:rgba(27,42,61,.8); }
+.exit .enquire{ color:var(--terra-3); display:inline-block; margin-top:36px; justify-self:start; }
+@media (min-width:900px){
+  .wwd-h{ margin-bottom:48px; }
+  .svc{ grid-template-columns:repeat(4, minmax(0,1fr)); column-gap:24px; }
+  .svc li{ padding:24px 24px 0 0; }
+  .sub{ margin-top:72px; padding-top:28px; grid-template-columns:repeat(12, minmax(0,1fr)); gap:0 24px; align-items:start; }
+  .exit-h{ grid-column:1 / 5; }
+  .facts > div:nth-child(1){ grid-column:5 / 7; }
+  .facts > div:nth-child(2){ grid-column:7 / 9; }
+  .deliv{ grid-column:9 / 13; }
+  .exit .enquire{ grid-column:1 / 5; margin-top:48px; }
+}
+
+.contact{ background:var(--navy); color:var(--cream); padding-top:48px; padding-bottom:52px; }
+.contact .t-title{ font-size:clamp(22px, .9vw + 16px, 30px); line-height:1.12; letter-spacing:-.018em; margin-bottom:20px; }
+form{ display:grid; gap:14px; }
+.field label{ display:block; font-size:12px; font-weight:500; color:rgba(254,249,244,.6); margin-bottom:2px; letter-spacing:.01em; }
+.field input, .field select, .field textarea{
+  width:100%; font:inherit; font-size:16px; color:var(--cream); background:transparent;
+  border:0; border-bottom:1px solid rgba(254,249,244,.3); border-radius:0; padding:6px 0 8px; outline:none; -webkit-appearance:none; appearance:none;
+}
+.field select{ background-image:linear-gradient(45deg, transparent 50%, rgba(254,249,244,.7) 50%), linear-gradient(135deg, rgba(254,249,244,.7) 50%, transparent 50%); background-position:calc(100% - 12px) 55%, calc(100% - 6px) 55%; background-size:6px 6px; background-repeat:no-repeat; }
+.field select option{ color:var(--navy); }
+.field textarea{ min-height:112px; height:112px; line-height:1.5; resize:vertical; }
+.field input:focus, .field select:focus, .field textarea:focus{ border-bottom-color:var(--terra-2); }
+.send{ justify-self:start; font:inherit; font-size:15px; font-weight:500; color:var(--cream); background:transparent; border:1px solid rgba(254,249,244,.5); border-radius:0; padding:11px 22px; cursor:pointer; transition:border-color .2s, color .2s; margin-top:6px; }
+.preview-note{ color:var(--terra-2); grid-column:1 / -1; }
+.send:hover{ border-color:var(--terra-2); color:var(--terra-2); }
+@media (min-width:900px){
+  .contact{ padding-top:64px; padding-bottom:68px; }
+  .contact .t-title{ grid-column:1 / 4; margin:0; }
+  .contact form{ grid-column:4 / 13; grid-template-columns:repeat(3, minmax(0,1fr)); column-gap:24px; row-gap:16px; }
+  .contact .f-message{ grid-column:1 / 3; }
+  .contact .send{ grid-column:3; align-self:end; justify-self:start; margin:0 0 2px; }
+}
+
+.foot{ background:var(--navy-deep); color:rgba(254,249,244,.6); padding:32px var(--gut) calc(32px + env(safe-area-inset-bottom)); }
+.foot .grid{ row-gap:16px; }
+.foot p.reg{ display:block; max-width:78ch; color:rgba(254,249,244,.5); font-weight:400; }
+.foot p{ display:flex; flex-wrap:wrap; gap:4px 28px; }
+.foot strong{ color:var(--cream); font-weight:600; letter-spacing:.04em; }
+.foot nav{ display:flex; flex-wrap:wrap; gap:8px 24px; }
+.foot nav a{ text-decoration:none; }
+.foot nav a:hover{ color:var(--cream); }
+@media (min-width:900px){
+  .foot p{ grid-column:1 / 9; } .foot p.reg{ grid-column:1 / -1; margin-bottom:8px; } .foot nav{ grid-column:9 / 13; justify-content:flex-end; }
+}
+
+</style>
+</head>
+<body>
+<header class="site-head" id="head">
+  <a class="brand" href="#top" aria-label="Pasharo, back to top"><img src="../assets/logo.webp" width="96" height="96" alt="Pasharo"></a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="#top" class="nav-top">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#exit-readiness">Exit Readiness</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+
+<section class="hero" id="top" aria-label="Pasharo">
+  <video class="film" id="film" muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="hero-copy">
+    <h1 class="t-display"><span>Corporate finance advisory</span> <span>for decisive moments.</span></h1>
+    <p class="t-small place">London</p>
+  </div>
+</section>
+
+<main>
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div class="grid">
+      <h2 class="visually-hidden" id="about-h">About</h2>
+      <p class="t-lead">Pasharo is a corporate finance advisory firm based in London, established in 2018. We advise founders, shareholders, and management teams on transactions and strategic decisions.</p>
+    </div>
+  </section>
+
+  <section class="band exit" id="services" aria-labelledby="wwd-h">
+    <div class="grid">
+      <h2 class="t-display wwd-h" id="wwd-h">What We Do</h2>
+      <ul class="svc">
+        <li><h3 class="svc-t">M&amp;A Advisory</h3><p class="t-body">We advise founders, shareholders, and investors on sales, acquisitions, and exits. Senior-led from preparation through completion.</p></li>
+        <li><h3 class="svc-t">Capital Raising</h3><p class="t-body">Equity and debt capital from institutional and private investors. Positioning, targeting, disciplined execution.</p></li>
+        <li><h3 class="svc-t">Strategic Advisory</h3><p class="t-body">We work with leadership teams on growth strategy, exit readiness, and shareholder decisions.</p></li>
+        <li><h3 class="svc-t">Market Intelligence</h3><p class="t-body">Deep analysis of sectors, competitive landscapes, and transaction dynamics. Concise, commercial, decision-ready.</p></li>
+      </ul>
+
+      <div class="sub" id="exit-readiness" aria-labelledby="exit-h">
+        <h3 class="t-title exit-h" id="exit-h">Exit Readiness &amp; Valuation</h3>
+        <dl class="facts">
+          <div class="fact"><dt>Fee</dt><dd>£12k–£30k</dd></div>
+          <div class="fact"><dt>Timeline</dt><dd>2–5 weeks</dd></div>
+        </dl>
+        <div class="deliv">
+          <p class="t-small deliv-h">Deliverables</p>
+          <ul>
+            <li>Realistic valuation range</li>
+            <li>Buyer universe</li>
+            <li>Key value drivers</li>
+            <li>Deal strategy</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="band contact" id="contact" aria-labelledby="contact-h">
+    <div class="grid">
+      <h2 class="t-title" id="contact-h">Contact</h2>
+      <form novalidate onsubmit="event.preventDefault(); this.querySelector('.preview-note').hidden=false;">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div class="field f-subject"><label for="f-subject">Subject</label>
+          <select id="f-subject" name="subject">
+            <option>General Enquiry</option>
+            <option>M&amp;A Advisory</option>
+            <option>Capital Raising</option>
+            <option>Strategic Advisory</option>
+            <option>Internship</option>
+          </select>
+        </div>
+        <div class="field f-message"><label for="f-message">Message</label><textarea id="f-message" name="message" rows="4"></textarea></div>
+        <button class="send" type="submit">Send Enquiry</button>
+        <!-- AI line: preview-only notice, not part of the final site -->
+        <p class="t-small preview-note" role="status" hidden>Design preview: this form is not connected.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="grid">
+    <p class="t-small reg">Our services are provided on an unregulated basis and are limited to corporate finance advisory and strategic support. We do not provide regulated investment advice.</p>
+    <p class="t-small"><strong>PASHARO LIMITED</strong><span>Company Registration No: 11356503</span><span>VAT Registration No: 467875919</span></p>
+    <nav class="t-small" aria-label="Legal">
+      <a href="#">Terms of Use</a><a href="#">Disclaimer</a><a href="#">Privacy Policy</a><a href="#">Cookie settings</a>
+    </nav>
+  </div>
+</footer>
+
+
+<script>
+(() => {
+  const head = document.getElementById("head"), btn = document.getElementById("menuBtn");
+  const onScroll = () => head.classList.toggle("solid", scrollY > 40);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  const setOpen = o => { head.classList.toggle("open", o); btn.setAttribute("aria-expanded", o); btn.textContent = o ? "Close" : "Menu"; document.body.style.overflow = o ? "hidden" : ""; };
+  btn.addEventListener("click", () => setOpen(!head.classList.contains("open")));
+  document.querySelectorAll("#nav a").forEach(a => a.addEventListener("click", () => setOpen(false)));
+  addEventListener("keydown", e => { if (e.key === "Escape") setOpen(false); });
+})();
+</script>
+<script>
+(() => {
+  const v = document.getElementById("film"), hero = v.parentElement;
+  const tall = () => innerWidth / innerHeight < 1;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let cur = "";
+  function pick() {
+    const n = tall() ? "tall" : "wide";
+    if (n === cur) return; cur = n;
+    const poster = `../assets/glide-${n}-poster.webp`;
+    hero.style.backgroundImage = `url(${poster})`;
+    v.poster = poster;
+    if (reduce) return;                       // still image only
+    v.src = `../assets/glide-${n}.mp4`;
+    v.play().catch(() => {});
+  }
+  pick(); addEventListener("resize", pick);
+  document.addEventListener("visibilitychange", () => { if (!reduce) document.hidden ? v.pause() : v.play().catch(() => {}); });
+})();
+</script>
+</body>
+</html>
