@@ -1,10 +1,14 @@
 // Webwerk translations. English lives in index.html; FR and DE here, one line per key.
 // A missing key shows the English. Keys: data-t="..." in index.html, plus the ones used from script:
 // cap0..cap4 (the line under each site in "We built"), f_sending, f_sent, f_thanks, f_failed.
+// meta_title, meta_desc, og_desc: the <head> of the pre-rendered /fr/ and /de/ pages (node tools/build-locales.mjs after any change).
 // 2026-09-28: reviewed (grammar, register, typography); a native read by Can is still the final word. Wording reuses the previous site's approved
 // phrases where they fit (FR "Construisons le vôtre", "revue de recherche"; DE "Bauen wir Ihre Seite").
 window.WW_I18N = {
   fr: {
+    meta_title: 'Webwerk, agence de design web à Luxembourg',
+    meta_desc: 'Webwerk est un studio de design web à Luxembourg. Tous les sites se ressemblent. Pas le vôtre. Nous avons conçu une revue de recherche, un programme de mentorat académique, un catalogue de livres, un logiciel de paie, un cabinet de conseil, et d’autres.',
+    og_desc: 'Tous les sites se ressemblent. Pas le vôtre.',
     nav_contact: 'Contact',
     cue: 'Défiler vers le bas',
     h1_sr: ' — Studio de design, Luxembourg',
@@ -36,6 +40,9 @@ window.WW_I18N = {
     legal: 'Mentions légales'
   },
   de: {
+    meta_title: 'Webwerk, Webdesign-Studio in Luxemburg',
+    meta_desc: 'Webwerk ist ein Webdesign-Studio in Luxemburg. Alle Websites sehen gleich aus. Ihre nicht. Von uns gestaltet: ein Forschungsjournal, ein akademisches Mentoring-Programm, ein Buchkatalog, eine Lohnsoftware, eine Beratungsfirma und weitere.',
+    og_desc: 'Alle Websites sehen gleich aus. Ihre nicht.',
     nav_contact: 'Kontakt',
     cue: 'Nach unten scrollen',
     h1_sr: ' — Designstudio, Luxemburg',
