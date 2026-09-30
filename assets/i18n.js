@@ -1,13 +1,13 @@
 // Webwerk translations. English lives in index.html; FR and DE here, one line per key.
 // A missing key shows the English. Keys: data-t="..." in index.html, plus the ones used from script:
-// cap0..cap4 (the line under each site in "We built"), f_sending, f_sent, f_thanks, f_failed.
+// cap0..cap5 (the line under each site in "We built"), f_sending, f_sent, f_thanks, f_failed.
 // meta_title, meta_desc, og_desc: the <head> of the pre-rendered /fr/ and /de/ pages (node tools/build-locales.mjs after any change).
 // 2026-09-28: reviewed (grammar, register, typography); a native read by Can is still the final word. Wording reuses the previous site's approved
 // phrases where they fit (FR "Construisons le vôtre", "revue de recherche"; DE "Bauen wir Ihre Seite").
 window.WW_I18N = {
   fr: {
     meta_title: 'Webwerk, agence de design web à Luxembourg',
-    meta_desc: 'Webwerk est un studio de design web à Luxembourg. Tous les sites se ressemblent. Pas le vôtre. Nous avons conçu une revue de recherche, un programme de mentorat académique, un catalogue de livres, un logiciel de paie, un cabinet de conseil, et d’autres.',
+    meta_desc: 'Webwerk est un studio de design web à Luxembourg. Tous les sites se ressemblent. Pas le vôtre. Nous avons conçu une revue de recherche, un programme de mentorat académique, un catalogue de livres, un logiciel de paie, un conseil en finance d’entreprise, un cabinet de conseil, et d’autres.',
     og_desc: 'Tous les sites se ressemblent. Pas le vôtre.',
     nav_contact: 'Contact',
     cue: 'Défiler vers le bas',
@@ -21,12 +21,14 @@ window.WW_I18N = {
     end2: 'un catalogue de livres',
     end3: 'un logiciel de paie',
     others: 'et bien d’autres.',
-    end4: 'un cabinet de conseil',
+    end4: 'un conseil en finance d’entreprise',
+    end5: 'un cabinet de conseil',
     cap0: 'Une revue de recherche en libre accès, avec soumission d’articles et recherche dans les archives.',
     cap1: 'Le site d’un programme de mentorat en recherche.',
     cap2: 'Un catalogue de 1 285 livres de 620 intervenants TED, chacun relié à la conférence de son auteur.',
     cap3: 'Un logiciel de conformité de la paie pour les employeurs de travailleurs frontaliers.',
-    cap4: 'Le site d’un cabinet de conseil, avec sa série de publications.',
+    cap4: 'Le site d’un cabinet de conseil en finance d’entreprise à Londres.',
+    cap5: 'Le site d’un cabinet de conseil, avec sa série de publications.',
     contact: 'Construisons le vôtre.',
     f_name: 'Nom',
     f_email: 'E-mail',
@@ -41,7 +43,7 @@ window.WW_I18N = {
   },
   de: {
     meta_title: 'Webwerk, Webdesign-Studio in Luxemburg',
-    meta_desc: 'Webwerk ist ein Webdesign-Studio in Luxemburg. Alle Websites sehen gleich aus. Ihre nicht. Von uns gestaltet: ein Forschungsjournal, ein akademisches Mentoring-Programm, ein Buchkatalog, eine Lohnsoftware, eine Beratungsfirma und weitere.',
+    meta_desc: 'Webwerk ist ein Webdesign-Studio in Luxemburg. Alle Websites sehen gleich aus. Ihre nicht. Von uns gestaltet: ein Forschungsjournal, ein akademisches Mentoring-Programm, ein Buchkatalog, eine Lohnsoftware, eine Corporate-Finance-Beratung, eine Beratungsfirma und weitere.',
     og_desc: 'Alle Websites sehen gleich aus. Ihre nicht.',
     nav_contact: 'Kontakt',
     cue: 'Nach unten scrollen',
@@ -55,12 +57,14 @@ window.WW_I18N = {
     end2: 'ein Buchkatalog',
     end3: 'eine Lohnsoftware',
     others: 'und weitere.',
-    end4: 'eine Beratungsfirma',
+    end4: 'eine Corporate-Finance-Beratung',
+    end5: 'eine Beratungsfirma',
     cap0: 'Ein frei zugängliches Forschungsjournal mit Online-Einreichung und durchsuchbarem Archiv.',
     cap1: 'Die Website eines Mentoring-Programms in der Forschung.',
     cap2: 'Ein Katalog mit 1.285 Büchern von 620 TED-Speakern, jedes mit dem passenden Talk.',
     cap3: 'Lohn-Compliance-Software für Arbeitgeber mit Grenzgängern.',
-    cap4: 'Die Website einer Beratungsfirma mit ihrer Publikationsreihe.',
+    cap4: 'Die Website einer Corporate-Finance-Beratung in London.',
+    cap5: 'Die Website einer Beratungsfirma mit ihrer Publikationsreihe.',
     contact: 'Bauen wir Ihre Seite.',
     f_name: 'Name',
     f_email: 'E-Mail',
