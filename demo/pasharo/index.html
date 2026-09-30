@@ -71,7 +71,7 @@ section[id], .sub[id]{ scroll-margin-top:80px; }
   .nav a{ font-size:clamp(30px, 8vw, 40px); letter-spacing:-.02em; color:var(--cream); }
   .nav .nav-top{ display:block; }
   .site-head.open .nav{ opacity:1; visibility:visible; transition:opacity .25s ease; }
-  .site-head.open{ background:transparent; box-shadow:none; }
+  .site-head.open{ background:transparent; box-shadow:none; -webkit-backdrop-filter:none; backdrop-filter:none; }
 }
 
 /* ------------------------------------------------------------------
@@ -336,7 +336,7 @@ form{ display:grid; gap:14px; }
 
 <footer class="foot">
   <div class="grid">
-    <p class="t-small reg">Our services are provided on an unregulated basis and are limited to corporate finance advisory and strategic support. We do not provide regulated investment advice.</p>
+    <p class="t-small reg">Our services are provided on an unregulated basis and are limited to strategic support. We do not provide regulated investment advice.</p>
     <p class="t-small"><strong>PASHARO LIMITED</strong><span>Company Registration No: 11356503</span><span>VAT Registration No: 467875919</span></p>
     <nav class="t-small" aria-label="Legal">
       <a href="#">Terms of Use</a><a href="#">Disclaimer</a><a href="#">Privacy Policy</a><a href="#">Cookie settings</a>
