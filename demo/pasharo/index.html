@@ -112,23 +112,33 @@ img{ display:block; max-width:100%; }
 .grid > *{ grid-column:1 / -1; }
 
 .exit{ background:var(--cream); color:var(--navy); }
+.wwd-h{ margin-bottom:48px; }
+.svc{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; }
+.svc li{ border-top:1px solid rgba(27,42,61,.16); padding:22px 0 30px; }
+.svc-t{ font-size:clamp(22px, .9vw + 16px, 30px); line-height:1.12; letter-spacing:-.018em; font-weight:500; margin:0 0 12px; }
+.svc .t-body{ color:rgba(27,42,61,.74); }
+.sub{ margin-top:88px; padding-top:32px; border-top:1px solid rgba(27,42,61,.16); }
 .exit-h{ max-width:14ch; }
-.facts{ margin:56px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:24px; border-top:1px solid rgba(27,42,61,.16); padding-top:28px; }
-.facts dt{ font-size:var(--small); font-weight:500; color:var(--terra-3); margin-bottom:10px; letter-spacing:.01em; }
-.facts dd{ margin:0; font-size:var(--title); line-height:1.02; letter-spacing:-.024em; font-weight:500; font-variant-numeric:lining-nums tabular-nums; white-space:nowrap; }
-.deliv{ margin-top:56px; }
-.deliv-h{ color:var(--terra-3); margin-bottom:14px; }
+.facts{ margin:40px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.facts dt{ font-size:var(--small); font-weight:500; color:var(--terra-3); margin-bottom:8px; letter-spacing:.01em; }
+.facts dd{ margin:0; font-size:clamp(26px, 1.4vw + 16px, 40px); line-height:1.05; letter-spacing:-.02em; font-weight:500; font-variant-numeric:lining-nums tabular-nums; white-space:nowrap; }
+.deliv{ margin-top:40px; }
+.deliv-h{ color:var(--terra-3); margin-bottom:12px; }
 .deliv ul{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; }
-.deliv li{ padding:16px 0; border-top:1px solid rgba(27,42,61,.16); font-size:var(--body); }
+.deliv li{ padding:14px 0; border-top:1px solid rgba(27,42,61,.16); font-size:var(--body); }
 .deliv li:last-child{ border-bottom:1px solid rgba(27,42,61,.16); }
-.exit .enquire{ color:var(--terra-3); display:inline-block; margin-top:48px; justify-self:start; }
+.exit .enquire{ color:var(--terra-3); display:inline-block; margin-top:56px; justify-self:start; }
 @media (min-width:900px){
-  .exit-h{ grid-column:1 / 10; }
-  .facts{ grid-column:1 / 13; grid-template-columns:repeat(2, minmax(0,1fr)); margin-top:88px; }
-  .deliv{ grid-column:1 / 13; margin-top:72px; }
-  .deliv ul{ grid-template-columns:repeat(4, minmax(0,1fr)); column-gap:24px; }
-  .deliv li, .deliv li:last-child{ border-bottom:0; padding:18px 24px 0 0; font-size:clamp(18px, .6vw + 12px, 22px); line-height:1.3; }
-  .exit .enquire{ grid-column:1 / 5; margin-top:72px; }
+  .wwd-h{ margin-bottom:64px; }
+  .svc{ grid-template-columns:repeat(4, minmax(0,1fr)); column-gap:24px; }
+  .svc li{ padding:24px 24px 0 0; }
+  .sub{ margin-top:120px; padding-top:40px; display:grid; grid-template-columns:repeat(12, minmax(0,1fr)); column-gap:24px; }
+  .sub .exit-h{ grid-column:1 / 5; }
+  .sub .facts{ grid-column:6 / 13; margin-top:0; }
+  .sub .deliv{ grid-column:6 / 13; }
+  .deliv ul{ grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:24px; }
+  .deliv li:nth-last-child(2){ border-bottom:1px solid rgba(27,42,61,.16); }
+  .exit .enquire{ grid-column:1 / 5; margin-top:80px; }
 }
 
 .contact{ background:var(--navy); color:var(--cream); }
@@ -210,7 +220,6 @@ form{ display:grid; gap:28px; }
 
   <span class="anchor" id="top" style="top:0"></span>
   <span class="anchor" id="about" data-p=".235"></span>
-  <span class="anchor" id="services" data-p=".405"></span>
 
   <div class="pin">
     <div class="media" aria-hidden="true">
@@ -260,22 +269,33 @@ form{ display:grid; gap:28px; }
 </div>
 
 <main>
-  <section class="band exit" id="exit-readiness" aria-labelledby="exit-h">
+  <section class="band exit" id="services" aria-labelledby="wwd-h">
     <div class="grid">
-      <h2 class="t-display exit-h" id="exit-h">Exit Readiness &amp; Valuation</h2>
-      <dl class="facts">
-        <div class="fact"><dt>Fee</dt><dd>£12k–£30k</dd></div>
-        <div class="fact"><dt>Timeline</dt><dd>2–5 weeks</dd></div>
-      </dl>
-      <div class="deliv">
-        <p class="t-small deliv-h">Deliverables</p>
-        <ul>
-          <li>Realistic valuation range</li>
-          <li>Buyer universe</li>
-          <li>Key value drivers</li>
-          <li>Deal strategy</li>
-        </ul>
+      <h2 class="t-display wwd-h" id="wwd-h">What We Do</h2>
+      <ul class="svc">
+        <li><h3 class="svc-t">M&amp;A Advisory</h3><p class="t-body">We advise founders, shareholders, and investors on sales, acquisitions, and exits. Senior-led from preparation through completion.</p></li>
+        <li><h3 class="svc-t">Capital Raising</h3><p class="t-body">Equity and debt capital from institutional and private investors. Positioning, targeting, disciplined execution.</p></li>
+        <li><h3 class="svc-t">Strategic Advisory</h3><p class="t-body">We work with leadership teams on growth strategy, exit readiness, and shareholder decisions.</p></li>
+        <li><h3 class="svc-t">Market Intelligence</h3><p class="t-body">Deep analysis of sectors, competitive landscapes, and transaction dynamics. Concise, commercial, decision-ready.</p></li>
+      </ul>
+
+      <div class="sub" id="exit-readiness" aria-labelledby="exit-h">
+        <h3 class="t-title exit-h" id="exit-h">Exit Readiness &amp; Valuation</h3>
+        <dl class="facts">
+          <div class="fact"><dt>Fee</dt><dd>£12k–£30k</dd></div>
+          <div class="fact"><dt>Timeline</dt><dd>2–5 weeks</dd></div>
+        </dl>
+        <div class="deliv">
+          <p class="t-small deliv-h">Deliverables</p>
+          <ul>
+            <li>Realistic valuation range</li>
+            <li>Buyer universe</li>
+            <li>Key value drivers</li>
+            <li>Deal strategy</li>
+          </ul>
+        </div>
       </div>
+
       <a class="enquire link t-body exit-cta" href="#contact">Enquire</a>
     </div>
   </section>
