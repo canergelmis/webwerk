@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Europe Growth Cockpit</title>
+  <meta name="description" content="See where AI headroom is across the UK and 19 European markets, plan markets and levers by quarter, roll up subscribers and revenue, and track App Store positions daily.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="preload" href="fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%223%22 fill=%22%232346a8%22/%3E%3Crect x=%223%22 y=%224%22 width=%224%22 height=%224%22 fill=%22%23fff%22/%3E%3Crect x=%229%22 y=%224%22 width=%224%22 height=%224%22 fill=%22%23fff%22 fill-opacity=%22.6%22/%3E%3Crect x=%223%22 y=%2210%22 width=%224%22 height=%224%22 fill=%22%23fff%22 fill-opacity=%22.6%22/%3E%3Crect x=%229%22 y=%2210%22 width=%224%22 height=%224%22 fill=%22%23fff%22/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-in">
+      <div class="brand">
+        <h1>Europe growth cockpit</h1>
+        <p class="lede">AI assistants are already available across Europe. This shows where the headroom is, plans which markets and levers to take on each quarter, and tracks App Store positions every day. Every number is public data with its source, or an assumption you set.</p>
+      </div>
+      <div class="globals" role="group" aria-label="Cockpit settings">
+        <div class="field">View
+          <span class="seg seg-wide" role="radiogroup" aria-label="Consumer or business view" id="track"></span>
+        </div>
+        <label class="field">Colour the map by
+          <select id="metric"></select>
+        </label>
+        <label class="field">Global list price, USD per month
+          <input type="number" id="base-price" min="1" max="500" step="1" value="20">
+        </label>
+        <div class="field">Scenario
+          <span class="seg seg-wide" role="radiogroup" aria-label="Scenario" id="scenario"></span>
+        </div>
+        <button type="button" class="btn btn-link" id="copy-link">Copy link to this view</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="deck overview" aria-labelledby="overview-title">
+      <div class="deck-head">
+        <h2 id="overview-title">Where the headroom is</h2>
+        <p class="hint">Switch between the consumer and business view in the top bar. Pick a market to open its brief and strategy memo below. Each market gets a consumer play and a business play from simple rules on its data; the rules are under the table. ‡ marks the UK, where adoption comes from the UK government's own survey rather than Eurostat.</p>
+      </div>
+      <div class="overview-grid">
+        <div class="map-col">
+          <figure class="map">
+            <svg id="map" role="group" aria-label="Tile map of the 20 markets"></svg>
+            <figcaption id="map-legend"></figcaption>
+          </figure>
+          <details class="weights-box" open>
+            <summary>Ranking weights</summary>
+            <fieldset class="weights">
+              <legend class="sr-only">Ranking weights</legend>
+              <div id="weights"></div>
+            </fieldset>
+          </details>
+        </div>
+        <div class="table-col">
+          <div class="table-wrap">
+            <table class="markets" id="markets"></table>
+          </div>
+          <details class="rules">
+            <summary>How the plays and the "Top 5 in" column work</summary>
+            <ul>
+              <li><strong>Localise first</strong> when English proficiency is below EF's "High" band (EF EPI 2025 score under 550). Lead lever: relevance.</li>
+              <li><strong>Monetise</strong> when today's use is at or above the median of the 20 markets and the full-price tier applies. Lead lever: payments and price.</li>
+              <li><strong>Price for reach</strong> when use is at or above the median but a discount or entry tier applies. Lead lever: payments and price.</li>
+              <li><strong>Activate</strong> when use is below the median. Lead lever: the market's biggest fixable barrier.</li>
+              <li>The rules run in that order. Tier settings in the market brief can change a play.</li>
+              <li><strong>Business plays</strong> follow the barrier that weighs most in a country's mix compared with the EU-27 mix (Eurostat 2025), because lack of expertise is the most cited barrier almost everywhere: unclear legal consequences or data protection gives <strong>Trust-led</strong>; lack of expertise gives <strong>Enablement-led</strong>; incompatible systems or data problems give <strong>Integration-led</strong>; cost gives <strong>Self-serve</strong>. Where barriers aren't published the motion is open. The target segment is the firm size with the most staff not yet using generative AI.</li>
+              <li><strong>Focus markets</strong> are the five largest by population.</li>
+              <li><strong>Top 5 in</strong>: the share of 5,000 random weightings, spread evenly over every way to split 100% across the five factors, under which the market ranks in the top 5. It does not depend on your weights. Hover a cell for the median rank and range.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="deck plan-deck" aria-labelledby="plan-title">
+      <div class="plan-grid">
+        <div>
+          <div class="deck-head">
+            <h2 id="plan-title">Plan</h2>
+            <p class="hint">Set the quarter each market goes live and the lever group that leads. The lead lever starts as the market's biggest fixable barrier. Saved in this browser only.</p>
+          </div>
+          <div class="plan-tools">
+            <button type="button" class="btn" id="plan-focus">Fill with focus markets</button>
+            <button type="button" class="btn" id="plan-suggest">Fill from ranking</button>
+            <button type="button" class="btn" id="plan-clear">Clear plan</button>
+          </div>
+          <div class="plan-list" id="plan"></div>
+        </div>
+        <div class="rollup">
+          <div class="deck-head">
+            <h2 id="rollup-title">Europe roll-up</h2>
+            <p class="hint" id="rollup-hint"></p>
+          </div>
+          <div class="kpis" id="rollup-kpis"></div>
+          <p class="sub b2b" id="rollup-b2b"></p>
+          <figure class="qchart">
+            <svg id="qchart" role="img" aria-labelledby="qchart-cap"></svg>
+            <figcaption id="qchart-cap">Annual revenue run-rate at the end of each quarter, stacked by market in go-live order. A market counts in full from its go-live quarter; no ramp-up is modelled.</figcaption>
+          </figure>
+          <ol class="contrib" id="contrib"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="deck monitor" aria-labelledby="monitor-title">
+      <div class="deck-head">
+        <h2 id="monitor-title">Monitor: App Store positions</h2>
+        <p class="hint" id="monitor-hint"></p>
+      </div>
+      <div class="monitor-grid">
+        <div class="alerts" id="alerts"></div>
+        <div class="multiples" id="multiples"></div>
+      </div>
+    </section>
+
+    <article class="brief" id="brief" aria-labelledby="brief-title">
+      <div class="brief-head">
+        <div>
+          <p class="rank-line" id="rank-line"></p>
+          <h2 id="brief-title"></h2>
+          <p class="facts" id="facts"></p>
+          <p class="play-line" id="play-line"></p>
+        </div>
+        <button type="button" class="btn print" id="print">Print this brief</button>
+      </div>
+
+      <section class="panel memo" aria-labelledby="memo-title">
+        <h3 id="memo-title">Strategy memo</h3>
+        <div id="memo"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="business-title">
+        <h3 id="business-title">Business market</h3>
+        <p class="panel-intro">Firms and staff by size, how many use AI and generative AI, why the rest don't, and what users use it for.</p>
+        <div id="business"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="deep-title">
+        <h3 id="deep-title">Deep dive: pace, sectors and regions</h3>
+        <p class="panel-intro">For the five focus markets: how fast firms are adopting generative AI, which sectors hold the most seats, and where adoption is highest by region.</p>
+        <div id="deep"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="adoption-title">
+        <h3 id="adoption-title">Consumer adoption today</h3>
+        <p class="panel-intro">How many people already use generative AI, why the rest don't, and how they pay and browse.</p>
+        <div id="adoption"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="segments-title">
+        <h3 id="segments-title">Who isn't using it yet</h3>
+        <p class="panel-intro">Generative-AI use by age, work, education, place and sex, and how many people in each age band have not used it. This is where awareness, skills and relevance campaigns aim.</p>
+        <div id="segments"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="usage-title">
+        <h3 id="usage-title">How it's used</h3>
+        <p class="panel-intro">Which sectors' firms use AI, and what people ask an AI assistant for in this market.</p>
+        <div id="usage"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="price-title">
+        <h3 id="price-title">Price</h3>
+        <p class="panel-intro">The global list price, adjusted by the market's price level (PPP conversion factor over the exchange rate), then banded into tiers. Tier settings apply to every market.</p>
+        <div class="controls">
+          <label class="field">Full-price tier from price level
+            <input type="number" id="cut-high" min="0.1" max="1.5" step="0.05" value="0.8">
+          </label>
+          <label class="field">Discount tier from price level
+            <input type="number" id="cut-mid" min="0.1" max="1.5" step="0.05" value="0.55">
+          </label>
+          <label class="field">Discount tier, share of list
+            <input type="number" id="mult-mid" min="0.1" max="1" step="0.05" value="0.7">
+          </label>
+          <label class="field">Entry tier, share of list
+            <input type="number" id="mult-low" min="0.1" max="1" step="0.05" value="0.45">
+          </label>
+        </div>
+        <p class="assumption">Tier cut-offs and shares are assumptions. Change them.</p>
+        <div class="price-out" id="price-out"></div>
+        <figure class="strip">
+          <svg id="strip" role="img" aria-labelledby="strip-cap"></svg>
+          <figcaption id="strip-cap">Parity price in USD for all 20 markets (list price × price level), against your tier bands. Hover a dot for the market.</figcaption>
+        </figure>
+      </section>
+
+      <section class="panel" aria-labelledby="funnel-title">
+        <h3 id="funnel-title">Funnel</h3>
+        <p class="panel-intro">Start from the people already online and today's generative-AI use, then apply your own rates to reach paying subscribers and revenue at the tier price above. The last three rates apply to every market and feed the Europe roll-up.</p>
+        <div class="controls" id="funnel-inputs"></div>
+        <p class="assumption">Every rate here is an assumption, not data. The defaults are round placeholders.</p>
+        <div class="scenarios" id="scenarios"></div>
+        <div class="bars" id="funnel-bars"></div>
+        <p class="leak" id="leak"></p>
+        <h4>Business funnel</h4>
+        <p class="sub">From the seat pool (staff in firms not yet using generative AI) to paid seats. Every rate and the seat price are assumptions; the seat price is not localised.</p>
+        <div class="controls" id="b2b-inputs"></div>
+        <div class="scenarios" id="b2b-scenarios"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="ready-title">
+        <h3 id="ready-title">Growth levers</h3>
+        <p class="panel-intro">Score each lever 0 (not started), 1 (in progress) or 2 (done). The first four groups answer the reasons people give for not using generative AI; the group matching this market's largest fixable reason is marked. Scores are kept per market in this browser only.</p>
+        <div class="ready-score" id="ready-score"></div>
+        <div class="checklist" id="checklist"></div>
+        <div class="blockers" id="blockers"></div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="colophon">
+    <h2>Sources</h2>
+    <ul id="sources"></ul>
+    <p>Built by <a href="https://www.linkedin.com/in/can-ergelmis">Can Ergelmiş</a> as a working sketch of how I approach country strategy. No company data is used; all figures are public or user-set.</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
