@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+<filter id="v" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.014 0.005" numOctaves="3" seed="11" stitchTiles="stitch" result="base"/>
+<feTurbulence type="turbulence" baseFrequency="0.07 0.022" numOctaves="4" seed="3" stitchTiles="stitch" result="crush"/>
+<feColorMatrix in="base" type="luminanceToAlpha" result="bl"/>
+<feColorMatrix in="crush" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="cl"/>
+<feComponentTransfer in="cl" result="spk"><feFuncR type="linear" slope="3.0" intercept="-1.05"/><feFuncG type="linear" slope="3.0" intercept="-1.05"/><feFuncB type="linear" slope="3.0" intercept="-1.05"/></feComponentTransfer>
+<feColorMatrix in="base" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="bg"/>
+<feComponentTransfer in="bg" result="bgc"><feFuncR type="linear" slope="1.6" intercept="-0.35"/><feFuncG type="linear" slope="1.6" intercept="-0.35"/><feFuncB type="linear" slope="1.6" intercept="-0.35"/></feComponentTransfer>
+<feComposite in="spk" in2="bgc" operator="arithmetic" k1="0.6" k2="0.22" k3="0.42" k4="0" result="mix"/>
+<feComponentTransfer in="mix"><feFuncR type="table" tableValues="0.004 0.024 0.055 0.110 0.188 0.322 0.631"/><feFuncG type="table" tableValues="0.141 0.184 0.259 0.314 0.431 0.573 0.784"/><feFuncB type="table" tableValues="0.133 0.173 0.251 0.302 0.420 0.549 0.765"/><feFuncA type="linear" slope="0" intercept="1"/></feComponentTransfer>
+</filter>
+<rect width="480" height="480" fill="#fff" filter="url(#v)"/>
+</svg>
