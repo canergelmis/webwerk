@@ -337,8 +337,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
 /* the hero arrives once: the glass out of the navy, then the logo, then the facts; then it holds */
 @media (prefers-reduced-motion:no-preference){
   .cover img{animation:pn-up 1.4s cubic-bezier(.22,.61,.36,1) both}
-  .lockup{animation:pn-settle .9s cubic-bezier(.22,.61,.36,1) .55s both}
-  .notes{animation:pn-in .8s ease 1.15s both}
+  .lockup{animation:pn-settle .7s cubic-bezier(.22,.61,.36,1) .3s both}
+  .notes{animation:pn-in .6s ease .8s both}
   @keyframes pn-up{from{opacity:.02;transform:scale(1.015)}to{opacity:1;transform:none}}
   @keyframes pn-settle{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   @keyframes pn-in{from{opacity:0}to{opacity:1}}
