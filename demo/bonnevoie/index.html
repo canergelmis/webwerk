@@ -1,584 +1,791 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="robots" content="noindex, nofollow"/>
-<title>Bistrot de Bonnevoie — Cuisine ouest-africaine, Bonnevoie</title>
-<meta name="description" content="Cuisine ouest-africaine à Bonnevoie — mafé, poisson braisé, attiéké. Le midi on mange, le soir l'afrobeats. Démonstration Webwerk."/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bistrot de Bonnevoie — Restauration africaine, Luxembourg-Gare</title>
+<meta name="description" content="Bistrot de Bonnevoie, restauration africaine au 29, rue de Bonnevoie, Luxembourg-Gare. Cuisine, bar et AfroMusic. Proposition Webwerk.">
+<link rel="preload" href="assets/fonts/sofia-sans-extra-condensed-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-@font-face{font-family:'Shoulders';src:url('assets/fonts/bigshoulders-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Shoulders';src:url('assets/fonts/bigshoulders-latinext.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Instru';src:url('assets/fonts/instrument-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Instru';src:url('assets/fonts/instrument-latinext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+/* fonts: self-hosted woff2 (fontsource), latin + latin-ext; zero Google requests */
+@font-face{font-family:"Sofia Sans Extra Condensed";src:url("assets/fonts/sofia-sans-extra-condensed-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Sofia Sans Extra Condensed";src:url("assets/fonts/sofia-sans-extra-condensed-latin-ext-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Sofia Sans Extra Condensed";src:url("assets/fonts/sofia-sans-extra-condensed-latin-900-normal.woff2") format("woff2");font-weight:900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Sofia Sans Extra Condensed";src:url("assets/fonts/sofia-sans-extra-condensed-latin-ext-900-normal.woff2") format("woff2");font-weight:900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Sofia Sans";src:url("assets/fonts/sofia-sans-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Sofia Sans";src:url("assets/fonts/sofia-sans-latin-ext-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Sofia Sans";src:url("assets/fonts/sofia-sans-latin-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Sofia Sans";src:url("assets/fonts/sofia-sans-latin-ext-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";src:url("assets/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";src:url("assets/fonts/ibm-plex-mono-latin-ext-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";src:url("assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";src:url("assets/fonts/ibm-plex-mono-latin-ext-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
 :root{
- --paper:#f6eddb; --raffia:#efe3c9; --card:#fbf5e7;
- --ink:#241a13; --ink2:#4a3a2b;
- --laterite:#b4471f; --laterite-d:#8f3717;
- --ochre:#d9962b; --ochre-d:#b97c19;
- --indigo:#22355f; --indigo-l:#33507f;
- --palm:#3e5e3a;
- --line:#d8c7a3; --muted:#7d6c53;
- --maxw:1200px;
+  --black:#0d0c0b; --sign:#22221e; --white:#f6f3ee; --piment:#e8622a;
+  --cream:#f2ebdf; --copper:#b5773e; --salmon:#d39a85;
+  --gut:16px;
+  --display:"Sofia Sans Extra Condensed","Arial Narrow",sans-serif;
+  --sans:"Sofia Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --xl:calc((100vw - 2*var(--gut)) / 4.75); --l:30px; --m:24px; --s:16px; --xs:13px;
+  /* menu: quieter dish names, readable descriptions */
+  --dish:25px; --desc:17px; --num:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:'Instru',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-h1,h2,h3,.disp{font-family:'Shoulders','Instru',sans-serif;font-weight:800;line-height:.94;letter-spacing:.01em;text-transform:uppercase}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
-.eyebrow{font-family:'Shoulders',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--laterite)}
+html{background:var(--black);scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--sans);font-size:var(--s);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+ul,ol{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
-/* bogolan mudcloth band (currentColor-driven) */
-.mud{display:block;width:100%;height:26px;color:var(--indigo)}
-.mud.tall{height:34px}
-.divider{padding:26px 0;display:flex;align-items:center;gap:18px}
-.divider .mud{flex:1}
-.divider .dot{width:9px;height:9px;background:var(--laterite);transform:rotate(45deg);flex:none}
+.t-disp{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.84;letter-spacing:.004em;font-size:var(--xl)}
+.t-cond{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:1;letter-spacing:.01em}
+.t-text{font-family:var(--sans);font-weight:400;font-size:var(--s);line-height:1.5}
+.t-num{font-family:var(--mono);font-weight:500;font-size:var(--s);letter-spacing:.04em}
+.t-small{font-family:var(--sans);font-weight:500;font-size:var(--xs);letter-spacing:.1em;text-transform:uppercase}
 
-/* header */
-header{position:sticky;top:0;z-index:50;background:rgba(36,26,19,.0);transition:background .3s}
-header.solid{background:var(--ink);box-shadow:0 2px 22px rgba(0,0,0,.28)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-.brand{display:flex;align-items:center;gap:12px;color:#f6eddb}
-.brand .mk{width:34px;height:34px;flex:none}
-.brand .nm{font-family:'Shoulders',sans-serif;font-weight:800;font-size:20px;letter-spacing:.04em;line-height:.9;text-transform:uppercase;color:#f6eddb}
-.brand .nm small{display:block;font-size:9.5px;letter-spacing:.28em;color:var(--ochre);font-weight:600;margin-top:3px}
-nav.links{display:flex;align-items:center;gap:26px}
-nav.links a{font-family:'Shoulders',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.11em;font-size:14px;color:#f0e4cd;opacity:.9}
-nav.links a:hover{color:var(--ochre);opacity:1}
-.langs{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:999px;padding:3px}
-.langs button{font-family:'Shoulders',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;border:0;background:transparent;color:#efe3c9;padding:5px 11px;border-radius:999px;cursor:pointer}
-.langs button.on{background:var(--laterite);color:#fff}
-.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
-.burger span{width:26px;height:2.5px;background:#f6eddb;border-radius:2px;transition:.3s}
-.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.burger.x span:nth-child(2){opacity:0}
-.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+/* ───────── header ───────── */
+.top{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:14px var(--gut);
+  background:transparent;transition:background-color .3s ease}
+.top.solid{background:var(--black)}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none}
+.badge{width:30px;height:34px;flex:none;display:grid;place-items:center;background:var(--white);color:var(--black);
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);font-family:var(--display);font-weight:900;font-size:var(--m);line-height:1;padding-top:1px}
+.mark .t-cond{font-size:var(--s);white-space:nowrap;letter-spacing:.04em;opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease}
+.top.solid .mark .t-cond{opacity:1;transform:none}
+.right{display:flex;align-items:center;gap:12px}
+.acts{display:flex;gap:12px;font-size:var(--s)}
+.acts a{text-underline-offset:4px;text-decoration-thickness:1px;white-space:nowrap}
+.acts a:hover{color:var(--piment)}
+.acts .ig{display:none}
+.lang{display:flex;gap:8px;align-items:center;font-weight:500;font-size:var(--xs)}
+.lang button{padding:6px 0;opacity:.6;font-weight:500;letter-spacing:.02em}
+.lang button[aria-pressed="true"]{opacity:1;color:var(--piment)}
+.lang button:hover{opacity:1}
 
-/* hero */
-.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-72px;padding-top:72px}
-.hero .bg{position:absolute;inset:0;z-index:-2}
-.hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(36,26,19,0.62) 0%,rgba(36,26,19,0.38) 34%,rgba(36,26,19,0.55) 68%,rgba(20,14,9,0.92) 100%)}
-/* day->night DUSK — the signature: hero warms at midday then falls to indigo night, bogolan glows, neon flickers on */
-.hero .dusk{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.dusk .layer{position:absolute;inset:0}
-.dusk-day{background:linear-gradient(180deg,rgba(217,150,43,.30) 0%,rgba(180,71,31,.15) 45%,rgba(36,26,19,.30) 100%);opacity:1;animation:duskDayOut 6s ease-in 1.1s forwards}
-.dusk-night{background:linear-gradient(180deg,rgba(34,53,95,.50) 0%,rgba(28,26,64,.42) 45%,rgba(16,12,32,.60) 100%);opacity:0;animation:duskNightIn 6s ease-in 1.1s forwards}
-@keyframes duskDayOut{to{opacity:0}}
-@keyframes duskNightIn{to{opacity:1}}
-.dusk-mud{position:absolute;inset:0;width:100%;height:100%;color:var(--ochre);opacity:0;mix-blend-mode:screen;animation:duskMud 6s ease-in 1.1s forwards}
-@keyframes duskMud{0%,32%{opacity:0}100%{opacity:.17}}
-.dusk-neon{position:absolute;top:clamp(84px,12vh,140px);right:clamp(18px,5vw,54px);font-family:'Shoulders',sans-serif;font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:clamp(12px,1.5vw,16px);color:#ffd98a;opacity:0;animation:neonOn 1.4s linear 3.7s forwards,neonGlow 3.6s ease-in-out 5.1s infinite}
-.dusk-neon::before{content:"\2726 ";color:var(--laterite)}
-@keyframes neonOn{0%{opacity:0}20%{opacity:1;text-shadow:0 0 8px rgba(255,195,95,.9),0 0 22px rgba(180,71,31,.7)}30%{opacity:.15}42%{opacity:1}55%{opacity:.4}100%{opacity:1;text-shadow:0 0 9px rgba(255,195,95,.9),0 0 24px rgba(180,71,31,.7)}}
-@keyframes neonGlow{0%,100%{text-shadow:0 0 8px rgba(255,190,90,.75),0 0 20px rgba(180,71,31,.55)}50%{text-shadow:0 0 13px rgba(255,205,115,1),0 0 32px rgba(217,150,43,.85)}}
-.hero .inner{padding-bottom:clamp(40px,7vw,86px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:2}
-.hero .eyebrow{color:var(--ochre);margin-bottom:20px}
-.hero h1{color:#fff;font-size:clamp(58px,12vw,158px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.4)}
-.hero h1 span{color:var(--ochre)}
-.hero .tag{font-family:'Instru',sans-serif;font-weight:500;text-transform:none;font-size:clamp(18px,2.5vw,27px);color:#f4ead4;max-width:30ch;margin:22px 0 0;line-height:1.34}
-.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-.btn{font-family:'Shoulders',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:15px;padding:15px 30px;border-radius:2px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
-.btn.p{background:var(--laterite);color:#fff}
-.btn.p:hover{background:var(--laterite-d)}
-.btn.o{background:transparent;color:#f6eddb;border-color:rgba(246,237,219,.5)}
-.btn.o:hover{border-color:var(--ochre);color:var(--ochre)}
+/* ───────── 1 · hero ───────── */
+.hero{position:relative;overflow:hidden;min-height:100svh;display:flex;flex-direction:column;background:var(--black)}
+.hero-copy{position:relative;z-index:3;padding:68px var(--gut) 0}
+.hero h1{white-space:nowrap}
+.hero h1 span{display:block}
+.addr{margin-top:12px;opacity:.8;font-family:var(--sans);font-weight:400;font-size:14px;line-height:1.45}
+.nw{white-space:nowrap}
+.welcome{margin-top:10px;max-width:22em;font-size:20px;line-height:1.25}
+.sides{margin-top:12px;display:flex;flex-wrap:wrap;gap:4px 24px;font-size:var(--l)}
+.sides a,.ways a{text-underline-offset:5px;text-decoration-thickness:1px}
+.sides a{text-decoration-thickness:2px;text-underline-offset:6px}
+.sides a:hover,.ways a:hover{color:var(--piment)}
+.ways{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
 
-/* facts */
-.facts{background:var(--ink);color:#f0e4cd}
-.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08)}
-.facts .c{background:var(--ink);padding:26px clamp(18px,4vw,40px)}
-.facts .k{font-family:'Shoulders',sans-serif;font-weight:700;letter-spacing:.16em;font-size:11px;color:var(--ochre);text-transform:uppercase}
-.facts .v{font-size:16px;margin-top:7px;color:#efe3c9}
-.facts .v b{color:#fff;font-weight:700}
+/* the deck: record grooves + spinning plate + steam. --D = plate diameter, --K = record/plate ratio */
+.deck-room{position:relative;flex:1;--D:66vw;--K:1.4;min-height:calc(var(--D) * var(--K) + 24px)}
+.deck{position:absolute;width:calc(var(--D) * var(--K));height:calc(var(--D) * var(--K));
+  left:calc(50% - var(--D) * var(--K) / 2);top:14px;pointer-events:none}
+.disc{position:absolute;inset:0;will-change:transform}
+.disc canvas{position:absolute;inset:0;width:100%;height:100%}
+.disc img,.steam{position:absolute;width:calc(100% / var(--K));height:calc(100% / var(--K));
+  left:calc((100% - 100% / var(--K)) / 2);top:calc((100% - 100% / var(--K)) / 2)}
+.steam{filter:blur(2.5px);opacity:.95}
 
-section{padding:clamp(56px,9vw,104px) 0}
-.sect-h{max-width:720px;margin-bottom:44px}
-.sect-h .eyebrow{margin-bottom:14px;display:block}
-.sect-h h2{font-size:clamp(34px,5.5vw,62px);color:var(--ink)}
-.sect-h h2 em{font-style:normal;color:var(--laterite)}
-.sect-h p{font-family:'Instru',sans-serif;font-size:18px;color:var(--ink2);margin-top:16px;line-height:1.62}
+/* ───────── 2 · Face A (daylight cream) ───────── */
+.face{position:relative;padding:84px var(--gut) 72px}
+.face-a{background:var(--cream);color:var(--sign);z-index:2;padding-bottom:28px}
+.face-a h2 span{display:block;white-space:nowrap}
+.tracks{margin-top:36px}
+.tracks li{display:grid;grid-template-columns:40px 1fr 104px;align-items:center;gap:0 10px;padding:16px 0;border-bottom:1px solid rgba(34,34,30,.12)}
+.tracks li:last-child{border-bottom:0}
+.tracks li:has(.thumb){padding:12px 0}
+.tracks .rec text{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.04em;fill:#0d0c0b;text-anchor:middle;dominant-baseline:central}
+/* track number + title share a row: the number hangs on the title's cap line */
+.tracks .tx{grid-column:1 / 3;display:grid;grid-template-columns:40px 1fr;gap:0 10px;align-items:start}
+.tracks .t-num{color:var(--piment);font-size:var(--num);line-height:1;padding-top:var(--cap,1.5px)}
+.tracks h3{font-size:var(--dish);line-height:1.04}
+.tracks .t-text{font-size:var(--desc);line-height:1.4;opacity:.78;margin-top:4px}
+.tracks .thumb{grid-column:3;display:block;width:104px;height:104px;border-radius:50%;object-fit:cover}
+.staples{margin-top:28px;font-size:var(--desc)}
 
-/* mafé spotlight */
-.spot{background:var(--indigo);color:#f2e7ce;position:relative;overflow:hidden}
-.spot .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,68px);align-items:center}
-.spot .txt .eyebrow{color:var(--ochre)}
-.spot h2{font-size:clamp(40px,6.5vw,84px);color:#fff;margin:14px 0 0}
-.spot h2 span{color:var(--ochre);display:block}
-.spot .lead{font-family:'Instru',sans-serif;font-size:clamp(19px,2.3vw,25px);line-height:1.5;color:#f2e7ce;margin:22px 0 0;font-weight:500}
-.spot .body{font-size:16.5px;color:#d8c7a0;margin:18px 0 0;max-width:46ch}
-.spot .pic{position:relative}
-.spot .pic img{width:100%;aspect-ratio:6/5;object-fit:cover;border-radius:3px;box-shadow:0 30px 70px rgba(0,0,0,.4)}
-.spot .pic .tagpill{position:absolute;left:-14px;bottom:22px;background:var(--laterite);color:#fff;font-family:'Shoulders',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:14px;padding:11px 18px;border-radius:2px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
-.spot .mudwm{position:absolute;right:-40px;top:-30px;width:340px;height:340px;color:rgba(217,150,43,.14);pointer-events:none}
+/* ───────── 3 · stage: its top sits under the cream, so the plate rises from the cream's edge ───────── */
+.stage{position:relative;height:160vh;margin-top:-25vh;background:var(--black)}
+.stage-pin{position:sticky;top:0;height:100vh;overflow:hidden}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%}
 
-/* gallery bento */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
-.gal figure{position:relative;overflow:hidden;border-radius:3px;background:var(--raffia)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.gal figure:hover img{transform:scale(1.05)}
-.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;bottom:0;right:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,14,9,0.94) 0%,rgba(20,14,9,0.82) 62%,rgba(20,14,9,0) 100%);color:#fff;font-family:'Shoulders',sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:14px}
+/* ───────── 4 · Face B: arrives over the record's last turn ───────── */
+.face-b{z-index:2;margin-top:-44vh;padding-top:0;background:transparent;text-align:center}
+.face-b .t-disp.big{white-space:nowrap;text-shadow:0 2px 24px rgba(13,12,11,.85)}
+.face-b .t-disp.big span{display:block}
+.fb-bio{font-size:var(--m);margin-top:18px}
+.fb-poster{font-size:var(--m);color:var(--white)}
+.garland{display:block;width:100%;max-width:720px;height:46px;margin:22px auto 0;opacity:.9}
+.fb-bar{margin-top:10px;font-size:var(--desc);opacity:.82}
+.facade{margin:32px auto 0;position:relative;width:min(100%, calc(60vh * 1010 / 730));text-align:left}
+.facade .ht{position:relative;width:100%;aspect-ratio:1010/730;background:var(--black)}
+.facade .ht canvas,.facade .ht img{position:absolute;inset:0;width:100%;height:100%}
+.facade .ht img{display:none}
+.facade .ht.static img{display:block}
+.facade .ht.static canvas{display:none}
+.facade figcaption{position:absolute;left:0;bottom:0;background:var(--black);padding:6px 12px 4px 0}
 
-/* menu */
-.carte{background:var(--raffia)}
-.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
-.mgroup{margin-bottom:34px}
-.mgroup h3{font-family:'Shoulders',sans-serif;font-size:24px;color:var(--laterite);letter-spacing:.04em;display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--line);margin-bottom:16px}
-.mgroup h3 .st{width:15px;height:15px;flex:none;color:var(--ochre-d)}
-.mitem{display:flex;gap:14px;align-items:baseline;padding:9px 0}
-.mitem .nm{font-family:'Instru',sans-serif;font-weight:600;font-size:17px;color:var(--ink)}
-.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px}
-.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:16px}
-.mitem .pr{font-family:'Shoulders',sans-serif;font-weight:700;color:var(--indigo);font-size:16px;letter-spacing:.03em;white-space:nowrap}
-.carte .note{margin-top:26px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--ochre);padding-left:14px}
+footer{background:var(--salmon);color:var(--sign);padding:40px var(--gut) 44px;display:grid;gap:10px}
+footer .t-cond{font-size:var(--l);letter-spacing:.03em}
+footer .ways{margin-top:4px}
+footer .fine{margin-top:8px;max-width:62em}
+footer a:hover{color:var(--black)}
 
-/* night */
-.night{background:var(--ink);color:#efe3c9;position:relative;overflow:hidden}
-.night .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,64px);align-items:center}
-.night h2{font-size:clamp(38px,6vw,78px);color:#fff}
-.night h2 span{color:var(--ochre);display:block}
-.night .lead{font-size:18px;color:#e6d7b5;margin-top:20px;max-width:42ch;line-height:1.6}
-.night .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.night .chip{font-family:'Shoulders',sans-serif;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12.5px;color:#241a13;background:var(--ochre);padding:8px 15px;border-radius:999px}
-.night .chip.b{background:transparent;color:#efe3c9;border:1.5px solid rgba(239,227,201,.4)}
-.night .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:3px}
-
-/* infos */
-.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
-.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
-.ino .ic{width:22px;height:22px;flex:none;color:var(--laterite);margin-top:3px}
-.ino .k{font-family:'Shoulders',sans-serif;font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
-.ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
-.ino .v a{border-bottom:1px solid var(--ochre)}
-.ino .fl{color:var(--muted);font-size:13px;font-style:italic}
-.hours-today{font-family:'Shoulders',sans-serif;font-weight:700;color:var(--palm);letter-spacing:.02em}
-.mapcard{background:var(--ink);border-radius:4px;overflow:hidden;min-height:280px;position:relative;display:flex;align-items:center;justify-content:center;color:#efe3c9;text-align:center;padding:30px}
-.mapcard .mud{position:absolute;top:0;left:0;color:rgba(217,150,43,.18)}
-.mapcard .mud.bot{top:auto;bottom:0}
-.mapcard .in{position:relative}
-.mapcard .big{font-family:'Shoulders',sans-serif;font-weight:800;font-size:30px;color:#fff;text-transform:uppercase;letter-spacing:.03em}
-.mapcard .btn{margin-top:20px}
-
-/* footer */
-footer{background:#181009;color:#c9b48d;padding:0 0 40px}
-footer .band{color:var(--laterite)}
-footer .in{padding-block:52px 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
-footer .nm{font-family:'Shoulders',sans-serif;font-weight:800;font-size:26px;color:#f6eddb;letter-spacing:.04em;text-transform:uppercase}
-footer .nm small{display:block;font-size:10px;letter-spacing:.26em;color:var(--ochre);margin-top:4px}
-footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#b7a179}
-footer .made{font-size:12.5px;color:#8f7d5e;margin-top:24px}
-footer .made b{color:#efe3c9}
-footer .made a{color:var(--ochre)}
-.disc{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#7d6c50;line-height:1.55;max-width:80ch}
-
-@media(max-width:900px){
- .spot .grid,.night .grid,.infos .grid,.carte .cols,footer .in{grid-template-columns:1fr}
- .spot .mudwm{display:none}
- .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
- .facts .row{grid-template-columns:1fr}
- .night .grid{gap:30px}
- .spot .pic{order:-1}
+@media (min-width:900px){
+  :root{--gut:56px;--xl:min(10.4vw,150px);--l:44px;--m:26px;--s:17px;--xs:13px;--dish:26px;--desc:17px;--num:15px;--cap:1px}
+  .top{padding:20px var(--gut)}
+  .acts{font-size:15px;gap:16px}.acts .ig{display:inline}
+  .hero{height:100svh;min-height:640px}
+  .hero-copy{margin:auto 0;padding:0 var(--gut);max-width:46vw}
+  .addr{margin-top:30px;font-weight:500;font-size:var(--xs);letter-spacing:.1em;text-transform:uppercase;line-height:1.6}
+  .welcome{margin-top:14px;font-size:var(--m)}
+  .sides{margin-top:22px}
+  .ways{margin-top:28px}
+  .deck-room{position:absolute;inset:0;min-height:0;--D:min(980px,max(760px,62vw));--K:1.35}
+  .deck{left:calc(80% - var(--D) * var(--K) / 2);top:calc(52% - var(--D) * var(--K) / 2)}
+  .face{padding:130px var(--gut) 130px}
+  .face-a{padding-bottom:40px}
+  .face-a h2 span{display:inline}
+  .tracks{margin-top:64px;max-width:760px}
+  .tracks li{grid-template-columns:64px 1fr 168px;gap:0 32px;padding:20px 0}
+  .tracks .tx{grid-template-columns:64px 1fr;gap:0 32px}
+  .tracks .thumb{width:168px;height:168px}
+  .stage{height:175vh}
+  .face-b{margin-top:-54vh;padding-bottom:200px}
+  .facade{width:min(60vw, calc(60vh * 1010 / 730));margin:48px auto 0}
+  footer{grid-template-columns:1fr 1.4fr;align-items:end}
+  footer .fine{grid-column:1 / -1}
 }
-@media(max-width:760px){
- nav.links{position:fixed;inset:72px 0 auto 0;flex-direction:column;background:var(--ink);padding:24px 0 30px;gap:4px;transform:translateY(-140%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
- nav.links.open{transform:translateY(0)}
- nav.links a{padding:12px;font-size:17px}
- .burger{display:flex}
- header{background:var(--ink)}
- .hero h1{font-size:clamp(46px,17vw,90px)}
- .gal .w2{grid-column:span 2}
+/* wide: the tracklist in two columns (A1–A5 | A6–A10), each disc right beside its title */
+@media (min-width:1024px){
+  .tracks{max-width:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:72px}
+  .tracks li{grid-template-columns:124px 1fr;gap:0 24px;padding:16px 0}
+  .tracks li:has(.thumb){padding:16px 0}
+  .tracks li:nth-child(5){border-bottom:0}
+  .tracks .thumb{grid-column:1;grid-row:1;width:124px;height:124px}
+  .tracks .tx{grid-column:2;grid-row:1;grid-template-columns:44px 1fr;gap:0 12px}
 }
-@media(prefers-reduced-motion:reduce){
- *{scroll-behavior:auto!important;transition:none!important}
- .dusk-day{opacity:0;animation:none}
- .dusk-night{opacity:1;animation:none}
- .dusk-mud{opacity:.17;animation:none}
- .dusk-neon{opacity:1;animation:none;text-shadow:0 0 8px rgba(255,190,90,.8),0 0 20px rgba(180,71,31,.6)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.stage{height:100vh;margin-top:0}.stage-pin{position:relative}.face-b{margin-top:0}
+  .facade .ht img{display:block}.facade .ht canvas{display:none}
 }
-
-  /* disclosure legibility */
-  /* This is the one line that makes the page honest about what it is.
-     It was the least legible text here (rgb(125, 108, 80)); set to meet WCAG AA
-     against its own footer ground at 4.62:1, at a readable size. */
-  .disc{color:#8b7c63 !important;font-size:12.5px !important;line-height:1.5}
-/* Mobile action bar — pins the one or two things a hungry visitor actually
-   needs, so they stay reachable anywhere in a long scroll instead of only at
-   the top and bottom. Mobile only. */
-@media(max-width:760px){
-  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
-    display:flex;gap:8px;padding:10px 12px;
-    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
-    background:var(--paper);color:var(--ink);
-    border-top:1px solid rgba(128,128,128,.28);
-    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
-  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
-    display:inline-flex;align-items:center;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    font-size:.92rem;min-height:46px}
-  /* The page's secondary button is often a ghost styled for a dark hero, so
-     it can vanish on this bar. Re-ground it on the bar's own colours, which
-     are the body's and therefore legible by construction. */
-  .wwbar a:not(:first-child){background:transparent;color:inherit;
-    border:1px solid currentColor;opacity:.92}
-  body{padding-bottom:78px}
-}
-@media(min-width:761px){ .wwbar{display:none} }
-
-  /* hero type legibility */
-  /* Contrast comes from the type's own shadow rather than from darkening
-     the photograph behind it. */
-  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
-    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
+@media (max-width:699px){.right{gap:8px}.acts{font-size:var(--xs);gap:8px}.mark{gap:6px}.badge{width:28px;height:32px}.mark .t-cond{font-size:var(--xs);letter-spacing:0}.lang{gap:6px}.top{gap:8px}}
 </style>
 </head>
 <body>
 
-<!-- bogolan pattern definition (referenced by every .mud) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<pattern id="mudpat" width="64" height="34" patternUnits="userSpaceOnUse">
-  <g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round">
-    <line x1="0" y1="4" x2="64" y2="4" stroke-dasharray="2.5 4.5"/>
-    <line x1="0" y1="30" x2="64" y2="30" stroke-dasharray="2.5 4.5"/>
-    <path d="M12 9 L20 17 L12 25 L4 17 Z"/>
-  </g>
-  <g fill="currentColor">
-    <path d="M12 13 L16 17 L12 21 L8 17 Z"/>
-    <path d="M30 10 L38 10 L34 17 Z"/>
-    <path d="M30 24 L38 24 L34 17 Z"/>
-    <circle cx="50" cy="17" r="2.1"/>
-    <path d="M56 11 L60 15 M60 11 L56 15" stroke="currentColor" stroke-width="1.6"/>
-    <path d="M56 19 L60 23 M60 19 L56 23" stroke="currentColor" stroke-width="1.6"/>
-  </g>
-</pattern>
-<g id="sunstamp"></g>
-</defs></svg>
-
-<header id="hd">
- <div class="wrap bar">
-  <a class="brand" href="#top" aria-label="Bistrot de Bonnevoie">
-   <svg class="mk" viewBox="0 0 40 40" aria-hidden="true">
-     <rect width="40" height="40" rx="3" fill="#b4471f"/>
-     <g fill="none" stroke="#f6eddb" stroke-width="2" stroke-linecap="round">
-       <path d="M20 7 L28 15 L20 23 L12 15 Z"/>
-       <path d="M20 12 L23 15 L20 18 L17 15 Z" fill="#d9962b" stroke="none"/>
-       <path d="M9 30 h22 M9 34 h22" stroke-dasharray="2 3.5"/>
-     </g>
-   </svg>
-   <span class="nm">Bistrot de Bonnevoie<small>Cuisine ouest-africaine · Bonnevoie</small></span>
-  </a>
-  <nav class="links" id="nav">
-   <a href="#mafe" data-i18n="nav_mafe">Le mafé</a>
-   <a href="#carte" data-i18n="nav_carte">La carte</a>
-   <a href="#nuit" data-i18n="nav_night">Les soirs</a>
-   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
-   <div class="langs" role="group" aria-label="Langue">
-     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
-   </div>
-  </nav>
-  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
- </div>
+<header class="top" id="top-bar">
+  <a class="mark" href="#top" aria-label="Bistrot de Bonnevoie, 29"><span class="badge">29</span><span class="t-cond">Bistrot de Bonnevoie</span></a>
+  <div class="right">
+    <nav class="acts" aria-label="Contact" data-i18n-aria="nav_contact"><a href="tel:+352661465501" data-i18n="call">Appeler</a><a href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-bonnevoie-luxembourg" rel="noopener" data-i18n="order">Commander</a><a class="ig" href="https://www.instagram.com/bistrotbonnevoielux/" rel="noopener">Instagram</a></nav>
+    <div class="lang" role="group" aria-label="Langue" data-i18n-aria="nav_lang"><button type="button" data-lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+  </div>
 </header>
 
-<main id="top">
- <!-- HERO -->
- <section class="hero" id="hero">
-  <div class="bg"><img src="assets/facade-night.jpg" alt="La devanture du Bistrot de Bonnevoie, rue de Bonnevoie"/></div>
-  <div class="scrim"></div>
-  <div class="dusk" aria-hidden="true">
-   <div class="layer dusk-day"></div>
-   <div class="layer dusk-night"></div>
-   <svg class="dusk-mud" preserveAspectRatio="none" aria-hidden="true"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg>
-   <span class="dusk-neon">Afrobeats</span>
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <h1 class="t-disp" id="h1"><span>Bistrot de</span><span>Bonnevoie</span></h1>
+    <p class="addr" data-i18n="addr">Restauration africaine · 29, rue de Bonnevoie, <span class="nw">Luxembourg-Gare</span></p>
+    <p class="welcome" data-i18n="welcome">Venez partager un moment de convivialité en famille et entre amis</p>
+    <p class="sides t-cond"><a href="#face-a" data-i18n="side_a">Face A · Midi ↓</a><a href="#face-b" data-i18n="side_b">Face B · Soir ↓</a></p>
   </div>
-  <div class="wrap inner">
-   <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine ouest-africaine · Bonnevoie · Luxembourg</span>
-   <h1>Bistrot de<br><span>Bonnevoie</span></h1>
-   <p class="tag" data-i18n="hero_tag">Un bout d'Afrique de l'Ouest, à deux pas de la gare. Le midi on mange, le soir on danse.</p>
-   <div class="cta">
-    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
-    <a class="btn o" href="#nuit" data-i18n="hero_cta2">Les soirs afrobeats ↓</a>
-   </div>
-  </div>
- </section>
-
- <!-- FACTS -->
- <div class="facts">
-  <div class="wrap"><div class="row">
-    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Afrique de l'Ouest</b> — mafé, gombo, poisson braisé, attiéké</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k2">Le quartier</div><div class="v" data-i18n="fact_v2"><b>29, rue de Bonnevoie</b> — quartier Gare</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k3">Du midi à la nuit</div><div class="v" data-i18n="fact_v3"><b>On mange, puis on danse</b> — bar &amp; afrobeats en soirée</div></div>
-  </div></div>
- </div>
-
- <!-- MAFÉ SPOTLIGHT -->
- <section class="spot" id="mafe">
-  <svg class="mudwm" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" fill="url(#mudpat)"/></svg>
-  <div class="wrap grid">
-   <div class="txt">
-    <span class="eyebrow" data-i18n="mafe_eyebrow">Le plat signature</span>
-    <h2 data-i18n="mafe_h">Le mafé<span>sauce arachide</span></h2>
-    <p class="lead" data-i18n="mafe_lead">Une sauce à l'arachide qui a mijoté des heures, une viande qui se défait à la cuillère, du riz pour tout saucer.</p>
-    <p class="body" data-i18n="mafe_body">C'est le plat qu'on ne partage pas vraiment. Servi comme à la maison — généreux, réconfortant, sans chichi. Avec du gombo, du poisson braisé ou du poulet grillé, c'est toute l'Afrique de l'Ouest dans une assiette.</p>
-   </div>
-   <div class="pic">
-    <img src="assets/mafe.jpg" alt="Mafé — sauce arachide et riz"/>
-    <span class="tagpill" data-i18n="mafe_pill">Sauce arachide · riz</span>
-   </div>
-  </div>
- </section>
-
- <div class="wrap"><div class="divider"><span class="dot"></span><svg class="mud" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg></div></div>
-
- <!-- GALLERY -->
- <section id="table">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="gal_eyebrow">À table</span>
-    <h2 data-i18n="gal_h">La cuisine <em>en couleurs</em></h2>
-    <p data-i18n="gal_p">Poisson braisé, chèvre grillée, gombo, plantain frit, attiéké, beignets — des assiettes généreuses, épicées comme il faut.</p>
-   </div>
-   <div class="gal">
-    <figure class="w2 h2"><img src="assets/fish.jpg" alt="Poisson braisé, plantain et riz"/><figcaption data-i18n="cap_fish">Poisson braisé · plantain</figcaption></figure>
-    <figure><img src="assets/goat.jpg" alt="Chèvre grillée et plantain"/><figcaption data-i18n="cap_goat">Chèvre grillée</figcaption></figure>
-    <figure><img src="assets/sauce.jpg" alt="Sauce gombo et fufu"/><figcaption data-i18n="cap_sauce">Sauce &amp; fufu</figcaption></figure>
-    <figure class="w2"><img src="assets/attieke.jpg" alt="Grillade, plantain et riz exotique"/><figcaption data-i18n="cap_attieke">Grillade · riz exotique</figcaption></figure>
-    <figure><img src="assets/akara.jpg" alt="Beignets"/><figcaption data-i18n="cap_akara">Beignets</figcaption></figure>
-    <figure><img src="assets/condiments.jpg" alt="Les condiments servis à table"/><figcaption data-i18n="cap_cond">Les condiments</figcaption></figure>
-    <figure class="w2"><img src="assets/plantain.jpg" alt="Assiette viande, riz et plantain"/><figcaption data-i18n="cap_plantain">Viande · riz · plantain</figcaption></figure>
-   </div>
-  </div>
- </section>
-
- <!-- MENU -->
- <section class="carte" id="carte">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="carte_eyebrow">La carte</span>
-    <h2 data-i18n="carte_h">Ce qu'on <em>sert</em></h2>
-    <p data-i18n="carte_p">Une cuisine ouest-africaine de partage. Voici les plats qui reviennent — la carte complète et les prix se confirment à la maison.</p>
-   </div>
-   <div class="cols">
-    <div>
-     <div class="mgroup">
-      <h3><svg class="st" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="currentColor"/></svg><span data-i18n="mg1">Les sauces &amp; grillades</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Mafé</div><div class="ds" data-i18n="i1d">Sauce arachide mijotée, viande, riz</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Sauce gombo</div><div class="ds" data-i18n="i2d">Gombo, viande ou poisson, riz</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Poisson braisé</div><div class="ds" data-i18n="i3d">Du gril</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Poulet grillé</div><div class="ds" data-i18n="i4d">Du gril</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Chèvre grillée</div><div class="ds" data-i18n="i5d">Oignons, plantain, piment</div></div></div>
-     </div>
+  <div class="deck-room" aria-hidden="true">
+    <div class="deck" id="deck">
+      <div class="disc" id="disc">
+        <canvas id="grooves"></canvas>
+        <img src="assets/hero-plate.webp" alt="" width="1600" height="1600" fetchpriority="high">
+      </div>
+      <canvas class="steam" id="steam"></canvas>
     </div>
-    <div>
-     <div class="mgroup">
-      <h3><svg class="st" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="currentColor"/></svg><span data-i18n="mg2">Les accompagnements</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Attiéké</div><div class="ds" data-i18n="i6d">Semoule de manioc</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Riz exotique</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Plantain frit</div><div class="ds" data-i18n="i8d">Alloco</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Igname frite</div></div></div>
-     </div>
-     <div class="mgroup">
-      <h3><svg class="st" viewBox="0 0 20 20"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="currentColor"/></svg><span data-i18n="mg3">À grignoter &amp; le bar</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Beignets</div><div class="ds" data-i18n="i10d">À partager</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i11n">Bar</div><div class="ds" data-i18n="i11d">Bières, softs, cocktails — jusqu'à tard</div></div></div>
-     </div>
-    </div>
-   </div>
   </div>
- </section>
+</section>
 
- <!-- NIGHT -->
- <section class="night" id="nuit">
-  <div class="wrap grid">
-   <div class="txt">
-    <span class="eyebrow" style="color:var(--ochre)" data-i18n="night_eyebrow">Quand la nuit tombe</span>
-    <h2 data-i18n="night_h">Et le soir,<span>on danse.</span></h2>
-    <p class="lead" data-i18n="night_lead">Les assiettes laissent la place au bar : afrobeats, lumières tamisées, et on danse. On reste tard, on refait le monde jusque tard dans la nuit.</p>
-    <div class="chips">
-     <span class="chip" data-i18n="chip1">Afrobeats</span>
-     <span class="chip" data-i18n="chip2">On danse</span>
-     <span class="chip b" data-i18n="chip3">Bar en soirée</span>
-     <span class="chip b" data-i18n="chip4">Tard le soir</span>
-    </div>
-   </div>
-   <div class="pic"><img src="assets/facade-night.jpg" alt="Le Bistrot de Bonnevoie, rue de Bonnevoie"/></div>
-  </div>
- </section>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="rec" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#0d0c0b"/><g transform="translate(50 50)" fill="none" stroke="#b5773e" stroke-opacity=".38" stroke-width=".45"><circle r="22.0"/><circle r="23.8"/><circle r="25.6"/><circle r="27.4"/><circle r="29.2"/><circle r="31.0"/><circle r="32.8"/><circle r="34.6"/><circle r="36.4"/><circle r="38.2"/><circle r="40.0"/><circle r="41.8"/><circle r="43.6"/><circle r="45.4"/><circle r="47.2"/></g><circle cx="50" cy="50" r="49.2" fill="none" stroke="#b5773e" stroke-opacity=".6" stroke-width=".8"/><circle cx="50" cy="50" r="19" fill="#e8622a"/><circle cx="50" cy="50" r="17.6" fill="none" stroke="#0d0c0b" stroke-opacity=".3" stroke-width=".4"/></symbol></defs></svg>
+<section class="face face-a" id="face-a">
+  <h2 class="t-disp"><span data-i18n="face_a1">Face A —</span> <span data-i18n="face_a2">Midi</span></h2>
+  <ol class="tracks">
+    <li><div class="tx"><span class="t-num">A1</span><div><h3 class="t-cond">Plat de poisson</h3><p class="t-text" data-i18n="d_a1">Dorade grillée</p></div></div><img src="assets/disc-07.webp" class="thumb" alt="Plat de poisson" width="800" height="800" loading="lazy"></li>
+    <li><div class="tx"><span class="t-num">A2</span><div><h3 class="t-cond">Plat de viande</h3><p class="t-text" data-i18n="d_a2">Viande de chèvre frite</p></div></div><img src="assets/disc-02.webp" class="thumb" alt="Plat de viande" width="800" height="800" loading="lazy"></li>
+    <li><div class="tx"><span class="t-num">A3</span><div><h3 class="t-cond">Plat de mafé de bœuf</h3><p class="t-text" data-i18n="d_a3">Viande de bœuf, sauce cacahuète, légumes</p></div></div><img src="assets/disc-09.webp" class="thumb" alt="Plat de mafé de bœuf" width="800" height="800" loading="lazy"></li>
+    <li><div class="tx"><span class="t-num">A4</span><div><h3 class="t-cond">Plat de poulet</h3><p class="t-text" data-i18n="d_a4">Ailes de poulet grillées</p></div></div><img src="assets/disc-08.webp" class="thumb" alt="Plat de poulet" width="800" height="800" loading="lazy"></li>
+    <li><div class="tx"><span class="t-num">A5</span><div><h3 class="t-cond">Plat de yassa de poulet</h3><p class="t-text" data-i18n="d_a5">Pilons de poulet, sauce oignons, olives</p></div></div><svg class="thumb rec" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#rec"/><text x="50" y="50">A5</text></svg></li>
+    <li><div class="tx"><span class="t-num">A6</span><div><h3 class="t-cond">Plat de poulet DG</h3><p class="t-text" data-i18n="d_a6">Morceaux de poulet et légumes</p></div></div><img src="assets/disc-dg.webp" class="thumb" alt="Plat de poulet DG" width="800" height="800" loading="lazy"></li>
+    <li><div class="tx"><span class="t-num">A7</span><div><h3 class="t-cond">Plat gombo</h3><p class="t-text" data-i18n="d_a7">Sauce gombo, viande ou poisson</p></div></div><svg class="thumb rec" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#rec"/><text x="50" y="50">A7</text></svg></li>
+    <li><div class="tx"><span class="t-num">A8</span><div><h3 class="t-cond">Plat épinard</h3><p class="t-text" data-i18n="d_a8">Sauce épinard, viande ou poisson</p></div></div><img src="assets/disc-epinard.webp" class="thumb" alt="Plat épinard" width="800" height="800" loading="lazy"></li>
+    <li><div class="tx"><span class="t-num">A9</span><div><h3 class="t-cond">Poisson attiéké alloco</h3></div></div><svg class="thumb rec" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#rec"/><text x="50" y="50">A9</text></svg></li>
+    <li><div class="tx"><span class="t-num">A10</span><div><h3 class="t-cond">Soupe viande</h3><p class="t-text" data-i18n="d_a10">Viande de chèvre</p></div></div><img src="assets/disc-soupe.webp" class="thumb" alt="Soupe viande" width="800" height="800" loading="lazy"></li>
+  </ol>
+  <p class="staples t-text" id="staples" data-i18n="staples">Accompagnements : riz rouge, attiéké, plantain, chikwang, piment.</p>
+</section>
 
- <!-- INFOS -->
- <section class="infos" id="infos">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
-    <h2 data-i18n="infos_h">Nous <em>trouver</em></h2>
-   </div>
-   <div class="grid">
-    <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">29, rue de Bonnevoie<br>L-1260 Luxembourg · quartier Gare</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Réserver / commander</div><div class="v"><a href="tel:+352661465501">+352 661 465 501</a><br><span class="fl" data-i18n="ino_fl2b">Livraison via Wolt &amp; Uber Eats</span><br><a class="btn p" style="margin-top:13px;padding:11px 20px;font-size:13px" href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-bonnevoie-luxembourg" target="_blank" rel="noopener" data-i18n="ino_order">Commander sur Wolt ↗</a></div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="ino_k3">Horaires</div><div class="v"><span class="hours-today" data-i18n="ino_hours">Lun – Ven : 12h00 – 01h00<br>Sam : 14h00 – 01h00 · Dimanche : fermé</span><br></div></div></div>
+<section class="stage" id="stage" aria-label="L'assiette devient un disque : Luxembourg Afrosound, 29 rue de Bonnevoie, Face B" data-i18n-aria="stage_aria">
+  <div class="stage-pin"><canvas id="stagecv"></canvas></div>
+</section>
+
+<section class="face face-b" id="face-b">
+  <h2 class="t-disp big"><span>Luxembourg</span><span>Afrosound</span></h2>
+  <p class="fb-bio t-text">African Food, Bar, Club and AfroMusic</p>
+  <p class="fb-poster t-text">Partage • Foi • Solidarité</p>
+  <svg class="garland" id="garland" aria-hidden="true" focusable="false"></svg>
+  <p class="fb-bar t-text" data-i18n="bar">Au bar&nbsp;: bières, vins, softs.</p>
+  <figure class="facade">
+    <div class="ht" id="ht" role="img" aria-label="La façade et l'enseigne du Bistrot de Bonnevoie, en trame de points" data-i18n-aria="facade_aria">
+      <canvas id="htcv"></canvas>
+      <img src="assets/facade-halftone.webp" alt="" width="1010" height="730" loading="lazy">
     </div>
-    <div class="mapcard">
-     <svg class="mud" style="height:26px" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg>
-     <svg class="mud bot" style="height:26px" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg>
-     <div class="in">
-      <div class="big">Bonnevoie</div>
-      <div style="color:#c9b48d;margin-top:8px" data-i18n="map_sub">À 4 min à pied de la Gare de Luxembourg</div>
-      <a class="btn p" href="https://www.google.com/maps/search/Bistrot+de+Bonnevoie+29+Rue+de+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Ouvrir dans Maps ↗</a>
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
-</main>
+    <figcaption class="t-text">29, rue de Bonnevoie</figcaption>
+  </figure>
+</section>
 
 <footer>
- <svg class="mud band tall" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#mudpat)"/></svg>
- <div class="wrap in">
+  <span class="t-cond">Bistrot de Bonnevoie</span>
   <div>
-   <div class="nm">Bistrot de Bonnevoie<small>Cuisine ouest-africaine · Bonnevoie</small></div>
-   <p data-i18n="foot_p">Cuisine ouest-africaine et afrobeats, à Bonnevoie. On mange le midi, on danse le soir.</p>
-   <div class="made" data-i18n="foot_made">Webwerk · studio web · Luxembourg</div>
+    <p class="t-text" data-i18n="foot_addr">29, rue de Bonnevoie, Luxembourg-Gare</p>
+    <p class="ways t-text">
+      <a href="tel:+352661465501" data-i18n="call">Appeler</a>
+      <a href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-bonnevoie-luxembourg" rel="noopener" data-i18n="order">Commander</a>
+      <a href="https://www.instagram.com/bistrotbonnevoielux/" rel="noopener">Instagram</a>
+    </p>
   </div>
-  <div>
-   <div class="k" style="font-family:'Shoulders';font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--ochre)">Contact</div>
-   <p style="margin-top:10px">29, rue de Bonnevoie<br>L-1260 Luxembourg<br><a href="tel:+352661465501" style="border-bottom:1px solid var(--ochre)">+352 661 465 501</a></p>
-  </div>
- </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
+  <p class="t-text fine" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, avec une illustration du plat, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
 </footer>
 
 <script>
-const I18N={
- fr:{wwb_call:"Appeler",wwb_dir:"Itinéraire",wwb_order:"Commander",
-  nav_mafe:"Le mafé",nav_carte:"La carte",nav_night:"Les soirs",nav_infos:"Infos & accès",
-  hero_eyebrow:"Cuisine ouest-africaine · Bonnevoie · Luxembourg",
-  hero_tag:"Un bout d'Afrique de l'Ouest, à deux pas de la gare. Le midi on mange, le soir on danse.",
-  hero_cta1:"Voir la carte",hero_cta2:"Les soirs afrobeats ↓",
-  fact_k1:"La cuisine",fact_v1:"<b>Afrique de l'Ouest</b> — mafé, gombo, poisson braisé, attiéké",
-  fact_k2:"Le quartier",fact_v2:"<b>29, rue de Bonnevoie</b> — quartier Gare",
-  fact_k3:"Du midi à la nuit",fact_v3:"<b>On mange, puis on danse</b> — bar & afrobeats en soirée",
-  mafe_eyebrow:"Le plat signature",mafe_h:"Le mafé<span>sauce arachide</span>",
-  mafe_lead:"Une sauce à l'arachide qui a mijoté des heures, une viande qui se défait à la cuillère, du riz pour tout saucer.",
-  mafe_body:"C'est le plat qu'on ne partage pas vraiment. Servi comme à la maison — généreux, réconfortant, sans chichi. Avec du gombo, du poisson braisé ou du poulet grillé, c'est toute l'Afrique de l'Ouest dans une assiette.",
-  mafe_pill:"Sauce arachide · riz",
-  gal_eyebrow:"À table",gal_h:"La cuisine <em>en couleurs</em>",
-  gal_p:"Poisson braisé, chèvre grillée, gombo, plantain frit, attiéké, beignets — des assiettes généreuses, épicées comme il faut.",
-  cap_fish:"Poisson braisé · plantain",cap_goat:"Chèvre grillée",cap_sauce:"Sauce & fufu",cap_attieke:"Grillade · riz exotique",cap_akara:"Beignets",cap_cond:"Les condiments",cap_plantain:"Viande · riz · plantain",
-  carte_eyebrow:"La carte",carte_h:"Ce qu'on <em>sert</em>",
-  carte_p:"Une cuisine ouest-africaine de partage. Voici les plats qui reviennent — la carte complète et les prix se confirment à la maison.",
-  mg1:"Les sauces & grillades",mg2:"Les accompagnements",mg3:"À grignoter & le bar",
-  i1n:"Mafé",i1d:"Sauce arachide mijotée, viande, riz",i2n:"Sauce gombo",i2d:"Gombo, viande ou poisson, riz",
-  i3n:"Poisson braisé",i3d:"Du gril",i4n:"Poulet grillé",i4d:"Du gril",i5n:"Chèvre grillée",i5d:"Oignons, plantain, piment",
-  i6n:"Attiéké",i6d:"Semoule de manioc",i7n:"Riz exotique",i8n:"Plantain frit",i8d:"Alloco",i9n:"Igname frite",
-  i10n:"Beignets",i10d:"À partager",i11n:"Bar",i11d:"Bières, softs, cocktails — jusqu'à tard",
-  night_eyebrow:"Quand la nuit tombe",night_h:"Et le soir,<span>on danse.</span>",
-  night_lead:"Les assiettes laissent la place au bar : afrobeats, lumières tamisées, et on danse. On reste tard, on refait le monde jusque tard dans la nuit.",
-  chip1:"Afrobeats",chip2:"On danse",chip3:"Bar en soirée",chip4:"Tard le soir",
-  infos_eyebrow:"Infos & accès",infos_h:"Nous <em>trouver</em>",
-  ino_k1:"Adresse",ino_k2:"Réserver / commander",ino_fl2b:"Livraison via Wolt & Uber Eats",ino_order:"Commander sur Wolt ↗",
-  ino_k3:"Horaires",ino_hours:"Lun – Ven : 12h00 – 01h00<br>Sam : 14h00 – 01h00 · Dimanche : fermé",
-  map_sub:"À 4 min à pied de la Gare de Luxembourg",map_btn:"Ouvrir dans Maps ↗",
-  foot_p:"Cuisine ouest-africaine et afrobeats, à Bonnevoie. On mange le midi, on danse le soir.",
-  foot_made:"Webwerk · studio web · Luxembourg",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
+(() => {
+'use strict';
+/* ═════════ i18n: FR is the source; DE/EN natural ═════════ */
+const I18N = {
+ fr: {
+  title: "Bistrot de Bonnevoie — Restauration africaine, Luxembourg-Gare",
+  nav_contact: "Contact", nav_lang: "Langue", call: "Appeler", order: "Commander",
+  addr: "Restauration africaine · 29, rue de Bonnevoie, <span class=\"nw\">Luxembourg-Gare</span>",
+  welcome: "Venez partager un moment de convivialité en famille et entre amis",
+  side_a: "Face A · Midi ↓", side_b: "Face B · Soir ↓",
+  face_a1: "Face A —", face_a2: "Midi",
+  d_a1: "Dorade grillée", d_a2: "Viande de chèvre frite", d_a3: "Viande de bœuf, sauce cacahuète, légumes",
+  d_a4: "Ailes de poulet grillées", d_a5: "Pilons de poulet, sauce oignons, olives", d_a6: "Morceaux de poulet et légumes",
+  d_a7: "Sauce gombo, viande ou poisson", d_a8: "Sauce épinard, viande ou poisson", d_a10: "Viande de chèvre",
+  staples: "Accompagnements : riz rouge, attiéké, plantain, chikwang, piment.",
+  stage_aria: "L'assiette devient un disque : Luxembourg Afrosound, 29 rue de Bonnevoie, Face B",
+  label: "LUXEMBOURG AFROSOUND · 29 RUE DE BONNEVOIE · FACE B · ",
+  bar: "Au bar : bières, vins, softs.",
+  facade_aria: "La façade et l'enseigne du Bistrot de Bonnevoie, en trame de points",
+  foot_addr: "29, rue de Bonnevoie, Luxembourg-Gare",
+  disc: "Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, avec une illustration du plat, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
- de:{wwb_call:"Anrufen",wwb_dir:"Route",wwb_order:"Bestellen",
-  nav_mafe:"Mafé",nav_carte:"Karte",nav_night:"Abends",nav_infos:"Infos & Anfahrt",
-  hero_eyebrow:"Westafrikanische Küche · Bonnevoie · Luxemburg",
-  hero_tag:"Ein Stück Westafrika, ein paar Schritte vom Bahnhof. Mittags wird gegessen, abends getanzt.",
-  hero_cta1:"Zur Karte",hero_cta2:"Die Afrobeats-Abende ↓",
-  fact_k1:"Die Küche",fact_v1:"<b>Westafrika</b> — Mafé, Gombo, gegrillter Fisch, Attiéké",
-  fact_k2:"Das Viertel",fact_v2:"<b>29, rue de Bonnevoie</b> — Bahnhofsviertel",
-  fact_k3:"Von mittags bis nachts",fact_v3:"<b>Erst essen, dann tanzen</b> — Bar & Afrobeats am Abend",
-  mafe_eyebrow:"Das Signature-Gericht",mafe_h:"Mafé<span>Erdnusssauce</span>",
-  mafe_lead:"Eine Erdnusssauce, die stundenlang geschmort hat, Fleisch, das auf dem Löffel zerfällt, und Reis, um alles aufzutunken.",
-  mafe_body:"Das Gericht, das man nicht wirklich teilt. Serviert wie zu Hause — großzügig, wärmend, ohne Chichi. Mit Gombo, gegrilltem Fisch oder Hähnchen ist es ganz Westafrika auf einem Teller.",
-  mafe_pill:"Erdnusssauce · Reis",
-  gal_eyebrow:"Zu Tisch",gal_h:"Die Küche <em>in Farbe</em>",
-  gal_p:"Gegrillter Fisch, gegrillte Ziege, Gombo, gebratene Kochbananen, Attiéké, Beignets — großzügige Teller, richtig gewürzt.",
-  cap_fish:"Gegrillter Fisch · Kochbanane",cap_goat:"Gegrillte Ziege",cap_sauce:"Sauce & Fufu",cap_attieke:"Grillteller · Reis",cap_akara:"Beignets",cap_cond:"Die Condiments",cap_plantain:"Fleisch · Reis · Kochbanane",
-  carte_eyebrow:"Die Karte",carte_h:"Was wir <em>servieren</em>",
-  carte_p:"Eine westafrikanische Küche zum Teilen. Das sind die Gerichte, die wiederkehren — die vollständige Karte und die Preise bestätigt das Haus.",
-  mg1:"Saucen & Grillgerichte",mg2:"Die Beilagen",mg3:"Zum Knabbern & die Bar",
-  i1n:"Mafé",i1d:"Geschmorte Erdnusssauce, Fleisch, Reis",i2n:"Gombo-Sauce",i2d:"Okra, Fleisch oder Fisch, Reis",
-  i3n:"Gegrillter Fisch",i3d:"Vom Grill",i4n:"Gegrilltes Hähnchen",i4d:"Vom Grill",i5n:"Gegrillte Ziege",i5d:"Zwiebeln, Kochbanane, Chili",
-  i6n:"Attiéké",i6d:"Maniokgrieß",i7n:"Reis exotisch",i8n:"Gebratene Kochbanane",i8d:"Alloco",i9n:"Gebratene Yamswurzel",
-  i10n:"Beignets",i10d:"Zum Teilen",i11n:"Bar",i11d:"Biere, Softdrinks, Cocktails — bis spät",
-  carte_note:"Karte aus öffentlichen Quellen (Wolt, Uber Eats), ohne Gewähr.",
-  night_eyebrow:"Wenn die Nacht kommt",night_h:"Und abends<span>wird getanzt.</span>",
-  night_lead:"Die Teller machen der Bar Platz: Afrobeats, gedämpftes Licht, und man tanzt. Man bleibt lange und redet bis spät in die Nacht.",
-  chip1:"Afrobeats",chip2:"Man tanzt",chip3:"Bar am Abend",chip4:"Bis spät",
-  infos_eyebrow:"Infos & Anfahrt",infos_h:"So <em>finden</em> Sie uns",
-  ino_k1:"Adresse",ino_k2:"Reservieren / bestellen",ino_fl2b:"Lieferung über Wolt & Uber Eats",ino_order:"Auf Wolt bestellen ↗",
-  ino_k3:"Öffnungszeiten",ino_hours:"Mo – Fr: 12:00 – 01:00<br>Sa: 14:00 – 01:00 · Sonntag: geschlossen",
-  map_sub:"4 Minuten zu Fuß vom Bahnhof Luxemburg",map_btn:"In Maps öffnen ↗",
-  foot_p:"Westafrikanische Küche und Afrobeats, in Bonnevoie. Mittags essen, abends tanzen.",
-  foot_made:"Webwerk · Webstudio · Luxemburg",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
+ de: {
+  title: "Bistrot de Bonnevoie — Afrikanische Küche, Luxemburg-Gare",
+  nav_contact: "Kontakt", nav_lang: "Sprache", call: "Anrufen", order: "Bestellen",
+  addr: "Afrikanische Küche · 29, rue de Bonnevoie, <span class=\"nw\">Luxemburg-Gare</span>",
+  welcome: "Kommen Sie und teilen Sie einen geselligen Moment mit Familie und Freunden",
+  side_a: "Seite A · Mittag ↓", side_b: "Seite B · Abend ↓",
+  face_a1: "Seite A —", face_a2: "Mittag",
+  d_a1: "Gegrillte Dorade", d_a2: "Frittiertes Ziegenfleisch", d_a3: "Rindfleisch, Erdnusssauce, Gemüse",
+  d_a4: "Gegrillte Hähnchenflügel", d_a5: "Hähnchenkeulen, Zwiebelsauce, Oliven", d_a6: "Hähnchenstücke und Gemüse",
+  d_a7: "Okrasauce, mit Fleisch oder Fisch", d_a8: "Spinatsauce, mit Fleisch oder Fisch", d_a10: "Ziegenfleisch",
+  staples: "Beilagen: roter Reis, Attiéké, Kochbananen, Chikwang, Chili.",
+  stage_aria: "Der Teller wird zur Schallplatte: Luxembourg Afrosound, 29 rue de Bonnevoie, Seite B",
+  label: "LUXEMBOURG AFROSOUND · 29 RUE DE BONNEVOIE · SEITE B · ",
+  bar: "An der Bar: Bier, Wein, Softdrinks.",
+  facade_aria: "Die Fassade mit dem Schild des Bistrot de Bonnevoie, als Punktraster",
+  foot_addr: "29, rue de Bonnevoie, Luxemburg-Gare",
+  disc: "Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, mit einer Illustration des Gerichts, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
- en:{wwb_call:"Call",wwb_dir:"Directions",wwb_order:"Order",
-  nav_mafe:"The mafé",nav_carte:"Menu",nav_night:"After dark",nav_infos:"Find us",
-  hero_eyebrow:"West African kitchen · Bonnevoie · Luxembourg",
-  hero_tag:"A corner of West Africa, a stone's throw from the station. Lunch to eat, nights to dance.",
-  hero_cta1:"See the menu",hero_cta2:"The afrobeats nights ↓",
-  fact_k1:"The kitchen",fact_v1:"<b>West Africa</b> — mafé, gombo, grilled fish, attiéké",
-  fact_k2:"The neighbourhood",fact_v2:"<b>29, rue de Bonnevoie</b> — Gare quarter",
-  fact_k3:"From noon to night",fact_v3:"<b>Eat, then dance</b> — bar & afrobeats in the evening",
-  mafe_eyebrow:"The signature dish",mafe_h:"The mafé<span>peanut sauce</span>",
-  mafe_lead:"A peanut sauce simmered for hours, meat that falls apart on the spoon, and rice to soak up every bit.",
-  mafe_body:"It's the plate you don't really share. Served like it is at home — generous, comforting, no fuss. With gombo, grilled fish or grilled chicken, it's all of West Africa on one plate.",
-  mafe_pill:"Peanut sauce · rice",
-  gal_eyebrow:"At the table",gal_h:"The kitchen <em>in colour</em>",
-  gal_p:"Grilled fish, grilled goat, gombo, fried plantain, attiéké, beignets — generous plates, spiced just right.",
-  cap_fish:"Grilled fish · plantain",cap_goat:"Grilled goat",cap_sauce:"Sauce & fufu",cap_attieke:"Grill plate · rice",cap_akara:"Beignets",cap_cond:"The condiments",cap_plantain:"Meat · rice · plantain",
-  carte_eyebrow:"The menu",carte_h:"What we <em>serve</em>",
-  carte_p:"A West African kitchen made for sharing. Here are the dishes that keep coming back — the full menu and prices are confirmed by the house.",
-  mg1:"Sauces & grills",mg2:"The sides",mg3:"To nibble & the bar",
-  i1n:"Mafé",i1d:"Simmered peanut sauce, meat, rice",i2n:"Gombo sauce",i2d:"Okra, meat or fish, rice",
-  i3n:"Grilled fish",i3d:"From the grill",i4n:"Grilled chicken",i4d:"From the grill",i5n:"Grilled goat",i5d:"Onions, plantain, chilli",
-  i6n:"Attiéké",i6d:"Cassava couscous",i7n:"Riz exotique",i8n:"Fried plantain",i8d:"Alloco",i9n:"Fried yam",
-  i10n:"Beignets",i10d:"To share",i11n:"Bar",i11d:"Beers, soft drinks, cocktails — till late",
-  carte_note:"Menu drawn from public sources (Wolt, Uber Eats), for reference only.",
-  night_eyebrow:"When night falls",night_h:"And after dark,<span>you dance.</span>",
-  night_lead:"The plates give way to the bar: afrobeats, low lights, and you dance. You stay late and put the world to rights, well into the night.",
-  chip1:"Afrobeats",chip2:"Dancing",chip3:"Evening bar",chip4:"Late",
-  infos_eyebrow:"Info & access",infos_h:"Find <em>us</em>",
-  ino_k1:"Address",ino_k2:"Book / order",ino_fl2b:"Delivery via Wolt & Uber Eats",ino_order:"Order on Wolt ↗",
-  ino_k3:"Opening hours",ino_hours:"Mon – Fri: 12:00 – 01:00<br>Sat: 14:00 – 01:00 · Sunday: closed",
-  map_sub:"A 4-minute walk from Luxembourg station",map_btn:"Open in Maps ↗",
-  foot_p:"West African kitchen and afrobeats, in Bonnevoie. Eat at noon, dance at night.",
-  foot_made:"Webwerk · web studio · Luxembourg",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
+ en: {
+  title: "Bistrot de Bonnevoie — African cuisine, Luxembourg-Gare",
+  nav_contact: "Contact", nav_lang: "Language", call: "Call", order: "Order",
+  addr: "African cuisine · 29, rue de Bonnevoie, <span class=\"nw\">Luxembourg-Gare</span>",
+  welcome: "Come and share a convivial moment with family and friends",
+  side_a: "Side A · Lunch ↓", side_b: "Side B · Night ↓",
+  face_a1: "Side A —", face_a2: "Lunch",
+  d_a1: "Grilled sea bream", d_a2: "Fried goat meat", d_a3: "Beef, peanut sauce, vegetables",
+  d_a4: "Grilled chicken wings", d_a5: "Chicken drumsticks, onion sauce, olives", d_a6: "Chicken pieces and vegetables",
+  d_a7: "Okra sauce, with meat or fish", d_a8: "Spinach sauce, with meat or fish", d_a10: "Goat meat",
+  staples: "Sides: red rice, attiéké, plantain, chikwang, chilli.",
+  stage_aria: "The plate becomes a record: Luxembourg Afrosound, 29 rue de Bonnevoie, Side B",
+  label: "LUXEMBOURG AFROSOUND · 29 RUE DE BONNEVOIE · SIDE B · ",
+  bar: "At the bar: beers, wines, soft drinks.",
+  facade_aria: "The façade and sign of Bistrot de Bonnevoie, in halftone dots",
+  foot_addr: "29, rue de Bonnevoie, Luxembourg-Gare",
+  disc: "An unofficial website proposal by Webwerk, built from public information and photos, with an illustration of the dish, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
-let lang="fr";
-function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
-function applyLang(l){
-  lang=l; document.documentElement.lang=l;
-  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
-  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
-  try{localStorage.setItem("bb_lang",l);}catch(e){}
+let lang = 'fr';
+const t = k => (I18N[lang] && I18N[lang][k]) || I18N.fr[k] || '';
+let onLang = () => {};
+function applyLang(l) {
+  lang = I18N[l] ? l : 'fr';
+  document.documentElement.lang = lang;
+  document.title = t('title');
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  try { localStorage.setItem('bb_lang', lang); } catch (e) {}
+  onLang();
 }
-document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
-const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
-burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
-navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
-const hd=document.getElementById("hd");
-const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
-window.addEventListener("scroll",onScroll,{passive:true});onScroll();
-try{const sv=localStorage.getItem("bb_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
-</script>
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
 
-<div class="wwbar" role="navigation" aria-label="Actions rapides">
-  <a class="btn p" href="tel:+352661465501" data-i18n="wwb_call">Appeler</a>
-  <a class="btn o" href="https://wolt.com/en/lux/luxembourg/restaurant/bistrot-de-bonnevoie-luxembourg" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
-  <a class="btn o" href="https://www.google.com/maps/search/Bistrot+de+Bonnevoie+29+Rue+de+Bonnevoie+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
-</div>
+/* ═════════ motion ═════════ */
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const bar = document.getElementById('top-bar');
+const DPR = Math.min(2, window.devicePixelRatio || 1);
+const TAU = Math.PI * 2;
+const clamp = (v, a = 0, b = 1) => v < a ? a : v > b ? b : v;
+const smooth = (a, b, v) => { const q = clamp((v - a) / (b - a)); return q * q * (3 - 2 * q); };
+const easeIO = q => q < .5 ? 4 * q * q * q : 1 - Math.pow(-2 * q + 2, 3) / 2;
+// The piment pot is not quite at the image centre: measured at (0.474, 0.484) of the 1600px plate.
+const POT = { x: 0.474 - 0.5, y: 0.484 - 0.5 };
+const COPPER = [181, 119, 62];
+
+/* ─── grooves: shared by the hero record and the stage record ─── */
+function drawGrooves(g, cx, cy, rIn, rOut, o) {
+  const sp = o.spacing, sheen = o.sheen || 0;
+  let mid = 'rgba(120,84,52,.55)';
+  const grad = (base, peak) => {
+    const cg = g.createConicGradient(sheen, cx, cy);
+    cg.addColorStop(0, base); cg.addColorStop(0.02, base);
+    cg.addColorStop(0.07, mid); cg.addColorStop(0.105, peak); cg.addColorStop(0.125, peak);
+    cg.addColorStop(0.16, mid); cg.addColorStop(0.23, base); cg.addColorStop(1, base);
+    return cg;
+  };
+  const plain = grad(o.base || '#1a1816', 'rgba(181,119,62,.75)');
+  const plain2 = grad(o.base2 || '#151311', 'rgba(160,104,54,.6)');
+  mid = 'rgba(150,104,64,.7)';
+  const light = grad(o.lightBase || '#2e2a26', 'rgba(214,156,96,.85)');
+  g.lineWidth = o.lw || 0.75;
+  let i = 0;
+  for (let r = rIn + sp; r < rOut - 2; r += sp, i++) {
+    if (o.bands && o.bands.some(([a, b]) => r > a && r < b)) continue;
+    g.globalAlpha = 1;
+    g.strokeStyle = i % 6 === 0 ? light : (i % 2 ? plain : plain2);
+    g.beginPath(); g.arc(cx, cy, r, 0, TAU); g.stroke();
+  }
+  g.globalAlpha = 1;
+  g.strokeStyle = grad('#2b2724', 'rgba(222,160,98,.9)'); g.lineWidth = 1.5;
+  g.beginPath(); g.arc(cx, cy, rOut - 1, 0, TAU); g.stroke();
+}
+function vinyl(g, cx, cy, rOut) {
+  const rg = g.createRadialGradient(cx, cy, 0, cx, cy, rOut);
+  rg.addColorStop(0, '#0b0a09'); rg.addColorStop(1, '#100f0d');
+  g.fillStyle = rg; g.beginPath(); g.arc(cx, cy, rOut, 0, TAU); g.fill();
+}
+const loaded = img => (img.decode ? img.decode() : new Promise((res, rej) => { img.onload = res; img.onerror = rej; }));
+
+/* ═════════ HERO: spinning plate, grooves, steam ═════════ */
+const deck = document.getElementById('deck');
+const disc = document.getElementById('disc');
+const gcv = document.getElementById('grooves');
+const scv = document.getElementById('steam');
+const sctx = scv.getContext('2d');
+
+function layoutHero() {
+  const size = deck.clientWidth;            // = K * D
+  if (!size) return;
+  const K = parseFloat(getComputedStyle(deck).getPropertyValue('--K')) || 1.35;
+  const D = size / K;
+  gcv.width = gcv.height = Math.round(size * DPR);
+  const g = gcv.getContext('2d');
+  g.setTransform(DPR, 0, 0, DPR, 0, 0);
+  g.clearRect(0, 0, size, size);
+  const c = size / 2, rIn = D / 2 - 3, rOut = size / 2;
+  vinyl(g, c, c, rOut);
+  const small = D < 700;
+  const sp = small ? 2.6 : 3;
+  const zone = rOut - rIn;
+  drawGrooves(g, c, c, rIn, rOut, { spacing: sp, sheen: -0.4,
+    base: small ? '#463e36' : '#1d1b18', base2: small ? '#383129' : '#161412', lightBase: small ? '#76675a' : '#2e2a26', lw: small ? 0.9 : 0.75,
+    bands: [[rIn + zone * .34, rIn + zone * .34 + sp * 2.2], [rIn + zone * .68, rIn + zone * .68 + sp * 2.2]] });
+  scv.width = scv.height = Math.round(D);
+}
+
+function drawSteam(time, ang) {
+  const W = scv.width;
+  sctx.clearRect(0, 0, W, W);
+  const ca = Math.cos(ang), sa = Math.sin(ang);
+  const ox = W / 2 + (POT.x * ca - POT.y * sa) * W;
+  const oy = W / 2 + (POT.x * sa + POT.y * ca) * W;
+  const Hh = W * 0.36, N = 40;
+  sctx.lineCap = 'round';
+  for (let s = 0; s < 3; s++) {
+    const ph = s * 2.3 + 0.7, x0 = ox + (s - 1) * W * 0.022;
+    let px = x0, py = oy;
+    for (let k = 1; k <= N; k++) {
+      const h = k / N;
+      const sway = (Math.sin(h * 4.1 - time * 0.5 + ph) * 0.65 + Math.sin(h * 9.3 - time * 0.83 + ph * 1.7) * 0.25)
+                   * W * 0.03 * (0.2 + h);
+      const x = x0 + sway + Math.sin(ph) * h * W * 0.02;
+      const y = oy - h * Hh;
+      const a = 0.42 * smooth(0, 0.14, h) * Math.pow(1 - h, 1.4)
+                * (0.5 + 0.5 * Math.sin(h * 7.5 - time * 1.05 + ph * 3));
+      sctx.strokeStyle = `rgba(246,243,238,${a.toFixed(3)})`;
+      sctx.lineWidth = W * (0.006 + 0.022 * h);
+      sctx.beginPath(); sctx.moveTo(px, py); sctx.lineTo(x, y); sctx.stroke();
+      px = x; py = y;
+    }
+  }
+}
+
+let heroOn = true;
+new IntersectionObserver(es => { heroOn = es[0].isIntersecting; }).observe(deck);
+const T0 = performance.now();
+const TURN = 26000;   // one slow turn in 26 s
+function heroFrame(now) {
+  if (heroOn) {
+    const ang = ((now - T0) % TURN) / TURN * TAU;
+    disc.style.transform = `rotate(${ang}rad)`;
+    drawSteam((now - T0) / 1000, ang);
+  }
+  requestAnimationFrame(heroFrame);
+}
+
+/* ═════════ STAGE: plate → record, tied to scroll ═════════ */
+const stage = document.getElementById('stage');
+const cv = document.getElementById('stagecv');
+const ctx = cv.getContext('2d');
+const plateImg = new Image();
+plateImg.src = 'assets/hero-plate.webp';
+const faceB = document.getElementById('face-b');
+
+let S = null;          // stage geometry + particles
+let lastP = -1, dirty = true;
+
+function buildLabel(labR) {
+  const txt = t('label');
+  const ls = Math.round(2 * labR * DPR) + 4;
+  const labC = document.createElement('canvas'); labC.width = labC.height = ls;
+  const lg = labC.getContext('2d'); lg.setTransform(DPR, 0, 0, DPR, 0, 0);
+  const lc = ls / DPR / 2;
+  const lgr = lg.createRadialGradient(lc - labR * .2, lc - labR * .25, 0, lc, lc, labR);
+  lgr.addColorStop(0, '#ef6e35'); lgr.addColorStop(1, '#dc5a24');
+  lg.fillStyle = lgr; lg.beginPath(); lg.arc(lc, lc, labR, 0, TAU); lg.fill();
+  lg.strokeStyle = 'rgba(13,12,11,.28)'; lg.lineWidth = 1;
+  [0.94, 0.56].forEach(f => { lg.beginPath(); lg.arc(lc, lc, labR * f, 0, TAU); lg.stroke(); });
+  const rt = labR * 0.75;
+  const fs = Math.min(labR * 0.16, (TAU * rt) / (txt.length * 0.62));
+  lg.fillStyle = '#0d0c0b'; lg.font = `500 ${fs}px "IBM Plex Mono", monospace`;
+  lg.textAlign = 'center'; lg.textBaseline = 'middle';
+  const step = TAU / txt.length;
+  for (let i = 0; i < txt.length; i++) {
+    lg.save(); lg.translate(lc, lc); lg.rotate(i * step); lg.translate(0, -rt);
+    lg.fillText(txt[i], 0, 0); lg.restore();
+  }
+  lg.fillStyle = '#0d0c0b'; lg.beginPath(); lg.arc(lc, lc, Math.max(3, labR * 0.045), 0, TAU); lg.fill();
+  return { labC, ls };
+}
+
+function buildStage() {
+  const w = cv.clientWidth, h = cv.clientHeight;
+  if (!w || !h) return;
+  cv.width = Math.round(w * DPR); cv.height = Math.round(h * DPR);
+  const mobile = w < 700;
+  // mobile: the record is ~85% of the viewport width; desktop: it shares the frame with the Face B heading
+  const Rrec = mobile ? Math.min(w * 0.425, h * 0.29) : Math.min(w * 0.3, h * 0.33);
+  const R = Rrec / 1.25;
+  const labR = Rrec * 0.31;
+  const N = mobile ? 4800 : 10000;
+
+  const ps = Math.round(2 * R * DPR);
+  const plateC = document.createElement('canvas'); plateC.width = plateC.height = ps;
+  plateC.getContext('2d').drawImage(plateImg, 0, 0, ps, ps);
+  const maskC = document.createElement('canvas'); maskC.width = maskC.height = ps;
+  const mctx = maskC.getContext('2d');
+
+  const rs = Math.round(2 * Rrec * DPR) + 4;
+  const recC = document.createElement('canvas'); recC.width = recC.height = rs;
+  const rg = recC.getContext('2d'); rg.setTransform(DPR, 0, 0, DPR, 0, 0);
+  const rc = rs / DPR / 2;
+  vinyl(rg, rc, rc, Rrec);
+  drawGrooves(rg, rc, rc, labR * 1.04, Rrec, { spacing: mobile ? 2.4 : 2.8, sheen: -0.9,
+    bands: [[labR * 1.04, labR * 1.16], [Rrec * .62, Rrec * .62 + 5], [Rrec * .82, Rrec * .82 + 5]] });
+
+  const { labC, ls } = buildLabel(labR);
+
+  // particles sampled from the plate. Reading pixels throws on file:// (tainted canvas):
+  // then the stage shows the finished record as a still.
+  let P = null;
+  try {
+    const cell = 2 * R * Math.sqrt(Math.PI / (4 * N));
+    const n = Math.round(2 * R / cell);
+    const sc = document.createElement('canvas'); sc.width = sc.height = n;
+    const sx = sc.getContext('2d', { willReadFrequently: true });
+    sx.drawImage(plateImg, 0, 0, n, n);
+    const d = sx.getImageData(0, 0, n, n).data;
+    const pts = [];
+    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+      const o = (j * n + i) * 4;
+      if (d[o + 3] < 250) continue;
+      const px = (i + .5) * cell - R, py = (j + .5) * cell - R;
+      if (Math.hypot(px, py) > R * 0.93) continue;
+      pts.push([px, py, d[o], d[o + 1], d[o + 2]]);
+    }
+    const M = pts.length;
+    const rin = labR * 1.2, K = mobile ? 20 : 28, ringSp = (Rrec * .97 - rin) / K;
+    P = { M, cell, x0: new Float32Array(M), y0: new Float32Array(M), r0: new Float32Array(M), a0: new Float32Array(M),
+          rE: new Float32Array(M), tw: new Float32Array(M), dl: new Float32Array(M), lift: new Float32Array(M),
+          col: new Array(M * 6), fin: mobile ? 1.5 : 1.7 };
+    for (let k = 0; k < M; k++) {
+      const [x, y, r, g, b] = pts[k];
+      const r0 = Math.hypot(x, y), a0 = Math.atan2(y, x);
+      const u = Math.min(1, (r0 * r0) / (R * R));
+      const cont = Math.sqrt(rin * rin + u * (Rrec * Rrec * .94 - rin * rin));
+      const ring = Math.min(K - 1, Math.floor((cont - rin) / ringSp));
+      P.x0[k] = x; P.y0[k] = y; P.r0[k] = r0; P.a0[k] = a0;
+      P.rE[k] = rin + (ring + .5) * ringSp + (Math.random() - .5) * 0.6;
+      P.tw[k] = 0.7 + Math.random() * 0.9;
+      P.dl[k] = 0.03 + Math.random() * 0.22 + 0.18 * (1 - r0 / R);
+      P.lift[k] = (0.3 + Math.random() * 0.7) * R * 0.12;
+      const lightRing = ring % 6 === 0;
+      const sheenK = Math.max(0, Math.cos(a0 + 2.2)) ** 6;
+      let tr = lightRing ? 112 : 70, tg = lightRing ? 100 : 62, tb = lightRing ? 89 : 55;
+      tr += (COPPER[0] - tr) * sheenK * .8; tg += (COPPER[1] - tg) * sheenK * .8; tb += (COPPER[2] - tb) * sheenK * .8;
+      for (let s = 0; s < 6; s++) {
+        const m = s / 5;
+        P.col[k * 6 + s] = `rgb(${Math.round(r + (tr - r) * m)},${Math.round(g + (tg - g) * m)},${Math.round(b + (tb - b) * m)})`;
+      }
+    }
+  } catch (e) { P = null; }
+
+  // the finished record sits ~80px under the top of the screen, and Face B's heading ~80px under the record
+  const recY = Rrec + Math.max(80, bar.offsetHeight + 24);
+  S = { w, h, R, Rrec, labR, recY, ps, plateC, maskC, mctx, recC, rs, labC, ls, P };
+  faceB.style.marginTop = `${Math.round(recY + Rrec + 80 - h)}px`;
+  dirty = true;
+}
+
+function stageProgress() {
+  const r = stage.getBoundingClientRect();
+  // the record is finished after one scroll step (40vh mobile, 50vh desktop); the rest of the pin holds it
+  const span = innerHeight * (innerWidth < 700 ? 0.4 : 0.5);
+  return clamp(-r.top / span);
+}
+
+function renderStage(p) {
+  const { w, h, R, recY, plateC, maskC, mctx, recC, rs, labC, ls, P } = S;
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.fillStyle = '#0d0c0b'; ctx.fillRect(0, 0, w, h);
+  ctx.save();
+  ctx.translate(w / 2, recY);
+  ctx.rotate(p * 1.9);
+
+  // 1 · the record arrives underneath
+  ctx.globalAlpha = 0.55 + 0.45 * smooth(0.05, 0.6, p);
+  {
+    const sc = 0.9 + 0.1 * smooth(0.08, 0.85, p);
+    const half = rs / DPR / 2 * sc;
+    ctx.drawImage(recC, -half, -half, half * 2, half * 2);
+  }
+  ctx.globalAlpha = 1;
+
+  // 2 · the plate, with holes where particles have left; 3 · the particles
+  if (P && p < 1) {
+    mctx.globalCompositeOperation = 'copy';
+    mctx.drawImage(plateC, 0, 0);
+    mctx.globalCompositeOperation = 'destination-out';
+    mctx.beginPath();
+    const c = P.cell * DPR, off = R * DPR, cs = c * 1.04;
+    let any = false;
+    for (let k = 0; k < P.M; k++) {
+      if (p > P.dl[k]) { any = true; mctx.rect((P.x0[k] * DPR + off) - cs / 2, (P.y0[k] * DPR + off) - cs / 2, cs, cs); }
+    }
+    if (any) mctx.fill();
+    mctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 1 - smooth(0.32, 0.58, p);
+    ctx.drawImage(maskC, -R, -R, 2 * R, 2 * R);
+
+    ctx.globalAlpha = 1 - smooth(0.7, 0.98, p);
+    for (let k = 0; k < P.M; k++) {
+      const q = (p - P.dl[k]) / 0.42;
+      if (q <= 0) continue;
+      const e = easeIO(clamp(q));
+      const a = P.a0[k] + P.tw[k] * e;
+      const r = P.r0[k] + (P.rE[k] - P.r0[k]) * e + Math.sin(Math.PI * e) * P.lift[k];
+      const s = P.cell + (P.fin - P.cell) * smooth(0, 0.25, e);
+      ctx.fillStyle = P.col[k * 6 + Math.round(e * 5)];
+      ctx.fillRect(r * Math.cos(a) - s / 2, r * Math.sin(a) - s / 2, s, s);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // 4 · the label grows out of the piment pot
+  ctx.globalAlpha = 0.7 + 0.3 * smooth(0.2, 0.5, p);
+  {
+    const half = (ls / DPR / 2) * (0.6 + 0.4 * smooth(0.2, 0.7, p));
+    ctx.drawImage(labC, -half, -half, half * 2, half * 2);
+  }
+  ctx.globalAlpha = 1;
+  ctx.restore();
+}
+
+// still = the finished record: reduced motion, or pixels not readable (file://)
+const still = () => REDUCED || !S || !S.P;
+function stageFrame() {
+  if (S) {
+    const r = stage.getBoundingClientRect();
+    if (still() || (r.bottom > -50 && r.top < innerHeight + 50)) {
+      const p = still() ? 1 : stageProgress();
+      if (dirty || Math.abs(p - lastP) > 0.0004) {
+        renderStage(p); lastP = p; dirty = false;
+      }
+    }
+  }
+  if (!REDUCED) requestAnimationFrame(stageFrame);
+}
+
+/* ═════════ FACE B: the shopfront assembles from piment dots ═════════ */
+const ht = document.getElementById('ht');
+const hcv = document.getElementById('htcv');
+const hctx = hcv.getContext('2d');
+const facadeImg = new Image();
+facadeImg.src = 'assets/facade-front.webp';
+let H = null, hLast = -1, hDirty = true, hStart = 0;
+const HT_MS = 1800;
+const htStatic = () => { ht.classList.add('static'); H = null; };
+
+function buildHalftone() {
+  const w = ht.clientWidth, h = ht.clientHeight;
+  if (!w) return;
+  hcv.width = Math.round(w * DPR); hcv.height = Math.round(h * DPR);
+  const cell = 7;                                      // fixed 7 CSS px pitch
+  const cols = Math.ceil(w / cell), rows = Math.ceil(h / cell);
+  let lum, letters;
+  try {
+    const sc = document.createElement('canvas'); sc.width = cols; sc.height = rows;
+    const sx = sc.getContext('2d', { willReadFrequently: true });
+    sx.drawImage(facadeImg, 0, 0, cols, rows);
+    lum = sx.getImageData(0, 0, cols, rows).data;
+    // crisp sign letters: bright pixels inside the fascia, at full canvas resolution
+    const lw = hcv.width, lh = hcv.height;
+    const lc = document.createElement('canvas'); lc.width = lw; lc.height = lh;
+    const lx = lc.getContext('2d', { willReadFrequently: true });
+    lx.drawImage(facadeImg, 0, 0, lw, lh);
+    const id = lx.getImageData(0, 0, lw, lh), d = id.data;
+    const y0 = Math.round(lh * 60 / 730), y1 = Math.round(lh * 168 / 730);
+    const x0 = Math.round(lw * 112 / 1010), x1 = Math.round(lw * 962 / 1010);
+    for (let y = 0; y < lh; y++) for (let x = 0; x < lw; x++) {
+      const o = (y * lw + x) * 4;
+      const L = (0.2126 * d[o] + 0.7152 * d[o + 1] + 0.0722 * d[o + 2]) / 255;
+      const inSign = y > y0 && y < y1 && x > x0 && x < x1;
+      const a = inSign ? smooth(0.44, 0.6, L) : 0;
+      d[o] = 246; d[o + 1] = 243; d[o + 2] = 238; d[o + 3] = Math.round(a * 255);
+    }
+    lx.putImageData(id, 0, 0);
+    letters = lc;
+  } catch (e) { htStatic(); return; }   // tainted (file://): the static halftone image
+
+  const n = cols * rows;
+  const D = { n: 0, x: new Float32Array(n), y: new Float32Array(n), r: new Float32Array(n),
+              sx: new Float32Array(n), sy: new Float32Array(n), dl: new Float32Array(n) };
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+    const o = (j * cols + i) * 4;
+    const L = (0.2126 * lum[o] + 0.7152 * lum[o + 1] + 0.0722 * lum[o + 2]) / 255;
+    const r = Math.pow(L, 0.9) * 0.62 * cell;
+    if (r < 0.35) continue;
+    const k = D.n++;
+    D.x[k] = (i + .5) * cell; D.y[k] = (j + .5) * cell; D.r[k] = r;
+    // each dot drops in from just above its place and grows: the shopfront is legible at every moment
+    D.sx[k] = D.x[k] + (Math.random() - 0.5) * cell * 3;
+    D.sy[k] = D.y[k] - cell * (1.5 + Math.random() * 4);
+    D.dl[k] = Math.random() * 0.3 + 0.2 * (j / rows);
+  }
+  H = { w, h, D, letters };
+  hDirty = true;
+}
+
+function htProgress(now) {
+  if (!hStart) {
+    const r = ht.getBoundingClientRect();
+    if (r.top < innerHeight * 0.7 && r.bottom > 0) hStart = now; else return 0;
+  }
+  return clamp((now - hStart) / HT_MS);
+}
+
+function renderHalftone(p) {
+  const { w, h, D, letters } = H;
+  hctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  hctx.clearRect(0, 0, w, h);
+  hctx.fillStyle = '#e8622a';
+  hctx.beginPath();
+  for (let k = 0; k < D.n; k++) {
+    const q = (p - D.dl[k]) / 0.5;
+    if (q <= 0) continue;
+    const e = easeIO(clamp(q));
+    const x = D.sx[k] + (D.x[k] - D.sx[k]) * e;
+    const y = D.sy[k] + (D.y[k] - D.sy[k]) * e;
+    const r = D.r[k] * smooth(0, 1, e);
+    hctx.moveTo(x + r, y); hctx.arc(x, y, r, 0, TAU);
+  }
+  hctx.fill();
+  const la = smooth(0.86, 1, p);
+  if (la > 0) { hctx.globalAlpha = la; hctx.drawImage(letters, 0, 0, w, h); hctx.globalAlpha = 1; }
+}
+
+function htFrame(now) {
+  if (H) {
+    const p = htProgress(now);
+    if (hDirty || Math.abs(p - hLast) > 0.0004) { renderHalftone(p); hLast = p; hDirty = false; }
+  }
+  requestAnimationFrame(htFrame);
+}
+if (!REDUCED) {
+  loaded(facadeImg).then(() => { buildHalftone(); requestAnimationFrame(htFrame); }, htStatic);
+  let hz; addEventListener('resize', () => { clearTimeout(hz); hz = setTimeout(() => { if (H && facadeImg.complete) buildHalftone(); }, 150); });
+}
+
+/* ═════════ FACE B: a string of pennants, the flags seen in their bar (static) ═════════ */
+const garland = document.getElementById('garland');
+const FLAGS = {
+  sn: '<rect width="6" height="22" fill="#00853f"/><rect x="6" width="6" height="22" fill="#fdef42"/><rect x="12" width="6" height="22" fill="#e31b23"/><path d="M9 3.4l.7 2.1h2.2l-1.8 1.3.7 2.1L9 7.6 7.2 8.9l.7-2.1-1.8-1.3h2.2z" fill="#00853f"/>',
+  mx: '<rect width="6" height="22" fill="#006847"/><rect x="6" width="6" height="22" fill="#fff"/><rect x="12" width="6" height="22" fill="#ce1126"/><circle cx="9" cy="6" r="1.6" fill="#8c5a2b"/>',
+  fr: '<rect width="6" height="22" fill="#0055a4"/><rect x="6" width="6" height="22" fill="#fff"/><rect x="12" width="6" height="22" fill="#ef4135"/>',
+  br: '<rect width="18" height="22" fill="#009c3b"/><path d="M9 1.2L16.6 7 9 12.8 1.4 7z" fill="#ffdf00"/><circle cx="9" cy="7" r="3.3" fill="#002776"/>',
+  dk: '<rect width="18" height="22" fill="#c8102e"/><rect x="5.5" width="2.6" height="22" fill="#fff"/><rect y="5" width="18" height="2.6" fill="#fff"/>'
+};
+const ORDER = ['sn', 'mx', 'fr', 'br', 'dk'];
+function buildGarland() {
+  const W = garland.clientWidth; if (!W) return;
+  const Hg = 46, sag = 14, top = 4, pw = 18, gap = 9;
+  const y = x => top + sag * 4 * (x / W) * (1 - x / W);              // a parabola, string sagging in the middle
+  const dy = x => sag * 4 * (1 - 2 * x / W) / W;
+  let out = `<defs><clipPath id="pen"><path d="M0 0H18L9 22z"/></clipPath>${ORDER.map(k => `<g id="f-${k}">${FLAGS[k]}</g>`).join('')}</defs>`;
+  out += `<path d="M0 ${top} Q${W / 2} ${top + sag * 2} ${W} ${top}" fill="none" stroke="rgba(246,243,238,.4)" stroke-width="1"/>`;
+  const n = Math.max(1, Math.floor((W - 12) / (pw + gap)));
+  const x0 = (W - (n * (pw + gap) - gap)) / 2;
+  for (let i = 0; i < n; i++) {
+    const cx = x0 + i * (pw + gap) + pw / 2;
+    const a = Math.atan(dy(cx)) * 180 / Math.PI;
+    out += `<g transform="translate(${cx.toFixed(1)} ${y(cx).toFixed(1)}) rotate(${a.toFixed(1)}) translate(${-pw / 2} 0)"><g clip-path="url(#pen)"><use href="#f-${ORDER[i % ORDER.length]}"/></g></g>`;
+  }
+  garland.setAttribute('viewBox', `0 0 ${W} ${Hg}`);
+  garland.innerHTML = out;
+}
+buildGarland();
+
+/* ═════════ header: wordmark only once the h1 has scrolled out ═════════ */
+new IntersectionObserver(es => bar.classList.toggle('solid', !es[0].isIntersecting), { rootMargin: '-60px 0px 0px 0px' })
+  .observe(document.getElementById('h1'));
+
+/* ═════════ boot ═════════ */
+layoutHero();
+let rz;
+addEventListener('resize', () => {
+  clearTimeout(rz);
+  rz = setTimeout(() => { layoutHero(); buildGarland(); if (plateImg.complete && plateImg.naturalWidth) buildStage(); if (REDUCED) stageFrame(); }, 150);
+});
+if (!REDUCED) requestAnimationFrame(heroFrame);
+
+// language change: redraw the record label in the new language
+onLang = () => { if (S) { const { labC, ls } = buildLabel(S.labR); S.labC = labC; S.ls = ls; dirty = true; if (REDUCED) stageFrame(); } };
+try { const sv = localStorage.getItem('bb_lang'); applyLang(sv && I18N[sv] ? sv : 'fr'); } catch (e) { applyLang('fr'); }
+
+const fontsReady = document.fonts ? document.fonts.load('500 20px "IBM Plex Mono"').catch(() => {}) : Promise.resolve();
+Promise.all([loaded(plateImg), fontsReady])
+  .then(() => { buildStage(); stageFrame(); })
+  .catch(() => {});
+})();
+</script>
 <script>
 /* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
    look at /apercu/ never lands in the venue's numbers. */
