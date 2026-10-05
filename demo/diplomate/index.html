@@ -121,6 +121,11 @@ main{overflow-x:clip}
 .on-ink{background:var(--ink);color:var(--paper)}
 .on-red .gloss,.on-red .t4{color:var(--paper)}
 
+/* the paste: a diagonal brush wipe, armed by JS only */
+.paste{clip-path:polygon(0 0,0 0,0 100%,0 100%)}
+.paste.go{clip-path:polygon(0 0,130% 0,100% 100%,0 100%);transition:clip-path .7s cubic-bezier(.65,0,.35,1)}
+@media (prefers-reduced-motion:reduce){.b-five .belt,.b-soir .spin{animation:none}.paste{clip-path:none}}
+
 /* 1. rodízio: the carved skewer stands the full band, the words at its foot */
 .b-rod{min-height:150vw;display:flex;flex-direction:column;justify-content:flex-end}
 .b-rod .sk{position:absolute;top:-2%;right:-4%;height:74%;width:auto;max-width:none;pointer-events:none}
@@ -135,7 +140,10 @@ main{overflow-x:clip}
 .b-justo .gloss{white-space:normal;margin-top:10px}
 /* 3. the five skewers (generated illustration), full bleed */
 .b-five{--bp:0;aspect-ratio:4/5}
-.b-five img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.b-five .belt{position:absolute;inset:0;display:flex;gap:6px;width:max-content;height:100%;animation:belt 48s linear infinite;animation-play-state:paused}
+.b-five .belt img{height:100%;width:auto;max-width:none;flex:none}
+.b-five.run .belt{animation-play-state:running}
+@keyframes belt{to{transform:translateX(calc(-50% - 3px))}}
 .b-five .note{position:absolute;left:var(--gutter);bottom:var(--gutter);right:var(--gutter);max-width:420px;background:var(--paper);color:var(--ink);padding:12px 14px 14px;rotate:-1.5deg}
 /* 4. la carte: their placemat, black with red bands, dishes in circles around the badge */
 .b-carte{--bp:40px;text-align:center}
@@ -166,6 +174,9 @@ main{overflow-x:clip}
 .b-soir .txt{position:relative;z-index:1}
 .b-soir .txt .t3{margin-top:14px}
 .b-soir svg{position:absolute;width:118%;height:auto;right:-38%;bottom:-30%}
+.b-soir .spin{transform-box:view-box;transform-origin:100px 100px;animation:spin 5.4s linear infinite;animation-play-state:paused}
+.b-soir.run .spin{animation-play-state:running}
+@keyframes spin{to{transform:rotate(360deg)}}
 /* 8. infos */
 .b-info{padding-top:46vw}
 .b-info .seal{position:absolute;top:16px;right:var(--gutter);width:42%;height:auto;border-radius:50%}
@@ -329,10 +340,10 @@ main{overflow-x:clip}
 
   <!-- 3. the five skewers (generated illustration) -->
   <section class="band on-ink b-five" aria-labelledby="mix-titre">
-    <picture>
-      <source media="(min-width:1024px)" srcset="assets/v2-skewers-d.webp" width="1800" height="1009">
-      <img src="assets/v2-skewers-m.webp" width="800" height="1000" data-i18n-alt="alt_five" alt="Illustration : cinq broches de churrasco dressées en rang" decoding="async">
-    </picture>
+    <div class="belt">
+      <img src="assets/v2-skewers-d.webp" width="1800" height="1009" data-i18n-alt="alt_five" alt="Illustration : cinq broches de churrasco dressées en rang" decoding="async">
+      <img src="assets/v2-skewers-d.webp" width="1800" height="1009" alt="" aria-hidden="true" decoding="async">
+    </div>
     <div class="note">
       <h2 class="t3" id="mix-titre" data-i18n="mix_h">Viandes mix grillées</h2>
       <p class="t4" data-i18n="mix_p">Avec frites, ananas grillé, riz, haricots noirs, banane frite, vinaigrette, farofa et choux verts.</p>
@@ -392,7 +403,13 @@ main{overflow-x:clip}
       <g fill="none" stroke="#f20a08" stroke-width="1.4">
         <circle cx="100" cy="100" r="94"/><circle cx="100" cy="100" r="88"/><circle cx="100" cy="100" r="82"/><circle cx="100" cy="100" r="76"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="64"/><circle cx="100" cy="100" r="58"/><circle cx="100" cy="100" r="52"/><circle cx="100" cy="100" r="46"/>
       </g>
-      <circle cx="100" cy="100" r="34" fill="#f20a08"/>
+      <g class="spin">
+        <path d="M100 12 A88 88 0 0 1 176 56" fill="none" stroke="#fbfbfb" stroke-opacity=".35" stroke-width="5"/>
+        <path d="M100 188 A88 88 0 0 1 24 144" fill="none" stroke="#fbfbfb" stroke-opacity=".18" stroke-width="5"/>
+        <circle cx="100" cy="100" r="34" fill="#f20a08"/>
+        <defs><path id="lbl" d="M100 100 m-25 0 a25 25 0 1 1 50 0 a25 25 0 1 1 -50 0"/></defs>
+        <text font-family="League Gothic, sans-serif" font-size="9.5" letter-spacing="1.6" fill="#000000"><textPath href="#lbl">LE DIPLOMATE • PICANHA HOUSE •</textPath></text>
+      </g>
       <circle cx="100" cy="100" r="4" fill="#fbfbfb"/>
     </svg>
   </section>
@@ -641,6 +658,35 @@ document.querySelectorAll(".lang button").forEach(function(b){
   document.querySelectorAll('[data-depth]').forEach(function(el){ seen.observe(el); });
   addEventListener('scroll', ask, { passive: true });
   addEventListener('resize', ask);
+})();
+</script>
+<script>
+/* Motion, once and tied to the place: the hero sentence builds and ends on the name; two posters
+   are pasted on; the skewers pass and the record turns only while on screen. Off with reduced motion. */
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  ['.s1', '.s2', '.s3', '.name', '.hero-info'].forEach(function(sel, i){
+    var el = document.querySelector('.hero ' + sel);
+    if (!el) return;
+    el.style.setProperty('--d', (120 + i * 230) + 'ms');
+    el.style.animationDuration = '420ms';
+    el.classList.add('slap');
+    el.addEventListener('animationend', function(){ el.classList.remove('slap'); }, { once: true });
+  });
+  if (!('IntersectionObserver' in window)) return;
+  var posters = [].slice.call(document.querySelectorAll('.b-rod .sk, .b-acai .ac')).filter(function(el){ return el.getBoundingClientRect().top >= innerHeight; });
+  posters.forEach(function(el){ el.classList.add('paste'); });
+  var pio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { pio.unobserve(e.target); e.target.classList.add('go'); } });
+  }, { rootMargin: '0px 0px -12% 0px' });
+  posters.forEach(function(el){ pio.observe(el); });
+  addEventListener('scroll', function(){
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) posters.forEach(function(el){ el.classList.add('go'); });
+  }, { passive: true });
+  var lio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ e.target.classList.toggle('run', e.isIntersecting); });
+  });
+  document.querySelectorAll('.b-five, .b-soir').forEach(function(el){ lio.observe(el); });
 })();
 </script>
 <script>
