@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ramen Samurai – Menu</title>
+<meta name="description" id="m-desc" content="The Ramen Samurai menu: tonkotsu ramens, udon, side dishes, desserts, bubble tea and drinks. 17 Avenue Monterey, Luxembourg.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ramen Samurai">
+<meta property="og:title" id="og-title" content="Ramen Samurai – Menu">
+<meta property="og:description" id="og-desc" content="The Ramen Samurai menu: tonkotsu ramens, udon, side dishes, desserts, bubble tea and drinks. 17 Avenue Monterey, Luxembourg.">
+<meta property="og:locale" id="og-locale" content="en_GB">
+<meta property="og:image" content="mural-tonkotsu.jpg">
+<meta name="theme-color" content="#120a10">
+<link rel="preload" as="image" href="img/logo-800.webp" fetchpriority="high">
+<script>
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('mo');
+</script>
+<style>
+@font-face{font-family:'M PLUS 1p';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/mplus1p-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'M PLUS 1p';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/mplus1p-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'M PLUS 1p';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/mplus1p-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'M PLUS 1p';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/mplus1p-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'M PLUS 1p';font-style:normal;font-weight:900;font-display:swap;src:url(fonts/mplus1p-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'M PLUS 1p';font-style:normal;font-weight:900;font-display:swap;src:url(fonts/mplus1p-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+:root{
+  --ink:#120a10; --night:#0d1030; --red:#901818; --red2:#b52a1c;
+  --cream:#f6e9c8; --gold:#e8b04a; --hd:64px; --nav:50px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{background:var(--ink);color:var(--cream)}
+body{font-family:"M PLUS 1p",system-ui,sans-serif;font-weight:500;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:none}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* ---------- header (same as index) ---------- */
+.hd{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:max(10px,env(safe-area-inset-top)) 16px 10px;pointer-events:none;height:var(--hd)}
+.hd::before{content:"";position:absolute;inset:0;z-index:-1;background:#120a10}
+.hd > *{pointer-events:auto}
+.hd-logo img{height:44px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.55))}
+.hd-r{display:flex;align-items:center;gap:14px}
+.langs{display:flex;align-items:center;gap:2px;font-weight:700;font-size:13px;letter-spacing:.06em;color:rgba(246,233,200,.55)}
+.langs button{padding:8px 3px;color:inherit}
+.langs button[aria-pressed="true"]{color:var(--cream)}
+.langs span{opacity:.6}
+.hd-home{font-weight:900;font-size:15px;letter-spacing:.04em;text-decoration:none;color:var(--cream);
+  padding:9px 16px;border:1.5px solid rgba(246,233,200,.7);border-radius:999px;background:rgba(18,10,16,.25)}
+.hd-home:hover{background:var(--red);border-color:var(--red)}
+
+/* ---------- festival backdrop shared with index ---------- */
+.sky{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.sky img{position:absolute;top:0;left:0;height:100%;width:auto;filter:blur(1.2px) brightness(.7) saturate(.9);will-change:transform}
+.sky::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 30%,rgba(13,16,48,.2),rgba(9,10,32,.8))}
+.front{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.bunt{position:absolute;left:-4%;width:108%;top:calc(var(--hd) + var(--nav) - 10px);height:120px;will-change:transform}
+.bunt svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.flag{position:absolute;top:0;transform-origin:50% 0;animation:sway 3.4s ease-in-out infinite alternate;filter:drop-shadow(0 6px 6px rgba(0,0,0,.45))}
+.flag img{width:100%;height:auto}
+.lant{position:absolute;will-change:transform}
+.lant img{width:100%;height:auto;position:relative;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
+.lant .halo{position:absolute;left:-90%;top:-60%;width:280%;height:220%;border-radius:50%;mix-blend-mode:screen;
+  background:radial-gradient(closest-side,rgba(255,200,110,.5),rgba(255,140,50,.16) 50%,rgba(255,120,40,0));animation:flick 2.9s infinite steps(1,end)}
+.lant .sw{transform-origin:50% 0;animation:sway2 4.6s ease-in-out infinite alternate}
+.fx{position:fixed;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+
+/* ---------- intro ---------- */
+.intro{position:relative;z-index:3;overflow-x:clip;min-height:100svh;padding:calc(var(--hd) + 36px) 16px 40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.intro .logo{width:min(84vw,460px);height:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.6));animation:leap 1.15s cubic-bezier(.2,.8,.25,1) both}
+.intro h1{font-weight:900;font-size:clamp(44px,13vw,88px);line-height:1;letter-spacing:.04em;color:var(--cream);text-shadow:0 4px 24px rgba(0,0,0,.6);margin-top:-6px}
+.tags{width:min(100% - 14px,720px);margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 12px;position:relative}
+.tags::before,.tags::after{content:"";position:absolute;left:-10px;right:-10px;height:2px;background:rgba(233,220,192,.7);border-radius:2px}
+.tags::before{top:-14px}.tags::after{top:calc(50% + 3px)}
+.tag{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;min-height:68px;padding:12px 8px 10px;
+  text-decoration:none;color:#2a1508;font-weight:900;font-size:15px;line-height:1.15;letter-spacing:.02em;border-radius:4px;
+  background:linear-gradient(180deg,#e9c690,#d5a462 60%,#c08d4c);
+  box-shadow:inset 0 0 0 1px rgba(80,40,10,.35),inset 0 -4px 0 rgba(90,45,10,.25),0 10px 18px rgba(0,0,0,.45);
+  transform-origin:50% -14px;animation:sway 3.6s ease-in-out infinite alternate}
+.tag:nth-child(2n){animation-duration:4.1s;animation-delay:-1.3s}
+.tag:nth-child(3n){animation-duration:3.2s;animation-delay:-.6s}
+.tag::before,.tag::after{content:"";position:absolute;top:-15px;width:1.5px;height:15px;background:rgba(233,220,192,.8)}
+.tag::before{left:22%}.tag::after{right:22%}
+.tag:hover{background:linear-gradient(180deg,#f3d6a6,#e2b373 60%,#cf9a57)}
+@media (max-width:420px){
+  .tags{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tag{height:68px}
+  .tags::after{top:88px;box-shadow:0 102px 0 rgba(233,220,192,.7)}
+}
+@media (min-width:900px){ .tags{width:min(100% - 14px,820px);grid-template-columns:repeat(6,minmax(0,1fr))} .tags::after{display:none} .tag{font-size:16px;min-height:92px;padding:12px 3px 10px} }
+
+/* ---------- sticky category switcher ---------- */
+.cats{position:sticky;top:var(--hd);z-index:45;height:var(--nav);display:flex;align-items:center;gap:6px;padding:0 16px;
+  overflow-x:auto;scrollbar-width:none;background:#120a10;border-bottom:1px solid rgba(232,176,74,.25)}
+.cats::-webkit-scrollbar{display:none}
+.cats a{flex:0 0 auto;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;color:rgba(246,233,200,.72);
+  padding:7px 13px;border-radius:999px;border:1px solid rgba(246,233,200,.18);white-space:nowrap}
+.cats a.on{background:var(--red);border-color:var(--red);color:var(--cream)}
+@media (min-width:900px){ .cats{justify-content:center} }
+
+/* ---------- mural rooms ---------- */
+.room{position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100lvh;overflow:hidden;z-index:1}
+.mural{position:absolute;top:0;left:50%;height:100%;aspect-ratio:var(--ar);transform:translateX(-50%);will-change:transform}
+.cloth{position:absolute;inset:0;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.cloth > img{width:100%;height:100%}
+.ripple{position:absolute;inset:-2% -40%;mix-blend-mode:soft-light;opacity:.5;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(255,255,255,.35) 6%,rgba(0,0,0,.4) 13%,rgba(255,255,255,0) 20%);
+  animation:ripple 9s linear infinite}
+.edge{position:absolute;inset:0;box-shadow:inset 0 0 60px rgba(0,0,0,.35)}
+.rod{position:absolute;left:-3%;width:106%;height:14px;border-radius:7px;background:linear-gradient(180deg,#8a5a2b,#3a210d 70%,#24140a);box-shadow:0 4px 10px rgba(0,0,0,.5);z-index:2}
+.rod.t{top:-8px}.rod.b{top:calc(100% - 7px);will-change:transform}
+.glw{position:absolute;border-radius:50%;mix-blend-mode:screen;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,rgba(255,200,110,.8),rgba(255,120,40,.3) 50%,rgba(255,90,20,0));animation:flick 2.7s infinite steps(1,end)}
+.glw:nth-child(2n){animation-duration:3.3s;animation-delay:-1.1s}
+.glw:nth-child(3n){animation-duration:2.1s;animation-delay:-.4s}
+.fire{position:absolute;mix-blend-mode:screen;animation:flick 1.3s infinite steps(1,end);
+  background:radial-gradient(60% 70% at 30% 70%,rgba(255,140,40,.55),rgba(255,80,20,.18) 55%,rgba(255,60,0,0))}
+.moon{position:absolute;left:0;top:0;width:26%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:screen;
+  background:radial-gradient(closest-side,rgba(255,246,210,.95),rgba(255,226,150,.45) 35%,rgba(255,210,120,0) 70%)}
+.shim{position:absolute;inset:0}
+.shim i{position:absolute;left:0;right:0;top:-40%;height:40%;mix-blend-mode:screen;
+  background:linear-gradient(180deg,rgba(220,240,255,0),rgba(220,240,255,.45) 45%,rgba(255,255,255,.7) 50%,rgba(220,240,255,.45) 55%,rgba(220,240,255,0));
+  animation:pour 1.8s linear infinite}
+.shim i:nth-child(2){animation-delay:-.9s;opacity:.7}
+@media (min-width:900px){
+  .mural{top:calc(var(--hd) + var(--nav) + 22px);height:calc(100% - var(--hd) - var(--nav) - 44px);left:31%}
+  .rod.t::before,.rod.t::after{content:"";position:absolute;bottom:12px;width:2px;height:40vh;background:rgba(40,25,15,.8)}
+  .rod.t::before{left:12%}.rod.t::after{right:12%}
+}
+
+
+/* ---------- menu boards ---------- */
+.content{position:relative;z-index:3;margin-top:-100vh;margin-top:-100lvh;padding:0 16px}
+.content .air{height:78vh;height:78svh}
+.content .tail{height:30vh}
+.board{position:relative;max-width:560px;margin:0 auto;border-radius:6px;scroll-margin-top:calc(var(--hd) + var(--nav) + 14px);
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 2px,transparent 2px 9px),
+    linear-gradient(180deg,rgba(44,24,14,.96),rgba(28,14,9,.97));
+  border:1px solid rgba(232,176,74,.32);box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.board::before,.board::after{content:"";position:absolute;top:-26px;width:2px;height:26px;background:rgba(233,220,192,.75)}
+.board::before{left:18%}.board::after{right:18%}
+.noren{position:relative;background:linear-gradient(180deg,#a51f1c,var(--red));padding:18px 20px 22px;border-radius:6px 6px 0 0;
+  box-shadow:inset 0 -1px 0 rgba(0,0,0,.25)}
+.noren::after{content:"";position:absolute;left:33%;right:33%;bottom:0;height:14px;
+  background:linear-gradient(90deg,transparent 0 calc(50% - 1px),rgba(18,10,16,.85) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px)),
+             linear-gradient(90deg,rgba(18,10,16,.85) 0 2px,transparent 2px calc(100% - 2px),rgba(18,10,16,.85) calc(100% - 2px))}
+.noren h2{font-weight:900;font-size:clamp(28px,8vw,40px);line-height:1.05;letter-spacing:.02em;color:var(--cream)}
+.noren p{margin-top:8px;font-weight:700;font-size:15px;line-height:1.35;color:#ffd9a0}
+.items{list-style:none;padding:6px 20px 14px}
+.items li{padding:15px 0 15px 22px;position:relative;border-bottom:1px dashed rgba(232,176,74,.28)}
+.items li:last-child{border-bottom:0}
+.items li::before{content:"";position:absolute;left:2px;top:23px;width:9px;height:9px;border-radius:50%;background:#d23a26;box-shadow:0 0 10px rgba(255,90,40,.6)}
+.items h3{font-weight:700;font-size:19px;line-height:1.25;color:var(--cream)}
+.items p{margin-top:4px;font-size:14.5px;line-height:1.5;color:rgba(246,233,200,.76)}
+@media (min-width:900px){
+  .content{padding:0}
+  .board{margin:0 6% 0 auto;width:min(40%,520px)}
+}
+
+/* ---------- close ---------- */
+.close{position:relative;z-index:3;padding:70px 16px 30px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;
+  background:linear-gradient(180deg,rgba(18,10,16,0),rgba(18,10,16,.9) 70px,var(--ink) 160px)}
+.close img{width:min(60vw,260px);height:auto}
+.addr{font-weight:700;font-size:16px;letter-spacing:.03em;text-decoration:none;color:var(--cream)}
+.addr:hover{text-decoration:underline}
+.cred{font-size:11px;line-height:1.6;color:rgba(246,233,200,.55);margin-top:12px}
+.foot{position:relative;z-index:3;background:var(--ink);padding:14px 16px max(22px,env(safe-area-inset-bottom));text-align:center;font-size:12px;color:rgba(246,233,200,.78)}
+
+@media (max-width:700px){
+  .sky img{filter:brightness(.7)}
+  .ripple{display:none}
+}
+@keyframes flick{0%{opacity:.9}11%{opacity:.75}19%{opacity:1}34%{opacity:.82}47%{opacity:.95}58%{opacity:.7}71%{opacity:.98}86%{opacity:.85}100%{opacity:.92}}
+@keyframes ripple{from{transform:translateX(0)}to{transform:translateX(28.6%)}}
+@keyframes pour{from{transform:translateY(0)}to{transform:translateY(350%)}}
+@keyframes sway{from{transform:rotate(-2.4deg)}to{transform:rotate(2.8deg)}}
+@keyframes sway2{from{transform:rotate(-2deg)}to{transform:rotate(2.4deg)}}
+@keyframes leap{0%{opacity:0;transform:translate(-30%,20%) rotate(-12deg) scale(.75)}60%{opacity:1;transform:translate(3%,-4%) rotate(2deg) scale(1.04)}100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <a class="hd-logo" href="index.html" aria-label="Ramen Samurai"><img src="img/logo-800.webp" alt="Ramen Samurai" width="65" height="44"></a>
+  <nav class="hd-r">
+    <div class="langs" role="group" aria-label="Language" data-ta="aria-label:lang">
+      <button data-l="en" aria-pressed="true">EN</button><span>·</span><button data-l="fr" aria-pressed="false">FR</button><span>·</span><button data-l="de" aria-pressed="false">DE</button>
+    </div>
+    <a class="hd-home" href="index.html" data-t="home">Home</a>
+  </nav>
+</header>
+
+<div class="sky" aria-hidden="true"><img id="sky" src="img/gen-sky-800.webp" srcset="img/gen-sky-800.webp 800w, img/gen-sky-1600.webp 1600w" sizes="(max-width: 700px) 800px, 236vh" alt="" decoding="async"></div>
+<div class="front" id="front" aria-hidden="true">
+  <div class="bunt" id="bunt"><svg id="buntsvg" preserveAspectRatio="none"></svg></div>
+  <div class="lant" id="lantL"><div class="sw"><i class="halo"></i><img src="img/fx-lantern-800.webp" alt="" loading="lazy" decoding="async"></div></div>
+  <div class="lant" id="lantR"><div class="sw" style="animation-delay:-2s"><i class="halo" style="animation-delay:-1s"></i><img src="img/fx-lantern-800.webp" alt="" loading="lazy" decoding="async"></div></div>
+</div>
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+
+<section class="intro">
+  <img class="logo" src="img/logo-800.webp" alt="Ramen Samurai" width="800" height="543" fetchpriority="high">
+  <h1 data-t="menu">Menu</h1>
+  <nav class="tags" aria-label="Menu categories" data-ta="aria-label:cats">
+    <a class="tag" href="#b-tonkotsu" data-t="cat_tonkotsu">Tonkotsu Ramens</a>
+    <a class="tag" href="#b-udon" data-t="cat_udon">Udon</a>
+    <a class="tag" href="#b-sides" data-t="cat_sides">Side Dishes</a>
+    <a class="tag" href="#b-desserts" data-t="cat_desserts">Desserts</a>
+    <a class="tag" href="#b-bubbletea" data-t="cat_bubbletea">Bubble Tea</a>
+    <a class="tag" href="#b-drinks" data-t="cat_drinks">Drinks</a>
+  </nav>
+</section>
+
+<nav class="cats" id="cats" aria-label="Menu categories" data-ta="aria-label:cats">
+  <a href="#b-tonkotsu" data-c="tonkotsu" data-t="cat_tonkotsu">Tonkotsu Ramens</a>
+  <a href="#b-udon" data-c="udon" data-t="cat_udon">Udon</a>
+  <a href="#b-sides" data-c="sides" data-t="cat_sides">Side Dishes</a>
+  <a href="#b-desserts" data-c="desserts" data-t="cat_desserts">Desserts</a>
+  <a href="#b-bubbletea" data-c="bubbletea" data-t="cat_bubbletea">Bubble Tea</a>
+  <a href="#b-drinks" data-c="drinks" data-t="cat_drinks">Drinks</a>
+</nav>
+
+<main id="rooms"></main>
+
+<section class="close">
+  <img src="img/logo-800.webp" alt="" loading="lazy" decoding="async" width="800" height="543">
+  <a class="addr" href="https://www.google.com/maps/search/?api=1&amp;query=Ramen%20Samurai%2017%20Avenue%20Monterey%20Luxembourg" target="_blank" rel="noopener" data-t="addr" data-ta="aria-label:addr_aria">17 Avenue Monterey, Luxembourg</a>
+  <p class="cred"><span data-t="c2">Illustrations: generated for this proposal</span></p>
+</section>
+<footer class="foot"><p data-t="foot" style="margin:0">An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.</p></footer>
+
+<script>
+const L3 = (en, fr, de) => ({ en, fr, de });
+const FRUITS = L3('(Mango, Passion Fruit, Lychee, Peach, Strawberry, Lemon, Melon, Banana)', '(mangue, fruit de la passion, litchi, pêche, fraise, citron, melon, banane)', '(Mango, Maracuja, Litschi, Pfirsich, Erdbeere, Zitrone, Melone, Banane)');
+const MENU = [
+ { id:'tonkotsu', line:L3('12 hours homemade thick broth', 'Bouillon épais maison, 12 heures de cuisson', 'Dicke hausgemachte Brühe, 12 Stunden gekocht'), mural:'mural-tonkotsu', ar:1109/1800, items:[
+  ['Ramen Meat Lovers', L3('8 Slices of chashus meat, narutomaki, tamago, soybean sprouts, leek, menma, nori', '8 tranches de chashu, narutomaki, tamago, pousses de soja, poireau, menma, nori', '8 Scheiben Chashu, Narutomaki, Tamago, Sojasprossen, Lauch, Menma, Nori')],
+  ['Mayu Ramen', L3('Mayu: sesame oil with black garlic 1 slice of chashu of pork, chicken or variety of vegetables, narutomaki, 1/2 tamago soybean sprouts, leek, menma, nori', 'Mayu : huile de sésame à l’ail noir. 1 tranche de chashu de porc ou de poulet, ou assortiment de légumes, narutomaki, 1/2 tamago, pousses de soja, poireau, menma, nori', 'Mayu: Sesamöl mit schwarzem Knoblauch. 1 Scheibe Chashu vom Schwein oder Huhn oder gemischtes Gemüse, Narutomaki, 1/2 Tamago, Sojasprossen, Lauch, Menma, Nori')],
+  ['Shoyu Ramen', L3('(shoyu tare: 4 soy sauces from different regions of Japan) 1 slice of chashu of pork, chicken or variety of vegetables, narutomaki, 1/2 tamago soybean sprouts, leek, menma, nori', '(shoyu tare : 4 sauces soja de différentes régions du Japon) 1 tranche de chashu de porc ou de poulet, ou assortiment de légumes, narutomaki, 1/2 tamago, pousses de soja, poireau, menma, nori', '(Shoyu-Tare: 4 Sojasaucen aus verschiedenen Regionen Japans) 1 Scheibe Chashu vom Schwein oder Huhn oder gemischtes Gemüse, Narutomaki, 1/2 Tamago, Sojasprossen, Lauch, Menma, Nori')],
+  ['Shio Ramen', L3('(shio tare: shiitake mushroom sauce) 1 slice of chashu of pork, chicken or variety of vegetables, narutomaki, 1/2 tamago soybean sprouts, menma, nori', '(shio tare : sauce aux champignons shiitake) 1 tranche de chashu de porc ou de poulet, ou assortiment de légumes, narutomaki, 1/2 tamago, pousses de soja, menma, nori', '(Shio-Tare: Shiitake-Pilzsauce) 1 Scheibe Chashu vom Schwein oder Huhn oder gemischtes Gemüse, Narutomaki, 1/2 Tamago, Sojasprossen, Menma, Nori')],
+  ['Red Miso Ramen', L3('1 slice of chashu of pork, chicken or variety of vegetables, narutomaki, 1/2tamago, soybean sprouts, menma, nori', '1 tranche de chashu de porc ou de poulet, ou assortiment de légumes, narutomaki, 1/2 tamago, pousses de soja, menma, nori', '1 Scheibe Chashu vom Schwein oder Huhn oder gemischtes Gemüse, Narutomaki, 1/2 Tamago, Sojasprossen, Menma, Nori')],
+  ['Ramen Or Rice with Tofu and Minced Beef', L3('(no broth, Japanese tofu, minced beef, sweet / savory sauce, slightly spicy)', '(sans bouillon, tofu japonais, bœuf haché, sauce sucrée-salée, légèrement épicé)', '(ohne Brühe, japanischer Tofu, Rinderhack, süß-herzhafte Sauce, leicht scharf)')]]},
+ { id:'udon', line:L3('Homemade clear broth', 'Bouillon clair maison', 'Hausgemachte klare Brühe'), mural:'mural-udon', ar:1344/1800, items:[
+  ['Vegetarian Udon', L3('1 Half tamago, fried tofu and variety of vegetables', '1/2 tamago, tofu frit et assortiment de légumes', '1/2 Tamago, frittierter Tofu und gemischtes Gemüse')],
+  ['Udon with Beef', L3('(very lightly spicy) 1 half tamago, beef simmered for 4 hours, coriander', '(très légèrement épicé) 1/2 tamago, bœuf mijoté 4 heures, coriandre', '(ganz leicht scharf) 1/2 Tamago, 4 Stunden geschmortes Rindfleisch, Koriander')]]},
+ { id:'sides', mural:'mural-sides', ar:1344/1800, items:[
+  ['Edamame', L3('Japanese soybeans, salt, Japanese spices', 'Fèves de soja japonaises, sel, épices japonaises', 'Japanische Sojabohnen, Salz, japanische Gewürze')],
+  ['Seaweed Salad', null],
+  ['Kara-Age', L3('5-6 Pieces (fried chicken, marinated in our homemade dashi, japanese mayonnaise)', '5 à 6 pièces (poulet frit mariné dans notre dashi maison, mayonnaise japonaise)', '5–6 Stück (frittiertes Hähnchen, mariniert in unserem hausgemachten Dashi, japanische Mayonnaise)')],
+  ['Buta Don', L3('(grilled chashus, leek, pickled ginger, japanese mayonnaise, special sauce on rice)', '(chashu grillé, poireau, gingembre mariné, mayonnaise japonaise, sauce spéciale, sur riz)', '(gegrilltes Chashu, Lauch, eingelegter Ingwer, japanische Mayonnaise, Spezialsauce auf Reis)')],
+  ['Gyoza with Chicken or Vegetable', L3('6p', '6 pièces', '6 Stück')],
+  ['Japanese-Style Fries', null],
+  ['Menma', L3('(fine stir-fried bamboo shoot, japanese spices)', '(fines pousses de bambou sautées, épices japonaises)', '(fein gebratene Bambussprossen, japanische Gewürze)')],
+  ['Samurai Chicken Salad', L3('(green salad, corn, carrot, snow peas, low temperature cooked chicken, Japanese sauce)', '(salade verte, maïs, carotte, pois gourmands, poulet cuit à basse température, sauce japonaise)', '(grüner Salat, Mais, Karotte, Zuckerschoten, bei Niedertemperatur gegartes Hähnchen, japanische Sauce)')],
+  ['Kimchi', null],
+  ['Shio Kombu Cucumber', L3('Crispy cucumber with shio kombu seasoning', 'Concombre croquant assaisonné au shio kombu', 'Knackige Gurke mit Shio-Kombu-Würzung')]]},
+ { id:'desserts', mural:'mural-desserts', ar:1375/1800, items:[
+  ['Taiyaki', L3("(Small Sweet Waffle', Invented Around 1900, In The Shape Of A Fish With Azuki Red Bean)", '(petite gaufre sucrée en forme de poisson, inventée vers 1900, aux haricots rouges azuki)', '(kleine süße Waffel in Fischform, um 1900 erfunden, mit roten Azukibohnen)')],
+  ['Daifuku', L3('(Soft Ball Of Sticky Rice Dough With Azuki Red Bean)', '(boule moelleuse de pâte de riz gluant aux haricots rouges azuki)', '(weiche Kugel aus Klebreisteig mit roten Azukibohnen)')],
+  ['Dango', L3('(Glutinous Rice Dumplings)', '(boulettes de riz gluant)', '(Klebreisbällchen)')]]},
+ { id:'bubbletea', mural:'mural-bubbletea', ar:1348/1800, items:[
+  ['Classic Brown Sugar Milk Tea', L3('Brown Sugar Tapioca Pearls With Milk Tea', 'Perles de tapioca au sucre brun et thé au lait', 'Tapiokaperlen mit braunem Zucker und Milchtee')],
+  ['Fruit Tea', FRUITS], ['Fruit Granita', FRUITS], ['Exotic Juice', FRUITS]]},
+ { id:'drinks', mural:'mural-drinks', ar:1344/1800, items:[
+  [L3('Japanese Beer', 'Bière japonaise', 'Japanisches Bier'), L3('Asahi, Kirin or Sapporo', 'Asahi, Kirin ou Sapporo', 'Asahi, Kirin oder Sapporo')],
+  [L3('Japanese Sake', 'Saké japonais', 'Japanischer Sake'), L3('cold or hot', 'froid ou chaud', 'kalt oder warm')],
+  ['Fuze Tea', null],
+  [L3('Soft drinks', 'Sodas', 'Softdrinks'), L3('Coca-Cola, Coca-Cola Zero, Fanta Orange, Sprite', 'Coca-Cola, Coca-Cola Zero, Fanta Orange, Sprite', 'Coca-Cola, Coca-Cola Zero, Fanta Orange, Sprite')],
+  [L3('Juices', 'Jus de fruits', 'Säfte'), L3('apple or orange', 'pomme ou orange', 'Apfel oder Orange')],
+  [L3('Water', 'Eau', 'Wasser'), L3('Rosport Blue, Viva still or sparkling', 'Rosport Blue, Viva plate ou pétillante', 'Rosport Blue, Viva still oder sprudelnd')]]}
+];
+const TX = {
+  en:{ menu:'Menu', home:'Home', lang:'Language', cats:'Menu categories',
+    cat_tonkotsu:'Tonkotsu Ramens', cat_udon:'Udon', cat_sides:'Side Dishes', cat_desserts:'Desserts', cat_bubbletea:'Bubble Tea', cat_drinks:'Drinks',
+    addr:'17 Avenue Monterey, Luxembourg', addr_aria:'17 Avenue Monterey, Luxembourg, on Google Maps',
+    c2:'Illustrations: generated for this proposal', foot:'An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.',
+    title:'Ramen Samurai – Menu', desc:'The Ramen Samurai menu: tonkotsu ramens, udon, side dishes, desserts, bubble tea and drinks. 17 Avenue Monterey, Luxembourg.', locale:'en_GB',
+    logo:'Ramen Samurai' },
+  fr:{ menu:'Carte', home:'Accueil', lang:'Langue', cats:'Rubriques de la carte',
+    cat_tonkotsu:'Ramens tonkotsu', cat_udon:'Udon', cat_sides:'Accompagne\u00ADments', cat_desserts:'Desserts', cat_bubbletea:'Bubble tea', cat_drinks:'Boissons',
+    addr:'17, avenue Monterey, Luxembourg', addr_aria:'17, avenue Monterey, Luxembourg, sur Google Maps',
+    c2:'Illustrations : générées pour cette proposition', foot:'Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.',
+    title:'Ramen Samurai – Carte', desc:'La carte de Ramen Samurai : ramens tonkotsu, udon, accompagnements, desserts, bubble tea et boissons. 17, avenue Monterey, Luxembourg.', locale:'fr_LU',
+    logo:'Ramen Samurai' },
+  de:{ menu:'Speisekarte', home:'Startseite', lang:'Sprache', cats:'Kategorien der Speisekarte',
+    cat_tonkotsu:'Tonkotsu-Ramen', cat_udon:'Udon', cat_sides:'Beilagen', cat_desserts:'Desserts', cat_bubbletea:'Bubble Tea', cat_drinks:'Getränke',
+    addr:'17, Avenue Monterey, Luxemburg', addr_aria:'17, Avenue Monterey, Luxemburg, auf Google Maps',
+    c2:'Illustrationen: für diesen Vorschlag generiert', foot:'Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.',
+    title:'Ramen Samurai – Speisekarte', desc:'Die Speisekarte von Ramen Samurai: Tonkotsu-Ramen, Udon, Beilagen, Desserts, Bubble Tea und Getränke. 17, Avenue Monterey, Luxemburg.', locale:'de_DE',
+    logo:'Ramen Samurai' }
+};
+const DECO = {
+  tonkotsu: '<i class="moon" id="moon"></i><i class="fire" style="left:10%;top:68%;width:80%;height:32%"></i>',
+  udon: '<i class="fire" style="left:0;top:0;width:52%;height:100%;animation-duration:.9s"></i><i class="fire" style="left:0;top:40%;width:40%;height:60%;animation-duration:1.4s;animation-delay:-.5s"></i>',
+  sides: '<i class="glw" style="left:76%;top:10%;width:12%;height:9%"></i><i class="glw" style="left:85%;top:12%;width:12%;height:9%"></i><i class="glw" style="left:95%;top:13%;width:12%;height:9%"></i><i class="glw" style="left:62%;top:17%;width:10%;height:8%"></i>',
+  desserts: '<div class="shim" style="clip-path:polygon(70% 46%,90% 40%,100% 52%,100% 100%,80% 100%,74% 72%)"><i></i><i></i></div>' +
+    [[7,21],[20,17],[32,18],[45,22],[52,33],[67,27],[82,20]].map(([x, y], i) => `<i class="glw" style="left:${x}%;top:${y}%;width:9%;height:8%;animation-duration:${2.2 + i * .37}s"></i>`).join('') +
+    '<i class="glw" style="left:58%;top:22%;width:40%;height:28%;animation-duration:5s;opacity:.6"></i>',
+  drinks: [[4,27],[10,33],[18,36],[92,26],[96,36],[88,40],[8,48],[93,49],[25,55],[76,55]].map(([x, y], i) => `<i class="glw" style="left:${x}%;top:${y}%;width:9%;height:7%;animation-duration:${1.9 + i * .31}s"></i>`).join('') +
+    '<i class="glw" style="left:30%;top:58%;width:30%;height:24%;opacity:.45;animation-duration:4s"></i>',
+  bubbletea: '<i class="glw" style="left:5%;top:38%;width:12%;height:10%"></i><i class="glw" style="left:93%;top:40%;width:12%;height:10%"></i><i class="glw" style="left:55%;top:65%;width:60%;height:40%;animation-duration:4.4s;opacity:.35"></i>'
+};
+document.getElementById('rooms').innerHTML = MENU.map((c, ci) => {
+  const stage = `<div class="mural" style="--ar:${c.ar}"><div class="cloth"><img data-lazy="${c.mural}" alt="" decoding="async" width="${Math.round(c.ar * 1800)}" height="1800">${DECO[c.id] || ''}<i class="ripple"></i><i class="edge"></i></div><i class="rod t"></i><i class="rod b"></i></div>`;
+  return `<section class="room" id="c-${c.id}" data-c="${c.id}">
+    <div class="stage" aria-hidden="true">${stage}</div>
+    <div class="content"><div class="air"></div>
+      <article class="board" id="b-${c.id}">
+        <header class="noren"><h2 data-t="cat_${c.id}"></h2>${c.line ? `<p data-m="${ci}.line"></p>` : ''}</header>
+        <ul class="items">${c.items.map(([n, d], ii) => `<li><h3 data-m="${ci}.${ii}.n"></h3>${d ? `<p data-m="${ci}.${ii}.d"></p>` : ''}</li>`).join('')}</ul>
+      </article><div class="tail"></div></div>
+  </section>`;
+}).join('');
+function menuText(key, l){
+  const [ci, ii, f] = key.split('.'), c = MENU[+ci];
+  const v = ii === 'line' ? c.line : c.items[+ii][f === 'n' ? 0 : 1];
+  return typeof v === 'string' ? v : v[l];
+}
+function setLang(l){
+  if (!TX[l]) l = 'en';
+  const T = TX[l];
+  document.documentElement.lang = l;
+  document.title = T.title;
+  document.getElementById('m-desc').content = T.desc;
+  document.getElementById('og-title').content = T.title;
+  document.getElementById('og-desc').content = T.desc;
+  document.getElementById('og-locale').content = T.locale;
+  document.querySelectorAll('[data-t]').forEach(e => { e.textContent = T[e.dataset.t]; });
+  document.querySelectorAll('[data-m]').forEach(e => { e.textContent = menuText(e.dataset.m, l); });
+  document.querySelectorAll('[data-ta]').forEach(e => e.dataset.ta.split(';').forEach(pair => { const [a, k] = pair.split(':'); e.setAttribute(a, T[k]); }));
+  document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
+  try { localStorage.setItem('rs-lang', l); } catch (e) {}
+}
+
+(() => {
+document.querySelectorAll('.langs button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
+{ let l = new URLSearchParams(location.search).get('lang'); try { l = l || localStorage.getItem('rs-lang'); } catch (e) {} setLang(l || 'en'); }
+
+/* murals load one room ahead of the scroll */
+const lazyIO = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const i = e.target, n = i.dataset.lazy; lazyIO.unobserve(i); i.removeAttribute('data-lazy');
+  i.sizes = '(max-width: 700px) 380px, (min-width: 900px) 64vh, 76vh';
+  i.srcset = `img/${n}-800.webp 800w, img/${n}-1600.webp 1600w`;
+  i.src = `img/${n}-800.webp`;
+}), { rootMargin: '120% 0px' });
+document.querySelectorAll('img[data-lazy]').forEach(i => lazyIO.observe(i));
+
+/* active category in the sticky switcher */
+const chips = [...document.querySelectorAll('.cats a')], rooms = [...document.querySelectorAll('.room')];
+let active = '';
+function setActive(){
+  const mid = innerHeight * .45;
+  let id = '';
+  for (const r of rooms) { const b = r.getBoundingClientRect(); if (b.top < mid) id = r.dataset.c; }
+  if (id === active) return; active = id;
+  chips.forEach(c => { const on = c.dataset.c === id; c.classList.toggle('on', on); if (on) c.parentElement.scrollTo({ left: c.offsetLeft - 16, behavior: 'smooth' }); });
+}
+addEventListener('scroll', setActive, { passive: true }); setActive();
+
+if (!document.documentElement.classList.contains('mo')) { document.getElementById('front').style.display = 'none'; return; }
+
+/* ---------------- motion ---------------- */
+const $ = id => document.getElementById(id);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, u) => a + (b - a) * u;
+const sst = u => u * u * (3 - 2 * u);
+const eo = u => 1 - Math.pow(1 - u, 3);
+let W, H, portrait, DPR;
+let LOW = innerWidth < 700 || (navigator.hardwareConcurrency || 8) <= 4, slowAcc = 0, slowN = 0, drewLast = true;
+const setS = (el, prop, v) => { if (el['_' + prop] !== v) { el['_' + prop] = v; el.style[prop] = v; } };
+const fx = $('fx'), ctx = fx.getContext('2d'), bunt = $('bunt'), buntsvg = $('buntsvg'), sky = $('sky'), lantL = $('lantL'), lantR = $('lantR');
+const R = rooms.map(r => ({ el: r, id: r.dataset.c, mural: r.querySelector('.mural'), cloth: r.querySelector('.cloth'), rod: r.querySelector('.rod.b'), vis: false }));
+const io = new IntersectionObserver(es => es.forEach(e => { R.find(x => x.el === e.target).vis = e.isIntersecting; }), { rootMargin: '10% 0px' });
+R.forEach(r => io.observe(r.el));
+
+function layout(){
+  W = innerWidth; H = innerHeight; portrait = W / H < 1.05;
+  DPR = Math.min(devicePixelRatio || 1, LOW ? 1 : 1.5);
+  fx.width = W * DPR; fx.height = H * DPR;
+  const n = portrait ? 4 : 7, fw = portrait ? 40 : 56, bw = W * 1.08, sag = portrait ? 26 : 40, y0 = 14;
+  bunt.style.height = (y0 + sag + fw * 1.6) + 'px';
+  buntsvg.setAttribute('viewBox', `0 0 ${bw} ${y0 + sag + 10}`);
+  buntsvg.innerHTML = `<path d="M0 ${y0} Q ${bw / 2} ${y0 + sag * 2} ${bw} ${y0}" fill="none" stroke="#e9dcc0" stroke-width="2" opacity=".85"/>`;
+  bunt.querySelectorAll('.flag').forEach(f => f.remove());
+  for (let i = 0; i < n; i++) {
+    const u = (i + .5) / n, x = u * bw, y = y0 * (1 - u) * (1 - u) + 2 * u * (1 - u) * (y0 + sag * 2) + u * u * y0;
+    const f = document.createElement('div'); f.className = 'flag';
+    f.style.cssText = `left:${x - fw / 2}px;top:${y - 2}px;width:${fw}px;animation-delay:${-i * .53}s;animation-duration:${3 + (i % 3) * .5}s`;
+    f.innerHTML = `<img src="img/fx-flag-${(i % 4) + 1}-800.webp" alt="" decoding="async">`;
+    bunt.appendChild(f);
+  }
+  const lsz = portrait ? 70 : 130, L = $('lantL'), Rr = $('lantR');
+  L.style.width = Rr.style.width = lsz + 'px';
+  L.style.left = (portrait ? -lsz * .42 : W * .015) + 'px'; L.style.top = H * .28 + 'px';
+  Rr.style.left = (portrait ? W - lsz * .58 : W * .985 - lsz) + 'px'; Rr.style.top = H * .46 + 'px';
+  R.forEach(r => { if (r.mural) { r.mw = r.mural.offsetWidth; r.mt = r.mural.offsetTop; r.mh = r.mural.offsetHeight; } });
+}
+layout(); addEventListener('resize', layout);
+R.forEach(r => r.mural && r.mural.querySelector('img').addEventListener('load', layout));
+
+/* particles */
+const steamSprite = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d');
+  const r = g.createRadialGradient(32, 32, 0, 32, 32, 32); r.addColorStop(0, 'rgba(255,248,232,1)'); r.addColorStop(.45, 'rgba(255,244,222,.5)'); r.addColorStop(1, 'rgba(255,240,215,0)');
+  g.fillStyle = r; g.fillRect(0, 0, 64, 64); return c; })();
+const pearlSprite = (() => { const c = document.createElement('canvas'); c.width = c.height = 48; const g = c.getContext('2d');
+  const r = g.createRadialGradient(17, 17, 2, 24, 24, 24); r.addColorStop(0, '#8a5a3a'); r.addColorStop(.6, '#3a1d10'); r.addColorStop(1, '#1d0d06');
+  g.fillStyle = r; g.beginPath(); g.arc(24, 24, 23, 0, 6.283); g.fill(); g.fillStyle = 'rgba(255,240,220,.7)'; g.beginPath(); g.arc(16, 14, 5, 0, 6.283); g.fill(); return c; })();
+const P = [];
+const FWC = ['#ffd27a', '#ff6a4a', '#fff3d6', '#7ad7ff', '#ff9ec4', '#ffb347'];
+function burst(x, y, s, o){
+  const n = (LOW ? 24 : 40) + (Math.random() * (LOW ? 12 : 26) | 0), c = FWC[Math.random() * 6 | 0], c2 = FWC[Math.random() * 6 | 0];
+  for (let i = 0; i < n; i++) { const a = i / n * 6.283 + Math.random() * .1, v = (1.5 + Math.random() * 1.5) * s;
+    P.push({ k: 'fw', o, x, y, px: x, py: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 0, max: 1 + Math.random() * .7, c: Math.random() < .7 ? c : c2 }); }
+}
+// emitter specs per room, in mural fractions: [kind, x0, x1, y0, y1, rate]
+const EM = {
+  tonkotsu: [['steam', .3, .66, .44, .5, 9], ['ember', .2, .8, .78, .9, 10]],
+  udon: [['snow', .5, 1, -.02, .1, 26], ['ember', .02, .45, .7, .95, 12], ['steam', .38, .55, .36, .42, 3]],
+  sides: [['spark', .58, .74, .5, .56, 30], ['spark', .55, .75, .7, .76, 18], ['steam', .56, .72, .42, .5, 7], ['steam', .3, .45, .62, .68, 2]],
+  desserts: [['mist', .72, .98, .88, .98, 6], ['dust', 0, 1, .1, .6, 4]],
+  bubbletea: [['pearl', .3, .76, .82, .94, 9], ['fwk', .05, .95, .03, .25, .9]],
+  drinks: [['fizz', .05, .95, .7, 1.0, 26], ['fizz', .22, .36, .4, .7, 10]]
+};
+let last = performance.now();
+function frame(now){
+  const dt = Math.min(.05, (now - last) / 1000); last = now; const time = now / 1000;
+  const sy = scrollY, docH = document.documentElement.scrollHeight - H;
+  // sky drift + parallax
+  const sw = H * 2600 / 1103, sr = Math.max(0, sw - W);
+  sky.style.transform = `translate3d(${(-sr * (.5 + .5 * Math.sin(time * .04 + sy / H * .25))).toFixed(1)}px,0,0)`;
+  const par = (sy / H) % 1;
+  setS(bunt, 'transform', `translate3d(0,${(-par * 12).toFixed(1)}px,0)`);
+  setS(lantL, 'transform', `translate3d(0,${((.5 - par) * 110).toFixed(1)}px,0)`);
+  setS(lantR, 'transform', `translate3d(0,${((.5 - par) * 150).toFixed(1)}px,0)`);
+  slowAcc += dt; slowN++; if (slowN === 90) { if (!LOW && slowAcc / slowN > .024) { LOW = true; layout(); } slowAcc = 0; slowN = 0; }
+  let cover = 0;
+
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0); if (drewLast) ctx.clearRect(0, 0, W, H);
+  const rects = R.map(r => r.vis ? r.el.getBoundingClientRect() : null);   // read all, then write
+  for (const r of R) {
+    if (!r.vis) continue;
+    const b = rects[R.indexOf(r)];
+    const enter = clamp((H - b.top) / (H * .85), 0, 1);           // unroll as the room arrives
+    const p = clamp(-b.top / Math.max(1, b.height - H), 0, 1);     // progress while the stage is held
+    r.p = p;
+    if (r.mural) {
+      const reveal = eo(enter);
+      setS(r.cloth, 'clipPath', reveal < .999 ? `inset(0 0 ${((1 - reveal) * 100).toFixed(2)}% 0)` : 'none');
+      setS(r.rod, 'transform', `translateY(${(reveal * r.mh - r.mh).toFixed(1)}px)`);
+      const mw = r.mw, range = portrait ? Math.max(0, mw - W) : 0;
+      const pan = range ? lerp(range * .38, -range * .38, sst(p)) : 0;
+      const sway = Math.sin(time * .9 + r.id.length) * .22;
+      r.mural.style.transform = `translateX(calc(-50% + ${pan.toFixed(1)}px)) rotate(${sway.toFixed(3)}deg)`;
+      r.pan = pan;
+      if (portrait && b.top < H * .5 && b.bottom > H * .5) cover = Math.max(cover, reveal);
+      if (r.id === 'tonkotsu') {   // the moon travels along the painted arc
+        const m = $('moon'), u = clamp(enter * .25 + p * .85, 0, 1);
+        setS(m, 'transform', `translate(${((8 + 84 * u) / 26 * 100 - 50).toFixed(1)}%,${((19 - 14 * Math.sin(Math.PI * u)) / 26 * 100 * (r.mh / r.mw) - 50).toFixed(1)}%)`);
+      }
+    }
+    // emit, in screen space of the mural
+    const stTop = Math.min(Math.max(b.top, 0), b.bottom - H);
+    const box = { left: W / 2 - r.mw / 2 + (r.pan || 0), top: stTop + r.mt, width: r.mw, height: r.mh };
+    const strength = eo(enter) * (b.top < H && b.bottom > 0 ? 1 : 0) * (LOW ? .5 : 1);
+    if (strength <= .05) continue;
+    for (const [k, x0, x1, y0, y1, rate] of EM[r.id]) {
+      const boost = r.id === 'tonkotsu' && k === 'steam' ? (.5 + p) : 1;
+      if (Math.random() >= dt * rate * strength * boost) continue;
+      const x = box.left + lerp(x0, x1, Math.random()) * box.width, y = box.top + lerp(y0, y1, Math.random()) * box.height;
+      const s = box.width / 600;
+      if (k === 'fwk') { burst(x, y, portrait ? .75 : 1, r.id); continue; }
+      const o = { k, o: r.id, x, y, life: 0, ph: Math.random() * 6 };
+      if (k === 'steam') Object.assign(o, { vx: 0, vy: -(26 + Math.random() * 24) * s * 1.3, r: (10 + Math.random() * 10) * s * 1.3, max: 3 + Math.random() * 2 });
+      if (k === 'mist') Object.assign(o, { vx: (Math.random() - .5) * 10, vy: -(8 + Math.random() * 10), r: (12 + Math.random() * 12) * s, max: 2.5 });
+      if (k === 'ember') Object.assign(o, { vx: (Math.random() - .5) * 20, vy: -(40 + Math.random() * 50), r: 1.2 + Math.random() * 1.6, max: 1.2 + Math.random(), c: Math.random() < .5 ? '#ffb347' : '#ff6a2a' });
+      if (k === 'spark') Object.assign(o, { vx: (Math.random() - .5) * 180, vy: -(80 + Math.random() * 160), r: 1 + Math.random() * 1.3, max: .5 + Math.random() * .5, c: Math.random() < .6 ? '#ffd27a' : '#fff3d6', g: 520 });
+      if (k === 'snow') Object.assign(o, { vx: -6 - Math.random() * 10, vy: 26 + Math.random() * 30, r: 1.3 + Math.random() * 2.2, max: 4 + Math.random() * 3 });
+      if (k === 'dust') Object.assign(o, { vx: (Math.random() - .5) * 8, vy: -(4 + Math.random() * 8), r: 1 + Math.random() * 1.5, max: 3 + Math.random() * 2, c: '#ffe7a8' });
+      if (k === 'pearl') Object.assign(o, { vx: 0, vy: -(30 + Math.random() * 40) * s, r: (6 + Math.random() * 5) * s, max: 2.6 + Math.random() * 1.5 });
+      if (k === 'fizz') Object.assign(o, { vx: 0, vy: -(60 + Math.random() * 80), r: 1.2 + Math.random() * 2.4, max: 3 + Math.random() * 2 });
+      P.push(o);
+    }
+  }
+  bunt.style.opacity = 1 - cover * .85;
+  const vis = {}; R.forEach(r => { vis[r.id] = r.vis; });
+  const CAP = LOW ? 500 : 1600; if (P.length > CAP) P.splice(0, P.length - CAP);
+  for (let i = P.length - 1; i >= 0; i--) {
+    const q = P[i]; q.life += dt; const u = q.life / q.max;
+    if (u >= 1 || !vis[q.o]) { P.splice(i, 1); continue; }
+    switch (q.k) {
+      case 'steam': case 'mist': {
+        q.y += q.vy * dt; q.x += Math.sin(q.ph + q.life * 1.6) * 12 * dt * (q.r / 20) + (q.vx || 0) * dt;
+        const rr = q.r * (1 + u * 1.7); ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = Math.sin(Math.PI * u) * (q.k === 'mist' ? .16 : .12); ctx.drawImage(steamSprite, q.x - rr, q.y - rr, rr * 2, rr * 2); break; }
+      case 'fw': {
+        q.px = q.x; q.py = q.y; q.vx *= Math.pow(.2, dt); q.vy = q.vy * Math.pow(.2, dt) + 1.8 * dt; q.x += q.vx * 60 * dt; q.y += q.vy * 60 * dt;
+        ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 1 - u; ctx.strokeStyle = q.c; ctx.lineWidth = 2; ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(q.px - (q.x - q.px) * 2.5, q.py - (q.y - q.py) * 2.5); ctx.lineTo(q.x, q.y); ctx.stroke(); break; }
+      case 'pearl': {   // tapioca pearls rising as bubbles
+        q.y += q.vy * dt; q.x += Math.sin(q.ph + q.life * 2) * 10 * dt;
+        ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = Math.sin(Math.PI * u) * .95;
+        ctx.drawImage(pearlSprite, q.x - q.r, q.y - q.r, q.r * 2, q.r * 2); break; }
+      case 'fizz': case 'snow': {
+        q.y += q.vy * dt; q.x += q.vx * dt + Math.sin(q.ph + q.life * 2.4) * (q.k === 'snow' ? 14 : 6) * dt;
+        ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = Math.sin(Math.PI * u) * (q.k === 'snow' ? .95 : .7);
+        if (q.k === 'snow') { ctx.fillStyle = '#f4fbff'; ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.283); ctx.fill(); }
+        else { ctx.strokeStyle = '#ffe2a0'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.283); ctx.stroke(); }
+        break; }
+      default: {   // ember, spark, dust
+        if (q.g) q.vy += q.g * dt;
+        q.x += q.vx * dt + Math.sin(q.ph + q.life * 3) * 6 * dt; q.y += q.vy * dt;
+        ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = (1 - u) * (q.k === 'dust' ? Math.sin(Math.PI * u) * .8 : 1);
+        ctx.fillStyle = q.c; ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.283); ctx.fill();
+      }
+    }
+  }
+  ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+  drewLast = P.length > 0;
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
+</body>
+</html>
