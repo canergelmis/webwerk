@@ -194,6 +194,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
 .drinks li,.dishes li{padding:16px 0;border-bottom:1px solid rgba(245,198,161,.12)}
 .drinks li:last-child,.dishes li:last-child{border-bottom:0;padding-bottom:0}
 .d__name{font-weight:600;font-size:var(--t-small);letter-spacing:.12em;line-height:1.3;font-variant-numeric:lining-nums}
+/* the Japanese names in a Mincho serif, not a bold sans fallback */
+.jp{font-family:"Yu Mincho","YuMincho","Hiragino Mincho ProN","MS Mincho","Noto Serif JP",serif;font-weight:400;letter-spacing:.04em}
 .d__name small{font-weight:400;font-size:var(--t-small);letter-spacing:.06em;color:var(--peach-3)}
 .d__style{margin-top:3px;font-style:italic;font-size:var(--t-body);color:var(--peach-2)}
 .d__what{margin-top:5px;font-size:var(--t-small);line-height:1.5;color:var(--peach-2)}
@@ -335,8 +337,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
 /* the hero arrives once: the glass out of the navy, then the logo, then the facts; then it holds */
 @media (prefers-reduced-motion:no-preference){
   .cover img{animation:pn-up 1.4s cubic-bezier(.22,.61,.36,1) both}
-  .lockup{animation:pn-settle .9s cubic-bezier(.22,.61,.36,1) .55s both}
-  .notes{animation:pn-in .8s ease 1.15s both}
+  .lockup{animation:pn-settle .7s cubic-bezier(.22,.61,.36,1) .3s both}
+  .notes{animation:pn-in .6s ease .8s both}
   @keyframes pn-up{from{opacity:.02;transform:scale(1.015)}to{opacity:1;transform:none}}
   @keyframes pn-settle{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   @keyframes pn-in{from{opacity:0}to{opacity:1}}
@@ -345,6 +347,47 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .top,.pool,.lamp,.lamp::before,.lamp::after,.frame__pic img{transition:none !important}
+}
+
+/* the carte moves through the room: the wall, the lacquer, the shell wall, the bar */
+.lq{position:relative;z-index:2;background:var(--lacquer);border-block:1px solid rgba(202,118,67,.45);margin:24px 0 0}
+.lq__ph{margin:0}
+.lq__ph img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.lq__ph figcaption{padding:12px var(--gut) 0;font-style:italic;font-size:var(--t-small);color:var(--peach-2)}
+.lq__menu{padding:28px var(--gut) 40px}
+.shells{position:relative;z-index:2;margin-top:48px}
+.shells__band{height:340px;overflow:hidden;border-block:calc(var(--fw) + 4px) solid var(--lacquer)}
+.shells__band img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.shells__row{padding:0 22px}
+.shells__menu{margin-top:-72px}
+.table{padding-bottom:48px}
+.table__ph .frame__pic{aspect-ratio:4/3}
+.table__ph .frame__pic img{object-position:50% 35%}
+.table__menu{margin-top:30px}
+@media (max-width:959px){
+  .table{padding-left:0;padding-right:0}
+  .table__ph{border-inline:0}
+  .table__ph figcaption{margin:0 var(--gut)}
+  .table__menu{margin-left:22px;margin-right:22px}
+}
+.table__menu .col + .col .menu__h{margin-top:40px}
+@media (min-width:960px){
+  .lq{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;margin:40px 0 0;padding-left:calc(var(--gut) - 18px);padding-right:calc(var(--gut) - 18px)}
+  .lq__ph{margin-left:calc(18px - var(--gut))}
+  .lq__ph{grid-column:1/6;align-self:stretch;display:flex;flex-direction:column}
+  .lq__ph img{flex:1 1 0;aspect-ratio:auto;min-height:0;height:auto}
+  .lq__ph figcaption{padding:14px 24px 18px}
+  .lq__menu{grid-column:7/-1;padding:64px 0 64px}
+  .lq__menu .drinks{columns:2;column-gap:56px}
+  .lq__menu .drinks li{break-inside:avoid}
+  .shells{margin-top:96px}
+  .shells__band{height:min(62vh,560px)}
+  .shells__menu{grid-column:7/12;margin-top:-260px}
+  .table{padding-top:96px}
+  .table__ph{grid-column:2/12}
+  .table__ph .frame__pic{aspect-ratio:21/9}
+  .table__menu{grid-column:2/12;margin-top:40px;padding:40px var(--pad) 44px;display:grid;grid-template-columns:1fr 1fr;column-gap:64px;align-items:start}
+  .table__menu .col + .col .menu__h{margin-top:0}
 }
 </style>
 </head>
@@ -460,16 +503,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
           </div>
         </div>
 
-        <div class="bay grid cbay cbay--flip">
-          <figure class="frame on">
-            <div class="frame__pic"><img src="assets/ocean-vessel.jpg" alt="Le vase en céramique en forme d'huître, posé sur une pierre, sur le bar" data-i18n-alt="alt_vessel" width="1400" height="1400" loading="lazy" decoding="async"></div>
-            <figcaption data-i18n="cap_vessel">Le vase en céramique en forme d'huître, dessiné avec La Guardaroba Firenze pour le Martini de la maison.</figcaption>
-          </figure>
-          <div class="recess menu">
+        <div class="lq">
+          <figure class="lq__ph"><img src="assets/ocean-vessel.jpg" alt="Le vase en céramique en forme d'huître, posé sur une pierre, sur le bar" data-i18n-alt="alt_vessel" width="1400" height="1400" loading="lazy" decoding="async"><figcaption data-i18n="cap_vessel">Le vase en céramique en forme d'huître, dessiné avec La Guardaroba Firenze pour le Martini de la maison.</figcaption></figure>
+          <div class="lq__menu">
             <h3 class="menu__h" data-i18n="sec_strong">Force &amp; Intensité</h3>
             <ul class="drinks">
               <li><p class="d__name">PERLE NOIRE</p><p class="d__style" data-i18n="st_perle">Sherry Old Fashioned – Boisé – Solaire</p><p class="d__what" data-i18n="in_perle">Monoï, Huile de Coco, Chêne, Pêche, Calvados, Sherry</p></li>
-              <li><p class="d__name">トンカ-短歌 <small>(TONKA-TANKA)</small></p><p class="d__style" data-i18n="st_tonka">Manhattan – Torréfié – Intense</p><p class="d__what" data-i18n="in_tonka">Tonka, Cerise Pyana Vishnia, Sésame Grillé, Teinture de Café, Sauce Soja</p></li>
+              <li><p class="d__name"><span class="jp" lang="ja">トンカ-短歌</span> <small>(TONKA-TANKA)</small></p><p class="d__style" data-i18n="st_tonka">Manhattan – Torréfié – Intense</p><p class="d__what" data-i18n="in_tonka">Tonka, Cerise Pyana Vishnia, Sésame Grillé, Teinture de Café, Sauce Soja</p></li>
               <li><p class="d__name">MIGNONETTE</p><p class="d__style" data-i18n="st_mignonette">Gibson – Salé – Floral mais Sec</p><p class="d__what" data-i18n="in_mignonette">Vodka, Noilly Prat, Sauce Mignonette, St-Germain, Rose de Bulgarie, Bourgeon de Cassis</p></li>
               <li><p class="d__name">LOVE</p><p class="d__style" data-i18n="st_love">Negroni – Floral – Gourmand</p><p class="d__what" data-i18n="in_love">Eau-de-Vie de Fraise, Bois de Santal, Jasmin, Campari, Vermouth, Gomme Arabique</p></li>
               <li><p class="d__name">OCEAN</p><p class="d__style" data-i18n="st_ocean">Martini Marin – Iodé – Frais</p><p class="d__what" data-i18n="in_ocean">Vodka, Algue Dulse, Aneth, Coquille d'Huître, Citron, Sauvignon Blanc. Parfum : Criste Marine et Gingembre</p></li>
@@ -477,14 +517,13 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
           </div>
         </div>
 
-        <div class="bay grid cbay">
-          <figure class="frame on">
-            <div class="frame__pic"><img src="assets/delft-shells.jpg" alt="Coquilles d'huîtres peintes en bleu de Delft et bordées d'or, au mur de la salle" data-i18n-alt="alt_delft" width="800" height="800" loading="lazy" decoding="async"></div>
-          </figure>
-          <div class="recess menu">
+        <div class="shells">
+          <div class="shells__band"><img src="assets/delft-band.jpg" alt="Coquilles d'huîtres peintes en bleu de Delft et bordées d'or, au mur de la salle" data-i18n-alt="alt_delft" width="1200" height="800" loading="lazy" decoding="async"></div>
+          <div class="grid shells__row">
+            <div class="recess menu shells__menu">
             <h3 class="menu__h" data-i18n="sec_zero">Sans alcool</h3>
               <ul class="drinks">
-                <li><p class="d__name">春 <small>(HARU)</small></p><p class="d__style" data-i18n="st_haru">Flip – Herbacé – Réconfortant</p><p class="d__what" data-i18n="in_haru">Matcha, Œuf, Miel, Pollen</p></li>
+                <li><p class="d__name"><span class="jp" lang="ja">春</span> <small>(HARU)</small></p><p class="d__style" data-i18n="st_haru">Flip – Herbacé – Réconfortant</p><p class="d__what" data-i18n="in_haru">Matcha, Œuf, Miel, Pollen</p></li>
                 <li><p class="d__name">RENDEZ-VOUS</p><p class="d__style" data-i18n="st_rdv">‘Gin’ Tonic – Frais – Sec</p><p class="d__what" data-i18n="in_rdv">Framboise, Rhubarbe, Cacao, Tonic</p></li>
                 <li><p class="d__name">DRAGON</p><p class="d__style" data-i18n="st_dragon">Mule – Anesthésiant – Floral</p><p class="d__what" data-i18n="in_dragon">Litchi, Jasmin, Poivre de Sichuan, Gingembre</p></li>
               </ul>
@@ -493,16 +532,14 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
                 <p class="d__style" data-i18n="st_good">Un cocktail pour chien. Sous contrôle vétérinaire. Nous aimons les chiens.</p>
                 <p class="d__what" data-i18n="in_good">Bouillon de Poisson de Rivières, sans Sel – Spiruline – Huile de Saumon</p>
               </div>
+            </div>
           </div>
         </div>
 
-        <div class="bay grid cbay cbay--flip">
-          <figure class="frame on">
-            <div class="frame__pic"><img src="assets/oysters.jpg" alt="Des huîtres sur glace et citron, sur un plateau haut" data-i18n-alt="alt_oysters" width="1400" height="1400" loading="lazy" decoding="async"></div>
-            <figcaption data-i18n="cap_oysters">Huîtres de Bretagne, ouvertes juste avant de servir.</figcaption>
-          </figure>
-          <div class="recess menu">
-            <h3 class="menu__h">Tapas</h3>
+        <div class="bay grid table">
+          <figure class="frame on table__ph"><div class="frame__pic"><img src="assets/oysters.jpg" alt="Des huîtres sur glace et citron, sur un plateau haut" data-i18n-alt="alt_oysters" width="1400" height="1400" loading="lazy" decoding="async"></div><figcaption data-i18n="cap_oysters">Huîtres de Bretagne, ouvertes juste avant de servir.</figcaption></figure>
+          <div class="recess menu table__menu">
+            <div class="col"><h3 class="menu__h">Tapas</h3>
             <ul class="dishes">
               <li><p class="d__name" data-i18n="t_cheese">Sélection de fromages affinés</p><p class="d__what" data-i18n="t_cheese_d">Accompagnée de pain grillé &amp; condiments maison</p></li>
               <li><p class="d__name" data-i18n="t_oysters">Huîtres de sélection</p><p class="d__what" data-i18n="t_oysters_d">Servies échalote &amp; citron, beurre d'algues</p></li>
@@ -510,10 +547,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
               <li><p class="d__name" data-i18n="t_charcut">Sélection de charcuterie</p></li>
               <li><p class="d__name" data-i18n="t_olives">Olives maison et taralli</p><p class="d__what" data-i18n="t_olives_d">Fenouil, aneth et orange</p></li>
             </ul>
-            <h3 class="menu__h" data-i18n="sec_champ">Champagne</h3>
+            </div>
+            <div class="col"><h3 class="menu__h" data-i18n="sec_champ">Champagne</h3>
             <ul class="houses">
               <li>Lété-Vautrain</li><li>Moussé Fils</li><li>JM Sélèque</li><li>Veuve Fourny</li><li>Geoffroy</li><li>Crucifix Père &amp; Fils</li><li>Ruinart</li>
-            </ul>
+            </ul></div>
           </div>
         </div>
       </section>
