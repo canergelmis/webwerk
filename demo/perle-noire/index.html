@@ -300,7 +300,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
 
   .carte__season{max-width:36ch}
   .cbay{padding-bottom:64px;align-items:start}
-  .cbay .frame{grid-row:1;grid-column:8/12;margin:0;align-self:center}
+  /* the photo stays beside its menu while you read it */
+  .cbay .frame{grid-row:1;grid-column:8/12;margin:0;align-self:start;position:sticky;top:112px}
   .cbay .menu{grid-row:1;grid-column:2/7;margin:0;padding:36px var(--pad) 38px}
   .cbay--flip .frame{grid-column:2/6}
   .cbay--flip .menu{grid-column:7/12}
