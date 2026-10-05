@@ -48,13 +48,13 @@ html[lang="pt"] .gloss{display:none}
 
 /* header: badge, the two links, and a light language switch */
 .top{display:flex;align-items:center;gap:10px;padding:8px var(--gutter) 6px}
-.badge img{height:56px;width:auto}
-.tools{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
-.acts{display:flex;align-items:center;gap:16px}
+.badge img{height:48px;width:auto}
+.tools{margin-left:auto;display:flex;flex-direction:row;align-items:center;gap:8px}
+.acts{display:flex;align-items:center;gap:10px}
 .pages a{display:block;padding:8px 0;font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
-.hcall{display:grid;place-items:center;height:36px;padding:0 12px;background:var(--red);color:var(--ink);font-family:'Public Sans',sans-serif;font-weight:700;font-size:15px;white-space:nowrap}
+.hcall{display:grid;place-items:center;height:36px;padding:0 10px;background:var(--red);color:var(--ink);font-family:'Public Sans',sans-serif;font-weight:700;font-size:15px;white-space:nowrap}
 .lang{display:flex}
-.lang button{appearance:none;background:none;border:0;color:var(--paper);font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;min-width:30px;height:32px;padding:0 6px;cursor:pointer}
+.lang button{appearance:none;background:none;border:0;color:var(--paper);font-family:'Public Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;min-width:24px;height:44px;padding:0 3px;cursor:pointer}
 .lang button[aria-pressed="true"]{color:var(--red);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
 
 /* the wall */
@@ -99,11 +99,9 @@ main{overflow-x:clip}
 .s1{font-size:var(--gm);padding:10px 14px 12px;--r:-2.5deg;z-index:5}
 .s2{font-size:var(--gb);padding:8px 14px 10px;margin:-6px 0 0 auto;--r:1.5deg;z-index:8}
 /* their own front, printed, behind the end of the sentence */
-.shot{height:250px;margin:-12px -30px 0;--r:-2deg;z-index:2}
-.shot img{object-position:50% 42%}
-.s3{font-size:var(--gm);padding:8px 14px 10px;margin:-54px 0 0;--r:-2deg;z-index:7}
+.s3{font-size:var(--gm);padding:8px 14px 10px;margin:10px 0 0;--r:-2deg;z-index:7}
 .name{margin:-4px -30px 0;padding:12px 30px 4px;--r:-2deg;z-index:6}
-.stand{position:absolute;z-index:0;right:14px;bottom:0;width:180px;height:calc(180px * 2.5442 - 22px);clip-path:inset(-100vh -100vw 0 -100vw)}
+.stand{position:absolute;z-index:0;right:10px;bottom:0;width:128px;height:calc(128px * 2.5442 - 22px);clip-path:inset(-100vh -100vw 0 -100vw)}
 .stand .cut{position:absolute;left:0;bottom:-22px;width:100%;max-width:none}
 .name h1{position:relative;z-index:1;font-size:var(--gx);line-height:.8;white-space:nowrap;padding-left:4px;color:var(--paper)}
 .gl-hero{margin-top:14px;max-width:34ch}
@@ -142,7 +140,7 @@ main{overflow-x:clip}
 /* 4. la carte: their placemat, black with red bands, dishes in circles around the badge */
 .b-carte{--bp:40px;text-align:center}
 .b-carte::before,.b-carte::after{content:"";position:absolute;left:0;right:0;height:16%;background:var(--red)}
-.b-carte::before{top:12%;height:22%}.b-carte::after{top:52%;height:14%}
+.b-carte::before{top:14%;height:18%}.b-carte::after{top:63%;height:12%}
 .plate{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:center;justify-items:center;max-width:1180px;margin:0 auto}
 .plate .badge-c{grid-column:1 / -1;order:-1;width:58%;max-width:300px;aspect-ratio:1;border-radius:50%;background:var(--ink);padding:6%;object-fit:contain;box-shadow:0 0 0 5px var(--ink)}
 .plate .c{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:5px solid var(--paper);background:var(--paper)}
@@ -150,11 +148,14 @@ main{overflow-x:clip}
 .plate .c.k{background:var(--ink)}
 .b-carte .go{position:relative;z-index:1;display:inline-block;margin-top:28px;color:var(--paper);text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:4px;text-underline-offset:8px}
 /* 5. the window: Plat du jour | Prato do dia */
-.b-win{--bp:0;display:grid;gap:6px;background:var(--ink);padding:0}
+.b-win{--bp:0;display:grid;gap:0;background:var(--ink);padding:0}
+.b-win .fr{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px var(--gutter) 12px}
+.b-win .fr .xl{font-size:var(--gm)}
+.b-win .fr .t3{margin:0}
 .b-win>div{padding:28px var(--gutter)}
 .b-win .t3{margin-top:12px}
 .b-win ul{margin-top:24px}
-.b-win li{font-family:'League Gothic',sans-serif;font-size:var(--gm);line-height:.95;text-transform:uppercase;border-top:3px solid var(--ink);padding:5px 0 2px;break-inside:avoid}
+.b-win li{font-family:'League Gothic',sans-serif;font-size:calc(var(--gm) * .75);line-height:.95;text-transform:uppercase;border-top:3px solid var(--ink);padding:5px 0 2px;break-inside:avoid}
 /* 6. açaí & jus */
 .b-acai{display:flex;flex-direction:column}
 .b-acai .ac{max-width:none;width:58%;height:auto;aspect-ratio:584/800;flex:none;margin:24px 4% 8px auto;rotate:2.5deg;box-shadow:var(--lift)}
@@ -183,7 +184,6 @@ main{overflow-x:clip}
 /* ---------- narrow phones ---------- */
 @media (max-width:379px){
   :root{--gm:36px}
-  .shot{height:220px}
 }
 
 /* ---------- desktop: the same posters, pasted across a full wall ---------- */
@@ -210,8 +210,6 @@ main{overflow-x:clip}
   .s1{grid-column:2;grid-row:1;font-size:var(--gm);padding:calc(var(--u) * .45) calc(var(--u) * .7) calc(var(--u) * .5)}
   .s1 br{display:none}
   .s2{grid-column:4;grid-row:4;font-size:var(--gb);padding:calc(var(--u) * .4) calc(var(--u) * .8) calc(var(--u) * .5)}
-  .shot{grid-column:11 / -1;grid-row:1 / 18;margin:calc(var(--u) * -.8) calc(-1 * var(--gutter) - max(0px, (100vw - 1600px) / 2)) 0 0;--r:0deg;z-index:1;box-shadow:none}
-  .shot img{object-position:30% 40%}
   .s3{grid-column:2;grid-row:12;align-self:end;margin-bottom:-6px;font-size:var(--gm);padding:calc(var(--u) * .4) calc(var(--u) * .7) calc(var(--u) * .45)}
   .name{grid-column:1 / -1;grid-row:13;justify-self:stretch;margin:0 calc(var(--u) * -3) 0 calc(var(--u) * -1.5);padding:calc(var(--u) * .6) calc(var(--u) * 1.2) calc(var(--u) * .1)}
   .stand{right:calc(var(--u) * 8.9 - 27px);width:calc(var(--u) * 8.3);height:calc(var(--u) * 8.3 * 2.5442 - var(--u) * .8)}
@@ -240,7 +238,10 @@ main{overflow-x:clip}
   .plate{grid-template-columns:repeat(4,1fr);gap:calc(var(--u) * 1.2)}
   .plate .badge-c{grid-column:auto;order:0;width:100%;max-width:calc(var(--u) * 9.5)}
   .plate .c{max-width:calc(var(--u) * 8.5)}
-  .b-win{grid-template-columns:1fr 1fr;padding:0}
+  .b-win{grid-template-columns:1fr 1fr;gap:6px;padding:0}
+  .b-win .fr{display:block;padding:calc(var(--u) * 1.6)}
+  .b-win .fr .xl{font-size:var(--gb)}
+  .b-win .fr .t3{margin-top:12px}
   .b-win>div{padding:calc(var(--u) * 1.6);min-height:calc(var(--u) * 22)}
   .b-win ul{columns:2;column-gap:calc(var(--u) * 1.2)}
   .b-acai{display:block;min-height:calc(var(--u) * 27)}
@@ -285,9 +286,6 @@ main{overflow-x:clip}
     <p class="p s1 white g fit" lang="pt" data-i18n="h_s1">O BRASIL TEM<br> MORADA EM</p>
     <p class="p s2 white g fit" lang="pt" data-i18n="h_s2">DUDELANGE…</p>
 
-    <figure class="p ph shot">
-      <img src="assets/print-facade.webp" width="1000" height="656" data-i18n-alt="alt_facade" alt="La façade du Diplomate, route de Kayl, imprimée en deux couleurs" fetchpriority="high">
-    </figure>
 
     <p class="p s3 white g fit" lang="pt" data-i18n="h_s3">E O NOME É</p>
 
@@ -354,7 +352,7 @@ main{overflow-x:clip}
 
   <!-- 5. the window: their bilingual lettering -->
   <section class="band b-win" aria-labelledby="carte-titre">
-    <div class="on-paper">
+    <div class="on-paper fr">
       <h2 class="g up xl" id="carte-titre" data-i18n="pdj">Plat du jour</h2>
       <p class="t3" data-i18n="midi">Midi &amp; soir</p>
     </div>
@@ -425,7 +423,7 @@ main{overflow-x:clip}
     <p class="t4" data-i18n="addr">9, route de Kayl, Dudelange</p>
     <p class="t4">Instagram @diplomatelux</p>
   </div>
-  <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement ; la picanha en tête de page et les cinq broches sont des illustrations générées, et les photos du lieu et des plats sont retravaillées en affiche. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
+  <p class="disc" data-i18n="disclaimer">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement ; la picanha en tête de page et les cinq broches sont des illustrations générées, et les photos des plats sont retravaillées en affiche. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
 </footer>
 
 <script>
@@ -441,7 +439,6 @@ var I18N = {
   h_s1:"O BRASIL TEM<br> MORADA EM", h_s2:"DUDELANGE…", h_s3:"E O NOME É",
   h_brand:"PICANHA HOUSE", h_kind:"Café, restaurant, bar.", addr:"9, route de Kayl, Dudelange",
   h_ask:"Infos et réservations",
-  alt_facade:"La façade du Diplomate, route de Kayl, imprimée en deux couleurs",
   alt_hero:"Illustration : picanha sur la broche",
   rod_h:"Rodízio de viande<br> à volonté",
   pes_a:"Aqui o rodízio é", pes_b:"PESADO",
@@ -463,7 +460,7 @@ var I18N = {
   alt_acai:"Un açaí en coupe, imprimé comme une affiche",
   soir_l:"On mange d’abord. On danse après.",
   gl_reune:"Venez entre amis, en famille ou à deux.",
-  disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement ; la picanha en tête de page et les cinq broches sont des illustrations générées, et les photos du lieu et des plats sont retravaillées en affiche. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
+  disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement ; la picanha en tête de page et les cinq broches sont des illustrations générées, et les photos des plats sont retravaillées en affiche. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
  pt:{
   aria_home:"Le Diplomate, início", aria_pages:"Páginas", aria_lang:"Idioma",
@@ -474,7 +471,6 @@ var I18N = {
   h_s1:"O BRASIL TEM<br> MORADA EM", h_s2:"DUDELANGE…", h_s3:"E O NOME É",
   h_brand:"PICANHA HOUSE", h_kind:"Café, restaurante, bar.", addr:"9, route de Kayl, Dudelange",
   h_ask:"Informações e reservas",
-  alt_facade:"A fachada do Diplomate, na route de Kayl, impressa a duas cores",
   alt_hero:"Ilustração: picanha no espeto",
   rod_h:"Rodízio de carnes<br> à vontade",
   pes_a:"Aqui o rodízio é", pes_b:"PESADO",
@@ -496,7 +492,7 @@ var I18N = {
   alt_acai:"Um açaí em taça, impresso como um cartaz",
   soir_l:"Primeiro come-se. Depois dança-se.",
   gl_reune:"Reúne os amigos, a família ou aquela pessoa especial.",
-  disclaimer:"Proposta de site não oficial, criada pela Webwerk a partir de informações e fotografias públicas, sem qualquer ligação ao estabelecimento; a picanha no topo da página e os cinco espetos são ilustrações geradas, e as fotografias do espaço e dos pratos foram retrabalhadas como cartazes. Estatísticas de visitas anónimas, sem cookies nem dados pessoais."
+  disclaimer:"Proposta de site não oficial, criada pela Webwerk a partir de informações e fotografias públicas, sem qualquer ligação ao estabelecimento; a picanha no topo da página e os cinco espetos são ilustrações geradas, e as fotografias dos pratos foram retrabalhadas como cartazes. Estatísticas de visitas anónimas, sem cookies nem dados pessoais."
  },
  de:{
   aria_home:"Le Diplomate, Startseite", aria_pages:"Seiten", aria_lang:"Sprache",
@@ -507,7 +503,6 @@ var I18N = {
   h_s1:"O BRASIL TEM<br> MORADA EM", h_s2:"DUDELANGE…", h_s3:"E O NOME É",
   h_brand:"PICANHA HOUSE", h_kind:"Café, Restaurant, Bar.", addr:"9, route de Kayl, Dudelange",
   h_ask:"Infos & Reservierung",
-  alt_facade:"Die Fassade des Diplomate an der route de Kayl, zweifarbig gedruckt",
   alt_hero:"Illustration: Picanha am Spieß",
   rod_h:"Rodízio – Fleisch,<br> so viel Sie mögen",
   pes_a:"Aqui o rodízio é", pes_b:"PESADO",
@@ -529,7 +524,7 @@ var I18N = {
   alt_acai:"Eine Schale Açaí, als Plakat gedruckt",
   soir_l:"Erst wird gegessen. Dann getanzt.",
   gl_reune:"Kommen Sie mit Freunden, mit der Familie oder zu zweit.",
-  disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal; die Picanha oben auf der Seite und die fünf Spieße sind generierte Illustrationen, die Fotos des Lokals und der Gerichte sind als Plakate bearbeitet. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
+  disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal; die Picanha oben auf der Seite und die fünf Spieße sind generierte Illustrationen, die Fotos der Gerichte sind als Plakate bearbeitet. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
  en:{
   aria_home:"Le Diplomate, home", aria_pages:"Pages", aria_lang:"Language",
@@ -540,7 +535,6 @@ var I18N = {
   h_s1:"O BRASIL TEM<br> MORADA EM", h_s2:"DUDELANGE…", h_s3:"E O NOME É",
   h_brand:"PICANHA HOUSE", h_kind:"Café, restaurant, bar.", addr:"9, route de Kayl, Dudelange",
   h_ask:"Info & bookings",
-  alt_facade:"The Diplomate's front on route de Kayl, printed in two colours",
   alt_hero:"Illustration: picanha on the skewer",
   rod_h:"Rodízio – all the<br> meat you want",
   pes_a:"Aqui o rodízio é", pes_b:"PESADO",
@@ -562,7 +556,7 @@ var I18N = {
   alt_acai:"An açaí bowl, printed as a poster",
   soir_l:"First we eat. Then we dance.",
   gl_reune:"Come with friends, with family, or just the two of you.",
-  disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue; the picanha at the top of the page and the five skewers are generated illustrations, and the photos of the place and the dishes are reworked as posters. Anonymous visit statistics, with no cookies and no personal data."
+  disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue; the picanha at the top of the page and the five skewers are generated illustrations, and the dish photos are reworked as posters. Anonymous visit statistics, with no cookies and no personal data."
  }
 };
 var lang = "fr";
