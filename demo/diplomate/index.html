@@ -140,9 +140,9 @@ main{overflow-x:clip}
 /* 4. la carte: their placemat, black with red bands, dishes in circles around the badge */
 .b-carte{--bp:40px;text-align:center}
 .b-carte::before,.b-carte::after{content:"";position:absolute;left:0;right:0;height:16%;background:var(--red)}
-.b-carte::before{top:14%;height:18%}.b-carte::after{top:63%;height:12%}
+.b-carte::before{top:16%;height:22%}.b-carte::after{top:58%;height:16%}
 .plate{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:center;justify-items:center;max-width:1180px;margin:0 auto}
-.plate .badge-c{grid-column:1 / -1;order:-1;width:58%;max-width:300px;aspect-ratio:1;border-radius:50%;background:var(--ink);padding:6%;object-fit:contain;box-shadow:0 0 0 5px var(--ink)}
+.plate .badge-c{grid-column:1 / -1;order:-1;width:58%;max-width:300px;height:auto;aspect-ratio:1;border-radius:50%;background:var(--ink);padding:6%;object-fit:contain;box-shadow:0 0 0 5px var(--ink)}
 .plate .c{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:5px solid var(--paper);background:var(--paper)}
 .plate .c img{width:100%;height:100%;object-fit:cover}
 .plate .c.k{background:var(--ink)}
@@ -324,7 +324,7 @@ main{overflow-x:clip}
   <!-- 2. their line -->
   <section class="band on-red b-justo" aria-label="A melhor picanha com um preço justo">
     <div class="track"><p class="g up xl" lang="pt">A melhor picanha com um preço justo</p><p class="g up xl" lang="pt" aria-hidden="true">A melhor picanha com um preço justo</p></div>
-    <p class="gloss" data-i18n="gl_justo">La meilleure picanha, à un prix juste.</p>
+    <p class="gloss" data-i18n="gl_justo">Picanha à un prix juste.</p>
   </section>
 
   <!-- 3. the five skewers (generated illustration) -->
@@ -375,7 +375,6 @@ main{overflow-x:clip}
     <div class="txt">
       <h2 class="g up l" id="acai-titre" lang="pt">Isto aqui não é açaí… é perigo</h2>
       <p class="t3 vegan" lang="pt">O nosso açaí é 100% vegano.</p>
-      <p class="gloss" data-i18n="gl_perigo">Attention : cet açaí est un danger.</p>
       <p class="t4 jus"><b data-i18n="jus_t">Jus de fruits, plus de 20 saveurs.</b> <span data-i18n="jus_p">Mangue, corossol, fraise, cupuaçu, maracujá, ananas, acérola, goyave, orange, cajá.</span></p>
     </div>
     <img class="ac" src="assets/v2-acai.webp" width="584" height="800" data-i18n-alt="alt_acai" alt="Un açaí en coupe, imprimé comme une affiche" loading="lazy" decoding="async">
@@ -385,7 +384,7 @@ main{overflow-x:clip}
   <section class="band on-ink b-soir" aria-labelledby="soirees-titre">
     <div class="txt">
       <h2 class="g up xl" id="soirees-titre" data-copy="ours" data-i18n="soir_h">Soirées</h2>
-      <p class="t3" data-copy="ours" data-i18n="soir_l">On mange d’abord. On danse après.</p>
+      <p class="t3" data-copy="ours" data-i18n="soir_l">Soirées brésiliennes. Les dates sont sur Instagram.</p>
       <p class="t4">@diplomatelux</p>
     </div>
     <svg viewBox="0 0 200 200" aria-hidden="true">
@@ -442,7 +441,7 @@ var I18N = {
   alt_hero:"Illustration : picanha sur la broche",
   rod_h:"Rodízio de viande<br> à volonté",
   pes_a:"Aqui o rodízio é", pes_b:"PESADO",
-  gl_hero:"Le Brésil a une adresse à Dudelange, et elle s'appelle Le Diplomate.", gl_justo:"La meilleure picanha, à un prix juste.", gl_pesado:"Ici, le rodízio est généreux.", pdj:"Plat du jour", pdd:"Prato do dia",
+  gl_hero:"Le Brésil a une adresse à Dudelange, et elle s'appelle Le Diplomate.", gl_justo:"Picanha à un prix juste.", gl_pesado:"Ici, le rodízio est généreux.", pdj:"Plat du jour", pdd:"Prato do dia",
   jus_p:"Mangue, corossol, fraise, cupuaçu, maracujá, ananas, acérola, goyave, orange, cajá.",
   soir_h:"Soirées", info_h:"Infos et réservations", hours:"Tous les jours, du matin à 1h",
   order:"Commander : Wolt, Uber Eats, Wedely",
@@ -455,10 +454,9 @@ var I18N = {
   alt_costela:"Des côtes de bœuf sur la broche, imprimées comme une affiche",
   carte_cta:"Voir la carte →",
   midi:"Midi &amp; soir",
-  gl_perigo:"Attention : cet açaí est un danger.",
   jus_t:"Jus de fruits, plus de 20 saveurs.",
   alt_acai:"Un açaí en coupe, imprimé comme une affiche",
-  soir_l:"On mange d’abord. On danse après.",
+  soir_l:"Soirées brésiliennes. Les dates sont sur Instagram.",
   gl_reune:"Venez entre amis, en famille ou à deux.",
   disclaimer:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement ; la picanha en tête de page et les cinq broches sont des illustrations générées, et les photos des plats sont retravaillées en affiche. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
  },
@@ -487,10 +485,9 @@ var I18N = {
   alt_costela:"Costela de vaca no espeto, impressa como um cartaz",
   carte_cta:"Ver o menu →",
   midi:"Almoço &amp; jantar",
-  gl_perigo:"Isto aqui não é açaí… é perigo.",
   jus_t:"Sumos naturais, mais de 20 sabores.",
   alt_acai:"Um açaí em taça, impresso como um cartaz",
-  soir_l:"Primeiro come-se. Depois dança-se.",
+  soir_l:"Noites brasileiras. As datas estão no Instagram.",
   gl_reune:"Reúne os amigos, a família ou aquela pessoa especial.",
   disclaimer:"Proposta de site não oficial, criada pela Webwerk a partir de informações e fotografias públicas, sem qualquer ligação ao estabelecimento; a picanha no topo da página e os cinco espetos são ilustrações geradas, e as fotografias dos pratos foram retrabalhadas como cartazes. Estatísticas de visitas anónimas, sem cookies nem dados pessoais."
  },
@@ -506,7 +503,7 @@ var I18N = {
   alt_hero:"Illustration: Picanha am Spieß",
   rod_h:"Rodízio – Fleisch,<br> so viel Sie mögen",
   pes_a:"Aqui o rodízio é", pes_b:"PESADO",
-  gl_hero:"Brasilien hat eine Adresse in Düdelingen, und sie heißt Le Diplomate.", gl_justo:"Die beste Picanha zu einem fairen Preis.", gl_pesado:"Hier ist das Rodízio großzügig.", pdj:"Plat du jour", pdd:"Prato do dia",
+  gl_hero:"Brasilien hat eine Adresse in Düdelingen, und sie heißt Le Diplomate.", gl_justo:"Picanha zu einem fairen Preis.", gl_pesado:"Hier ist das Rodízio großzügig.", pdj:"Plat du jour", pdd:"Prato do dia",
   jus_p:"Mango, Stachelannone, Erdbeere, Cupuaçu, Maracuja, Ananas, Acerola, Guave, Orange, Cajá.",
   soir_h:"Abende", info_h:"Infos & Reservierung", hours:"Täglich, vom Morgen bis 1 Uhr",
   order:"Bestellen: Wolt, Uber Eats, Wedely",
@@ -519,10 +516,9 @@ var I18N = {
   alt_costela:"Rinderrippe am Spieß, als Plakat gedruckt",
   carte_cta:"Zur Speisekarte →",
   midi:"Mittags &amp; abends",
-  gl_perigo:"Vorsicht: Dieses Açaí ist gefährlich.",
   jus_t:"Fruchtsäfte, über 20 Sorten.",
   alt_acai:"Eine Schale Açaí, als Plakat gedruckt",
-  soir_l:"Erst wird gegessen. Dann getanzt.",
+  soir_l:"Brasilianische Abende. Die Termine stehen auf Instagram.",
   gl_reune:"Kommen Sie mit Freunden, mit der Familie oder zu zweit.",
   disclaimer:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal; die Picanha oben auf der Seite und die fünf Spieße sind generierte Illustrationen, die Fotos der Gerichte sind als Plakate bearbeitet. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
  },
@@ -538,7 +534,7 @@ var I18N = {
   alt_hero:"Illustration: picanha on the skewer",
   rod_h:"Rodízio – all the<br> meat you want",
   pes_a:"Aqui o rodízio é", pes_b:"PESADO",
-  gl_hero:"Brazil has an address in Dudelange, and it's called Le Diplomate.", gl_justo:"The best picanha at a fair price.", gl_pesado:"Here, the rodízio is generous.", pdj:"Plat du jour", pdd:"Prato do dia",
+  gl_hero:"Brazil has an address in Dudelange, and it's called Le Diplomate.", gl_justo:"Picanha at a fair price.", gl_pesado:"Here, the rodízio is generous.", pdj:"Plat du jour", pdd:"Prato do dia",
   jus_p:"Mango, soursop, strawberry, cupuaçu, passion fruit, pineapple, acerola, guava, orange, cajá.",
   soir_h:"Nights", info_h:"Info & bookings", hours:"Every day, from morning until 1 a.m.",
   order:"Order: Wolt, Uber Eats, Wedely",
@@ -551,10 +547,9 @@ var I18N = {
   alt_costela:"Beef ribs on the skewer, printed as a poster",
   carte_cta:"See the menu →",
   midi:"Lunch &amp; dinner",
-  gl_perigo:"Careful: this açaí is dangerous.",
   jus_t:"Fruit juices, over 20 flavours.",
   alt_acai:"An açaí bowl, printed as a poster",
-  soir_l:"First we eat. Then we dance.",
+  soir_l:"Brazilian nights. Dates are on Instagram.",
   gl_reune:"Come with friends, with family, or just the two of you.",
   disclaimer:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue; the picanha at the top of the page and the five skewers are generated illustrations, and the dish photos are reworked as posters. Anonymous visit statistics, with no cookies and no personal data."
  }
