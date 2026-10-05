@@ -133,11 +133,9 @@ main{overflow-x:clip}
 .b-rod .pes{margin-top:24px}
 .b-rod .pes b{font-weight:400;color:var(--red)}
 /* 2. their line, as a strip */
-.b-justo{--bp:18px;white-space:nowrap}
-.b-justo .track{display:block}
-.b-justo .xl{display:inline-block;color:var(--paper);white-space:normal}
-.b-justo .xl+.xl{display:none}
-.b-justo .gloss{white-space:normal;margin-top:10px}
+.b-justo{--bp:18px}
+.b-justo .xl{color:var(--paper);max-width:18ch}
+.b-justo .gloss{margin-top:10px}
 /* 3. the five skewers (generated illustration), full bleed */
 .b-five{--bp:0;aspect-ratio:4/5}
 .b-five .belt{position:absolute;inset:0;display:flex;gap:6px;width:max-content;height:100%;animation:belt 48s linear infinite;animation-play-state:paused}
@@ -238,10 +236,6 @@ main{overflow-x:clip}
   .b-rod{min-height:0;height:calc(var(--u) * 30);justify-content:center}
   .b-rod .txt{max-width:46%}
   .b-rod .sk{height:112%;top:-6%;right:8%}
-  .b-justo .track{display:inline-flex;gap:calc(var(--u) * 2);animation:mq 34s linear infinite}
-  .b-justo .xl{white-space:nowrap}
-  .b-justo .xl+.xl{display:inline-block}
-  @keyframes mq{to{transform:translateX(calc(-50% - var(--u)))}}
   .b-five{aspect-ratio:auto;height:calc(var(--u) * 26)}
   .b-five .note{left:calc(var(--u) * 1.6);bottom:calc(var(--u) * 1.6)}
   .b-carte{--bp:calc(var(--u) * 1.6)}
@@ -263,7 +257,6 @@ main{overflow-x:clip}
   .b-info{padding-top:calc(var(--u) * 1.6);padding-bottom:calc(var(--u) * 2.4)}
   .b-info .seal{width:calc(var(--u) * 13);top:calc(var(--u) * 1.6);right:calc(var(--u) * 2)}
   .b-info .calls{flex-direction:column}
-  @media (prefers-reduced-motion:reduce){.b-justo .track{animation:none}}
 
   .foot{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;gap:36px;align-items:center;max-width:1600px;margin:0 auto;text-align:left;padding:40px var(--gutter) 48px;border-top:2px solid var(--red)}
   .foot img{width:170px}
@@ -334,8 +327,8 @@ main{overflow-x:clip}
 
   <!-- 2. their line -->
   <section class="band on-red b-justo" aria-label="A melhor picanha com um preço justo">
-    <div class="track"><p class="g up xl" lang="pt">A melhor picanha com um preço justo</p><p class="g up xl" lang="pt" aria-hidden="true">A melhor picanha com um preço justo</p></div>
-    <p class="gloss" data-i18n="gl_justo">Picanha à un prix juste.</p>
+    <p class="g up xl" lang="pt">A melhor picanha com um preço justo</p>
+    <p class="gloss" data-i18n="gl_justo">Picanha à prix juste.</p>
   </section>
 
   <!-- 3. the five skewers (generated illustration) -->
@@ -458,7 +451,7 @@ var I18N = {
   alt_hero:"Illustration : picanha sur la broche",
   rod_h:"Rodízio de viande<br> à volonté",
   pes_a:"Aqui o rodízio é", pes_b:"PESADO",
-  gl_hero:"Le Brésil a une adresse à Dudelange, et elle s'appelle Le Diplomate.", gl_justo:"Picanha à un prix juste.", gl_pesado:"Ici, le rodízio est généreux.", pdj:"Plat du jour", pdd:"Prato do dia",
+  gl_hero:"Le Brésil a une adresse à Dudelange, et elle s'appelle Le Diplomate.", gl_justo:"Picanha à prix juste.", gl_pesado:"Ici, le rodízio est généreux.", pdj:"Plat du jour", pdd:"Prato do dia",
   jus_p:"Mangue, corossol, fraise, cupuaçu, maracujá, ananas, acérola, goyave, orange, cajá.",
   soir_h:"Soirées", info_h:"Infos et réservations", hours:"Tous les jours, du matin à 1h",
   order:"Commander : Wolt, Uber Eats, Wedely",
@@ -665,10 +658,10 @@ document.querySelectorAll(".lang button").forEach(function(b){
    are pasted on; the skewers pass and the record turns only while on screen. Off with reduced motion. */
 (function(){
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  ['.s1', '.s2', '.s3', '.name', '.hero-info'].forEach(function(sel, i){
+  ['.s1', '.s2', '.s3', '.name', '.gl-hero', '.hero-info'].forEach(function(sel, i){
     var el = document.querySelector('.hero ' + sel);
     if (!el) return;
-    el.style.setProperty('--d', (120 + i * 230) + 'ms');
+    el.style.setProperty('--d', (80 + i * 150) + 'ms');
     el.style.animationDuration = '420ms';
     el.classList.add('slap');
     el.addEventListener('animationend', function(){ el.classList.remove('slap'); }, { once: true });
