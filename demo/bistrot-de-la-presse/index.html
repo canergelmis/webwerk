@@ -8,7 +8,8 @@
 <meta name="description" content="Bistrot de la Presse, face au Palais grand-ducal : spécialités luxembourgeoises, vins au verre, 24 rue du Marché-aux-Herbes, Luxembourg.">
 <meta name="theme-color" content="#120c09">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23120c09'/%3E%3Cpath d='M14 30h36c0 12-8 18-18 18s-18-6-18-18zM48 33c6-2 9 1 8 5-1 3-5 4-9 3M10 50c8 4 36 4 44 0' fill='none' stroke='%23e3a35a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="preload" href="assets/img/hero-facade-1.webp" as="image" fetchpriority="high">
+<link rel="preload" href="assets/film/film-m.jpg" as="image" fetchpriority="high" media="(max-width: 899px)">
+<link rel="preload" href="assets/film/film-d.jpg" as="image" fetchpriority="high" media="(min-width: 900px)">
 <style>
 /* Instrument Sans 500 normal latin-ext */
 @font-face {
@@ -164,10 +165,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- 1 hero (stays full-screen) ---------- */
 .hero{position:relative;height:100svh;min-height:600px;overflow:hidden;isolation:isolate;background:var(--night)}
-.loop{position:absolute;inset:0;z-index:-2}
-.loop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease-in}
-/* never a pale mix of two frames: the incoming frame waits until the outgoing one has mostly gone */
-.loop img.on{opacity:1;transition:opacity 1.8s ease-out .8s}
+/* the film: their own footage, one edit; the poster paints first from CSS, the film streams over it */
+.film{position:absolute;inset:0;z-index:-2;background:var(--night) url(assets/film/film-m.jpg) center/cover no-repeat}
+.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (min-width:900px){ .film{background-image:url(assets/film/film-d.jpg)} }
 .shade{position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(to bottom,rgba(18,12,9,0) 55%,rgba(18,12,9,.5) 76%,rgba(18,12,9,.9) 100%)}
 .hero-in{position:absolute;left:max(24px, var(--in));right:max(24px, var(--in));bottom:var(--s5)}
@@ -177,56 +178,62 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-cta p{color:var(--cream)}
 @media (min-width:900px){ .hero-in{bottom:var(--s7)} }
 
-/* ---------- scenes: one evening at No. 24, pinned while you scroll ---------- */
-/* each scene is a tall track; the stage sticks to the screen; scroll progress picks the clip and the line */
-.scene{position:relative;height:calc(var(--len) * 1vh)}
-.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--night)}
-.amb{display:none}
-.media{position:absolute;inset:0}
-.media > *{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .25s ease-in}
-/* the cut dips through the night ground: the incoming clip waits for the outgoing one to go */
-.media > .on{opacity:1;transition:opacity .3s ease-out .25s}
-.stage::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,rgba(18,12,9,.55) 0,rgba(18,12,9,0) 16%,rgba(18,12,9,0) 50%,rgba(18,12,9,.82) 80%,rgba(18,12,9,.95) 100%)}
-.copy{position:absolute;left:max(24px, var(--in));right:max(24px, var(--in));bottom:var(--s5);z-index:1;display:grid}
-.copy > *{grid-area:1/1;align-self:end;opacity:0;transition:opacity .25s ease-in;pointer-events:none}
-.copy > .on{opacity:1;transition:opacity .35s ease-out .25s;pointer-events:auto}
-.line{font-family:var(--serif);font-weight:300;font-size:var(--t-h2);line-height:1.1;letter-spacing:-.01em;max-width:16ch;text-wrap:balance;text-shadow:0 1px 18px rgba(18,12,9,.6)}
-.copy .note{margin-top:var(--s2);max-width:34ch;color:var(--cream-dim)}
-.dish .name-d{font-family:var(--serif);font-weight:300;font-size:var(--t-h2);line-height:1.1;letter-spacing:-.01em;text-shadow:0 1px 18px rgba(18,12,9,.6)}
-.dish p{margin-top:12px;max-width:34ch;color:var(--cream-dim);font-style:italic}
-@media (min-width:900px){
-  /* desktop: the active clip fills the screen as a blurred, darkened ambient layer;
-     the sharp 9:16 panel stands full stage height right of centre; the copy sits on the frame at left */
-  .stage::after{display:none}
-  .amb{display:block;position:absolute;inset:-80px;filter:blur(40px) brightness(.35) saturate(.8);opacity:1;transition:opacity .25s ease-in}
-  .amb.dip{opacity:0}
-  .amb > *{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .amb-still{background:center/cover no-repeat}
-  .media{left:50%;right:auto;top:auto;bottom:0;transform:none;height:calc(100vh - var(--bar, 80px));width:auto;aspect-ratio:9/16}
-  .copy{left:var(--in);right:calc(50% + var(--s5));top:calc(50% + var(--bar, 80px) / 2);bottom:auto;transform:translateY(-50%)}
-  .copy > *{align-self:center}
-  .line,.dish .name-d{font-size:var(--t-h2);max-width:16ch}
-  .dish .name-d{max-width:none}
-  .dish p,.copy .note{font-size:17px}
-}
-}
+/* ---------- their line, alone on the night ground ---------- */
+.soir{text-align:center}
+.soir .h2{max-width:22ch;margin-inline:auto;color:var(--cream)}
 
-/* ---------- la carte: compact, on the night ground ---------- */
-.carte .h2{max-width:none}
-.carte-cols{display:grid;gap:0 var(--gap)}
-.dish-group{margin-top:var(--s4)}
-.grp{color:var(--cream-dim)}
-.dishes{list-style:none;margin-top:4px}
-.dishes li{padding:10px 0}
-.dishes .small{margin-top:4px;font-style:italic}
-.also{margin-top:var(--s4);color:var(--cream-dim)}
+/* ---------- la carte: a cinema menu; a dish with footage opens it full-screen ---------- */
+.carte-h{font-family:var(--serif);font-weight:300;font-size:var(--t-name);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+.carte-list{list-style:none;margin-top:var(--s4)}
+.carte-list li{border-top:1px solid rgba(176,141,87,.18)}
+.carte-list li:last-child{border-bottom:1px solid rgba(176,141,87,.18)}
+.dish-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:var(--s2);width:100%;padding:18px 0;text-align:left}
+.dish-row .dn{font-family:var(--serif);font-weight:300;font-size:var(--t-h2);line-height:1.1;letter-spacing:-.01em}
+.dish-row .dd{grid-column:1;margin-top:6px;font-size:var(--t-small);line-height:1.5;font-style:italic;color:var(--cream-dim);max-width:52ch}
+.dish-row .pm{grid-column:2;grid-row:1/3;width:40px;height:40px;border:1px solid var(--brass);border-radius:50%;display:grid;place-items:center;color:var(--cream);transition:background-color .3s,border-color .3s,color .3s}
+.dish-row .pm svg{width:11px;height:12px;margin-left:2px}
+button.dish-row:hover .pm,button.dish-row:focus-visible .pm{background:var(--cream);border-color:var(--cream);color:var(--night)}
+button.dish-row:hover .dn{color:var(--amber)}
+.dn{transition:color .3s}
+.grp{margin-top:var(--s5);color:var(--brass)}
+.also{margin-top:var(--s4);color:var(--cream-dim);max-width:52ch}
 .also .runin{color:var(--cream);font-weight:400}
 @media (min-width:900px){
-  .carte-cols{grid-template-columns:repeat(12,minmax(0,1fr))}
-  .carte-cols > :first-child{grid-column:1/6}
-  .carte-cols > :last-child{grid-column:7/-1}
+  .carte-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+  .carte-in > *{grid-column:3/-3}
+  .dish-row{padding:22px 0}
 }
+
+/* ---------- the viewer: one dish, full screen ---------- */
+.viewer{position:fixed;inset:0;z-index:80;background:#000;overflow:hidden;opacity:0;transition:opacity .3s ease;touch-action:none}
+.viewer[hidden],.vw-stage [hidden]{display:none}
+.viewer.open{opacity:1}
+.vw-amb{display:none}
+.vw-stage{position:absolute;inset:0;transition:transform .3s ease}
+.vw-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--night)}
+.vw-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.35) 0,rgba(0,0,0,0) 18%,rgba(0,0,0,0) 52%,rgba(18,12,9,.7) 80%,rgba(18,12,9,.92) 100%)}
+.vw-text{position:absolute;left:max(24px, var(--in));right:max(24px, var(--in));bottom:var(--s5);pointer-events:none}
+.vw-text h2{font-family:var(--serif);font-weight:300;font-size:var(--t-h2);line-height:1.1;letter-spacing:-.01em;text-shadow:0 1px 18px rgba(18,12,9,.6)}
+.vw-text p{margin-top:10px;max-width:36ch;color:var(--cream-dim);font-style:italic;text-shadow:0 1px 14px rgba(18,12,9,.7)}
+.vw-close{position:absolute;top:var(--s2);right:var(--s2);z-index:2;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(18,12,9,.55);border:1px solid rgba(239,230,214,.35);color:var(--cream);transition:background-color .3s,color .3s}
+.vw-close:hover{background:var(--cream);color:var(--night)}
+.vw-close svg{width:16px;height:16px}
+@media (min-width:900px){
+  /* desktop: the 9:16 clip stands full height in the centre over a blurred copy of itself */
+  .vw-amb{display:block;position:absolute;inset:-80px;width:calc(100% + 160px);height:calc(100% + 160px);object-fit:cover;filter:blur(40px) brightness(.4) saturate(.85)}
+  .vw-amb.still{background:center/cover no-repeat}
+  .vw-media{left:50%;right:auto;width:auto;height:100%;aspect-ratio:9/16;transform:translateX(-50%)}
+  .vw-shade{background:linear-gradient(to bottom,rgba(0,0,0,0) 55%,rgba(18,12,9,.75) 100%)}
+  /* the copy sits left of the centred clip, never over it */
+  .vw-text{left:var(--in);right:auto;bottom:var(--s6);width:max(220px, calc(50vw - 28.125vh - var(--in) - 32px))}
+  .vw-close{top:var(--s3);right:var(--s3)}
+}
+
+/* ---------- au verre: one moving band ---------- */
+.verre .h2{text-align:center}
+.band{position:relative;margin-top:var(--gi);aspect-ratio:4/5;max-height:80vh;width:100%;overflow:hidden;background:var(--night-2)}
+.band video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (min-width:900px){ .band{aspect-ratio:16/9;max-height:none} }
 
 /* ---------- face au palais ---------- */
 .p-img{aspect-ratio:4/5}
@@ -283,13 +290,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .loop img,.loop img.on,.top,.top .mark,.top .btn{transition:none}
+  .top,.top .mark,.top .btn,.viewer,.vw-stage{transition:none}
 }
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="logo" viewBox="0 20 400 330"><path d="M42.9 252.7Q45.7 251.3 48.6 251.8Q51.5 252.3 54.2 254.2Q54.6 251.9 55.8 250.1Q57 248.3 59 247.3Q61.4 246.1 64.5 246.4Q67.6 246.7 70.6 248.3Q73.6 249.8 76.2 252.3Q78.8 254.9 80.4 258.1Q82.1 261.6 82.1 264.9Q82 268.2 80.3 270.9Q78.8 271.1 76.4 271.3Q74 271.5 71.4 271.7Q68.7 271.9 66.1 272.1Q63.4 272.2 61.3 272.3Q56.6 272.4 53.4 272.3Q50.3 272.2 48.2 271.8Q50.2 273.9 52.2 275.4Q54.1 277 55.5 277.5Q55.4 278 55.1 278.7Q54.7 279.4 54.3 280.1Q53.8 280.8 53.2 281.4Q52.7 281.9 52.2 282.3Q50.8 281.5 49.1 280Q47.5 278.5 45.9 276.5Q44.3 274.6 42.8 272.4Q41.4 270.3 40.4 268.2Q37.7 262.8 38.4 258.7Q39.1 254.5 42.9 252.7ZM62 264.6Q62 265.6 61.5 266.7Q64.3 266.7 67 266.5Q69.6 266.3 71.9 266.1Q74.1 265.9 75.7 265.7Q77.3 265.5 78 265.2Q78 264.4 77.8 263.5Q77.5 262.5 76.9 261.2Q75.4 258.1 73.2 255.8Q71 253.4 68.5 252Q66 250.6 63.5 250.3Q61 249.9 58.9 250.9Q56 252.4 55.9 255.6Q59.1 258.4 61.2 262.8Q61.5 263.4 61.7 263.7Q61.8 264.1 62 264.6ZM42.1 263.5Q42.6 264.4 43.2 265.4Q43.8 266.4 44.6 267.5Q44.7 267.2 44.9 267Q45 266.8 45.2 266.6Q45.9 266.7 47.3 266.8Q48.6 266.9 50.3 266.9Q52 267 54.1 267Q56.1 266.9 58.3 266.9Q57.7 266.2 57.1 265.2Q56.4 264.1 55.9 263Q55.6 262.4 55.4 261.9Q55.1 261.3 55 260.7Q53.6 258.7 52 257.3Q50.5 255.9 48.9 255.1Q47.4 254.3 45.9 254.2Q44.5 254.1 43.2 254.7Q41.1 255.7 40.8 258Q40.5 260.2 42.1 263.5Z M69.8 237.8Q69.3 237.9 68.6 237.9Q68 237.9 66.8 237.9Q65.7 237.9 64 237.9Q62.4 237.8 60.1 237.7Q59.6 237.7 58.5 237.6Q57.3 237.4 56 237.1Q54.7 236.7 53.4 236.1Q52.2 235.5 51.4 234.4Q51.5 233.6 52 232Q52.6 230.5 53.9 229.3Q55.3 230.2 56.8 230.7Q58.2 231.3 59.7 231.6Q61.1 232 62.7 232.3Q64.3 232.5 66 232.9Q67.5 233.2 69 233.4Q70.6 233.6 71.6 233.4Q72.5 233.3 72.9 233.2Q73.3 233.2 73.3 233.4Q73.4 233.6 73.2 234.3Q73.1 234.9 72.7 235.6Q72.3 236.3 71.6 237Q70.8 237.6 69.8 237.8ZM46.7 232.1Q46.5 232.2 45.8 232.1Q45.6 232.4 45.2 232.7Q44.7 232.9 44.3 233Q43.9 233.1 43.1 233.1Q42.3 233.1 41.4 233Q40.5 233 39.4 232.9Q38.4 232.7 37.6 232.6Q37.5 232 37.7 231.1Q37.8 230.2 38.2 229.2Q38.6 228.2 39 227.4Q39.5 226.5 40 226Q40.6 226.5 41.8 227.2Q42.9 227.9 44.1 228.6Q45.3 229.2 46.3 229.7Q47.4 230.3 47.8 230.4Q47.8 231 47.5 231.5Q47.1 232 46.7 232.1Z M50.8 209.9Q51.8 209.9 52.8 210.1Q53.8 210.3 54.7 210.6Q55.5 210.9 56.1 211.3Q56.7 211.7 56.7 212.1Q56.7 212.7 56.1 212.8Q55.9 212.8 55.6 212.7Q55.2 212.7 54.8 212.5Q54.4 212.4 54 212.3Q53.6 212.2 53.3 212.3Q52.6 212.3 52.2 212.7Q51.7 213 51.7 213.6Q51.9 215.6 54.5 216.4Q57.1 217.3 61.9 216.9Q62.4 216.8 62.5 216.8Q62.4 215.7 62.3 214.9Q62.2 214.1 62.1 213.3Q62.2 213.2 62.5 213.2Q63 213.2 63.2 213.4Q63.5 214.5 63.7 215.1Q64 215.8 64.1 216.1Q64.3 216.5 64.5 216.5Q64.7 216.6 65 216.6Q65.4 216.5 65.8 216.5Q66.2 216.4 66.8 216.4Q71 216 73.7 218.1Q76.4 220.2 77.1 224.2Q77.1 224.9 76.9 225.7Q76.6 226.4 76.1 227.1Q75.6 227.9 74.9 228.4Q74.3 229 73.6 229.2Q71.7 229.4 70 228.7Q68.2 228.1 66.7 226.8Q65.3 225.5 64.3 223.7Q63.4 221.9 63 219.7Q61.8 219.8 60.6 220.2Q59.4 220.5 58.3 220.9Q57.2 221.3 56.2 221.6Q55.1 221.9 54.1 222Q52.7 222.1 51.4 221.7Q50 221.3 48.8 220.4Q47.6 219.6 46.7 218.5Q45.8 217.4 45.4 216.1Q45.5 215.5 46.2 214.6Q46.8 213.6 47.7 212.6Q48.5 211.6 49.3 210.9Q50.2 210.1 50.8 209.9ZM74.9 224.5Q74.3 223.4 73.2 222.4Q72.2 221.4 70.9 220.7Q69.7 220 68.3 219.6Q66.9 219.2 65.6 219.3Q65.8 220.3 66.7 221.5Q67.6 222.6 68.7 223.5Q69.9 224.5 71.1 225.1Q72.3 225.7 73.1 225.6Q74.2 225.6 74.9 224.5Z M53.5 204.2Q53.2 204.4 52.2 204.6Q51.2 204.7 50.5 204.7Q50.7 203.4 50.8 202.2Q51 201 51.1 200Q49.6 199.2 48.2 198.2Q46.8 197.3 45.6 196.4Q44.4 195.5 43.6 194.7Q42.8 194 42.6 193.5Q42.6 193 42.8 192.3Q43 191.5 43.3 190.7Q43.7 190 44 189.3Q44.3 188.7 44.6 188.5Q46.5 190.1 48 191.2Q49.6 192.4 51.6 193.7Q51.7 192.7 51.7 191.7Q51.7 190.7 51.6 189.6Q51.9 189.4 52.3 189.3Q52.7 189.1 53.1 189.2Q53.8 191.7 53.7 195.2Q56.1 196.5 58.4 197.6Q60.7 198.7 62.9 199.5Q65 200.3 66.9 200.8Q68.9 201.3 70.4 201.4Q72.6 201.5 73 199.9Q72.8 198.4 72.4 197Q71.9 195.6 71.1 194.5Q71.6 194.2 71.9 194.2Q72.3 194.5 72.9 195.3Q73.4 196 73.9 196.9Q74.5 197.8 74.8 198.6Q75.2 199.4 75.2 199.8Q75.1 201.1 74.5 202.3Q74 203.5 73.2 204.5Q72.4 205.5 71.4 206.1Q70.4 206.7 69.5 206.6Q68.3 206.6 66.5 206.1Q64.7 205.7 62.6 205Q60.5 204.3 58.2 203.4Q55.9 202.4 53.6 201.4Z M74.1 191.8Q72.7 191.3 70.5 190.2Q68.3 189.2 65.8 187.8Q63.3 186.5 60.9 185Q58.4 183.6 56.5 182.3Q55.1 181.3 54.3 180.7Q53.5 180 53.1 179.3Q53.3 178.7 53.7 178Q54.1 177.3 54.5 176.7Q55 176 55.5 175.6Q56 175.1 56.4 174.9Q57.7 176.5 59.5 177.9Q61.3 179.3 64.3 180.9Q62.4 177.8 60.7 175.4Q58.9 172.9 56.6 170.6Q56.4 170.3 56.5 169.6Q56.7 168.9 57 168.3Q57.4 167.7 57.8 167.5Q60 168.9 62.3 169.3Q64.5 169.7 65.7 169.3Q65.9 169.4 66.7 170.2Q67.4 171 68 171.8Q67 173 65.6 173.8Q64.2 174.6 62.7 174.8Q63.9 177.5 65.1 179.4Q66.3 181.3 68 182.8Q69.7 184.3 72 185.6Q74.3 186.9 77.5 188.3Q77.4 188.7 77 189.3Q76.6 189.9 76.1 190.4Q75.6 190.9 75 191.3Q74.5 191.7 74.1 191.8Z M85.1 166.7Q83.8 169.3 81.1 170.1Q78.5 171 75.3 169.8Q73.4 169.1 71.6 167.8Q69.8 166.5 68.3 164.8Q66.7 163 65.6 161Q64.4 159 63.8 156.9Q62.8 153.6 63.6 151.4Q64.9 150.2 68 149.6Q68.1 149.4 68.1 149.2Q68.2 149 68.3 148.8Q69.2 146.3 73.6 147.9Q76.6 149 78.9 150.9Q81.2 152.8 82.7 155.3Q84.2 157.8 84.9 160.7Q85.5 163.6 85.1 166.7ZM71.1 158.9Q71.9 160.1 72.9 161.3Q73.9 162.4 75 163.4Q76.1 164.4 77.2 165.1Q78.3 165.8 79.3 166.2Q80.4 166.6 81.6 166.6Q82.7 166.6 83.1 166.2Q83.4 163.9 82.7 161.7Q82.1 159.4 80.6 157.4Q79.1 155.4 77 153.8Q74.8 152.2 72 151.2Q70.8 150.7 70 150.6Q69.3 150.5 68.7 150.7Q68.5 152.9 69.3 155.1Q70.1 157.2 71.1 158.9Z M76.3 139.9Q75.9 140 75 139.7Q74 139.4 73.4 139Q74.2 137.9 74.8 136.9Q75.5 135.9 76 135.1Q75.1 133.7 74.3 132.2Q73.4 130.7 72.8 129.4Q72.1 128 71.7 127Q71.4 125.9 71.3 125.5Q71.6 125 72.1 124.5Q72.7 123.9 73.3 123.3Q73.9 122.8 74.5 122.3Q75.1 121.9 75.5 121.9Q76.4 124.1 77.3 125.9Q78.1 127.6 79.3 129.7Q79.8 128.9 80.3 127.9Q80.8 127 81.2 126.1Q81.5 126 81.9 126Q82.3 126.1 82.7 126.3Q82.3 128.9 80.6 131.9Q82.1 134.2 83.6 136.3Q85.2 138.3 86.8 140Q88.3 141.6 89.8 142.9Q91.4 144.2 92.7 145Q94.6 146.1 95.6 144.8Q96.2 143.4 96.4 142Q96.6 140.5 96.4 139.2Q96.9 139.1 97.2 139.2Q97.5 139.7 97.6 140.7Q97.8 141.6 97.9 142.6Q97.9 143.6 97.9 144.5Q97.8 145.4 97.7 145.8Q97 146.9 95.9 147.7Q94.9 148.5 93.7 149Q92.6 149.6 91.4 149.7Q90.3 149.8 89.5 149.3Q88.5 148.7 87.1 147.5Q85.7 146.3 84.1 144.7Q82.5 143.1 80.9 141.3Q79.2 139.4 77.7 137.4Z M100.2 105.1Q100.9 104.4 102.2 103.8Q103.6 103.3 104.9 103.2Q103.3 102 101.8 101.1Q100.2 100.2 98.3 99.4Q96.4 98.6 94 98Q91.5 97.3 88.2 96.6Q87.9 96.2 87.9 95.4Q87.8 94.6 87.9 93.8Q87.9 92.9 88.1 92.1Q88.3 91.3 88.7 90.8Q90.8 90.8 93.4 91.5Q95.9 92.2 98.5 93.3Q101.1 94.4 103.6 96Q106 97.6 107.9 99.3Q109.8 101.1 111.4 103.4Q113 105.7 114.2 108.2Q115.5 110.8 116.3 113.4Q117 116 117.3 118.4Q117.6 120.8 117.3 122.8Q117 124.9 116 126.3Q113.4 128.6 110.8 128.7Q108.2 128.7 105.9 126.6Q104.7 125.4 103.6 123.7Q102.5 121.9 101.6 119.9Q100.8 117.9 100.2 115.8Q99.6 113.6 99.4 111.7Q99.3 109.7 99.4 108Q99.6 106.3 100.2 105.1ZM114.3 125.3Q115.1 123.6 114.8 120.9Q114.5 118.2 113.4 115.3Q112.3 112.4 110.6 109.6Q108.9 106.8 106.7 104.7Q106.1 104.2 106 104Q105.8 103.9 105.6 103.8Q105.2 105 105.1 106.8Q105.1 108.6 105.3 110.7Q105.5 112.7 106.1 114.9Q106.6 117 107.3 119Q108 120.9 108.9 122.5Q109.7 124.1 110.7 125Q112.5 126.7 114.3 125.3Z M128.2 87.8Q129.9 90.4 130.5 92.7Q131.1 95 130.8 97.4Q130.5 99.7 129.4 102.3Q128.3 104.8 126.5 107.7Q126.7 108 126.9 108.2Q127.1 108.5 127.3 108.8Q127.7 109.3 128.2 109.8Q128.7 110.3 129.2 110.6Q129.8 111 130.4 111Q131 111 131.5 110.6Q132.6 109.8 133.3 108.5Q133.9 107.2 134.3 105.8Q134.8 104.4 135 103Q135.1 101.6 135.3 100.4Q135.9 100.4 136.5 100.6Q136.5 104.3 135.5 107.5Q134.6 110.7 133 112.6Q130 114.3 127.2 113.8Q124.4 113.3 122.6 110.9Q121.4 109.3 120.5 107.2Q119.7 105.2 119.3 103Q118.9 100.8 119 98.6Q119 96.4 119.5 94.4Q120 92.4 120.8 90.8Q121.7 89.2 123 88.2Q125 87 128.2 87.8ZM126.4 91.2Q125.5 92.2 124.9 93.8Q124.3 95.4 124.1 97.4Q124 99.3 124.4 101.5Q124.8 103.8 125.7 106Q127.7 102 128 98Q128.4 94.1 126.4 91.2Z M153.5 97.2Q152.6 95.2 152 91.1Q151.5 87.1 151.2 81.4Q150.7 72.5 151.1 66.2Q151.4 60 152.6 56.1Q153.2 55.9 154.1 55.9Q155.1 56 156 56.1Q157 56.2 157.8 56.4Q158.6 56.6 158.9 56.8Q157.1 62.5 156.5 68.6Q155.8 74.6 156.2 81.9Q156.6 88.1 157.4 92.9Q158.2 97.7 159.4 100.6Q159.8 101.4 159.9 101.5Q159.9 101.7 160.1 101.9Q159.4 102.1 158.8 102Q158.3 102 158 101.7Q157.8 101.5 157.2 101.3Q156.6 101 156.2 100.9Q155.6 100.8 154.9 99.8Q154.1 98.7 153.5 97.2Z M176.3 72Q176.8 71.9 177.5 71.9Q178.2 71.8 178.8 71.9Q179.4 72 179.9 72.2Q180.3 72.4 180.4 72.6Q180.1 74.9 179.9 77.2Q179.7 79.5 179.8 81.5Q179.8 83.5 180 85.3Q180.2 87 180.6 88.2Q181 89.5 181.5 90.3Q182.1 91.1 182.9 91.3Q182.4 91.8 181.6 92.3Q180.8 92.9 180.1 93.1Q177.5 93.9 176.4 90.4Q175.5 87.7 175.8 82.4Q175.6 84.9 174.9 87.2Q174.3 89.5 173.5 91.4Q172.7 93.3 171.7 94.6Q170.6 96 169.6 96.5Q167.8 97 166.2 95.7Q164.6 94.5 163.8 92Q163 89.3 163.2 86Q163.4 82.7 164.4 79.6Q165.4 76.5 166.9 74.2Q168.5 71.8 170.4 71.1Q170.9 71.1 171.7 71.3Q172.4 71.6 173.1 72Q173.9 72.4 174.4 72.8Q175 73.3 175.2 73.7Q173.4 74.6 171.8 76.8Q170.3 79 169.4 81.8Q168.4 84.5 168.2 87.4Q167.9 90.2 168.6 92.4Q168.9 93.3 169.7 93.4Q171 92.6 172.1 90Q173.3 87.3 174.5 82.2Q174.7 81.2 174.9 79.9Q175.2 78.7 175.5 77.4Q175.7 76 175.9 74.7Q176.2 73.3 176.3 72Z M197.9 108.6Q197.1 108.4 197 107.1Q196.8 106.4 196.7 105.5Q196.6 104.7 196.5 103.5Q196.5 102.5 196.8 100.6Q197.1 98.8 197.7 96.5Q198.2 94.1 199 91.4Q199.9 88.7 200.9 86Q202.1 82.5 203 79.9Q204 77.4 204.6 75.5Q205.2 73.6 205.6 72.4Q206 71.2 206.2 70.3Q206.4 69.7 206.8 68.9Q207.1 68 207.6 67.1Q208.1 66.2 208.7 65.4Q209.2 64.7 209.6 64.2Q211.4 64.4 212.9 65Q214.5 65.6 214.9 66.2Q214.2 66.9 213.3 68.3Q212.5 69.7 211.7 71.4Q210.9 73 210.2 74.7Q209.6 76.4 209.3 77.8Q209.8 76.9 210.5 75.9Q211.3 74.8 212.9 73Q214.7 71.1 216.3 70Q217.9 68.9 219.1 68.9Q221 68.9 222.2 69.9Q223.5 70.9 223.5 72.5Q223.6 76.1 222.5 79.7Q221.5 83.2 219.3 86.2Q218.5 87.3 217.4 88.3Q216.2 89.4 215 90.2Q213.8 91 212.6 91.5Q211.4 91.9 210.5 92Q209.6 92 208.9 91.7Q208.2 91.3 207.9 90.8Q209.8 89.5 211.6 87.4Q213.4 85.3 214.9 82.6Q216.4 79.9 217.5 76.8Q218.6 73.6 219.1 70.4Q217.2 71.5 215.7 72.7Q214.2 73.9 212.8 75.9Q211 78.1 210 79.5Q209 80.9 208.4 81.8Q207.7 82.8 207.3 83.6Q206.9 84.5 206.5 85.7Q205.8 87.3 205 90Q204.1 92.6 203.2 95.9Q202.4 99.2 201.5 102.9Q200.6 106.6 199.9 110.3Q199.3 110.2 198.9 109.5Q198.5 109 198.3 108.9Q198.1 108.7 197.9 108.6Z M224.7 93.3Q225.2 91.9 226.2 89.7Q227.2 87.5 228.5 85Q229.8 82.5 231.2 80Q232.5 77.5 233.8 75.5Q234.7 74.1 235.3 73.3Q235.9 72.5 236.6 72Q237.3 72.2 238 72.6Q238.7 73 239.3 73.4Q240 73.9 240.4 74.3Q240.9 74.8 241.2 75.2Q239.6 76.5 238.2 78.4Q236.9 80.3 235.3 83.2Q238.4 81.3 240.8 79.5Q243.2 77.7 245.4 75.3Q245.7 75.1 246.5 75.2Q247.2 75.3 247.8 75.7Q248.4 76 248.6 76.4Q247.3 78.6 246.9 81Q246.5 83.1 247 84.3Q246.9 84.6 246.1 85.3Q245.4 86.1 244.5 86.7Q243.3 85.8 242.5 84.4Q241.6 83 241.4 81.5Q238.8 82.8 236.9 84Q235 85.3 233.6 87Q232.1 88.7 230.9 91.1Q229.6 93.4 228.3 96.7Q227.9 96.6 227.3 96.2Q226.7 95.8 226.2 95.3Q225.6 94.8 225.2 94.3Q224.8 93.8 224.7 93.3Z M268.6 86.1Q267.5 89 265.9 90.8Q264.3 92.7 262.2 93.7Q260.1 94.8 257.4 95.3Q254.7 95.8 251.3 96Q251.2 96.3 251 96.6Q250.9 96.9 250.8 97.2Q250.6 97.8 250.5 98.5Q250.3 99.2 250.4 99.9Q250.4 100.5 250.7 101Q251.1 101.5 251.7 101.7Q253 102.2 254.4 102Q255.8 101.8 257.2 101.4Q258.6 100.9 259.9 100.3Q261.2 99.6 262.3 99.1Q262.6 99.7 262.8 100.2Q259.7 102.3 256.5 103.3Q253.4 104.3 250.9 104.1Q247.8 102.6 246.6 100Q245.5 97.4 246.4 94.5Q247.1 92.6 248.3 90.8Q249.5 88.9 251.1 87.4Q252.7 85.8 254.6 84.6Q256.4 83.4 258.3 82.6Q260.2 81.9 262.1 81.7Q263.9 81.5 265.4 82.1Q267.5 83.1 268.6 86.1ZM264.8 86.6Q263.5 86.4 261.8 86.8Q260.2 87.2 258.5 88.2Q256.8 89.2 255.2 90.8Q253.5 92.3 252.2 94.3Q256.7 93.7 260.1 91.8Q263.5 89.8 264.8 86.6Z M287.9 99Q287.4 99.8 286.7 100.6Q285.9 101.4 285.2 101.9Q284.5 102.5 283.8 102.8Q283.2 103 282.8 102.8Q282.4 102.6 282.6 101.9Q282.7 101.8 282.9 101.5Q283.2 101.3 283.5 101Q283.8 100.7 284.1 100.4Q284.4 100.1 284.5 99.9Q284.9 99.2 284.8 98.7Q284.7 98.1 284.2 97.8Q282.5 96.9 280.4 98.6Q278.3 100.4 276.1 104.7Q275.8 105.1 275.8 105.2Q276.8 105.7 277.5 106Q278.3 106.4 279 106.8Q279 106.9 278.8 107.1Q278.6 107.5 278.4 107.6Q277.2 107.3 276.5 107.2Q275.9 107 275.5 107Q275.1 107 275 107.1Q274.8 107.2 274.7 107.5Q274.5 107.8 274.3 108.2Q274.2 108.5 273.9 109.1Q271.9 112.8 268.7 114Q265.6 115.2 261.8 113.7Q261.2 113.3 260.7 112.7Q260.2 112 259.8 111.2Q259.5 110.4 259.3 109.6Q259.2 108.8 259.4 108.1Q260.2 106.4 261.7 105.2Q263.3 104.1 265.1 103.5Q266.9 103 269 103.1Q271 103.2 273 104.1Q273.6 103 273.9 101.8Q274.3 100.7 274.5 99.5Q274.8 98.4 275.1 97.3Q275.4 96.3 275.8 95.3Q276.5 94.1 277.6 93.2Q278.7 92.3 280 91.7Q281.3 91.1 282.7 91Q284.2 90.8 285.5 91.2Q285.9 91.5 286.4 92.6Q286.9 93.7 287.2 94.9Q287.6 96.1 287.8 97.2Q288 98.4 287.9 99ZM262.7 111.6Q264 111.7 265.4 111.4Q266.8 111 268 110.3Q269.3 109.6 270.4 108.7Q271.4 107.7 272 106.5Q271 106.2 269.6 106.3Q268.2 106.5 266.8 106.9Q265.3 107.4 264.2 108.1Q263 108.8 262.6 109.5Q262.1 110.5 262.7 111.6Z M303.4 111.9Q302.8 112.7 302 113.4Q301.1 114 300.3 114.5Q299.5 114.9 298.9 115.1Q298.2 115.3 297.8 115.1Q297.4 114.7 297.7 114.1Q297.8 114 298.1 113.8Q298.4 113.6 298.8 113.3Q299.1 113.1 299.5 112.8Q299.8 112.6 300 112.3Q300.4 111.8 300.4 111.2Q300.4 110.6 299.9 110.3Q298.3 109.2 296 110.6Q293.7 112 290.9 116Q290.6 116.4 290.6 116.5Q291.5 117.1 292.2 117.5Q292.9 118 293.5 118.4Q293.5 118.6 293.3 118.8Q293.1 119.2 292.8 119.2Q291.7 118.8 291 118.5Q290.4 118.3 290 118.2Q289.6 118.1 289.5 118.2Q289.3 118.3 289.2 118.5Q288.9 118.9 288.7 119.2Q288.5 119.6 288.2 120Q285.7 123.5 282.4 124.2Q279.1 125 275.5 123Q275 122.6 274.6 121.8Q274.2 121.1 273.9 120.3Q273.7 119.4 273.7 118.6Q273.7 117.8 273.9 117.1Q275 115.5 276.6 114.6Q278.3 113.6 280.2 113.3Q282.1 113.1 284.1 113.5Q286.1 113.9 288 115Q288.7 114 289.2 112.9Q289.7 111.7 290.1 110.7Q290.5 109.6 290.9 108.6Q291.3 107.5 292 106.7Q292.7 105.6 293.9 104.8Q295.2 104.1 296.5 103.7Q297.9 103.3 299.4 103.3Q300.8 103.3 302 103.8Q302.4 104.3 302.7 105.4Q303.1 106.5 303.3 107.8Q303.5 109 303.6 110.2Q303.6 111.4 303.4 111.9ZM276.7 121Q278 121.3 279.4 121.2Q280.9 121 282.2 120.5Q283.6 120 284.7 119.1Q285.9 118.3 286.6 117.3Q285.7 116.8 284.3 116.7Q282.9 116.7 281.4 117Q279.9 117.2 278.7 117.8Q277.5 118.3 277 119Q276.3 119.9 276.7 121Z M318 126.7Q315.7 128.8 313.6 129.9Q311.4 130.9 309 131Q306.7 131 304 130.4Q301.3 129.7 298.1 128.5Q297.9 128.7 297.7 128.9Q297.4 129.1 297.2 129.4Q296.8 129.9 296.3 130.4Q295.9 131 295.7 131.6Q295.5 132.2 295.6 132.8Q295.6 133.4 296.2 133.9Q297.1 134.8 298.5 135.3Q299.9 135.7 301.3 135.9Q302.8 136 304.2 136Q305.7 135.9 306.8 135.8Q306.9 136.5 306.9 137Q303.2 137.7 299.9 137.3Q296.6 136.9 294.4 135.7Q292.2 133.1 292.2 130.2Q292.3 127.3 294.3 125.1Q295.7 123.6 297.6 122.5Q299.5 121.3 301.6 120.6Q303.6 119.8 305.8 119.5Q308 119.1 310.1 119.3Q312.1 119.4 313.9 120Q315.6 120.6 316.8 121.7Q318.3 123.5 318 126.7ZM314.4 125.6Q313.2 124.8 311.6 124.5Q309.9 124.1 307.9 124.4Q306 124.6 303.8 125.3Q301.7 126.1 299.7 127.4Q304 128.6 307.9 128.3Q311.9 128 314.4 125.6Z" fill="currentColor"/><g transform="rotate(-10 200 230) translate(200 248) scale(1.1) translate(-200 -236)"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M188 180c-10-11 9-17-1-29" stroke-width="5"/><path d="M207 176c-8-10 8-15 0-26" stroke-width="4.5"/><path d="M170 184c-7-8 6-12-1-20" stroke-width="4"/><ellipse cx="200" cy="208" rx="74" ry="17" stroke-width="6"/><path d="M127 210c2 52 30 80 73 80s69-28 73-80" stroke-width="7"/><path d="M271 222c26-12 46-2 42 18-4 19-26 26-48 22" stroke-width="7"/><path d="M269 234c14-6 27-2 25 9-2 9-14 12-27 10" stroke-width="3.5"/><path d="M104 286c18 22 168 26 206-4" stroke-width="7"/><path d="M126 296c40 20 130 18 168-4" stroke-width="3.5"/><path d="M134 222c4 34 20 56 46 64M146 214c3 10 4 18 9 26" stroke-width="2.5"/><path d="M110 290c20 20 160 22 198-6" stroke-width="2"/><path d="M252 228c-2 22-10 38-24 50M238 232c-2 18-8 32-18 42M262 226c-1 18-6 30-14 40" stroke-width="3.5"/></g><path d="M140 210c18 9 102 9 120 0c-16-7-104-7-120 0z" fill="currentColor"/></g></symbol></svg>
-<a class="skip" href="#entrez" data-i18n="skip">Aller au contenu</a>
+<a class="skip" href="#soir" data-i18n="skip">Aller au contenu</a>
 
 <header class="top" id="top">
   <a class="mark" href="#accueil" aria-label="Bistrot de la Presse, retour en haut" data-i18n-aria="logo_aria"><svg viewBox="0 20 400 330" aria-hidden="true" focusable="false"><use href="#logo"/></svg></a>
@@ -303,12 +310,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <main>
 <section class="hero" id="accueil" aria-labelledby="h1">
-  <div class="loop" aria-hidden="true">
-    <img class="on" src="assets/img/hero-facade-1.webp" width="1440" height="1800" alt="" fetchpriority="high" data-pos="58% 50%|50% 80%">
-    <img data-src="assets/img/hero-facade-2.webp" width="1440" height="1800" alt="" data-pos="46% 50%|50% 56%">
-    <img data-src="assets/img/hero-lamp.webp" width="960" height="1200" alt="" data-pos="52% 50%|50% 52%">
-    <img data-src="assets/img/hero-wall.webp" width="1104" height="2000" alt="" data-pos="58% 50%|50% 30%">
-  </div>
+  <div class="film" aria-hidden="true"><video muted loop playsinline autoplay preload="auto" data-m="assets/film/film-m.mp4" data-mp="assets/film/film-m.jpg" data-d="assets/film/film-d.mp4" data-dp="assets/film/film-d.jpg"></video></div>
   <div class="shade"></div>
   <div class="hero-in">
     <h1 class="name" id="h1"><span class="n1">Bistrot</span> de la Presse</h1>
@@ -320,94 +322,33 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </div>
 </section>
 
-<section class="scene" id="entrez" style="--len:200" aria-label="Entrez" data-i18n-aria="sc1_aria">
-  <div class="stage">
-    <div class="amb" aria-hidden="true"><video muted playsinline loop preload="none"></video><div class="amb-still" style="display:none"></div></div>
-    <div class="media" aria-hidden="true">
-      <video class="on" data-src="assets/clips/room.mp4" data-poster="assets/clips/room-poster.jpg" muted playsinline loop preload="none"></video>
-      <video data-src="assets/clips/lamp.mp4" data-poster="assets/clips/lamp-poster.jpg" muted playsinline loop preload="none"></video>
-      <video data-src="assets/clips/table.mp4" data-poster="assets/clips/table-poster.jpg" muted playsinline loop preload="none"></video>
-    </div>
-    <div class="copy">
-      <p class="line on" data-i18n="e1">Les lampes sont allumées.</p>
-      <p class="line" data-i18n="e2">Votre table est dressée.</p>
-      <div><p class="line" data-i18n="e3">Installez-vous.</p><p class="note" data-i18n="s2_rest">Les tables sont prêtes, le vin est servi et la nuit ne fait que commencer.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="scene" id="cuisine" style="--len:300" aria-label="En cuisine" data-i18n-aria="sc2_aria">
-  <div class="stage">
-    <div class="amb" aria-hidden="true"><video muted playsinline loop preload="none"></video><div class="amb-still" style="display:none"></div></div>
-    <div class="media" aria-hidden="true">
-      <video class="on" data-src="assets/clips/fire.mp4" data-poster="assets/clips/fire-poster.jpg" muted playsinline loop preload="none"></video>
-      <video data-src="assets/clips/lardons.mp4" data-poster="assets/clips/lardons-poster.jpg" muted playsinline loop preload="none"></video>
-      <video data-src="assets/clips/kniddelen.mp4" data-poster="assets/clips/kniddelen-poster.jpg" muted playsinline loop preload="none"></video>
-      <video data-src="assets/clips/sauce.mp4" data-poster="assets/clips/sauce-poster.jpg" muted playsinline loop preload="none"></video>
-    </div>
-    <div class="copy">
-      <p class="line on" data-i18n="k1">Le feu est déjà vif.</p>
-      <p class="line" data-i18n="k2">Le lard grésille.</p>
-      <p class="line" data-i18n="k3">Les Kniddelen passent à la poêle.</p>
-      <p class="line" data-i18n="k4">À la louche.</p>
-    </div>
-  </div>
-</section>
-
-<section class="scene" id="table" style="--len:300" aria-label="À table" data-i18n-aria="sc3_aria">
-  <div class="stage">
-    <div class="amb" aria-hidden="true"><video muted playsinline loop preload="none"></video><div class="amb-still" style="display:none"></div></div>
-    <div class="media" aria-hidden="true">
-      <img class="on" src="assets/img/kniddelen.webp" width="1280" height="1600" alt="" loading="lazy">
-      <video data-src="assets/clips/wainzoossiss.mp4" data-poster="assets/clips/wainzoossiss-poster.jpg" muted playsinline loop preload="none"></video>
-      <video data-src="assets/clips/cordonbleu.mp4" data-poster="assets/clips/cordonbleu-poster.jpg" muted playsinline loop preload="none"></video>
-      <img src="assets/img/paschteit.webp" width="960" height="1200" alt="" loading="lazy">
-    </div>
-    <div class="copy">
-      <div class="dish on"><h3 class="name-d">Kniddelen mat Speck</h3><p data-i18n="d_knid">Quenelles de farine à la luxembourgeoise, lard</p></div>
-      <div class="dish"><h3 class="name-d">Wäinzoossiss</h3><p data-i18n="d_wain">Saucisse de porc et de bœuf, purée de pommes de terre, légumes, sauce à la moutarde</p></div>
-      <div class="dish"><h3 class="name-d">Cordon Bleu de Veau</h3><p data-i18n="d_cordon">Escalope de veau avec sauce champignon, jambon et fromage, légumes, frites</p></div>
-      <div class="dish"><h3 class="name-d">Paschtéit</h3><p data-i18n="d_pasch">Bouchée à la reine avec frites et salade</p></div>
-    </div>
-  </div>
+<section class="soir sec wrap" id="soir" aria-labelledby="s2-h">
+  <h2 class="h2" id="s2-h" data-i18n="s2_cap">Les soirées au Bistrot de la presse ont quelque chose de magique.</h2>
 </section>
 
 <section class="carte sec wrap" id="carte" aria-labelledby="s3-h">
-  <h2 class="h2" id="s3-h" data-i18n="s3_title">Spécialités luxembourgeoises</h2>
-  <div class="carte-cols">
-    <div>
-      <div class="dish-group"><p class="grp" data-i18n="grp_knid">Kniddelen</p>
-      <ul class="dishes">
-        <li><h3 class="h3">Kniddelen mat Speck</h3><p class="small dim" data-i18n="d_knid">Quenelles de farine à la luxembourgeoise, lard</p></li>
-        <li><h3 class="h3">Vegetaresch Kniddelen</h3><p class="small dim" data-i18n="d_veg">Quenelles de farine à la luxembourgeoise, sauce tomate séchée, rucola et parmesan</p></li>
-      </ul></div>
-      <p class="also"><span class="runin" data-i18n="also_label">Et aussi :</span> <span data-i18n="also_text">viande, poissons, pinsa, burgers, salades et desserts faits maison.</span></p>
-    </div>
-    <div>
-      <div class="dish-group"><p class="grp" data-i18n="grp_plats">Les plats</p>
-      <ul class="dishes">
-        <li><h3 class="h3">Judd mat Gaardebounen</h3><p class="small dim" data-i18n="d_judd">Collet de porc fumé, fèves et pommes de terre</p></li>
-        <li><h3 class="h3">Bouneschlupp</h3><p class="small dim" data-i18n="d_boune">Mettwurscht, haricots verts, pommes de terre, lard et oignons</p></li>
-        <li><h3 class="h3">Paschtéit</h3><p class="small dim" data-i18n="d_pasch">Bouchée à la reine avec frites et salade</p></li>
-        <li><h3 class="h3">Wäinzoossiss</h3><p class="small dim" data-i18n="d_wain">Saucisse de porc et de bœuf, purée de pommes de terre, légumes, sauce à la moutarde</p></li>
-        <li><h3 class="h3">Gromperenkichelscher</h3><p class="small dim" data-i18n="d_gromp">Galette de pommes de terre</p></li>
-      </ul></div>
-    </div>
+  <div class="carte-in">
+    <h2 class="carte-h" id="s3-h" data-i18n="s3_title">Spécialités luxembourgeoises</h2>
+    <ul class="carte-list">
+      <li><button type="button" class="dish-row" aria-haspopup="dialog" data-clip="assets/clips/kniddelen.mp4" data-poster="assets/clips/kniddelen-poster.jpg"><span class="dn">Kniddelen mat Speck</span><span class="pm" aria-hidden="true"><svg viewBox="0 0 11 12"><path d="M0 0l11 6-11 6z" fill="currentColor"/></svg></span><span class="dd" data-i18n="d_knid">Quenelles de farine à la luxembourgeoise, lard</span></button></li>
+      <li><div class="dish-row"><span class="dn">Vegetaresch Kniddelen</span><span class="dd" data-i18n="d_veg">Quenelles de farine à la luxembourgeoise, sauce tomate séchée, rucola et parmesan</span></div></li>
+      <li><button type="button" class="dish-row" aria-haspopup="dialog" data-clip="assets/clips/wainzoossiss.mp4" data-poster="assets/clips/wainzoossiss-poster.jpg"><span class="dn">Wäinzoossiss</span><span class="pm" aria-hidden="true"><svg viewBox="0 0 11 12"><path d="M0 0l11 6-11 6z" fill="currentColor"/></svg></span><span class="dd" data-i18n="d_wain">Saucisse de porc et de bœuf, purée de pommes de terre, légumes, sauce à la moutarde</span></button></li>
+      <li><button type="button" class="dish-row" aria-haspopup="dialog" data-still="assets/img/paschteit.webp"><span class="dn">Paschtéit</span><span class="pm" aria-hidden="true"><svg viewBox="0 0 11 12"><path d="M0 0l11 6-11 6z" fill="currentColor"/></svg></span><span class="dd" data-i18n="d_pasch">Bouchée à la reine avec frites et salade</span></button></li>
+      <li><div class="dish-row"><span class="dn">Judd mat Gaardebounen</span><span class="dd" data-i18n="d_judd">Collet de porc fumé, fèves et pommes de terre</span></div></li>
+      <li><div class="dish-row"><span class="dn">Bouneschlupp</span><span class="dd" data-i18n="d_boune">Mettwurscht, haricots verts, pommes de terre, lard et oignons</span></div></li>
+      <li><div class="dish-row"><span class="dn">Gromperenkichelscher</span><span class="dd" data-i18n="d_gromp">Galette de pommes de terre</span></div></li>
+    </ul>
+    <p class="grp label" data-i18n="grp_viande">Viande</p>
+    <ul class="carte-list">
+      <li><button type="button" class="dish-row" aria-haspopup="dialog" data-clip="assets/clips/cordonbleu.mp4" data-poster="assets/clips/cordonbleu-poster.jpg"><span class="dn">Cordon Bleu de Veau</span><span class="pm" aria-hidden="true"><svg viewBox="0 0 11 12"><path d="M0 0l11 6-11 6z" fill="currentColor"/></svg></span><span class="dd" data-i18n="d_cordon">Escalope de veau avec sauce champignon, jambon et fromage, légumes, frites</span></button></li>
+    </ul>
+    <p class="also"><span class="runin" data-i18n="also_label">Et aussi :</span> <span data-i18n="also_text">viande, poissons, pinsa, burgers, salades et desserts faits maison.</span></p>
   </div>
 </section>
 
-<section class="scene" id="verre" style="--len:150" aria-label="Au verre" data-i18n-aria="sc4_aria">
-  <div class="stage">
-    <div class="amb" aria-hidden="true"><video muted playsinline loop preload="none"></video><div class="amb-still" style="display:none"></div></div>
-    <div class="media" aria-hidden="true">
-      <video class="on" data-src="assets/clips/pour.mp4" data-poster="assets/clips/pour-poster.jpg" muted playsinline loop preload="none"></video>
-      <video data-src="assets/clips/pour2.mp4" data-poster="assets/clips/pour2-poster.jpg" muted playsinline loop preload="none"></video>
-    </div>
-    <div class="copy">
-      <p class="line on" data-i18n="v1">Un verre de vin ?</p>
-      <p class="line" data-i18n="s5_title">Nos vins au verre</p>
-    </div>
-  </div>
+<section class="verre sec" id="verre" aria-labelledby="s5-h">
+  <h2 class="h2 wrap" id="s5-h" data-i18n="s5_title">Nos vins au verre</h2>
+  <div class="band" aria-hidden="true"><video muted loop playsinline preload="none" data-m="assets/clips/pour.mp4" data-mp="assets/clips/pour-poster.jpg" data-d="assets/clips/pour-d.mp4" data-dp="assets/clips/pour-d-poster.jpg"></video></div>
 </section>
 
 <section class="palais sec wrap" id="contact" aria-labelledby="s6-h">
@@ -440,6 +381,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </section>
 </main>
 
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vw-name" hidden>
+  <div class="vw-amb" aria-hidden="true"></div>
+  <div class="vw-stage">
+    <video class="vw-media" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <img class="vw-media" alt="" hidden>
+    <div class="vw-shade"></div>
+    <div class="vw-text"><h2 id="vw-name"></h2><p></p></div>
+  </div>
+  <button type="button" class="vw-close" aria-label="Fermer" data-i18n-aria="v_close"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></button>
+</div>
+
 <footer class="foot wrap">
   <div class="grid">
     <div class="f-logo"><svg viewBox="0 20 400 330" role="img" aria-label="Bistrot de la Presse"><use href="#logo"/></svg></div>
@@ -461,6 +413,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
   var I18N = {
     fr: {
+      s2_cap: "Les soirées au Bistrot de la presse ont quelque chose de magique.",
+      grp_viande: "Viande",
+      v_close: "Fermer",
       meta_title: "Bistrot de la Presse, face au Palais grand-ducal, Luxembourg",
       meta_desc: "Bistrot de la Presse, face au Palais grand-ducal : spécialités luxembourgeoises, vins au verre, 24 rue du Marché-aux-Herbes, Luxembourg.",
       skip: "Aller au contenu",
@@ -468,7 +423,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       aria_lang: "Langue",
       cta_book: "Réserver",
       hero_sub: "Face au Palais grand-ducal",
-      s2_rest: "Les tables sont prêtes, le vin est servi et la nuit ne fait que commencer.",
       d_knid: "Quenelles de farine à la luxembourgeoise, lard",
       d_veg: "Quenelles de farine à la luxembourgeoise, sauce tomate séchée, rucola et parmesan",
       d_judd: "Collet de porc fumé, fèves et pommes de terre",
@@ -488,29 +442,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       ev1: "Événements privés",
       ev2: "Matchs sur la terrasse",
       s6_title: "Face au Palais grand\u2011ducal",
-      grp_knid: "Kniddelen",
-      grp_plats: "Les plats",
       also_label: "Et aussi :",
       also_text: "viande, poissons, pinsa, burgers, salades et desserts faits maison.",
-      sc1_aria: "Entrez",
-      sc2_aria: "En cuisine",
-      sc3_aria: "À table",
-      sc4_aria: "Au verre",
-      e1: "Les lampes sont allumées.",
-      e2: "Votre table est dressée.",
-      e3: "Installez-vous.",
-      k1: "Le feu est déjà vif.",
-      k2: "Le lard grésille.",
-      k3: "Les Kniddelen passent à la poêle.",
-      k4: "À la louche.",
       d_cordon: "Escalope de veau avec sauce champignon, jambon et fromage, légumes, frites",
-      v1: "Un verre de vin ?",
       close_call: "Votre table vous attend.",
       alt_palais: "Une table de la terrasse avec des fleurs, face au Palais grand-ducal.",
       alt_close: "Une lampe allumée et deux verres de vin sur une table de marbre, la nuit.",
       disc: "Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
     },
     de: {
+      s2_cap: "Die Abende im Bistrot de la Presse haben etwas Magisches.",
+      grp_viande: "Fleisch",
+      v_close: "Schließen",
       meta_title: "Bistrot de la Presse, gegenüber dem großherzoglichen Palast, Luxemburg",
       meta_desc: "Bistrot de la Presse, gegenüber dem großherzoglichen Palast: Luxemburger Spezialitäten, offene Weine, 24 rue du Marché-aux-Herbes, Luxemburg.",
       skip: "Zum Inhalt",
@@ -518,7 +461,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       aria_lang: "Sprache",
       cta_book: "Reservieren",
       hero_sub: "Gegenüber dem großherzoglichen Palast",
-      s2_rest: "Die Tische sind gedeckt, der Wein ist eingeschenkt, und der Abend fängt gerade erst an.",
       d_knid: "Luxemburger Mehlklöße mit Speck",
       d_veg: "Luxemburger Mehlklöße, Sauce aus getrockneten Tomaten, Rucola und Parmesan",
       d_judd: "Geräucherter Schweinenacken, dicke Bohnen und Kartoffeln",
@@ -538,29 +480,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       ev1: "Private Feiern",
       ev2: "Fußball auf der Terrasse",
       s6_title: "Gegenüber dem großherzoglichen Palast",
-      grp_knid: "Kniddelen",
-      grp_plats: "Gerichte",
       also_label: "Außerdem:",
       also_text: "Fleisch, Fisch, Pinsa, Burger, Salate und hausgemachte Desserts.",
-      sc1_aria: "Willkommen",
-      sc2_aria: "In der Küche",
-      sc3_aria: "Zu Tisch",
-      sc4_aria: "Glasweise",
-      e1: "Die Lampen brennen.",
-      e2: "Ihr Tisch ist gedeckt.",
-      e3: "Nehmen Sie Platz.",
-      k1: "Das Feuer lodert schon.",
-      k2: "Der Speck brutzelt.",
-      k3: "Die Kniddelen kommen in die Pfanne.",
-      k4: "Mit der Kelle.",
       d_cordon: "Kalbsschnitzel mit Schinken und Käse gefüllt, Pilzsauce, Gemüse, Pommes frites",
-      v1: "Ein Glas Wein?",
       close_call: "Ihr Tisch wartet auf Sie.",
       alt_palais: "Ein Terrassentisch mit Blumen, gegenüber dem großherzoglichen Palast.",
       alt_close: "Eine brennende Lampe und zwei Weingläser auf einem Marmortisch, bei Nacht.",
       disc: "Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
     },
     en: {
+      s2_cap: "Evenings at the Bistrot de la Presse have something magical about them.",
+      grp_viande: "Meat",
+      v_close: "Close",
       meta_title: "Bistrot de la Presse, opposite the Grand Ducal Palace, Luxembourg",
       meta_desc: "Bistrot de la Presse, opposite the Grand Ducal Palace: Luxembourgish specialities and wine by the glass, 24 rue du Marché-aux-Herbes, Luxembourg.",
       skip: "Skip to content",
@@ -568,7 +499,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       aria_lang: "Language",
       cta_book: "Book",
       hero_sub: "Opposite the Grand Ducal Palace",
-      s2_rest: "The tables are set, the wine is poured and the night is only just beginning.",
       d_knid: "Luxembourg-style flour dumplings with bacon",
       d_veg: "Luxembourg-style flour dumplings, sun-dried tomato sauce, rocket and parmesan",
       d_judd: "Smoked pork collar, broad beans and potatoes",
@@ -588,23 +518,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       ev1: "Private events",
       ev2: "Football on the terrace",
       s6_title: "Opposite the Grand Ducal Palace",
-      grp_knid: "Kniddelen",
-      grp_plats: "Dishes",
       also_label: "Also on the menu:",
       also_text: "meat, fish, pinsa, burgers, salads and homemade desserts.",
-      sc1_aria: "Come in",
-      sc2_aria: "In the kitchen",
-      sc3_aria: "At the table",
-      sc4_aria: "By the glass",
-      e1: "The lamps are lit.",
-      e2: "Your table is set.",
-      e3: "Make yourself at home.",
-      k1: "The fire's already roaring.",
-      k2: "The bacon's sizzling.",
-      k3: "The Kniddelen hit the pan.",
-      k4: "By the ladle.",
       d_cordon: "Veal escalope stuffed with ham and cheese, mushroom sauce, vegetables, fries",
-      v1: "A glass of wine?",
       close_call: "Your table is waiting.",
       alt_palais: "A terrace table with flowers, opposite the Grand Ducal Palace.",
       alt_close: "A lit lamp and two wine glasses on a marble table at night.",
@@ -635,121 +551,116 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   applyLang(initLang);
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* hero: art-directed crop per breakpoint (mobile|desktop) */
   var wide = window.matchMedia("(min-width: 900px)");
-  var loop = Array.prototype.slice.call(document.querySelectorAll(".loop img"));
-  function placeLoop() { loop.forEach(function (img) { var p = (img.getAttribute("data-pos") || "").split("|"); img.style.objectPosition = (wide.matches ? p[1] : p[0]) || "50% 50%"; }); }
-  placeLoop();
-  if (wide.addEventListener) wide.addEventListener("change", placeLoop);
+  var viewerOpen = false;
 
-  /* hero: frames 2-4 load after first paint */
-  function loadRest() { loop.forEach(function (img) { var d = img.getAttribute("data-src"); if (d) { img.src = d; img.removeAttribute("data-src"); } }); }
-  if (document.readyState === "complete") requestAnimationFrame(loadRest);
-  else window.addEventListener("load", function () { requestAnimationFrame(loadRest); });
+  /* one source per media: the 9:16 cut on phones, the 16:9 cut on desktop; never both downloaded */
+  function pick(v) {
+    var src = v.getAttribute(wide.matches ? "data-d" : "data-m"), ps = v.getAttribute(wide.matches ? "data-dp" : "data-mp");
+    if (ps && v.getAttribute("poster") !== ps) v.setAttribute("poster", ps);
+    if (reduce) return false;
+    if (v.getAttribute("src") !== src) { v.src = src; return true; }
+    return false;
+  }
+  function play(v) { if (v.paused && v.getAttribute("src")) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
 
-  /* hero: slow crossfade, 7 s per image, no camera move */
-  if (!reduce && loop.length > 1) {
-    var i = 0;
-    setInterval(function () {
-      loop[i].classList.remove("on");
-      i = (i + 1) % loop.length;
-      loop[i].classList.add("on");
-    }, 7000);
-  }
+  /* hero: the film; with reduced motion the poster stays */
+  var film = document.querySelector(".film video");
+  var filmSeen = true;
+  pick(film);
+  function syncFilm() { if (!reduce && filmSeen && !viewerOpen && !document.hidden) play(film); else if (!film.paused) film.pause(); }
+  syncFilm();
 
-  /* scenes: scroll progress inside each pinned track picks the clip and the line (native scroll, no wheel capture) */
-  var scenes = Array.prototype.slice.call(document.querySelectorAll(".scene")).map(function (el) {
-    var amb = el.querySelector(".amb");
-    return { el: el, amb: amb, ambV: amb.querySelector("video"), ambI: amb.querySelector(".amb-still"),
-             media: Array.prototype.slice.call(el.querySelectorAll(".media > *")),
-             copy: Array.prototype.slice.call(el.querySelectorAll(".copy > *")), step: 0, inView: false };
-  });
-  function loadScene(sc) {
-    /* posters and clips load only as a scene comes near; with reduced motion, posters only */
-    sc.media.forEach(function (m) {
-      var ps = m.getAttribute("data-poster"); if (ps) { m.poster = ps; m.removeAttribute("data-poster"); }
-      var d = m.getAttribute("data-src"); if (d && !reduce) { m.src = d; m.removeAttribute("data-src"); }
-    });
-    sc.loaded = true;
-    syncAmb(sc, false);
-    playActive(sc);
-  }
-  function playActive(sc) {
-    sc.media.forEach(function (m, i) {
-      if (m.tagName !== "VIDEO") return;
-      if (!reduce && sc.inView && i === sc.step) { if (m.paused && m.getAttribute("src")) { var p = m.play(); if (p && p.catch) p.catch(function () {}); } }
-      else if (!m.paused) m.pause();
-    });
-    var av = sc.ambV, live = !reduce && sc.inView && wide.matches && av.style.display !== "none" && av.getAttribute("src");
-    if (live && av.paused) { var q = av.play(); if (q && q.catch) q.catch(function () {}); }
-    else if (!live && !av.paused) av.pause();
-  }
-  function setStep(sc, n) {
-    if (n === sc.step) return;
-    sc.step = n;
-    sc.media.forEach(function (m, i) { m.classList.toggle("on", i === n); });
-    sc.copy.forEach(function (c, i) { c.classList.toggle("on", i === n); });
-    syncAmb(sc, true);
-    playActive(sc);
-  }
-  /* desktop ambient layer: the same file as the active clip (already cached), blurred and dark; it dips with the panel */
-  function syncAmb(sc, dip) {
-    if (!wide.matches) { sc.ambV.pause(); return; }
-    clearTimeout(sc.ambT);
-    if (dip) sc.amb.classList.add("dip");
-    sc.ambT = setTimeout(function () {
-      var a = sc.media[sc.step], av = sc.ambV, ai = sc.ambI;
-      if (a.tagName === "VIDEO") {
-        ai.style.display = "none"; av.style.display = "block";
-        var ps = a.getAttribute("poster") || a.getAttribute("data-poster") || "";
-        if (ps && av.getAttribute("poster") !== ps) av.setAttribute("poster", ps);
-        var src = a.getAttribute("src");
-        if (src && !reduce) { if (av.getAttribute("src") !== src) av.src = src; }
-        else av.removeAttribute("src");
-      } else {
-        av.pause(); av.style.display = "none"; ai.style.display = "block";
-        if (ai.getAttribute("data-src") !== a.getAttribute("src")) { ai.setAttribute("data-src", a.getAttribute("src")); ai.style.backgroundImage = "url(\"" + a.getAttribute("src") + "\")"; }
-      }
-      sc.amb.classList.remove("dip");
-      playActive(sc);
-    }, dip ? 250 : 0);
-  }
-  function onScenes() {
-    var vh = window.innerHeight;
-    scenes.forEach(function (sc) {
-      var r = sc.el.getBoundingClientRect(), span = r.height - vh;
-      var p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
-      sc.inView = r.bottom > 0 && r.top < vh;
-      if (sc.inView && !sc.loaded) loadScene(sc);
-      setStep(sc, Math.min(sc.media.length - 1, Math.floor(p * sc.media.length)));
-      playActive(sc);
-    });
+  /* au verre: the pour band plays only while it is on screen */
+  var band = document.querySelector(".band video");
+  var bandSeen = false, bandLoaded = false;
+  function syncBand() {
+    if (!bandLoaded && bandSeen) { bandLoaded = true; pick(band); }
+    if (!reduce && bandSeen && !viewerOpen && !document.hidden) play(band); else if (!band.paused) band.pause();
   }
   if ("IntersectionObserver" in window) {
-    var near = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { loadScene(scenes.filter(function (sc) { return sc.el === en.target; })[0]); near.unobserve(en.target); } });
-    }, { rootMargin: "100% 0px" });
-    var seen = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        var sc = scenes.filter(function (x) { return x.el === en.target; })[0];
-        sc.inView = en.isIntersecting; playActive(sc);
-      });
-    }, { threshold: 0 });
-    scenes.forEach(function (sc) { near.observe(sc.el); seen.observe(sc.el); });
-  } else {
-    scenes.forEach(function (sc) { loadScene(sc); sc.inView = true; });
+    new IntersectionObserver(function (en) { filmSeen = en[0].isIntersecting; syncFilm(); }, { threshold: 0 }).observe(document.querySelector(".hero"));
+    new IntersectionObserver(function (en) { bandSeen = en[0].isIntersecting; syncBand(); }, { rootMargin: "200px 0px" }).observe(document.querySelector(".band"));
+  } else { bandSeen = true; syncBand(); }
+  document.addEventListener("visibilitychange", function () { syncFilm(); syncBand(); });
+  if (wide.addEventListener) wide.addEventListener("change", function () {
+    if (pick(film)) syncFilm();
+    if (bandLoaded && pick(band)) syncBand();
+  });
+
+  /* the cinema menu: a dish opens full-screen; only the open clip plays */
+  var viewer = document.getElementById("viewer");
+  var vwVideo = viewer.querySelector("video.vw-media"), vwImg = viewer.querySelector("img.vw-media");
+  var vwAmb = viewer.querySelector(".vw-amb"), vwStage = viewer.querySelector(".vw-stage");
+  var vwName = document.getElementById("vw-name"), vwDesc = viewer.querySelector(".vw-text p");
+  var vwClose = viewer.querySelector(".vw-close");
+  var opener = null, closeT = 0;
+
+  function openDish(btn) {
+    clearTimeout(closeT);
+    opener = btn; viewerOpen = true;
+    vwName.textContent = btn.querySelector(".dn").textContent;
+    vwDesc.textContent = btn.querySelector(".dd").textContent;
+    var clip = btn.getAttribute("data-clip"), still = btn.getAttribute("data-still");
+    vwAmb.innerHTML = ""; vwAmb.className = "vw-amb"; vwAmb.style.backgroundImage = "";
+    if (clip) {
+      vwImg.hidden = true; vwImg.removeAttribute("src");
+      vwVideo.hidden = false;
+      vwVideo.setAttribute("poster", btn.getAttribute("data-poster"));
+      if (!reduce) { vwVideo.src = clip; }
+      if (wide.matches) {
+        /* the blurred copy is the same file, already in cache */
+        var amb = document.createElement("video");
+        amb.muted = true; amb.loop = true; amb.playsInline = true; amb.setAttribute("muted", ""); amb.setAttribute("playsinline", "");
+        amb.setAttribute("poster", btn.getAttribute("data-poster"));
+        amb.style.cssText = "width:100%;height:100%;object-fit:cover";
+        if (!reduce) amb.src = clip;
+        vwAmb.appendChild(amb);
+      }
+    } else {
+      vwVideo.hidden = true; vwVideo.removeAttribute("src"); vwVideo.removeAttribute("poster");
+      vwImg.hidden = false; vwImg.src = still;
+      vwAmb.classList.add("still"); vwAmb.style.backgroundImage = "url(\"" + still + "\")";
+    }
+    viewer.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    syncFilm(); syncBand();
+    requestAnimationFrame(function () { viewer.classList.add("open"); });
+    if (clip && !reduce) { play(vwVideo); var a = vwAmb.querySelector("video"); if (a) play(a); }
+    vwClose.focus();
   }
-  var ticking = false;
-  window.addEventListener("scroll", function () {
-    if (ticking) return; ticking = true;
-    requestAnimationFrame(function () { ticking = false; onScenes(); });
-  }, { passive: true });
-  function setBar() { document.documentElement.style.setProperty("--bar", (wide.matches ? 80 : 0) + "px"); }
-  setBar();
-  window.addEventListener("resize", onScenes);
-  if (wide.addEventListener) wide.addEventListener("change", function () { setBar(); scenes.forEach(function (sc) { syncAmb(sc, false); }); });
-  onScenes();
+  function closeDish() {
+    if (!viewerOpen) return;
+    viewerOpen = false;
+    viewer.classList.remove("open");
+    vwStage.style.transform = "";
+    vwVideo.pause();
+    var a = vwAmb.querySelector("video"); if (a) { a.pause(); a.removeAttribute("src"); a.load(); }
+    closeT = setTimeout(function () {
+      viewer.hidden = true; vwAmb.innerHTML = "";
+      vwVideo.removeAttribute("src"); vwVideo.load();
+    }, reduce ? 0 : 300);
+    document.documentElement.style.overflow = "";
+    syncFilm(); syncBand();
+    if (opener) opener.focus();
+  }
+  each("button.dish-row", function (b) { b.addEventListener("click", function () { openDish(b); }); });
+  vwClose.addEventListener("click", closeDish);
+  /* a tap outside the clip (the blurred ground) closes */
+  viewer.addEventListener("click", function (e) { if (e.target === viewer || e.target === vwStage || vwAmb.contains(e.target)) closeDish(); });
+  document.addEventListener("keydown", function (e) {
+    if (!viewerOpen) return;
+    if (e.key === "Escape") { e.preventDefault(); closeDish(); }
+    else if (e.key === "Tab") { e.preventDefault(); vwClose.focus(); } /* the close button is the only control inside */
+  });
+  /* swipe down to close on touch screens */
+  var y0 = null, dy = 0;
+  viewer.addEventListener("touchstart", function (e) { if (e.touches.length === 1) { y0 = e.touches[0].clientY; dy = 0; vwStage.style.transition = "none"; } }, { passive: true });
+  viewer.addEventListener("touchmove", function (e) { if (y0 === null) return; dy = Math.max(0, e.touches[0].clientY - y0); vwStage.style.transform = "translateY(" + dy + "px)"; }, { passive: true });
+  viewer.addEventListener("touchend", function () {
+    if (y0 === null) return; y0 = null; vwStage.style.transition = "";
+    if (dy > 90) closeDish(); else vwStage.style.transform = "";
+  });
 
   /* header: transparent only at the very top; an opaque night bar as soon as the page scrolls */
   var bar = document.getElementById("top");
