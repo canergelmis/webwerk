@@ -401,6 +401,15 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
   .table__menu{grid-column:2/12;margin-top:40px;padding:40px var(--pad) 44px;display:grid;grid-template-columns:1fr 1fr;column-gap:64px;align-items:start}
   .table__menu .col + .col .menu__h{margin-top:0}
 }
+
+/* the next room: one quiet brass control, bottom right; gone at the end of the page */
+.cue{position:fixed;z-index:55;right:var(--gut);bottom:calc(var(--gut) + env(safe-area-inset-bottom, 0px));width:44px;height:44px;display:grid;place-items:center;border-radius:50%;
+  border:1px solid rgba(202,118,67,.75);background:rgba(13,23,38,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--peach);cursor:pointer;
+  transition:opacity .4s ease,visibility .4s,background-color .2s,color .2s}
+.cue:focus-visible{background:var(--peach);color:var(--navy)}
+@media (hover:hover){.cue:hover{background:var(--peach);color:var(--navy)}}
+.cue.gone{opacity:0;visibility:hidden}
+@media (min-width:960px){.cue{width:52px;height:52px}}
 </style>
 </head>
 <body>
@@ -618,6 +627,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
   </section>
 </main>
 
+<button class="cue" type="button" aria-label="Section suivante" data-i18n-aria="cue_label"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></button>
 <footer class="foot">
   <img class="foot__emblem" src="assets/logo-emblem.png" alt="" width="256" height="272" loading="lazy">
   <img class="foot__mark" src="assets/logo-wordmark.png" alt="Perle Noire" width="1008" height="194" loading="lazy">
@@ -644,7 +654,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
       hero_hours: "Montag bis Samstag, 18 bis 1 Uhr. Ohne Reservierung.",
       hero_where: "Im Obergeschoss des Restaurants La Lorraine, 7, Place d'Armes, <span class='nw'>L-1136</span> Luxemburg.",
       award: "Bar des Jahres 2026, Gault&amp;Millau",
-      room_label: "Der Raum",
+      room_label: "Der Raum", cue_label: "Nächster Abschnitt",
       alt_room: "Der Raum: Samtbank, Messinglampe, Wandpaneele mit Bögen und gerahmte Austernschalen",
       cap_room: "Tiefer Samt, dezenter Glanz …",
       salon_text: "Montag bis Samstag, von 18 bis 1 Uhr, empfängt Sie Perle Noire in gedämpfter, eleganter Atmosphäre im Obergeschoss des Restaurants La Lorraine: bequeme Samtsessel, gedämpftes Licht.",
@@ -718,7 +728,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
       hero_hours: "Monday to Saturday, 6 pm to 1 am. No reservations.",
       hero_where: "Upstairs at La Lorraine, 7 Place d'Armes, <span class='nw'>L-1136</span> Luxembourg.",
       award: "Bar of the Year 2026, Gault&amp;Millau",
-      room_label: "The room",
+      room_label: "The room", cue_label: "Next section",
       alt_room: "The room: a velvet banquette, a brass lamp, arched wall panels and framed oyster shells",
       cap_room: "Deep velvet, discreet sparkle…",
       salon_text: "Monday to Saturday, from 6 pm to 1 am, Perle Noire welcomes you upstairs at La Lorraine, in a hushed and refined room: comfortable velvet seats, low light.",
@@ -908,6 +918,22 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
   g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
   document.body.appendChild(g);
 })();
+</script>
+<script>
+  // ---------- the next room: jump to the next section; gone once the way in is on screen ----------
+  (() => {
+    const cue = document.querySelector('.cue'); if (!cue) return;
+    const stops = ['.room', '.rouge', '#carte', '.nights', '#venir'].map(q => document.querySelector(q)).filter(Boolean);
+    const head = () => (document.getElementById('topbar') || {}).offsetHeight || 0;
+    cue.addEventListener('click', () => {
+      const y = window.scrollY + head() + 8;
+      const next = stops.find(el => el.getBoundingClientRect().top + window.scrollY > y + 4);
+      if (next) window.scrollTo({ top: next.getBoundingClientRect().top + window.scrollY - head(), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+    const last = stops[stops.length - 1];
+    const tick = () => cue.classList.toggle('gone', last.getBoundingClientRect().top < window.innerHeight * 0.6);
+    window.addEventListener('scroll', tick, { passive: true }); tick();
+  })();
 </script>
 </body>
 </html>
