@@ -214,6 +214,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes leap{0%{opacity:0;transform:translate(-38%,26%) rotate(-14deg) scale(.7)}60%{opacity:1;transform:translate(3%,-4%) rotate(2deg) scale(1.04)}100%{opacity:1;transform:none}}
 .logo-in{animation:leap 1.15s cubic-bezier(.2,.8,.25,1) both}
 </style>
+<style>
+.cue{position:fixed;z-index:60;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));display:grid;place-items:center;width:56px;height:56px;border-radius:50%;border:1.5px solid rgba(246,233,200,.6);background:rgba(20,8,12,.45);color:#F6E9C8;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background-color .2s,border-color .2s,color .2s,opacity .35s,visibility .35s}
+.cue:hover,.cue:focus-visible{background:#C83C37;border-color:#C83C37;color:#fff;outline:none}
+.cue.gone{opacity:0;visibility:hidden}
+.cue svg{animation:cuebob 2.4s ease-in-out infinite}
+@keyframes cuebob{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+.cue .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:899px){.cue{width:48px;height:48px}}
+@media (prefers-reduced-motion:reduce){.cue svg{animation:none}}
+</style>
 </head>
 <body>
 
@@ -303,6 +313,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </div>
   <p class="cred"><span data-t="c1">Photos: Ramen Samurai and Google Maps contributors</span><br><span data-t="c2">Illustrations: generated for this proposal</span></p>
 </section>
+<button class="cue" type="button"><span class="sr">Scroll down</span><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <footer class="foot"><p data-t="foot" style="margin:0">An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.</p></footer>
 
 <script>
@@ -765,6 +776,32 @@ function frame(now){
 }
 requestAnimationFrame(frame);
 }, 0);
+})();
+</script>
+<script>
+/* Next-scene arrow, bottom right (as on webwerk.lu): glides to the next stop, hides at the last. */
+(function(){
+  var cue=document.querySelector('.cue'); if(!cue) return;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  var SR={en:'Scroll down',fr:'Faire défiler',de:'Weiter scrollen'};
+  function label(){ var l=(document.documentElement.lang||'en').slice(0,2); cue.querySelector('.sr').textContent=SR[l]||SR.en; cue.setAttribute('aria-label',SR[l]||SR.en); }
+  label(); new MutationObserver(label).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  function maxY(){ return Math.max(document.documentElement.scrollHeight-innerHeight,0); }
+  /* stops in screen-heights, from the page timeline: each banner fully alive, the curtain, the ramen, the finale, the end */
+  function stops(){ var H=innerHeight; return [1.6,3.8,6.0,7.55,8.6,9.9].map(function(k){return Math.round(k*H);}).concat([maxY()]); }
+  function next(){ var s=stops(); for(var i=0;i<s.length;i++){ if(s[i]>scrollY+24) return Math.min(s[i],maxY()); } return null; }
+  var anim=null;
+  function glide(){
+    var to=next(); if(to==null) return; var from=scrollY;
+    if(reduce.matches){ scrollTo(0,to); return; }
+    var dur=Math.min(Math.max((to-from)/innerHeight*900,700),2600), t0=performance.now();
+    anim=function(t){ if(!anim) return; var u=Math.min((t-t0)/dur,1), e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2; scrollTo(0,from+(to-from)*e); if(u<1) requestAnimationFrame(anim); else anim=null; };
+    requestAnimationFrame(anim);
+  }
+  cue.addEventListener('click',glide);
+  ['wheel','touchstart','mousedown','keydown'].forEach(function(n){ addEventListener(n,function(e){ if(e.target!==cue && !cue.contains(e.target)) anim=null; },{passive:true}); });
+  function state(){ cue.classList.toggle('gone', next()==null); }
+  addEventListener('scroll',state,{passive:true}); addEventListener('resize',state); addEventListener('load',state); state();
 })();
 </script>
 <script>
