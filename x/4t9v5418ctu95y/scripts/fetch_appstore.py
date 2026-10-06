@@ -51,7 +51,7 @@ def get(url: str, tries: int = 3) -> bytes:
                 return r.read()
         except (TimeoutError, OSError) as e:
             print(f"  retry {attempt + 1}: {e}")
-            time.sleep(4)
+            time.sleep(4 * (attempt + 1))
     raise RuntimeError(f"failed: {url}")
 
 
@@ -86,13 +86,32 @@ def main() -> int:
     history["ratings_source"] = "Apple App Store lookup, total ratings per storefront (ChatGPT, Gemini, Claude)"
     history["ratings_url"] = "https://performance-partners.apple.com/search-api"
     markets, ratings, dates = {}, {}, set()
-    for iso3, cc in MARKETS.items():
-        apps, when = fetch_chart(cc)
-        markets[iso3] = apps
-        ratings[iso3] = fetch_ratings(cc)
-        dates.add(when)
-        print(iso3, apps, ratings[iso3])
-        time.sleep(0.3)
+    # Apple's feeds fail now and then (502/504) for one storefront. Retry those in later passes;
+    # if any still fails, write nothing, so every stored snapshot covers all markets.
+    todo = list(MARKETS.items())
+    for attempt in range(3):
+        failed = []
+        for iso3, cc in todo:
+            try:
+                apps, when = fetch_chart(cc)
+                ratings[iso3] = fetch_ratings(cc)
+            except RuntimeError as e:
+                print(f"{iso3}: {e}")
+                failed.append((iso3, cc))
+                continue
+            markets[iso3] = apps
+            dates.add(when)
+            print(iso3, apps, ratings[iso3])
+            time.sleep(0.3)
+        if not failed:
+            break
+        todo = failed
+        if attempt < 2:
+            print(f"retrying {[c for c, _ in failed]} in 60s")
+            time.sleep(60)
+    else:
+        print(f"no snapshot written: still failing after 3 passes: {[c for c, _ in todo]}")
+        return 1
     date = max(dates)
     # One snapshot per feed date; a re-run on the same day replaces it.
     snaps = [s for s in history["snapshots"] if s["date"] != date]
