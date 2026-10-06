@@ -356,6 +356,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
   @keyframes pn-in{from{opacity:0}to{opacity:1}}
 }
 
+/* phones: the picture fills the wall, so the light has to spill past it to be seen */
+@media (max-width:959px){
+  .lamp{box-shadow:0 2px 0 rgba(0,0,0,.45), 0 14px 40px 6px rgba(255,190,120,.45)}
+  .lamp::after{background:radial-gradient(ellipse 50% 100% at 50% 0, rgba(255,196,136,.58), rgba(255,182,120,.22) 34%, rgba(255,170,110,.05) 62%, rgba(255,170,110,0) 84%)}
+  .bay .frame .lamp{--ph:520px}
+  /* the pool starts just above the hood and fades in, so the lit wall has no edge */
+  .pool{-webkit-mask-image:radial-gradient(calc(50% * var(--k)) calc(100% * var(--k)) at 50% 56px, #000 0, rgba(0,0,0,.92) 46%, rgba(0,0,0,.45) 74%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 64px);-webkit-mask-composite:source-in;
+    mask-image:radial-gradient(calc(50% * var(--k)) calc(100% * var(--k)) at 50% 56px, #000 0, rgba(0,0,0,.92) 46%, rgba(0,0,0,.45) 74%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 64px);mask-composite:intersect}
+  .is-waiting .frame:not(.on) .frame__pic img{filter:brightness(.62) saturate(.85)}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .top,.pool,.lamp,.lamp::before,.lamp::after,.frame__pic img{transition:none !important}
@@ -862,8 +873,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opa
       if (!r.width) { p.hidden = true; return; }
       p.hidden = false;
       const ph = parseFloat(getComputedStyle(l, '::after').height) || 440;
-      const rx = Math.max(r.width * 1.05, 150), ry = ph * 0.95;
-      const x = Math.round(r.left + r.width / 2 - ox - rx), y = Math.round(r.bottom - oy);
+      const narrow = window.innerWidth < 960;
+      const rx = Math.max(r.width * 1.05, narrow ? wall.clientWidth * 1.0 : 150), ry = ph * (narrow ? 1.09 : 0.95);
+      const x = Math.round(r.left + r.width / 2 - ox - rx), y = Math.round(r.bottom - oy - (narrow ? 56 : 0));
       Object.assign(p.style, {
         left: x + 'px', top: y + 'px', width: Math.round(rx * 2) + 'px', height: Math.round(ry) + 'px',
         backgroundPosition: `${ax - x}px ${-y}px, ${-x}px ${-y}px`
