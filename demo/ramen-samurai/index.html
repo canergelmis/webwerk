@@ -180,7 +180,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .strip{display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
     padding:0 16px;scroll-padding:0 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .strip::-webkit-scrollbar{display:none}
-  .strip figure{flex:0 0 72vw;max-width:320px;margin:0;border-radius:8px;scroll-snap-align:start}
+  .strip figure{flex:0 0 auto;height:min(64vw,320px);margin:0;border-radius:8px;overflow:hidden;scroll-snap-align:start}
+  .strip img{height:100%;width:auto;max-width:none;aspect-ratio:auto;object-fit:contain}   /* each photo whole, at its own shape */
   .cred{padding:0 16px}
 }
 
@@ -311,7 +312,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <figure><img src="img/room-alley-800.webp" width="800" height="600" alt="The alley counter" data-ta="alt:a_alley" loading="lazy" decoding="async"></figure>
     <figure><img src="img/bowl-tonkotsu-800.webp" width="800" height="600" alt="A tonkotsu ramen" data-ta="alt:a_tonkotsu" loading="lazy" decoding="async"></figure>
     <figure><img src="img/room-barrels-800.webp" width="800" height="600" alt="The sake-barrel corner" data-ta="alt:a_barrels" loading="lazy" decoding="async"></figure>
-    <figure><img src="img/bowl-meatlovers-800.webp" width="800" height="600" alt="A bowl of ramen at Ramen Samurai" data-ta="alt:a_meat" loading="lazy" decoding="async"></figure>
+    <figure><img src="img/bowl-meatlovers-800.webp" width="800" height="824" alt="A bowl of ramen at Ramen Samurai" data-ta="alt:a_meat" loading="lazy" decoding="async"></figure>
   </div>
   <p class="cred"><span data-t="c1">Photos: Ramen Samurai and Google Maps contributors</span><br><span data-t="c2">Illustrations: generated for this proposal</span></p>
 </section>
@@ -814,7 +815,7 @@ requestAnimationFrame(frame);
   label(); new MutationObserver(label).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   function maxY(){ return Math.max(document.documentElement.scrollHeight-innerHeight,0); }
   /* stops in screen-heights, from the page timeline: each banner fully alive, the curtain, the ramen, the finale, the end */
-  function stops(){ var H=window.__rsH||innerHeight; return [1.6,3.8,6.0,7.55,8.6,9.9].map(function(k){return Math.round(k*H);}).concat([maxY()]); }
+  function stops(){ var H=window.__rsH||innerHeight; return [1.6,3.8,6.0,7.55,9.05,11.38].map(function(k){return Math.round(k*H);}).concat([maxY()]); }
   function next(){ var s=stops(); for(var i=0;i<s.length;i++){ if(s[i]>scrollY+24) return Math.min(s[i],maxY()); } return null; }
   var anim=null;
   function glide(){
