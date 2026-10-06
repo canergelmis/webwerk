@@ -445,12 +445,13 @@ const ARTS = [
 const BOWL_STEAM = [[.40,.55,1.8],[.52,.52,1.6],[.66,.56,1.5]];
 
 /* timeline in screen-heights */
-const SP = .3, UN = .7, LV = .85, RL = .35;     // light finds the banner, unroll, live, roll up
-const A_END = 0.6, CH = SP + UN + LV + RL;        // 2.2 screens per banner
+const SP = .35, UN = .95, LV = .95, RL = .45;     // light finds the banner, unroll, live, roll up
+const A_END = 0.6, CH = SP + UN + LV + RL;        // 2.7 screens per banner
 const chStart = i => A_END + i * CH;
-const CATS = A_END + 3 * CH;                      // 7.2
-const FIN = CATS + 2.7;                           // 9.3
-const END = FIN + 2.1;                            // 11.4
+const CATS = A_END + 3 * CH;                      // 8.7
+const FIN = CATS + 2.7;                           // 11.4
+const END = FIN + 2.1;                            // 13.5
+window.__rsT = { SP, UN, chStart, CATS, FIN };   // shared with the next-scene arrow
 
 /* ---------------- layout ---------------- */
 let W, H, k, rw, rh, ry, portrait, Th, Ty, DPR;
@@ -556,7 +557,7 @@ const setT = (el, tr, op) => { el.style.transform = tr; if (op !== undefined) el
 
 function frame(now){
   const dt = Math.min(.05, (now - last) / 1000); last = now; const time = now / 1000;
-  cur += (tgt - cur) * (1 - Math.pow(1 - .14, dt * 60));
+  cur += (tgt - cur) * (1 - Math.pow(1 - .075, dt * 60));   // slower catch-up: transitions drift rather than snap
   if (Math.abs(tgt - cur) < .0004) cur = tgt;
   const t = cur;
   if (G0) { if (t > A_END - .5) loadGroup(1); if (t > CATS - .6) prepCurtain(); if (t > chStart(1) - .8) loadGroup(2); if (t > chStart(2) - .2) loadGroup(3); if (t > CATS) loadGroup(4); }
@@ -815,14 +816,15 @@ requestAnimationFrame(frame);
   label(); new MutationObserver(label).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   function maxY(){ return Math.max(document.documentElement.scrollHeight-innerHeight,0); }
   /* stops in screen-heights, from the page timeline: each banner fully alive, the curtain, the ramen, the finale, the end */
-  function stops(){ var H=window.__rsH||innerHeight; return [1.6,3.8,6.0,7.55,9.05,11.38].map(function(k){return Math.round(k*H);}).concat([maxY()]); }
+  function stops(){ var H=window.__rsH||innerHeight, T=window.__rsT, live=T.SP+T.UN+.15;   // from the page timeline: each banner alive, the curtain, the open ramen, the finale
+    return [T.chStart(0)+live, T.chStart(1)+live, T.chStart(2)+live, T.CATS+.35, T.CATS+1.85, T.FIN+2.08].map(function(k){return Math.round(k*H);}).concat([maxY()]); }
   function next(){ var s=stops(); for(var i=0;i<s.length;i++){ if(s[i]>scrollY+24) return Math.min(s[i],maxY()); } return null; }
   var anim=null;
   function glide(){
     var to=next(); if(to==null) return; var from=scrollY;
     if(reduce.matches){ scrollTo(0,to); return; }
-    var dur=Math.min(Math.max((to-from)/(window.__rsH||innerHeight)*900,700),2600), t0=performance.now();
-    anim=function(t){ if(!anim) return; var u=Math.min((t-t0)/dur,1), e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2; scrollTo(0,from+(to-from)*e); if(u<1) requestAnimationFrame(anim); else anim=null; };
+    var dur=Math.min(Math.max((to-from)/(window.__rsH||innerHeight)*1700,1300),5200), t0=performance.now();
+    anim=function(t){ if(!anim) return; var u=Math.min((t-t0)/dur,1), e=-(Math.cos(Math.PI*u)-1)/2; scrollTo(0,from+(to-from)*e); if(u<1) requestAnimationFrame(anim); else anim=null; };
     requestAnimationFrame(anim);
   }
   cue.addEventListener('click',glide);
