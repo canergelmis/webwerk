@@ -1,621 +1,922 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="robots" content="noindex, nofollow"/>
-<title>Mont St-Lambert — Cuisine thaïe &amp; chinoise, Limpertsberg</title>
-<meta name="description" content="Mont St-Lambert, bar-restaurant thaï et chinois, 97 avenue du Bois à Limpertsberg : wok, canard, nems et carte de bières."/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mont St-Lambert, bar-restaurant au Limpertsberg</title>
+<meta name="description" content="Mont St-Lambert, bar-restaurant au cœur du Limpertsberg : bières belges, vins et cuisine thaïe et chinoise. 97, avenue du Bois, Luxembourg.">
 <style>
-@font-face{font-family:'Chonburi';src:url('assets/fonts/chonburi-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Kanit';src:url('assets/fonts/kanit-400-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Kanit';src:url('assets/fonts/kanit-700-latin.woff2') format('woff2');font-weight:700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-
+@font-face{font-family:'Nothing You Could Do';src:url('assets/fonts/nothing-you-could-do-latin.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Schibsted Grotesk';src:url('assets/fonts/schibsted-grotesk-latin.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Schibsted Grotesk';src:url('assets/fonts/schibsted-grotesk-latinext.woff2') format('woff2');font-weight:400 700;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 :root{
- --teak:#382013; --teak-d:#271609; --teak-l:#523422; --ink:#2a1c12;
- --cream:#f3e9d6; --stone:#e6d9c0; --card:#fbf5e7;
- --gold:#c8922e; --amber:#e3ac48; --jade:#9a6a1f; --jade-l:#b07a26; --chili:#a8741f;
- --line:#d8c9a9; --muted:#8c7a5f;
- --maxw:1200px;
+  --slate:#1f1c1a;
+  --cream:#efe8d8;
+  --dim:rgba(239,232,216,.62);
+  --line:rgba(239,232,216,.18);
+  --honey:#d08a4c;
+  --sans:'Schibsted Grotesk', system-ui, sans-serif;
+  --hand:'Nothing You Could Do', cursive;
+  --ch:rgba(242,239,230,.92);
+  /* pastel sticks, from their bee-eater mural */
+  --apricot:rgba(242,185,140,.86); --butter:rgba(241,223,154,.86); --sage:rgba(168,213,181,.84); --coral:rgba(240,166,160,.86); --blue:rgba(168,199,228,.84);
+  /* one spacing scale */
+  --s1:8px; --s2:16px; --s3:24px; --s4:40px; --s5:64px; --s6:104px; --s7:168px;
+  --gut:20px;
+  /* one type scale */
+  --t-small:13px; --t-body:16.5px; --t-fact:clamp(28px,calc(2.2vw + 20px),48px);
 }
+@media (min-width:900px){:root{--gut:48px;--t-body:18px}}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--ink);font-family:'Kanit',system-ui,sans-serif;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--slate);color:var(--cream);font-family:var(--sans);font-size:var(--t-body);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,.disp{font-family:'Chonburi','Kanit',serif;font-weight:400;line-height:1.06}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
-.eyebrow{font-family:'Kanit',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--gold)}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:100%;max-width:1440px;margin:0 auto;padding:0 var(--gut)}
+.script{filter:sepia(1) saturate(1.4) brightness(.94)}
+.u{border-bottom:2px solid var(--honey);padding-bottom:4px}
 
-.lotus-div{display:flex;align-items:center;gap:20px;padding:30px 0}
-.lotus-div .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.lotus-div .lo{width:30px;height:22px;color:var(--gold);flex:none}
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--slate);border-bottom:1px solid transparent;transition:border-color .3s}
+.top.lined{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:var(--s2)}
+.top .mark img{height:30px;width:auto}
+.top .right{display:flex;align-items:center;gap:var(--s3)}
+.nav{display:flex;align-items:center;gap:var(--s4);font-family:var(--hand);font-size:21px;font-weight:400}
+.nav a,.nav button{font:inherit;color:rgba(242,239,230,.88);filter:url(#chalk-lite);text-shadow:0 0 .5px rgba(242,239,230,.8);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:6px;text-decoration-color:rgba(242,239,230,.4);transition:color .2s,text-decoration-color .2s}
+.nav a:hover,.nav button:hover,.nav a:focus-visible,.nav button:focus-visible{color:#fff;text-decoration-color:var(--apricot)}
+.nav .far{display:none}
+.lang{display:flex;gap:10px;font-family:var(--hand);font-size:19px}
+.lang button{font:inherit;color:rgba(242,239,230,.5);filter:url(#chalk-lite);padding:4px 2px}
+.lang button:focus-visible{outline:2px solid #f2efe6;outline-offset:2px}
+.lang button.on{color:rgba(242,239,230,.95)}
 
-header{position:sticky;top:0;z-index:50;background:var(--teak-d)}
-header.solid{background:var(--teak-d);box-shadow:0 2px 22px rgba(0,0,0,.32)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:11px}
-.brand{display:flex;align-items:center;gap:12px;color:var(--cream)}
-.brand img{width:46px;height:46px;flex:none;border-radius:50%;background:var(--cream);padding:3px;box-shadow:0 0 0 1px rgba(243,233,214,.4)}
-.brand .nm{font-family:'Chonburi',serif;font-weight:400;font-size:23px;letter-spacing:.01em;line-height:.95;color:var(--cream)}
-.brand .nm small{display:block;font-family:'Kanit';font-size:9px;letter-spacing:.2em;color:var(--amber);font-weight:700;margin-top:4px;text-transform:uppercase}
-nav.links{display:flex;align-items:center;gap:26px}
-nav.links a{font-family:'Kanit',sans-serif;font-weight:400;font-size:15px;color:#efe3ce;opacity:.92}
-nav.links a:hover{color:var(--amber);opacity:1}
-.langs{display:flex;gap:2px;background:rgba(255,255,255,.14);border-radius:999px;padding:3px}
-.langs button{font-family:'Kanit',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;border:0;background:transparent;color:#e6d9c0;padding:5px 11px;border-radius:999px;cursor:pointer}
-.langs button.on{background:var(--jade);color:#fff}
-.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
-.burger span{width:26px;height:2.5px;background:var(--cream);border-radius:2px;transition:.3s}
-.burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.burger.x span:nth-child(2){opacity:0}
-.burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+/* hero: their beer board (from a5) */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:max(640px,calc(100svh - 60px));display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:36px}
+.hero .board{position:absolute;inset:0;z-index:-1}
+.hero .board img{width:100%;height:100%;object-fit:cover;object-position:70% 0}
+.hero .board::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,28,26,0) 0%,rgba(31,28,26,0) 24%,rgba(31,28,26,.9) 40%,var(--slate) 50%,var(--slate) 100%)}
+.hero .wrap{position:relative}
+.hero .wrap::before{content:"";position:absolute;z-index:-1;left:-12%;right:-8%;top:-18%;bottom:-14%;background:radial-gradient(closest-side,rgba(28,26,24,.97) 58%,rgba(28,26,24,.85) 74%,rgba(28,26,24,0) 100%);pointer-events:none}
+.hero .logo{width:min(80vw,540px);height:auto}
+.hero .links{display:flex;gap:28px;margin-top:var(--s4);font-family:var(--hand);font-size:24px;font-weight:400}
+.hero .links a,.hero .links button{font:inherit;font-size:1.12em;color:#f2efe6;filter:url(#chalk-lite);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px;text-decoration-color:rgba(242,239,230,.75);text-shadow:0 0 .5px rgba(242,239,230,.9),0 1px 10px rgba(10,9,8,.85)}
+.hero .links a:hover,.hero .links button:hover{text-decoration-color:var(--apricot);color:#fff}
+.hero .addr{margin-top:var(--s3);font-size:14px;color:var(--dim)}
 
-.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;margin-top:-60px;padding-top:60px;overflow:hidden}
-.hero .bg{position:absolute;inset:0;z-index:-2}
-.hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(24,14,8,0.66) 0%,rgba(24,14,8,0.38) 32%,rgba(24,14,8,0.58) 64%,rgba(18,10,5,0.95) 100%)}
-.hero .inner{padding-bottom:clamp(40px,7vw,88px);padding-top:clamp(40px,10vw,90px);position:relative;z-index:1}
-.hero .eyebrow{color:var(--amber);margin-bottom:16px}
-.hero h1 .nw{white-space:nowrap}
-.hero h1{color:#fff;font-size:clamp(52px,10vw,130px);letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.5)}
-.hero .tag{font-family:'Kanit',sans-serif;font-weight:400;font-size:clamp(18px,2.4vw,27px);color:#f2e6d0;max-width:31ch;margin:20px 0 0;line-height:1.4}
-.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
-.btn{font-family:'Kanit',sans-serif;font-weight:600;letter-spacing:.01em;font-size:15px;padding:14px 28px;border-radius:3px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
-.btn.p{background:var(--jade);color:#fff}
-.btn.p:hover{background:var(--jade-l)}
-.btn.o{background:transparent;color:var(--cream);border-color:rgba(243,233,214,.5)}
-.btn.o:hover{border-color:var(--amber);color:var(--amber)}
+/* the board story: their slate in a honey frame on the ochre wall; chalk written by scroll */
+.story{position:relative;height:960vh;--hh:60px;--pad:20px}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate;background:#211e1c}
+.stage .ground{position:absolute;inset:-3%;background:url(assets/board-blank.jpg) center/cover;filter:grayscale(1) sepia(.16) brightness(.66) contrast(1.16);z-index:-3}
+/* a hint of green, a deeper slate */
+/* fine grain at device resolution, so the photo never looks soft */
+.stage .grain{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.stage::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 60%,rgba(0,0,0,.15) 100%)}
+.story .board{position:absolute;inset:0}
+/* a well-used board: soft, irregular eraser residue after each wipe */
+.rub{position:absolute;inset:0;pointer-events:none;
+  -webkit-mask-image:linear-gradient(100deg,#000 var(--e,-20%),transparent calc(var(--e,-20%) + 20%));mask-image:linear-gradient(100deg,#000 var(--e,-20%),transparent calc(var(--e,-20%) + 20%));
+  background:
+    radial-gradient(22% 9% at 27% 26%,rgba(230,230,220,.035),transparent),
+    radial-gradient(18% 13% at 61% 33%,rgba(230,230,220,.028),transparent),
+    radial-gradient(26% 7% at 38% 51%,rgba(230,230,220,.032),transparent),
+    radial-gradient(14% 16% at 74% 58%,rgba(230,230,220,.025),transparent),
+    radial-gradient(24% 10% at 22% 71%,rgba(230,230,220,.03),transparent),
+    radial-gradient(17% 8% at 57% 79%,rgba(230,230,220,.026),transparent)}
+.rub.r2{transform:rotate(-11deg) scale(1.15) translate(4%,-3%)}
+.rub.r3{transform:rotate(7deg) scale(1.1) translate(-5%,4%)}
+.scene{position:absolute;inset:0;--e:-20%;-webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,.025) var(--e),#000 calc(var(--e) + 20%));mask-image:linear-gradient(100deg,rgba(0,0,0,.025) var(--e),#000 calc(var(--e) + 20%))}
+.scene.gone{filter:blur(1.4px)}
+.scene .in{position:relative;height:100%;padding:calc(var(--hh) + var(--pad)) var(--pad) var(--pad);display:flex;flex-direction:column;align-items:center}
+.chalk,.chalk a{font-family:var(--hand);color:var(--ch);font-weight:400}
+.ln,.dr{-webkit-mask-image:linear-gradient(var(--dir,90deg),#000 var(--a,-14%),transparent var(--b,0%));mask-image:linear-gradient(var(--dir,90deg),#000 var(--a,-14%),transparent var(--b,0%))}
+.ln{position:relative;display:block;width:max-content;max-width:100%;white-space:nowrap;filter:url(#chalk);opacity:var(--op,.92);transform:translateY(var(--dy,0px)) rotate(var(--rot,-.6deg));transform-origin:0 50%}
+/* dust haze under a freshly written line; it settles */
+.ln.wr{-webkit-mask-image:none;mask-image:none}
+.ln .g{display:inline-block;white-space:pre;text-decoration:inherit;text-decoration-color:inherit;text-underline-offset:inherit;text-decoration-thickness:inherit;clip-path:inset(-40% calc((1 - var(--g,0)) * 140% - 40%) -40% -40%);opacity:calc(var(--g,0) * 8);transform:translateY(calc((1 - var(--g,0)) * .6px))}
+.ln::after{content:"";position:absolute;left:-2%;right:-2%;top:62%;height:55%;pointer-events:none;background:radial-gradient(50% 50% at 50% 40%,rgba(242,239,230,.12),rgba(242,239,230,0));opacity:calc(var(--hz,0) * .9);transform:translateY(calc((1 - var(--hz,0)) * 4px))}
+.dr{position:relative;--dir:110deg;transform:rotate(var(--rot,0deg))}
+.dr img{display:block;width:100%;height:auto}
+.smear{position:absolute;top:-20%;left:0;width:60%;height:140%;pointer-events:none;opacity:0;background:radial-gradient(closest-side,rgba(226,226,216,.07),rgba(226,226,216,0));transform:translateX(-80vw) rotate(9deg);z-index:3}
+.nib{position:absolute;left:0;top:0;width:5px;height:5px;border-radius:50%;background:#f2efe6;box-shadow:0 0 6px 2px rgba(242,239,230,.3),-6px 3px 0 -1px rgba(242,239,230,.3),-11px 6px 0 -1.5px rgba(242,239,230,.18);opacity:0;pointer-events:none;z-index:4}
+.ctr{margin-left:auto;margin-right:auto;transform-origin:50% 50%}
 
-.facts{background:var(--teak-d);color:#efe3ce}
-.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12)}
-.facts .c{background:var(--teak-d);padding:26px clamp(18px,4vw,40px)}
-.facts .k{font-family:'Kanit';font-weight:700;letter-spacing:.14em;font-size:11px;color:var(--amber);text-transform:uppercase}
-.facts .v{font-size:16px;margin-top:8px;color:#efe3ce}
-.facts .v b{color:#fff;font-weight:400;font-family:'Chonburi';font-size:20px;display:block;margin-bottom:3px}
+/* pastel chalk: accents only, writing stays cream */
+.c-apricot{color:var(--apricot)} .c-sage{color:var(--sage)} .c-coral{color:var(--coral)}
+.fl{display:block;filter:url(#chalk);margin:-4px auto 0}
+.fl path{fill:none;stroke-width:2.2;stroke-linecap:round}
+.fl-butter path{stroke:var(--butter)} .fl-apricot path{stroke:var(--apricot)}
+.dd svg{display:block;width:100%;height:auto;overflow:visible}
+.dd path,.dd circle{fill:none;stroke-width:2.2px;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.dr.dd{filter:url(#chalk);opacity:.9}
+.st-butter{stroke:var(--butter)} .st-sage{stroke:var(--sage)} .st-coral{stroke:var(--coral)} .st-cream{stroke:var(--ch)}
+.dd .dot{fill:var(--butter);stroke:none}
+.lg{opacity:.9}
+.lg-duvel img{filter:url(#tint-coral)} .lg-leffe img,.lg-kasteel img{filter:url(#tint-butter)} .lg-liefmans img{filter:url(#tint-rose)} .lg-rochefort img{filter:url(#tint-apricot)}
 
-section{padding:clamp(56px,9vw,102px) 0}
-.sect-h{max-width:730px;margin-bottom:42px}
-.sect-h .eyebrow{margin-bottom:14px;display:block}
-.sect-h h2{font-size:clamp(34px,5.4vw,60px);color:var(--ink);line-height:1.06}
-.sect-h h2 em{font-style:normal;color:var(--chili)}
-.sect-h p{font-family:'Kanit',sans-serif;font-size:18px;color:var(--teak-l);margin-top:16px;line-height:1.62}
+/* drawing slots: space the board artist left for the drawings to come */
+.slot{display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:4px 0}
+.scene .in > *,.scene .in > .fit > *{flex-shrink:0}
+.tag{position:relative;font:400 11px/1.3 var(--hand);letter-spacing:.04em;color:rgba(242,239,230,.4);text-align:center}
 
-.spot{background:var(--teak);color:#f0e4cf;position:relative;overflow:hidden}
-.spot .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,66px);align-items:center}
-.spot .eyebrow{color:var(--amber)}
-.spot h2{font-family:'Chonburi';font-size:clamp(34px,4.4vw,56px);color:#fff;margin:14px 0 0;line-height:1.05}
-.spot h2 span{color:var(--amber);display:block}
-.spot .lead{font-family:'Kanit';font-size:clamp(18px,2.2vw,24px);line-height:1.5;color:#f0e4cf;margin:22px 0 0}
-.spot .body{font-size:16.5px;color:#cdb996;margin:16px 0 0;max-width:46ch}
-.spot .pic{position:relative}
-.spot .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px;box-shadow:0 30px 66px rgba(0,0,0,.45)}
-.spot .pic .pill{position:absolute;right:-12px;bottom:24px;background:var(--chili);color:#fff;font-family:'Kanit';font-weight:700;font-size:14px;padding:11px 18px;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+/* a real chalk drawing on the board: black lifts out, edges run out like chalk, revealed by a ragged sweep */
+.dr.paint{--edge:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' preserveAspectRatio='none'%3E%3Cfilter id='f' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02' numOctaves='2' seed='3' result='t'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='t' scale='9' xChannelSelector='R' yChannelSelector='G'/%3E%3CfeGaussianBlur stdDeviation='7'/%3E%3C/filter%3E%3Crect x='20' y='16' width='260' height='168' rx='10' fill='white' filter='url(%23f)'/%3E%3C/svg%3E");-webkit-mask-image:var(--edge),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 300' preserveAspectRatio='none'%3E%3Cfilter id='f' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .08' numOctaves='3' seed='8' result='t'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='t' scale='90' xChannelSelector='R' yChannelSelector='G'/%3E%3CfeGaussianBlur stdDeviation='5'/%3E%3C/filter%3E%3Cpolygon points='-100,-60 510,-60 390,360 -100,360' fill='white' filter='url(%23f)'/%3E%3C/svg%3E");mask-image:var(--edge),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 300' preserveAspectRatio='none'%3E%3Cfilter id='f' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .08' numOctaves='3' seed='8' result='t'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='t' scale='90' xChannelSelector='R' yChannelSelector='G'/%3E%3CfeGaussianBlur stdDeviation='5'/%3E%3C/filter%3E%3Cpolygon points='-100,-60 510,-60 390,360 -100,360' fill='white' filter='url(%23f)'/%3E%3C/svg%3E");
+  -webkit-mask-size:100% 100%,300% 100%;mask-size:100% 100%,300% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:0 0,var(--p,80%) 0;mask-position:0 0,var(--p,80%) 0;-webkit-mask-composite:source-in;mask-composite:intersect}
+.dr.paint.dish,.dr.paint.glass{--edge:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' preserveAspectRatio='none'%3E%3Cfilter id='f' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.03' numOctaves='2' seed='5' result='t'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='t' scale='8' xChannelSelector='R' yChannelSelector='G'/%3E%3CfeGaussianBlur stdDeviation='6'/%3E%3C/filter%3E%3Cellipse cx='100' cy='100' rx='90' ry='88' fill='white' filter='url(%23f)'/%3E%3C/svg%3E")}
+.plates .dish{width:100%;aspect-ratio:1;justify-self:center;--rot:-2deg}
+.plates .dish.wide{aspect-ratio:3/2;align-self:center}
+.key-mid img{filter:url(#unblack-mid)} .key-hi img{filter:url(#unblack-hi)}
+.dr.paint img{width:100%;height:100%;object-fit:cover;filter:url(#unblack)}
+/* drawn on a canvas: no sweep, the drawing itself does the reveal */
+.dr.cvp{--p:0%!important}
+.dr.cvs{-webkit-mask-image:none!important;mask-image:none!important}
+.dr canvas.cv{display:block;width:100%}
+.dr.paint canvas.cv{height:100%;filter:url(#unblack)}
+.key-mid canvas.cv{filter:url(#unblack-mid)} .key-hi canvas.cv{filter:url(#unblack-hi)}
+.lg-duvel canvas{filter:url(#tint-coral)} .lg-leffe canvas,.lg-kasteel canvas{filter:url(#tint-butter)} .lg-liefmans canvas{filter:url(#tint-rose)} .lg-rochefort canvas{filter:url(#tint-apricot)}
+.s0 .room{width:100%;aspect-ratio:3/2;margin-bottom:6px;flex-shrink:0;--rot:-.6deg}
+.room img.disc{position:absolute;left:19.5%;top:11.5%;width:19%;height:auto;object-fit:contain;filter:url(#tint-gold);transform:rotate(-5deg) skewY(-2deg)}
+/* scene 1: the inside */
+.scene .in > .fit{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;flex-shrink:0;transform-origin:50% 50%}
+.s0 .in{justify-content:center}
+.s0 .ln{font-size:28px;line-height:40px}
+.s0 .line{margin-top:24px}
 
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
-.gal figure{position:relative;overflow:hidden;border-radius:4px;background:var(--stone)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.gal figure:hover img{transform:scale(1.05)}
-.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 16px 12px;background:linear-gradient(0deg,rgba(20,12,6,0.95) 0%,rgba(20,12,6,0.85) 62%,rgba(20,12,6,0) 100%);color:#fff;font-family:'Chonburi',serif;font-weight:400;font-size:17px}
+/* scene 2: les bieres */
+.s1 .head{display:flex;align-items:center;justify-content:center;gap:14px;padding-right:44px}
+.s1 h2{font-size:44px;line-height:1.1;transform-origin:50% 50%}
+.s1 .fl{width:190px;height:22px}
+.dd-hop{width:30px}
+.dd-chalice{width:34px}
+.list{font-size:20px;line-height:28px}
+.list .ln,.s3 .ln{filter:url(#chalk-lite);--op:.97!important}
+.s1 .cols{margin-top:14px;display:grid;grid-template-columns:auto;justify-content:center}
+.s1 .col{display:flex;flex-direction:column;align-items:flex-start}
+.s1 .cols{position:relative}
+.s1 .glass{position:absolute;right:-30px;top:39%;width:29vw;aspect-ratio:2/3;--rot:3deg}
+.s1 .sub{font-size:18px;line-height:1.4;margin-top:14px}
+.logos.marks{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:6px 22px;margin-top:22px;width:100%}
+.logos.marks .mk{font-size:26px;line-height:1.2;--rot:-2deg}
+.c-butter{color:var(--butter)} .c-blue{color:var(--blue)}
+.logos{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;justify-items:center;gap:8px 14px;margin-top:22px;width:100%}
+.logos .lg:nth-child(4),.logos .lg:nth-child(5){grid-row:2}
+.logos .lg:nth-child(4){grid-column:1 / span 2;justify-self:center}
+.lg-duvel{width:92px;--rot:-4deg}
+.lg-leffe{width:46px;--rot:3deg}
+.lg-kasteel{width:104px;--rot:-2deg}
+.lg-liefmans{width:96px;--rot:4deg}
+.lg-rochefort{width:66px;--rot:-3deg}
 
-.bar-band{background:var(--teak-d);color:#f0e4cf;position:relative;overflow:hidden}
-.bar-band .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
-.bar-band h2{font-family:'Chonburi';font-size:clamp(34px,5vw,60px);color:#fff}
-.bar-band h2 span{color:var(--amber);display:block}
-.bar-band .lead{font-size:18px;color:#e6d8bd;margin-top:18px;line-height:1.6;max-width:44ch}
-.bar-band .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.bar-band .chip{font-family:'Kanit';font-weight:700;font-size:12.5px;color:var(--teak-d);background:var(--amber);padding:8px 15px;border-radius:999px}
-.bar-band .chip.b{background:transparent;color:#eaf3ee;border:1.5px solid rgba(234,243,238,.4)}
-.bar-band .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:4px;box-shadow:0 20px 44px rgba(0,0,0,.3)}
-
-.carte{background:var(--stone)}
-.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
-.mgroup{margin-bottom:30px}
-.mgroup{scroll-margin-top:90px}
-.mphoto{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;margin-bottom:14px}
-.mjump{display:flex;flex-wrap:wrap;gap:8px;margin:-14px 0 28px}
-.mjump a{border:1.5px solid var(--teak);border-radius:999px;padding:6px 14px;font-family:'Kanit';font-weight:600;font-size:14px;color:var(--teak)}
-.mgroup h3{font-family:'Chonburi';font-size:25px;color:var(--teak);display:flex;align-items:center;gap:11px;padding-bottom:12px;border-bottom:2px solid var(--chili);margin-bottom:14px}
-.mgroup h3 .lo{width:18px;height:14px;flex:none;color:var(--gold)}
-.mitem{display:flex;gap:13px;align-items:baseline;padding:9px 0}
-.mitem .nm{font-family:'Kanit';font-weight:500;font-size:17px;color:var(--ink)}
-.mitem{border-bottom:1px solid var(--line)}
-.mitem:last-child{border-bottom:0}
-.mitem .ds{font-size:13.5px;color:var(--muted);margin-top:2px;max-width:46ch}
-.mitem .dots{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-4px);min-width:14px}
-.mitem .pr{font-family:'Chonburi';color:var(--chili);font-size:16px;white-space:nowrap}
-.carte .note{margin-top:22px;font-size:13.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--gold);padding-left:14px;max-width:80ch}
-
-.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
-.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
-.ino .ic{width:22px;height:22px;flex:none;color:var(--chili);margin-top:3px}
-.ino .k{font-family:'Kanit';font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
-.ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
-.ino .v.big{font-family:'Kanit',sans-serif;font-weight:600;font-size:28px}
-.inobtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.inobtns .btn{flex:1 1 180px;justify-content:center}
-.btn.o2{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-.hours-today{font-family:'Chonburi';color:var(--jade);font-size:18px}
-.mapcard{position:relative;border-radius:4px;overflow:hidden;min-height:280px;display:flex;align-items:flex-end}
-.mapcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mapcard .ov{position:relative;width:100%;padding:18px 22px;background:var(--teak-d);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.mapcard .ov .btn{margin-top:0}
-.mapcard .big{font-family:'Chonburi';font-size:26px;color:#fff}
+/* scene 3: la carte */
+.s2 .in{justify-content:center}
+.s1 .in{justify-content:center}
+.s2 .cols{width:100%}
+.s2 .col{display:flex;flex-direction:column;align-items:center}
+.s2 .col + .col{margin-top:16px}
+.s2 .head{display:flex;align-items:center;justify-content:center;gap:10px}
+.s2 h3{font-size:32px;line-height:1.2;transform-origin:50% 50%}
+.s2 .list{display:flex;flex-direction:column;align-items:center;margin-top:2px}
+.s2 .list .ln{transform-origin:50% 50%}
+.dd-chilli{width:30px}
+.dd-basil{width:26px}
+.plates{display:grid;grid-template-columns:36vw 36vw;justify-content:center;align-items:center;gap:0 10px;margin-top:14px}
 
 
-footer{background:#20130a;color:#b8a789;padding:0 0 40px}
-footer .band{padding:22px 0;display:flex;align-items:center;gap:16px}
-footer .band .ln{flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-footer .band .lo{width:30px;height:22px;color:var(--gold)}
-footer .in{padding-block:4px 0;display:grid;grid-template-columns:1fr;gap:40px}
-footer .fbrand{display:flex;align-items:center;gap:12px}
-footer .fbrand img{width:52px;height:52px;border-radius:50%;background:var(--cream);padding:3px}
-footer .nm{font-family:'Chonburi';font-weight:400;font-size:25px;color:var(--cream)}
-footer .nm small{display:block;font-family:'Kanit';font-size:10px;letter-spacing:.2em;color:var(--amber);margin-top:4px;text-transform:uppercase}
-footer p{font-size:14px;margin-top:14px;max-width:44ch;color:#a89777}
-footer .made{font-size:12.5px;color:#857459;margin-top:22px}
-footer .made b{color:#e6d9c0}
-footer .made a{color:var(--amber)}
-.disc{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:11.5px;color:#6f6049;line-height:1.55;max-width:82ch}
+/* scene 4: quand, ou */
+.s3 .in{justify-content:center}
+.dd-festoon{width:min(100%,280px);margin-top:-16px}
+.s3 .txt{display:flex;flex-direction:column;align-items:center}
+.s3 .terrace{display:none;width:100%;aspect-ratio:1282/598;flex-shrink:0;--rot:.5deg}
+.has-terrace .terrace{display:block}
+.has-terrace .dd-festoon{position:relative;z-index:2;width:72%;margin:0 0 -30px}
+.has-terrace .txt .list{margin-top:14px}
+@media (max-width:899px){.has-terrace .terrace{width:calc(100% + 2 * var(--pad));max-width:none;margin:0 calc(-1 * var(--pad));aspect-ratio:1.6}.has-terrace .terrace img{object-position:68% 30%}.has-terrace .dd-festoon{width:84%;margin-bottom:-22px}}
+.s3 .list{display:flex;flex-direction:column;align-items:center;font-size:20px;line-height:28px;margin-top:22px}
+.s3 .ln{transform-origin:50% 50%}
+.s3 .big{font-size:32px;line-height:1.3;margin-top:22px}
+.s3 .ul{width:min(260px,80%);height:12px}
+.s3 .tel{font-size:28px;line-height:1.4;margin-top:8px}
+.s3 .wolt{font-size:22px;line-height:1.4;margin-top:12px}
+.s3 .order{display:flex;flex-wrap:wrap;justify-content:center;gap:0 22px}
+.s3 a.ln{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:6px;text-decoration-color:rgba(242,239,230,.5)}
 
-@media(max-width:900px){
- .spot .grid,.bar-band .grid,.infos .grid,.carte .cols,footer .in,.facts .row{grid-template-columns:1fr}
- .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
- .spot .pic,.bar-band .pic{order:-1}
+/* static: reduced motion or embed: each board drawn, stacked in one frame */
+.static .story{height:auto}
+.static .stage{position:relative;height:auto;overflow:visible;background:none}
+.static .stage .ground,.static .stage .grain,.static .stage::after,.static .smear,.static .nib,.static .rub{display:none}
+.static .story .board{position:relative;inset:auto}
+.static .scene{--t:1;visibility:visible!important;position:relative;height:100vh;height:100svh;min-height:700px;-webkit-mask-image:none;mask-image:none;background:url(assets/board-blank.jpg) center/cover,#2a2623;background-blend-mode:luminosity;box-shadow:inset 0 0 0 100vmax rgba(18,16,14,.5)}
+.static .scene .in{padding-top:var(--pad)}
+
+.after{padding:var(--s5) var(--gut)}
+.after .foot{margin-top:0}
+.foot{display:flex;align-items:center;gap:var(--s2);padding-top:var(--s3);border-top:1px solid var(--line);font-size:var(--t-small);color:var(--dim)}
+.foot img{width:44px;height:44px;flex:none}
+.foot .disc{flex:1;min-width:0;margin:0;overflow-wrap:anywhere}
+
+/* scroll cue: a chalk circle bottom-right, like webwerk.lu */
+.cue{position:fixed;right:20px;bottom:20px;z-index:30;width:48px;height:48px;padding:0;border-radius:50%;background:none;cursor:pointer;color:#f2efe6}
+.cue svg{display:block;width:100%;height:100%;overflow:visible;animation:bob 2.4s ease-in-out infinite}
+.cue .ring{fill:rgba(30,28,26,.45);stroke:currentColor;stroke-width:1.6;filter:url(#chalk)}
+.cue .chev{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:url(#chalk);transform-origin:24px 24px;transition:transform .3s}
+.cue.up .chev{transform:rotate(180deg)}
+.cue:hover .ring,.cue:focus-visible .ring{fill:rgba(242,239,230,.16)}
+.cue:hover .chev,.cue:focus-visible .chev{stroke:#f2efe6}
+.cue:focus-visible{outline:2px solid #f2efe6;outline-offset:4px}
+body.open .cue{display:none}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+@media (min-width:900px){.cue{right:32px;bottom:32px;width:56px;height:56px}}
+@media (prefers-reduced-motion:reduce){.cue svg{animation:none}}
+
+/* drawer: la carte */
+.scrim{position:fixed;inset:0;z-index:40;background:rgba(10,14,12,.6);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.drawer{position:fixed;inset:0;z-index:41;overflow-y:auto;overscroll-behavior:contain;visibility:hidden;opacity:0;background:url(assets/board-blank.jpg) center/cover fixed,#1f1c1a;transition:opacity .35s ease,visibility .35s}
+.drawer::before{content:"";position:fixed;inset:0;background:rgba(18,16,14,.55);box-shadow:inset 0 0 18vmax rgba(10,9,8,.55);pointer-events:none}
+.open .drawer{visibility:visible;opacity:1;transition:opacity .35s ease,visibility 0s}
+.drawer .in{position:relative;max-width:1180px;margin:0 auto;padding:var(--s3) var(--gut) var(--s6);font-family:var(--hand);color:var(--ch)}
+.drawer .bar{position:fixed;top:14px;right:var(--gut);z-index:3}
+.drawer .close{font-family:var(--hand);font-size:22px;color:var(--ch);display:flex;align-items:center;gap:10px;padding:8px 18px;border-radius:999px;background:rgba(22,20,18,.82);box-shadow:0 0 0 1px rgba(242,239,230,.18);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:6px;text-decoration-color:rgba(242,239,230,.5)}
+.drawer .close svg{width:22px;height:22px}
+.drawer .ttl{text-align:center;margin-top:var(--s5)}
+.drawer h2{font-family:var(--hand);font-weight:400;font-size:52px;line-height:1.1;color:var(--apricot);filter:url(#chalk)}
+.drawer .ttl .fl{width:min(300px,70%)}
+.drawer .sub{margin-top:10px;font-size:19px;color:rgba(242,239,230,.72);filter:url(#chalk-lite)}
+.drawer .cols{display:grid;grid-template-columns:1fr;column-gap:var(--s5);margin-top:var(--s4)}
+.drawer .grp{break-inside:avoid;margin-bottom:var(--s4)}
+.drawer .gh{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.drawer h3{font-family:var(--hand);font-weight:400;font-size:30px;line-height:1.2;filter:url(#chalk)}
+.drawer .gh img{width:74px;height:74px;object-fit:cover;filter:url(#unblack-mid);-webkit-mask:radial-gradient(closest-side,#000 62%,transparent);mask:radial-gradient(closest-side,#000 62%,transparent)}
+.drawer .gh .wide{width:104px}
+.drawer h3.c-apricot{color:var(--apricot)} .drawer h3.c-sage{color:var(--sage)} .drawer h3.c-coral{color:var(--coral)} .drawer h3.c-butter{color:var(--butter)} .drawer h3.c-blue{color:var(--blue)}
+.drawer ul{list-style:none;border-top:1px dashed rgba(242,239,230,.22);padding-top:6px}
+.drawer li{font-size:21px;line-height:1.35;padding:5px 0;filter:url(#chalk-lite);color:rgba(242,239,230,.95)}
+.drawer li i{font-style:normal;color:rgba(242,239,230,.6);font-size:.82em}
+.drawer li.star{color:var(--butter)}
+.drawer .note{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 32px;margin-top:var(--s3);font-size:23px;filter:url(#chalk)}
+.drawer .note a{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:7px;text-decoration-color:rgba(242,239,230,.55)}
+.drawer .fine{margin-top:var(--s3);text-align:center;font-family:var(--sans);font-size:var(--t-small);color:var(--dim)}
+.js .drawer .grp{opacity:0;transform:translateY(8px) rotate(-.4deg)}
+.open .drawer .grp{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+body.open{overflow:hidden}
+
+@media (min-width:900px){
+  .top .wrap{height:72px}
+  .top .mark img{height:36px}
+  .nav .far{display:inline}
+  .hero{min-height:max(720px,calc(100svh - 72px));padding-bottom:var(--s5)}
+  .hero .board{left:30%}
+  .hero .board img{object-position:0 0}
+  .hero .board{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%),linear-gradient(180deg,transparent 0,#000 7%,#000 52%,transparent 80%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 22%),linear-gradient(180deg,transparent 0,#000 7%,#000 52%,transparent 80%);mask-composite:intersect}
+  .hero .board::after{background:radial-gradient(52% 78% at 12% 92%,rgba(31,28,26,.97) 35%,rgba(31,28,26,.7) 62%,rgba(31,28,26,0) 100%),linear-gradient(180deg,rgba(31,28,26,0) 50%,rgba(31,28,26,.5) 82%,var(--slate) 100%)}
+  .hero .logo{width:500px}
+  .hero .links{gap:40px;font-size:30px}
+
+  .story{--hh:72px;--pad:48px}
+  .s0 .room{width:auto;height:calc(100vh - 320px);max-width:70vw;aspect-ratio:3/2;margin-bottom:10px}
+  .s0 .line{display:flex;gap:18px;margin-top:18px}
+  .s0 .ln{font-size:50px;line-height:66px}
+  .s1 .head{gap:28px;padding-right:82px}
+  .s1 h2{font-size:66px}
+  .s1 .fl{width:320px;height:34px}
+  .dd-hop{width:54px}
+  .dd-chalice{width:58px}
+  .list{font-size:32px;line-height:46px}
+  .s1 .cols{display:grid;grid-template-columns:auto auto auto;justify-content:center;align-items:center;column-gap:6vw;margin-top:16px}
+  .s1 .glass{position:relative;right:auto;top:auto;width:220px;--rot:2deg;order:2}
+  .s1 .cols > .col:nth-child(2){order:3}
+  .s1 .cols{column-gap:4.5vw}
+  .s1 .sub{font-size:26px;margin-top:22px}
+  .logos{display:flex;justify-content:center;align-items:center;gap:4.2vw;margin-top:40px}
+  .logos.marks{gap:3.4vw;margin-top:36px}
+  .logos.marks .mk{font-size:40px}
+  .logos .lg:nth-child(2),.logos .lg:nth-child(4){transform:translateY(-14px) rotate(var(--rot))}
+  .logos .lg:nth-child(3){transform:translateY(-22px) rotate(var(--rot))}
+  .lg-duvel{width:170px}
+  .lg-leffe{width:118px}
+  .lg-kasteel{width:190px}
+  .lg-liefmans{width:170px}
+  .lg-rochefort{width:120px}
+  .s2 .cols{display:grid;grid-template-columns:1fr 1fr;column-gap:4vw}
+  .s2 .col + .col{margin-top:0}
+  .s2 h3{font-size:50px}
+  .s2 .list{font-size:32px;line-height:46px;margin-top:8px}
+  .dd-chilli{width:46px}
+  .dd-basil{width:40px}
+  .plates{grid-template-columns:250px 250px 250px 360px;gap:0 2.4vw;margin-top:22px}
+
+
+  .dd-festoon{width:440px;margin-top:-26px}
+  .s3 .list{font-size:32px;line-height:46px;margin-top:26px}
+  .s3 .big{font-size:55px;margin-top:24px}
+  .s3 .ul{width:380px;height:16px}
+  .s3 .tel{font-size:44px}
+  .s3 .wolt{font-size:32px}
+  /* with the terrace drawing: drawing on top, hours | address side by side under it */
+  .has-terrace .terrace{width:min(760px,calc((100vh - 440px) * 2.14));height:auto}
+  .has-terrace .dd-festoon{width:min(600px,64%);margin-bottom:-40px}
+  .has-terrace .txt{display:grid;grid-template-columns:auto auto;align-items:center;column-gap:7vw;margin-top:18px}
+  .has-terrace .txt .list{font-size:28px;line-height:40px;margin-top:0;grid-row:1 / span 4}
+  .has-terrace .txt > :not(.list){grid-column:2}
+  .has-terrace .big{font-size:46px;margin-top:0}
+  .has-terrace .ul{width:320px}
+  .has-terrace .tel{font-size:38px}
+  .has-terrace .wolt{font-size:26px}
+  .drawer .in{padding:var(--s3) var(--s5) var(--s6)}
+  .drawer h2{font-size:76px}
+  .drawer .cols{grid-template-columns:repeat(3,1fr)}
+  .drawer li{font-size:22px}
 }
-@media(max-width:760px){
- nav.links{position:fixed;inset:60px 0 auto 0;flex-direction:column;background:var(--teak-d);padding:24px 0 30px;gap:4px;transform:translateY(-150%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(0,0,0,.4);align-items:center}
- nav.links.open{transform:translateY(0)}
- nav.links a{padding:12px;font-size:17px}
- .burger{display:flex}
- header{background:var(--teak-d)}
- .hero h1{font-size:clamp(40px,12.5vw,70px)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .drawer,.scrim,.open .drawer .grp{transition:none}
+  .js .drawer .grp{opacity:1;transform:none}
 }
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-
-  /* disclosure legibility */
-  /* This is the one line that makes the page honest about what it is.
-     It was the least legible text here (rgb(111, 96, 73)); set to meet WCAG AA
-     against its own footer ground at 4.68:1, at a readable size. */
-  .disc{color:#8c806d !important;font-size:12.5px !important;line-height:1.5}
-/* Mobile action bar — pins the one or two things a hungry visitor actually
-   needs, so they stay reachable anywhere in a long scroll instead of only at
-   the top and bottom. Mobile only. */
-@media(max-width:760px){
-  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
-    display:flex;gap:8px;padding:10px 12px;
-    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
-    background:var(--cream);color:var(--ink);
-    border-top:1px solid rgba(128,128,128,.28);
-    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
-  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
-    display:inline-flex;align-items:center;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    font-size:.92rem;min-height:46px}
-  /* The page's secondary button is often a ghost styled for a dark hero, so
-     it can vanish on this bar. Re-ground it on the bar's own colours, which
-     are the body's and therefore legible by construction. */
-  .wwbar a:not(:first-child){background:transparent;color:inherit;
-    border:1px solid currentColor;opacity:.92}
-  body{padding-bottom:78px}
-}
-@media(min-width:761px){ .wwbar{display:none} }
-@media(max-width:760px){ .brand .nm{display:none} .hero{isolation:isolate;background:var(--teak-d);flex-direction:column;justify-content:flex-start;margin-top:0;padding-top:0} .hero .bg{position:relative;inset:auto;z-index:0;width:100%;aspect-ratio:3/2} .hero .scrim{display:none} .hero .inner{padding-top:24px} .wwbar a{font-size:.86rem} .hero .cta{display:none} .hero{min-height:calc(100svh - 78px)} .inobtns .btn.p{display:none} }
-@media(min-width:901px){
-  .facts .c:first-child{padding-left:0}
-  .hero{align-items:center;margin-top:0;padding-top:0;min-height:min(74vh,660px)}
-  .hero .bg{left:auto;width:52%}
-  .hero .scrim{background:linear-gradient(90deg,var(--teak-d) 0%,rgba(39,22,9,0) 14%)}
-  .hero .inner{padding-block:90px;padding-right:calc(52vw - (100vw - min(100vw,var(--maxw))) / 2 + 40px)}
-  .hero{background:var(--teak-d);isolation:isolate}
-  .hero h1{font-size:clamp(44px,5vw,74px)}
-}
-
-  /* hero type legibility */
-  /* Contrast comes from the type's own shadow rather than from darkening
-     the photograph behind it. */
-  .hero h1,.hero .eyebrow,.hero .kick,.hero .sub,.hero p{
-    text-shadow:0 1px 2px rgba(0,0,0,.55), 0 2px 14px rgba(0,0,0,.40)}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<g id="lotus" fill="currentColor">
-  <path d="M32 22 C26 12 24 4 32 0 C40 4 38 12 32 22 Z"/>
-  <path d="M32 22 C20 16 12 12 12 4 C22 4 30 12 32 22 Z" opacity=".8"/>
-  <path d="M32 22 C44 16 52 12 52 4 C42 4 34 12 32 22 Z" opacity=".8"/>
-</g>
-</defs></svg>
-<header id="hd">
- <div class="wrap bar">
-  <a class="brand" href="#top" aria-label="Mont St-Lambert">
-   <img src="assets/logo.png" alt="" aria-hidden="true"/>
-   <span class="nm">Mont St-Lambert<small data-i18n="brand_sub">Bar-restaurant, Limpertsberg</small></span>
-  </a>
-  <nav class="links" id="nav">
-   <a href="#maison" data-i18n="nav_maison">La maison</a>
-   <a href="#carte" data-i18n="nav_carte">La carte</a>
-   <a href="#bar" data-i18n="nav_bar">Le bar</a>
-   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
-   <div class="langs" role="group" aria-label="Langue">
-     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
-   </div>
-  </nav>
-  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
- </div>
-</header>
-<main id="top">
- <section class="hero" id="hero">
-  <div class="bg"><img src="assets/canard.jpg" alt="Canard tranché sur nouilles, coriandre et piment"/></div>
-  <div class="scrim"></div>
-  <div class="wrap inner">
-   <span class="eyebrow" data-i18n="hero_eyebrow">Cuisine thaïe et chinoise à Limpertsberg</span>
-   <h1>Mont <span class="nw">St-Lambert</span></h1>
-   <p class="tag" data-i18n="hero_tag">Bar-restaurant thaï et chinois, sur place, à emporter ou en livraison : le wok, le canard et une belle carte de bières.</p>
-   <div class="cta">
-    <a class="btn p" href="#carte" data-i18n="hero_cta1">Voir la carte</a>
-    <a class="btn o" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="hero_cta2">Commander sur Wedely ↗</a>
-   </div>
-  </div>
- </section>
- <div class="facts">
-  <div class="wrap"><div class="row">
-    <div class="c"><div class="k" data-i18n="fact_k1">La cuisine</div><div class="v" data-i18n="fact_v1"><b>Thaïe &amp; chinoise</b>wok, nouilles, canard</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k2">L'adresse</div><div class="v" data-i18n="fact_v2"><b>97, avenue du Bois</b>Limpertsberg</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k3">Le bar</div><div class="v" data-i18n="fact_v3"><b>Une belle carte de bières</b>et des vins</div></div>
-  </div></div>
- </div>
- <section class="spot" id="maison">
-  <div class="wrap grid">
-   <div class="txt">
-    <span class="eyebrow" data-i18n="ma_eyebrow">La maison</span>
-    <h2 data-i18n="ma_h">La salle<span>et la véranda.</span></h2>
-    <p class="lead" data-i18n="ma_lead">Des banquettes en bois, des chaises bistrot, les suspensions en rotin et, côté avenue du Bois, la véranda vitrée. Cuisine thaïe et chinoise sur place, à emporter ou en livraison.</p>
-   </div>
-   <div class="pic"><img src="assets/salle.jpg" alt="La salle en longueur, suspension en rotin, chaises bistrot et comptoir"/></div>
-  </div>
- </section>
- <section id="gal">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="gal_eyebrow">En images</span>
-    <h2 data-i18n="gal_h">À table</h2>
-    <p data-i18n="gal_p">Bœuf sauté aux légumes, nouilles sautées au poulet.</p>
-   </div>
-   <div class="gal">
-    <figure class="w2 h2"><img src="assets/wok.jpg" alt="Bœuf sauté aux légumes, coriandre et piment"/><figcaption data-i18n="cap_wok">Bœuf sauté aux légumes</figcaption></figure>
-    <figure class="w2 h2"><img src="assets/noodles.jpg" alt="Nouilles sautées au poulet et aux légumes"/><figcaption data-i18n="cap_noodles">Nouilles sautées au poulet</figcaption></figure>
-   </div>
-  </div>
- </section>
- <section class="bar-band" id="bar">
-  <div class="wrap grid">
-   <div class="txt">
-    <span class="eyebrow" style="color:var(--amber)" data-i18n="bar_eyebrow">Le bar</span>
-    <h2 data-i18n="bar_h">Aussi<span>un bar.</span></h2>
-    <p class="lead" data-i18n="bar_lead">Une carte de bières, de la Leffe et de la Chouffe à la Tsingtao, la Hoegaarden et la Vedette, et des vins de Luxembourg, de France et d'Italie.</p>
-   </div>
-   <div class="pic"><img src="assets/bar.jpg" alt="Le coin banquette et le logo Mont St-Lambert au mur"/></div>
-  </div>
- </section>
- <section class="carte" id="carte">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="carte_eyebrow">Sur place, à emporter ou en livraison</span>
-    <h2 data-i18n="carte_h">La carte</h2>
-   </div>
-   <nav class="mjump" aria-label="Catégories"><a href="#mg1" data-i18n="mg1">Soupes &amp; entrées</a><a href="#mg2" data-i18n="mg2">Le canard</a><a href="#mg3" data-i18n="mg3">Le wok</a><a href="#mg4" data-i18n="mg4">Nouilles &amp; riz</a><a href="#mg5" data-i18n="mg5">Desserts</a></nav>
-   <div class="cols">
-    <div>
-     <div class="mgroup" id="mg1">
-      <img class="mphoto" src="assets/nems.jpg" alt="Nems et sauce aigre-douce" loading="lazy"/>
-      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg1">Soupes &amp; entrées</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i1n">Soupe thaïe au curry rouge et scampis</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i2n">Soupe aux raviolis chinois</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i3n">Nems</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i4n">Nems de scampis maison</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i5n">Gyoza</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i6n">Raviolis vapeur aux crevettes</div></div></div>
-     </div>
-     <div class="mgroup" id="mg2">
-      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg2">Le canard</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i7n">Canard spécial maison</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i8n">Canard façon thaï</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i9n">Canard à la pékinoise</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i10n">Canard Sichuan</div></div></div>
-     </div>
-    </div>
-    <div>
-     <div class="mgroup" id="mg3">
-      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg3">Le wok</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i11n">Poulet aux noix de cajou</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i12n">Poulet à la citronnelle</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i13n">Poulet au curry vert et légumes</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i14n">Bœuf au poivre noir</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i15n">Scampis au sel et poivre</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i16n">Tofu façon grand-mère</div></div></div>
-     </div>
-     <div class="mgroup" id="mg4">
-      <img class="mphoto" src="assets/rice.jpg" alt="Riz sauté" loading="lazy"/>
-      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg4">Nouilles &amp; riz</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i17n">Nouilles sautées</div><div class="ds" data-i18n="i17d">Légumes, poulet, bœuf ou scampis</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i18n">Riz sauté</div><div class="ds" data-i18n="i18d">Légumes, poulet, bœuf ou scampis</div></div></div>
-      <div class="mitem"><div><div class="nm" data-i18n="i19n">Pad thaï aux scampis</div></div></div>
-     </div>
-     <div class="mgroup" id="mg5">
-      <h3><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span data-i18n="mg5">Desserts</span></h3>
-      <div class="mitem"><div><div class="nm" data-i18n="i20n">Moelleux au chocolat, cheesecake, mochis</div></div></div>
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
- <section class="infos" id="infos">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="infos_eyebrow">Infos &amp; accès</span>
-    <h2 data-i18n="infos_h">Nous trouver</h2>
-   </div>
-   <div class="grid">
-    <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="ino_k1">Adresse</div><div class="v">97, avenue du Bois<br>L-1250 Luxembourg (Limpertsberg)</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><div class="k" data-i18n="ino_k2">Téléphone</div><div class="v big"><a href="tel:+352224950">+352 22 49 50</a></div></div></div>
-     <div class="inobtns"><a class="btn p" href="tel:+352224950" data-i18n="wwb_call">Appeler</a><a class="btn o2" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="ino_order">Commander sur Wedely ↗</a></div>
-    </div>
-    <div class="mapcard">
-     <img src="assets/facade.jpg" alt="La véranda de Mont St-Lambert et son enseigne peinte, avenue du Bois"/>
-     <div class="ov">
-      <div class="big" data-i18n="map_big">Avenue du Bois</div>
-      <a class="btn p" href="https://www.google.com/maps/search/?api=1&query=Mont-Saint-Lambert+97+Avenue+du+Bois+Luxembourg" target="_blank" rel="noopener" data-i18n="map_btn">Itinéraire ↗</a>
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
-</main>
-<footer>
- <div class="wrap band"><span class="ln"></span><svg class="lo" viewBox="0 0 64 24" aria-hidden="true"><use href="#lotus"/></svg><span class="ln"></span></div>
- <div class="wrap in">
-  <div>
-   <div class="fbrand"><img src="assets/logo.png" alt="" aria-hidden="true"/><div class="nm">Mont St-Lambert<small data-i18n="brand_sub">Bar-restaurant, Limpertsberg</small></div></div>
-   <p data-i18n="foot_p">Bar-restaurant thaï et chinois à Limpertsberg.</p>
-  </div>
- </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
-</footer>
-<script>
-const I18N={
- fr:{
-  wwb_call:"Appeler",
-  wwb_dir:"Itinéraire",
-  wwb_order:"Commander",
-  brand_sub:"Bar-restaurant, Limpertsberg",
-  nav_maison:"La maison",
-  nav_carte:"La carte",
-  nav_bar:"Le bar",
-  nav_infos:"Infos &amp; accès",
-  hero_eyebrow:"Cuisine thaïe et chinoise à Limpertsberg",
-  hero_tag:"Bar-restaurant thaï et chinois, sur place, à emporter ou en livraison : le wok, le canard et une belle carte de bières.",
-  hero_cta1:"Voir la carte",
-  hero_cta2:"Commander sur Wedely ↗",
-  fact_k1:"La cuisine",
-  fact_v1:"<b>Thaïe &amp; chinoise</b>wok, nouilles, canard",
-  fact_k2:"L'adresse",
-  fact_v2:"<b>97, avenue du Bois</b>Limpertsberg",
-  fact_k3:"Le bar",
-  fact_v3:"<b>Une belle carte de bières</b>et des vins",
-  ma_eyebrow:"La maison",
-  ma_h:"La salle<span>et la véranda.</span>",
-  ma_lead:"Des banquettes en bois, des chaises bistrot, les suspensions en rotin et, côté avenue du Bois, la véranda vitrée. Cuisine thaïe et chinoise sur place, à emporter ou en livraison.",
-  gal_eyebrow:"En images",
-  gal_h:"À table",
-  gal_p:"Bœuf sauté aux légumes, nouilles sautées au poulet.",
-  cap_wok:"Bœuf sauté aux légumes",
-  cap_noodles:"Nouilles sautées au poulet",
-  bar_eyebrow:"Le bar",
-  bar_h:"Aussi<span>un bar.</span>",
-  bar_lead:"Une carte de bières, de la Leffe et de la Chouffe à la Tsingtao, la Hoegaarden et la Vedette, et des vins de Luxembourg, de France et d'Italie.",
-  carte_eyebrow:"Sur place, à emporter ou en livraison",
-  carte_h:"La carte",
-  mg1:"Soupes &amp; entrées",
-  i1n:"Soupe thaïe au curry rouge et scampis",
-  i2n:"Soupe aux raviolis chinois",
-  i3n:"Nems",
-  i4n:"Nems de scampis maison",
-  i5n:"Gyoza",
-  i6n:"Raviolis vapeur aux crevettes",
-  mg2:"Le canard",
-  i7n:"Canard spécial maison",
-  i8n:"Canard façon thaï",
-  i9n:"Canard à la pékinoise",
-  i10n:"Canard Sichuan",
-  mg3:"Le wok",
-  i11n:"Poulet aux noix de cajou",
-  i12n:"Poulet à la citronnelle",
-  i13n:"Poulet au curry vert et légumes",
-  i14n:"Bœuf au poivre noir",
-  i15n:"Scampis au sel et poivre",
-  i16n:"Tofu façon grand-mère",
-  mg4:"Nouilles &amp; riz",
-  i17n:"Nouilles sautées",
-  i17d:"Légumes, poulet, bœuf ou scampis",
-  i18n:"Riz sauté",
-  i18d:"Légumes, poulet, bœuf ou scampis",
-  i19n:"Pad thaï aux scampis",
-  mg5:"Desserts",
-  i20n:"Moelleux au chocolat, cheesecake, mochis",
-  infos_eyebrow:"Infos &amp; accès",
-  infos_h:"Nous trouver",
-  ino_k1:"Adresse",
-  ino_k2:"Téléphone",
-  ino_order:"Commander sur Wedely ↗",
-  map_big:"Avenue du Bois",
-  map_btn:"Itinéraire ↗",
-  foot_p:"Bar-restaurant thaï et chinois à Limpertsberg.",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
- },
- de:{
-  wwb_call:"Anrufen",
-  wwb_dir:"Route",
-  wwb_order:"Bestellen",
-  brand_sub:"Bar-Restaurant, Limpertsberg",
-  nav_maison:"Das Haus",
-  nav_carte:"Speisekarte",
-  nav_bar:"Die Bar",
-  nav_infos:"Anfahrt",
-  hero_eyebrow:"Thailändische und chinesische Küche in Limpertsberg",
-  hero_tag:"Thailändisch-chinesisches Bar-Restaurant, vor Ort, zum Mitnehmen oder geliefert: Wok, Ente und eine gute Bierkarte.",
-  hero_cta1:"Zur Speisekarte",
-  hero_cta2:"Auf Wedely bestellen ↗",
-  fact_k1:"Küche",
-  fact_v1:"<b>Thailändisch &amp; chinesisch</b>Wok, Nudeln, Ente",
-  fact_k2:"Adresse",
-  fact_v2:"<b>97 Avenue du Bois</b>Limpertsberg",
-  fact_k3:"Die Bar",
-  fact_v3:"<b>Eine gute Bierkarte</b>und Weine",
-  ma_eyebrow:"Das Haus",
-  ma_h:"Gastraum<span>und Veranda.</span>",
-  ma_lead:"Holzbänke, Bistrostühle, Rattanlampen und zur Avenue du Bois hin die verglaste Veranda. Thailändische und chinesische Küche vor Ort, zum Mitnehmen oder geliefert.",
-  gal_eyebrow:"In Bildern",
-  gal_h:"Zu Tisch",
-  gal_p:"Rind mit Gemüse aus dem Wok, gebratene Nudeln mit Hähnchen.",
-  cap_wok:"Rind mit Gemüse aus dem Wok",
-  cap_noodles:"Gebratene Nudeln mit Hähnchen",
-  bar_eyebrow:"Die Bar",
-  bar_h:"Auch<span>eine Bar.</span>",
-  bar_lead:"Eine Bierkarte von Leffe und La Chouffe bis Tsingtao, Hoegaarden und Vedette, dazu Weine aus Luxemburg, Frankreich und Italien.",
-  carte_eyebrow:"Vor Ort, zum Mitnehmen oder geliefert",
-  carte_h:"Die Speisekarte",
-  mg1:"Suppen &amp; Vorspeisen",
-  i1n:"Thailändische Rotcurry-Suppe mit Scampi",
-  i2n:"Wan-Tan-Suppe",
-  i3n:"Frühlingsrollen",
-  i4n:"Hausgemachte Scampi-Röllchen",
-  i5n:"Gyoza",
-  i6n:"Gedämpfte Garnelen-Teigtaschen",
-  mg2:"Ente",
-  i7n:"Ente nach Art des Hauses",
-  i8n:"Ente nach Thai-Art",
-  i9n:"Peking-Ente",
-  i10n:"Sichuan-Ente",
-  mg3:"Aus dem Wok",
-  i11n:"Hähnchen mit Cashewnüssen",
-  i12n:"Zitronengras-Hähnchen",
-  i13n:"Hähnchen mit grünem Curry und Gemüse",
-  i14n:"Rind mit schwarzem Pfeffer",
-  i15n:"Scampi mit Salz und Pfeffer",
-  i16n:"Tofu nach Großmutters Art",
-  mg4:"Nudeln &amp; Reis",
-  i17n:"Gebratene Nudeln",
-  i17d:"Gemüse, Hähnchen, Rind oder Scampi",
-  i18n:"Gebratener Reis",
-  i18d:"Gemüse, Hähnchen, Rind oder Scampi",
-  i19n:"Pad Thai mit Scampi",
-  mg5:"Desserts",
-  i20n:"Schokoladenküchlein, Cheesecake, Mochis",
-  infos_eyebrow:"Anfahrt",
-  infos_h:"So finden Sie uns",
-  ino_k1:"Adresse",
-  ino_k2:"Telefon",
-  ino_order:"Auf Wedely bestellen ↗",
-  map_big:"Avenue du Bois",
-  map_btn:"Route ↗",
-  foot_p:"Thailändisch-chinesisches Bar-Restaurant in Limpertsberg.",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
- },
- en:{
-  wwb_call:"Call",
-  wwb_dir:"Directions",
-  wwb_order:"Order",
-  brand_sub:"Bar-restaurant, Limpertsberg",
-  nav_maison:"The house",
-  nav_carte:"Menu",
-  nav_bar:"The bar",
-  nav_infos:"Getting here",
-  hero_eyebrow:"Thai and Chinese cooking in Limpertsberg",
-  hero_tag:"A Thai and Chinese bar-restaurant, eat in, take away or delivered: wok dishes, duck and a good beer list.",
-  hero_cta1:"See the menu",
-  hero_cta2:"Order on Wedely ↗",
-  fact_k1:"The food",
-  fact_v1:"<b>Thai &amp; Chinese</b>wok, noodles, duck",
-  fact_k2:"Address",
-  fact_v2:"<b>97 Avenue du Bois</b>Limpertsberg",
-  fact_k3:"The bar",
-  fact_v3:"<b>A good beer list</b>and wines",
-  ma_eyebrow:"The house",
-  ma_h:"The dining room<span>and the veranda.</span>",
-  ma_lead:"Wooden banquettes, bistro chairs, rattan pendant lamps and, facing Avenue du Bois, the glazed veranda. Thai and Chinese cooking to eat in, take away or have delivered.",
-  gal_eyebrow:"In pictures",
-  gal_h:"At the table",
-  gal_p:"Stir-fried beef and vegetables, chicken fried noodles.",
-  cap_wok:"Stir-fried beef and vegetables",
-  cap_noodles:"Chicken fried noodles",
-  bar_eyebrow:"The bar",
-  bar_h:"Also<span>a bar.</span>",
-  bar_lead:"A beer list from Leffe and La Chouffe to Tsingtao, Hoegaarden and Vedette, plus wines from Luxembourg, France and Italy.",
-  carte_eyebrow:"Eat in, take away or delivery",
-  carte_h:"The menu",
-  mg1:"Soups &amp; starters",
-  i1n:"Thai red curry soup with scampi",
-  i2n:"Wonton soup",
-  i3n:"Spring rolls",
-  i4n:"House scampi rolls",
-  i5n:"Gyoza",
-  i6n:"Steamed prawn dumplings",
-  mg2:"Duck",
-  i7n:"House special duck",
-  i8n:"Thai-style duck",
-  i9n:"Beijing duck",
-  i10n:"Sichuan duck",
-  mg3:"From the wok",
-  i11n:"Cashew chicken",
-  i12n:"Lemongrass chicken",
-  i13n:"Chicken with green curry and vegetables",
-  i14n:"Black pepper beef",
-  i15n:"Salt and pepper scampi",
-  i16n:"Grandma-style tofu",
-  mg4:"Noodles &amp; rice",
-  i17n:"Stir-fried noodles",
-  i17d:"Vegetables, chicken, beef or scampi",
-  i18n:"Fried rice",
-  i18d:"Vegetables, chicken, beef or scampi",
-  i19n:"Scampi pad thai",
-  mg5:"Desserts",
-  i20n:"Chocolate fondant, cheesecake, mochi",
-  infos_eyebrow:"Getting here",
-  infos_h:"Find us",
-  ino_k1:"Address",
-  ino_k2:"Phone",
-  ino_order:"Order on Wedely ↗",
-  map_big:"Avenue du Bois",
-  map_btn:"Directions ↗",
-  foot_p:"Thai and Chinese bar-restaurant in Limpertsberg.",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
- }
-};
-let lang="fr";
-function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
-function applyLang(l){
-  lang=l; document.documentElement.lang=l;
-  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
-  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
-  try{localStorage.setItem("msl_lang",l);}catch(e){}
-}
-document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
-const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
-burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
-navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
-const hd=document.getElementById("hd");
-const onScroll=()=>hd.classList.toggle("solid",window.scrollY>60);
-window.addEventListener("scroll",onScroll,{passive:true});onScroll();
-try{const sv=localStorage.getItem("msl_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
-</script>
 
-<div class="wwbar" role="navigation" aria-label="Actions rapides">
-  <a class="btn p" href="tel:+352224950" data-i18n="wwb_call">Appeler</a>
-  <a class="btn o" href="https://www.wedely.com/restaurant/20856-montsaintlambert" target="_blank" rel="noopener" data-i18n="wwb_order">Commander</a>
-  <a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Mont-Saint-Lambert+97+Avenue+du+Bois+Luxembourg" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
-</div>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Mont St-Lambert"><img class="script" src="assets/logo-script-white.png" alt="Mont St-Lambert" width="560" height="276"></a>
+    <div class="right">
+      <nav class="nav" aria-label="Navigation">
+        <button type="button" data-carte aria-haspopup="dialog" aria-controls="carte" data-i="carte">La carte</button>
+        <a class="far" href="#trouver" data-i="trouver">Nous trouver</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Langue" data-ia="lang"><button type="button" data-lang="fr" class="on" aria-pressed="true">FR</button><button type="button" data-lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-label="Mont St-Lambert">
+    <div class="board"><img src="assets/beer-board-hero.jpg" alt="Le tableau des bières du Mont St-Lambert, écrit à la craie" data-ialt="a_hero" width="1200" height="1000" fetchpriority="high"></div>
+    <div class="wrap">
+      <h1><img class="logo script" src="assets/logo-script-white.png" alt="Mont St-Lambert" width="560" height="276"></h1>
+      <div class="links">
+        <button type="button" data-carte aria-haspopup="dialog" aria-controls="carte" data-i="carte">La carte</button>
+        <a href="#trouver" data-i="trouver">Nous trouver</a>
+      </div>
+      <p class="addr">97, avenue du Bois, Limpertsberg</p>
+    </div>
+  </section>
+
+  <section class="story" aria-label="Le tableau" data-ia="ar_board">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <filter id="chalk" x="-4%" y="-30%" width="108%" height="160%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="4" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.9" numOctaves="1" seed="11" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  3.6 0 0 0 -1.15" result="ga"/>
+        <feComposite in="d" in2="ga" operator="in"/>
+      </filter>
+      <filter id="tint-coral" x="-6%" y="-6%" width="112%" height="112%" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceGraphic" stdDeviation=".25" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.941  0 0 0 0 0.651  0 0 0 0 0.627  0 0 0 .86 0" result="c"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="2" seed="7" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.4 0 0 0 -.35" result="ga"/>
+        <feComposite in="c" in2="ga" operator="in"/>
+      </filter>
+      <filter id="tint-butter" x="-6%" y="-6%" width="112%" height="112%" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceGraphic" stdDeviation=".25" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.945  0 0 0 0 0.875  0 0 0 0 0.604  0 0 0 .86 0" result="c"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="2" seed="7" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.4 0 0 0 -.35" result="ga"/>
+        <feComposite in="c" in2="ga" operator="in"/>
+      </filter>
+      <filter id="tint-rose" x="-6%" y="-6%" width="112%" height="112%" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceGraphic" stdDeviation=".25" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.941  0 0 0 0 0.667  0 0 0 0 0.698  0 0 0 .86 0" result="c"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="2" seed="7" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.4 0 0 0 -.35" result="ga"/>
+        <feComposite in="c" in2="ga" operator="in"/>
+      </filter>
+      <filter id="tint-apricot" x="-6%" y="-6%" width="112%" height="112%" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceGraphic" stdDeviation=".25" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="0 0 0 0 0.949  0 0 0 0 0.725  0 0 0 0 0.549  0 0 0 .86 0" result="c"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="2" seed="7" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.4 0 0 0 -.35" result="ga"/>
+        <feComposite in="c" in2="ga" operator="in"/>
+      </filter>
+      <filter id="chalk-lite" x="-4%" y="-30%" width="108%" height="160%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="4" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.9" numOctaves="1" seed="11" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  3 0 0 0 -.45" result="ga"/>
+        <feComposite in="d" in2="ga" operator="in"/>
+      </filter>
+      <filter id="tint-gold" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+        <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 .851  0 0 0 0 .706  0 0 0 0 .416  0 0 0 .7 0" result="c"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="17" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.4 0 0 0 -.3" result="ga"/>
+        <feComposite in="c" in2="ga" operator="in"/>
+      </filter>
+      <filter id="unblack-mid" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  1.3 2.5 .5 0 -.6" result="a"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="13" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.2 0 0 0 -.18" result="ga"/>
+        <feComposite in="a" in2="ga" operator="in"/>
+      </filter>
+      <filter id="unblack-hi" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  1.3 2.5 .5 0 -.9" result="a"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="13" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.2 0 0 0 -.18" result="ga"/>
+        <feComposite in="a" in2="ga" operator="in"/>
+      </filter>
+      <filter id="unblack" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  1.3 2.5 .5 0 -.42" result="a"/>
+        <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="13" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.2 0 0 0 -.18" result="ga"/>
+        <feComposite in="a" in2="ga" operator="in"/>
+      </filter>
+    </svg>
+    <div class="stage">
+      <div class="ground"></div><div class="grain"></div>
+        <div class="board">
+
+          <div class="scene s0">
+            <div class="in chalk">
+              <div class="dr paint room" data-w="im" data-weight="60"><img src="assets/interior-14a.webp" alt="Dessin à la craie de la salle : le disque en bois, la banquette, les chaises bistrot et les caisses à vin" data-ialt="a_room" width="1274" height="896"><img class="disc" src="assets/logo-script-white.png" alt="" aria-hidden="true" width="560" height="276"></div>
+              <div class="line">
+                <span class="ln ctr" data-w data-i="l_bar">Un bar-restaurant</span>
+                <span class="ln ctr" data-w data-i="l_coeur">au cœur du Limpertsberg.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rub r1" aria-hidden="true"></div>
+          <div class="scene s1">
+            <div class="in chalk">
+              <div class="head">
+                
+                <div>
+                  <h2 class="ln c-apricot" data-w data-i="bieres">Bières</h2>
+                  <svg class="fl fl-butter" data-w="fl" viewBox="0 0 300 34" aria-hidden="true"><path d="M8 20 C 40 30, 80 8, 130 18 S 220 30, 262 14 C 278 8, 292 10, 288 18 C 284 26, 268 22, 274 14"/></svg>
+                </div>
+              </div>
+              <div class="cols list">
+                <div class="col">
+                  <span class="ln" data-w>La Chouffe</span>
+                  <span class="ln" data-w>Leffe Blonde</span>
+                  <span class="ln" data-w>Hoegaarden Blanche</span>
+                  <span class="ln" data-w>Vedette Extra Ordinary IPA</span>
+                  <span class="ln" data-w>Duvel</span>
+                  <span class="ln" data-w>Kasteel Rouge</span>
+                  <span class="ln" data-w>Liefmans Fruitesse</span>
+                  <span class="ln" data-w>Trappistes Rochefort</span>
+                </div>
+                <div class="col">
+                  <span class="ln" data-w>Orval</span>
+                  <span class="ln" data-w>Chimay</span>
+                  <span class="ln" data-w>Westmalle Tripel</span>
+                  <span class="ln" data-w>Kwak</span>
+                  <span class="ln" data-w>Franziskaner Weissbier</span>
+                  <span class="ln" data-w>Tsingtao</span>
+                  <span class="ln" data-w>Diekirch</span>
+                </div>
+                <div class="dr paint glass key-mid" data-w="im" data-weight="40" data-at="3"><img src="assets/beer-glass-13.webp" alt="Dessin à la craie : un verre de bière blonde" data-ialt="a_glass" width="896" height="1344"></div>
+              </div>
+              <div class="logos marks"><span class="ln mk c-apricot" data-w>Orval</span><span class="ln mk c-coral" data-w>Chimay</span><span class="ln mk c-butter" data-w>Westmalle</span><span class="ln mk c-sage" data-w>Rochefort</span><span class="ln mk c-blue" data-w>Kwak</span></div>
+              <span class="ln ctr sub" data-w data-i="vins">Et des vins, des rhums, des whiskies.</span>
+            </div>
+          </div>
+
+          <div class="rub r2" aria-hidden="true"></div>
+          <div class="scene s2">
+            <div class="in chalk">
+              <div class="cols">
+                <div class="col">
+                  <div class="head"><h3 class="ln c-sage" data-w data-i="thai">Thaï</h3></div>
+                  <div class="list">
+                    <span class="ln" data-w>Pad thaï aux scampis</span>
+                    <span class="ln" data-w>Poulet au curry vert</span>
+                    <span class="ln" data-w>Soupe thaïe au curry rouge</span>
+                    <span class="ln" data-w>Salade de papaye verte</span>
+                    <span class="ln" data-w>Canard façon thaï</span>
+                    <span class="ln" data-w>Bœuf au basilic</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="head"><h3 class="ln c-coral" data-w data-i="chine">Chine et canard</h3></div>
+                  <div class="list">
+                    <span class="ln" data-w>Canard Spécial Maison</span>
+                    <span class="ln" data-w>Canard à la Pékinoise</span>
+                    <span class="ln" data-w>Gyoza</span>
+                    <span class="ln" data-w>Raviolis vapeur aux crevettes</span>
+                    <span class="ln" data-w>Tofu façon grand-mère</span>
+                    <span class="ln" data-w>Aubergine Yuxiang</span>
+                  </div>
+                </div>
+              </div>
+              <div class="plates">
+                <div class="dr paint dish" data-w="im" data-weight="10"><img src="assets/dish-09-padthai.webp" alt="Dessin à la craie : un bol de pad thaï aux scampis" data-ialt="a_padthai" width="1024" height="1024"></div>
+                <div class="dr paint dish key-mid" data-w="im" data-weight="10"><img src="assets/dish-10-canard.webp" alt="Dessin à la craie : canard laqué sur riz" data-ialt="a_canard" width="1024" height="1024"></div>
+                <div class="dr paint dish key-hi" data-w="im" data-weight="10"><img src="assets/dish-11-curry.webp" alt="Dessin à la craie : un bol de curry" data-ialt="a_curry" width="1024" height="1024"></div>
+                <div class="dr paint dish wide" data-w="im" data-weight="10"><img src="assets/dish-12-gyoza.webp" alt="Dessin à la craie : des raviolis grillés et leur sauce" data-ialt="a_gyoza" width="1344" height="896"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rub r3" aria-hidden="true"></div>
+          <div class="scene s3" id="trouver">
+            <div class="in chalk">
+              <div class="dr dd dd-festoon" data-w="dr" data-weight="6" aria-hidden="true"><svg viewBox="0 16 100 28"><path class="st-cream" d="M2 20 Q25 44 50 24 Q75 44 98 20" style="opacity:.6"/><path class="st-cream" d="M13.6 29.25 L13.6 33.25" style="opacity:.6"/><circle class="dot" cx="13.6" cy="36.45" r="2"/><path class="st-cream" d="M25.5 33 L25.5 37" style="opacity:.6"/><circle class="dot" cx="25.5" cy="40.2" r="2"/><path class="st-cream" d="M37.6 31.25 L37.6 35.25" style="opacity:.6"/><circle class="dot" cx="37.6" cy="38.45" r="2"/><path class="st-cream" d="M62.4 31.25 L62.4 35.25" style="opacity:.6"/><circle class="dot" cx="62.4" cy="38.45" r="2"/><path class="st-cream" d="M74.5 33 L74.5 37" style="opacity:.6"/><circle class="dot" cx="74.5" cy="40.2" r="2"/><path class="st-cream" d="M86.4 29.25 L86.4 33.25" style="opacity:.6"/><circle class="dot" cx="86.4" cy="36.45" r="2"/></svg></div>
+              <div class="dr paint terrace key-hi" data-w="im" data-weight="40"><img src="assets/terrace-17.webp" alt="Dessin à la craie de la terrasse couverte, la véranda vitrée sur l’avenue du Bois" data-ialt="a_terrace" width="1282" height="598" onload="this.closest('.scene').classList.add('has-terrace')" onerror="this.parentNode.remove()"></div>
+              <div class="txt">
+              <div class="list hours">
+                <span class="ln" data-w data-i="h1">Menus du midi très accessibles,</span>
+                <span class="ln" data-w data-i="h2">du lundi au vendredi</span>
+                <span class="ln" data-w data-i="h3">Le soir, jusqu’à minuit</span>
+                <span class="ln" data-w data-i="h4">Fermé le dimanche</span>
+                <span class="ln" data-w data-i="h5">Terrasse couverte,</span>
+                <span class="ln" data-w data-i="h6">sur l’avenue du Bois</span>
+              </div>
+              <a class="ln big ctr" data-w href="https://www.google.com/maps/search/?api=1&amp;query=Mont-Saint-Lambert&amp;query_place_id=ChIJ9-N_NthOlUcRSvy-qbz3m-M" target="_blank" rel="noopener">97, avenue du Bois</a>
+              <svg class="ul fl fl-apricot" data-w="fl" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 60 4, 120 13, 180 8 S 270 6, 296 10"/></svg>
+              <a class="ln tel ctr" data-w href="tel:+352224950">22 49 50</a>
+              <a class="ln wolt ctr itin" data-w href="https://www.google.com/maps/dir/?api=1&amp;destination=Mont-Saint-Lambert&amp;destination_place_id=ChIJ9-N_NthOlUcRSvy-qbz3m-M" target="_blank" rel="noopener" data-i="itin">Itinéraire</a>
+              <div class="order"><a class="ln wolt" data-w href="https://wolt.com/en/lux/luxembourg/restaurant/mont-saint-lambert" rel="noopener" data-i="wolt">Commander sur Wolt</a><a class="ln wolt" data-w href="https://www.wedely.com/restaurant/20856-montsaintlambert" rel="noopener" data-i="wedely">Commander sur Wedely</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="smear" aria-hidden="true"></div>
+          <div class="nib" aria-hidden="true"></div>
+        </div>
+    </div>
+  </section>
+
+  <div class="wrap after">
+    <footer class="foot">
+      <img src="assets/logo.png" alt="" width="626" height="626" loading="lazy">
+      <p class="disc" data-i="disc">Proposition non officielle de Webwerk, réalisée à partir de sources publiques. Statistiques de visite anonymes, sans cookie.</p>
+    </footer>
+  </div>
+</main>
+
+<button type="button" class="cue" aria-label="Défiler vers la suite"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="ring" cx="24" cy="24" r="22.5"/><path class="chev" d="M16.5 20.5 L24 28 L31.5 20.5"/></svg></button>
+
+<div class="scrim" data-close></div>
+<aside class="drawer" id="carte" role="dialog" aria-modal="true" aria-labelledby="carte-h" tabindex="-1">
+  <div class="in">
+    <div class="bar"><button type="button" class="close" data-close><span data-i="close">Fermer</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+    <div class="ttl">
+      <h2 id="carte-h" data-i="carte">La carte</h2>
+      <svg class="fl" viewBox="0 0 300 22" aria-hidden="true"><path d="M6 12 C70 4 150 20 236 9 C258 6 274 8 286 13 C292 16 288 20 282 17" fill="none" stroke="rgba(241,223,154,.8)" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <p class="sub" data-i="sub">Sur place ou à emporter</p>
+    </div>
+    <div class="cols"><div class="col"><div class="grp"><div class="gh"><img class="wide" src="assets/dish-12-gyoza.webp" alt="" aria-hidden="true"><h3 class="c-apricot" data-i="g_start">Pour commencer</h3></div><ul><li>Gyoza</li><li>Raviolis vapeur aux crevettes</li><li>Variétés à la vapeur</li><li>Nems</li><li>Nems de scampis <i>(fait maison)</i></li><li>Wontons au porc, sauce maison</li><li>Brochettes de poulet frit</li><li>Triangles au curry</li><li>Assortiment dégustation maison <i data-i="pour2">(pour deux)</i></li></ul></div><div class="grp"><div class="gh"><img class="" src="assets/dish-11-curry.webp" alt="" aria-hidden="true"><h3 class="c-blue" data-i="g_soup">Soupes</h3></div><ul><li>Soupe pékinoise au canard</li><li>Soupe au tofu et légumes</li><li>Soupe piquante au poulet</li><li>Soupe aux raviolis chinois</li><li>Soupe thaïe au curry rouge et scampis</li></ul></div></div><div class="col"><div class="grp"><div class="gh"><img class="" src="assets/dish-10-canard.webp" alt="" aria-hidden="true"><h3 class="c-coral" data-i="g_duck">Canard</h3></div><ul><li class="star">Canard Spécial Maison</li><li>Canard à la Pékinoise</li><li>Canard façon thaï</li><li>Canard Sichuan</li><li>Canard sauce barbecue</li></ul></div><div class="grp"><div class="gh"><img class="" src="assets/dish-09-padthai.webp" alt="" aria-hidden="true"><h3 class="c-sage" data-i="thai">Thaï</h3></div><ul><li>Pad thaï aux scampis</li><li>Pad thaï aux fèves et tofu fumé</li><li>Poulet au curry vert</li><li>Salade de papaye verte aux scampis</li><li>Bœuf au basilic</li><li>Poulet à la citronnelle</li><li>Calamar au curry rouge</li></ul></div><div class="grp"><div class="gh"><h3 class="c-sage" data-i="g_veg">Végétarien</h3></div><ul><li>Tofu façon grand-mère</li><li>Aubergine Yuxiang</li><li>Tofu sauté aux légumes</li><li>Légumes au wok</li></ul></div></div><div class="col"><div class="grp"><div class="gh"><h3 class="c-butter" data-i="g_wok">Au wok</h3></div><ul><li>Poulet aux noix de cajou</li><li>Poulet sucré piquant</li><li>Poulet au gingembre</li><li>Gonbao, poulet aux cacahuètes</li><li>Bœuf au poivre noir</li><li>Bœuf au poivre de Sichuan</li><li>Bœuf croustillant, sauce sucrée piquante</li><li>Scampis à la sauce gochujang</li><li>Calamar sel et poivre</li></ul></div><div class="grp"><div class="gh"><h3 class="c-apricot" data-i="g_noodles">Nouilles et riz</h3></div><ul><li>Nouilles sautées <i>(légumes, poulet, bœuf, scampis)</i></li><li>Nouilles Singapour</li><li>Nouilles udon aux scampis</li><li>Riz sauté <i>(légumes, poulet, bœuf, scampis)</i></li></ul></div><div class="grp"><div class="gh"><h3 class="c-coral" data-i="g_dessert">Desserts</h3></div><ul><li>Mochi <i>(matcha, mangue, coco, sésame)</i></li><li>Moelleux au chocolat</li><li>Cheesecake</li></ul></div></div></div>
+    <p class="note"><a href="https://wolt.com/en/lux/luxembourg/restaurant/mont-saint-lambert" rel="noopener" data-i="wolt">Commander sur Wolt</a><a href="https://www.wedely.com/restaurant/20856-montsaintlambert" rel="noopener" data-i="wedely">Commander sur Wedely</a><a href="tel:+352224950">22 49 50</a></p>
+  </div>
+</aside>
+
+<script>
+  document.documentElement.classList.add('js');
+  const hdr = document.getElementById('top');
+  addEventListener('scroll', () => hdr.classList.toggle('lined', scrollY > 40), { passive: true });
+
+  // the board story: scroll writes the chalk
+  const story = document.querySelector('.story');
+  const stage = story.querySelector('.board');
+  const smear = story.querySelector('.smear');
+  const nib = story.querySelector('.nib');
+  const reduce = /[?&]embed=1/.test(location.search) || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const UNITS = 4.3;                 // four boards + a hold on the last one
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const rubs = [...story.querySelectorAll('.rub')];
+  // a hand is never even: small per-line wobble and pressure, fixed per line
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  story.querySelectorAll('.ln').forEach(el => {
+    el.style.setProperty('--rot', (-.5 + (rnd() - .5) * .8).toFixed(2) + 'deg');
+    el.style.setProperty('--dy', ((rnd() - .5) * 3).toFixed(1) + 'px');
+    el.style.setProperty('--op', (.85 + rnd() * .11).toFixed(2));
+  });
+  function splitGlyphs(it) {
+    const glyphs = [];
+        const walk = node => [...node.childNodes].forEach(c => {
+          if (c.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            for (const ch of c.textContent) {
+              if (/\s/.test(ch) && !c.parentElement.closest('a,.u,.ul,[href]')) { frag.appendChild(document.createTextNode(ch)); continue; }
+              const g = document.createElement('span'); g.className = 'g'; g.textContent = ch; frag.appendChild(g); glyphs.push(g);
+            }
+            c.replaceWith(frag);
+          } else if (c.nodeType === 1 && !c.classList.contains('g')) walk(c);
+        });
+        walk(it); it.classList.add('wr');
+    return glyphs;
+  }
+  const scenes = [...story.querySelectorAll('.scene')].map((el, k) => {
+    // writing order: text in DOM order, each drawing slotted after the n-th text item
+    const order = [...el.querySelectorAll('.in [data-w]')];
+    order.filter(it => it.dataset.at).forEach(it => { order.splice(order.indexOf(it), 1); order.splice(Number(it.dataset.at), 0, it); });
+    [...el.querySelectorAll(':scope > [data-w]')].sort((a, b) => b.dataset.after - a.dataset.after)
+      .forEach(d => order.splice(Number(d.dataset.after) + 1, 0, d));
+    const weight = it => it.dataset.weight ? Number(it.dataset.weight) : it.dataset.w === 'dr' || it.dataset.w === 'cn' ? 10 : it.dataset.w === 'fl' ? 6 : Math.max(5, it.textContent.trim().length);
+    const total = order.reduce((s, it) => s + weight(it), 0);
+    let acc = 0;
+    const items = order.map(it => {
+      const a = acc / total; acc += weight(it);
+      const kind = it.dataset.w || 'ln';
+      if (kind === 'fl') { const p = it.querySelector('path'); it._len = p.getTotalLength(); p.style.strokeDasharray = it._len; }
+      let glyphs = null;
+      if (kind === 'ln') {
+        glyphs = splitGlyphs(it);
+      }
+      return { el: it, kind, a, b: acc / total, r: -1, hz: -1, glyphs, gi: -1 };
+    });
+    return { el, k, items, e: null, rub: rubs[k] };
+  });
+  function paint(it, r) {
+    if (r === it.r) return;
+    it.r = r;
+    const s = it.el.style;
+    if (it.kind === 'fl') it.el.querySelector('path').style.strokeDashoffset = it.el._len * (1 - r);
+    else if (it.kind === 'cn') s.setProperty('--d', (r * 388 - 28) + 'deg');
+    else if (it.kind === 'cv') drawCv(it, r);
+    else if (it.kind === 'im') s.setProperty('--p', ((1.5 - (r * 2 - .5)) / 2 * 100).toFixed(2) + '%');
+    else if (it.kind === 'ln' && it.glyphs) {
+      const n = it.glyphs.length, pos = r * n;
+      it.glyphs.forEach((g, i) => {
+        const v = Math.min(1, Math.max(0, pos - i));
+        if (g._v !== v) { g._v = v; g.style.setProperty('--g', v.toFixed(3)); }
+      });
+      it.gi = Math.min(n - 1, Math.floor(pos));
+    }
+    else { const F = it.kind === 'dr' ? 30 : 14; s.setProperty('--a', (r * (100 + F) - F) + '%'); s.setProperty('--b', (r * (100 + F)) + '%'); }
+  }
+  // drawings are DRAWN: the chalk tip travels along each line (stroke order from tools/studio/strokes.py),
+  // then the pastel colour is hatched in with the side of the chalk
+  const DPR = Math.min(2, devicePixelRatio || 1);
+  const loadScript = src => new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s); });
+  const loadImg = src => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
+  const imgReady = i => i.complete && i.naturalWidth ? Promise.resolve(i) : new Promise((ok, no) => { i.addEventListener('load', () => ok(i), { once: true }); i.addEventListener('error', no, { once: true }); });
+  function sizeCv(it) {
+    const c = it.cv, el = c.canvas, w = el.clientWidth, h = el.clientHeight;
+    if (!w || !h) return false;
+    c.cw = el.width = Math.round(w * DPR); c.ch = el.height = Math.round(h * DPR);
+    c.hc.width = c.cw; c.hc.height = c.ch;
+    const d = c.data, s = c.logo ? Math.min(c.cw / d.w, c.ch / d.h) : Math.max(c.cw / d.w, c.ch / d.h);
+    c.s = s; c.ox = (c.cw - d.w * s) / 2; c.oy = (c.ch - d.h * s) / 2;
+    // hatch bands at -25deg: two interleaved passes left to right, then a loose third pass for the gaps
+    let sd = 11; const rr = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
+    const D = Math.hypot(c.cw, c.ch), B = 12 * DPR, bands = [];
+    for (let pass = 0; pass < 2; pass++)
+      for (let x = -D / 2 + pass * B; x < D / 2; x += 2 * B) bands.push({ x: x + (rr() - .5) * 6 * DPR, w: B * (.9 + rr() * .35), a: (-25 + (rr() - .5) * 4) * Math.PI / 180 });
+    for (let i = 0; i < 24; i++) bands.push({ x: (rr() - .5) * D, w: B * 1.2, a: (-25 + (rr() - .5) * 6) * Math.PI / 180 });
+    c.bands = bands; c.D = D;
+    return true;
+  }
+  function drawCv(it, r) {
+    const c = it.cv; if (!c.cw && !sizeCv(it)) return;
+    const { ctx, cw, ch, s, ox, oy, data } = c, A = c.logo ? 1 : .6;
+    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'source-over'; ctx.clearRect(0, 0, cw, ch);
+    c.tip = null;
+    if (r >= .999) r = 1;
+    const v = c.logo ? 0 : (r >= 1 ? 1 : clamp((r - A) / (1 - A)));
+    if (c.disc) c.disc.style.opacity = v.toFixed(3);
+    if (r <= 0) return;
+    const ua = clamp(r / A);
+    ctx.setTransform(s, 0, 0, s, ox, oy);
+    if (ua < 1) {
+      ctx.lineWidth = Math.max(data.sw * 5, 12); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#fff';
+      ctx.beginPath();
+      let left = ua * c.total;
+      for (const st of data.strokes) {
+        if (left <= 0) break;
+        ctx.moveTo(st[0], st[1]);
+        for (let i = 2; i < st.length; i += 2) {
+          const dx = st[i] - st[i - 2], dy = st[i + 1] - st[i - 1], L = Math.hypot(dx, dy);
+          if (L <= left) { ctx.lineTo(st[i], st[i + 1]); left -= L; }
+          else { const f = left / L, x = st[i - 2] + dx * f, y = st[i - 1] + dy * f; ctx.lineTo(x, y); c.tip = [x * s + ox, y * s + oy]; left = 0; break; }
+        }
+      }
+      ctx.stroke();
+      ctx.globalCompositeOperation = 'source-in';
+    }
+    ctx.drawImage(c.lines, 0, 0);
+    if (v > 0) {
+      ctx.globalCompositeOperation = 'destination-over';
+      if (v >= .999) { ctx.setTransform(s, 0, 0, s, ox, oy); ctx.globalCompositeOperation = 'source-over'; ctx.clearRect(-ox / s, -oy / s, cw / s, ch / s); ctx.drawImage(c.full, 0, 0); return; }
+      const h = c.hctx, n = Math.floor(v * c.bands.length);
+      h.setTransform(1, 0, 0, 1, 0, 0); h.globalCompositeOperation = 'source-over'; h.clearRect(0, 0, cw, ch); h.fillStyle = '#fff';
+      for (let i = 0; i < n; i++) { const b = c.bands[i]; h.setTransform(Math.cos(b.a), Math.sin(b.a), -Math.sin(b.a), Math.cos(b.a), cw / 2, ch / 2); h.fillRect(b.x, -c.D / 2, b.w, c.D); }
+      h.setTransform(s, 0, 0, s, ox, oy); h.globalCompositeOperation = 'source-in'; h.drawImage(c.full, 0, 0);
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(c.hc, 0, 0);
+    }
+  }
+  async function setupCv(it) {
+    const el = it.el, img = el.querySelector('img:not(.disc)');
+    const base = img.getAttribute('src').split('/').pop().replace(/\.\w+$/, '');
+    const name = el.classList.contains('lg') ? 'logo-' + base : base;
+    try {
+      await loadScript(`assets/strokes/${name}.js`);
+      const [lines, full] = await Promise.all([loadImg(`assets/strokes/${name}-lines.webp`), imgReady(img)]);
+      const data = window.STROKES[name];
+      const canvas = document.createElement('canvas'); canvas.className = 'cv'; canvas.setAttribute('aria-hidden', 'true');
+      if (el.classList.contains('lg')) canvas.style.aspectRatio = `${data.w} / ${data.h}`;
+      el.insertBefore(canvas, img); img.style.display = 'none';
+      let total = 0;
+      for (const st of data.strokes) for (let i = 2; i < st.length; i += 2) total += Math.hypot(st[i] - st[i - 2], st[i + 1] - st[i - 1]);
+      const hc = document.createElement('canvas');
+      it.cv = { canvas, ctx: canvas.getContext('2d'), hc, hctx: hc.getContext('2d'), data, lines, full, total, logo: el.classList.contains('lg'), disc: el.querySelector('.disc') };
+      el.classList.add(it.cv.logo ? 'cvs' : 'cvp');
+      it.kind = 'cv'; sizeCv(it); const r = it.r; it.r = -1; paint(it, Math.max(0, r)); req();
+    } catch (e) { /* keep the masked image */ }
+  }
+  if (!reduce) scenes.forEach(sc => sc.items.forEach(it => { if (it.el.matches('.dr.paint, .dr.lg')) setupCv(it); }));
+  addEventListener('resize', () => scenes.forEach(sc => sc.items.forEach(it => { if (it.cv) { it.cv.cw = 0; drawCv(it, Math.max(0, it.r)); } })));
+
+  const LAST = scenes.length - 1;
+  let ticking = false;
+  function frame() {
+    ticking = false;
+    const top = story.getBoundingClientRect().top;
+    const span = story.offsetHeight - innerHeight;
+    const g = clamp(-top / span) * UNITS;
+    let wipe = -1, active = null, pen = null;
+    for (const sc of scenes) {
+      const local = clamp(g - sc.k);
+      const start = sc.k === 0 ? .03 : .16, end = sc.k === LAST ? .82 : .9;
+      const t = clamp((local - start) / (end - start));
+      for (const it of sc.items) {
+        const r = clamp((t - it.a) / (it.b - it.a));
+        paint(it, r);
+        if (it.cv && it.cv.tip && r > 0 && r < 1) pen = it;
+        if (it.kind === 'ln') {
+          if (r > 0 && r < 1) active = { it, r };
+          const hz = r < 1 ? r : clamp(1 - (t - it.b) / .1);
+          if (Math.abs(hz - it.hz) > .004 || (hz === 0) !== (it.hz === 0)) { it.hz = hz; it.el.style.setProperty('--hz', hz.toFixed(3)); }
+        }
+      }
+      const w = sc.k < LAST ? clamp((g - sc.k - 1) / .14) : 0;
+      if (w !== sc.e) { sc.el.classList.toggle('gone', w === 1); sc.e = w; sc.el.style.setProperty('--e', (w * 120 - 20) + '%'); if (sc.rub) sc.rub.style.setProperty('--e', (w * 120 - 20) + '%'); }
+      // older erased boards fade further; boards not yet reached stay hidden
+      const vis = g >= sc.k ? 'visible' : 'hidden';
+      if (vis !== sc.vis) { sc.vis = vis; sc.el.style.visibility = vis; }
+      if (t !== sc.t) { sc.t = t; sc.el.style.setProperty('--t', t.toFixed(3)); }
+      if (w > 0 && w < 1) wipe = w;
+    }
+    if (wipe >= 0) { smear.style.opacity = Math.sin(Math.PI * wipe).toFixed(3); smear.style.transform = `translateX(${-70 + wipe * 180}%) rotate(9deg)`; }
+    else smear.style.opacity = 0;
+    if (pen && !active) {
+      const sr = stage.getBoundingClientRect(), cr = pen.cv.canvas.getBoundingClientRect(), [tx, ty] = pen.cv.tip;
+      nib.style.opacity = .9;
+      nib.style.transform = `translate(${cr.left - sr.left + tx / pen.cv.cw * cr.width}px, ${cr.top - sr.top + ty / pen.cv.ch * cr.height}px)`;
+    } else if (active) {
+      const sr = stage.getBoundingClientRect();
+      const it = active.it, g = it.glyphs && it.gi >= 0 ? it.glyphs[it.gi] : null;
+      const lr = (g || it.el).getBoundingClientRect();
+      const fx = g ? Math.min(1, Math.max(0, active.r * it.glyphs.length - it.gi)) : active.r;
+      nib.style.opacity = .85;
+      nib.style.transform = `translate(${lr.left - sr.left + lr.width * fx}px, ${lr.top - sr.top + lr.height * (.35 + .4 * Math.abs(Math.sin(fx * 3.1)))}px)`;
+    } else nib.style.opacity = 0;
+  }
+  const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  // a board never runs under the header or off the bottom: scale its content to fit
+  function fitBoards() {
+    if (document.documentElement.classList.contains('static')) return;
+    story.querySelectorAll('.scene .in').forEach(inEl => {
+      let fit = inEl.querySelector(':scope > .fit');
+      if (!fit) {
+        fit = document.createElement('div'); fit.className = 'fit';
+        while (inEl.firstChild) fit.appendChild(inEl.firstChild);
+        inEl.appendChild(fit);
+      }
+      fit.style.transform = 'none';
+      const cs = getComputedStyle(inEl);
+      const avail = inEl.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - 8;
+      const need = fit.scrollHeight;
+      const k = Math.min(1, avail / need);
+      fit.style.transform = k < 1 ? `scale(${k.toFixed(3)})` : 'none';
+    });
+  }
+  fitBoards();
+  document.fonts && document.fonts.ready.then(fitBoards);
+  addEventListener('load', fitBoards);
+  addEventListener('resize', fitBoards);
+  if (reduce) {
+    document.documentElement.classList.add('static');
+    scenes.forEach(sc => sc.items.forEach(it => paint(it, 1)));
+  } else {
+    addEventListener('scroll', req, { passive: true });
+    addEventListener('resize', req);
+    document.fonts.ready.then(req);
+    frame();
+    // « Nous trouver »: land on the finished last board
+    document.querySelectorAll('a[href="#trouver"]').forEach(a => a.addEventListener('click', e => {
+      e.preventDefault();
+      const y = story.getBoundingClientRect().top + scrollY + (story.offsetHeight - innerHeight) * (4.0 / UNITS);
+      scrollTo({ top: y, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    }));
+  }
+
+  // la carte drawer
+  const drawer = document.getElementById('carte');
+  const main = document.querySelector('main');
+  let opener = null;
+  const focusables = () => [...drawer.querySelectorAll('a[href],button')];
+  function openCarte(e) {
+    opener = e.currentTarget;
+    document.body.classList.add('open');
+    main.inert = true; hdr.inert = true;
+    void drawer.offsetWidth;
+    drawer.querySelectorAll('.grp').forEach((g, i) => g.style.transitionDelay = (120 + i * 70) + 'ms');
+    drawer.scrollTop = 0;
+    drawer.querySelector('.close').focus();
+  }
+  function closeCarte() {
+    if (!document.body.classList.contains('open')) return;
+    document.body.classList.remove('open');
+    main.inert = false; hdr.inert = false;
+    if (opener) opener.focus();
+  }
+  document.querySelectorAll('[data-carte]').forEach(b => b.addEventListener('click', openCarte));
+  document.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', closeCarte));
+  addEventListener('keydown', e => {
+    if (!document.body.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeCarte(); return; }
+    if (e.key === 'Tab') {
+      const f = focusables(), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // FR / DE / EN: every visible string, aria-label, alt, title and meta
+  const I = {"fr": {"carte": "La carte", "trouver": "Nous trouver", "l_bar": "Un bar-restaurant", "l_coeur": "au cœur du Limpertsberg.", "bieres": "Bières", "vins": "Et des vins, des rhums, des whiskies.", "thai": "Thaï", "chine": "Chine et canard", "h1": "Menus du midi très accessibles,", "h2": "du lundi au vendredi", "h3": "Le soir, jusqu’à minuit", "h4": "Fermé le dimanche", "h5": "Terrasse couverte,", "h6": "sur l’avenue du Bois", "itin": "Itinéraire", "wolt": "Commander sur Wolt", "wedely": "Commander sur Wedely", "sub": "Sur place ou à emporter", "g_start": "Pour commencer", "g_soup": "Soupes", "g_duck": "Canard", "g_veg": "Végétarien", "g_wok": "Au wok", "g_noodles": "Nouilles et riz", "g_dessert": "Desserts", "pour2": "(pour deux)", "close": "Fermer", "a_hero": "Le tableau des bières du Mont St-Lambert, écrit à la craie", "a_room": "Dessin à la craie de la salle : le disque en bois, la banquette, les chaises bistrot et les caisses à vin", "a_glass": "Dessin à la craie : un verre de bière blonde", "a_padthai": "Dessin à la craie : un bol de pad thaï aux scampis", "a_canard": "Dessin à la craie : canard laqué sur riz", "a_curry": "Dessin à la craie : un bol de curry", "a_gyoza": "Dessin à la craie : des raviolis grillés et leur sauce", "a_terrace": "Dessin à la craie de la terrasse couverte, la véranda vitrée sur l’avenue du Bois", "ar_board": "Le tableau", "lang": "Langue", "cue_next": "Défiler vers la suite", "cue_up": "Revenir en haut", "title": "Mont St-Lambert, bar-restaurant au Limpertsberg", "desc": "Mont St-Lambert, bar-restaurant au cœur du Limpertsberg : bières belges, vins et cuisine thaïe et chinoise. 97, avenue du Bois, Luxembourg.", "disc": "Proposition non officielle de Webwerk, réalisée à partir de sources publiques. Statistiques de visite anonymes, sans cookie."}, "de": {"carte": "Die Karte", "trouver": "Anfahrt", "close": "Schließen", "l_bar": "Bar und Restaurant", "l_coeur": "mitten im Limpertsberg.", "bieres": "Biere", "vins": "Dazu Weine, Rum und Whisky.", "thai": "Thai", "chine": "Chinesisch und Ente", "h1": "Sehr günstige Mittagsmenüs,", "h2": "montags bis freitags", "h3": "Abends bis Mitternacht", "h4": "Sonntags geschlossen", "h5": "Überdachte Terrasse", "h6": "an der Avenue du Bois", "itin": "Route", "wolt": "Bei Wolt bestellen", "wedely": "Bei Wedely bestellen", "sub": "Vor Ort essen oder mitnehmen", "g_start": "Vorspeisen", "g_soup": "Suppen", "g_duck": "Ente", "g_veg": "Vegetarisch", "g_wok": "Aus dem Wok", "g_noodles": "Nudeln und Reis", "g_dessert": "Desserts", "pour2": "(für zwei)", "a_hero": "Die Biertafel des Mont St-Lambert, mit Kreide geschrieben", "a_room": "Kreidezeichnung des Gastraums: die runde Holzscheibe, die Sitzbank, Bistrostühle und Weinkisten", "a_glass": "Kreidezeichnung: ein Glas helles Bier", "a_padthai": "Kreidezeichnung: eine Schale Pad Thai mit Scampi", "a_canard": "Kreidezeichnung: glasierte Ente auf Reis", "a_curry": "Kreidezeichnung: eine Schale Curry", "a_gyoza": "Kreidezeichnung: gebratene Teigtaschen mit Dip", "a_terrace": "Kreidezeichnung der überdachten Terrasse, der verglasten Veranda an der Avenue du Bois", "ar_board": "Die Tafel", "lang": "Sprache", "cue_next": "Weiter zum nächsten Teil", "cue_up": "Zurück nach oben", "title": "Mont St-Lambert, Bar und Restaurant im Limpertsberg", "desc": "Mont St-Lambert, Bar und Restaurant mitten im Limpertsberg: belgische Biere, Weine und thailändische und chinesische Küche. 97, avenue du Bois, Luxemburg.", "disc": "Inoffizieller Vorschlag von Webwerk, erstellt aus öffentlichen Quellen. Anonyme Besuchsstatistik, ohne Cookies."}, "en": {"carte": "The menu", "trouver": "Find us", "close": "Close", "l_bar": "A bar and restaurant", "l_coeur": "in the heart of Limpertsberg.", "bieres": "Beers", "vins": "And wines, rums and whiskies.", "thai": "Thai", "chine": "Chinese and duck", "h1": "Very affordable lunch menus,", "h2": "Monday to Friday", "h3": "Evenings until midnight", "h4": "Closed on Sundays", "h5": "A covered terrace", "h6": "on Avenue du Bois", "itin": "Directions", "wolt": "Order on Wolt", "wedely": "Order on Wedely", "sub": "Eat in or take away", "g_start": "Starters", "g_soup": "Soups", "g_duck": "Duck", "g_veg": "Vegetarian", "g_wok": "From the wok", "g_noodles": "Noodles and rice", "g_dessert": "Desserts", "pour2": "(for two)", "a_hero": "The Mont St-Lambert beer board, written in chalk", "a_room": "Chalk drawing of the room: the round wooden sign, the bench, bistro chairs and wine crates", "a_glass": "Chalk drawing: a glass of blond beer", "a_padthai": "Chalk drawing: a bowl of pad thai with scampi", "a_canard": "Chalk drawing: glazed duck on rice", "a_curry": "Chalk drawing: a bowl of curry", "a_gyoza": "Chalk drawing: pan-fried dumplings with their dipping sauce", "a_terrace": "Chalk drawing of the covered terrace, the glass veranda on Avenue du Bois", "ar_board": "The board", "lang": "Language", "cue_next": "Scroll to the next part", "cue_up": "Back to the top", "title": "Mont St-Lambert, bar and restaurant in Limpertsberg", "desc": "Mont St-Lambert, a bar and restaurant in the heart of Limpertsberg: Belgian beers, wines and Thai and Chinese cooking. 97, avenue du Bois, Luxembourg.", "disc": "An unofficial proposal by Webwerk, made from public sources. Anonymous visit statistics, no cookies."}};
+  let curLang = 'fr';
+  const T = k => I[curLang][k] ?? I.fr[k];
+  const allItems = () => scenes.flatMap(sc => sc.items);
+  function setLang(L) {
+    if (!I[L]) return;
+    curLang = L;
+    document.documentElement.lang = L;
+    document.title = T('title');
+    const md = document.querySelector('meta[name="description"]'); if (md) md.content = T('desc');
+    document.querySelectorAll('[data-i]').forEach(el => {
+      const v = T(el.dataset.i);
+      if (el.classList.contains('wr')) {
+        const it = allItems().find(x => x.el === el);
+        el.textContent = v;
+        if (it) { it.glyphs = splitGlyphs(it.el); it.gi = -1; const r = it.r; it.r = -1; paint(it, reduce ? 1 : Math.max(0, r)); }
+      } else el.textContent = v;
+    });
+    document.querySelectorAll('[data-ia]').forEach(el => el.setAttribute('aria-label', T(el.dataset.ia)));
+    document.querySelectorAll('[data-ialt]').forEach(el => el.setAttribute('alt', T(el.dataset.ialt)));
+    document.querySelectorAll('.lang [data-lang]').forEach(b => { const on = b.dataset.lang === L; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+    try { localStorage.setItem('msl-lang', L); } catch (e) {}
+    fitBoards(); if (typeof setCue === 'function') setCue(); if (!reduce) req();
+  }
+  document.querySelectorAll('.lang [data-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // scroll cue: the next board, then back to the top
+  const cue = document.querySelector('.cue');
+  const stops = () => {
+    const st = story.getBoundingClientRect().top + scrollY;
+    if (document.documentElement.classList.contains('static'))
+      return [...story.querySelectorAll('.scene')].map(el => el.getBoundingClientRect().top + scrollY - 60);
+    const sp = story.offsetHeight - innerHeight;
+    return [0.9, 1.9, 2.9, 4.0].map(g => st + sp * g / UNITS);
+  };
+  const nextStop = () => stops().find(y => y > scrollY + 12);
+  const setCue = () => {
+    const up = nextStop() === undefined;
+    cue.classList.toggle('up', up);
+    cue.setAttribute('aria-label', T(up ? 'cue_up' : 'cue_next'));
+  };
+  let glide = 0;
+  cue.addEventListener('click', () => {
+    const y = nextStop();
+    const to = y === undefined ? 0 : y;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('static')) { scrollTo({ top: to, behavior: 'auto' }); return; }
+    const from = scrollY, dist = to - from;
+    const dur = to === 0 ? 1200 : Math.min(3200, Math.max(1600, Math.abs(dist) / innerHeight * 1100));
+    const t0 = performance.now(), id = ++glide;
+    const ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    document.documentElement.style.scrollBehavior = 'auto';
+    const stopGlide = () => { glide++; };
+    addEventListener('wheel', stopGlide, { once: true, passive: true });
+    addEventListener('touchstart', stopGlide, { once: true, passive: true });
+    (function step(now) {
+      if (id !== glide) { document.documentElement.style.scrollBehavior = ''; return; }
+      const x = Math.min(1, (now - t0) / dur);
+      scrollTo(0, from + dist * ease(x));
+      if (x < 1) requestAnimationFrame(step); else document.documentElement.style.scrollBehavior = '';
+    })(t0);
+  });
+  addEventListener('scroll', setCue, { passive: true });
+  addEventListener('resize', setCue);
+  setCue();
+  {
+    let saved = null; try { saved = localStorage.getItem('msl-lang'); } catch (e) {}
+    const want = new URLSearchParams(location.search).get('lang') || saved;
+    if (want && want !== 'fr') setLang(want);
+  }
+</script>
 <script>
 /* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
    look at /apercu/ never lands in the venue's numbers. */
