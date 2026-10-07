@@ -56,8 +56,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* hero: their beer board (from a5) */
 .hero{position:relative;isolation:isolate;overflow:hidden;min-height:max(640px,calc(100svh - 60px));display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:36px}
 .hero .board{position:absolute;inset:0;z-index:-1}
-.hero .board img{width:100%;height:100%;object-fit:cover;object-position:70% 0}
-.hero .board::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,28,26,0) 0%,rgba(31,28,26,0) 24%,rgba(31,28,26,.9) 40%,var(--slate) 50%,var(--slate) 100%)}
+.hero .board img{width:100%;height:100%;object-fit:cover;object-position:0 0}
+.hero .board::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,28,26,0) 0%,rgba(31,28,26,0) 34%,rgba(31,28,26,.9) 47%,var(--slate) 55%,var(--slate) 100%)}
 .hero .wrap{position:relative}
 .hero .wrap::before{content:"";position:absolute;z-index:-1;left:-12%;right:-8%;top:-18%;bottom:-14%;background:radial-gradient(closest-side,rgba(28,26,24,.97) 58%,rgba(28,26,24,.85) 74%,rgba(28,26,24,0) 100%);pointer-events:none}
 .hero .logo{width:min(80vw,540px);height:auto}
@@ -95,7 +95,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ln{position:relative;display:block;width:max-content;max-width:100%;white-space:nowrap;filter:url(#chalk);opacity:var(--op,.92);transform:translateY(var(--dy,0px)) rotate(var(--rot,-.6deg));transform-origin:0 50%}
 /* dust haze under a freshly written line; it settles */
 .ln.wr{-webkit-mask-image:none;mask-image:none}
-.ln .g{display:inline-block;white-space:pre;text-decoration:inherit;text-decoration-color:inherit;text-underline-offset:inherit;text-decoration-thickness:inherit;clip-path:inset(-40% calc((1 - var(--g,0)) * 140% - 40%) -40% -40%);opacity:calc(var(--g,0) * 8);transform:translateY(calc((1 - var(--g,0)) * .6px))}
+.ln .g{display:inline-block;white-space:pre;text-decoration:inherit;text-decoration-color:inherit;text-underline-offset:inherit;text-decoration-thickness:inherit;clip-path:inset(-40% calc((1 - var(--g,0)) * 140% - 40%) -40% -40%);opacity:calc(var(--g,0) * 8);transform:translateY(calc(var(--gy,0px) + (1 - var(--g,0)) * .6px)) rotate(var(--gr,0deg)) scale(var(--gs,1))}
 .ln::after{content:"";position:absolute;left:-2%;right:-2%;top:62%;height:55%;pointer-events:none;background:radial-gradient(50% 50% at 50% 40%,rgba(242,239,230,.12),rgba(242,239,230,0));opacity:calc(var(--hz,0) * .9);transform:translateY(calc((1 - var(--hz,0)) * 4px))}
 .dr{position:relative;--dir:110deg;transform:rotate(var(--rot,0deg))}
 .dr img{display:block;width:100%;height:auto}
@@ -142,7 +142,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* scene 1: the inside */
 .scene .in > .fit{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;flex-shrink:0;transform-origin:50% 50%}
 .s0 .in{justify-content:center}
-.s0 .ln{font-size:28px;line-height:40px}
+.s0 .ln{font-size:28px;line-height:40px;color:#f2efe6;--op:.98!important}
 .s0 .line{margin-top:24px}
 
 /* scene 2: les bieres */
@@ -157,7 +157,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .s1 .col{display:flex;flex-direction:column;align-items:flex-start}
 .s1 .cols{position:relative}
 .s1 .glass{position:absolute;right:-30px;top:39%;width:29vw;aspect-ratio:2/3;--rot:3deg}
-.s1 .sub{font-size:18px;line-height:1.4;margin-top:14px}
+.s1 .sub{font-size:20px;line-height:1.4;margin-top:18px;color:#f2efe6;--op:.98!important}
 .logos.marks{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:6px 22px;margin-top:22px;width:100%}
 .logos.marks .mk{font-size:26px;line-height:1.2;--rot:-2deg}
 .c-butter{color:var(--butter)} .c-blue{color:var(--blue)}
@@ -269,7 +269,7 @@ body.open{overflow:hidden}
   .hero{min-height:max(720px,calc(100svh - 72px));padding-bottom:var(--s5)}
   .hero .board{left:30%}
   .hero .board img{object-position:0 0}
-  .hero .board{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%),linear-gradient(180deg,transparent 0,#000 7%,#000 52%,transparent 80%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 22%),linear-gradient(180deg,transparent 0,#000 7%,#000 52%,transparent 80%);mask-composite:intersect}
+  .hero .board{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%),linear-gradient(180deg,transparent 0,#000 7%,#000 64%,transparent 84%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 7%),linear-gradient(180deg,transparent 0,#000 7%,#000 64%,transparent 84%);mask-composite:intersect}
   .hero .board::after{background:radial-gradient(52% 78% at 12% 92%,rgba(31,28,26,.97) 35%,rgba(31,28,26,.7) 62%,rgba(31,28,26,0) 100%),linear-gradient(180deg,rgba(31,28,26,0) 50%,rgba(31,28,26,.5) 82%,var(--slate) 100%)}
   .hero .logo{width:500px}
   .hero .links{gap:40px;font-size:30px}
@@ -288,7 +288,7 @@ body.open{overflow:hidden}
   .s1 .glass{position:relative;right:auto;top:auto;width:220px;--rot:2deg;order:2}
   .s1 .cols > .col:nth-child(2){order:3}
   .s1 .cols{column-gap:4.5vw}
-  .s1 .sub{font-size:26px;margin-top:22px}
+  .s1 .sub{font-size:32px;margin-top:26px}
   .logos{display:flex;justify-content:center;align-items:center;gap:4.2vw;margin-top:40px}
   .logos.marks{gap:3.4vw;margin-top:36px}
   .logos.marks .mk{font-size:40px}
@@ -479,7 +479,7 @@ body.open{overflow:hidden}
                 </div>
                 <div class="dr paint glass key-mid" data-w="im" data-weight="40" data-at="3"><img src="assets/beer-glass-13.webp" alt="Dessin à la craie : un verre de bière blonde" data-ialt="a_glass" width="896" height="1344"></div>
               </div>
-              <div class="logos marks"><span class="ln mk c-apricot" data-w>Orval</span><span class="ln mk c-coral" data-w>Chimay</span><span class="ln mk c-butter" data-w>Westmalle</span><span class="ln mk c-sage" data-w>Rochefort</span><span class="ln mk c-blue" data-w>Kwak</span></div>
+              
               <span class="ln ctr sub" data-w data-i="vins">Et des vins, des rhums, des whiskies.</span>
             </div>
           </div>
@@ -601,7 +601,7 @@ body.open{overflow:hidden}
             const frag = document.createDocumentFragment();
             for (const ch of c.textContent) {
               if (/\s/.test(ch) && !c.parentElement.closest('a,.u,.ul,[href]')) { frag.appendChild(document.createTextNode(ch)); continue; }
-              const g = document.createElement('span'); g.className = 'g'; g.textContent = ch; frag.appendChild(g); glyphs.push(g);
+              const g = document.createElement('span'); g.className = 'g'; g.textContent = ch; { let h = 0; for (const c of (ch + glyphs.length + (it.textContent || '').length)) h = (h * 31 + c.charCodeAt(0)) % 9973; const r1 = (h % 97) / 96, r2 = ((h * 7) % 89) / 88, r3 = ((h * 13) % 83) / 82; g.style.setProperty('--gr', ((r1 - .5) * 5).toFixed(2) + 'deg'); g.style.setProperty('--gy', ((r2 - .5) * 2.4).toFixed(2) + 'px'); g.style.setProperty('--gs', (.95 + r3 * .1).toFixed(3)); } frag.appendChild(g); glyphs.push(g);
             }
             c.replaceWith(frag);
           } else if (c.nodeType === 1 && !c.classList.contains('g')) walk(c);
