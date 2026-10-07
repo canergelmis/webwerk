@@ -60,7 +60,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:899px){
   /* 158vw shows the board from its left column to the end of « Bières »; the top glare fades out */
   .hero .board img{position:absolute;left:0;top:0;width:158vw;height:auto;max-width:none;object-fit:fill}
-  .hero .board{-webkit-mask-image:radial-gradient(48% 15% at 0 0,transparent 35%,#000 100%);mask-image:radial-gradient(48% 15% at 0 0,transparent 35%,#000 100%)}
+  .hero .board{-webkit-mask-image:radial-gradient(48% 15% at 0 0,transparent 35%,#000 100%),linear-gradient(180deg,#000 13%,transparent 19%),linear-gradient(90deg,#000 63%,transparent 84%);-webkit-mask-composite:source-in,source-over;mask-image:radial-gradient(48% 15% at 0 0,transparent 35%,#000 100%),linear-gradient(180deg,#000 13%,transparent 19%),linear-gradient(90deg,#000 63%,transparent 84%);mask-composite:intersect,add}
 }
 .hero .board::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,28,26,0) 0%,rgba(31,28,26,0) 34%,rgba(31,28,26,.9) 47%,var(--slate) 55%,var(--slate) 100%)}
 .hero .wrap{position:relative}
