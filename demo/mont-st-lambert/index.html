@@ -57,6 +57,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero{position:relative;isolation:isolate;overflow:hidden;min-height:max(640px,calc(100svh - 60px));display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:36px}
 .hero .board{position:absolute;inset:0;z-index:-1}
 .hero .board img{width:100%;height:100%;object-fit:cover;object-position:0 0}
+@media (max-width:899px){
+  /* 158vw shows the board from its left column to the end of « Bières »; the top glare fades out */
+  .hero .board img{position:absolute;left:0;top:0;width:158vw;height:auto;max-width:none;object-fit:fill}
+  .hero .board{-webkit-mask-image:radial-gradient(48% 15% at 0 0,transparent 35%,#000 100%);mask-image:radial-gradient(48% 15% at 0 0,transparent 35%,#000 100%)}
+}
 .hero .board::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,28,26,0) 0%,rgba(31,28,26,0) 34%,rgba(31,28,26,.9) 47%,var(--slate) 55%,var(--slate) 100%)}
 .hero .wrap{position:relative}
 .hero .wrap::before{content:"";position:absolute;z-index:-1;left:-12%;right:-8%;top:-18%;bottom:-14%;background:radial-gradient(closest-side,rgba(28,26,24,.97) 58%,rgba(28,26,24,.85) 74%,rgba(28,26,24,0) 100%);pointer-events:none}
@@ -137,27 +142,29 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dr.paint canvas.cv{height:100%;filter:url(#unblack)}
 .key-mid canvas.cv{filter:url(#unblack-mid)} .key-hi canvas.cv{filter:url(#unblack-hi)}
 .lg-duvel canvas{filter:url(#tint-coral)} .lg-leffe canvas,.lg-kasteel canvas{filter:url(#tint-butter)} .lg-liefmans canvas{filter:url(#tint-rose)} .lg-rochefort canvas{filter:url(#tint-apricot)}
-.s0 .room{width:100%;aspect-ratio:3/2;margin-bottom:6px;flex-shrink:0;--rot:-.6deg}
-.room img.disc{position:absolute;left:19.5%;top:11.5%;width:19%;height:auto;object-fit:contain;filter:url(#tint-gold);transform:rotate(-5deg) skewY(-2deg)}
+.s0 .room{width:calc(100vw - 24px);aspect-ratio:1/1;margin-bottom:6px;flex-shrink:0;--rot:-.6deg}
+.room img.disc{position:absolute;left:6.7%;top:13.5%;width:27%;height:auto;object-fit:contain;filter:url(#tint-gold);transform:rotate(-5deg) skewY(-2deg)}
 /* scene 1: the inside */
 .scene .in > .fit{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;flex-shrink:0;transform-origin:50% 50%}
 .s0 .in{justify-content:center}
-.s0 .ln{font-size:28px;line-height:40px;color:#f2efe6;--op:.98!important}
+.s0 .ln{font-size:min(30px,7.4vw);line-height:1.4;color:#f2efe6;--op:.98!important}
 .s0 .line{margin-top:24px}
 
 /* scene 2: les bieres */
-.s1 .head{display:flex;align-items:center;justify-content:center;gap:14px;padding-right:44px}
-.s1 h2{font-size:44px;line-height:1.1;transform-origin:50% 50%}
-.s1 .fl{width:190px;height:22px}
+.s1 .head{display:flex;align-items:center;justify-content:center}
+/* one heading system: Bières, Thaï, Chine et canard */
+.head > div{display:flex;flex-direction:column;align-items:center}
+.ln.hd{font-size:38px;line-height:1.1;transform-origin:50% 50%}
+.head .fl{width:170px;height:20px}
 .dd-hop{width:30px}
 .dd-chalice{width:34px}
-.list{font-size:20px;line-height:28px}
+.list{font-size:21px;line-height:31px}
 .list .ln,.s3 .ln{filter:url(#chalk-lite);--op:.97!important}
-.s1 .cols{margin-top:14px;display:grid;grid-template-columns:auto;justify-content:center}
+.s1 .cols{margin-top:22px;display:grid;grid-template-columns:auto;justify-content:center}
 .s1 .col{display:flex;flex-direction:column;align-items:flex-start}
 .s1 .cols{position:relative}
 .s1 .glass{position:absolute;right:-30px;top:39%;width:29vw;aspect-ratio:2/3;--rot:3deg}
-.s1 .sub{font-size:20px;line-height:1.4;margin-top:18px;color:#f2efe6;--op:.98!important}
+.s1 .sub{font-size:21px;line-height:1.4;margin-top:28px;color:#f2efe6;--op:.98!important}
 .logos.marks{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:6px 22px;margin-top:22px;width:100%}
 .logos.marks .mk{font-size:26px;line-height:1.2;--rot:-2deg}
 .c-butter{color:var(--butter)} .c-blue{color:var(--blue)}
@@ -177,8 +184,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .s2 .col{display:flex;flex-direction:column;align-items:center}
 .s2 .col + .col{margin-top:16px}
 .s2 .head{display:flex;align-items:center;justify-content:center;gap:10px}
-.s2 h3{font-size:32px;line-height:1.2;transform-origin:50% 50%}
-.s2 .list{display:flex;flex-direction:column;align-items:center;margin-top:2px}
+.s2 .list{display:flex;flex-direction:column;align-items:center;margin-top:8px}
 .s2 .list .ln{transform-origin:50% 50%}
 .dd-chilli{width:30px}
 .dd-basil{width:26px}
@@ -275,20 +281,20 @@ body.open{overflow:hidden}
   .hero .links{gap:40px;font-size:30px}
 
   .story{--hh:72px;--pad:48px}
-  .s0 .room{width:auto;height:calc(100vh - 320px);max-width:70vw;aspect-ratio:3/2;margin-bottom:10px}
+  .s0 .room{width:min(78vw,calc((100vh - 270px) * 1.5));height:auto;max-width:none;aspect-ratio:3/2;margin-bottom:10px}
+  .room img.disc{left:19.5%;top:11.5%;width:19%}
   .s0 .line{display:flex;gap:18px;margin-top:18px}
   .s0 .ln{font-size:50px;line-height:66px}
-  .s1 .head{gap:28px;padding-right:82px}
-  .s1 h2{font-size:66px}
-  .s1 .fl{width:320px;height:34px}
+  .ln.hd{font-size:60px}
+  .head .fl{width:280px;height:30px}
   .dd-hop{width:54px}
   .dd-chalice{width:58px}
-  .list{font-size:32px;line-height:46px}
-  .s1 .cols{display:grid;grid-template-columns:auto auto auto;justify-content:center;align-items:center;column-gap:6vw;margin-top:16px}
-  .s1 .glass{position:relative;right:auto;top:auto;width:220px;--rot:2deg;order:2}
+  .list{font-size:35px;line-height:55px}
+  .s1 .cols{display:grid;grid-template-columns:auto auto auto;justify-content:center;align-items:center;column-gap:6vw;margin-top:34px}
+  .s1 .glass{position:relative;right:auto;top:auto;width:250px;--rot:2deg;order:2}
   .s1 .cols > .col:nth-child(2){order:3}
   .s1 .cols{column-gap:4.5vw}
-  .s1 .sub{font-size:32px;margin-top:26px}
+  .s1 .sub{font-size:35px;margin-top:48px}
   .logos{display:flex;justify-content:center;align-items:center;gap:4.2vw;margin-top:40px}
   .logos.marks{gap:3.4vw;margin-top:36px}
   .logos.marks .mk{font-size:40px}
@@ -301,11 +307,10 @@ body.open{overflow:hidden}
   .lg-rochefort{width:120px}
   .s2 .cols{display:grid;grid-template-columns:1fr 1fr;column-gap:4vw}
   .s2 .col + .col{margin-top:0}
-  .s2 h3{font-size:50px}
-  .s2 .list{font-size:32px;line-height:46px;margin-top:8px}
+  .s2 .list{font-size:35px;line-height:52px;margin-top:14px}
   .dd-chilli{width:46px}
   .dd-basil{width:40px}
-  .plates{grid-template-columns:250px 250px 250px 360px;gap:0 2.4vw;margin-top:22px}
+  .plates{grid-template-columns:270px 270px 270px 390px;gap:0 2.4vw;margin-top:40px}
 
 
   .dd-festoon{width:440px;margin-top:-26px}
@@ -451,9 +456,8 @@ body.open{overflow:hidden}
           <div class="scene s1">
             <div class="in chalk">
               <div class="head">
-                
                 <div>
-                  <h2 class="ln c-apricot" data-w data-i="bieres">Bières</h2>
+                  <h2 class="ln hd c-apricot" data-w data-i="bieres">Bières</h2>
                   <svg class="fl fl-butter" data-w="fl" viewBox="0 0 300 34" aria-hidden="true"><path d="M8 20 C 40 30, 80 8, 130 18 S 220 30, 262 14 C 278 8, 292 10, 288 18 C 284 26, 268 22, 274 14"/></svg>
                 </div>
               </div>
@@ -489,7 +493,7 @@ body.open{overflow:hidden}
             <div class="in chalk">
               <div class="cols">
                 <div class="col">
-                  <div class="head"><h3 class="ln c-sage" data-w data-i="thai">Thaï</h3></div>
+                  <div class="head"><div><h3 class="ln hd c-sage" data-w data-i="thai">Thaï</h3><svg class="fl fl-butter" data-w="fl" viewBox="0 0 300 34" aria-hidden="true"><path d="M8 20 C 40 30, 80 8, 130 18 S 220 30, 262 14 C 278 8, 292 10, 288 18 C 284 26, 268 22, 274 14"/></svg></div></div>
                   <div class="list">
                     <span class="ln" data-w>Pad thaï aux scampis</span>
                     <span class="ln" data-w>Poulet au curry vert</span>
@@ -500,7 +504,7 @@ body.open{overflow:hidden}
                   </div>
                 </div>
                 <div class="col">
-                  <div class="head"><h3 class="ln c-coral" data-w data-i="chine">Chine et canard</h3></div>
+                  <div class="head"><div><h3 class="ln hd c-coral" data-w data-i="chine">Chine et canard</h3><svg class="fl fl-butter" data-w="fl" viewBox="0 0 300 34" aria-hidden="true"><path d="M8 20 C 40 30, 80 8, 130 18 S 220 30, 262 14 C 278 8, 292 10, 288 18 C 284 26, 268 22, 274 14"/></svg></div></div>
                   <div class="list">
                     <span class="ln" data-w>Canard Spécial Maison</span>
                     <span class="ln" data-w>Canard à la Pékinoise</span>
@@ -737,20 +741,18 @@ body.open{overflow:hidden}
     const top = story.getBoundingClientRect().top;
     const span = story.offsetHeight - innerHeight;
     const g = clamp(-top / span) * UNITS;
-    let wipe = -1, active = null, pen = null;
+    let wipe = -1;
     for (const sc of scenes) {
       const local = clamp(g - sc.k);
       const start = sc.k === 0 ? .03 : .16, end = sc.k === LAST ? .82 : .9;
       const t = clamp((local - start) / (end - start));
       for (const it of sc.items) {
         const r = clamp((t - it.a) / (it.b - it.a));
+        // scroll only TRIGGERS a line; it then writes itself to the end (tick below)
+        if (it.kind === 'ln' || it.kind === 'fl') { it.trig = r > 0; continue; }
+        // a drawing follows the scroll, and finishes by itself once past 60%
+        if (it.kind === 'cv') { it.tgt = r >= .6 ? 1 : r; continue; }
         paint(it, r);
-        if (it.cv && it.cv.tip && r > 0 && r < 1) pen = it;
-        if (it.kind === 'ln') {
-          if (r > 0 && r < 1) active = { it, r };
-          const hz = r < 1 ? r : clamp(1 - (t - it.b) / .1);
-          if (Math.abs(hz - it.hz) > .004 || (hz === 0) !== (it.hz === 0)) { it.hz = hz; it.el.style.setProperty('--hz', hz.toFixed(3)); }
-        }
       }
       const w = sc.k < LAST ? clamp((g - sc.k - 1) / .14) : 0;
       if (w !== sc.e) { sc.el.classList.toggle('gone', w === 1); sc.e = w; sc.el.style.setProperty('--e', (w * 120 - 20) + '%'); if (sc.rub) sc.rub.style.setProperty('--e', (w * 120 - 20) + '%'); }
@@ -762,20 +764,70 @@ body.open{overflow:hidden}
     }
     if (wipe >= 0) { smear.style.opacity = Math.sin(Math.PI * wipe).toFixed(3); smear.style.transform = `translateX(${-70 + wipe * 180}%) rotate(9deg)`; }
     else smear.style.opacity = 0;
-    if (pen && !active) {
+    kick();
+  }
+  const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  // the hand: triggered lines write over ~0.45s each, in order (the next starts when the previous is half done);
+  // scrolling back above a line un-writes it the same way. A backlog writes faster so nothing hangs half-written.
+  const LINE_MS = 450, DRAW_MS = 700, outEase = x => 1 - (1 - x) * (1 - x);
+  scenes.forEach(sc => { sc.lines = sc.items.filter(it => it.kind === 'ln' || it.kind === 'fl'); sc.lines.forEach(it => { it.w = 0; it.trig = false; }); });
+  let running = false, lastT = 0;
+  function kick() { if (!running && !reduce) { running = true; lastT = performance.now(); requestAnimationFrame(tick); } }
+  function tick(now) {
+    const dt = Math.min(200, now - lastT); lastT = now;
+    let moving = false, active = null, pen = null;
+    for (const sc of scenes) {
+      const L = sc.lines;
+      const backlog = L.filter(it => it.trig && it.w < 1).length + L.filter(it => !it.trig && it.w > 0).length;
+      const step = dt / LINE_MS * Math.max(1, backlog);
+      for (let i = 0; i < L.length; i++) {               // write forward
+        const it = L[i];
+        if (!it.trig) break;
+        if (it.w >= 1) continue;
+        if (i > 0 && L[i - 1].w < .5) break;
+        it.w = Math.min(1, it.w + step); moving = true; active = it;
+        if (it.w === 1) it.doneAt = now;
+      }
+      for (let i = L.length - 1; i >= 0; i--) {          // un-write backward
+        const it = L[i];
+        if (it.trig) break;
+        if (it.w <= 0) continue;
+        if (i < L.length - 1 && L[i + 1].w > .5) break;
+        it.w = Math.max(0, it.w - step); moving = true;
+      }
+      for (const it of L) {
+        paint(it, outEase(it.w));
+        if (it.kind === 'ln') {
+          const hz = it.w < 1 ? it.w : clamp(1 - (now - (it.doneAt || 0)) / 600);
+          if (hz > 0 && hz < 1) moving = true;
+          if (Math.abs(hz - it.hz) > .004 || (hz === 0) !== (it.hz === 0)) { it.hz = hz; it.el.style.setProperty('--hz', hz.toFixed(3)); }
+        }
+      }
+      for (const it of sc.items) {
+        if (it.kind !== 'cv' || it.tgt === undefined) continue;
+        const d = it.d || 0, tg = it.tgt;
+        if (d !== tg) {
+          const mv = dt / DRAW_MS;
+          it.d = Math.abs(tg - d) <= mv || (tg < 1 && tg > d) ? tg : d + Math.sign(tg - d) * mv;
+          moving = true;
+        }
+        paint(it, it.d || 0);
+        if (it.cv && it.cv.tip && it.d > 0 && it.d < 1) pen = it;
+      }
+    }
+    if (active && active.kind === 'ln' && active.glyphs) {
+      const sr = stage.getBoundingClientRect(), it = active, pos = outEase(it.w) * it.glyphs.length;
+      const g = it.gi >= 0 ? it.glyphs[it.gi] : null, lr = (g || it.el).getBoundingClientRect();
+      const fx = g ? Math.min(1, Math.max(0, pos - it.gi)) : it.w;
+      nib.style.opacity = .85;
+      nib.style.transform = `translate(${lr.left - sr.left + lr.width * fx}px, ${lr.top - sr.top + lr.height * (.35 + .4 * Math.abs(Math.sin(fx * 3.1)))}px)`;
+    } else if (pen) {
       const sr = stage.getBoundingClientRect(), cr = pen.cv.canvas.getBoundingClientRect(), [tx, ty] = pen.cv.tip;
       nib.style.opacity = .9;
       nib.style.transform = `translate(${cr.left - sr.left + tx / pen.cv.cw * cr.width}px, ${cr.top - sr.top + ty / pen.cv.ch * cr.height}px)`;
-    } else if (active) {
-      const sr = stage.getBoundingClientRect();
-      const it = active.it, g = it.glyphs && it.gi >= 0 ? it.glyphs[it.gi] : null;
-      const lr = (g || it.el).getBoundingClientRect();
-      const fx = g ? Math.min(1, Math.max(0, active.r * it.glyphs.length - it.gi)) : active.r;
-      nib.style.opacity = .85;
-      nib.style.transform = `translate(${lr.left - sr.left + lr.width * fx}px, ${lr.top - sr.top + lr.height * (.35 + .4 * Math.abs(Math.sin(fx * 3.1)))}px)`;
     } else nib.style.opacity = 0;
+    if (moving) requestAnimationFrame(tick); else running = false;
   }
-  const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
   // a board never runs under the header or off the bottom: scale its content to fit
   function fitBoards() {
     if (document.documentElement.classList.contains('static')) return;
