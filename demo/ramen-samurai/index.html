@@ -630,7 +630,7 @@ function frame(now){
     const p = eio(uPart);
     blackout = sst(uDim) * (portrait ? 1 : .72) * (1 - .45 * p) * (1 - sst(uOut));
     roomO = Math.min(roomO, 1 - sst(uDim));
-    const nw = nor.nw, nx = clamp(W / 2 - (portrait ? .55 : .5) * nw, W - nw, 0) || W / 2 - .5 * nw;   // keep all four faces in frame on phones
+    const nw = nor.nw, nx = nw <= W ? (W - nw) / 2 : clamp(W / 2 - (portrait ? .55 : .5) * nw, W - nw, 0);   // centred when it fits; on phones keep all four faces in frame
     const d = eback(uDrop);
     const shown = uDrop > 0 && p < .99 && curtainSet;
     norVis = shown ? 1 - p : 0;
