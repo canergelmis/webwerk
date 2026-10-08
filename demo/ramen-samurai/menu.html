@@ -174,6 +174,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .addr:hover{text-decoration:underline}
 .cred{font-size:11px;line-height:1.6;color:rgba(246,233,200,.55);margin-top:12px}
 .foot{position:relative;z-index:3;background:var(--ink);padding:14px 16px max(22px,env(safe-area-inset-bottom));text-align:center;font-size:12px;color:rgba(246,233,200,.78)}
+.info{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px 40px;max-width:980px;margin:4px auto 20px}
+.hours{display:grid;grid-template-columns:auto auto;gap:3px 16px;margin:0;font-size:13px;line-height:1.5;text-align:left;color:var(--cream)}
+.hours dt{font-weight:700}.hours dd{margin:0;font-variant-numeric:tabular-nums}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.acts a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:.02em;text-decoration:none;color:var(--cream);border:1.5px solid rgba(246,233,200,.45)}
+.acts a.call{background:var(--red);border-color:var(--red)}
+.acts a:hover{background:var(--red2);border-color:var(--red2)}
 
 @media (max-width:700px){
   .sky img{filter:brightness(.7)}
@@ -251,7 +258,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <p class="cred"><span data-t="c2">Illustrations: generated for this proposal</span></p>
 </section>
 <button class="cue" type="button"><span class="sr">Scroll down</span><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-<footer class="foot"><p data-t="foot" style="margin:0">An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.</p></footer>
+<footer class="foot">
+<div class="info">
+  <dl class="hours" aria-label="Opening hours" data-ta="aria-label:hours_h">
+    <dt data-t="d_mon">Monday</dt><dd data-t="closed">Closed</dd>
+    <dt data-t="d_tf">Tuesday–Friday</dt><dd>12:00–22:30</dd>
+    <dt data-t="d_sat">Saturday</dt><dd>12:00–23:00</dd>
+    <dt data-t="d_sun">Sunday</dt><dd>12:00–21:00</dd>
+  </dl>
+  <div class="acts">
+    <a class="call" href="tel:+35226108866" aria-label="Call Ramen Samurai on 26 10 88 66" data-ta="aria-label:call_aria"><span data-t="call">Call</span>&nbsp;26&nbsp;10&nbsp;88&nbsp;66</a>
+    <a href="https://wolt.com/en/lux/luxembourg/restaurant/ramen-samurai-lux" target="_blank" rel="noopener" data-ta="href:wolt_url" data-t="wolt">Order on Wolt</a>
+  </div>
+</div>
+<p data-t="foot" style="margin:0">An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.</p></footer>
 
 <script>
 const L3 = (en, fr, de) => ({ en, fr, de });
@@ -297,19 +317,22 @@ const TX = {
   en:{ menu:'Menu', home:'Home', lang:'Language', cats:'Menu categories',
     cat_tonkotsu:'Tonkotsu Ramens', cat_udon:'Udon', cat_sides:'Side Dishes', cat_desserts:'Desserts', cat_bubbletea:'Bubble Tea', cat_drinks:'Drinks',
     addr:'17 Avenue Monterey, Luxembourg', addr_aria:'17 Avenue Monterey, Luxembourg, on Google Maps',
-    c2:'Illustrations: generated for this proposal', foot:'An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.',
+    c2:'Illustrations: generated for this proposal', hours_h:'Opening hours', d_mon:'Monday', closed:'Closed', d_tf:'Tuesday–Friday', d_sat:'Saturday', d_sun:'Sunday', call:'Call', call_aria:'Call Ramen Samurai on 26 10 88 66', wolt:'Order on Wolt', wolt_url:'https://wolt.com/en/lux/luxembourg/restaurant/ramen-samurai-lux',
+    foot:'An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.',
     title:'Ramen Samurai – Menu', desc:'The Ramen Samurai menu: tonkotsu ramens, udon, side dishes, desserts, bubble tea and drinks. 17 Avenue Monterey, Luxembourg.', locale:'en_GB',
     logo:'Ramen Samurai' },
   fr:{ menu:'Carte', home:'Accueil', lang:'Langue', cats:'Rubriques de la carte',
     cat_tonkotsu:'Ramens tonkotsu', cat_udon:'Udon', cat_sides:'Accompagne\u00ADments', cat_desserts:'Desserts', cat_bubbletea:'Bubble tea', cat_drinks:'Boissons',
     addr:'17, avenue Monterey, Luxembourg', addr_aria:'17, avenue Monterey, Luxembourg, sur Google Maps',
-    c2:'Illustrations : générées pour cette proposition', foot:'Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.',
+    c2:'Illustrations : générées pour cette proposition', hours_h:'Horaires', d_mon:'Lundi', closed:'Fermé', d_tf:'Mardi–vendredi', d_sat:'Samedi', d_sun:'Dimanche', call:'Appeler', call_aria:'Appeler Ramen Samurai au 26 10 88 66', wolt:'Commander sur Wolt', wolt_url:'https://wolt.com/fr/lux/luxembourg/restaurant/ramen-samurai-lux',
+    foot:'Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.',
     title:'Ramen Samurai – Carte', desc:'La carte de Ramen Samurai : ramens tonkotsu, udon, accompagnements, desserts, bubble tea et boissons. 17, avenue Monterey, Luxembourg.', locale:'fr_LU',
     logo:'Ramen Samurai' },
   de:{ menu:'Speisekarte', home:'Startseite', lang:'Sprache', cats:'Kategorien der Speisekarte',
     cat_tonkotsu:'Tonkotsu-Ramen', cat_udon:'Udon', cat_sides:'Beilagen', cat_desserts:'Desserts', cat_bubbletea:'Bubble Tea', cat_drinks:'Getränke',
     addr:'17, Avenue Monterey, Luxemburg', addr_aria:'17, Avenue Monterey, Luxemburg, auf Google Maps',
-    c2:'Illustrationen: für diesen Vorschlag generiert', foot:'Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.',
+    c2:'Illustrationen: für diesen Vorschlag generiert', hours_h:'Öffnungszeiten', d_mon:'Montag', closed:'Geschlossen', d_tf:'Dienstag–Freitag', d_sat:'Samstag', d_sun:'Sonntag', call:'Anrufen', call_aria:'Ramen Samurai unter 26 10 88 66 anrufen', wolt:'Bei Wolt bestellen', wolt_url:'https://wolt.com/de/lux/luxembourg/restaurant/ramen-samurai-lux',
+    foot:'Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.',
     title:'Ramen Samurai – Speisekarte', desc:'Die Speisekarte von Ramen Samurai: Tonkotsu-Ramen, Udon, Beilagen, Desserts, Bubble Tea und Getränke. 17, Avenue Monterey, Luxemburg.', locale:'de_DE',
     logo:'Ramen Samurai' }
 };

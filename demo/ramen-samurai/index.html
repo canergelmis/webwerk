@@ -178,6 +178,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mo .proof{margin-top:-1px}
 .cred{max-width:980px;margin:22px auto 0;font-size:11px;line-height:1.6;color:rgba(246,233,200,.55);text-align:center}
 .foot{position:relative;z-index:5;background:var(--ink);padding:14px 16px max(22px,env(safe-area-inset-bottom));text-align:center;font-size:12px;color:rgba(246,233,200,.78)}
+.info{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px 40px;max-width:980px;margin:4px auto 20px}
+.hours{display:grid;grid-template-columns:auto auto;gap:3px 16px;margin:0;font-size:13px;line-height:1.5;text-align:left;color:var(--cream)}
+.hours dt{font-weight:700}.hours dd{margin:0;font-variant-numeric:tabular-nums}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.acts a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:.02em;text-decoration:none;color:var(--cream);border:1.5px solid rgba(246,233,200,.45)}
+.acts a.call{background:var(--red);border-color:var(--red)}
+.acts a:hover{background:var(--red2);border-color:var(--red2)}
 @media (max-width:640px){
   .proof{padding-left:0;padding-right:0}
   .cred{padding:0 16px}
@@ -308,7 +315,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <p class="cred"><span data-t="c1">Photos: Ramen Samurai</span><br><span data-t="c2">Illustrations: generated for this proposal</span></p>
 </section>
 <button class="cue" type="button"><span class="sr">Scroll down</span><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-<footer class="foot"><p data-t="foot" style="margin:0">An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.</p></footer>
+<footer class="foot">
+<div class="info">
+  <dl class="hours" aria-label="Opening hours" data-ta="aria-label:hours_h">
+    <dt data-t="d_mon">Monday</dt><dd data-t="closed">Closed</dd>
+    <dt data-t="d_tf">Tuesday–Friday</dt><dd>12:00–22:30</dd>
+    <dt data-t="d_sat">Saturday</dt><dd>12:00–23:00</dd>
+    <dt data-t="d_sun">Sunday</dt><dd>12:00–21:00</dd>
+  </dl>
+  <div class="acts">
+    <a class="call" href="tel:+35226108866" aria-label="Call Ramen Samurai on 26 10 88 66" data-ta="aria-label:call_aria"><span data-t="call">Call</span>&nbsp;26&nbsp;10&nbsp;88&nbsp;66</a>
+    <a href="https://wolt.com/en/lux/luxembourg/restaurant/ramen-samurai-lux" target="_blank" rel="noopener" data-ta="href:wolt_url" data-t="wolt">Order on Wolt</a>
+  </div>
+</div>
+<p data-t="foot" style="margin:0">An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.</p></footer>
 
 <script>
 (() => {
@@ -317,6 +337,7 @@ const TX = {
   en:{
     menu:'Menu', lang:'Language', addr:'17 Avenue Monterey, Luxembourg', addr_aria:'17 Avenue Monterey, Luxembourg, on Google Maps',
     c1:'Photos: Ramen Samurai', c2:'Illustrations: generated for this proposal',
+    hours_h:'Opening hours', d_mon:'Monday', closed:'Closed', d_tf:'Tuesday–Friday', d_sat:'Saturday', d_sun:'Sunday', call:'Call', call_aria:'Call Ramen Samurai on 26 10 88 66', wolt:'Order on Wolt', wolt_url:'https://wolt.com/en/lux/luxembourg/restaurant/ramen-samurai-lux',
     foot:'An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.',
     title:'Ramen Samurai', desc:'Ramen Samurai, ramen restaurant at 17 Avenue Monterey, Luxembourg.', locale:'en_GB',
     a_room:'The room at Ramen Samurai: timber beams, cloth clouds, shop-flag bunting, paper lanterns and three festival banners',
@@ -330,6 +351,7 @@ const TX = {
   fr:{
     menu:'Carte', lang:'Langue', addr:'17, avenue Monterey, Luxembourg', addr_aria:'17, avenue Monterey, Luxembourg, sur Google Maps',
     c1:'Photos : Ramen Samurai', c2:'Illustrations : générées pour cette proposition',
+    hours_h:'Horaires', d_mon:'Lundi', closed:'Fermé', d_tf:'Mardi–vendredi', d_sat:'Samedi', d_sun:'Dimanche', call:'Appeler', call_aria:'Appeler Ramen Samurai au 26 10 88 66', wolt:'Commander sur Wolt', wolt_url:'https://wolt.com/fr/lux/luxembourg/restaurant/ramen-samurai-lux',
     foot:'Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.',
     title:'Ramen Samurai', desc:'Ramen Samurai, restaurant de ramen au 17, avenue Monterey, à Luxembourg.', locale:'fr_LU',
     a_room:'La salle de Ramen Samurai : poutres en bois, nuages de tissu, fanions de boutique, lanternes en papier et trois bannières de fête',
@@ -343,6 +365,7 @@ const TX = {
   de:{
     menu:'Speisekarte', lang:'Sprache', addr:'17, Avenue Monterey, Luxemburg', addr_aria:'17, Avenue Monterey, Luxemburg, auf Google Maps',
     c1:'Fotos: Ramen Samurai', c2:'Illustrationen: für diesen Vorschlag generiert',
+    hours_h:'Öffnungszeiten', d_mon:'Montag', closed:'Geschlossen', d_tf:'Dienstag–Freitag', d_sat:'Samstag', d_sun:'Sonntag', call:'Anrufen', call_aria:'Ramen Samurai unter 26 10 88 66 anrufen', wolt:'Bei Wolt bestellen', wolt_url:'https://wolt.com/de/lux/luxembourg/restaurant/ramen-samurai-lux',
     foot:'Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.',
     title:'Ramen Samurai', desc:'Ramen Samurai, Ramen-Restaurant in der 17, Avenue Monterey in Luxemburg.', locale:'de_DE',
     a_room:'Der Gastraum von Ramen Samurai: Holzbalken, Stoffwolken, Ladenwimpel, Papierlaternen und drei Festbanner',
