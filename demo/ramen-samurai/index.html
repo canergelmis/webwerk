@@ -176,18 +176,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ---------- proof ---------- */
 .proof{position:relative;z-index:5;padding:40px 16px 26px;background:linear-gradient(180deg,rgba(18,10,16,0),rgba(18,10,16,.92) 90px,var(--ink) 180px)}
 .mo .proof{margin-top:-1px}
-.strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:980px;margin:0 auto}
-.strip figure{overflow:hidden;border-radius:6px}
-.strip img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 50%}
 .cred{max-width:980px;margin:22px auto 0;font-size:11px;line-height:1.6;color:rgba(246,233,200,.55);text-align:center}
 .foot{position:relative;z-index:5;background:var(--ink);padding:14px 16px max(22px,env(safe-area-inset-bottom));text-align:center;font-size:12px;color:rgba(246,233,200,.78)}
 @media (max-width:640px){
   .proof{padding-left:0;padding-right:0}
-  .strip{display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
-    padding:0 16px;scroll-padding:0 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .strip::-webkit-scrollbar{display:none}
-  .strip figure{flex:0 0 auto;height:min(64vw,320px);margin:0;border-radius:8px;overflow:hidden;scroll-snap-align:start}
-  .strip img{height:100%;width:auto;max-width:none;aspect-ratio:auto;object-fit:contain}   /* each photo whole, at its own shape */
   .cred{padding:0 16px}
 }
 
@@ -313,14 +305,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </div>
 
 <section class="proof" id="proof">
-  <div class="strip">
-    <figure><img src="img/facade-800.webp" width="592" height="740" alt="The Ramen Samurai shopfront on Avenue Monterey" data-ta="alt:a_facade" loading="lazy" decoding="async"></figure>
-    <figure><img src="img/room-alley-800.webp" width="800" height="600" alt="The alley counter" data-ta="alt:a_alley" loading="lazy" decoding="async"></figure>
-    <figure><img src="img/bowl-tonkotsu-800.webp" width="800" height="600" alt="A tonkotsu ramen" data-ta="alt:a_tonkotsu" loading="lazy" decoding="async"></figure>
-    <figure><img src="img/room-barrels-800.webp" width="800" height="600" alt="The sake-barrel corner" data-ta="alt:a_barrels" loading="lazy" decoding="async"></figure>
-    <figure><img src="img/bowl-meatlovers-800.webp" width="800" height="824" alt="A bowl of ramen at Ramen Samurai" data-ta="alt:a_meat" loading="lazy" decoding="async"></figure>
-  </div>
-  <p class="cred"><span data-t="c1">Photos: Ramen Samurai and Google Maps contributors</span><br><span data-t="c2">Illustrations: generated for this proposal</span></p>
+  <p class="cred"><span data-t="c1">Photos: Ramen Samurai</span><br><span data-t="c2">Illustrations: generated for this proposal</span></p>
 </section>
 <button class="cue" type="button"><span class="sr">Scroll down</span><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <footer class="foot"><p data-t="foot" style="margin:0">An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.</p></footer>
@@ -331,7 +316,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 const TX = {
   en:{
     menu:'Menu', lang:'Language', addr:'17 Avenue Monterey, Luxembourg', addr_aria:'17 Avenue Monterey, Luxembourg, on Google Maps',
-    c1:'Photos: Ramen Samurai and Google Maps contributors', c2:'Illustrations: generated for this proposal',
+    c1:'Photos: Ramen Samurai', c2:'Illustrations: generated for this proposal',
     foot:'An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.',
     title:'Ramen Samurai', desc:'Ramen Samurai, ramen restaurant at 17 Avenue Monterey, Luxembourg.', locale:'en_GB',
     a_room:'The room at Ramen Samurai: timber beams, cloth clouds, shop-flag bunting, paper lanterns and three festival banners',
@@ -341,12 +326,10 @@ const TX = {
     a_noren:'Illustration: a redraw of the ramen-cat noren',
     a_ramen:'Illustration: a bowl of tonkotsu ramen under a paper lantern',
     a_bowl:'Illustration: a monumental ramen bowl under fireworks',
-    a_facade:'The Ramen Samurai shopfront on Avenue Monterey', a_alley:'The alley counter', a_tonkotsu:'A tonkotsu ramen',
-    a_barrels:'The sake-barrel corner', a_meat:'A bowl of ramen at Ramen Samurai'
   },
   fr:{
     menu:'Carte', lang:'Langue', addr:'17, avenue Monterey, Luxembourg', addr_aria:'17, avenue Monterey, Luxembourg, sur Google Maps',
-    c1:'Photos : Ramen Samurai et contributeurs Google Maps', c2:'Illustrations : générées pour cette proposition',
+    c1:'Photos : Ramen Samurai', c2:'Illustrations : générées pour cette proposition',
     foot:'Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.',
     title:'Ramen Samurai', desc:'Ramen Samurai, restaurant de ramen au 17, avenue Monterey, à Luxembourg.', locale:'fr_LU',
     a_room:'La salle de Ramen Samurai : poutres en bois, nuages de tissu, fanions de boutique, lanternes en papier et trois bannières de fête',
@@ -356,12 +339,10 @@ const TX = {
     a_noren:'Illustration : une réinterprétation du noren aux chats',
     a_ramen:'Illustration : un bol de ramen tonkotsu sous une lanterne en papier',
     a_bowl:'Illustration : un bol de ramen monumental sous les feux d’artifice',
-    a_facade:'La devanture de Ramen Samurai, avenue Monterey', a_alley:'Le comptoir façon ruelle', a_tonkotsu:'Un ramen tonkotsu',
-    a_barrels:'Le coin des tonneaux de saké', a_meat:'Un bol de ramen chez Ramen Samurai'
   },
   de:{
     menu:'Speisekarte', lang:'Sprache', addr:'17, Avenue Monterey, Luxemburg', addr_aria:'17, Avenue Monterey, Luxemburg, auf Google Maps',
-    c1:'Fotos: Ramen Samurai und Google-Maps-Beitragende', c2:'Illustrationen: für diesen Vorschlag generiert',
+    c1:'Fotos: Ramen Samurai', c2:'Illustrationen: für diesen Vorschlag generiert',
     foot:'Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.',
     title:'Ramen Samurai', desc:'Ramen Samurai, Ramen-Restaurant in der 17, Avenue Monterey in Luxemburg.', locale:'de_DE',
     a_room:'Der Gastraum von Ramen Samurai: Holzbalken, Stoffwolken, Ladenwimpel, Papierlaternen und drei Festbanner',
@@ -371,8 +352,6 @@ const TX = {
     a_noren:'Illustration: eine Neuzeichnung des Ramen-Katzen-Noren',
     a_ramen:'Illustration: eine Schale Tonkotsu-Ramen unter einer Papierlaterne',
     a_bowl:'Illustration: eine riesige Ramen-Schale unter einem Feuerwerk',
-    a_facade:'Die Ladenfront von Ramen Samurai in der Avenue Monterey', a_alley:'Die Gassen-Theke', a_tonkotsu:'Eine Tonkotsu-Ramen',
-    a_barrels:'Die Ecke mit den Sakefässern', a_meat:'Eine Schale Ramen bei Ramen Samurai'
   }
 };
 function setLang(l){
