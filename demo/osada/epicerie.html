@@ -84,8 +84,6 @@ body{color:var(--ink)}
 a:focus-visible,button:focus-visible{outline-color:var(--green)}
 .disp,.sub,.when{text-wrap:balance}
 .hd a:focus-visible,.hd button:focus-visible,.foot a:focus-visible{outline-color:var(--gold)}
-.frame img{width:100%;object-fit:cover}
-.credit{margin-top:8px;font-size:15px;font-style:italic;color:#5e4632}
 .link{display:inline-block;font-size:18px;color:var(--ink);border-bottom:1px solid var(--green);padding:8px 0 5px}
 
 /* 1 hero: their logo, their line, a painted loaf */
@@ -120,8 +118,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
 
 /* 4 one real photo of theirs, small, as proof; the atmosphere in one paragraph */
 .proof{padding:64px var(--edge);display:grid;grid-template-columns:1fr;gap:28px;align-items:end}
-.proof .frame{width:min(62%,240px)}
-.proof .frame img{aspect-ratio:2/3}
 .proof p{max-width:44ch;font-size:17px;line-height:1.55;color:var(--ink2);text-wrap:pretty}
 
 /* 5 the brasserie opposite: one link line */
@@ -157,8 +153,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
   .contact .tel{font-size:64px}
   .contact .info{margin-top:0}
 
-  .proof{grid-template-columns:auto 1fr;column-gap:48px;padding:88px var(--edge)}
-  .proof .frame{width:220px}
+  .proof{padding:88px var(--edge)}
   .proof p{font-size:19px}
 
   .opp{padding:0 var(--edge) 96px}
@@ -238,12 +233,8 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
     </div>
   </section>
 
-  <!-- 4 · one real photo of theirs, small; the atmosphere in one paragraph -->
+  <!-- 4 · the atmosphere in one paragraph -->
   <section class="proof" aria-label="L'épicerie" data-i18n-aria="tabEpicerie">
-    <figure>
-      <div class="frame"><img src="assets/epi-rayons.webp" alt="Un rayon de l'épicerie" data-i18n-alt="altRayons" width="800" height="1201" loading="lazy"></div>
-      <figcaption class="credit" data-i18n="creditMaciek">Photo&nbsp;: maciek.photos</figcaption>
-    </figure>
     <p><span data-i18n="ep4">Une ambiance amicale et chaleureuse. La plupart de nos clients, nous les connaissons par leur prénom :)</span> <span data-i18n="ep6">Au printemps et en été, on prend un café en terrasse devant la boutique.</span></p>
   </section>
 
@@ -276,7 +267,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
       lead: "Des produits frais, de qualité, qui viennent tous de Pologne.",
       altDeli: "Un étal de délicatesses polonaises, peint",
       altPain: "Pains de seigle, peints",
-      creditMaciek: "Photo : maciek.photos",
       ep2: "Pain, produits laitiers, fruits et légumes, charcuterie, sauces, épices, alcools, et aussi cosmétiques et produits ménagers.",
       h_pain: "Pain frais de Pologne",
       h_charc: "Charcuterie de Pologne",
@@ -286,7 +276,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
       altGateaux: "Pâtisseries et une tasse de café, peintes",
       altKabanos: "Kabanos et saucisse, peints",
       altAlcools: "Bouteilles et verres, peints",
-      altRayons: "Un rayon de l'épicerie",
       ep4: "Une ambiance amicale et chaleureuse. La plupart de nos clients, nous les connaissons par leur prénom :)",
       ep6: "Au printemps et en été, on prend un café en terrasse devant la boutique.",
       street: "En face, au n° 35 : la Brasserie Osada.",
@@ -304,7 +293,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
       lead: "Zawsze dbamy o świeżość i wysoką jakość oferowanych przez nas produktów, które bez wyjątku pochodzą z Polski.",
       altDeli: "Obraz: stół z polskimi delikatesami",
       altPain: "Obraz: chleb żytni",
-      creditMaciek: "Zdjęcie: maciek.photos",
       ep2: "Znajdziecie Państwo u nas pieczywo, nabiał, warzywa i owoce, wędliny, sosy, przyprawy, alkohole oraz kosmetyki i chemię gospodarczą.",
       h_pain: "Świeże pieczywo z Polski",
       h_charc: "Wędliny z Polski",
@@ -314,7 +302,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
       altGateaux: "Obraz: ciasta i filiżanka kawy",
       altKabanos: "Obraz: kabanosy i kiełbasa",
       altAlcools: "Obraz: butelki i kieliszki",
-      altRayons: "Alejka w sklepie",
       ep4: "W sklepie panuje przyjacielska atmosfera i serdeczność. Większość naszych Klientów znamy po imieniu :)",
       ep6: "Wiosną i latem przed sklepem można odpocząć i napić się kawy w ogródku.",
       street: "Naprzeciwko, pod numerem 35: Brasserie Osada.",
@@ -332,7 +319,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
       lead: "Frische, hochwertige Produkte, alle aus Polen.",
       altDeli: "Gemälde: eine Auslage polnischer Delikatessen",
       altPain: "Gemälde: Roggenbrote",
-      creditMaciek: "Foto: maciek.photos",
       ep2: "Brot, Milchprodukte, Obst und Gemüse, Wurstwaren, Saucen, Gewürze, Spirituosen und dazu Kosmetik und Haushaltsartikel.",
       h_pain: "Frisches Brot aus Polen",
       h_charc: "Wurstwaren aus Polen",
@@ -342,7 +328,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
       altGateaux: "Gemälde: Gebäck und eine Tasse Kaffee",
       altKabanos: "Gemälde: Kabanos und Wurst",
       altAlcools: "Gemälde: Flaschen und Gläser",
-      altRayons: "Ein Gang im Laden",
       ep4: "Eine freundliche, herzliche Atmosphäre. Die meisten unserer Kunden kennen wir beim Vornamen :)",
       ep6: "Im Frühling und Sommer trinkt man vor dem Laden einen Kaffee auf der Terrasse.",
       street: "Gegenüber, Nr. 35: die Brasserie Osada.",
@@ -360,7 +345,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
       lead: "Fresh, good-quality products, all from Poland.",
       altDeli: "A painting of a spread of Polish delicacies",
       altPain: "A painting of rye loaves",
-      creditMaciek: "Photo: maciek.photos",
       ep2: "Bread, dairy, fruit and vegetables, cold meats, sauces, spices, spirits, and cosmetics and household goods too.",
       h_pain: "Fresh bread from Poland",
       h_charc: "Cold meats from Poland",
@@ -370,7 +354,6 @@ a:focus-visible,button:focus-visible{outline-color:var(--green)}
       altGateaux: "A painting of pastries and a cup of coffee",
       altKabanos: "A painting of kabanos and sausage",
       altAlcools: "A painting of bottles and glasses",
-      altRayons: "An aisle in the shop",
       ep4: "We know most of our customers by their first name :)",
       ep6: "In spring and summer, you can have a coffee on the terrace in front of the shop.",
       street: "Across the street, at no. 35: the Brasserie Osada.",
