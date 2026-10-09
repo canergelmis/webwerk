@@ -25,21 +25,20 @@
 </script>
 <style>
 /* ---------- fonts: self-hosted, latin + latin-ext ---------- */
-@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/cormorant-garamond-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/cormorant-garamond-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(assets/fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(assets/fonts/cormorant-garamond-latin-ext-500-italic.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'EB Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'EB Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/eb-garamond-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'EB Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/eb-garamond-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Brygada 1918';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/brygada-1918-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Brygada 1918';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/brygada-1918-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Brygada 1918';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/brygada-1918-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Brygada 1918';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/brygada-1918-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Brygada 1918';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/brygada-1918-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Brygada 1918';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/brygada-1918-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/lato-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/lato-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/lato-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/lato-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
 :root{--char:#120d09;--steam:#f4f1ea;--gold:#c6a55e;--cream:#ece0c4;--muted:rgba(236,224,196,.86);--line-c:rgba(198,165,94,.32);
-  --display:'Cormorant Garamond',Garamond,Georgia,serif;--text:'EB Garamond',Garamond,Georgia,serif;--g:24px}
+  --display:'Brygada 1918',Georgia,serif;--ui:'Lato',system-ui,sans-serif;--text:'Brygada 1918',Georgia,serif;--g:24px;
+  --paper:#f5e9c4;--ink:#2a1d12;--ink2:#4f3a28;--gold-d:#7a5818;--line-p:rgba(122,88,24,.28)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--char);color:var(--cream)}
 body{font-family:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -52,22 +51,26 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 .hd{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:max(14px,env(safe-area-inset-top)) 20px 10px;pointer-events:none;transition:background .4s ease,box-shadow .4s ease}
 .hd::before{content:"";position:absolute;inset:0 0 -40px 0;z-index:-1;background:linear-gradient(to bottom,rgba(18,13,9,.7),rgba(18,13,9,0));transition:opacity .4s}
 .hd > *{pointer-events:auto}
-.hd.solid{background:var(--char);box-shadow:0 1px 0 rgba(198,165,94,.24)}
-.hd.solid::before{opacity:0}
+.hd.solid,.hd.lit{background:var(--paper);box-shadow:0 1px 0 var(--line-p)}
+.hd.solid .tabs a,.hd.lit .tabs a,.hd.solid .langs,.hd.lit .langs{color:var(--ink)}
+.hd.solid .tabs a[aria-current],.hd.lit .tabs a[aria-current],.hd.solid .langs button[aria-pressed="true"],.hd.lit .langs button[aria-pressed="true"]{color:var(--gold-d)}
+.hd.solid .logo,.hd.lit .logo{filter:none}
+.hd.solid::before,.hd.lit::before{opacity:0}
 .brand{display:block;margin-top:2px}
 .brand a{display:block}
 .hd .logo{width:118px;height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6));transition:opacity .5s}
 .hd-r{display:flex;flex-direction:column;align-items:flex-end}
 .row1{display:flex;align-items:center;gap:4px}
-.langs{display:flex;align-items:center;gap:2px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.12em;color:rgba(236,224,196,.75)}
+.langs{display:flex;align-items:center;gap:2px;font-family:var(--ui);font-weight:700;font-size:13px;letter-spacing:.12em;color:rgba(236,224,196,.75)}
 .langs button{padding:8px 3px}
 .langs button[aria-pressed="true"]{color:var(--gold)}
 .langs span{opacity:.5}
-.call{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;color:var(--gold)}
-.tabs{display:flex;gap:14px;font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.call{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;margin-left:8px;font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--char);background:var(--gold);border-radius:999px}
+@media (max-width:899px){.call{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));min-height:48px;padding:0 20px;box-shadow:0 6px 22px rgba(0,0,0,.4)}.foot{padding-bottom:96px}.hd.lit:not(.solid) .call{opacity:0;pointer-events:none}}
+.tabs{display:flex;gap:14px;font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
 .tabs a{padding:5px 0 3px;color:rgba(236,224,196,.92);border-bottom:1px solid transparent}
 .tabs a[aria-current]{color:var(--gold);border-bottom-color:rgba(198,165,94,.7)}
-.hd:not(.solid) .langs,.hd:not(.solid) .tabs{text-shadow:0 1px 3px rgba(18,13,9,.9),0 0 14px rgba(18,13,9,.85)}
+.hd:not(.solid):not(.lit) .langs,.hd:not(.solid):not(.lit) .tabs{text-shadow:0 1px 3px rgba(18,13,9,.9),0 0 14px rgba(18,13,9,.85)}
 @media (max-width:379px){.hd{padding-left:16px;padding-right:16px}.hd .logo{width:100px}.langs span{display:none}.langs button{padding:8px 4px}.tabs{gap:12px}}
 @media (min-width:900px){
   .hd{align-items:center;padding:18px 40px 14px}
@@ -78,11 +81,12 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 }
 
 /* ---------- lines (one per beat, never faded below legibility while their beat is on screen) ---------- */
+.line .where{display:block;margin-top:12px;font-family:var(--ui);font-weight:700;font-size:12px;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;color:var(--cream)}
 .line{font-family:var(--display);font-weight:500;font-size:26px;line-height:1.2;color:var(--steam);text-align:center;text-wrap:balance;text-shadow:0 2px 18px rgba(0,0,0,.75),0 0 2px rgba(0,0,0,.6)}
 
 /* ---------- the motion stage ---------- */
 .journey{display:none}
-.mo .journey{display:block;position:relative;height:920svh}
+.mo .journey{display:block;position:relative;height:600svh}
 /* the epilogue slides up over the held arrival (the last 100svh of the journey), so the arrival never scrolls away as a second screen */
 .mo .after{margin-top:-100svh;z-index:3;box-shadow:0 -24px 48px rgba(0,0,0,.55)}
 .mo .still-seq{display:none}
@@ -117,16 +121,18 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 /* 5 arrival */
 .arrive{pointer-events:none}
 .arrive.on{pointer-events:auto}
-/* the painted żurek (a painting, not their plate); the words sit on the dark below the loaf, never on it */
-.arrive{background:var(--char)}
-.arrive picture,.arrive picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
-.arrive::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,rgba(18,13,9,.55) 0,rgba(18,13,9,0) 110px),linear-gradient(to top,var(--char) 0,var(--char) 140px,rgba(18,13,9,.7) 200px,rgba(18,13,9,0) 270px)}
+/* the door opens into daylight: the painted żurek (an illustration, not their plate) on paper, the words below it */
+.arrive{background:var(--paper);--steam:var(--ink);--gold:var(--gold-d)}
+.arrive picture{position:absolute;left:0;right:0;top:calc(88px + env(safe-area-inset-top));bottom:200px}
+.arrive picture img{width:100%;height:100%;object-fit:contain;object-position:50% 50%}
+.arrive::after{display:none}
 .fin{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:18px;padding:0 20px calc(26px + env(safe-area-inset-bottom));text-align:center}
-.fin h2{font-family:var(--display);font-weight:500;font-size:min(52px,12vw);line-height:1.02;color:var(--steam);text-shadow:0 2px 18px rgba(0,0,0,.75)}
+.fin h2{font-family:var(--display);font-weight:500;font-size:min(52px,12vw);line-height:1.02;color:var(--steam)}
 .acts{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:6px}
-.cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:rgba(18,13,9,.55);white-space:nowrap}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;font-family:var(--ui);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);background:rgba(18,13,9,.55);white-space:nowrap}
 .cta:hover{background:rgba(198,165,94,.14)}
+.arrive .cta{color:var(--paper);background:var(--ink);border-color:var(--ink)}
+.arrive .cta:hover{background:#3d2b1b}
 .carte{font-size:18px;color:var(--steam);border-bottom:1px solid rgba(198,165,94,.6);padding:4px 0}
 .lines{position:absolute;inset:auto 0 calc(13svh + env(safe-area-inset-bottom)) 0;z-index:5;padding:0 24px;pointer-events:none}
 .lines .line{position:absolute;left:24px;right:24px;bottom:0;opacity:0}
@@ -144,9 +150,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
   .line{font-size:34px}
   .acts{flex-direction:row;gap:28px}
   /* desktop: the painting above a dark band that carries the words */
-  .arrive picture{bottom:190px;height:auto}
-  .arrive picture img{object-position:50% 60%}
-  .arrive::after{background:linear-gradient(to bottom,rgba(18,13,9,.55) 0,rgba(18,13,9,0) 120px),linear-gradient(to top,var(--char) 0,var(--char) 190px,rgba(18,13,9,0) 260px)}
+  .arrive picture{top:96px;bottom:200px}
   .fin{gap:14px;padding-bottom:40px}
   .fin h2{font-size:76px}
 }
@@ -162,19 +166,17 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 .scene.s-fin{display:flex}
 
 /* ---------- epilogue: the same warm dark, few words, big pictures ---------- */
-.after{position:relative;background:
-  radial-gradient(80% 50% at 50% 0%,rgba(140,80,30,.22),rgba(18,13,9,0) 70%),
-  radial-gradient(70% 40% at 80% 60%,rgba(120,70,25,.12),rgba(18,13,9,0) 70%),var(--char)}
+.after{position:relative;background:var(--paper);--steam:var(--ink);--cream:var(--ink);--muted:var(--ink2);--gold:var(--gold-d);--line-c:var(--line-p)}
 .after img{max-width:100%;height:auto}
 .say{font-family:var(--display);font-weight:500;font-size:30px;line-height:1.15;color:var(--steam);text-wrap:balance}
-.lbl{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
-.credit{margin-top:8px;font-size:15px;font-style:italic;color:var(--muted)}
+.lbl{font-family:var(--ui);font-weight:700;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+.credit{margin-top:8px;font-size:15px;font-style:normal;color:var(--muted)}
 
 /* a · their plates, painted (4:5) */
 .plates{padding:96px 0 0;text-align:center}
 .dishes{display:grid;grid-template-columns:1fr;gap:28px}
 .dishes img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.dishes figcaption{margin-top:10px;padding:0 var(--g);font-size:16px;font-style:italic;color:var(--muted)}
+.dishes figcaption{margin-top:10px;padding:0 var(--g);font-size:16px;font-style:normal;color:var(--muted)}
 .plates .go{display:inline-block;margin-top:36px;font-size:19px;color:var(--steam);border-bottom:1px solid rgba(198,165,94,.6);padding:6px 0 3px}
 .plates .jour{margin-top:48px;padding:0 var(--g)}
 .plates .jour a{font-size:19px;color:var(--steam);border-bottom:1px solid rgba(198,165,94,.6);padding-bottom:1px}
@@ -187,9 +189,9 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 
 /* c · the press line */
 .press{padding:120px var(--g);text-align:center}
-.press blockquote{font-family:var(--display);font-style:italic;font-weight:500;font-size:36px;line-height:1.12;color:var(--steam);max-width:20ch;margin:0 auto;text-wrap:balance}
-.press cite{display:block;margin-top:20px;font-style:normal;font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
-.press .tr{margin-top:10px;font-size:15px;font-style:italic;color:var(--muted)}
+.press blockquote{font-family:var(--display);font-style:normal;font-weight:500;font-size:36px;line-height:1.12;color:var(--steam);max-width:20ch;margin:0 auto;text-wrap:balance}
+.press cite{display:block;margin-top:20px;font-style:normal;font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+.press .tr{margin-top:10px;font-size:15px;font-style:normal;color:var(--muted)}
 .press .tr:empty{display:none}
 .press::before{content:"";display:block;width:1px;height:64px;margin:0 auto 48px;background:linear-gradient(to bottom,rgba(198,165,94,0),var(--gold))}
 
@@ -208,7 +210,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 .book .lift,.book .when{margin-top:6px;font-size:18px;color:var(--muted);text-wrap:balance}
 .book .when{margin-top:18px}
 .book .hours{display:inline-block;margin-top:8px;font-size:18px;color:var(--steam);border-bottom:1px solid rgba(198,165,94,.6)}
-.book .bye{margin-top:64px;font-family:var(--display);font-style:italic;font-weight:500;font-size:34px;line-height:1.15;color:var(--gold);text-wrap:balance}
+.book .bye{margin-top:64px;font-family:var(--display);font-style:normal;font-weight:500;font-size:34px;line-height:1.15;color:var(--gold);text-wrap:balance}
 
 /* f · footer */
 .foot{display:flex;flex-direction:column;align-items:center;gap:24px;padding:64px var(--g) 40px;border-top:1px solid var(--line-c);text-align:center}
@@ -249,7 +251,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
   <div class="hd-r">
     <div class="row1">
       <nav class="langs" aria-label="Langue" data-i18n-aria="langLabel"><button type="button" data-lang="fr" aria-pressed="true">FR</button><span aria-hidden="true">·</span><button type="button" data-lang="pl" aria-pressed="false">PL</button><span aria-hidden="true">·</span><button type="button" data-lang="de" aria-pressed="false">DE</button><span aria-hidden="true">·</span><button type="button" data-lang="en" aria-pressed="false">EN</button></nav>
-      <a class="call" href="tel:+35226202114" aria-label="Réserver" data-i18n-aria="callLabel"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
+      <a class="call" href="tel:+35226202114" aria-label="Réserver" data-i18n-aria="callLabel"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span data-i18n="callLabel">Réserver</span></a>
     </div>
     <nav class="tabs" aria-label="Osada">
       <a href="carte.html" data-i18n="tabCarte">La carte</a>
@@ -276,7 +278,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
     <div class="L lane" id="lane" aria-hidden="true" style="opacity:0;display:none"><img class="cover" src="assets/lane.webp" alt="" width="816" height="1456"><i class="L door" id="door"></i></div>
     <div class="L warm" id="warm"></div>
     <div class="L arrive" id="arrive" style="opacity:0;display:none">
-      <picture aria-hidden="true"><source media="(min-aspect-ratio:1/1)" srcset="assets/zurek-paint-d.webp"><img src="assets/zurek-paint-m.webp" alt="" width="816" height="1456"></picture>
+      <picture aria-hidden="true"><img src="assets/zurek-paint-m.webp" alt="" width="960" height="1200"></picture>
       <div class="fin">
         <div>
           <h2 lang="pl">Żurek w chlebie</h2>
@@ -285,9 +287,9 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
       </div>
     </div>
     <div class="lines" aria-live="off">
-      <p class="line" id="l1" data-i18n="heroLine">Brasserie et restaurant avec cuisine polonaise.</p>
-      <p class="line" id="l2" data-i18n="villageTitle">Osada&nbsp;: le village.</p>
-      <p class="line" id="l3">Nova Osada, Neudorf, 2011 · Pfaffenthal, 2020</p>
+      <p class="line" id="l1"><span data-i18n="heroLine">Brasserie et restaurant avec cuisine polonaise.</span><span class="where">35 rue Laurent Ménager · Pfaffenthal · <span data-i18n="when">Fermé le lundi</span></span></p>
+      <p class="line" id="l2" data-i18n="villageTitle">En polonais, osada veut dire village.</p>
+      <p class="line" id="l3" data-i18n="histLine">D'abord Nova Osada au Neudorf, en 2011. Ici, au Pfaffenthal, depuis 2020.</p>
     </div>
     <i class="cue" id="cue" aria-hidden="true"></i>
   </div>
@@ -295,12 +297,12 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 
 <!-- reduced motion / no JS: the same five beats, still -->
 <div class="still-seq">
-  <section class="scene s-room"><img class="cover" src="assets/room.webp" alt="La salle d'Osada, avec la toile du village au mur" data-i18n-alt="roomAlt" width="2000" height="1500"><p class="line" data-i18n="heroLine">Brasserie et restaurant avec cuisine polonaise.</p></section>
-  <section class="scene"><picture><source media="(min-aspect-ratio:1/1)" srcset="assets/village-silver.webp"><img class="cover" src="assets/village-silver-m.webp" alt="" width="816" height="1456" loading="lazy"></picture><p class="line" data-i18n="villageTitle">Osada&nbsp;: le village.</p></section>
-  <section class="scene"><picture><source media="(min-aspect-ratio:1/1)" srcset="assets/village-dusk.webp"><img class="cover" src="assets/village-dusk-m.webp" alt="" width="816" height="1456" loading="lazy"></picture><picture><source media="(min-aspect-ratio:1/1)" srcset="assets/village-glow.png"><img class="glow" src="assets/village-glow-m.png" alt="" width="816" height="1456" loading="lazy"></picture><p class="line">Nova Osada, Neudorf, 2011 · Pfaffenthal, 2020</p></section>
+  <section class="scene s-room"><img class="cover" src="assets/room.webp" alt="La salle d'Osada, avec la toile du village au mur" data-i18n-alt="roomAlt" width="2000" height="1500"><p class="line"><span data-i18n="heroLine">Brasserie et restaurant avec cuisine polonaise.</span><span class="where">35 rue Laurent Ménager · Pfaffenthal · <span data-i18n="when">Fermé le lundi</span></span></p></section>
+  <section class="scene"><picture><source media="(min-aspect-ratio:1/1)" srcset="assets/village-silver.webp"><img class="cover" src="assets/village-silver-m.webp" alt="" width="816" height="1456" loading="lazy"></picture><p class="line" data-i18n="villageTitle">En polonais, osada veut dire village.</p></section>
+  <section class="scene"><picture><source media="(min-aspect-ratio:1/1)" srcset="assets/village-dusk.webp"><img class="cover" src="assets/village-dusk-m.webp" alt="" width="816" height="1456" loading="lazy"></picture><picture><source media="(min-aspect-ratio:1/1)" srcset="assets/village-glow.png"><img class="glow" src="assets/village-glow-m.png" alt="" width="816" height="1456" loading="lazy"></picture><p class="line" data-i18n="histLine">D'abord Nova Osada au Neudorf, en 2011. Ici, au Pfaffenthal, depuis 2020.</p></section>
   <section class="scene s-lane"><img class="cover" src="assets/lane.webp" alt="" width="816" height="1456" loading="lazy"></section>
   <section class="scene s-fin arrive on">
-    <picture><source media="(min-aspect-ratio:1/1)" srcset="assets/zurek-paint-d.webp"><img src="assets/zurek-paint-m.webp" alt="" width="816" height="1456" loading="lazy"></picture>
+    <picture><img src="assets/zurek-paint-m.webp" alt="" width="960" height="1200" loading="lazy"></picture>
     <div class="fin">
       <div>
         <h2 lang="pl">Żurek w chlebie</h2>
@@ -324,7 +326,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 
   <!-- b · downstairs, upstairs -->
   <section class="rooms" aria-labelledby="rooms-say">
-    <p class="say" id="rooms-say" data-i18n="hRooms">Plus simple, plus chaleureux&nbsp;: le bar en bas, deux petites salles à l'étage pour vos fêtes.</p>
+    <p class="say" id="rooms-say" data-i18n="hRooms">Un lieu simple et chaleureux&nbsp;: le bar en bas, deux petites salles à l'étage pour vos fêtes.</p>
     <div class="pair">
       <img src="assets/bar.webp" alt="La salle du bas" data-i18n-alt="barAlt" width="1400" height="1050" loading="lazy">
       <img src="assets/salle.webp" alt="Une des salles à l'étage" data-i18n-alt="salleAlt" width="1078" height="1349" loading="lazy">
@@ -334,7 +336,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
   <!-- c · the press line, in French in every language -->
   <figure class="press">
     <blockquote lang="fr">«&nbsp;ce petit village polonais au cœur de Luxembourg&nbsp;»</blockquote>
-    <cite>Le Quotidien, 2021</cite>
+    <cite data-i18n="pressCite">Le Quotidien, 2021, sur l'épicerie Osada</cite>
     <p class="tr" data-i18n="quoteTr"></p>
   </figure>
 
@@ -382,12 +384,14 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
       tabEpicerie: "L'épicerie",
       callLabel: "Réserver",
       roomAlt: "La salle d'Osada, avec la toile du village au mur",
+      histLine: "D'abord Nova Osada au Neudorf, en 2011. Ici, au Pfaffenthal, depuis 2020.",
+      pressCite: "Le Quotidien, 2021, sur l'épicerie Osada",
       heroLine: "Brasserie et restaurant avec cuisine polonaise.",
-      villageTitle: "Osada : le village.",
+      villageTitle: "En polonais, osada veut dire village.",
       bookCta: "Réserver · 26 20 21 14",
       carteFull: "La carte complète →",
       menuJour: "Le menu du jour, chaque semaine sur Facebook",
-      hRooms: "Plus simple, plus chaleureux : le bar en bas, deux petites salles à l'étage pour vos fêtes.",
+      hRooms: "Un lieu simple et chaleureux : le bar en bas, deux petites salles à l'étage pour vos fêtes.",
       barAlt: "La salle du bas",
       salleAlt: "Une des salles à l'étage",
       quoteTr: "",
@@ -408,12 +412,14 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
       tabEpicerie: "Delikatesy",
       callLabel: "Rezerwacja",
       roomAlt: "Sala w Osadzie, z obrazem wioski na ścianie",
+      histLine: "Najpierw Nova Osada na Neudorfie, w 2011 roku. Tutaj, w Pfaffenthalu, od 2020 roku.",
+      pressCite: "Le Quotidien, 2021, o sklepie Osada",
       heroLine: "Brasserie i restauracja z kuchnią polską.",
       villageTitle: "Osada, czyli wioska.",
       bookCta: "Rezerwacja · 26 20 21 14",
       carteFull: "Pełna karta →",
       menuJour: "Menu dnia, co tydzień na Facebooku",
-      hRooms: "Prościej i przytulniej: bar na dole, dwie małe sale na piętrze na Wasze przyjęcia.",
+      hRooms: "Prosto i przytulnie: bar na dole, dwie małe sale na piętrze na Wasze przyjęcia.",
       barAlt: "Sala na dole",
       salleAlt: "Jedna z sal na piętrze",
       quoteTr: "Po polsku: ta mała polska wioska w sercu Luksemburga",
@@ -434,12 +440,14 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
       tabEpicerie: "Feinkost",
       callLabel: "Reservieren",
       roomAlt: "Der Gastraum von Osada, mit dem Dorfbild an der Wand",
+      histLine: "Zuerst Nova Osada im Neudorf, 2011. Hier im Pfaffenthal seit 2020.",
+      pressCite: "Le Quotidien, 2021, über den Laden Osada",
       heroLine: "Brasserie und Restaurant mit polnischer Küche.",
-      villageTitle: "Osada: das Dorf.",
+      villageTitle: "Osada heißt auf Polnisch Dorf.",
       bookCta: "Reservieren · 26 20 21 14",
       carteFull: "Die ganze Karte →",
       menuJour: "Das Tagesmenü, jede Woche auf Facebook",
-      hRooms: "Einfacher, gemütlicher: unten die Bar, oben zwei kleine Räume für Ihre Feiern.",
+      hRooms: "Einfach und gemütlich: unten die Bar, oben zwei kleine Räume für Ihre Feiern.",
       barAlt: "Der Gastraum unten",
       salleAlt: "Einer der Räume im Obergeschoss",
       quoteTr: "Auf Deutsch: dieses kleine polnische Dorf im Herzen Luxemburgs",
@@ -460,12 +468,14 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
       tabEpicerie: "The deli",
       callLabel: "Book",
       roomAlt: "The Osada dining room, with the village canvas on the wall",
+      histLine: "First Nova Osada in Neudorf, in 2011. Here in Pfaffenthal since 2020.",
+      pressCite: "Le Quotidien, 2021, on the Osada épicerie",
       heroLine: "Brasserie and restaurant with Polish cuisine.",
-      villageTitle: "Osada: the village.",
+      villageTitle: "Osada is Polish for village.",
       bookCta: "Book · 26 20 21 14",
       carteFull: "The full menu →",
       menuJour: "The daily menu, posted every week on Facebook",
-      hRooms: "Simpler, warmer: the bar downstairs, two small rooms upstairs for your parties.",
+      hRooms: "Simple and warm: the bar downstairs, two small rooms upstairs for your parties.",
       barAlt: "The downstairs room",
       salleAlt: "One of the rooms upstairs",
       quoteTr: "In English: this little Polish village in the heart of Luxembourg",
@@ -612,7 +622,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
     const flash = .7 * Math.min(seg(p, .78, .81), 1 - seg(p, .81, .85));
     warm.style.opacity = flash;
     const a = seg(p, .8, .84), words = 1 - seg(p, .96, 1);   // the words bow out just before the plates rise over the loaf
-    arrive.style.opacity = a; show(arrive, a > 0); arrive.classList.toggle('on', a > .9 && words > .5);
+    arrive.style.opacity = a; show(arrive, a > 0); hd.classList.toggle('lit', a > .5); arrive.classList.toggle('on', a > .9 && words > .5);
     fin.style.opacity = words;
 
     l1.style.opacity = 1 - seg(p, .08, .11);
