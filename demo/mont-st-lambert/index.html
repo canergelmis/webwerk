@@ -112,6 +112,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ln{position:relative;display:block;width:max-content;max-width:100%;white-space:nowrap;filter:url(#chalk);opacity:var(--op,.92);transform:translateY(var(--dy,0px)) rotate(var(--rot,-.6deg));transform-origin:0 50%}
 /* dust haze under a freshly written line; it settles */
 .ln.wr{-webkit-mask-image:none;mask-image:none}
+/* the chalk font's acute is a speck the chalk filter erases: draw it */
+.ac{position:relative}
+.ac::after{content:"";position:absolute;left:46%;top:.08em;width:.07em;height:.24em;border-radius:.04em;background:currentColor;transform:rotate(40deg);pointer-events:none}
 .ln .g{display:inline-block;white-space:pre;text-decoration:inherit;text-decoration-color:inherit;text-underline-offset:inherit;text-decoration-thickness:inherit;clip-path:inset(-40% calc((1 - var(--g,0)) * 140% - 40%) -40% -40%);opacity:calc(var(--g,0) * 8);transform:translateY(calc(var(--gy,0px) + (1 - var(--g,0)) * .6px)) rotate(var(--gr,0deg)) scale(var(--gs,1))}
 .ln::after{content:"";position:absolute;left:-2%;right:-2%;top:62%;height:55%;pointer-events:none;background:radial-gradient(50% 50% at 50% 40%,rgba(242,239,230,.12),rgba(242,239,230,0));opacity:calc(var(--hz,0) * .9);transform:translateY(calc((1 - var(--hz,0)) * 4px))}
 .dr{position:relative;--dir:110deg;transform:rotate(var(--rot,0deg))}
@@ -629,7 +632,7 @@ body.open{overflow:hidden}
             const frag = document.createDocumentFragment();
             for (const ch of c.textContent) {
               if (/\s/.test(ch) && !c.parentElement.closest('a,.u,.ul,[href]')) { frag.appendChild(document.createTextNode(ch)); continue; }
-              const g = document.createElement('span'); g.className = 'g'; g.textContent = ch; { let h = 0; for (const c of (ch + glyphs.length + (it.textContent || '').length)) h = (h * 31 + c.charCodeAt(0)) % 9973; const r1 = (h % 97) / 96, r2 = ((h * 7) % 89) / 88, r3 = ((h * 13) % 83) / 82; g.style.setProperty('--gr', ((r1 - .5) * 5).toFixed(2) + 'deg'); g.style.setProperty('--gy', ((r2 - .5) * 2.4).toFixed(2) + 'px'); g.style.setProperty('--gs', (.95 + r3 * .1).toFixed(3)); } frag.appendChild(g); glyphs.push(g);
+              const g = document.createElement('span'); g.className = /[éÉ]/.test(ch) ? 'g ac' : 'g'; g.textContent = ch; { let h = 0; for (const c of (ch + glyphs.length + (it.textContent || '').length)) h = (h * 31 + c.charCodeAt(0)) % 9973; const r1 = (h % 97) / 96, r2 = ((h * 7) % 89) / 88, r3 = ((h * 13) % 83) / 82; g.style.setProperty('--gr', ((r1 - .5) * 5).toFixed(2) + 'deg'); g.style.setProperty('--gy', ((r2 - .5) * 2.4).toFixed(2) + 'px'); g.style.setProperty('--gs', (.95 + r3 * .1).toFixed(3)); } frag.appendChild(g); glyphs.push(g);
             }
             c.replaceWith(frag);
           } else if (c.nodeType === 1 && !c.classList.contains('g')) walk(c);
@@ -870,6 +873,13 @@ body.open{overflow:hidden}
       fit.style.transform = k < 1 ? `scale(${k.toFixed(3)})` : 'none';
     });
   }
+  // é outside the written board (carte drawer, static text): same drawn accent
+  function fixAcute(root) {
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: n => /[éÉ]/.test(n.nodeValue) && !n.parentElement.closest('.g,.ac,script,style') && /Nothing/.test(getComputedStyle(n.parentElement).fontFamily) ? 1 : 3 });
+    const list = []; while (w.nextNode()) list.push(w.currentNode);
+    list.forEach(n => { const f = document.createDocumentFragment(); n.nodeValue.split(/([éÉ])/).forEach(p => { if (!p) return; if (/^[éÉ]$/.test(p)) { const sp = document.createElement('span'); sp.className = 'ac'; sp.textContent = p; f.appendChild(sp); } else f.appendChild(document.createTextNode(p)); }); n.replaceWith(f); });
+  }
+  fixAcute(document.body);
   fitBoards();
   document.fonts && document.fonts.ready.then(fitBoards);
   addEventListener('load', fitBoards);
@@ -945,7 +955,7 @@ body.open{overflow:hidden}
     document.querySelectorAll('[data-ialt]').forEach(el => el.setAttribute('alt', T(el.dataset.ialt)));
     document.querySelectorAll('.lang [data-lang]').forEach(b => { const on = b.dataset.lang === L; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
     try { localStorage.setItem('msl-lang', L); } catch (e) {}
-    fitBoards(); if (typeof setCue === 'function') setCue(); if (!reduce) req();
+    fixAcute(document.body); fitBoards(); if (typeof setCue === 'function') setCue(); if (!reduce) req();
   }
   document.querySelectorAll('.lang [data-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
 
