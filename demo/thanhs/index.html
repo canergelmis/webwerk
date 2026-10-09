@@ -299,8 +299,7 @@ footer .langs a[aria-current]{color:var(--ink);background:linear-gradient(var(--
 
 /* ---------- r16: dish anatomy ---------- */
 .anat{list-style:none;margin:var(--s2) 0 0;padding:0;display:grid;gap:6px}
-.anat li{font-size:15px;font-weight:400;line-height:1.35;color:var(--ink);order:var(--om)}
-.anat li[data-n]::before{content:attr(data-n);display:inline-grid;place-items:center;width:16px;height:16px;margin-right:6px;border-radius:50%;border:1px solid var(--green);color:var(--green);font-size:10px;font-weight:600;vertical-align:1px}
+.anat li{font-size:15px;font-weight:400;line-height:1.35;color:var(--ink);}
 .leads{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4;overflow:visible}
 .leads path{fill:none;stroke:var(--green);stroke-width:1;stroke-linecap:round}
 .leads path.halo{stroke:rgba(254,255,253,.9);stroke-width:3.5}
@@ -312,9 +311,9 @@ footer .langs a[aria-current]{color:var(--ink);background:linear-gradient(var(--
 .still.in .leads{opacity:1}
 @media (max-width:899px){
   .stage .cap,.still .cap{display:flex;flex-direction:column;align-items:center}
-  .cap .anat{order:-1;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;margin:0 0 14px}
+  .cap .anat{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 16px;margin:10px 0 0}
   .jcity a text{font-size:27px} .jcity svg > text{font-size:21px}
-  .cap .anat li{font-size:14px;order:var(--om)}
+  .cap .anat li{font-size:14px;}
   .s-hero .cap .dish{font-size:38px}
   /* the Bò Bún lands at .38H with width 1.29W (frame ratio .571): sit just under the bowl */
   .s-bobun .cap{bottom:auto;top:calc(38vh + 36.8vw + 20px)}
@@ -451,10 +450,10 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
       <div class="cap">
         <p class="dish">Soup Phở</p>
         <ul class="anat">
-          <li style="--om:2" data-ad=".39,.33" data-am=".33,.42" data-t="an_herbs">Fresh herbs</li>
-          <li style="--om:3" data-ad=".31,.46" data-am=".19,.52" data-t="an_broth">Beef broth</li>
-          <li style="--om:4" data-ad=".58,.62" data-am=".6,.62" data-t="an_beef">Beef, or chicken</li>
-          <li style="--om:1" data-ad=".37,.72" data-am=".27,.67" data-t="an_noodles">Rice noodles</li>
+          <li data-t="an_noodles">Rice noodles</li>
+          <li data-t="an_herbs">Fresh herbs</li>
+          <li data-t="an_broth">Beef broth</li>
+          <li data-t="an_beef">Beef, or chicken</li>
         </ul>
       </div>
     </div>
@@ -475,10 +474,10 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
       <div class="cap">
         <p class="dish">Bò Bún</p>
         <ul class="anat">
-          <li style="--om:4" data-ad=".55,.27" data-am=".54,.25" data-t="an_pick">Pickled crudités</li>
-          <li style="--om:3" data-ad=".66,.56" data-am=".67,.53" data-t="an_nems">Nems: 2, or 4 in Gourmand</li>
-          <li style="--om:1" data-ad=".48,.67" data-am=".5,.62" data-t="an_skew">Beef, or shrimps, chicken, tofu</li>
-          <li style="--om:2" data-ad=".34,.71" data-am=".34,.77" data-t="an_verm">Rice vermicelli</li>
+          <li data-t="an_skew">Beef, or shrimps, chicken, tofu</li>
+          <li data-t="an_nems">Nems: 2, or 4 in Gourmand</li>
+          <li data-t="an_verm">Rice vermicelli</li>
+          <li data-t="an_pick">Pickled crudités</li>
         </ul>
       </div>
     </div>
@@ -494,10 +493,10 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
       <p class="dish">Bánh Mì</p>
       <p data-t="banhmi_d">French baguette &amp; Vietnamese recipe</p>
       <ul class="anat">
-        <li style="--om:1" data-a=".47,.31" data-t="an_bag">Baguette</li>
-        <li style="--om:3" data-a=".63,.45" data-t="an_cor">Coriander</li>
-        <li style="--om:2" data-a=".54,.5" data-t="an_pickles">Pickles</li>
-        <li style="--om:4" data-a=".59,.58" data-t="an_fill">Pork, chicken, beef or tofu</li>
+        <li data-t="an_bag">Baguette</li>
+        <li data-t="an_pickles">Pickles</li>
+        <li data-t="an_cor">Coriander</li>
+        <li data-t="an_fill">Pork, chicken, beef or tofu</li>
       </ul>
     </div>
   </section>
@@ -664,7 +663,12 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
     const hero = document.getElementById('hero'), pause = document.querySelector('.breath');
     const bobun = document.querySelector('[data-scene="bobun"]');
     const max = document.documentElement.scrollHeight - innerHeight;
-    return [end(hero), top(pause) - innerHeight * .12, end(bobun), (el => top(el) + (el.offsetHeight - innerHeight) / 2)(document.getElementById('banhmi')), top(document.getElementById('menu')), top(document.getElementById('visit'))]
+    const menu = document.getElementById('menu'), jr = document.getElementById('journey');
+    // the menu one screen at a time; the journey one station at a time (Saigon, France, Luxembourg, Kirchberg)
+    const menuStops = []; for (let y = top(menu); y < top(menu) + menu.offsetHeight - innerHeight * .6; y += innerHeight * .8) menuStops.push(y);
+    const jrun = jr.offsetHeight - innerHeight, jStops = [.07, .55, .71, .93].map(f => top(jr) + f * jrun);
+    return [end(hero), top(pause) - innerHeight * .12, end(bobun), (el => top(el) + (el.offsetHeight - innerHeight) / 2)(document.getElementById('banhmi')),
+      ...menuStops, ...jStops, top(document.getElementById('visit'))]
       .map(y => Math.min(max, Math.max(0, Math.round(y))));
   }
   const next = () => stops().find(y => y > scrollY + 8);
@@ -677,7 +681,18 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
     const under = document.elementsFromPoint(r.left + r.width / 2, r.top + r.height / 2).find(el => el !== cue && !cue.contains(el));
     cue.classList.toggle('on-green', !!(under && under.closest('.visit')));
   }
-  cue.addEventListener('click', () => { const n = next(); if (n !== undefined) scrollTo({ top: n, behavior: reduce ? 'auto' : 'smooth' }); });
+  // a slow, eased glide so the scroll-driven scenes play out on the way (0.9-2.4 s by distance)
+  let glide = 0;
+  function glideTo(y) {
+    if (reduce) { scrollTo(0, y); return; }
+    cancelAnimationFrame(glide);
+    const y0 = scrollY, d = y - y0, ms = Math.min(2400, Math.max(900, Math.abs(d) * .9)), t0 = performance.now();
+    const ease = u => u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+    const step = now => { const u = Math.min(1, (now - t0) / ms); scrollTo(0, y0 + d * ease(u)); if (u < 1) glide = requestAnimationFrame(step); };
+    glide = requestAnimationFrame(step);
+  }
+  ['wheel', 'touchstart', 'keydown'].forEach(ev => addEventListener(ev, () => cancelAnimationFrame(glide), { passive: true }));
+  cue.addEventListener('click', () => { const n = next(); if (n !== undefined) glideTo(n); });
   let t = 0;
   const req = () => { if (!t) t = requestAnimationFrame(() => { t = 0; update(); }); };
   addEventListener('scroll', req, { passive: true });
@@ -761,7 +776,6 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
       this.frames = new Array(this.n); this.loaded = 0; this.started = false;
       this.cur = 0; this.target = 0; this.key = ''; this.size();
       this.anat = [...el.querySelectorAll('.anat li')];
-      if (this.anat.length) this.leads = makeLeads(this.stage, this.anat.length);
     }
     load() {
       if (this.started) return; this.started = true;
@@ -883,8 +897,7 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
 
   // the Bánh Mì still: same hairlines over a cover-fitted picture
   const stillEl = document.getElementById('banhmi'), stillImg = stillEl.querySelector('.st-img img'), stillLi = [...stillEl.querySelectorAll('.anat li')];
-  const stillLeads = makeLeads(stillEl, stillLi.length);
-  function leadStill() {
+  function leadStill() { return;
     const b = stillEl.getBoundingClientRect(); if (b.bottom < 0 || b.top > innerHeight) return;
     const box = stillImg.getBoundingClientRect(), nr = 1600 / 905, br = box.width / box.height;
     const w = br < nr ? box.height * nr : box.width, h = br < nr ? box.height : box.width / nr;
