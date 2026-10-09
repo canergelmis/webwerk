@@ -621,7 +621,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
     // 5 arrival: through the door, a warm cut to the żurek
     const flash = .7 * Math.min(seg(p, .78, .81), 1 - seg(p, .81, .85));
     warm.style.opacity = flash;
-    const a = seg(p, .78, .87), words = 1;   // the words stay until the epilogue covers the stage
+    const a = seg(p, .78, .87), words = 1 - seg(p, .98, 1);   // the words bow out just before the plates rise over the loaf
     arrive.style.opacity = a; show(arrive, a > 0); hd.classList.toggle('lit', a > .5); arrive.classList.toggle('on', a > .9 && words > .5);
     fin.style.opacity = words;
 
