@@ -41,7 +41,7 @@ ul{list-style:none}
 .hd.solid,.hd.lit{background:var(--paper);box-shadow:0 1px 0 var(--line-p)}
 .hd.solid .tabs a,.hd.lit .tabs a,.hd.solid .langs,.hd.lit .langs{color:var(--ink)}
 .hd.solid .tabs a[aria-current],.hd.lit .tabs a[aria-current],.hd.solid .langs button[aria-pressed="true"],.hd.lit .langs button[aria-pressed="true"]{color:var(--gold-d)}
-.hd.solid .logo,.hd.lit .logo{filter:none}
+.hd.solid .logo,.hd.lit .logo{filter:brightness(.62) saturate(1.15)}
 .hd.solid::before,.hd.lit::before{opacity:0}
 .brand{display:block;margin-top:2px}
 .hd .logo{width:118px;height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6))}
@@ -52,7 +52,7 @@ ul{list-style:none}
 .langs button[aria-pressed="true"]{color:var(--gold)}
 .langs span{opacity:.5}
 .call{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;margin-left:8px;font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--char);background:var(--gold);border-radius:999px}
-@media (max-width:899px){.call{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));min-height:48px;padding:0 20px;box-shadow:0 6px 22px rgba(0,0,0,.4)}.foot{padding-bottom:96px}}
+@media (max-width:899px){.call{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));min-height:48px;padding:0 20px;box-shadow:0 6px 22px rgba(0,0,0,.4)}.foot{padding-bottom:40px}.hd.lit .call{position:static;width:44px;min-height:44px;padding:0;box-shadow:none}.hd.lit .call span{display:none}}
 .tabs{display:flex;gap:14px;font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
 .tabs a{padding:5px 0 3px;color:rgba(236,224,196,.92);border-bottom:1px solid transparent}
 .tabs a[aria-current]{color:var(--gold);border-bottom-color:rgba(198,165,94,.7)}
@@ -117,7 +117,7 @@ ul{list-style:none}
 .end-cta .addr{margin-top:28px;font-size:18px;color:var(--cream)}
 .end-cta .addr a{border-bottom:1px solid rgba(198,165,94,.45);padding-bottom:1px}
 .foot{display:flex;flex-direction:column;align-items:center;gap:24px;padding:64px var(--g) 40px;border-top:1px solid var(--line);text-align:center}
-.foot .logo{width:220px}
+.foot .logo{width:220px;filter:brightness(.62) saturate(1.15)}
 .foot nav{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;font-size:17px;color:var(--cream)}
 .foot nav a{padding:6px 0}
 .foot nav span{color:var(--gold)}
