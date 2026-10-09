@@ -68,7 +68,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:899px){
   /* the whole board, uncropped, across the top; logo and links on the slate below */
   .hero{justify-content:flex-start;padding-top:0}
-  .hero .board{position:relative;inset:auto;z-index:0;width:100%;aspect-ratio:6/5;flex-shrink:0;-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%)}
+  .hero .board{position:relative;inset:auto;z-index:0;width:100%;aspect-ratio:6/5;flex-shrink:0;-webkit-mask-image:linear-gradient(180deg,#000 64%,transparent 82%);mask-image:linear-gradient(180deg,#000 64%,transparent 82%)}
   .hero .board img{width:100%;height:100%;object-fit:cover}
   .hero .board::after{display:none}
   .hero .wrap{margin:auto 0}
@@ -194,6 +194,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* scene 3: la carte */
 .s2 .in{justify-content:center}
 .s1 .in{justify-content:center}
+@media (max-width:899px){.s1 .in{padding-bottom:calc(var(--pad) + 64px)}}
 .s2 .cols{width:100%}
 .s2 .col{display:flex;flex-direction:column;align-items:center}
 .s2 .col + .col{margin-top:16px}
