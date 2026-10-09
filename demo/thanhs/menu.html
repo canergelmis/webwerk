@@ -496,6 +496,12 @@ footer .langs a[aria-current]{color:var(--ink);background:linear-gradient(var(--
   .doors{grid-template-columns:1fr 1fr;column-gap:var(--s4)}
   .door .dk{font-size:48px}
 }
+
+/* ---------- r23: the wordmark in the header ---------- */
+.top .wmk{display:block;height:19px;width:auto}
+@media (min-width:900px){ .top .wmk{height:24px} }
+@media (max-width:399px){ .top .wmk{height:15px} .top .right{gap:12px} }
+@media (max-width:379px){ .top .wmk{height:12px} }
 header .disc{flex-shrink:0}
 @media (max-width:899px){.s-bobun + .still{margin-top:-38vh;padding-top:0}}
 footer .langs button{font:inherit;background:none;border:0;padding:0 0 3px;cursor:pointer;color:var(--soft);letter-spacing:.06em}
@@ -505,7 +511,7 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
 </head>
 <body>
 <header class="top">
-  <a href="index.html" aria-label="Thanh's — Taste of Vietnam"><img class="disc" src="img/logo-disc-240.webp" alt="" width="52" height="52"></a>
+  <a href="index.html" aria-label="Thanh's — Taste of Vietnam"><img class="wmk" src="img/wm-name.png" alt="" width="957" height="168"></a>
   <div class="right">
     <nav class="links" aria-label="Main" data-ta="aria-label:a_main">
       <a href="menu.html" data-t="nav_menu">Menu</a>

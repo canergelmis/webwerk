@@ -496,16 +496,33 @@ footer .langs a[aria-current]{color:var(--ink);background:linear-gradient(var(--
   .doors{grid-template-columns:1fr 1fr;column-gap:var(--s4)}
   .door .dk{font-size:48px}
 }
+
+/* ---------- r23: the wordmark in the header ---------- */
+.top .wmk{display:block;height:19px;width:auto}
+@media (min-width:900px){ .top .wmk{height:24px} }
+@media (max-width:399px){ .top .wmk{height:15px} .top .right{gap:12px} }
+@media (max-width:379px){ .top .wmk{height:12px} }
 header .disc{flex-shrink:0}
 @media (max-width:899px){.s-bobun + .still{margin-top:-38vh;padding-top:0}}
 footer .langs button{font:inherit;background:none;border:0;padding:0 0 3px;cursor:pointer;color:var(--soft);letter-spacing:.06em}
 footer .langs button[aria-pressed="true"]{color:var(--ink);background:linear-gradient(var(--green),var(--green)) 0 100%/100% 1px no-repeat}
 footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-top:1px solid rgba(47,52,49,.12);font-size:12px;line-height:1.6;color:var(--soft)}
+
+/* ---------- hero test: the name behind the bowl ---------- */
+.ht-h1 .ht-tag{width:min(46vw,300px);height:auto;display:block;margin:0 auto}
+.ht-name,.ht-front{position:absolute;left:0;top:0;pointer-events:none;opacity:var(--c,1)}
+.ht-name{z-index:2;height:auto}
+.ht-front{z-index:3}
+.ht-front img{display:block;width:100%;height:100%}
+.hero-copy{z-index:5}
+@media (min-width:900px){ .ht-h1 .ht-tag{width:min(24vw,360px)} }
+@media (max-width:899px){ .s-hero .hero-copy{padding-top:25vh} }
+@media (prefers-reduced-motion:reduce){ .ht-name,.ht-front{display:none} .ht-h1 .ht-tag{content:url(img/wordmark-green.png)} }
 </style>
 </head>
 <body>
 <header class="top">
-  <a href="index.html" aria-label="Thanh's — Taste of Vietnam"><img class="disc" src="img/logo-disc-240.webp" alt="" width="52" height="52"></a>
+  <a href="index.html" aria-label="Thanh's — Taste of Vietnam"><img class="wmk" src="img/wm-name.png" alt="" width="957" height="168"></a>
   <div class="right">
     <nav class="links" aria-label="Main" data-ta="aria-label:a_main">
       <a href="menu.html" data-t="nav_menu">Menu</a>
@@ -552,8 +569,10 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
         <img src="seq/seq-hero-d/f000.webp" alt="" width="1280" height="731" fetchpriority="high">
       </picture>
       <canvas aria-hidden="true"></canvas>
+      <img class="ht-name" src="img/wm-name.png" alt="" width="957" height="168" aria-hidden="true">
+      <picture class="ht-front" aria-hidden="true"><source media="(max-width: 899px)" srcset="img/hero-m-front.webp"><img src="img/hero-d-front.webp" alt=""></picture>
       <div class="hero-copy">
-        <h1><img src="img/wordmark-green.png" alt="Thanh's — Taste of Vietnam" width="957" height="293"></h1>
+        <h1 class="ht-h1"><span class="sr">Thanh's — Taste of Vietnam</span><img class="ht-tag" src="img/wm-tag.png" alt="" width="957" height="125"></h1>
         <p class="line" data-t="hero_line">Authentic homemade vietnamese cuisine: Bò Bún, Soup Phở, Bánh Mì &amp; more !</p>
       </div>
       <div class="cap">
@@ -618,7 +637,6 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
 
   <section class="visit" id="visit" aria-label="Thanh's Boulevard Royal and Thanh's Infinity">
     <div class="wrap">
-      <figure class="room"><img src="img/infinity-room.webp" alt="The room at Thanh's Infinity in the sun" data-ta="alt:a_room" width="1200" height="760" loading="lazy"><figcaption data-t="jc_inf">Thanh's Infinity, Kirchberg</figcaption></figure>
       <div class="addr" id="royal">
         <h2 data-t="jc_royal">Thanh's Boulevard Royal</h2>
         <p data-th="royal_a">25 Boulevard Royal, <span class="nw">L-2449</span> Luxembourg, opposite Hôtel Le Royal</p>
@@ -1044,6 +1062,15 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
   })();
 
   window.__frames = () => scenes.map(s => s.loaded);
+  const htName = document.querySelector('.ht-name'), htFront = document.querySelector('.ht-front');
+  function heroTest() {
+    const s = scenes[0]; if (!s || !htName) return;
+    const r = s.frameRect(), desk = s.W >= 900;
+    htFront.style.cssText = `left:${r.x}px;top:${r.y}px;width:${r.w}px;height:${r.h}px`;
+    const w = r.w * (desk ? .9 : .97), h = w * 168 / 957, base = r.y + r.h * (desk ? .355 : .435);
+    htName.style.cssText = `left:${r.x + (r.w - w) / 2}px;top:${base - h}px;width:${w}px`;
+  }
+  addEventListener('resize', heroTest);
   if (scenes[0]) scenes[0].load();
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) scenes.find(s => s.el === e.target).load(); }), { rootMargin: '0px' });
   scenes.slice(1).forEach(s => io.observe(s.el));
@@ -1056,7 +1083,7 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
   function tick() {
     raf = 0; let more = false;
     scenes.forEach((s, i) => { if (s.step()) more = true; if (scenes[i + 1] && s.cur / (s.n - 1) > .5) scenes[i + 1].load(); });
-    leadStill(); turnDrum(); journey();
+    leadStill(); turnDrum(); journey(); heroTest();
     if (more) kick();
   }
   function kick() { if (!raf) raf = requestAnimationFrame(tick); }
