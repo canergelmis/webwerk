@@ -299,7 +299,8 @@ footer .langs a[aria-current]{color:var(--ink);background:linear-gradient(var(--
 
 /* ---------- r16: dish anatomy ---------- */
 .anat{list-style:none;margin:var(--s2) 0 0;padding:0;display:grid;gap:6px}
-.anat li{font-size:15px;font-weight:400;line-height:1.35;color:var(--ink)}
+.anat li{font-size:15px;font-weight:400;line-height:1.35;color:var(--ink);order:var(--om)}
+.anat li[data-n]::before{content:attr(data-n);display:inline-grid;place-items:center;width:16px;height:16px;margin-right:6px;border-radius:50%;border:1px solid var(--green);color:var(--green);font-size:10px;font-weight:600;vertical-align:1px}
 .leads{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4;overflow:visible}
 .leads path{fill:none;stroke:var(--green);stroke-width:1;stroke-linecap:round}
 .leads path.halo{stroke:rgba(254,255,253,.9);stroke-width:3.5}
@@ -314,7 +315,6 @@ footer .langs a[aria-current]{color:var(--ink);background:linear-gradient(var(--
   .cap .anat{order:-1;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;margin:0 0 14px}
   .jcity a text{font-size:27px} .jcity svg > text{font-size:21px}
   .cap .anat li{font-size:14px;order:var(--om)}
-  .anat li[data-n]::before{content:attr(data-n);display:inline-grid;place-items:center;width:16px;height:16px;margin-right:6px;border-radius:50%;border:1px solid var(--green);color:var(--green);font-size:10px;font-weight:600;vertical-align:1px}
   .s-hero .cap .dish{font-size:38px}
   /* the Bò Bún lands at .38H with width 1.29W (frame ratio .571): sit just under the bowl */
   .s-bobun .cap{bottom:auto;top:calc(38vh + 36.8vw + 20px)}
@@ -721,8 +721,8 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
       if (x < lx0 - 12) { sx = lx0 - 10; sy = (ly0 + ly1) / 2; }
       else if (x > lx1 + 12) { sx = lx1 + 10; sy = (ly0 + ly1) / 2; }
       else { sx = (lx0 + lx1) / 2; sy = y < ly0 ? ly0 - 6 : ly1 + 6; }
-      const [p, c, hp, n] = L.items[i], key = hb.width < 900;
-      // phones: a numbered key (no lines over the words above); desktop: hairlines to the side of each word
+      const [p, c, hp, n] = L.items[i], key = true;
+      // a numbered key on every screen: no lines between the dish and its name (Can, 2026-10-09)
       const d = key ? '' : `M${sx.toFixed(1)} ${sy.toFixed(1)}L${x.toFixed(1)} ${y.toFixed(1)}`;
       p.setAttribute('d', d); hp.setAttribute('d', d);
       const num = getComputedStyle(li).getPropertyValue('--om').trim() || String(i + 1);
