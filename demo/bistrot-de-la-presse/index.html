@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#120c09">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23120c09'/%3E%3Cpath d='M14 30h36c0 12-8 18-18 18s-18-6-18-18zM48 33c6-2 9 1 8 5-1 3-5 4-9 3M10 50c8 4 36 4 44 0' fill='none' stroke='%23e3a35a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preload" href="assets/film/film-m.jpg" as="image" fetchpriority="high" media="(max-width: 899px)">
-<link rel="preload" href="assets/film/film-d.jpg" as="image" fetchpriority="high" media="(min-width: 900px)">
+<link rel="preload" href="assets/film/film-m.jpg" as="image" fetchpriority="high" media="(min-width: 900px)">
 <style>
 /* Instrument Sans 500 normal latin-ext */
 @font-face {
@@ -168,7 +168,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* the film: their own footage, one edit; the poster paints first from CSS, the film streams over it */
 .film{position:absolute;inset:0;z-index:-2;background:var(--night) url(assets/film/film-m.jpg) center/cover no-repeat}
 .film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-@media (min-width:900px){ .film{background-image:url(assets/film/film-d.jpg)} }
+.film video.tri{display:none}
+/* desktop: a triptych of the same 9:16 film at native size, offset in time, so nothing is enlarged */
+@media (min-width:900px){
+  .film{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--night)}
+  .film video{position:relative;inset:auto;background:var(--night) center/cover no-repeat}
+  .film video.tri{display:block}
+}
 .shade{position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(to bottom,rgba(18,12,9,0) 55%,rgba(18,12,9,.5) 76%,rgba(18,12,9,.9) 100%)}
 .hero-in{position:absolute;left:max(24px, var(--in));right:max(24px, var(--in));bottom:var(--s5)}
@@ -310,7 +316,7 @@ button.dish-row:hover .dn{color:var(--amber)}
 
 <main>
 <section class="hero" id="accueil" aria-labelledby="h1">
-  <div class="film" aria-hidden="true"><video muted loop playsinline autoplay preload="auto" data-m="assets/film/film-m.mp4" data-mp="assets/film/film-m.jpg" data-d="assets/film/film-d.mp4" data-dp="assets/film/film-d.jpg"></video></div>
+  <div class="film" aria-hidden="true"><video muted loop playsinline autoplay preload="auto" data-m="assets/film/film-m.mp4" data-mp="assets/film/film-m.jpg" data-d="assets/film/film-m.mp4" data-dp="assets/film/film-m.jpg"></video><video class="tri" muted loop playsinline preload="none" data-off="8.27" poster="assets/film/film-m-8.jpg"></video><video class="tri" muted loop playsinline preload="none" data-off="16.53" poster="assets/film/film-m-16.jpg"></video></div>
   <div class="shade"></div>
   <div class="hero-in">
     <h1 class="name" id="h1"><span class="n1">Bistrot</span> de la Presse</h1>
@@ -568,7 +574,22 @@ button.dish-row:hover .dn{color:var(--amber)}
   var film = document.querySelector(".film video");
   var filmSeen = true;
   pick(film);
-  function syncFilm() { if (!reduce && filmSeen && !viewerOpen && !document.hidden) play(film); else if (!film.paused) film.pause(); }
+  /* desktop triptych: two more panels of the same file, started at later points of the film */
+  var tri = Array.prototype.slice.call(document.querySelectorAll(".film video.tri"));
+  function triOn() { return wide.matches && !reduce; }
+  function loadTri() {
+    tri.forEach(function (v) {
+      if (!triOn() || v.getAttribute("src")) return;
+      v.addEventListener("loadedmetadata", function () { try { v.currentTime = parseFloat(v.getAttribute("data-off")) || 0; } catch (e) {} }, { once: true });
+      v.src = film.getAttribute("data-m");
+    });
+  }
+  function syncFilm() {
+    var on = !reduce && filmSeen && !viewerOpen && !document.hidden;
+    if (on) play(film); else if (!film.paused) film.pause();
+    loadTri();
+    tri.forEach(function (v) { if (on && triOn()) play(v); else if (!v.paused) v.pause(); });
+  }
   syncFilm();
 
   /* au verre: the pour band plays only while it is on screen */
