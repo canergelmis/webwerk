@@ -556,6 +556,23 @@ footer{background:var(--cream)}
 .jhead{display:none}
 .js .jhead{display:block;position:absolute;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;
   background:var(--green);box-shadow:0 0 0 4px rgba(79,157,97,.22);opacity:0;pointer-events:none}
+
+/* ---------- r26 ---------- */
+/* one map language: the street map on the relief's paper (land #e4dcc8), cream roads */
+:is(.jcity,.mapcard) svg > rect:first-of-type{fill:#e4dcc8}
+:is(.jcity,.mapcard) svg path[fill="#dfeadf"]{fill:#d9d1b6}
+:is(.jcity,.mapcard) svg path[fill="#d9e6ec"]{fill:#d2d6c6}
+:is(.jcity,.mapcard) svg path[stroke="#cfe0e8"]{stroke:#d2d6c6}
+:is(.jcity,.mapcard) svg g[stroke="#d3dbd8"]{stroke:#f6f0e2}
+.mapcard,.js .jcity{background:#e4dcc8}
+@media (max-width:899px){
+  /* Wolt and their call line before the map */
+  .visit .foot{order:1}
+  .visit .mapcard{order:2}
+  /* the menu intro: half width only beside the drum, then the full column */
+  .menu.page .morning{max-width:none}
+  .menu.page .morning::before{content:"";float:right;width:50vw;height:24vw;margin-left:12px}
+}
 header .disc{flex-shrink:0}
 @media (max-width:899px){.s-bobun + .still{margin-top:-38vh;padding-top:0}}
 footer .langs button{font:inherit;background:none;border:0;padding:0 0 3px;cursor:pointer;color:var(--soft);letter-spacing:.06em}
