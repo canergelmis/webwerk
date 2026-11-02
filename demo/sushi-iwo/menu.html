@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La carte · iwo, sushi &amp; wok à Ettelbruck</title>
+<meta name="description" content="La carte d’iwo à Ettelbruck : sushi, wok, bowls, entrées, potages, desserts et boissons. Prix et commande sur Wolt.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="La carte · iwo, sushi &amp; wok à Ettelbruck">
+<meta property="og:description" content="La carte d’iwo à Ettelbruck : sushi, wok, bowls, entrées, potages, desserts et boissons. Prix et commande sur Wolt.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_LU">
+<meta property="og:image" content="https://webwerk.lu/demo/sushi-iwo/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Un nigiri en pâte à modeler avec une fleur rose, sur un petit plateau en bois (illustration)">
+<meta name="theme-color" content="#F3DF9B">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+body{background:#fff}
+.fade{-webkit-mask-image:var(--fade);mask-image:var(--fade);-webkit-mask-composite:source-in;mask-composite:intersect}
+
+/* ---------- top: the sushi-yellow hero with the clay platter ---------- */
+.mhero{background:var(--g-platter);padding:calc(var(--bar) + var(--s5)) var(--s4) 0;display:grid;gap:0;overflow:hidden}
+.mhero h1{font-size:var(--t5);font-weight:600;line-height:1.05;letter-spacing:-.02em}
+.mhero .line{font-size:var(--t3);margin-top:var(--s2);max-width:24ch}
+.mhero .acts{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margin-top:var(--s4)}
+.mhero .acts small{font-size:var(--t1)}
+.mhero .txt{position:relative;z-index:2}
+.mhero .pic{margin:calc(-.16 * 125vw) calc(var(--s4) * -1) 0}
+.mhero .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;-webkit-mask-image:var(--fade-v);mask-image:var(--fade-v)}
+
+/* ---------- sticky family bar ---------- */
+.fam{position:sticky;top:var(--bar);z-index:15;display:flex;gap:var(--s2);overflow-x:auto;padding:var(--s2) var(--s3);background:var(--bar-bg,rgba(238,177,199,.92));transition:background-color .16s linear;-webkit-backdrop-filter:blur(12px) saturate(1.2);backdrop-filter:blur(12px) saturate(1.2);box-shadow:0 1px 0 rgba(27,27,27,.08);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.fam::-webkit-scrollbar{display:none}
+.fam a{flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 var(--s3);border-radius:999px;background:rgba(255,255,255,.6);font-size:var(--t1);font-weight:600;text-decoration:none;white-space:nowrap}
+.fam a:hover{background:#fff}
+.fam a[aria-current="true"]{background:var(--ink);color:#fff}
+
+/* ---------- families ---------- */
+.family{scroll-margin-top:calc(var(--bar) + 60px)}
+.fam-head{position:relative;background:var(--bg);padding:var(--s5) var(--s4) var(--s4);overflow:hidden}
+.fam-head .lab{position:relative;z-index:2;display:flex;flex-direction:column;gap:var(--s1)}
+.fam-head h2{font-size:var(--t5);font-weight:600;line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+/* mobile: the picture runs edge to edge on a ground sampled from its own border; only top and bottom fade */
+.fam-head .pic{margin:calc(var(--s5) * -1) calc(var(--s4) * -1) 0}
+.fam-head .pic img,.fam-head .pic video{display:block;width:100%;object-fit:cover;aspect-ratio:4/5;-webkit-mask-image:var(--fade-v);mask-image:var(--fade-v)}
+.f-sushi .fam-head{--bg:var(--g-platter);padding-top:var(--s5)}
+.f-wok .fam-head{--bg:var(--g-wok)}
+.f-wok .fam-head .pic{margin-top:var(--s2)}
+.f-bowls .fam-head{--bg:var(--g-poke)}
+.f-entrees .fam-head{--bg:var(--g-entrees)}
+.f-entrees .fam-head .pic img{-webkit-mask-image:radial-gradient(closest-side,#000 78%,transparent 100%);mask-image:radial-gradient(closest-side,#000 78%,transparent 100%);aspect-ratio:1;object-fit:cover}
+.f-desserts .fam-head{--bg:var(--g-dessert)}
+.f-boissons .fam-head{--bg:#fff;border-top:1px solid rgba(27,27,27,.08)}
+.bigstage{display:flex;flex-direction:column;align-items:center;margin:var(--s4) auto 0;width:max-content}
+.bigstage svg{width:88px;height:88px;color:var(--hot);margin-bottom:-6px;position:relative;z-index:1}
+.bigstage .mini{width:200px;height:64px}
+.bigstage .mini::after{height:44px}
+.bigstage .mini::before{top:20px}
+
+.cats{padding:var(--s5) var(--s4) var(--s6);display:grid;gap:var(--s5)}
+.cat h3{display:flex;align-items:center;gap:var(--s2);font-size:var(--t4);font-weight:600;line-height:1.15;margin-bottom:var(--s2)}
+.items{list-style:none;display:grid;column-gap:var(--s5)}
+.items li{display:flex;flex-direction:column;gap:2px;padding:var(--s2) 0 var(--s2);border-top:1px solid rgba(27,27,27,.1)}
+.items .n{font-weight:600;font-size:var(--t2);line-height:1.3}
+.items .d{font-size:var(--t1);color:rgba(27,27,27,.76);line-height:1.45}
+
+/* ---------- end: the à volonté table ---------- */
+.ayce{overflow:hidden;background:var(--g-table);padding:var(--s6) var(--s4) var(--s5)}
+.ayce-grid{display:grid;gap:var(--s4)}
+.ayce .table{margin:0 calc(var(--s4) * -1)}
+.ayce .table img{width:100%;aspect-ratio:4/5;object-fit:cover;-webkit-mask-image:var(--fade-v);mask-image:var(--fade-v)}
+.ayce .copy{display:flex;flex-direction:column;gap:var(--s4)}
+.ayce h2{font-size:var(--t5);font-weight:600;line-height:1.05;letter-spacing:-.02em}
+.ayce .copy p.big{font-size:var(--t3);max-width:30ch}
+.ayce .acts{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);align-items:center}
+
+@media (min-width:640px){
+  .items{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:960px){
+  .mhero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:var(--bar) var(--s6) 0;min-height:620px;max-width:none}
+  .mhero .txt{justify-self:end;width:min(100%,520px);padding-bottom:var(--s5)}
+  .mhero .pic{margin:var(--s4) 0 0;width:min(100%,500px)}
+  .mhero .pic img,.fam-head .pic img,.fam-head .pic video,.ayce .table img{-webkit-mask-image:var(--fade);mask-image:var(--fade);-webkit-mask-composite:source-in;mask-composite:intersect}
+  .fam{justify-content:center;padding:var(--s2) var(--s5)}
+  .fam-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:0 var(--s6);min-height:420px}
+  .fam-head .lab{justify-self:end;width:min(100%,520px)}
+  .fam-head .pic{margin:var(--s4) 0 0;width:400px}
+  .f-sushi .fam-head,.f-boissons .fam-head{min-height:0;padding-top:var(--s6);padding-bottom:var(--s5)}
+  .f-sushi .fam-head{display:block}
+  .f-sushi .fam-head .lab,.f-boissons .fam-head .lab{max-width:1280px;margin:0 auto;width:100%;padding:0 var(--s6)}
+  .f-sushi .fam-head .lab{justify-self:auto}
+  .bigstage{margin:0}
+  .cats{max-width:1280px;margin:0 auto;padding:var(--s6) var(--s6) var(--s7);gap:var(--s6)}
+  .items{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ayce{padding:var(--s7) var(--s6)}
+  .ayce-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s6);align-items:center;max-width:1280px;margin:0 auto}
+  .ayce .table{margin:0}
+}
+</style>
+</head>
+<body class="menu">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="petal" d="M0,-8 C-10,-22 -40,-30 -46,-58 C-50,-80 -30,-94 -14,-84 C-6,-79 -2,-72 0,-66 C2,-72 6,-79 14,-84 C30,-94 50,-80 46,-58 C40,-30 10,-22 0,-8 Z"/>
+    <symbol id="mark" viewBox="-100 -100 200 200"><g fill="currentColor"><use href="#petal"/><use href="#petal" transform="rotate(90)"/><use href="#petal" transform="rotate(180)"/><use href="#petal" transform="rotate(270)"/></g></symbol>
+  </defs>
+</svg>
+<a class="skip" href="#sushi" data-t="skip">Aller au contenu</a>
+
+<header class="bar">
+  <a class="bar-brand" href="index.html" data-keep aria-label="iwo, accueil" data-ta="aria-label:a_home"><svg aria-hidden="true"><use href="#mark"/></svg>iwo</a>
+  <nav class="bar-nav" aria-label="Navigation principale" data-ta="aria-label:a_nav">
+    <a href="index.html" data-keep data-t="nav_home">Accueil</a>
+    <a href="index.html#infos" data-keep data-t="nav_infos">Infos</a>
+  </nav>
+  <div class="langs" role="group" aria-label="Langue" data-ta="aria-label:a_lang">
+    <button type="button" data-l="fr" lang="fr" aria-label="Français" aria-pressed="true">FR</button><span aria-hidden="true">·</span><button type="button" data-l="de" lang="de" aria-label="Deutsch" aria-pressed="false">DE</button><span aria-hidden="true">·</span><button type="button" data-l="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<main>
+  <section class="mhero" aria-labelledby="m-t">
+    <div class="txt">
+      <h1 id="m-t" data-t="m_h1">La carte</h1>
+      <p class="line" data-t="m_line">Près de 200 plats, sushi et wok.</p>
+      <div class="acts">
+        <a class="pill" href="https://wolt.com/fr/lux/mersch/restaurant/restaurant-iwo-ettelbruck" data-wolt target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#mark"/></svg><span data-t="order_wolt">Commander sur Wolt</span></a>
+        <small data-t="m_prices">Prix sur Wolt.</small>
+      </div>
+    </div>
+    <div class="pic plated pl-platter"><img src="assets/clay-platter.webp" width="1200" height="1500" alt="Des maki et des sushis tulipe en pâte à modeler, avec de petites fleurs roses, sur un plateau rond en bois (illustration)" data-ta="alt:alt_platter" fetchpriority="high"></div>
+  </section>
+
+  <nav class="fam" aria-label="Familles de la carte" data-ta="aria-label:a_fam"><a href="#sushi" data-t="fam_sushi">Sushi</a><a href="#wok" data-t="fam_wok">Wok</a><a href="#bowls" data-t="fam_bowls">Bowls</a><a href="#entrees" data-t="fam_entrees">Entrées &amp; potages</a><a href="#desserts" data-t="fam_desserts">Desserts</a><a href="#boissons" data-t="fam_boissons">Boissons &amp; accompagnements</a></nav>
+
+  <section class="family f-sushi" id="sushi" aria-labelledby="fam-sushi">
+    <div class="fam-head">
+      <div class="lab"><h2 id="fam-sushi" data-t="fam_sushi">Sushi</h2></div>
+      
+    </div>
+    <div class="cats">
+      <section class="cat" aria-labelledby="cat_0">
+        <h3 id="cat_0"><span class="mini" aria-hidden="true"></span><span data-t="cat_0">Plateaux</span></h3>
+        <ul class="items">
+          <li><span class="n">NIGIRI Salmon</span><span class="d" data-t="dsc_0">10 pièces · 10 nigiri saumon</span></li>
+          <li><span class="n">Salmon Lovers</span><span class="d" data-t="dsc_1">22 pièces · 8 California saumon avocat, 8 Spring roll saumon avocat, 6 Sushi saumon</span></li>
+          <li><span class="n">Fish LOVERS</span><span class="d" data-t="dsc_2">22 pièces · 8 California saumon avocat, 8 California thon avocat, 3 Sushi saumon, 3 Sushi thon</span></li>
+          <li><span class="n">Super Mix</span><span class="d" data-t="dsc_3">20 pièces · 8 California forêt tempura, 5 sashimi saumon, 3 sushi saumon, 2 sushi teriyaki thon, 2 sushi teriyaki saumon</span></li>
+          <li><span class="n">Salmon Dream</span><span class="d" data-t="dsc_4">40 pièces · 8 Maki saumon, 8 California saumon avocat, 8 California saumon concombre cheese, 8 Saumon roll cheese, 8 Spring roll saumon avocat, 1 Wakame, 1 Edamame, 1 Salade de choux</span></li>
+          <li><span class="n">Super Niku</span><span class="d" data-t="dsc_5">40 pièces · 8 Maki thon cuit, 8 California scampis concombre, 8 California surimi avocat, 8 California poulet concombre, 8 California bœuf jardinier, 1 Wakame, 1 Edamame, 1 Salade de choux</span></li>
+          <li><span class="n">Osaka</span><span class="d" data-t="dsc_6">66 pièces · 8 Maki saumon, 8 Maki thon spicy, 8 California forêt tempura, 8 California saumon avocat, 8 Saumon roll cheese, 8 Spring roll saumon avocat, 8 Spring roll thon cuit concombre, 2 Sushi thon, 4 Sushi saumon, 2 Sushi teriyaki thon, 2 Sushi teriyaki saumon</span></li>
+          <li><span class="n">Tokyo</span><span class="d" data-t="dsc_7">80 pièces · 8 Maki avocat, 8 Maki thon cuit, 8 California chicken parmesan, 8 California saumon avocat, 8 Saumon roll cheese concombre, 8 Spring roll saumon avocat, 8 Passion Roll, 4 Sashimi thon, 4 Sashimi saumon, 4 Sashimi crevettes, 4 Tulip cheese, 2 Sushi thon, 2 Sushi saumon, 2 Sushi teriyaki thon, 2 Sushi teriyaki saumon</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_1">
+        <h3 id="cat_1"><span class="mini" aria-hidden="true"></span><span data-t="cat_1">Combo box</span></h3>
+        <ul class="items">
+          <li><span class="n">Combo A</span><span class="d" data-t="dsc_8">22 pièces · 4 maki saumon, 4 maki surimi, 4 maki concombre sésames, 4 maki thon cuit, 6 sushi saumon</span></li>
+          <li><span class="n">Combo B</span><span class="d" data-t="dsc_9">végétarien · 26 pièces · 2 gunkan mango, 4 maki carotte, 4 maki concombre sésames, 8 soja roll concombre cheese, 8 spring roll avocat cheese</span></li>
+          <li><span class="n">Combo C</span><span class="d" data-t="dsc_10">24 pièces · 24 fines tranches de sashimi mixtes</span></li>
+          <li><span class="n">Combo D</span><span class="d" data-t="dsc_11">28 pièces · 4 sushi saumon, 4 california saumon avocat, 4 fried roll saumon cheese, 8 california foie délicieuse, 8 california fried chicken parmesan</span></li>
+          <li><span class="n">Box L</span><span class="d" data-t="dsc_12">34 pièces · 2 nems, 4 scampis fried, 4 samoussas, 4 maki surimi, 4 maki thon cuit, 8 fried roll saumon spicy, 8 fried roll saumon fraisée</span></li>
+          <li><span class="n">Box V</span><span class="d" data-t="dsc_13">26 pièces</span></li>
+          <li><span class="n">Box S</span><span class="d" data-t="dsc_14">24 pièces · 2 sushi saumon, 2 sushi thon, 4 sushi teriyaki saumon, 4 crevettes panées au PDT, 4 harumaki, 8 fried roll saumon avocat</span></li>
+          <li><span class="n">Box X</span><span class="d" data-t="dsc_15">48 pièces</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_2">
+        <h3 id="cat_2"><span class="mini" aria-hidden="true"></span><span data-t="cat_2">Nigiri</span></h3>
+        <ul class="items">
+          <li><span class="n">Nigiri Saumon</span></li>
+          <li><span class="n">Nigiri Saumon Cheese</span></li>
+          <li><span class="n">Nigiri Teriyaki Saumon</span></li>
+          <li><span class="n">Nigiri Thon</span></li>
+          <li><span class="n">Nigiri Teriyaki Thon</span></li>
+          <li><span class="n">Nigiri Teki Crevette</span></li>
+          <li><span class="n">Nigiri Teki Omelette</span></li>
+          <li><span class="n">Nigiri Avocat Cheese</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_3">
+        <h3 id="cat_3"><span class="mini" aria-hidden="true"></span><span data-t="cat_3">Sashimi</span></h3>
+        <ul class="items">
+          <li><span class="n">Sashimi Saumon</span><span class="d" data-t="dsc_16">6 pièces</span></li>
+          <li><span class="n">Sashimi Thon</span><span class="d" data-t="dsc_16">6 pièces</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_4">
+        <h3 id="cat_4"><span class="mini" aria-hidden="true"></span><span data-t="cat_4">Tataki</span></h3>
+        <ul class="items">
+          <li><span class="n">TATAKI Saumon</span><span class="d" data-t="dsc_16">6 pièces</span></li>
+          <li><span class="n">TATAKI Thon</span><span class="d" data-t="dsc_16">6 pièces</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_5">
+        <h3 id="cat_5"><span class="mini" aria-hidden="true"></span><span data-t="cat_5">Tulip</span></h3>
+        <ul class="items">
+          <li><span class="n">Tulip Ikura</span><span class="d" data-t="dsc_17">2 pièces</span></li>
+          <li><span class="n">Tulip Cheese</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Tulip Mangue</span></li>
+          <li><span class="n">Tulip Saumon</span></li>
+          <li><span class="n">Tulip Thon</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_6">
+        <h3 id="cat_6"><span class="mini" aria-hidden="true"></span><span data-t="cat_6">Gunkan</span></h3>
+        <ul class="items">
+          <li><span class="n">Gunkan Saumon</span></li>
+          <li><span class="n">Gunkan Tuna</span></li>
+          <li><span class="n">Gunkan Ikura</span></li>
+          <li><span class="n">Gunkan Thon Cuit</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_7">
+        <h3 id="cat_7"><span class="mini" aria-hidden="true"></span><span data-t="cat_7">Temaki</span></h3>
+        <ul class="items">
+          <li><span class="n">Temaki Crevette Avocat Menthe</span></li>
+          <li><span class="n">Temaki Saumon Avocat</span></li>
+          <li><span class="n">Temaki Saumon Spicy Concombre</span></li>
+          <li><span class="n">Temaki Saumon Cheese Avocat</span></li>
+          <li><span class="n">Temaki Thon Avocat</span></li>
+          <li><span class="n">Temaki Thon Spicy Concombre</span></li>
+          <li><span class="n">Temaki Scampis Frits</span></li>
+          <li><span class="n">Temaki Ikura Avocat</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_8">
+        <h3 id="cat_8"><span class="mini" aria-hidden="true"></span><span data-t="cat_8">Maki roll</span></h3>
+        <ul class="items">
+          <li><span class="n">Maki Avocat</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Maki Avocat Cheese</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Maki Concombre Sésame</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Maki Concombre Cheese</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Maki Saumon</span></li>
+          <li><span class="n">Maki Saumon Spicy</span></li>
+          <li><span class="n">Maki Saumon Cheese</span></li>
+          <li><span class="n">Maki Thon</span></li>
+          <li><span class="n">Maki Thon Spicy</span></li>
+          <li><span class="n">Maki Thon Cuit</span></li>
+          <li><span class="n">Maki Crevette</span></li>
+          <li><span class="n">Maki Scampis Fried</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_9">
+        <h3 id="cat_9"><span class="mini" aria-hidden="true"></span><span data-t="cat_9">Soja rolls</span></h3>
+        <ul class="items">
+          <li><span class="n">Soja Roll Avocat</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Soja Roll Avocat Cheese</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Soja Roll Concombre Sésame</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Soja Roll Concombre Cheese</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Soja Roll Saumon</span><span class="d" data-t="dsc_19">8 pièces</span></li>
+          <li><span class="n">Soja Roll Saumon Spicy</span></li>
+          <li><span class="n">Soja Roll Saumon Cheese</span></li>
+          <li><span class="n">Soja Roll Thon</span></li>
+          <li><span class="n">Soja Roll Thon Spicy</span></li>
+          <li><span class="n">Soja Roll Thon Cuit</span><span class="d" data-t="dsc_19">8 pièces</span></li>
+          <li><span class="n">Soja Roll Crevette</span></li>
+          <li><span class="n">Soja Roll Scampis Frits</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_10">
+        <h3 id="cat_10"><span class="mini" aria-hidden="true"></span><span data-t="cat_10">Saumon rolls</span></h3>
+        <ul class="items">
+          <li><span class="n">Saumon Roll Cheese</span></li>
+          <li><span class="n">Saumon Roll Cheese Concombre</span></li>
+          <li><span class="n">Saumon Roll Cheese Avocat</span></li>
+          <li><span class="n">Saumon Roll Cheese Mango</span></li>
+          <li><span class="n">Saumon Roll Cheese Fraise</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_11">
+        <h3 id="cat_11"><span class="mini" aria-hidden="true"></span><span data-t="cat_11">California rolls</span></h3>
+        <ul class="items">
+          <li><span class="n">Concombre Avocat</span></li>
+          <li><span class="n">Avocat Cheese</span><span class="d" data-t="dsc_19">8 pièces</span></li>
+          <li><span class="n">Pacific</span></li>
+          <li><span class="n">Saumon Avocat</span></li>
+          <li><span class="n">Saumon Avocat Cheese</span></li>
+          <li><span class="n">Saumon Concombre Spicy</span></li>
+          <li><span class="n">Saumon Fraise</span></li>
+          <li><span class="n">Surimi Avocat</span></li>
+          <li><span class="n">Thon Avocat</span></li>
+          <li><span class="n">Thon Concombre Spicy</span></li>
+          <li><span class="n">Thon Cuit Avocat</span></li>
+          <li><span class="n">Thon Cuit Pomme</span></li>
+          <li><span class="n">Chicken Parmesan</span></li>
+          <li><span class="n">Ebi Avocat Spicy</span></li>
+          <li><span class="n">Ebi Forêt</span></li>
+          <li><span class="n">Tango Mango</span></li>
+          <li><span class="n">Ebi Fraise</span></li>
+          <li><span class="n">Foie Gras Délicieux</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_12">
+        <h3 id="cat_12"><span class="mini" aria-hidden="true"></span><span data-t="cat_12">Spring rolls</span></h3>
+        <ul class="items">
+          <li><span class="n">Avocat</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Avocat Cheese</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Concombre</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Concombre Cheese</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Saumon Avocat</span></li>
+          <li><span class="n">Saumon Avocat Cheese</span></li>
+          <li><span class="n">Saumon Concombre Spicy</span></li>
+          <li><span class="n">Saumon Fraise</span></li>
+          <li><span class="n">Thon Avocat</span></li>
+          <li><span class="n">Thon Concombre</span></li>
+          <li><span class="n">Thon Cuit Avocat</span></li>
+          <li><span class="n">Crevettes Avocat</span></li>
+          <li><span class="n">Tuscan</span></li>
+          <li><span class="n">Fried Chicken Avocat</span></li>
+          <li><span class="n">Chicken Mangue</span></li>
+          <li><span class="n">Ebi Tempura Piquant</span></li>
+          <li><span class="n">Ebi Mango</span></li>
+          <li><span class="n">Ebi fraisée</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_13">
+        <h3 id="cat_13"><span class="mini" aria-hidden="true"></span><span data-t="cat_13">Fusion rolls</span></h3>
+        <ul class="items">
+          <li><span class="n">T Roll</span><span class="d" data-t="dsc_20">Filet de bœuf, avocat, concombre, betteraves, patates douces, panais, pomme de terre, ciboulette, sauce pikanto</span></li>
+          <li><span class="n">G Roll</span><span class="d" data-t="dsc_21">Scampis tempura, thon, massago, piquant, avocat, concombre, carotte, ciboulette</span></li>
+          <li><span class="n">V Roll</span><span class="d" data-t="dsc_22">Concombre émincé, radis jaune, betteraves, patates douces, panais, pomme de terre, avocat, radis rouge, fromage Philadelphia, carotte jeune, édamame</span></li>
+          <li><span class="n">Passion Roll</span><span class="d" data-t="dsc_23">Saumon, thon, avocat, massago, sauce pikanto, sauce teriyaki, chips, piment, ciboulette</span></li>
+          <li><span class="n">Long Roll</span><span class="d" data-t="dsc_24">Scampis tempura, mangue, avocat, concombre, sauce viné</span></li>
+          <li><span class="n">Feng Roll</span><span class="d" data-t="dsc_25">Scampis tempura, mangue, avocat, concombre, sauce kioly</span></li>
+          <li><span class="n">X Roll</span><span class="d" data-t="dsc_26">Saumon, surimi, massago, amandes séchées, chili doux, avocat, ciboulette</span></li>
+          <li><span class="n">Love Roll</span><span class="d" data-t="dsc_27">Saumon, thon, surimi, tobiko, massago, sauce teriyaki, avocat, chips violette, ciboulette, piment</span></li>
+          <li><span class="n">D Roll</span><span class="d" data-t="dsc_28">Filet de poulet, avocat, concombre, betteraves, patates douces, panais, pommes de terre, ciboulette, sauce pikanto</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_14">
+        <h3 id="cat_14"><span class="mini" aria-hidden="true"></span><span data-t="cat_14">Hot rolls</span></h3>
+        <ul class="items">
+          <li><span class="n">Phila Roll</span><span class="d" data-t="dsc_29">Saumon, avocat, massago, cébette, sauce piquante et fromage Philadelphia</span></li>
+          <li><span class="n">Umi Roll</span><span class="d" data-t="dsc_30">Surimi, saumon, avocat, mangue, amandes et sauce mimili</span></li>
+          <li><span class="n">Igo Roll</span><span class="d" data-t="dsc_31">Saumon, crevettes, fraise, fromage Philadelphia et sauce fiégo</span></li>
+          <li><span class="n">Pura Roll</span><span class="d" data-t="dsc_32">Scampis tempura, concombre émincés, mangue, sauce mimili et sauce pura</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_15">
+        <h3 id="cat_15"><span class="mini" aria-hidden="true"></span><span data-t="cat_15">Crunchy</span></h3>
+        <ul class="items">
+          <li><span class="n">Crunchy saumon</span><span class="d" data-t="dsc_33">8 pièces · saumon, concombre ou avocat</span></li>
+          <li><span class="n">Crunchy ebi</span><span class="d" data-t="dsc_34">8 pièces · Crevette, Tobigo, concombre ou avocat</span></li>
+          <li><span class="n">Crunchy chicken</span><span class="d" data-t="dsc_35">8 pièces · Pané de poulet, parmesan, concombre ou avocat</span></li>
+          <li><span class="n">Crunchy scampis tempura</span><span class="d" data-t="dsc_36">8 pièces · Scampis tempura, concombre ou avocat</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_16">
+        <h3 id="cat_16"><span class="mini" aria-hidden="true"></span><span data-t="cat_16">Tacos suchi</span></h3>
+        <ul class="items">
+          <li><span class="n">Tacos saumon</span></li>
+          <li><span class="n">Tacos chikin (poulet)</span></li>
+          <li><span class="n">Tacos thon cuit</span></li>
+          <li><span class="n">Tacos scampi tempura</span></li>
+          <li><span class="n">Tacos végi</span></li>
+          <li><span class="n">Tacos gyuniku (boeuf)</span></li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="family f-wok" id="wok" aria-labelledby="fam-wok">
+    <div class="fam-head pop">
+      <div class="lab"><h2 id="fam-wok" data-t="fam_wok">Wok</h2></div>
+      <div class="pic plated pl-wok"><img src="assets/clay-wok.webp" data-loop="assets/clay-wok-loop" width="1200" height="1500" loading="lazy" alt="Des nouilles sautées en pâte à modeler soulevées par des baguettes, avec un peu de vapeur, dans un bol sur un plateau rond (illustration)" data-ta="alt:alt_wok"></div>
+    </div>
+    <div class="cats">
+      <section class="cat" aria-labelledby="cat_17">
+        <h3 id="cat_17"><span class="mini" aria-hidden="true"></span><span data-t="cat_17">Riz sauté</span></h3>
+        <ul class="items">
+          <li><span class="n">Riz Sauté au Poulet</span></li>
+          <li><span class="n">Riz Sauté au Bœuf</span></li>
+          <li><span class="n">Riz Sauté aux Scampis</span></li>
+          <li><span class="n">Riz Sauté au Crabe</span><span class="d" data-t="dsc_37">Chair de crabe, surimi, oeuf</span></li>
+          <li><span class="n">Riz Sauté Maison</span><span class="d" data-t="dsc_38">Filet de poulet, filet de boeuf et scampis</span></li>
+          <li><span class="n">Riz Sauté aux Légumes</span><span class="d" data-t="dsc_18">végétarien</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_18">
+        <h3 id="cat_18"><span class="mini" aria-hidden="true"></span><span data-t="cat_18">Nouilles sautées</span></h3>
+        <ul class="items">
+          <li><span class="n">Nouilles Sautées au Poulet</span></li>
+          <li><span class="n">Nouilles Sautées au Bœuf</span></li>
+          <li><span class="n">Nouilles Sautées aux Scampis</span></li>
+          <li><span class="n">Nouilles Sautées Spéciales</span><span class="d" data-t="dsc_38">Filet de poulet, filet de boeuf et scampis</span></li>
+          <li><span class="n">Nouilles Sautées aux Légumes</span><span class="d" data-t="dsc_18">végétarien</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_19">
+        <h3 id="cat_19"><span class="mini" aria-hidden="true"></span><span data-t="cat_19">Volaille sautée</span></h3>
+        <ul class="items">
+          <li><span class="n">Blanc de Poulet Champignons</span></li>
+          <li><span class="n">Blanc de Poulet au Curry</span></li>
+          <li><span class="n">Blanc de Poulet aux Noix de Cajou</span></li>
+          <li><span class="n">Blanc de Poulet aux Brocolis</span></li>
+          <li><span class="n">Blanc de Poulet aux Légumes Piquants</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_20">
+        <h3 id="cat_20"><span class="mini" aria-hidden="true"></span><span data-t="cat_20">Viande sautée</span></h3>
+        <ul class="items">
+          <li><span class="n">Filet de Bœuf Champignons</span></li>
+          <li><span class="n">Filet de Bœuf Curry</span></li>
+          <li><span class="n">Filet de Bœuf aux Oignons</span></li>
+          <li><span class="n">Filet de Bœuf aux Brocolis</span></li>
+          <li><span class="n">Filet de Bœuf Légumes Piquants</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_21">
+        <h3 id="cat_21"><span class="mini" aria-hidden="true"></span><span data-t="cat_21">Crustacés sautés</span></h3>
+        <ul class="items">
+          <li><span class="n">Scampis Curry</span></li>
+          <li><span class="n">Scampis Poivre et Sel</span></li>
+          <li><span class="n">Scampis Légumes Piquante</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_22">
+        <h3 id="cat_22"><span class="mini" aria-hidden="true"></span><span data-t="cat_22">Spécialités maison</span></h3>
+        <ul class="items">
+          <li><span class="n">Canard Laqué de Pékin</span></li>
+          <li><span class="n">Canard Grillé À L'orange</span></li>
+          <li><span class="n">Canard Grillé aux Légumes</span></li>
+          <li><span class="n">Trois Délices de Bonheur Sautés</span></li>
+          <li><span class="n">Légumes Variés Sautés</span></li>
+          <li><span class="n">Beignet de Poulet Sauce Aigre-Douce</span></li>
+          <li><span class="n">Beignet de Poulet Sauce Caramélisé</span></li>
+          <li><span class="n">Beignet de Calamars Poivre et Sel</span></li>
+          <li><span class="n">Cuisse de grenouille au poivre et sel</span></li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="family f-bowls" id="bowls" aria-labelledby="fam-bowls">
+    <div class="fam-head pop">
+      <div class="lab"><h2 id="fam-bowls" data-t="fam_bowls">Bowls</h2></div>
+      <div class="pic plated pl-poke"><img src="assets/clay-poke.webp" data-loop="assets/clay-poke-loop" width="1200" height="1500" loading="lazy" alt="Un poke bowl en pâte à modeler, saumon, avocat et edamame, sur un plateau rond en bois (illustration)" data-ta="alt:alt_poke"></div>
+    </div>
+    <div class="cats">
+      <section class="cat" aria-labelledby="cat_23">
+        <h3 id="cat_23"><span class="mini" aria-hidden="true"></span><span data-t="cat_23">Ramen bowls</span></h3>
+        <ul class="items">
+          <li><span class="n">Gyüniko ramen</span></li>
+          <li><span class="n">Chikin ramen</span></li>
+          <li><span class="n">Salmon ramen</span></li>
+          <li><span class="n">Scampis ramen</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_24">
+        <h3 id="cat_24"><span class="mini" aria-hidden="true"></span><span data-t="cat_24">Poke bowls</span></h3>
+        <ul class="items">
+          <li><span class="n">Poke Bowl Gyuniku</span><span class="d" data-t="dsc_39">Filet de boeuf, avocat, salade de choux, edamame, jeune de carottes, sauce sésame</span></li>
+          <li><span class="n">Poke Bowl Chikin</span><span class="d" data-t="dsc_40">Filet de poulet, avocat, salade de choux, edamame, jeune de carottes, sauce sésame</span></li>
+          <li><span class="n">Poke Bowl Saké</span><span class="d" data-t="dsc_41">Dés de saumon, avocat, salade de choux, edamame, jeune de carottes, sauce sésame</span></li>
+          <li><span class="n">Poke Bowl Ebi Tempura</span><span class="d" data-t="dsc_42">Scampis tempura, avocat, salade de choux, edamame, jeune de carottes, sauce sésame</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_25">
+        <h3 id="cat_25"><span class="mini" aria-hidden="true"></span><span data-t="cat_25">Salad bowls</span></h3>
+        <ul class="items">
+          <li><span class="n">Gyuniku salad</span></li>
+          <li><span class="n">Chikin salad</span></li>
+          <li><span class="n">Salmon salad</span></li>
+          <li><span class="n">Scampis salad</span></li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="family f-entrees" id="entrees" aria-labelledby="fam-entrees">
+    <div class="fam-head pop">
+      <div class="lab"><h2 id="fam-entrees" data-t="fam_entrees">Entrées &amp; potages</h2></div>
+      <div class="pic"><img src="assets/clay-entrees.webp" width="600" height="750" loading="lazy" alt="Des gyozas et des edamames en pâte à modeler sur de petites assiettes, posées sur un plateau rond en bois (illustration)" data-ta="alt:alt_entrees"></div>
+    </div>
+    <div class="cats">
+      <section class="cat" aria-labelledby="cat_26">
+        <h3 id="cat_26"><span class="mini" aria-hidden="true"></span><span data-t="cat_26">Entrées</span></h3>
+        <ul class="items">
+          <li><span class="n">Gyoza</span><span class="d" data-t="dsc_43">4 pièces</span></li>
+          <li><span class="n">Yakitori Chicken</span><span class="d" data-t="dsc_43">4 pièces</span></li>
+          <li><span class="n">Galette de Légumes</span><span class="d" data-t="dsc_44">végétarien · 2 pièces</span></li>
+          <li><span class="n">Scampis Tempura</span><span class="d" data-t="dsc_43">4 pièces</span></li>
+          <li><span class="n">Nems</span><span class="d" data-t="dsc_43">4 pièces</span></li>
+          <li><span class="n">Harumaki</span><span class="d" data-t="dsc_45">végétarien · 6 pièces</span></li>
+          <li><span class="n">Samoussa</span><span class="d" data-t="dsc_45">végétarien · 6 pièces</span></li>
+          <li><span class="n">Dim-Sum aux Crevettes</span><span class="d" data-t="dsc_43">4 pièces</span></li>
+          <li><span class="n">Chicken Leg / Wings Fried</span><span class="d" data-t="dsc_16">6 pièces</span></li>
+          <li><span class="n">Brochette de Bœuf au Fromage</span><span class="d" data-t="dsc_43">4 pièces</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_27">
+        <h3 id="cat_27"><span class="mini" aria-hidden="true"></span><span data-t="cat_27">Potages</span></h3>
+        <ul class="items">
+          <li><span class="n">Soupe Miso</span><span class="d" data-t="dsc_18">végétarien</span></li>
+          <li><span class="n">Potage Piquant</span></li>
+          <li><span class="n">Potage Wan Tan</span></li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="family f-desserts" id="desserts" aria-labelledby="fam-desserts">
+    <div class="fam-head pop">
+      <div class="lab"><h2 id="fam-desserts" data-t="fam_desserts">Desserts</h2></div>
+      <div class="pic plated pl-dessert"><img src="assets/clay-dessert.webp" data-once="assets/clay-lava" data-poster="assets/clay-lava-poster.webp" width="1200" height="1500" loading="lazy" alt="Des mochis et un fondant au chocolat en pâte à modeler, avec des pensées, sur un petit plateau rond (illustration)" data-ta="alt:alt_dessert"></div>
+    </div>
+    <div class="cats">
+      <section class="cat" aria-labelledby="cat_28">
+        <h3 id="cat_28"><span class="mini" aria-hidden="true"></span><span data-t="cat_28">Desserts</span></h3>
+        <ul class="items">
+          <li><span class="n">Tiramisu</span></li>
+          <li><span class="n">Moelleux au Chocolat</span></li>
+          <li><span class="n">Lychées</span></li>
+          <li><span class="n">Coco Givré</span><span class="d" data-t="dsc_46">1 pièce</span></li>
+          <li><span class="n">mochi crème à la mangue</span><span class="d" data-t="dsc_46">1 pièce</span></li>
+          <li><span class="n">Mochi crème Sakura</span><span class="d" data-t="dsc_46">1 pièce</span></li>
+          <li><span class="n">Mochi crème aux fruits de la passion</span><span class="d" data-t="dsc_46">1 pièce</span></li>
+          <li><span class="n">Mochi crème au litchi</span><span class="d" data-t="dsc_46">1 pièce</span></li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="family f-boissons" id="boissons" aria-labelledby="fam-boissons">
+    <div class="fam-head pop">
+      <div class="lab"><h2 id="fam-boissons" data-t="fam_boissons">Boissons &amp; accompagnements</h2></div>
+      <div class="bigstage" aria-hidden="true"><svg><use href="#mark"/></svg><span class="mini"></span></div>
+    </div>
+    <div class="cats">
+      <section class="cat" aria-labelledby="cat_29">
+        <h3 id="cat_29"><span class="mini" aria-hidden="true"></span><span data-t="cat_29">Boissons non alcoolisées</span></h3>
+        <ul class="items">
+          <li><span class="n">COCA-COLA 33cl CANETTE</span><span class="d" data-t="dsc_47">Coca-Cola Original Taste - 33cl</span></li>
+          <li><span class="n">Coca-Cola Zero</span><span class="d" data-t="dsc_48">Coca-Cola Zéro - 33cl</span></li>
+          <li><span class="n">Sprite</span><span class="d" data-t="dsc_49">Sprite - 33cl</span></li>
+          <li><span class="n">Fanta</span><span class="d" data-t="dsc_50">Fanta Orange - 33cl</span></li>
+          <li><span class="n">FUZE TEA PEACH HIBISCUS 40cl PET</span></li>
+          <li><span class="n">Rosport Blue</span><span class="d" data-t="dsc_51">(500 ml)</span></li>
+          <li><span class="n">Rosport Viva</span><span class="d" data-t="dsc_51">(500 ml)</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_30">
+        <h3 id="cat_30"><span class="mini" aria-hidden="true"></span><span data-t="cat_30">Bières</span></h3>
+        <ul class="items">
+          <li><span class="n">Tsingtao</span><span class="d" data-t="dsc_52">4.7 % vol, 330ml</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_31">
+        <h3 id="cat_31"><span class="mini" aria-hidden="true"></span><span data-t="cat_31">Vins et crémant</span></h3>
+        <ul class="items">
+          <li><span class="n">Chardonnay</span><span class="d" data-t="dsc_53">Vin blanc. Cépage Chardonnay. Couleur jaune paille, nez exotique. Mangue et fruit de la passion, bel équilibre en bouche avec une note citronnée. 13.5 % vol, 750ml</span></li>
+          <li><span class="n">Primitivo Puglia Gran Sasso</span><span class="d" data-t="dsc_54">Vin rouge. Cépage Primitivo. Couleur rouge rubis avec reflets violacés, nez aux arôme de cerises, bel équilibre en bouche. 13.5 % vol, 750ml</span></li>
+          <li><span class="n">Belle Émilie</span><span class="d" data-t="dsc_55">Vin rosé. Cépage Grenache et Cinsault. Belle couleur rose pâle. Nez agréable avec des note de cassis et friande marquée par des petits fruits rouges. 13 % vol, 750ml</span></li>
+          <li><span class="n">Bernard-Massard</span><span class="d" data-t="dsc_56">Crémant. Cuvée de l'Écusson brut. 12 % vol, 200ml</span></li>
+        </ul>
+      </section>
+      <section class="cat" aria-labelledby="cat_32">
+        <h3 id="cat_32"><span class="mini" aria-hidden="true"></span><span data-t="cat_32">Accompagnements</span></h3>
+        <ul class="items">
+          <li><span class="n">Riz Nature</span></li>
+          <li><span class="n">Riz Vinaigré</span></li>
+          <li><span class="n">Riz Sauté Oeuf</span></li>
+          <li><span class="n">Nouilles Nature</span></li>
+          <li><span class="n">Nouilles Sautées Oeuf</span></li>
+          <li><span class="n">Édamamé</span><span class="d" data-t="dsc_57">Graines de soja</span></li>
+          <li><span class="n">WAKAME</span><span class="d" data-t="dsc_58">Salade d'algue</span></li>
+          <li><span class="n">KORUSURO</span><span class="d" data-t="dsc_59">Salade de Chou</span></li>
+          <li><span class="n">Soja Sauce Salée</span></li>
+          <li><span class="n">Soja Sauce Sucrée</span></li>
+          <li><span class="n">Gingembre Mariné</span></li>
+          <li><span class="n">Wasabi</span></li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="ayce" aria-labelledby="ayce-t">
+    <div class="ayce-grid">
+      <figure class="table pop plated pl-table"><img src="assets/clay-table.webp" width="1200" height="1500" loading="lazy" alt="Vue du dessus : une table ronde couverte de petites assiettes de sushis, nouilles et bols en pâte à modeler (illustration)" data-ta="alt:alt_table"></figure>
+      <div class="copy pop">
+        <h2 id="ayce-t" data-t="ayce_h">À volonté, sur place.</h2>
+        <p class="big" data-t="ayce_p">All you can eat, en famille ou en groupe. Vous commandez sur la tablette, autant que vous voulez.</p>
+        <div class="acts">
+          <a class="pill" href="tel:+352621783668"><svg aria-hidden="true"><use href="#mark"/></svg><span data-t="call">Réserver / Appeler</span></a>
+          <a class="quiet" href="https://wolt.com/fr/lux/mersch/restaurant/restaurant-iwo-ettelbruck" data-wolt target="_blank" rel="noopener" data-t="order_wolt">Commander sur Wolt</a>
+          <a class="quiet" href="index.html#infos" data-keep data-t="m_infos">Horaires et adresse</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot-brand"><svg aria-hidden="true"><use href="#mark"/></svg>iwo</p>
+  <div class="langs" role="group" aria-label="Langue" data-ta="aria-label:a_lang">
+    <button type="button" data-l="fr" lang="fr" aria-label="Français" aria-pressed="true">FR</button><span aria-hidden="true">·</span><button type="button" data-l="de" lang="de" aria-label="Deutsch" aria-pressed="false">DE</button><span aria-hidden="true">·</span><button type="button" data-l="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+  </div>
+  <p data-t="f_disc">Illustrations et animations en pâte à modeler, générées par ordinateur.</p>
+  <p data-t="f_credit">Site : Webwerk</p>
+  <p data-t="f_unoff">Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
+</footer>
+
+<script>
+window.I18N = {
+ "de": {
+  "title": "Speisekarte · iwo, Sushi & Wok in Ettelbruck",
+  "desc": "Die Speisekarte von iwo in Ettelbruck: Sushi, Wok, Bowls, Vorspeisen, Suppen, Desserts und Getränke. Preise und Bestellung auf Wolt.",
+  "skip": "Zum Inhalt springen",
+  "a_home": "iwo, Startseite",
+  "a_nav": "Hauptnavigation",
+  "a_lang": "Sprache",
+  "nav_home": "Startseite",
+  "nav_infos": "Infos",
+  "m_h1": "Die Speisekarte",
+  "m_line": "Fast 200 Gerichte, Sushi und Wok.",
+  "order_wolt": "Auf Wolt bestellen",
+  "m_prices": "Preise auf Wolt.",
+  "a_fam": "Bereiche der Speisekarte",
+  "alt_platter": "Maki und Tulip-Sushi aus Knetmasse mit kleinen rosa Blüten auf einer runden Holzplatte (Illustration)",
+  "alt_wok": "Gebratene Nudeln aus Knetmasse, mit Stäbchen hochgehoben, mit etwas Dampf, in einer Schale auf einer runden Platte (Illustration)",
+  "alt_poke": "Eine Poke Bowl aus Knetmasse mit Lachs, Avocado und Edamame auf einer runden Holzplatte (Illustration)",
+  "alt_entrees": "Gyoza und Edamame aus Knetmasse auf kleinen Tellern, auf einer runden Holzplatte (Illustration)",
+  "alt_dessert": "Mochis und ein Schokoladenküchlein aus Knetmasse mit Stiefmütterchen auf einer kleinen runden Platte (Illustration)",
+  "alt_table": "Von oben: ein runder Tisch voller kleiner Teller mit Sushi, Nudeln und Schalen aus Knetmasse (Illustration)",
+  "ayce_h": "À volonté, vor Ort.",
+  "ayce_p": "All you can eat, mit der Familie oder in der Gruppe. Sie bestellen auf dem Tablet, so viel Sie möchten.",
+  "m_infos": "Öffnungszeiten und Adresse",
+  "call": "Reservieren / Anrufen",
+  "f_disc": "Knetfiguren-Illustrationen und -Animationen, computergeneriert.",
+  "f_credit": "Website: Webwerk",
+  "f_unoff": "Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.",
+  "fam_sushi": "Sushi",
+  "cat_0": "Platten",
+  "dsc_0": "10 Stück · 10 Nigiri Lachs",
+  "dsc_1": "22 Stück · 8 California Lachs-Avocado, 8 Spring Roll Lachs-Avocado, 6 Sushi Lachs",
+  "dsc_2": "22 Stück · 8 California Lachs-Avocado, 8 California Thunfisch-Avocado, 3 Sushi Lachs, 3 Sushi Thunfisch",
+  "dsc_3": "20 Stück · 8 California Forêt Tempura, 5 Sashimi Lachs, 3 Sushi Lachs, 2 Sushi Teriyaki Thunfisch, 2 Sushi Teriyaki Lachs",
+  "dsc_4": "40 Stück · 8 Maki Lachs, 8 California Lachs-Avocado, 8 California Lachs-Gurke-Frischkäse, 8 Saumon Roll Cheese, 8 Spring Roll Lachs-Avocado, 1 Wakame, 1 Edamame, 1 Krautsalat",
+  "dsc_5": "40 Stück · 8 Maki gegarter Thunfisch, 8 California Scampi-Gurke, 8 California Surimi-Avocado, 8 California Hähnchen-Gurke, 8 California Rind Jardinier, 1 Wakame, 1 Edamame, 1 Krautsalat",
+  "dsc_6": "66 Stück · 8 Maki Lachs, 8 Maki Thunfisch spicy, 8 California Forêt Tempura, 8 California Lachs-Avocado, 8 Saumon Roll Cheese, 8 Spring Roll Lachs-Avocado, 8 Spring Roll gegarter Thunfisch-Gurke, 2 Sushi Thunfisch, 4 Sushi Lachs, 2 Sushi Teriyaki Thunfisch, 2 Sushi Teriyaki Lachs",
+  "dsc_7": "80 Stück · 8 Maki Avocado, 8 Maki gegarter Thunfisch, 8 California Chicken Parmesan, 8 California Lachs-Avocado, 8 Saumon Roll Cheese Gurke, 8 Spring Roll Lachs-Avocado, 8 Passion Roll, 4 Sashimi Thunfisch, 4 Sashimi Lachs, 4 Sashimi Garnelen, 4 Tulip Cheese, 2 Sushi Thunfisch, 2 Sushi Lachs, 2 Sushi Teriyaki Thunfisch, 2 Sushi Teriyaki Lachs",
+  "cat_1": "Combo-Boxen",
+  "dsc_8": "22 Stück · 4 Maki Lachs, 4 Maki Surimi, 4 Maki Gurke-Sesam, 4 Maki gegarter Thunfisch, 6 Sushi Lachs",
+  "dsc_9": "vegetarisch · 26 Stück · 2 Gunkan Mango, 4 Maki Karotte, 4 Maki Gurke-Sesam, 8 Soja Roll Gurke-Frischkäse, 8 Spring Roll Avocado-Frischkäse",
+  "dsc_10": "24 Stück · 24 dünne Scheiben gemischtes Sashimi",
+  "dsc_11": "28 Stück · 4 Sushi Lachs, 4 California Lachs-Avocado, 4 Fried Roll Lachs-Frischkäse, 8 California Foie Délicieuse, 8 California Fried Chicken Parmesan",
+  "dsc_12": "34 Stück · 2 Nems, 4 frittierte Scampi, 4 Samosas, 4 Maki Surimi, 4 Maki gegarter Thunfisch, 8 Fried Roll Lachs spicy, 8 Fried Roll Lachs-Erdbeere",
+  "dsc_13": "26 Stück",
+  "dsc_14": "24 Stück · 2 Sushi Lachs, 2 Sushi Thunfisch, 4 Sushi Teriyaki Lachs, 4 Garnelen im Kartoffelmantel, 4 Harumaki, 8 Fried Roll Lachs-Avocado",
+  "dsc_15": "48 Stück",
+  "cat_2": "Nigiri",
+  "cat_3": "Sashimi",
+  "dsc_16": "6 Stück",
+  "cat_4": "Tataki",
+  "cat_5": "Tulip",
+  "dsc_17": "2 Stück",
+  "dsc_18": "vegetarisch",
+  "cat_6": "Gunkan",
+  "cat_7": "Temaki",
+  "cat_8": "Maki Rolls",
+  "cat_9": "Soja-Rolls",
+  "dsc_19": "8 Stück",
+  "cat_10": "Lachs-Rolls",
+  "cat_11": "California Rolls",
+  "cat_12": "Spring Rolls",
+  "cat_13": "Fusion Rolls",
+  "dsc_20": "Rinderfilet, Avocado, Gurke, Rote Bete, Süßkartoffeln, Pastinaken, Kartoffel, Schnittlauch, Pikanto-Sauce",
+  "dsc_21": "Scampi-Tempura, Thunfisch, Masago, scharf, Avocado, Gurke, Karotte, Schnittlauch",
+  "dsc_22": "Gurkenstreifen, gelber Rettich, Rote Bete, Süßkartoffeln, Pastinaken, Kartoffel, Avocado, Radieschen, Philadelphia-Frischkäse, junge Karotte, Edamame",
+  "dsc_23": "Lachs, Thunfisch, Avocado, Masago, Pikanto-Sauce, Teriyaki-Sauce, Chips, Chili, Schnittlauch",
+  "dsc_24": "Scampi-Tempura, Mango, Avocado, Gurke, Viné-Sauce",
+  "dsc_25": "Scampi-Tempura, Mango, Avocado, Gurke, Kioly-Sauce",
+  "dsc_26": "Lachs, Surimi, Masago, getrocknete Mandeln, Sweet Chili, Avocado, Schnittlauch",
+  "dsc_27": "Lachs, Thunfisch, Surimi, Tobiko, Masago, Teriyaki-Sauce, Avocado, violette Chips, Schnittlauch, Chili",
+  "dsc_28": "Hähnchenfilet, Avocado, Gurke, Rote Bete, Süßkartoffeln, Pastinaken, Kartoffeln, Schnittlauch, Pikanto-Sauce",
+  "cat_14": "Hot Rolls",
+  "dsc_29": "Lachs, Avocado, Masago, Frühlingszwiebel, scharfe Sauce und Philadelphia-Frischkäse",
+  "dsc_30": "Surimi, Lachs, Avocado, Mango, Mandeln und Mimili-Sauce",
+  "dsc_31": "Lachs, Garnelen, Erdbeere, Philadelphia-Frischkäse und Fiégo-Sauce",
+  "dsc_32": "Scampi-Tempura, Gurkenstreifen, Mango, Mimili-Sauce und Pura-Sauce",
+  "cat_15": "Crunchy",
+  "dsc_33": "8 Stück · Lachs, Gurke oder Avocado",
+  "dsc_34": "8 Stück · Garnele, Tobiko, Gurke oder Avocado",
+  "dsc_35": "8 Stück · Paniertes Hähnchen, Parmesan, Gurke oder Avocado",
+  "dsc_36": "8 Stück · Scampi-Tempura, Gurke oder Avocado",
+  "cat_16": "Sushi-Tacos",
+  "fam_wok": "Wok",
+  "cat_17": "Gebratener Reis",
+  "dsc_37": "Krabbenfleisch, Surimi, Ei",
+  "dsc_38": "Hähnchenfilet, Rinderfilet und Scampi",
+  "cat_18": "Gebratene Nudeln",
+  "cat_19": "Gebratenes Geflügel",
+  "cat_20": "Gebratenes Fleisch",
+  "cat_21": "Gebratene Krustentiere",
+  "cat_22": "Spezialitäten des Hauses",
+  "fam_bowls": "Bowls",
+  "cat_23": "Ramen Bowls",
+  "cat_24": "Poke Bowls",
+  "dsc_39": "Rinderfilet, Avocado, Krautsalat, Edamame, junge Karotten, Sesamsauce",
+  "dsc_40": "Hähnchenfilet, Avocado, Krautsalat, Edamame, junge Karotten, Sesamsauce",
+  "dsc_41": "Lachswürfel, Avocado, Krautsalat, Edamame, junge Karotten, Sesamsauce",
+  "dsc_42": "Scampi-Tempura, Avocado, Krautsalat, Edamame, junge Karotten, Sesamsauce",
+  "cat_25": "Salat-Bowls",
+  "fam_entrees": "Vorspeisen & Suppen",
+  "cat_26": "Vorspeisen",
+  "dsc_43": "4 Stück",
+  "dsc_44": "vegetarisch · 2 Stück",
+  "dsc_45": "vegetarisch · 6 Stück",
+  "cat_27": "Suppen",
+  "fam_desserts": "Desserts",
+  "cat_28": "Desserts",
+  "dsc_46": "1 Stück",
+  "fam_boissons": "Getränke & Beilagen",
+  "cat_29": "Alkoholfreie Getränke",
+  "dsc_47": "Coca-Cola Original Taste - 33 cl",
+  "dsc_48": "Coca-Cola Zero - 33 cl",
+  "dsc_49": "Sprite - 33 cl",
+  "dsc_50": "Fanta Orange - 33 cl",
+  "dsc_51": "(500 ml)",
+  "cat_30": "Biere",
+  "dsc_52": "4,7 % vol., 330 ml",
+  "cat_31": "Weine und Crémant",
+  "dsc_53": "Weißwein. Rebsorte Chardonnay. Strohgelbe Farbe, exotische Nase. Mango und Passionsfrucht, ausgewogen am Gaumen mit einer Zitrusnote. 13,5 % vol., 750 ml",
+  "dsc_54": "Rotwein. Rebsorte Primitivo. Rubinrot mit violetten Reflexen, Kirscharomen in der Nase, ausgewogen am Gaumen. 13,5 % vol., 750 ml",
+  "dsc_55": "Roséwein. Rebsorten Grenache und Cinsault. Schönes Blassrosa. Angenehme Nase mit Noten von Cassis, fruchtig, geprägt von kleinen roten Beeren. 13 % vol., 750 ml",
+  "dsc_56": "Crémant. Cuvée de l'Écusson brut. 12 % vol., 200 ml",
+  "cat_32": "Beilagen",
+  "dsc_57": "Sojabohnen",
+  "dsc_58": "Algensalat",
+  "dsc_59": "Krautsalat"
+ },
+ "en": {
+  "title": "Menu · iwo, sushi & wok in Ettelbruck",
+  "desc": "iwo’s menu in Ettelbruck: sushi, wok, bowls, starters, soups, desserts and drinks. Prices and ordering on Wolt.",
+  "skip": "Skip to content",
+  "a_home": "iwo, home",
+  "a_nav": "Main navigation",
+  "a_lang": "Language",
+  "nav_home": "Home",
+  "nav_infos": "Info",
+  "m_h1": "The menu",
+  "m_line": "Nearly 200 dishes, sushi and wok.",
+  "order_wolt": "Order on Wolt",
+  "m_prices": "Prices on Wolt.",
+  "a_fam": "Menu sections",
+  "alt_platter": "Clay maki and tulip sushi with small pink flowers on a round wooden board (illustration)",
+  "alt_wok": "Clay fried noodles lifted by chopsticks, with a little steam, in a bowl on a round board (illustration)",
+  "alt_poke": "A clay poke bowl with salmon, avocado and edamame on a round wooden board (illustration)",
+  "alt_entrees": "Clay gyoza and edamame on small plates, on a round wooden board (illustration)",
+  "alt_dessert": "Clay mochis and a chocolate fondant with pansies on a small round board (illustration)",
+  "alt_table": "Seen from above: a round table covered in small clay plates of sushi, noodles and bowls (illustration)",
+  "ayce_h": "As much as you like, in the restaurant.",
+  "ayce_p": "All you can eat, with family or as a group. You order on the tablet, as much as you like.",
+  "m_infos": "Opening hours and address",
+  "call": "Book / Call",
+  "f_disc": "Clay illustrations and animations, computer-generated.",
+  "f_credit": "Website: Webwerk",
+  "f_unoff": "An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.",
+  "fam_sushi": "Sushi",
+  "cat_0": "Platters",
+  "dsc_0": "10 pieces · 10 salmon nigiri",
+  "dsc_1": "22 pieces · 8 California salmon avocado, 8 spring roll salmon avocado, 6 salmon sushi",
+  "dsc_2": "22 pieces · 8 California salmon avocado, 8 California tuna avocado, 3 salmon sushi, 3 tuna sushi",
+  "dsc_3": "20 pieces · 8 California forêt tempura, 5 salmon sashimi, 3 salmon sushi, 2 tuna teriyaki sushi, 2 salmon teriyaki sushi",
+  "dsc_4": "40 pieces · 8 salmon maki, 8 California salmon avocado, 8 California salmon cucumber cream cheese, 8 Saumon Roll Cheese, 8 spring roll salmon avocado, 1 wakame, 1 edamame, 1 cabbage salad",
+  "dsc_5": "40 pieces · 8 cooked tuna maki, 8 California scampi cucumber, 8 California surimi avocado, 8 California chicken cucumber, 8 California beef jardinier, 1 wakame, 1 edamame, 1 cabbage salad",
+  "dsc_6": "66 pieces · 8 salmon maki, 8 spicy tuna maki, 8 California forêt tempura, 8 California salmon avocado, 8 Saumon Roll Cheese, 8 spring roll salmon avocado, 8 spring roll cooked tuna cucumber, 2 tuna sushi, 4 salmon sushi, 2 tuna teriyaki sushi, 2 salmon teriyaki sushi",
+  "dsc_7": "80 pieces · 8 avocado maki, 8 cooked tuna maki, 8 California chicken parmesan, 8 California salmon avocado, 8 Saumon Roll Cheese cucumber, 8 spring roll salmon avocado, 8 Passion Roll, 4 tuna sashimi, 4 salmon sashimi, 4 prawn sashimi, 4 Tulip Cheese, 2 tuna sushi, 2 salmon sushi, 2 tuna teriyaki sushi, 2 salmon teriyaki sushi",
+  "cat_1": "Combo boxes",
+  "dsc_8": "22 pieces · 4 salmon maki, 4 surimi maki, 4 cucumber sesame maki, 4 cooked tuna maki, 6 salmon sushi",
+  "dsc_9": "vegetarian · 26 pieces · 2 mango gunkan, 4 carrot maki, 4 cucumber sesame maki, 8 soy roll cucumber cream cheese, 8 spring roll avocado cream cheese",
+  "dsc_10": "24 pieces · 24 thin slices of mixed sashimi",
+  "dsc_11": "28 pieces · 4 salmon sushi, 4 California salmon avocado, 4 fried roll salmon cream cheese, 8 California foie délicieuse, 8 California fried chicken parmesan",
+  "dsc_12": "34 pieces · 2 nems, 4 fried scampi, 4 samosas, 4 surimi maki, 4 cooked tuna maki, 8 fried roll spicy salmon, 8 fried roll salmon strawberry",
+  "dsc_13": "26 pieces",
+  "dsc_14": "24 pieces · 2 salmon sushi, 2 tuna sushi, 4 salmon teriyaki sushi, 4 potato-crusted prawns, 4 harumaki, 8 fried roll salmon avocado",
+  "dsc_15": "48 pieces",
+  "cat_2": "Nigiri",
+  "cat_3": "Sashimi",
+  "dsc_16": "6 pieces",
+  "cat_4": "Tataki",
+  "cat_5": "Tulip",
+  "dsc_17": "2 pieces",
+  "dsc_18": "vegetarian",
+  "cat_6": "Gunkan",
+  "cat_7": "Temaki",
+  "cat_8": "Maki rolls",
+  "cat_9": "Soy rolls",
+  "dsc_19": "8 pieces",
+  "cat_10": "Salmon rolls",
+  "cat_11": "California rolls",
+  "cat_12": "Spring rolls",
+  "cat_13": "Fusion rolls",
+  "dsc_20": "Beef fillet, avocado, cucumber, beetroot, sweet potatoes, parsnips, potato, chives, pikanto sauce",
+  "dsc_21": "Scampi tempura, tuna, masago, spicy, avocado, cucumber, carrot, chives",
+  "dsc_22": "Sliced cucumber, yellow radish, beetroot, sweet potatoes, parsnips, potato, avocado, red radish, Philadelphia cream cheese, baby carrot, edamame",
+  "dsc_23": "Salmon, tuna, avocado, masago, pikanto sauce, teriyaki sauce, crisps, chilli, chives",
+  "dsc_24": "Scampi tempura, mango, avocado, cucumber, viné sauce",
+  "dsc_25": "Scampi tempura, mango, avocado, cucumber, kioly sauce",
+  "dsc_26": "Salmon, surimi, masago, dried almonds, sweet chilli, avocado, chives",
+  "dsc_27": "Salmon, tuna, surimi, tobiko, masago, teriyaki sauce, avocado, purple crisps, chives, chilli",
+  "dsc_28": "Chicken fillet, avocado, cucumber, beetroot, sweet potatoes, parsnips, potatoes, chives, pikanto sauce",
+  "cat_14": "Hot rolls",
+  "dsc_29": "Salmon, avocado, masago, spring onion, spicy sauce and Philadelphia cream cheese",
+  "dsc_30": "Surimi, salmon, avocado, mango, almonds and mimili sauce",
+  "dsc_31": "Salmon, prawns, strawberry, Philadelphia cream cheese and fiégo sauce",
+  "dsc_32": "Scampi tempura, sliced cucumber, mango, mimili sauce and pura sauce",
+  "cat_15": "Crunchy",
+  "dsc_33": "8 pieces · salmon, cucumber or avocado",
+  "dsc_34": "8 pieces · prawn, tobiko, cucumber or avocado",
+  "dsc_35": "8 pieces · breaded chicken, parmesan, cucumber or avocado",
+  "dsc_36": "8 pieces · scampi tempura, cucumber or avocado",
+  "cat_16": "Sushi tacos",
+  "fam_wok": "Wok",
+  "cat_17": "Fried rice",
+  "dsc_37": "Crab meat, surimi, egg",
+  "dsc_38": "Chicken fillet, beef fillet and scampi",
+  "cat_18": "Fried noodles",
+  "cat_19": "Stir-fried poultry",
+  "cat_20": "Stir-fried meat",
+  "cat_21": "Stir-fried shellfish",
+  "cat_22": "House specialities",
+  "fam_bowls": "Bowls",
+  "cat_23": "Ramen bowls",
+  "cat_24": "Poke bowls",
+  "dsc_39": "Beef fillet, avocado, cabbage salad, edamame, baby carrots, sesame sauce",
+  "dsc_40": "Chicken fillet, avocado, cabbage salad, edamame, baby carrots, sesame sauce",
+  "dsc_41": "Diced salmon, avocado, cabbage salad, edamame, baby carrots, sesame sauce",
+  "dsc_42": "Scampi tempura, avocado, cabbage salad, edamame, baby carrots, sesame sauce",
+  "cat_25": "Salad bowls",
+  "fam_entrees": "Starters & soups",
+  "cat_26": "Starters",
+  "dsc_43": "4 pieces",
+  "dsc_44": "vegetarian · 2 pieces",
+  "dsc_45": "vegetarian · 6 pieces",
+  "cat_27": "Soups",
+  "fam_desserts": "Desserts",
+  "cat_28": "Desserts",
+  "dsc_46": "1 piece",
+  "fam_boissons": "Drinks & sides",
+  "cat_29": "Soft drinks",
+  "dsc_47": "Coca-Cola Original Taste - 33 cl",
+  "dsc_48": "Coca-Cola Zero - 33 cl",
+  "dsc_49": "Sprite - 33 cl",
+  "dsc_50": "Fanta Orange - 33 cl",
+  "dsc_51": "(500 ml)",
+  "cat_30": "Beers",
+  "dsc_52": "4.7% vol, 330 ml",
+  "cat_31": "Wines and crémant",
+  "dsc_53": "White wine. Chardonnay grape. Straw-yellow colour, exotic nose. Mango and passion fruit, well balanced on the palate with a hint of lemon. 13.5% vol, 750 ml",
+  "dsc_54": "Red wine. Primitivo grape. Ruby red with purple glints, cherry aromas on the nose, well balanced on the palate. 13.5% vol, 750 ml",
+  "dsc_55": "Rosé wine. Grenache and Cinsault grapes. A lovely pale pink. Pleasant nose with notes of blackcurrant, fruity, marked by small red berries. 13% vol, 750 ml",
+  "dsc_56": "Crémant. Cuvée de l'Écusson brut. 12% vol, 200 ml",
+  "cat_32": "Sides",
+  "dsc_57": "Soybeans",
+  "dsc_58": "Seaweed salad",
+  "dsc_59": "Cabbage salad"
+ }
+};
+</script>
+<script src="assets/site.js"></script>
+<script>
+/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
+   look at /apercu/ never lands in the venue's numbers. */
+(function(){
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  var g = document.createElement('script');
+  g.async = true; g.src = '//gc.zgo.at/count.js';
+  g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
+  document.body.appendChild(g);
+})();
+</script>
+</body>
+</html>
