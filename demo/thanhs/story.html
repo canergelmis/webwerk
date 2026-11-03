@@ -767,7 +767,7 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
     const n = next();
     const open = (document.documentElement.classList.contains('call-open') || document.documentElement.classList.contains('wolt-open'));
     cue.classList.toggle('off', n === undefined || open);
-    cue.classList.toggle('later', scrollY > 120);
+    // r27: the arrow stays for every move (Can, 2026-11-03)
     cue.tabIndex = n === undefined || open ? -1 : 0;
     const r = cue.getBoundingClientRect();
     const under = document.elementsFromPoint(r.left + r.width / 2, r.top + r.height / 2).find(el => el !== cue && !cue.contains(el));
