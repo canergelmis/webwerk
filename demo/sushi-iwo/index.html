@@ -41,44 +41,58 @@
 /* the build video sits over the still; the still stays in the a11y tree, and comes back if the video fails */
 .hero-stage.playing .still{opacity:0}
 .hero-cta{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:var(--s2);margin-top:calc(var(--gap) - .14 * var(--w))}
-.hero-aside{display:none}
 
 /* ---------- section heads ---------- */
 .head{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2)}
 .head h2{font-size:var(--t5);font-weight:600;line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
 .head p{font-size:var(--t3);max-width:30ch}
 
-/* ---------- 2 · la carte: four colour bands, each staged its own way ---------- */
-.carte{background:var(--g-hero)}
-.scene .lead{font-size:var(--t3);font-weight:600;line-height:1.3;margin-bottom:var(--s2);max-width:22ch}
+/* ---------- 2 · la carte: one long board ----------
+   Each course keeps a solid band of its own sampled ground around its picture (so the plates still land on it).
+   Between two courses the ground runs from one colour to the next over 2 x --jh (about 28vh), half in each band;
+   the first band comes in from the hero pink and the last runs out to the table pink, each over a full 2 x --jh.
+   The paddings keep every plate (picture + its 20% ease) inside the solid part.
+   site.js reads the same variables to tint the header in the gradient zones. */
+@property --jt{syntax:'<length>';inherits:false;initial-value:0px}
+@property --jb{syntax:'<length>';inherits:false;initial-value:0px}
+.carte{background:var(--g-hero);--jh:max(110px,14vh)}
 .scenes{list-style:none}
-.scene{position:relative;display:flex;flex-direction:column;padding:var(--s5) var(--s4);background:var(--bg);overflow:hidden}
-.scene .lab{position:relative;z-index:2;display:flex;flex-direction:column;gap:var(--s1)}
-.scene h3{font-size:var(--t5);font-weight:600;line-height:1;letter-spacing:-.02em}
+.scene{position:relative;display:flex;flex-direction:column;overflow:hidden;
+  --jt:var(--jh);--jb:var(--jh);--pa:50%;--pz:50%;
+  padding:calc(var(--jt) + var(--s4)) var(--s4) calc(var(--jb) + var(--s4));
+  background:var(--bg) linear-gradient(to bottom,color-mix(in srgb,var(--up) var(--pa),var(--bg)) 0,var(--bg) var(--jt),var(--bg) calc(100% - var(--jb)),color-mix(in srgb,var(--dn) var(--pz),var(--bg)) 100%)}
+.s-platter{--bg:var(--g-platter);--up:var(--g-hero);--dn:var(--g-wok);--pa:100%;--jt:calc(2 * var(--jh))}
+.s-wok{--bg:var(--g-wok);--up:var(--g-platter);--dn:var(--g-poke)}
+.s-poke{--bg:var(--g-poke);--up:var(--g-wok);--dn:var(--g-dessert)}
+.s-dessert{--bg:var(--g-dessert);--up:var(--g-poke);--dn:var(--g-table);--pz:100%;--jb:calc(2 * var(--jh))}
+.scene .lab{position:relative;z-index:4;display:flex;flex-direction:column;gap:var(--s2)}
+/* the course word is the display line; the carte's own line reads as body copy under « Sushi » */
+.scene h3{order:-1;font-weight:600;line-height:.86;letter-spacing:-.04em}
 .scene h3 a{text-decoration:none}
-.scene .cover{position:absolute;inset:0;z-index:3}
-.scene .lab{z-index:4}
 .scene h3 a:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.scene:hover h3 a{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--hot)}
-.scene p{font-size:var(--t3);max-width:24ch}
+.scene .lead,.scene p{font-size:var(--t3);font-weight:400;line-height:1.4;max-width:24ch}
+.scene .cover{position:absolute;inset:0;z-index:3}
 /* mobile: the picture runs edge to edge, so its sides are the screen's; only top and bottom fade */
 .scene .pic{position:relative;z-index:1;margin:0 calc(var(--s4) * -1)}
 .scene .pic img,.scene .pic video{display:block;width:100%;object-fit:cover;aspect-ratio:4/5;-webkit-mask-image:var(--fade-v);mask-image:var(--fade-v)}
-.s-platter{--bg:var(--g-platter)}
-.s-wok{--bg:var(--g-wok)}
-.s-poke{--bg:var(--g-poke)}
-.s-dessert{--bg:var(--g-dessert)}
-/* sushi: words on top, the platter's empty top slides under them */
-.s-platter .pic{margin-top:calc(-.18 * 125vw)}
-/* wok: big name in its own clear zone; the chopsticks come in from the right, below it */
-.s-wok h3{font-size:var(--t6);line-height:.9}
-.s-wok .pic{margin-top:var(--s3)}
-/* bowls: a close square crop first, words under it */
+/* sushi: the word large on the left, the platter's empty top slides under the lines */
+.s-platter h3{font-size:clamp(4.5rem,24vw,7rem)}
+.s-platter .pic{margin-top:calc(-.16 * 125vw)}
+.s-platter{padding-top:calc(var(--jt) + max(var(--s4),45vw - 160px));padding-bottom:calc(var(--jb) + 27vw)}
+/* wok: the biggest word, set right; the chopsticks come in below it */
+.s-wok .lab{align-items:flex-end;text-align:right}
+.s-wok h3{font-size:clamp(6rem,38vw,9.5rem)}
+.s-wok .pic{margin-top:var(--s2)}
+/* bowls: a close square crop first, a mid-size word under it */
+.s-poke{padding-top:calc(var(--jt) + 22vw)}
 .s-poke .pic{order:1}
-.s-poke .lab{order:2;margin-top:var(--s3)}
+.s-poke .lab{order:2;margin-top:var(--s2);padding-left:12vw}
+.s-poke h3{font-size:clamp(4rem,21vw,5.75rem)}
 .s-poke .pic img,.s-poke .pic video{aspect-ratio:1;object-position:50% 85%}
-/* desserts: words on top, then the cake, then the way to the whole menu */
-.s-dessert .pic{margin-top:calc(-.13 * 125vw)}
+/* desserts: the word smaller, then the cake, then the way to the whole menu */
+.s-dessert{padding-top:calc(var(--jt) + max(var(--s4),37.5vw - 70px));padding-bottom:calc(var(--jb) + max(var(--s4),25vw - 100px))}
+.s-dessert h3{font-size:clamp(3.25rem,15vw,4.75rem)}
+.s-dessert .pic{margin-top:calc(-.1 * 125vw)}
 .s-dessert .more{position:relative;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margin-top:var(--s3)}
 
 /* ---------- 3 · à volonté ---------- */
@@ -100,17 +114,27 @@
 /* ---------- 5 · infos: one mint ground, the clay car park and the clay box as its objects ---------- */
 .infos{background:var(--g-mint);padding:var(--s6) var(--s4);scroll-margin-top:var(--bar);overflow:hidden}
 .infos-grid{display:grid;gap:var(--s5)}
+.infos .head{position:relative;z-index:3}
 .infos .head p{font-size:var(--t2);max-width:36ch}
 .infos .head .addr{font-size:var(--t3);font-weight:400}
-.maplink{display:block;text-decoration:none;margin:0 calc(var(--s4) * -1)}
+.maplink{position:relative;z-index:2;display:block;text-decoration:none;margin:0 calc(var(--s4) * -1)}
 .maplink .park{display:block}
 .maplink img{width:100%;aspect-ratio:4/5;object-fit:cover;-webkit-mask-image:var(--fade-v);mask-image:var(--fade-v)}
 .maplink .plaque{display:block;width:max-content;margin:calc(var(--s5) * -1) auto 0;position:relative;padding:var(--s1) var(--s3);border-radius:999px;background:#fff;font-size:var(--t1);font-weight:600}
 .maplink:hover .plaque{text-decoration:underline;text-decoration-color:var(--hot);text-decoration-thickness:2px;text-underline-offset:4px}
-.side{display:grid;gap:var(--s5)}
+/* order: the takeaway box every delivery customer holds, with the Wolt action */
+.order{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:var(--s2)}
+/* the map's plate eases out 20% of its height below it and the box's 20% above it: keep the two apart */
+.order{margin-top:calc(25vw + 15vw)}
+.order .box{width:min(72vw,300px)}
+.order .box img{width:100%;aspect-ratio:4/5;object-fit:cover;-webkit-mask-image:var(--fade);mask-image:var(--fade);-webkit-mask-composite:source-in;mask-composite:intersect}
+.order .pill{margin-top:calc(var(--s5) * -1);position:relative}
+
+/* ---------- 6 · horaires + contact: the Chez ground again, so the page closes on a colour change ---------- */
+.visit{background:#F6CFDA;padding:var(--s6) var(--s4)}
+.visit-grid{display:grid;gap:var(--s6)}
 .block{position:relative;z-index:2}
-.order{position:relative;z-index:1}
-.block h3{font-size:var(--t3);font-weight:600;display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s2)}
+.block h2{font-size:var(--t4);font-weight:600;line-height:1.2;margin-bottom:var(--s3)}
 .hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .hours th,.hours td{padding:var(--s2) 0;border-top:1px solid rgba(27,27,27,.16);text-align:left;vertical-align:top;font-weight:400}
 .hours td{text-align:right;white-space:nowrap}
@@ -123,50 +147,57 @@
 .contact li{display:flex;flex-direction:column}
 .contact .k{font-size:var(--t1)}
 .contact a{font-size:var(--t3);font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--hot);width:max-content;max-width:100%}
-/* order: the takeaway box every delivery customer holds, beside the Wolt action */
-.order{display:flex;flex-direction:column;align-items:center;gap:var(--s2)}
-.order .box{width:min(72vw,300px)}
-.order .box img{width:100%;aspect-ratio:4/5;object-fit:cover;-webkit-mask-image:var(--fade);mask-image:var(--fade);-webkit-mask-composite:source-in;mask-composite:intersect}
-.order .pill{margin-top:calc(var(--s5) * -1);position:relative}
 
 /* ---------- desktop: use the width ---------- */
 @media (min-width:960px){
-  .hero{padding:var(--bar) 0 var(--s5);min-height:100vh}
-  /* desktop: the stage grows until its lower edge is near the bottom of the screen; the two actions sit side by side */
-  .hero-col{--w:min(700px,calc((100vh - 410px) / .75));--clear0:23.5%;--clear1:28.5%}
-  .hero-cta{flex-direction:row;gap:var(--s4)}
-  .hero-aside{display:flex;position:absolute;bottom:var(--s5);font-size:var(--t1);gap:var(--s2);align-items:center}
-  .hero-aside.l{left:var(--s5)} .hero-aside.r{right:var(--s5)}
+  /* hero split: words and actions in the left third, centred on the screen; the nigiri stage fills the right
+     two-thirds. The stage keeps its 4:5 box (so the hero plate still fits it), sized so the plinth (88.8% of the
+     frame) ends 40px above the bottom of the screen and the blossom (28.8%) stays 40px under the bar.
+     The frame's empty foot runs on below the fold. The desktop plate (hero-d) eases to the ground within 6% below
+     the frame, and the hero ends just there (.14w of frame + .06w of plate), so its lower edge is ground on ground. */
+  .pl-hero{--plate:url(plates/hero-d.png)}
+  .hero,.hero-col{--w:min(calc(200vw / 3 - var(--s5)),calc((100vh - var(--bar) - 80px) / .75))}
+  .hero{flex-direction:row;align-items:center;justify-content:flex-start;padding:0;min-height:calc(100vh - 40px + .2 * var(--w))}
+  .hero-col{--clear0:23.5%;--clear1:28.5%;width:calc(100vw / 3);align-items:flex-start;padding:0 var(--s4) calc(.2 * var(--w) - 40px) var(--s6)}
+  .brand{align-items:flex-start;text-align:left;padding:0}
+  .wordmark{font-size:min(200px,15vw)}
+  .tag{margin-top:var(--s3);max-width:none;text-wrap:pretty}
+  .hero-stage{position:absolute;z-index:1;margin:0;left:calc(100vw / 3 + (200vw / 3 - var(--w)) / 2);top:calc(100vh - 40px - 1.11 * var(--w))}
+  .hero-cta{flex-direction:row;flex-wrap:wrap;align-items:center;gap:var(--s2) var(--s4);margin-top:var(--s5)}
 
   .carte{--side:max(var(--s6),calc((100vw - 1200px) / 2))}
-  .scenes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .s-platter,.s-wok{grid-column:1 / -1}
-  /* full-width bands, content held to 1200px */
-  .scene{display:grid;align-items:center;gap:var(--s6);padding:var(--s6) var(--side)}
+  /* full-width bands, content held to 1200px; each course its own composition and word size */
+  .scene{display:grid;align-items:center;column-gap:var(--s6);padding-left:var(--side);padding-right:var(--side)}
   .scene .pic{margin:0;width:100%}
   .scene .pic img,.scene .pic video{-webkit-mask-image:var(--fade);mask-image:var(--fade);-webkit-mask-composite:source-in;mask-composite:intersect}
-  .scene .lab{gap:var(--s2)}
-  /* sushi: platter large on the left, words on the right */
-  /* sushi: the platter runs out to the left edge of the screen, large and close, words beside it */
-  .s-platter{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding-left:0;padding-top:0;padding-bottom:0;gap:var(--s6)}
-  .s-platter .pic{grid-column:1;grid-row:1;width:100%}
+  .scene .lead,.scene p{font-size:var(--t4);max-width:20ch}
+  /* sushi: the platter runs out to the left edge of the screen, large and close; the word beside it */
+  .s-platter{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding-left:0;padding-top:calc(var(--jt) + 10vw);padding-bottom:calc(var(--jb) + 10vw)}
+  .s-platter .pic{grid-column:1;grid-row:1;margin:0}
   .s-platter .pic img,.s-platter .pic video{aspect-ratio:1;object-position:50% 70%;-webkit-mask-image:linear-gradient(to right,#000 96%,transparent),linear-gradient(to bottom,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(to right,#000 96%,transparent),linear-gradient(to bottom,transparent,#000 4%,#000 96%,transparent)}
   .s-platter .pl-platter{--plate:url(plates/platter-sq.png)} /* resolved against assets/site.css, where the var is used */
   .s-platter .lab{grid-column:2;grid-row:1}
-  .s-platter h3{font-size:var(--t6);line-height:.9}
-  /* wok: words top left; the bowl runs out to the right edge of the screen, chopsticks coming in from it */
-  .s-wok{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start;padding-bottom:0}
-  .s-wok .lab{padding-top:var(--s5)}
-  .s-wok .pic{margin-right:calc(var(--side) * -1);width:calc(100% + var(--side));max-width:none;justify-self:end}
-  .s-wok .pic{max-width:calc(560px + var(--side))}
-  .s-wok .pic img,.s-wok .pic video{--fade:linear-gradient(to right,transparent,#000 4%),linear-gradient(to bottom,transparent,#000 4%,#000 96%,transparent)}
-  /* bowls: centred, a close square crop under centred words */
-  /* bowls and desserts: one two-up, each half on its own ground */
-  .s-poke,.s-dessert{display:flex;flex-direction:column;align-items:center;gap:var(--s4);padding:var(--s6) var(--s6) var(--s5)}
-  .s-poke .lab,.s-dessert .lab{order:0;margin:0;align-self:stretch}
-  .s-poke .pic,.s-dessert .pic{order:1;margin:0;width:min(100%,520px)}
-  /* desserts: words and the way to the menu on the left, the cake on the right */
-  .s-dessert .more{order:2;margin:0;align-self:stretch;flex-direction:row;align-items:center;gap:var(--s4)}
+  .s-platter h3{font-size:clamp(7rem,11vw,10.5rem)}
+  /* wok: the biggest word top left; the bowl runs out to the right edge of the screen, chopsticks coming in from it */
+  .s-wok{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start;padding-top:calc(var(--jt) + 5vw);padding-bottom:calc(var(--jb) + 5vw)}
+  .s-wok .lab{align-items:flex-start;text-align:left;padding-top:var(--s4)}
+  .s-wok h3{font-size:clamp(8rem,15vw,14rem)}
+  .s-wok .pic{margin:0 calc(var(--side) * -1) 0 0;width:calc(100% + var(--side));max-width:calc(560px + var(--side));justify-self:end}
+  /* the scallion pot (left edge) and the cloth (bottom left) touch the frame, and a plate smears them into strips.
+     So no plate here: a narrower crop drops the pot, and a long bottom fade takes the cloth into the ground. */
+  .s-wok .pic.plated::before{display:none}
+  .s-wok .pic img,.s-wok .pic video{aspect-ratio:7/10;object-position:100% 50%;--fade:linear-gradient(to right,transparent,#000 14%),linear-gradient(to bottom,transparent,#000 9%,#000 80%,transparent)}
+  /* bowls: a smaller square crop on the left, the word low and to the right of it */
+  .s-poke{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:end;padding-top:calc(var(--jt) + 9.5vw);padding-bottom:calc(var(--jb) + 9.5vw)}
+  .s-poke .pic{order:0;grid-column:1;grid-row:1;width:min(100%,580px);justify-self:end}
+  .s-poke .lab{order:0;grid-column:2;grid-row:1;margin:0 0 var(--s5);padding:0}
+  .s-poke h3{font-size:clamp(6rem,9.5vw,9rem)}
+  /* desserts: the word at the top left with the way to the menu under it; the cake to the right, smaller */
+  .s-dessert{grid-template-columns:minmax(0,6fr) minmax(0,5fr);grid-template-rows:auto 1fr;align-items:start;padding-top:calc(var(--jt) + max(10.5vw,124px));padding-bottom:calc(var(--jb) + max(10.5vw,124px))}
+  .s-dessert .lab{grid-column:1;grid-row:1;padding-top:var(--s6)}
+  .s-dessert h3{font-size:clamp(4.5rem,7vw,6.5rem)}
+  .s-dessert .pic{grid-column:2;grid-row:1 / 3;margin:0;width:min(100%,540px)}
+  .s-dessert .more{grid-column:1;grid-row:2;margin:var(--s5) 0 0;flex-direction:row;align-items:center;gap:var(--s4)}
 
   .ayce{padding:var(--s7) var(--s6)}
   .ayce-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s6);align-items:center;max-width:1200px;margin:0 auto}
@@ -180,14 +211,15 @@
   .chez figcaption{max-width:1200px;margin:var(--s2) auto 0;padding:0 var(--s6)}
 
   .infos{padding:var(--s7) var(--s6)}
-  .infos-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-areas:"head head" "map side";gap:var(--s5) var(--s7);max-width:1200px;margin:0 auto;align-items:start}
+  .infos-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-areas:"head head" "map order";gap:var(--s5) var(--s7);max-width:1200px;margin:0 auto;align-items:center}
   .infos .head{grid-area:head}
   .maplink{grid-area:map;margin:0}
   .maplink img{-webkit-mask-image:var(--fade);mask-image:var(--fade);-webkit-mask-composite:source-in;mask-composite:intersect}
-  .side{grid-area:side}
-  .order{flex-direction:row;align-items:center;gap:var(--s4)}
-  .order .box{width:200px;flex:none}
-  .order .pill{margin:0}
+  .order{grid-area:order;margin-top:0}
+  .order .box{width:min(100%,340px)}
+
+  .visit{padding:var(--s7) var(--s6)}
+  .visit-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s7);max-width:1200px;margin:0 auto;align-items:start}
   .hours td span{display:inline}
   .hours td span + span::before{content:" · "}
 }
@@ -234,8 +266,6 @@
       <a class="quiet" href="tel:+352621783668" data-t="call">Réserver / Appeler</a>
     </div>
   </div>
-  <p class="hero-aside l">9, Place Marie-Adélaïde · Ettelbruck</p>
-  <p class="hero-aside r"><span data-t="modes">Sur place, à emporter ou livré par Wolt</span></p>
 </section>
 
 <!-- 2 · LA CARTE -->
@@ -312,9 +342,18 @@
       <span class="plaque" data-t="map_park">Parking Cactus</span>
     </a>
 
-    <div class="side">
+    <div class="order">
+      <figure class="box plated pl-box"><img src="assets/clay-box-mint.webp" width="1200" height="1500" loading="lazy" alt="La boîte à emporter noire d’iwo, avec sa bande orange et sa fleur, en pâte à modeler (illustration)" data-ta="alt:alt_box"></figure>
+      <a class="pill" href="https://wolt.com/fr/lux/mersch/restaurant/restaurant-iwo-ettelbruck" data-wolt target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#mark"/></svg><span data-t="order_wolt">Commander sur Wolt</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · HORAIRES + CONTACT: the Chez ground, so the page closes on a colour change -->
+<section class="visit" aria-labelledby="hours-t contact-t">
+  <div class="visit-grid">
       <div class="block">
-        <h3><span class="mini" aria-hidden="true"></span><span data-t="h_title">Horaires</span></h3>
+        <h2 id="hours-t"><span data-t="h_title">Horaires</span></h2>
         <table class="hours">
           <caption class="vh" data-t="h_cap">Horaires d’ouverture</caption>
           <tbody>
@@ -329,23 +368,18 @@
         </table>
       </div>
       <div class="block">
-        <h3><span class="mini" aria-hidden="true"></span><span data-t="c_title">Contact</span></h3>
+        <h2 id="contact-t"><span data-t="c_title">Contact</span></h2>
         <ul class="contact">
           <li><span class="k" data-t="c_phone">Téléphone</span><a href="tel:+352621783668">+352 621 783 668</a></li>
           <li><span class="k">WhatsApp</span><a href="https://wa.me/352621783668" target="_blank" rel="noopener" data-t="c_wa">Écrire sur WhatsApp</a></li>
           <li><span class="k" data-t="c_dir">Itinéraire</span><a href="https://www.google.com/maps/dir/?api=1&amp;destination=iwo%20Ettelbruck&amp;destination_place_id=ChIJUfI2L5NVlUcRoFltyi_GRhg" target="_blank" rel="noopener" data-t="c_dir_a">Ouvrir dans Google Maps</a></li>
         </ul>
       </div>
-      <div class="order">
-        <figure class="box plated pl-box"><img src="assets/clay-box-mint.webp" width="1200" height="1500" loading="lazy" alt="La boîte à emporter noire d’iwo, avec sa bande orange et sa fleur, en pâte à modeler (illustration)" data-ta="alt:alt_box"></figure>
-        <a class="pill" href="https://wolt.com/fr/lux/mersch/restaurant/restaurant-iwo-ettelbruck" data-wolt target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#mark"/></svg><span data-t="order_wolt">Commander sur Wolt</span></a>
-      </div>
-    </div>
   </div>
 </section>
 </main>
 
-<!-- 6 · FOOTER -->
+<!-- 7 · FOOTER -->
 <footer class="foot">
   <p class="foot-brand"><svg aria-hidden="true"><use href="#mark"/></svg>iwo</p>
   <div class="langs" role="group" aria-label="Langue" data-ta="aria-label:a_lang">
@@ -368,7 +402,7 @@ window.I18N = {
     tag: 'Sushi & Wok, all you can eat oder à la carte',
     alt_hero: 'Ein Lachs-Nigiri aus Knetmasse auf einem kleinen runden Podest aus hellem Holz, mit einer rosa Blüte mit vier Blütenblättern (Illustration)',
     order: 'Bestellen', call: 'Reservieren / Anrufen',
-    modes: 'Vor Ort, zum Mitnehmen oder von Wolt geliefert', carte_h: 'Fast 200 Gerichte, Sushi und Wok.',
+    carte_h: 'Fast 200 Gerichte, Sushi und Wok.',
     sc1: 'Maki, Nigiri, Tulips und Gunkan.',
     sc2: 'Gebratene Nudeln, gebratener Reis, Spezialitäten des Hauses.',
     sc3: 'Poke Bowls, auch mit vegetarischer Auswahl.',
@@ -406,7 +440,7 @@ window.I18N = {
     tag: 'Sushi & wok, all you can eat or à la carte',
     alt_hero: 'A salmon nigiri made of modelling clay on a small round pale-wood stand, with a pink four-petal blossom (illustration)',
     order: 'Order', call: 'Book / Call',
-    modes: 'Eat in, take away or delivered by Wolt', carte_h: 'Nearly 200 dishes, sushi and wok.',
+    carte_h: 'Nearly 200 dishes, sushi and wok.',
     sc1: 'Maki, nigiri, tulips and gunkan.',
     sc2: 'Fried noodles, fried rice, house specialities.',
     sc3: 'Poke bowls, with vegetarian choices too.',

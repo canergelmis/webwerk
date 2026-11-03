@@ -80,15 +80,32 @@
   /* the header (and the menu's family bar) takes the ground colour of the band under it */
   const famBar = document.querySelector('.fam');
   let tintQueued = false, lastTint = '';
+  /* home carte: each band's ground runs into the next over --jt (top) and --jb (bottom), see index.html.
+     Returns the colour at viewport height y, or null when the band carries no such gradient. */
+  const hex = s => { const m = /^#([0-9a-f]{6})$/i.exec(s.trim()); return m && [0, 2, 4].map(i => parseInt(m[1].slice(i, i + 2), 16)); };
+  const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * Math.min(1, Math.max(0, t))));
+  const bandAt = (e, y) => {
+    const cs = getComputedStyle(e);
+    const jt = parseFloat(cs.getPropertyValue('--jt')), jb = parseFloat(cs.getPropertyValue('--jb'));
+    const bg = hex(cs.getPropertyValue('--bg')), up = hex(cs.getPropertyValue('--up')), dn = hex(cs.getPropertyValue('--dn'));
+    if (!(jt > 0 && jb > 0) || !bg || !up || !dn) return null;
+    const r = e.getBoundingClientRect(), at = y - r.top;
+    if (at < jt) return mix(mix(bg, up, parseFloat(cs.getPropertyValue('--pa')) / 100), bg, at / jt);
+    if (at > r.height - jb) return mix(bg, mix(bg, dn, parseFloat(cs.getPropertyValue('--pz')) / 100), (at - r.height + jb) / jb);
+    return bg;
+  };
   const tint = () => {
     tintQueued = false;
     if (!bar) return;
     const edge = (famBar || bar).getBoundingClientRect().bottom + 2;
     let col = '';
-    for (const el of document.elementsFromPoint(innerWidth / 2, Math.min(edge, innerHeight - 1))) {
+    const y = Math.min(edge, innerHeight - 1);
+    for (const el of document.elementsFromPoint(innerWidth / 2, y)) {
       if (el.closest('.bar, .fam')) continue;
       for (let e = el; e && e !== document.documentElement; e = e.parentElement) {
         if (!e.matches('section, footer, li.scene, .fam-head, .cats, .family, body')) continue; /* bands only, never a pill or a plaque */
+        const g = e.matches('li.scene') && bandAt(e, y);
+        if (g) { col = `rgba(${g[0]}, ${g[1]}, ${g[2]}, .92)`; break; }
         const c = getComputedStyle(e).backgroundColor;
         const m = c.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
         if (m && (m[4] === undefined || +m[4] > .5)) { col = `rgba(${m[1]}, ${m[2]}, ${m[3]}, .92)`; break; }

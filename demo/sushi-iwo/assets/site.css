@@ -109,8 +109,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    The picture's edge lands on its own colour, so there is no box and only a thin 4% fade for the texture. */
 .plated{position:relative;isolation:isolate}
 /* plates reach 25% past their picture; text next to them sits above them */
-.head,.side,.copy,.txt,.lab,.more,.acts,.order .pill,.hero-cta,.brand{position:relative;z-index:2}
-.hero-aside{z-index:2}
+.head,.copy,.txt,.lab,.more,.acts,.order .pill,.hero-cta,.brand{position:relative;z-index:2}
 .plated::before{content:"";position:absolute;inset:-25%;z-index:-1;pointer-events:none;background:var(--plate) center / 100% 100% no-repeat}
 /* the hero plate starts at the 22% fade-in line (above it the frame is never shown) */
 .pl-hero{--plate:url(plates/hero.png)}
