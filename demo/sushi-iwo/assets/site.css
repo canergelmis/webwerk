@@ -1,0 +1,131 @@
+/* iwo · concept F « Petit monde » · shared by index.html and menu.html */
+
+/* ---------- self-hosted fonts (0 external requests) ---------- */
+@font-face{font-family:Rubik;font-style:normal;font-weight:300 900;font-display:swap;
+  src:url(fonts/rubik-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Rubik;font-style:normal;font-weight:300 900;font-display:swap;
+  src:url(fonts/rubik-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Kaushan Script";font-style:normal;font-weight:400;font-display:swap;
+  src:url(fonts/kaushanscript-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Kaushan Script";font-style:normal;font-weight:400;font-display:swap;
+  src:url(fonts/kaushanscript-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  /* fixed brand */
+  --ink:#1B1B1B; --hot:#F2398F; --hot-deep:#B8226A; --blossom:#E896C8; --box:#DE9650;
+  /* grounds: the median of each clay picture's outer 3% band, between its still and its decoded video */
+  --g-hero:#EEB1C7; --g-hero-top:var(--g-hero); --g-hero-bot:var(--g-hero);
+  --g-platter:#F3DE99; --g-wok:#EF9464; --g-poke:#9DD1AE; --g-dessert:#B09EC9; --g-table:#EBA6B1;
+  --g-entrees:#E19B93; --g-mint:#ACDEBA;
+  --wood-top:#EED6B6; --wood-side:#CFA77D; --wood-edge:#B98D62;
+  /* type scale: 6 sizes */
+  --t1:.875rem; --t2:1rem; --t3:1.25rem; --t4:1.5rem; --t5:clamp(2.5rem,7vw,3.75rem); --t6:clamp(5rem,20vw,8.5rem);
+  /* spacing scale */
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:40px; --s6:64px; --s7:104px;
+  --r:36px; --bar:56px;
+  /* soft fades into a ground of the same colour: --fade-v for edge-to-edge pictures, --fade where the sides show */
+  --fade-v:linear-gradient(to bottom,transparent,#000 4%,#000 96%,transparent);
+  --fade:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent),linear-gradient(to bottom,transparent,#000 4%,#000 96%,transparent);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Rubik,system-ui,sans-serif;font-weight:400;font-size:var(--t2);line-height:1.5;color:var(--ink);background:var(--g-hero);overflow-x:hidden;font-synthesis:none}
+main{overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+/* the clips carry width/height attributes (720x896); height:auto lets aspect-ratio set the box */
+video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--s3);top:-100px;z-index:50;background:#fff;padding:var(--s2) var(--s3);border-radius:999px;font-weight:600}
+.skip:focus{top:var(--s2)}
+
+/* ---------- the small turntable motif (CSS, seen from the side) ---------- */
+.mini{display:inline-block;position:relative;width:46px;height:18px;flex:none}
+.mini::before{content:"";position:absolute;inset:6px 0 0 0;border-radius:0 0 50% 50% / 0 0 100% 100%;background:var(--wood-side);box-shadow:inset 0 -2px 0 var(--wood-edge)}
+.mini::after{content:"";position:absolute;left:0;right:0;top:0;height:12px;border-radius:50%;background:var(--wood-top)}
+
+/* ---------- buttons: one spec ---------- */
+/* Primary: flat hot-pink pill, 56px, label 19px at weight 700 (large text, so white on #F2398F at 3.6:1 passes AA).
+   One primary per screen; every secondary action is the same underlined text link (.quiet). */
+.pill{display:inline-flex;align-items:center;gap:10px;width:max-content;max-width:100%;height:56px;padding:0 28px 0 20px;border-radius:999px;background:var(--hot);color:#fff;font-weight:700;font-size:19px;line-height:1;text-decoration:none;white-space:nowrap;transition:background-color .12s steps(2)}
+.pill svg{width:20px;height:20px;flex:none}
+.pill:hover{background:#E42F84}
+.pill:active{transform:translateY(1px)}
+.quiet{display:inline-flex;align-items:center;min-height:44px;font-size:var(--t2);font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--hot)}
+.quiet:hover{text-decoration-thickness:3px}
+.pill:focus-visible,.quiet:focus-visible,.bar a:focus-visible,.langs button:focus-visible,.fam a:focus-visible,.maplink:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+/* ---------- header bar ---------- */
+.bar{position:fixed;inset:0 0 auto 0;z-index:20;height:var(--bar);display:flex;align-items:center;gap:var(--s3);padding:0 var(--s3);transition:background-color .16s linear,box-shadow .2s steps(2)}
+/* tinted to the ground of the band under it (site.js); ink on every ground is 7:1 or more, the inactive languages 4.7:1 or more */
+.bar.solid{background:var(--bar-bg,rgba(238,177,199,.92));-webkit-backdrop-filter:blur(12px) saturate(1.2);backdrop-filter:blur(12px) saturate(1.2);box-shadow:0 1px 0 rgba(27,27,27,.08)}
+.bar-brand{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-family:"Kaushan Script",cursive;font-size:var(--t4);line-height:1;text-decoration:none;margin-right:auto}
+.bar-brand svg{width:18px;height:18px;color:var(--hot);margin-top:-6px}
+.home .bar:not(.solid) .bar-brand{visibility:hidden}
+.bar-nav{display:flex;gap:var(--s3)}
+.bar-nav a{display:inline-flex;align-items:center;min-height:44px;font-size:var(--t1);font-weight:600;text-decoration:none}
+.bar-nav a:hover{text-decoration:underline;text-decoration-color:var(--hot);text-decoration-thickness:2px;text-underline-offset:4px}
+.langs{display:flex;align-items:center;font-size:var(--t1);font-weight:600}
+.langs span{opacity:.45;padding:0 1px}
+.langs button{min-width:30px;min-height:44px;padding:0 2px;opacity:.78;letter-spacing:.04em}
+.langs button[aria-pressed="true"]{opacity:1;text-decoration:underline;text-decoration-color:var(--hot);text-decoration-thickness:2px;text-underline-offset:5px}
+@media (min-width:960px){
+  .bar{padding:0 var(--s5);gap:var(--s4)}
+  .bar-nav{gap:var(--s4)}
+}
+
+/* ---------- footer ---------- */
+.foot{background:#F6CFDA;padding:var(--s5) var(--s4) var(--s5);font-size:var(--t1);text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--s2)}
+.foot-brand{display:inline-flex;align-items:center;gap:6px;font-family:"Kaushan Script",cursive;font-size:var(--t4);line-height:1}
+.foot-brand svg{width:20px;height:20px;color:var(--hot);margin-top:-6px}
+.foot .langs{margin:var(--s1) 0}
+
+/* ---------- stop-motion (12 fps feel), only if motion is welcome ---------- */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes popin{
+    0%{opacity:0}
+    1%{opacity:1;transform:translateY(6px) scale(.94)}
+    50%{opacity:1;transform:scale(1.03,.98)}
+    100%{opacity:1;transform:none}
+  }
+  .js .pop{opacity:0}
+  .js .pop.is-in{opacity:1;animation:twoframe .18s step-end both}
+  @keyframes twoframe{
+    0%{transform:translateY(14px) scale(.96,1.03)}
+    50%{transform:translateY(-4px) scale(1.02,.98)}
+    100%{transform:none}
+  }
+}
+
+/* ---------- backdrop plates ----------
+   Behind each clay picture, a small generated image (assets/plates/, from studio/r4 plates.py) extends 25% past it
+   on every side. Inside the picture's rectangle it repeats the picture's own edge colours (sampled from the
+   browser-decoded video frames and the still); outside it eases to the section ground over 20% of the picture.
+   The picture's edge lands on its own colour, so there is no box and only a thin 4% fade for the texture. */
+.plated{position:relative;isolation:isolate}
+/* plates reach 25% past their picture; text next to them sits above them */
+.head,.copy,.txt,.lab,.more,.acts,.order .pill,.hero-cta,.brand{position:relative;z-index:2}
+.plated::before{content:"";position:absolute;inset:-25%;z-index:-1;pointer-events:none;background:var(--plate) center / 100% 100% no-repeat}
+/* the hero plate starts at the 22% fade-in line (above it the frame is never shown) */
+.pl-hero{--plate:url(plates/hero.png)}
+.pl-hero::before{inset:2.5% -25% -19.5% -25%}
+.pl-platter{--plate:url(plates/platter.png)}
+.pl-wok{--plate:url(plates/wok.png)}
+.pl-poke{--plate:url(plates/poke.png)}
+.pl-poke-sq{--plate:url(plates/poke-sq.png)}
+.pl-dessert{--plate:url(plates/dessert.png)}
+.pl-table{--plate:url(plates/table.png)}
+.pl-parking{--plate:url(plates/parking.png)}
+.pl-box{--plate:url(plates/box.png)}
+
+/* mobile wok: the cloth (bottom-left prop) touches the frame edge, so the plate smeared it into a flat strip.
+   No plate here; a longer bottom fade takes the picture into the ground instead. */
+@media (max-width:959.98px){
+  .s-wok .pic.plated::before{display:none}
+  .scene.s-wok .pic img,.scene.s-wok .pic video{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 4%,#000 80%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 4%,#000 80%,transparent)}
+}
