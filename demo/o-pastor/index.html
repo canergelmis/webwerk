@@ -1,805 +1,986 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="robots" content="noindex, nofollow"/>
-<title>O Pastor, Café Restaurant Pizzeria à Consdorf</title>
-<meta name="description" content="O Pastor, café restaurant pizzeria à Consdorf, en face de l'église, dans le Mullerthal : pizzas, pâtes et suggestions de la semaine."/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>O Pastor · Consdorf</title>
+<meta name="description" content="O Pastor, café restaurant pizzeria au 3, route de Luxembourg à Consdorf. 21 pizzas, des suggestions de saison et une terrasse. Réservation par téléphone au 26 78 43 70.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#fcfbf8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="O Pastor">
+<meta property="og:title" content="O Pastor · Consdorf">
+<meta property="og:description" content="O Pastor, café restaurant pizzeria au 3, route de Luxembourg à Consdorf. 21 pizzas, des suggestions de saison et une terrasse. Réservation par téléphone au 26 78 43 70.">
+<meta property="og:image" content="https://webwerk.lu/demo/o-pastor/assets/og.jpg">
+<meta property="og:url" content="https://webwerk.lu/demo/o-pastor/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="O Pastor, Consdorf">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <style>
-@font-face{font-family:'Serif';src:url('assets/fonts/serif-regular-latin.woff2') format('woff2');font-weight:400;font-display:swap}
-@font-face{font-family:'Serif';src:url('assets/fonts/serif-bold-latin.woff2') format('woff2');font-weight:700;font-display:swap}
-@font-face{font-family:'Body';src:url('assets/fonts/body-latin.woff2') format('woff2');font-weight:400 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* ---------- fonts: self-hosted, OFL ---------- */
+@font-face{font-family:"Sorts Mill Goudy";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/sortsmillgoudy-latin.woff2) format("woff2");}
+@font-face{font-family:"Sorts Mill Goudy";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/sortsmillgoudy-italic-latin.woff2) format("woff2");}
+@font-face{font-family:"Albert Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/albertsans-500-latin.woff2) format("woff2");}
 
-/* Their own colours: the wordmark is black serif with two crimson O's (FB cover, napkins).
-   The wood is the dining room's barrel ceiling. */
+/* ---------- tokens: one colour, one type scale, one spacing scale ---------- */
 :root{
- --paper:#fffdf8; --cream:#f6f0e6; --sand:#ece3d3;
- --ink:#141210; --ink2:#4a423a; --muted:#7a6f63;
- --crimson:#a9013f; --crimson-d:#840131;
- --wood:#2a1a10; --wood2:#21150d; --ceil:#c47a3a;
- --line:#e3d8c6;
- --maxw:1200px;
+  --paper:#fcfbf8;
+  --ink:#111;
+  --crim:#a9013f;
+  --serif:"Sorts Mill Goudy","Goudy Old Style",Garamond,Georgia,serif;
+  --sans:"Albert Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  /* type: 5 steps (+ the wordmark, fitted by JS) */
+  --t1:13px;                              /* labels, sans caps */
+  --t2:clamp(17px, 1.4vw, 21px);          /* body, ingredients (italic) */
+  --t3:clamp(26px, 2.9vw, 44px);          /* list names, quotes */
+  --t4:clamp(34px, 5vw, 74px);            /* facts, board dishes */
+  --t5:clamp(54px, 8.4vw, 124px);         /* Pastor, sign-off */
+  /* space */
+  --s1:8px; --s2:16px; --s3:24px; --s4:40px; --s5:64px; --s6:104px; --s7:168px;
+  --gut:20px;
+  --max:1320px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:'Body',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:'Serif',Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.005em}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,54px)}
-.eyebrow{font-family:'Body',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--crimson)}
+@media (min-width:900px){ :root{ --gut:48px; } }
 
-/* ---------- the wordmark, rebuilt from their FB cover ---------- */
-.wm{font-family:'Serif',Georgia,serif;font-weight:400;color:var(--ink);line-height:.9;letter-spacing:-.01em;white-space:nowrap}
-.wm .o{color:var(--crimson)}
-.wm small{display:block;font-family:'Serif',Georgia,serif;font-size:.24em;letter-spacing:.08em;color:var(--ink2);margin-bottom:.35em;line-height:1}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ background:var(--paper); color:var(--ink); -webkit-text-size-adjust:100%; }
+body{ font-family:var(--serif); font-size:var(--t2); line-height:1.45; overflow-x:hidden; }
+h1,h2,h3{ font-weight:400; font-size:inherit; }
+img{ display:block; }
+a{ color:inherit; text-decoration:none; }
+ul,ol{ list-style:none; }
+i,.it,em{ font-style:italic; }
+.pz i:empty{ display:none; }
+button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
+.call:focus-visible{ outline-color:var(--crim); }
+.skip{ position:absolute; left:var(--gut); top:-100px; z-index:10; background:var(--ink); color:var(--paper); padding:var(--s1) var(--s2); }
+.skip:focus{ top:var(--s1); }
 
-/* their placemat: a black double rule */
-.dbl{border:0;border-top:4px double var(--ink);opacity:.85}
+.wm{ font-family:var(--serif); font-weight:400; color:var(--ink); white-space:nowrap; letter-spacing:-0.005em; }
+.wm .o{ color:var(--crim); }
+.sans{ font-family:var(--sans); font-weight:500; font-size:var(--t1); letter-spacing:.14em; text-transform:uppercase; }
+.wrap{ max-width:var(--max); margin:0 auto; }
+.nw{ white-space:nowrap; }
 
-/* ---------- header ---------- */
-header{position:sticky;top:0;z-index:50;background:rgba(255,253,248,.95);border-bottom:1px solid var(--line)}
-header.solid{background:rgba(255,253,248,.92);backdrop-filter:blur(8px);box-shadow:0 2px 20px rgba(20,18,16,.08)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
-.brand .wm{font-size:30px}
-nav.links{display:flex;align-items:center;gap:24px}
-nav.links a{font-family:'Body',sans-serif;font-weight:700;font-size:14.5px;color:var(--ink2)}
-nav.links a:hover{color:var(--crimson)}
-.langs{display:flex;gap:2px;background:rgba(20,18,16,.06);border-radius:999px;padding:3px}
-.langs button{font-family:'Body',sans-serif;font-weight:800;font-size:12px;letter-spacing:.05em;border:0;background:transparent;color:var(--ink2);padding:5px 11px;border-radius:999px;cursor:pointer}
-.langs button.on{background:var(--ink);color:#fff}
-.burger{display:none;background:transparent;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
-.burger span{width:26px;height:2.6px;background:var(--ink);border-radius:2px;transition:.3s}
-.burger.x span:nth-child(1){transform:translateY(7.6px) rotate(45deg)}
-.burger.x span:nth-child(2){opacity:0}
-.burger.x span:nth-child(3){transform:translateY(-7.6px) rotate(-45deg)}
+.call{
+  display:inline-flex; align-items:center; justify-content:center; gap:var(--s2);
+  min-height:56px; padding:10px var(--s4); border-radius:999px;
+  background:var(--ink); color:var(--paper);
+  font-size:var(--t2); text-align:center; line-height:1.25;
+  max-width:100%;
+}
 
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;background:var(--paper)}
-.hero .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,60px);align-items:center;min-height:min(calc(100vh - 150px),640px);padding-block:clamp(30px,5vw,56px) clamp(40px,6vw,70px)}
-.heropic{margin:0;border-radius:6px;overflow:hidden;box-shadow:0 30px 60px rgba(20,18,16,.22);aspect-ratio:4/3}
-.heropic img{width:100%;height:100%;object-fit:cover}
-.hero h1{font-size:clamp(64px,10vw,132px)}
-.hero h1 small{font-size:.2em}
-.hero .tag{font-size:clamp(18px,2.2vw,23px);color:var(--ink2);max-width:30ch;margin:22px 0 0;line-height:1.45}
-.hero .hello{margin-top:18px;font-family:'Serif',Georgia,serif;font-size:clamp(17px,1.9vw,20px);color:var(--crimson);line-height:1.4}
-.hero .hello span{display:block;color:var(--muted);font-size:.8em}
-.hero .hello span:first-child{color:var(--crimson);font-size:1em}
-.hero .cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
-.btn{font-family:'Body',sans-serif;font-weight:800;letter-spacing:.01em;font-size:15px;padding:14px 26px;border-radius:999px;cursor:pointer;border:2px solid transparent;transition:.2s;display:inline-flex;align-items:center;gap:9px}
-.btn.p{background:var(--crimson);color:#fff}
-.btn.p:hover{background:var(--crimson-d)}
-.btn.o{background:transparent;color:var(--ink);border-color:rgba(20,18,16,.25)}
-.btn.o:hover{border-color:var(--crimson);color:var(--crimson)}
+/* ---------- 1 · hero ---------- */
+.hero{
+  min-height:100vh; min-height:100svh;
+  display:grid; grid-template-rows:auto 1fr auto;
+  padding:var(--s3) var(--gut) var(--s4);
+}
+.lang{ justify-self:end; display:flex; align-items:center; gap:var(--s1); }
+.lang span{ opacity:.45; }
+.lang button{ padding:10px 4px; margin:-2px 0; font-size:var(--t1); letter-spacing:.14em; line-height:1; border-bottom:1px solid transparent; }
+.lang button[aria-pressed="true"]{ border-bottom-color:var(--ink); }
+.hero-mid{ align-self:center; text-align:center; padding:var(--s3) 0; }
+.kicker{ font-size:var(--t2); letter-spacing:.2em; margin-bottom:var(--s2); }
+.wm-hero{ font-size:22.5vw; line-height:.86; position:relative; display:inline-block; }
+.wm-hero .bl{ display:inline-block; width:0; height:0; vertical-align:baseline; }
+.hello{ margin-top:var(--s4); font-size:var(--t3); line-height:1.15; }
+.hello .lb{ display:block; font-style:italic; }
+.hello .sep{ display:none; }
+.news{ display:inline-block; margin-top:var(--s4); padding:6px 0; font-size:var(--t3); line-height:1.15; max-width:13em;
+  text-decoration:underline; text-decoration-thickness:.5px; text-underline-offset:.34em; text-decoration-skip-ink:none; text-decoration-color:rgba(17,17,17,.45); }
+.news:hover{ text-decoration-color:var(--ink); }
+#suggestions{ scroll-margin-top:var(--s2); }
+.hero-foot{ display:flex; flex-direction:column; align-items:center; gap:var(--s2); }
+@media (min-width:900px){
+  .hero{ grid-template-rows:auto 1fr auto; padding-top:var(--s4); padding-bottom:var(--s5); }
+  .hero-mid{ padding:0; }
+  .kicker{ margin-bottom:var(--s4); }
+  .hello .lb{ display:inline; margin-left:.35em; }
+  .news{ margin-top:var(--s3); font-size:var(--t2); max-width:none; }
+  .hello .sep{ display:inline; }
+  .hero-foot{ display:grid; grid-template-columns:1fr auto 1fr; align-items:center; }
+  .hero-foot .where-d{ justify-self:start; }
+  .hero-foot .num{ justify-self:end; }
+  .hero-foot .where-d, .hero-foot .num{ font-size:var(--t2); letter-spacing:.12em; }
+}
 
-/* ---------- facts ---------- */
-.facts{background:var(--ink);color:#eee7dc}
-.facts .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12)}
-.facts .c{background:var(--ink);padding:26px clamp(18px,4vw,42px)}
-.facts .k{font-family:'Body';font-weight:800;letter-spacing:.16em;font-size:11px;color:#d9a8b9;text-transform:uppercase}
-.facts .v{font-size:15.5px;margin-top:9px;color:#d8d0c4}
-.facts .v b{color:#fff;font-weight:400;font-family:'Serif',Georgia,serif;font-size:23px;display:block;margin-bottom:3px;line-height:1.15}
+/* ---------- 2 · the trail ---------- */
+.trail{ padding:var(--s6) var(--gut) var(--s6); }
+.trail-in{ position:relative; max-width:var(--max); margin:0 auto; padding-top:150px; }
+.trail-svg{ position:absolute; left:0; top:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.trail-svg .hill{ fill:none; stroke:var(--ink); stroke-width:1; stroke-linecap:round; }
+.trail-svg .hill.far{ opacity:.35; }
+.trail-svg .path{ fill:none; stroke:var(--ink); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.trail-label{ position:absolute; left:0; top:0; }
+.facts{ display:flex; flex-direction:column; gap:var(--s5); }
+.fact{ font-size:var(--t4); line-height:1.06; width:80%; text-wrap:balance; overflow-wrap:break-word; }
+.fact:nth-child(even){ margin-left:20%; text-align:right; }
+.door-wrap{ position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:calc(var(--s6) / 2); }
+.door{
+  --dd:140px; width:var(--dd); height:var(--dd); border-radius:50%;
+  border:2px solid var(--crim);
+}
+.team{ margin-top:calc(var(--s4) / 2); font-size:var(--t3); line-height:1.2; max-width:16em; text-wrap:balance; }
+.team .lb{ display:block; font-style:italic; margin-top:var(--s2); }
+@media (min-width:900px){
+  .trail{ padding-top:var(--s7); padding-bottom:var(--s7); }
+  .trail-in{ padding-top:190px; }
+  .facts{ gap:var(--s6); }
+  .fact{ width:50%; }
+  .fact:nth-child(even){ margin-left:50%; }
+  .door{ --dd:200px; border-width:2.5px; }
+  .trail-svg .path{ stroke-width:2.5; }
+}
 
-section{padding:clamp(56px,9vw,104px) 0}
-.sect-h{max-width:730px;margin-bottom:40px}
-.sect-h .eyebrow{margin-bottom:14px;display:block}
-.sect-h h2{font-size:clamp(36px,5.6vw,64px);color:var(--ink)}
-.sect-h p{font-size:18px;color:var(--ink2);margin-top:15px;line-height:1.6}
+/* ---------- 3 · the plate ---------- */
+.pizze{ padding:var(--s6) var(--gut) var(--s4); }
+.pz{
+  display:grid; grid-template-columns:1fr;
+  grid-template-areas:"head" "l1" "photo" "l2" "plate";
+  max-width:var(--max); margin:0 auto;
+}
+.pz-head{ grid-area:head; }
+.pz-head .st{ font-size:var(--t4); line-height:1.06; max-width:12em; text-wrap:balance; }
+.pz-head .sans{ display:block; margin-top:var(--s3); }
+.list{ margin-top:var(--s5); }
+.list.l1{ grid-area:l1; }
+.list.l2{ grid-area:l2; }
+.list li{ padding:var(--s2) 0; border-top:1px solid rgba(17,17,17,.14); }
+.list li:first-child{ border-top:0; }
+.list .n{ display:block; font-size:var(--t3); line-height:1.1; }
+.list i{ display:block; font-size:var(--t2); line-height:1.35; margin-top:2px; letter-spacing:.01em; }
+.shot{ grid-area:photo; margin-top:var(--s5); width:100%; }
+.shot picture{ display:block; width:100%; aspect-ratio:1; overflow:hidden; }
+.shot img{ width:100%; height:100%; object-fit:cover; filter:sepia(.1) saturate(1.03) brightness(.96); }
+.shot figcaption{ margin-top:var(--s2); }
+.plate-cell{ grid-area:plate; display:flex; justify-content:center; margin-top:var(--s6); }
+.plate{
+  position:relative; width:min(86vw, 400px); aspect-ratio:1; border-radius:50%;
+  background:var(--crim);
+  display:flex; align-items:center; justify-content:center; text-align:center;
+}
+.plate-in{ position:relative; z-index:3; color:var(--paper); padding:0 13%; }
+.pn{ font-size:var(--t5); line-height:.95; }
+.pd{ font-style:italic; font-size:var(--t2); margin-top:var(--s2); }
+@media (min-width:900px){
+  .pizze{ padding-top:var(--s7); padding-bottom:var(--s7); }
+  .pz{
+    grid-template-columns:1fr 1fr; column-gap:var(--s6);
+    grid-template-areas:"head head" "l1 l2" "photo plate";
+  }
+  .list{ margin-top:var(--s6); }
+  .list li{ display:flex; align-items:baseline; flex-wrap:wrap; column-gap:var(--s2); padding:14px 0; }
+  .list i{ display:inline; margin-top:0; }
+  .shot{ margin-top:var(--s6); align-self:center; }
+  .plate-cell{ margin-top:var(--s6); align-items:center; }
+  .plate{ width:min(40vw, 560px); }
+}
 
-/* ---------- the pizza ---------- */
-.spot .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,68px);align-items:center}
-.spot h2{font-size:clamp(40px,6vw,74px);color:var(--ink);margin:13px 0 0}
-.spot h2 span{color:var(--crimson)}
-.spot .lead{font-size:clamp(18px,2.1vw,22px);line-height:1.5;color:var(--ink);margin:20px 0 0;max-width:40ch}
-.spot .more{display:inline-block;margin-top:20px;font-weight:800;border-bottom:2px solid var(--crimson);padding-bottom:2px}
-.spot .pic img{width:100%;aspect-ratio:1200/770;object-fit:cover;border-radius:6px;box-shadow:0 30px 60px rgba(20,18,16,.25)}
+/* ---------- 4 · the board stamp ---------- */
+.board{ padding:var(--s4) var(--gut) var(--s6); border-top:1px solid var(--ink); max-width:calc(var(--max) + 2 * var(--gut)); margin:0 auto; }
+.bd-top{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--s4); }
+.quote{ font-size:var(--t3); line-height:1.18; max-width:15em; text-wrap:balance; }
+.quote .lb{ display:block; font-style:italic; margin-top:var(--s3); }
+.stamp{
+  --d:min(62vw, 240px);
+  position:relative; width:var(--d); height:var(--d); flex:none;
+  border-radius:50%; border:calc(var(--d) * .065) solid var(--crim);
+  display:flex; align-items:center; justify-content:center; text-align:center;
+}
+.stamp svg{ position:absolute; inset:calc(var(--d) * -.065); width:var(--d); height:var(--d); z-index:3; overflow:visible; }
+.stamp svg text{ font-family:var(--sans); font-weight:500; font-size:8.4px; letter-spacing:.18em; fill:var(--paper); text-transform:uppercase; }
+.stamp-mid{ position:relative; z-index:3; padding:0 18%; }
+.stamp-mid .st{ font-size:var(--t3); line-height:1.05; display:block; }
+.pairs{ margin-top:var(--s6); display:flex; flex-direction:column; gap:var(--s6); }
+.pair{ display:grid; grid-template-columns:1fr; row-gap:var(--s2); text-align:center; }
+.pair .dn{ font-size:var(--t4); line-height:1.02; }
+.pair .ing{ font-style:italic; font-size:var(--t2); letter-spacing:.01em; margin-top:var(--s1); max-width:24em; margin-left:auto; margin-right:auto; }
+.pair .mid{ font-size:var(--t4); line-height:.6; }
+.also{ margin:var(--s6) auto 0; max-width:30em; text-align:center; font-size:var(--t2); }
+.also .sans{ display:block; margin-bottom:var(--s2); }
+@media (min-width:900px){
+  .board{ padding-top:var(--s7); padding-bottom:var(--s7); }
+  .bd-top{ flex-direction:row; justify-content:center; text-align:left; gap:var(--s6); }
+  .quote{ max-width:13em; order:-1; }
+  .stamp{ --d:440px; }
+  .pairs{ margin-top:var(--s7); }
+  .pair{ grid-template-columns:1fr auto 1fr; column-gap:var(--s5); align-items:start; }
+  .pair .pt{ text-align:right; }
+  .pair .lu{ text-align:left; }
+  .pair .pt .ing{ margin-right:0; }
+  .pair .lu .ing{ margin-left:0; }
+}
 
-/* ---------- this week's board ---------- */
-.sugg{background:var(--cream)}
-.sugg .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,60px);align-items:start}
-.board{background:#fff;padding:clamp(26px,4vw,44px) clamp(20px,4vw,48px);box-shadow:0 18px 44px rgba(20,18,16,.10);outline:4px double var(--ink);outline-offset:-14px;text-align:center}
-.board h3{font-size:clamp(22px,2.6vw,28px);text-transform:uppercase;letter-spacing:.03em;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;margin-bottom:24px}
-.board .its{columns:2;column-gap:36px}
-.board .it{break-inside:avoid;padding:0 0 15px}
-.board .nm{font-family:'Serif',Georgia,serif;font-weight:700;font-size:18px;line-height:1.25}
-.board .ds{font-size:14px;color:var(--ink2);line-height:1.45;margin-top:2px}
-.board .ft{margin-top:12px;font-family:'Serif',Georgia,serif;font-style:italic;font-weight:700;text-decoration:underline;text-underline-offset:4px}
-.sugg figure{margin:0}
-.sugg figure img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;box-shadow:0 22px 50px rgba(20,18,16,.2)}
-.sugg figcaption{font-size:14px;color:var(--muted);margin-top:10px}
-.sugg .aside p{font-size:17px;color:var(--ink2);margin-top:22px;line-height:1.55}
+/* ---------- 5 · the map dot ---------- */
+.find{ padding:var(--s6) var(--gut) var(--s6); }
+.find-in{ max-width:var(--max); margin:0 auto; }
+.bye{ text-align:center; }
+.bye .fr{ display:block; font-size:var(--t5); line-height:1; text-wrap:balance; }
+.bye .lb{ font-size:var(--t3); font-style:italic; margin-top:var(--s3); display:block; }
+.map{ position:relative; display:block; margin-top:var(--s5); aspect-ratio:1/1.05; border:1px solid var(--ink); overflow:hidden; }
+.map svg{ display:block; width:100%; height:100%; }
+.map:focus-visible{ outline-offset:4px; }
+.info{ margin-top:var(--s5); display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--s3); }
+.info .addr{ font-size:var(--t3); line-height:1.2; }
+.info .terr{ font-size:var(--t2); margin-top:var(--s2); }
+.info .dir{ display:inline-block; margin-top:var(--s2); padding:var(--s1) 0; border-bottom:1px solid var(--ink); }
+.info .tel{ font-size:var(--t3); letter-spacing:.04em; }
+@media (min-width:900px){
+  .find{ padding-top:var(--s7); padding-bottom:var(--s6); }
+  .map{ aspect-ratio:1000/460; margin-top:var(--s6); }
+  .info{ display:grid; grid-template-columns:1fr auto auto; align-items:center; text-align:left; column-gap:var(--s5); }
+}
 
-/* ---------- maison (the wood room) ---------- */
-.maison{background:var(--wood);color:#efe2ce}
-.maison .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,66px);align-items:center}
-.maison .eyebrow{color:var(--ceil)}
-.maison h2{font-size:clamp(36px,5.4vw,66px);color:#fff;margin:13px 0 0}
-.maison h2 span{color:var(--ceil)}
-.maison .lead{font-size:clamp(18px,2vw,22px);color:#efe2ce;margin-top:18px;line-height:1.5;max-width:44ch}
-.maison .body{font-size:16px;color:#cdbca4;margin-top:14px;max-width:46ch}
-.maison .pic img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:6px;box-shadow:0 26px 54px rgba(0,0,0,.4)}
-
-/* ---------- carte ---------- */
-.carte{background:var(--paper)}
-.carte .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,66px)}
-.mgroup{margin-bottom:34px;scroll-margin-top:80px}
-.mjump{display:flex;flex-wrap:wrap;gap:8px;margin:-12px 0 28px}
-.mjump a{border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px}
-.mjump a:hover{background:var(--crimson);border-color:var(--crimson);color:#fff}
-.mgroup h3{font-size:28px;color:var(--ink);padding-bottom:12px;border-bottom:4px double var(--ink);margin-bottom:12px}
-.pz{columns:2;column-gap:clamp(28px,5vw,66px)}
-.mitem{break-inside:avoid;padding:9px 0;border-bottom:1px solid var(--line)}
-.mitem .nm{font-family:'Body';font-weight:700;font-size:16.5px;color:var(--ink)}
-.mitem .ds{font-size:14px;color:var(--ink2);margin-top:2px;max-width:46ch}
-.mitem.house{border:0;background:var(--cream);padding:12px 14px;margin:6px 0;border-left:4px solid var(--crimson)}
-.mitem.house .nm{font-family:'Serif',Georgia,serif;font-size:21px}
-.mitem.house .nm em{font-style:normal;font-family:'Body';font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--crimson);margin-left:8px;vertical-align:middle}
-.carte .line{font-family:'Body';font-weight:700;font-size:16.5px;line-height:1.55;color:var(--ink);padding:9px 0 0;border-top:1px solid var(--line);margin-top:6px}
-.carte .sub{font-size:14.5px;color:var(--ink2);margin:-4px 0 6px}
-
-/* ---------- infos ---------- */
-.infos{background:var(--cream)}
-.infos .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
-.ino{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
-.ino .ic{width:22px;height:22px;flex:none;color:var(--crimson);margin-top:3px}
-.ino .k{font-family:'Body';font-weight:800;letter-spacing:.13em;text-transform:uppercase;font-size:11px;color:var(--muted)}
-.ino .v{font-size:16.5px;color:var(--ink);margin-top:3px}
-.ino .v a{border-bottom:1px solid var(--crimson)}
-.inobtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.inobtns .btn{flex:1 1 160px;justify-content:center}
-.callcard{align-self:center;background:#fff;border-radius:6px;padding:clamp(26px,4vw,40px);outline:4px double var(--ink);outline-offset:-12px;box-shadow:0 18px 40px rgba(20,18,16,.10)}
-.callcard .k{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--crimson)}
-.callcard .big{display:block;font-family:'Serif',Georgia,serif;font-size:clamp(32px,4vw,46px);margin:10px 0;color:var(--ink)}
-.callcard .maplink{display:inline-block;margin-top:16px;font-size:14.5px;font-weight:700;border-bottom:1px solid var(--crimson)}
+/* ---------- mobile rhythm: one section gap, one item gap ---------- */
+@media (max-width:899.98px){
+  .trail, .pizze, .board, .find{ padding-top:60px; padding-bottom:60px; }
+  .facts{ gap:48px; }
+  .list{ margin-top:48px; }
+  .list li{ padding:18px 0; }
+  .list i{ margin-top:0; }
+  .shot, .plate-cell{ margin-top:48px; }
+  .bd-top{ gap:48px; }
+  .pairs{ margin-top:48px; gap:48px; }
+  .pair{ row-gap:48px; }
+  .pair .mid{ display:none; }
+  .also{ margin-top:48px; }
+  .map, .info{ margin-top:48px; }
+}
 
 /* ---------- footer ---------- */
-footer{background:var(--wood2);color:#b7a488;padding:44px 0 40px}
-footer .in{padding-block:4px 0;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
-footer .wm{font-size:34px;color:#f6efe4}
-footer .wm small{color:#b7a488;font-size:12px}
-footer .wm .o{color:#d4426f}
-footer p{font-size:14px;margin-top:13px;max-width:44ch;color:#a59176}
-footer a{border-bottom:1px solid rgba(255,255,255,.2)}
-.disc{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);color:#a19482;font-size:12.5px;line-height:1.5}
+.foot{
+  border-top:1px solid var(--ink); margin:0 var(--gut);
+  padding:var(--s4) 0 var(--s5);
+  display:flex; flex-direction:column; align-items:center; gap:var(--s2); text-align:center;
+}
+.foot .wm{ font-size:var(--t4); line-height:1; }
+.foot .legal{ font-size:var(--t1); line-height:1.5; max-width:46em; margin-top:var(--s2); }
+.foot .legal a{ border-bottom:1px solid currentColor; white-space:nowrap; }
+@media (min-width:900px){
+  .foot{ flex-direction:row; flex-wrap:wrap; justify-content:space-between; max-width:var(--max); }
+  .foot .legal{ flex-basis:100%; text-align:left; }
+}
+@media (min-width:1416px){ .foot{ margin:0 auto; } }
 
-@media(max-width:900px){
- .hero .grid,.spot .grid,.maison .grid,.infos .grid,.carte .cols,.sugg .grid,footer .in,.facts .row{grid-template-columns:1fr}
- .hero .grid{min-height:0;gap:14px;padding-top:0}
- .hero .wrap{padding-top:16px}
- .heropic{aspect-ratio:4/3;order:-1}
- .spot .pic,.maison .pic{order:-1}
- .board .its{columns:1}
+/* ---------- the travelling O ---------- */
+.trav{
+  position:fixed; left:0; top:0; z-index:2; pointer-events:none;
+  border-style:solid; border-color:var(--crim); border-radius:50%;
+  opacity:0; will-change:transform;
 }
-@media(max-width:760px){
- nav.links{position:fixed;inset:62px 0 auto 0;flex-direction:column;background:var(--paper);padding:22px 0 28px;gap:4px;transform:translateY(-150%);transition:transform .34s ease;box-shadow:0 20px 40px rgba(20,18,16,.18);align-items:center;border-bottom:1px solid var(--line)}
- nav.links.open{transform:translateY(0)}
- nav.links a{padding:12px;font-size:17px}
- .burger{display:flex}
- .hero h1{font-size:clamp(60px,19vw,96px)}
- .pz{columns:1}
- .hero .cta{display:none} .inobtns{display:none}
-}
-@media(max-width:520px){
- .brand .wm{font-size:26px}
- .bar{gap:8px}
-}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-
-/* Mobile action bar: call and directions stay in reach anywhere in a long scroll. */
-@media(max-width:760px){
-  .wwbar{position:fixed;left:0;right:0;bottom:0;z-index:900;
-    display:flex;gap:8px;padding:10px 12px;
-    padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));
-    background:var(--paper);color:var(--ink);
-    border-top:1px solid rgba(128,128,128,.28);
-    box-shadow:0 -6px 20px -12px rgba(0,0,0,.5)}
-  .wwbar a{flex:1 1 0;min-width:0;text-align:center;justify-content:center;
-    display:inline-flex;align-items:center;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    font-size:.92rem;min-height:46px}
-  .wwbar a:not(:first-child){background:transparent;color:inherit;
-    border:1px solid currentColor;opacity:.92}
-  body{padding-bottom:78px}
-}
-@media(min-width:761px){ .wwbar{display:none} }
-@media(min-width:901px){ .facts .c:first-child{padding-left:0} }
+.moving .door,
+.moving .stamp{ border-color:transparent; }
+/* the plate is always printed crimson; the travelling O only ever rings it */
+.moving #dot{ visibility:hidden; }
+.plate-in, .stamp svg text{ transition:color .25s, fill .25s; }
+.moving .stamp.vacant svg text{ fill:var(--ink); }
+@media (prefers-reduced-motion:reduce){ .trav{ display:none; } }
 </style>
 </head>
 <body>
-<header id="hd">
- <div class="wrap bar">
-  <a class="brand" href="#top" aria-label="O Pastor">
-   <span class="wm"><span class="o">O</span> Past<span class="o">o</span>r</span>
-  </a>
-  <nav class="links" id="nav">
-   <a href="#pizza" data-i18n="nav_pizza">Les pizzas</a>
-   <a href="#suggestions" data-i18n="nav_sugg">Suggestions</a>
-   <a href="#carte" data-i18n="nav_carte">La carte</a>
-   <a href="#infos" data-i18n="nav_infos">Infos &amp; accès</a>
-   <div class="langs" role="group" aria-label="Langue">
-     <button data-lang="fr" class="on">FR</button><button data-lang="de">DE</button><button data-lang="en">EN</button>
-   </div>
-  </nav>
-  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
- </div>
+<a class="skip" href="#main" data-i18n="skip">Aller au contenu</a>
+
+<header class="hero">
+  <div class="lang sans" role="group" aria-label="Langue" data-i18n-aria="lang_label">
+    <button type="button" data-lang="fr" aria-pressed="true">FR</button><span aria-hidden="true">·</span><button type="button" data-lang="nl" aria-pressed="false">NL</button><span aria-hidden="true">·</span><button type="button" data-lang="de" aria-pressed="false">DE</button><span aria-hidden="true">·</span><button type="button" data-lang="en" aria-pressed="false">EN</button><span aria-hidden="true">·</span><button type="button" data-lang="pt" aria-pressed="false">PT</button>
+  </div>
+
+  <div class="hero-mid">
+    <p class="kicker">Café Restaurant Pizzeria</p>
+    <h1 class="wm wm-hero" aria-label="O Pastor"><span class="o">O</span> Past<span class="o o2">o</span>r<span class="bl"></span></h1>
+    <p class="hello"><span data-i18n="hello">Bonjour à tous</span><span class="sep" aria-hidden="true"> · </span><span class="lb" lang="lb">Moien Alleguer</span></p>
+    <a class="news" href="#suggestions" data-i18n="news">Nos nouvelles suggestions sont arrivées&nbsp;!</a>
+  </div>
+
+  <div class="hero-foot">
+    <span class="where-d sans">Consdorf</span>
+    <a class="call" href="tel:+35226784370" data-i18n="call">Pensez à réserver votre table&nbsp;!</a>
+    <a class="num sans" href="tel:+35226784370">26 78 43 70</a>
+  </div>
 </header>
-<main id="top">
- <section class="hero" id="hero">
-  <div class="wrap">
-   <div class="grid">
-    <div class="txt">
-     <h1 class="wm"><small>Café Restaurant Pizzeria</small><span class="o">O</span> Past<span class="o">o</span>r</h1>
-     <p class="tag" data-i18n="hero_tag">En face de l'église de Consdorf, dans le Mullerthal : des pizzas, des pâtes et les suggestions de la semaine, au retour de la balade.</p>
-     <p class="hello"><span lang="lb">Déi ganz Ekipp freet sech op Iech !</span><span data-i18n="hero_hello">Toute l'équipe se réjouit de vous accueillir !</span></p>
-     <div class="cta">
-      <a class="btn p" href="tel:+35226784370" data-i18n="hero_cta1">Appeler</a>
-      <a class="btn o" href="#suggestions" data-i18n="hero_cta2">Les suggestions</a>
-     </div>
+
+<main id="main">
+  <!-- 2 · the trail: a line from the hills to their door -->
+  <section class="trail" aria-labelledby="trail-h">
+    <div class="trail-in">
+      <svg class="trail-svg" aria-hidden="true">
+        <path class="hill far" d=""/>
+        <path class="hill near" d=""/>
+        <path class="path" d=""/>
+      </svg>
+      <h2 class="trail-label sans" id="trail-h" data-i18n="trail_label">Après la balade</h2>
+      <ul class="facts">
+        <li class="fact" data-i18n="fact1">Ici, on parle français, lëtzebuergesch, deutsch, english… <span lang="nl">en een beetje Nederlands.</span></li>
+        <li class="fact" data-i18n="fact2">Les pizzas sont grandes.</li>
+        <li class="fact" data-i18n="fact3">Votre chien est le bienvenu. Son bol d'eau aussi.</li>
+        <li class="fact" data-i18n="fact4">Trop copieux&nbsp;? On emballe le reste pour la route.</li>
+        <li class="fact" data-i18n="fact5">Vous êtes nombreux&nbsp;? Pensez à réserver.</li>
+      </ul>
+      <div class="door-wrap">
+        <span class="door" aria-hidden="true"></span>
+        <p class="team"><span data-i18n="team">Toute l'équipe se réjouit de vous accueillir&nbsp;!</span><span class="lb" lang="lb">Déi ganz Ekipp freet sech op Iech!</span></p>
+      </div>
     </div>
-    <figure class="heropic"><img src="assets/pizza-mer.jpg" alt="Grande pizza au saumon et aux crevettes, sur un set de table à carreaux"/></figure>
-   </div>
-  </div>
- </section>
- <div class="facts">
-  <div class="wrap"><div class="row">
-    <div class="c"><div class="k" data-i18n="fact_k1">Ouvert</div><div class="v" data-i18n="fact_v1"><b>Mercredi – dimanche</b>11h – 23h · fermé lundi et mardi</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k2">Le lieu</div><div class="v" data-i18n="fact_v2"><b>En face de l'église</b>3, route de Luxembourg, Consdorf</div></div>
-    <div class="c"><div class="k" data-i18n="fact_k3">La terrasse</div><div class="v" data-i18n="fact_v3"><b>En haut des marches</b>avec vue sur le clocher</div></div>
-  </div></div>
- </div>
- <section class="spot" id="pizza">
-  <div class="wrap grid">
-   <div class="txt">
-    <span class="eyebrow" data-i18n="pz_eyebrow">Les pizzas</span>
-    <h2 data-i18n="pz_h">Vingt et une pizzas,<br><span>et la Pastor.</span></h2>
-    <p class="lead" data-i18n="pz_lead">De la Margherita à la Pastor, la pizza de la maison : saumon, thon et scampis, sur tomate et mozzarella.</p>
-    <a class="more" href="#mg1" data-i18n="pz_more">Toutes les pizzas ↓</a>
-   </div>
-   <div class="pic"><img src="assets/pizza.jpg" alt="Grande pizza garnie d'un œuf, d'oignons et de viande hachée"/></div>
-  </div>
- </section>
- <section class="sugg" id="suggestions">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="sg_eyebrow">Au tableau</span>
-    <h2 data-i18n="sg_h">Les suggestions de la semaine</h2>
-    <p data-i18n="sg_p">Notre dernier tableau. Les suggestions changent régulièrement : il y a toujours quelque chose de nouveau à goûter.</p>
-   </div>
-   <div class="grid">
-    <div class="board">
-     <h3 data-i18n="sg_title">Suggestions de cette semaine</h3>
-     <div class="its">
-      <div class="it"><div class="nm">Welsh</div><div class="ds" data-i18n="s1d">Toast, jambon cuit, sauce à la bière, œuf, fromage, moutarde, frites et salade</div></div>
-      <div class="it"><div class="nm">Welsh Royal</div><div class="ds" data-i18n="s2d">Toast, jambon cuit, faux-filet, sauce à la bière, œuf, fromage, moutarde, frites et salade</div></div>
-      <div class="it"><div class="nm">Welsh Burger</div><div class="ds" data-i18n="s3d">Toast, steak haché, jambon de Parme, sauce à la bière, œuf, fromage, moutarde, frites et salade</div></div>
-      <div class="it"><div class="nm">Welsh Inferno</div><div class="ds" data-i18n="s4d">Toast, viande hachée, salami, nduja, jalapeños, sauce à la bière, œuf, fromage et moutarde, frites</div></div>
-      <div class="it"><div class="nm" data-i18n="s5n">Jambon, frites et salade</div><div class="ds" data-i18n="s5d">Jambon cuit, jambon cru, câpres, olives, frites et salade</div></div>
-      <div class="it"><div class="nm" data-i18n="s6n">Pizza saumon burrata</div><div class="ds" data-i18n="s6d">Saumon, oignons, tomates, roquette et burrata</div></div>
-      <div class="it"><div class="nm" data-i18n="s7n">Pizza jambon de Parme burrata</div><div class="ds" data-i18n="s7d">Jambon cru, tomates, roquette et burrata</div></div>
-      <div class="it"><div class="nm">Spaghettis bolognese</div><div class="ds" data-i18n="s8d">Viande hachée, sauce tomate</div></div>
-      <div class="it"><div class="nm" data-i18n="s9n">Bitoque de bœuf</div><div class="ds" data-i18n="s9d">Faux-filet, sauce brune à l'ail, riz, frites et pickles</div></div>
-      <div class="it"><div class="nm" data-i18n="s10n">Faux-filet</div><div class="ds" data-i18n="s10d">Frites et légumes</div></div>
-      <div class="it"><div class="nm" data-i18n="s11n">Tagliata de bœuf</div><div class="ds" data-i18n="s11d">Faux-filet de bœuf, tomates, roquette, parmesan et frites</div></div>
-      <div class="it"><div class="nm" data-i18n="s12n">Tagliata de bœuf à la burrata</div><div class="ds" data-i18n="s12d">Faux-filet de bœuf, tomates, roquette, burrata et frites</div></div>
-      <div class="it"><div class="nm" data-i18n="s13n">Moules du chef</div><div class="ds" data-i18n="s13d">Lait de coco, gingembre</div></div>
-      <div class="it"><div class="nm" data-i18n="s14n">Moules au vin blanc · à la crème · provençale</div></div>
-     </div>
-     <p class="ft" data-i18n="sg_ft">Nos moules sont servies avec des frites</p>
-    </div>
-    <div class="aside">
-     <figure><img src="assets/plat.jpg" alt="Toast gratiné au fromage avec un œuf au plat, frites et petite salade"/><figcaption data-i18n="sg_cap">Gratiné à l'œuf, frites et salade</figcaption></figure>
-     <p data-i18n="sg_aside">Pour réserver une table ou commander à emporter, un coup de fil suffit.</p>
-    </div>
-   </div>
-  </div>
- </section>
- <section class="maison" id="maison">
-  <div class="wrap grid">
-   <div class="txt">
-    <span class="eyebrow" data-i18n="ma_eyebrow">La maison</span>
-    <h2 data-i18n="ma_h">Sous la voûte<br><span>en bois.</span></h2>
-    <p class="lead" data-i18n="ma_lead">Un plafond en lambris de bois, un damier noir et blanc au sol, une cave à vin vitrée et des photos aux murs.</p>
-    <p class="body" data-i18n="ma_body">Le café à gauche, la salle de restaurant à droite. Et devant, en haut des marches, la terrasse face à l'église.</p>
-   </div>
-   <div class="pic"><img src="assets/salle.jpg" alt="La salle d'O Pastor : plafond en bois, damier au sol, cave à vin vitrée, photos aux murs"/></div>
-  </div>
- </section>
- <section class="carte" id="carte">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="ct_eyebrow">La carte</span>
-    <h2 data-i18n="ct_h">La carte</h2>
-    <p data-i18n="ct_p">Pizzas, pâtes, burgers et salades, avec leurs garnitures.</p>
-   </div>
-   <nav class="mjump" aria-label="Catégories"><a href="#mg1" data-i18n="mg1">Les pizzas</a><a href="#mg2" data-i18n="mg2">Les pâtes</a><a href="#mg3" data-i18n="mg3">Les burgers</a><a href="#mg4" data-i18n="mg4">Les salades</a></nav>
-   <div class="mgroup" id="mg1">
-    <h3><span data-i18n="mg1">Les pizzas</span></h3>
-    <p class="sub" data-i18n="mg1_sub">Sur tomate et mozzarella</p>
+  </section>
+
+  <!-- 3 · the plate -->
+  <section class="pizze" aria-labelledby="pz-h">
     <div class="pz">
-     <div class="mitem"><div class="nm">Margherita</div><div class="ds" data-i18n="p1">Tomate et mozzarella</div></div>
-     <div class="mitem"><div class="nm">Prosciutto</div><div class="ds" data-i18n="p2">Jambon</div></div>
-     <div class="mitem"><div class="nm">Salami</div><div class="ds" data-i18n="p3">Salami</div></div>
-     <div class="mitem"><div class="nm">Diavola</div><div class="ds" data-i18n="p4">Salami piquant</div></div>
-     <div class="mitem"><div class="nm">Peperoncino</div><div class="ds" data-i18n="p5">Salami piquant, pepperoncini</div></div>
-     <div class="mitem"><div class="nm">Funghi</div><div class="ds" data-i18n="p6">Champignons</div></div>
-     <div class="mitem"><div class="nm">Napoli</div><div class="ds" data-i18n="p7">Anchois, câpres, olives</div></div>
-     <div class="mitem"><div class="nm">Prosciutto e Funghi</div><div class="ds" data-i18n="p8">Jambon, champignons</div></div>
-     <div class="mitem"><div class="nm">Quattro Stagioni</div><div class="ds" data-i18n="p9">Jambon, salami, légumes</div></div>
-     <div class="mitem"><div class="nm">Quattro Formaggi</div><div class="ds" data-i18n="p10">Parmesan, gorgonzola, chèvre</div></div>
-     <div class="mitem"><div class="nm">Scampis</div><div class="ds" data-i18n="p11">Scampis, ail</div></div>
-     <div class="mitem"><div class="nm">Tonno</div><div class="ds" data-i18n="p12">Thon, oignon, olives</div></div>
-     <div class="mitem"><div class="nm">Hawaii</div><div class="ds" data-i18n="p13">Jambon, ananas</div></div>
-     <div class="mitem"><div class="nm" data-i18n="p14n">Végétarienne</div><div class="ds" data-i18n="p14">Légumes</div></div>
-     <div class="mitem"><div class="nm">Calzone</div><div class="ds" data-i18n="p15">Jambon, œuf</div></div>
-     <div class="mitem"><div class="nm" data-i18n="p16n">Fruits de mer</div><div class="ds" data-i18n="p16">Fruits de mer</div></div>
-     <div class="mitem"><div class="nm">Chef</div><div class="ds" data-i18n="p17">Salami, jambon, jambon cru, légumes</div></div>
-     <div class="mitem"><div class="nm">Parma</div><div class="ds" data-i18n="p18">Jambon cru, roquette</div></div>
-     <div class="mitem"><div class="nm">Contadina</div><div class="ds" data-i18n="p19">Jambon, salami, lardons, oignons, œuf</div></div>
-     <div class="mitem"><div class="nm">Biancaneve</div><div class="ds" data-i18n="p20">Crème blanche au lieu de la tomate, mozzarella, jambon, lardons, oignons</div></div>
-     <div class="mitem house"><div class="nm">Pastor<em data-i18n="house">La maison</em></div><div class="ds" data-i18n="p21">Saumon, thon, scampis</div></div>
+      <div class="pz-head">
+        <h2 class="st" id="pz-h" data-i18n="pz_title">21 pizzas, de la Margherita à la Pastor.</h2>
+        <span class="sans" data-i18n="pz_base">Sur base tomate et mozzarella, sauf la Biancaneve</span>
+      </div>
+      <ul class="list l1">
+        <li><span class="n">Margherita</span><i data-i18n="pz1">tomate, mozzarella</i></li>
+        <li><span class="n">Prosciutto</span><i data-i18n="pz2">jambon</i></li>
+        <li><span class="n">Salami</span></li>
+        <li><span class="n">Diavola</span><i data-i18n="pz4">salami piquant</i></li>
+        <li><span class="n">Peperoncino</span><i data-i18n="pz5">salami piquant, pepperoncini</i></li>
+        <li><span class="n">Funghi</span><i data-i18n="pz6">champignons</i></li>
+        <li><span class="n">Napoli</span><i data-i18n="pz7">anchois, câpres, olives</i></li>
+        <li><span class="n">Prosciutto e Funghi</span><i data-i18n="pz8">jambon, champignons</i></li>
+        <li><span class="n">Quattro Stagioni</span><i data-i18n="pz9">jambon, salami, légumes</i></li>
+        <li><span class="n">Quattro Formaggi</span><i data-i18n="pz10">parmesan, gorgonzola, chèvre</i></li>
+      </ul>
+      <figure class="shot">
+        <picture>
+          <source type="image/webp" srcset="assets/pizza-parma-800.webp 800w, assets/pizza-parma.webp 1200w" sizes="(min-width:900px) 46vw, 100vw">
+          <img src="assets/pizza-parma-800.jpg" srcset="assets/pizza-parma-800.jpg 800w, assets/pizza-parma.jpg 1200w" sizes="(min-width:900px) 46vw, 100vw" width="1200" height="1200" alt="Pizza Parma d'O Pastor : jambon cru et roquette" data-i18n-alt="alt_parma" loading="lazy" decoding="async">
+        </picture>
+        <figcaption class="sans">Parma</figcaption>
+      </figure>
+      <ul class="list l2">
+        <li><span class="n">Scampis</span><i data-i18n="pz11">scampis, ail</i></li>
+        <li><span class="n">Tonno</span><i data-i18n="pz12">thon, oignon, olives</i></li>
+        <li><span class="n">Hawaii</span><i data-i18n="pz13">jambon, ananas</i></li>
+        <li><span class="n">Végétarienne</span><i data-i18n="pz14">légumes</i></li>
+        <li><span class="n">Calzone</span><i data-i18n="pz15">jambon, oeuf</i></li>
+        <li><span class="n">Fruits de mer</span><i data-i18n="pz16"></i></li>
+        <li><span class="n">Chef</span><i data-i18n="pz17">salami, jambon, jambon cru, légumes</i></li>
+        <li><span class="n">Parma</span><i data-i18n="pz18">jambon cru, roquette</i></li>
+        <li><span class="n">Contadina</span><i data-i18n="pz19">jambon, salami, lardons, oignons, oeuf</i></li>
+        <li><span class="n">Biancaneve</span><i data-i18n="pz20">crème blanche, mozzarella, jambon, lardons, oignons</i></li>
+      </ul>
+      <div class="plate-cell">
+        <div class="plate">
+          <div class="plate-in">
+            <p class="pn">Pastor</p>
+            <p class="pd" data-i18n="pz21">tomate, mozzarella, saumon, thon, scampis</p>
+          </div>
+        </div>
+      </div>
     </div>
-   </div>
-   <div class="cols">
-    <div>
-     <div class="mgroup" id="mg2">
-      <h3><span data-i18n="mg2">Les pâtes</span></h3>
-      <div class="mitem"><div class="nm" data-i18n="i3n">Spaghetti carbonara</div><div class="ds" data-i18n="i3d">Lardons, crème, oignons, ail, parmesan</div></div>
-      <div class="mitem"><div class="nm" data-i18n="i4n">Penne arrabiata</div><div class="ds" data-i18n="i4d">Sauce tomate, ail, piments rouges</div></div>
-      <div class="mitem"><div class="nm" data-i18n="i5n">Penne crème jambon</div><div class="ds" data-i18n="i5d">Jambon cuit, crème, parmesan</div></div>
-      <div class="mitem"><div class="nm" data-i18n="i6n">Spaghetti aux scampis</div><div class="ds" data-i18n="i6d">Scampis, poivrons, oignons, ail, roquette</div></div>
-      <div class="mitem"><div class="nm" data-i18n="i7n">Spaghetti thon</div><div class="ds" data-i18n="i7d">Thon, oignons, ail, sauce tomate</div></div>
-      <div class="mitem"><div class="nm" data-i18n="i8n">Spaghetti Napoli</div><div class="ds" data-i18n="i8d">Anchois, câpres, oignons, ail, olives, sauce tomate</div></div>
-      <div class="mitem"><div class="nm" data-i18n="i9n">Penne quatre fromages</div><div class="ds" data-i18n="i9d">Gorgonzola, parmesan, mozzarella, gouda</div></div>
-      <div class="mitem"><div class="nm" data-i18n="i10n">Penne jambon à la vodka</div><div class="ds" data-i18n="i10d">Jambon cuit, oignons, ail, crème, sauce tomate, vodka, parmesan</div></div>
-     </div>
+  </section>
+
+  <!-- 4 · the board stamp (content: the BOARD block in the script) -->
+  <section class="board" id="suggestions" aria-labelledby="bd-h">
+    <div class="bd-top">
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs><path id="ring" d="M100,100 m-90,0 a90,90 0 1,1 180,0 a90,90 0 1,1 -180,0"/></defs>
+          <g class="spin" style="transform-origin:100px 100px">
+            <text><textPath id="ring-text" href="#ring" textLength="562" lengthAdjust="spacing">Suggestions · automne · Suggestions · automne · </textPath></text>
+          </g>
+        </svg>
+        <div class="stamp-mid">
+          <span class="st" data-i18n="stamp_title">Suggestions</span>
+        </div>
+      </div>
+      <h2 class="quote" id="bd-h"><span data-i18n="board_quote">De nouvelles suggestions vous attendent chez O&nbsp;Pastor&nbsp;!</span><span class="lb" lang="lb">Nei Suggestioune waarden op Iech am O Pastor&nbsp;!</span></h2>
     </div>
-    <div>
-     <div class="mgroup" id="mg3">
-      <h3><span data-i18n="mg3">Les burgers</span></h3>
-      <p class="sub" data-i18n="mg3_sub">Avec frites, salade, tomate, oignons et sauce maison</p>
-      <p class="line" data-i18n="burgers_line">Hamburger, chickenburger, veggieburger, fishburger</p>
-     </div>
-     <div class="mgroup" id="mg4">
-      <h3><span data-i18n="mg4">Les salades</span></h3>
-      <p class="sub" data-i18n="mg4_sub">Salade verte, oignons, carottes, concombres, tomate</p>
-      <p class="line" data-i18n="salads_line">Petite salade mixte, salade de scampis, salade de poulet pané, salade de thon</p>
-     </div>
+
+    <div class="pairs" id="pairs"></div>
+
+    <p class="also"><span class="sans" data-i18n="also">Et aussi</span><span id="also-list"></span></p>
+  </section>
+
+  <!-- 5 · the map dot -->
+  <section class="find" aria-labelledby="find-h">
+    <div class="find-in">
+      <div class="bye">
+        <h2 class="fr" id="find-h" data-i18n="bye">À très bientôt chez O&nbsp;Pastor&nbsp;!</h2>
+        <span class="lb" lang="lb">Bis ganz geschwënn beim O&nbsp;Pastor&nbsp;!</span>
+      </div>
+
+      <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=O+Pastor+Consdorf" target="_blank" rel="noopener" aria-label="Ouvrir le plan : O Pastor, 3 route de Luxembourg, Consdorf" data-i18n-aria="map_aria">
+        <svg viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <path id="road" d="M-40 470 C 220 440, 360 340, 520 292 S 820 170, 1040 110"/>
+          </defs>
+          <!-- side streets (outlined) -->
+          <g fill="none" stroke-linecap="butt">
+            <path d="M372 352 C 330 420, 300 480, 250 600" stroke="#111" stroke-width="24"/>
+            <path d="M372 352 C 330 420, 300 480, 250 600" stroke="#fcfbf8" stroke-width="21"/>
+            <path d="M712 214 C 730 150, 760 70, 790 -40" stroke="#111" stroke-width="24"/>
+            <path d="M712 214 C 730 150, 760 70, 790 -40" stroke="#fcfbf8" stroke-width="21"/>
+            <!-- route de Luxembourg -->
+            <use href="#road" stroke="#111" stroke-width="46"/>
+            <use href="#road" stroke="#fcfbf8" stroke-width="42"/>
+          </g>
+          <text font-family="Albert Sans, ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-weight="500" font-size="17" letter-spacing="3.4" fill="#111" dy="6" text-anchor="middle">
+            <textPath href="#road" startOffset="64%">ROUTE DE LUXEMBOURG</textPath>
+          </text>
+          <!-- the church, across the road (schematic: its exact side is unverified) -->
+          <g fill="none" stroke="#111" stroke-width="1.6" stroke-linejoin="round" transform="translate(452 214) rotate(-20)">
+            <rect x="-50" y="-18" width="92" height="36"/>
+            <rect x="42" y="-15" width="28" height="30"/>
+            <path d="M56 -15V15M42 0H70"/>
+          </g>
+          <text x="440" y="158" text-anchor="middle" font-family="Sorts Mill Goudy, Georgia, serif" font-style="italic" font-size="26" fill="#111" data-i18n="map_church">Église</text>
+          <!-- their house, no. 3 -->
+          <g transform="translate(578 352) rotate(-20)">
+            <rect x="-42" y="-26" width="84" height="52" fill="none" stroke="#111" stroke-width="1.6"/>
+            <path d="M-12 -26v-12M-4 -26v-12M4 -26v-12M12 -26v-12" stroke="#111" stroke-width="1.2"/>
+          </g>
+          <circle id="dot" cx="578" cy="352" r="15" fill="#a9013f"/>
+          <text x="578" y="420" text-anchor="middle" font-family="Sorts Mill Goudy, Georgia, serif" font-size="26" fill="#111" data-i18n="map_house">O Pastor, n° 3</text>
+        </svg>
+      </a>
+
+      <div class="info">
+        <div class="addr-col">
+          <p class="addr">3, route de Luxembourg<br>L-6210 Consdorf</p><p class="terr" data-i18n="terrace">En haut des marches, la terrasse.</p>
+          <a class="dir sans" href="https://www.google.com/maps/search/?api=1&amp;query=O+Pastor+Consdorf" target="_blank" rel="noopener" data-i18n="directions">Itinéraire</a>
+        </div>
+        <a class="tel" href="tel:+35226784370">26 78 43 70</a>
+        <a class="call" href="tel:+35226784370" data-i18n="call">Pensez à réserver votre table&nbsp;!</a>
+      </div>
     </div>
-   </div>
-  </div>
- </section>
- <section class="infos" id="infos">
-  <div class="wrap">
-   <div class="sect-h">
-    <span class="eyebrow" data-i18n="in_eyebrow">Infos &amp; accès</span>
-    <h2 data-i18n="in_h">Nous trouver</h2>
-   </div>
-   <div class="grid">
-    <div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><div class="k" data-i18n="in_k1">Adresse</div><div class="v">3, route de Luxembourg<br>L-6210 Consdorf</div><div class="v" data-i18n="in_where">En face de l'église, en haut des marches</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><div class="k" data-i18n="in_k2">Horaires</div><div class="v" data-i18n="in_hours">Du mercredi au dimanche, 11h – 23h<br>Fermé le lundi et le mardi</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11a9 5 0 0 1 18 0zM12 11v10M8 21h8"/></svg><div><div class="k" data-i18n="in_k4">Terrasse</div><div class="v" data-i18n="in_terr">En haut des marches, sous les parasols, face à l'église</div></div></div>
-     <div class="ino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><div><div class="k" data-i18n="in_k5">Actualités</div><div class="v"><a href="https://www.facebook.com/ConsdorfOPastor/" target="_blank" rel="noopener" data-i18n="in_fb">Les suggestions sur Facebook ↗</a></div></div></div>
-    </div>
-    <div class="callcard">
-     <div class="k" data-i18n="cc_k">Pour une table ou une commande à emporter</div>
-     <a class="big" href="tel:+35226784370">+352 26 78 43 70</a>
-     <div class="inobtns"><a class="btn p" href="tel:+35226784370" data-i18n="wwb_call">Appeler</a><a class="btn o" href="https://www.google.com/maps/dir/?api=1&amp;destination=O%20Pastor%20Consdorf&amp;destination_place_id=ChIJLQDg0JVelUcR23J6tiksCog" target="_blank" rel="noopener" data-i18n="map_btn">Itinéraire ↗</a></div>
-     <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=O%20Pastor%20Consdorf&amp;query_place_id=ChIJLQDg0JVelUcR23J6tiksCog" target="_blank" rel="noopener" data-i18n="map_place">Voir sur Google Maps ↗</a>
-    </div>
-   </div>
-  </div>
- </section>
+  </section>
 </main>
-<footer>
- <div class="wrap in">
-  <div>
-   <div class="wm"><small>Café Restaurant Pizzeria</small><span class="o">O</span> Past<span class="o">o</span>r</div>
-   <p data-i18n="foot_p">En face de l'église de Consdorf, dans le Mullerthal. Toute l'équipe se réjouit de vous accueillir !</p>
-  </div>
-  <div>
-   <p style="margin-top:6px">3, route de Luxembourg<br>L-6210 Consdorf<br><a href="tel:+35226784370">+352 26 78 43 70</a></p>
-  </div>
- </div>
- <div class="wrap"><p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p></div>
+
+<footer class="foot">
+  <span class="wm" aria-label="O Pastor"><span class="o">O</span> Past<span class="o">o</span>r</span>
+  <span class="sans">Café Restaurant Pizzeria</span>
+  <p class="legal"><span data-i18n="disc">Démonstration Webwerk, réalisée à partir d'informations et de photos publiques, sans lien officiel avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</span> <a href="../../legal/" data-i18n="legal">Mentions légales</a></p>
 </footer>
+
+<div class="trav" aria-hidden="true"></div>
+
 <script>
-const I18N={
- fr:{
-  wwb_call:"Appeler",
-  wwb_dir:"Itinéraire",
-  nav_pizza:"Les pizzas",
-  nav_sugg:"Suggestions",
-  nav_carte:"La carte",
-  nav_infos:"Infos &amp; accès",
-  hero_tag:"En face de l'église de Consdorf, dans le Mullerthal : des pizzas, des pâtes et les suggestions de la semaine, au retour de la balade.",
-  hero_hello:"Toute l'équipe se réjouit de vous accueillir !",
-  hero_cta1:"Appeler",
-  hero_cta2:"Les suggestions",
-  fact_k1:"Ouvert",
-  fact_v1:"<b>Mercredi – dimanche</b>11h – 23h · fermé lundi et mardi",
-  fact_k2:"Le lieu",
-  fact_v2:"<b>En face de l'église</b>3, route de Luxembourg, Consdorf",
-  fact_k3:"La terrasse",
-  fact_v3:"<b>En haut des marches</b>avec vue sur le clocher",
-  pz_eyebrow:"Les pizzas",
-  pz_h:"Vingt et une pizzas,<br><span>et la Pastor.</span>",
-  pz_lead:"De la Margherita à la Pastor, la pizza de la maison : saumon, thon et scampis, sur tomate et mozzarella.",
-  pz_more:"Toutes les pizzas ↓",
-  sg_eyebrow:"Au tableau",
-  sg_h:"Les suggestions de la semaine",
-  sg_p:"Notre dernier tableau. Les suggestions changent régulièrement : il y a toujours quelque chose de nouveau à goûter.",
-  sg_title:"Suggestions de cette semaine",
-  s1d:"Toast, jambon cuit, sauce à la bière, œuf, fromage, moutarde, frites et salade",
-  s2d:"Toast, jambon cuit, faux-filet, sauce à la bière, œuf, fromage, moutarde, frites et salade",
-  s3d:"Toast, steak haché, jambon de Parme, sauce à la bière, œuf, fromage, moutarde, frites et salade",
-  s4d:"Toast, viande hachée, salami, nduja, jalapeños, sauce à la bière, œuf, fromage et moutarde, frites",
-  s5n:"Jambon, frites et salade",
-  s5d:"Jambon cuit, jambon cru, câpres, olives, frites et salade",
-  s6n:"Pizza saumon burrata",
-  s6d:"Saumon, oignons, tomates, roquette et burrata",
-  s7n:"Pizza jambon de Parme burrata",
-  s7d:"Jambon cru, tomates, roquette et burrata",
-  s8d:"Viande hachée, sauce tomate",
-  s9n:"Bitoque de bœuf",
-  s9d:"Faux-filet, sauce brune à l'ail, riz, frites et pickles",
-  s10n:"Faux-filet",
-  s10d:"Frites et légumes",
-  s11n:"Tagliata de bœuf",
-  s11d:"Faux-filet de bœuf, tomates, roquette, parmesan et frites",
-  s12n:"Tagliata de bœuf à la burrata",
-  s12d:"Faux-filet de bœuf, tomates, roquette, burrata et frites",
-  s13n:"Moules du chef",
-  s13d:"Lait de coco, gingembre",
-  s14n:"Moules au vin blanc · à la crème · provençale",
-  sg_ft:"Nos moules sont servies avec des frites",
-  sg_cap:"Gratiné à l'œuf, frites et salade",
-  sg_aside:"Pour réserver une table ou commander à emporter, un coup de fil suffit.",
-  ma_eyebrow:"La maison",
-  ma_h:"Sous la voûte<br><span>en bois.</span>",
-  ma_lead:"Un plafond en lambris de bois, un damier noir et blanc au sol, une cave à vin vitrée et des photos aux murs.",
-  ma_body:"Le café à gauche, la salle de restaurant à droite. Et devant, en haut des marches, la terrasse face à l'église.",
-  ct_eyebrow:"La carte",
-  ct_h:"La carte",
-  ct_p:"Pizzas, pâtes, burgers et salades, avec leurs garnitures.",
-  mg1:"Les pizzas",
-  mg1_sub:"Sur tomate et mozzarella",
-  p1:"Tomate et mozzarella",
-  p2:"Jambon",
-  p3:"Salami",
-  p4:"Salami piquant",
-  p5:"Salami piquant, pepperoncini",
-  p6:"Champignons",
-  p7:"Anchois, câpres, olives",
-  p8:"Jambon, champignons",
-  p9:"Jambon, salami, légumes",
-  p10:"Parmesan, gorgonzola, chèvre",
-  p11:"Scampis, ail",
-  p12:"Thon, oignon, olives",
-  p13:"Jambon, ananas",
-  p14n:"Végétarienne",
-  p14:"Légumes",
-  p15:"Jambon, œuf",
-  p16n:"Fruits de mer",
-  p16:"Fruits de mer",
-  p17:"Salami, jambon, jambon cru, légumes",
-  p18:"Jambon cru, roquette",
-  p19:"Jambon, salami, lardons, oignons, œuf",
-  p20:"Crème blanche au lieu de la tomate, mozzarella, jambon, lardons, oignons",
-  p21:"Saumon, thon, scampis",
-  house:"La maison",
-  mg2:"Les pâtes",
-  i3n:"Spaghetti carbonara",
-  i3d:"Lardons, crème, oignons, ail, parmesan",
-  i4n:"Penne arrabiata",
-  i4d:"Sauce tomate, ail, piments rouges",
-  i5n:"Penne crème jambon",
-  i5d:"Jambon cuit, crème, parmesan",
-  i6n:"Spaghetti aux scampis",
-  i6d:"Scampis, poivrons, oignons, ail, roquette",
-  i7n:"Spaghetti thon",
-  i7d:"Thon, oignons, ail, sauce tomate",
-  i8n:"Spaghetti Napoli",
-  i8d:"Anchois, câpres, oignons, ail, olives, sauce tomate",
-  i9n:"Penne quatre fromages",
-  i9d:"Gorgonzola, parmesan, mozzarella, gouda",
-  i10n:"Penne jambon à la vodka",
-  i10d:"Jambon cuit, oignons, ail, crème, sauce tomate, vodka, parmesan",
-  mg3:"Les burgers",
-  mg3_sub:"Avec frites, salade, tomate, oignons et sauce maison",
-  mg4:"Les salades",
-  mg4_sub:"Salade verte, oignons, carottes, concombres, tomate",
-  burgers_line:"Hamburger, chickenburger, veggieburger, fishburger",
-  salads_line:"Petite salade mixte, salade de scampis, salade de poulet pané, salade de thon",
-  in_eyebrow:"Infos &amp; accès",
-  in_h:"Nous trouver",
-  in_k1:"Adresse",
-  in_where:"En face de l'église, en haut des marches",
-  in_k2:"Horaires",
-  in_hours:"Du mercredi au dimanche, 11h – 23h<br>Fermé le lundi et le mardi",
-  in_k4:"Terrasse",
-  in_terr:"En haut des marches, sous les parasols, face à l'église",
-  in_k5:"Actualités",
-  in_fb:"Les suggestions sur Facebook ↗",
-  cc_k:"Pour une table ou une commande à emporter",
-  map_btn:"Itinéraire ↗",
-  map_place:"Voir sur Google Maps ↗",
-  foot_p:"En face de l'église de Consdorf, dans le Mullerthal. Toute l'équipe se réjouit de vous accueillir !",
-  disc:"Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
- },
- de:{
-  wwb_call:"Anrufen",
-  wwb_dir:"Route",
-  nav_pizza:"Pizza",
-  nav_sugg:"Wochenkarte",
-  nav_carte:"Speisekarte",
-  nav_infos:"Anfahrt",
-  hero_tag:"Gegenüber der Kirche von Consdorf, im Müllerthal: Pizza, Pasta und die Vorschläge der Woche, nach der Wanderung.",
-  hero_hello:"Das ganze Team freut sich auf Sie!",
-  hero_cta1:"Anrufen",
-  hero_cta2:"Die Wochenkarte",
-  fact_k1:"Geöffnet",
-  fact_v1:"<b>Mittwoch – Sonntag</b>11 – 23 Uhr · Montag und Dienstag Ruhetag",
-  fact_k2:"Lage",
-  fact_v2:"<b>Gegenüber der Kirche</b>3, route de Luxembourg, Consdorf",
-  fact_k3:"Terrasse",
-  fact_v3:"<b>Oben an der Treppe</b>mit Blick auf den Kirchturm",
-  pz_eyebrow:"Pizza",
-  pz_h:"Einundzwanzig Pizzen,<br><span>und die Pastor.</span>",
-  pz_lead:"Von der Margherita bis zur Pastor, der Pizza des Hauses: Lachs, Thunfisch und Scampi, auf Tomate und Mozzarella.",
-  pz_more:"Alle Pizzen ↓",
-  sg_eyebrow:"An der Tafel",
-  sg_h:"Die Vorschläge der Woche",
-  sg_p:"Unsere aktuelle Tafel. Die Vorschläge wechseln regelmäßig: Es gibt immer etwas Neues zu probieren.",
-  sg_title:"Vorschläge dieser Woche",
-  s1d:"Toast, gekochter Schinken, Biersauce, Ei, Käse, Senf, Pommes und Salat",
-  s2d:"Toast, gekochter Schinken, Rumpsteak, Biersauce, Ei, Käse, Senf, Pommes und Salat",
-  s3d:"Toast, Hacksteak, Parmaschinken, Biersauce, Ei, Käse, Senf, Pommes und Salat",
-  s4d:"Toast, Hackfleisch, Salami, Nduja, Jalapeños, Biersauce, Ei, Käse und Senf, Pommes",
-  s5n:"Schinken, Pommes und Salat",
-  s5d:"Gekochter Schinken, Rohschinken, Kapern, Oliven, Pommes und Salat",
-  s6n:"Pizza Lachs-Burrata",
-  s6d:"Lachs, Zwiebeln, Tomaten, Rucola und Burrata",
-  s7n:"Pizza Parmaschinken-Burrata",
-  s7d:"Rohschinken, Tomaten, Rucola und Burrata",
-  s8d:"Hackfleisch, Tomatensauce",
-  s9n:"Bitoque vom Rind",
-  s9d:"Rumpsteak, braune Knoblauchsauce, Reis, Pommes und Pickles",
-  s10n:"Rumpsteak",
-  s10d:"Pommes und Gemüse",
-  s11n:"Tagliata vom Rind",
-  s11d:"Rumpsteak, Tomaten, Rucola, Parmesan und Pommes",
-  s12n:"Tagliata vom Rind mit Burrata",
-  s12d:"Rumpsteak, Tomaten, Rucola, Burrata und Pommes",
-  s13n:"Muscheln nach Art des Chefs",
-  s13d:"Kokosmilch, Ingwer",
-  s14n:"Muscheln in Weißwein · in Sahne · provenzalisch",
-  sg_ft:"Unsere Muscheln werden mit Pommes serviert",
-  sg_cap:"Überbackenes mit Spiegelei, Pommes und Salat",
-  sg_aside:"Für einen Tisch oder etwas zum Mitnehmen genügt ein Anruf.",
-  ma_eyebrow:"Das Haus",
-  ma_h:"Unter dem<br><span>Holzgewölbe.</span>",
-  ma_lead:"Eine Holzdecke, ein schwarz-weißes Schachbrett im Boden, ein verglaster Weinschrank und Fotos an den Wänden.",
-  ma_body:"Links das Café, rechts der Speisesaal. Und vorne, oben an der Treppe, die Terrasse mit Blick auf die Kirche.",
-  ct_eyebrow:"Die Speisekarte",
-  ct_h:"Die Speisekarte",
-  ct_p:"Pizza, Pasta, Burger und Salate, mit ihren Zutaten.",
-  mg1:"Pizza",
-  mg1_sub:"Auf Tomate und Mozzarella",
-  p1:"Tomate und Mozzarella",
-  p2:"Schinken",
-  p3:"Salami",
-  p4:"Scharfe Salami",
-  p5:"Scharfe Salami, Peperoncini",
-  p6:"Champignons",
-  p7:"Sardellen, Kapern, Oliven",
-  p8:"Schinken, Champignons",
-  p9:"Schinken, Salami, Gemüse",
-  p10:"Parmesan, Gorgonzola, Ziegenkäse",
-  p11:"Scampi, Knoblauch",
-  p12:"Thunfisch, Zwiebeln, Oliven",
-  p13:"Schinken, Ananas",
-  p14n:"Vegetarisch",
-  p14:"Gemüse",
-  p15:"Schinken, Ei",
-  p16n:"Meeresfrüchte",
-  p16:"Meeresfrüchte",
-  p17:"Salami, Schinken, Rohschinken, Gemüse",
-  p18:"Rohschinken, Rucola",
-  p19:"Schinken, Salami, Speck, Zwiebeln, Ei",
-  p20:"Weiße Sahnesauce statt Tomate, Mozzarella, Schinken, Speck, Zwiebeln",
-  p21:"Lachs, Thunfisch, Scampi",
-  house:"Des Hauses",
-  mg2:"Pasta",
-  i3n:"Spaghetti carbonara",
-  i3d:"Speck, Sahne, Zwiebeln, Knoblauch, Parmesan",
-  i4n:"Penne arrabbiata",
-  i4d:"Tomatensauce, Knoblauch, rote Chilis",
-  i5n:"Penne mit Sahne und Schinken",
-  i5d:"Gekochter Schinken, Sahne, Parmesan",
-  i6n:"Spaghetti mit Scampi",
-  i6d:"Scampi, Paprika, Zwiebeln, Knoblauch, Rucola",
-  i7n:"Spaghetti mit Thunfisch",
-  i7d:"Thunfisch, Zwiebeln, Knoblauch, Tomatensauce",
-  i8n:"Spaghetti Napoli",
-  i8d:"Sardellen, Kapern, Zwiebeln, Knoblauch, Oliven, Tomatensauce",
-  i9n:"Penne vier Käse",
-  i9d:"Gorgonzola, Parmesan, Mozzarella, Gouda",
-  i10n:"Penne mit Schinken und Wodka",
-  i10d:"Gekochter Schinken, Zwiebeln, Knoblauch, Sahne, Tomatensauce, Wodka, Parmesan",
-  mg3:"Burger",
-  mg3_sub:"Mit Pommes, Salat, Tomate, Zwiebeln und Haussauce",
-  mg4:"Salate",
-  mg4_sub:"Blattsalat, Zwiebeln, Karotten, Gurken, Tomate",
-  burgers_line:"Hamburger, Chickenburger, Veggieburger, Fishburger",
-  salads_line:"Kleiner gemischter Salat, Salat mit Scampi, mit paniertem Hähnchen oder mit Thunfisch",
-  in_eyebrow:"Anfahrt",
-  in_h:"So finden Sie uns",
-  in_k1:"Adresse",
-  in_where:"Gegenüber der Kirche, oben an der Treppe",
-  in_k2:"Öffnungszeiten",
-  in_hours:"Mittwoch bis Sonntag, 11 – 23 Uhr<br>Montag und Dienstag geschlossen",
-  in_k4:"Terrasse",
-  in_terr:"Oben an der Treppe, unter Sonnenschirmen, mit Blick auf die Kirche",
-  in_k5:"Neuigkeiten",
-  in_fb:"Die Wochenkarte auf Facebook ↗",
-  cc_k:"Für einen Tisch oder zum Mitnehmen",
-  map_btn:"Route ↗",
-  map_place:"Auf Google Maps ansehen ↗",
-  foot_p:"Gegenüber der Kirche von Consdorf, im Müllerthal. Das ganze Team freut sich auf Sie!",
-  disc:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
- },
- en:{
-  wwb_call:"Call",
-  wwb_dir:"Directions",
-  nav_pizza:"Pizza",
-  nav_sugg:"This week",
-  nav_carte:"Menu",
-  nav_infos:"Getting here",
-  hero_tag:"Across from the church in Consdorf, in the Mullerthal: pizza, pasta and this week's suggestions, at the end of your walk.",
-  hero_hello:"The whole team looks forward to welcoming you!",
-  hero_cta1:"Call",
-  hero_cta2:"This week's suggestions",
-  fact_k1:"Open",
-  fact_v1:"<b>Wednesday – Sunday</b>11:00 – 23:00 · closed Monday and Tuesday",
-  fact_k2:"Where",
-  fact_v2:"<b>Across from the church</b>3 Route de Luxembourg, Consdorf",
-  fact_k3:"Terrace",
-  fact_v3:"<b>Up the steps</b>looking out at the church tower",
-  pz_eyebrow:"Pizza",
-  pz_h:"Twenty-one pizzas,<br><span>and the Pastor.</span>",
-  pz_lead:"From the Margherita to the Pastor, the house pizza: salmon, tuna and scampi on tomato and mozzarella.",
-  pz_more:"All the pizzas ↓",
-  sg_eyebrow:"On the board",
-  sg_h:"This week's suggestions",
-  sg_p:"Our latest board. The suggestions change regularly, so there is always something new to try.",
-  sg_title:"This week's suggestions",
-  s1d:"Toast, cooked ham, beer sauce, egg, cheese, mustard, fries and salad",
-  s2d:"Toast, cooked ham, sirloin steak, beer sauce, egg, cheese, mustard, fries and salad",
-  s3d:"Toast, beef patty, Parma ham, beer sauce, egg, cheese, mustard, fries and salad",
-  s4d:"Toast, minced beef, salami, nduja, jalapeños, beer sauce, egg, cheese and mustard, fries",
-  s5n:"Ham, fries and salad",
-  s5d:"Cooked ham, cured ham, capers, olives, fries and salad",
-  s6n:"Salmon and burrata pizza",
-  s6d:"Salmon, onions, tomatoes, rocket and burrata",
-  s7n:"Parma ham and burrata pizza",
-  s7d:"Cured ham, tomatoes, rocket and burrata",
-  s8d:"Minced beef, tomato sauce",
-  s9n:"Beef bitoque",
-  s9d:"Sirloin steak, brown garlic sauce, rice, fries and pickles",
-  s10n:"Sirloin steak",
-  s10d:"Fries and vegetables",
-  s11n:"Beef tagliata",
-  s11d:"Sirloin steak, tomatoes, rocket, parmesan and fries",
-  s12n:"Beef tagliata with burrata",
-  s12d:"Sirloin steak, tomatoes, rocket, burrata and fries",
-  s13n:"Chef's mussels",
-  s13d:"Coconut milk, ginger",
-  s14n:"Mussels in white wine · in cream · provençale",
-  sg_ft:"Our mussels come with fries",
-  sg_cap:"Egg gratin, fries and salad",
-  sg_aside:"To book a table or order a takeaway, just give us a call.",
-  ma_eyebrow:"The house",
-  ma_h:"Under the<br><span>wooden vault.</span>",
-  ma_lead:"A timber-clad ceiling, a black-and-white checkerboard in the floor, a glass-fronted wine cabinet and photos on the walls.",
-  ma_body:"The café on the left, the dining room on the right. And out front, up the steps, the terrace facing the church.",
-  ct_eyebrow:"The menu",
-  ct_h:"The menu",
-  ct_p:"Pizza, pasta, burgers and salads, with what goes in them.",
-  mg1:"Pizza",
-  mg1_sub:"On tomato and mozzarella",
-  p1:"Tomato and mozzarella",
-  p2:"Ham",
-  p3:"Salami",
-  p4:"Spicy salami",
-  p5:"Spicy salami, pepperoncini",
-  p6:"Mushrooms",
-  p7:"Anchovies, capers, olives",
-  p8:"Ham, mushrooms",
-  p9:"Ham, salami, vegetables",
-  p10:"Parmesan, gorgonzola, goat's cheese",
-  p11:"Scampi, garlic",
-  p12:"Tuna, onion, olives",
-  p13:"Ham, pineapple",
-  p14n:"Vegetarian",
-  p14:"Vegetables",
-  p15:"Ham, egg",
-  p16n:"Seafood",
-  p16:"Seafood",
-  p17:"Salami, ham, cured ham, vegetables",
-  p18:"Cured ham, rocket",
-  p19:"Ham, salami, bacon, onions, egg",
-  p20:"White cream base instead of tomato, mozzarella, ham, bacon, onions",
-  p21:"Salmon, tuna, scampi",
-  house:"House pizza",
-  mg2:"Pasta",
-  i3n:"Spaghetti carbonara",
-  i3d:"Bacon, cream, onions, garlic, parmesan",
-  i4n:"Penne arrabbiata",
-  i4d:"Tomato sauce, garlic, red chilli",
-  i5n:"Penne with cream and ham",
-  i5d:"Cooked ham, cream, parmesan",
-  i6n:"Spaghetti with scampi",
-  i6d:"Scampi, peppers, onions, garlic, rocket",
-  i7n:"Tuna spaghetti",
-  i7d:"Tuna, onions, garlic, tomato sauce",
-  i8n:"Spaghetti Napoli",
-  i8d:"Anchovies, capers, onions, garlic, olives, tomato sauce",
-  i9n:"Four-cheese penne",
-  i9d:"Gorgonzola, parmesan, mozzarella, gouda",
-  i10n:"Penne with ham and vodka",
-  i10d:"Cooked ham, onions, garlic, cream, tomato sauce, vodka, parmesan",
-  mg3:"Burgers",
-  mg3_sub:"With fries, lettuce, tomato, onions and house sauce",
-  mg4:"Salads",
-  mg4_sub:"Lettuce, onions, carrots, cucumber, tomato",
-  burgers_line:"Hamburger, chicken burger, veggie burger, fish burger",
-  salads_line:"Small mixed salad, scampi salad, breaded chicken salad, tuna salad",
-  in_eyebrow:"Getting here",
-  in_h:"Find us",
-  in_k1:"Address",
-  in_where:"Across from the church, up the steps",
-  in_k2:"Opening hours",
-  in_hours:"Wednesday to Sunday, 11:00 – 23:00<br>Closed Monday and Tuesday",
-  in_k4:"Terrace",
-  in_terr:"Up the steps, under parasols, facing the church",
-  in_k5:"News",
-  in_fb:"The suggestions on Facebook ↗",
-  cc_k:"For a table or a takeaway",
-  map_btn:"Directions ↗",
-  map_place:"View on Google Maps ↗",
-  foot_p:"Across from the church in Consdorf, in the Mullerthal. The whole team looks forward to welcoming you!",
-  disc:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."
- }
+/* =====================================================================
+   THE BOARD: their suggestions, updated about once a month.
+   Edit only this block. Dish names stay as written on their board;
+   the ingredient line ("ing") is given per language (fr, nl, de, en, pt).
+   Each pair is [left, right]; on desktop they mirror around a dot.
+   "also" is the "Et aussi" line: a name, or [name, note in brackets].
+   ===================================================================== */
+const BOARD = {
+  season: { fr: 'automne', nl: 'herfst', de: 'Herbst', en: 'autumn', pt: 'outono' },
+  pairs: [
+    [
+      { name: 'Bacalhau à Brás', ing: {
+        fr: 'morue, frites allumettes, oignons, oeufs et olives',
+        nl: 'kabeljauw, lucifersfrietjes, uien, eieren en olijven',
+        de: 'Kabeljau, Streichholzkartoffeln, Zwiebeln, Eier und Oliven',
+        en: 'salt cod, matchstick fries, onions, eggs and olives',
+        pt: 'bacalhau, batata palha, cebola, ovos e azeitonas' } },
+      { name: 'Choucroute', ing: {
+        fr: 'choucroute, lard, judd, mettwurst, saucisse de Francfort et pommes de terre',
+        nl: 'zuurkool, spek, judd, mettwurst, frankfurter en aardappelen',
+        de: 'Sauerkraut, Speck, Judd, Mettwurst, Frankfurter Würstchen und Kartoffeln',
+        en: 'sauerkraut, bacon, judd, mettwurst, frankfurter and potatoes',
+        pt: 'chucrute, toucinho, judd, mettwurst, salsicha de Frankfurt e batatas' } }
+    ],
+    [
+      { name: 'Chanfana' },
+      { name: 'Jarret de porc', ing: {
+        fr: 'purée de pomme de terre et choucroute',
+        nl: 'aardappelpuree en zuurkool',
+        de: 'Kartoffelpüree und Sauerkraut',
+        en: 'mashed potatoes and sauerkraut',
+        pt: 'puré de batata e chucrute' } }
+    ],
+    [
+      { name: 'Bitoque', ing: {
+        fr: "de porc ou de boeuf, sauce brune à l'ail, riz, frites et pickles",
+        nl: 'van varken of rund, bruine knoflooksaus, rijst, frietjes en pickles',
+        de: 'vom Schwein oder Rind, braune Knoblauchsauce, Reis, Pommes frites und Pickles',
+        en: 'pork or beef, brown garlic sauce, rice, fries and pickles',
+        pt: 'de porco ou de vaca, molho escuro de alho, arroz, batatas fritas e pickles' } },
+      { name: 'Boudin noir', ing: {
+        fr: 'purée de pomme de terre, compote de pomme et chou rouge',
+        nl: 'aardappelpuree, appelmoes en rode kool',
+        de: 'Kartoffelpüree, Apfelkompott und Rotkohl',
+        en: 'mashed potatoes, apple compote and red cabbage',
+        pt: 'puré de batata, compota de maçã e couve roxa' } }
+    ]
+  ],
+  also: [
+    'Pizza aux Sardines', 'Escalope de porc panée', 'T-bone steak', 'Hachis parmentier',
+    ['Burger Gourmet', 'foie gras'], ['Burger Inferno', 'ndjua'],
+    'Spaghettis bolognese', 'Dessert du jour'
+  ]
 };
-let lang="fr";
-function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.fr[k]||"";}
-function applyLang(l){
-  lang=l; document.documentElement.lang=l;
-  document.querySelectorAll("[data-i18n]").forEach(el=>{el.innerHTML=t(el.getAttribute("data-i18n"));});
-  document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
-  try{localStorage.setItem("opa_lang",l);}catch(e){}
-}
-document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
-const burger=document.getElementById("burger"),navEl=document.getElementById("nav");
-burger.addEventListener("click",()=>{navEl.classList.toggle("open");burger.classList.toggle("x");});
-navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");burger.classList.remove("x");}));
-const hd=document.getElementById("hd");
-const onScroll=()=>hd.classList.toggle("solid",window.scrollY>40);
-window.addEventListener("scroll",onScroll,{passive:true});onScroll();
-try{const sv=localStorage.getItem("opa_lang");applyLang(sv&&I18N[sv]?sv:"fr");}catch(e){applyLang("fr");}
 </script>
 
-<div class="wwbar" role="navigation" aria-label="Actions rapides">
-  <a class="btn p" href="tel:+35226784370" data-i18n="wwb_call">Appeler</a>
-  <a class="btn o" href="https://www.google.com/maps/dir/?api=1&amp;destination=O%20Pastor%20Consdorf&amp;destination_place_id=ChIJLQDg0JVelUcR23J6tiksCog" target="_blank" rel="noopener" data-i18n="wwb_dir">Itinéraire</a>
-</div>
 <script>
-/* Cookieless visit count (GoatCounter). Not loaded inside the preview frame, so our own
-   look at /apercu/ never lands in the venue's numbers. */
+(() => {
+  /* ---------- languages: French is in the markup; Dutch, German, English and Portuguese here ---------- */
+  const I18N = {
+    nl: {
+      title: 'O Pastor · Consdorf',
+      meta: 'O Pastor, café, restaurant en pizzeria aan de 3, route de Luxembourg in Consdorf. 21 pizza’s, suggesties van het seizoen en een terras. Reserveren kan telefonisch op 26 78 43 70.',
+      skip: 'Naar de inhoud', lang_label: 'Taal',
+      hello: 'Hallo allemaal',
+      news: 'Onze nieuwe suggesties zijn er!',
+      call: 'Denk eraan uw tafel te reserveren!',
+      trail_label: 'Na de wandeling',
+      fact1: 'Hier spreken we Frans, Luxemburgs, Duits, Engels… <span lang="nl">en een beetje Nederlands.</span>',
+      fact2: 'De pizza’s zijn groot.',
+      fact3: 'Uw hond is welkom. Zijn waterbak ook.',
+      fact4: 'Te veel? We pakken de rest voor u in voor onderweg.',
+      fact5: 'Met een grote groep? Reserveer dan even.',
+      team: 'Het hele team kijkt ernaar uit u te verwelkomen!',
+      pz_title: '21 pizza’s, van de Margherita tot de Pastor.',
+      pz_base: 'Op een basis van tomaat en mozzarella, behalve de Biancaneve',
+      alt_parma: 'Pizza Parma van O Pastor: rauwe ham en rucola',
+      pz1: 'tomaat, mozzarella', pz2: 'ham', pz4: 'pikante salami',
+      pz5: 'pikante salami, pepperoncini', pz6: 'champignons', pz7: 'ansjovis, kappertjes, olijven',
+      pz8: 'ham, champignons', pz9: 'ham, salami, groenten', pz10: 'parmezaan, gorgonzola, geitenkaas',
+      pz11: 'scampi’s, look', pz12: 'tonijn, ui, olijven', pz13: 'ham, ananas', pz14: 'groenten',
+      pz15: 'ham, ei', pz16: 'zeevruchten', pz17: 'salami, ham, rauwe ham, groenten',
+      pz18: 'rauwe ham, rucola', pz19: 'ham, salami, spekblokjes, uien, ei',
+      pz20: 'witte roomsaus, mozzarella, ham, spekblokjes, uien',
+      pz21: 'tomaat, mozzarella, zalm, tonijn, scampi’s',
+      stamp_title: 'Suggesties', stamp_ring: 'Suggesties',
+      board_quote: 'Er wachten nieuwe suggesties op u bij O Pastor!',
+      also: 'En verder',
+      bye: 'Tot heel gauw bij O&nbsp;Pastor!',
+      map_aria: 'Open de kaart: O Pastor, 3 route de Luxembourg, Consdorf',
+      map_church: 'Kerk', map_house: 'O Pastor, nr. 3',
+      terrace: 'Boven aan de trap, het terras.',
+      directions: 'Routebeschrijving',
+      disc: 'Een demonstratie van Webwerk, gemaakt met openbare informatie en foto’s, zonder officiële band met de zaak. Anonieme bezoekersstatistieken, zonder cookies of persoonsgegevens.',
+      legal: 'Juridische informatie'
+    },
+    de: {
+      title: 'O Pastor · Consdorf',
+      meta: 'O Pastor, Café, Restaurant und Pizzeria, 3, route de Luxembourg in Consdorf. 21 Pizzas, saisonale Vorschläge und eine Terrasse. Reservierung telefonisch unter 26 78 43 70.',
+      skip: 'Zum Inhalt', lang_label: 'Sprache',
+      hello: 'Hallo zusammen',
+      news: 'Unsere neuen Vorschläge sind da!',
+      call: 'Denken Sie daran, Ihren Tisch zu reservieren!',
+      trail_label: 'Nach der Wanderung',
+      fact1: 'Hier spricht man français, lëtzebuergesch, deutsch, english… <span lang="nl">en een beetje Nederlands.</span>',
+      fact2: 'Die Pizzas sind groß.',
+      fact3: 'Ihr Hund ist willkommen. Sein Wassernapf auch.',
+      fact4: 'Zu reichlich? Wir packen Ihnen den Rest für unterwegs ein.',
+      fact5: 'Sie kommen zu mehreren? Bitte reservieren Sie.',
+      team: 'Das ganze Team freut sich auf Sie!',
+      pz_title: '21 Pizzas, von der Margherita bis zur Pastor.',
+      pz_base: 'Mit Tomate und Mozzarella, außer der Biancaneve',
+      alt_parma: 'Pizza Parma von O Pastor: Rohschinken und Rucola',
+      pz1: 'Tomate, Mozzarella', pz2: 'Schinken', pz4: 'scharfe Salami',
+      pz5: 'scharfe Salami, Peperoncini', pz6: 'Champignons', pz7: 'Sardellen, Kapern, Oliven',
+      pz8: 'Schinken, Champignons', pz9: 'Schinken, Salami, Gemüse', pz10: 'Parmesan, Gorgonzola, Ziegenkäse',
+      pz11: 'Scampi, Knoblauch', pz12: 'Thunfisch, Zwiebel, Oliven', pz13: 'Schinken, Ananas', pz14: 'Gemüse',
+      pz15: 'Schinken, Ei', pz16: 'Meeresfrüchte', pz17: 'Salami, Schinken, Rohschinken, Gemüse',
+      pz18: 'Rohschinken, Rucola', pz19: 'Schinken, Salami, Speckwürfel, Zwiebeln, Ei',
+      pz20: 'Sahnesauce, Mozzarella, Schinken, Speckwürfel, Zwiebeln',
+      pz21: 'Tomate, Mozzarella, Lachs, Thunfisch, Scampi',
+      stamp_title: 'Vorschläge', stamp_ring: 'Vorschläge',
+      board_quote: 'Neue Vorschläge erwarten Sie bei O Pastor!',
+      also: 'Und außerdem',
+      bye: 'Bis bald bei O&nbsp;Pastor!',
+      map_aria: 'Karte öffnen: O Pastor, 3 route de Luxembourg, Consdorf',
+      map_church: 'Kirche', map_house: 'O Pastor, Nr. 3',
+      terrace: 'Oben an der Treppe: die Terrasse.',
+      directions: 'Route planen',
+      disc: 'Eine Demonstration von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne offizielle Verbindung zum Betrieb. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.',
+      legal: 'Impressum'
+    },
+    en: {
+      title: 'O Pastor · Consdorf',
+      meta: 'O Pastor, café, restaurant and pizzeria at 3, route de Luxembourg in Consdorf. 21 pizzas, seasonal suggestions and a terrace. Book by phone on 26 78 43 70.',
+      skip: 'Skip to content', lang_label: 'Language',
+      hello: 'Hello everyone',
+      news: 'Our new suggestions are here!',
+      call: 'Remember to book your table!',
+      trail_label: 'After the walk',
+      fact1: 'Here we speak français, lëtzebuergesch, deutsch, english… <span lang="nl">en een beetje Nederlands.</span>',
+      fact2: 'The pizzas are big.',
+      fact3: 'Your dog is welcome. So is its water bowl.',
+      fact4: 'Too much to finish? We’ll box up the rest for the road.',
+      fact5: 'Coming as a group? Please book ahead.',
+      team: 'The whole team looks forward to welcoming you!',
+      pz_title: '21 pizzas, from the Margherita to the Pastor.',
+      pz_base: 'On a tomato and mozzarella base, except the Biancaneve',
+      alt_parma: 'O Pastor’s Parma pizza: cured ham and rocket',
+      pz1: 'tomato, mozzarella', pz2: 'ham', pz4: 'spicy salami',
+      pz5: 'spicy salami, pepperoncini', pz6: 'mushrooms', pz7: 'anchovies, capers, olives',
+      pz8: 'ham, mushrooms', pz9: 'ham, salami, vegetables', pz10: 'parmesan, gorgonzola, goat’s cheese',
+      pz11: 'scampi, garlic', pz12: 'tuna, onion, olives', pz13: 'ham, pineapple', pz14: 'vegetables',
+      pz15: 'ham, egg', pz16: 'seafood', pz17: 'salami, ham, cured ham, vegetables',
+      pz18: 'cured ham, rocket', pz19: 'ham, salami, bacon, onions, egg',
+      pz20: 'white cream sauce, mozzarella, ham, bacon, onions',
+      pz21: 'tomato, mozzarella, salmon, tuna, scampi',
+      stamp_title: 'Suggestions', stamp_ring: 'Suggestions',
+      board_quote: 'New suggestions are waiting for you at O Pastor!',
+      also: 'And also',
+      bye: 'See you soon at O&nbsp;Pastor!',
+      map_aria: 'Open the map: O Pastor, 3 route de Luxembourg, Consdorf',
+      map_church: 'Church', map_house: 'O Pastor, no. 3',
+      terrace: 'At the top of the steps, the terrace.',
+      directions: 'Directions',
+      disc: 'A Webwerk demonstration, built from public information and photos, with no official link to the venue. Anonymous visit statistics, with no cookies and no personal data.',
+      legal: 'Legal notice'
+    },
+    pt: {
+      title: 'O Pastor · Consdorf',
+      meta: 'O Pastor, café, restaurante e pizzaria no 3, route de Luxembourg, em Consdorf. 21 pizzas, sugestões da época e uma esplanada. Reservas por telefone: 26 78 43 70.',
+      skip: 'Ir para o conteúdo', lang_label: 'Idioma',
+      hello: 'Olá a todos',
+      news: 'As nossas novas sugestões chegaram!',
+      call: 'Não se esqueça de reservar a sua mesa!',
+      trail_label: 'Depois do passeio',
+      fact1: 'Aqui <span class="nw">fala-se</span> français, lëtzebuergesch, deutsch, english… <span lang="nl">en een beetje Nederlands.</span>',
+      fact2: 'As pizzas são grandes.',
+      fact3: 'O seu cão é bem-vindo. A taça de água dele também.',
+      fact4: 'Foi demais? Embalamos o resto para o caminho.',
+      fact5: 'Em grupo? Não se esqueça de reservar.',
+      team: 'Toda a equipa espera por si!',
+      pz_title: '21 pizzas, da Margherita à Pastor.',
+      pz_base: 'Com base de tomate e mozzarella, exceto a Biancaneve',
+      alt_parma: 'Pizza Parma do O Pastor: presunto e rúcula',
+      pz1: 'tomate, mozzarella', pz2: 'fiambre', pz4: 'salame picante',
+      pz5: 'salame picante, pepperoncini', pz6: 'cogumelos', pz7: 'anchovas, alcaparras, azeitonas',
+      pz8: 'fiambre, cogumelos', pz9: 'fiambre, salame, legumes', pz10: 'parmesão, gorgonzola, queijo de cabra',
+      pz11: 'scampi, alho', pz12: 'atum, cebola, azeitonas', pz13: 'fiambre, ananás', pz14: 'legumes',
+      pz15: 'fiambre, ovo', pz16: 'marisco', pz17: 'salame, fiambre, presunto, legumes',
+      pz18: 'presunto, rúcula', pz19: 'fiambre, salame, toucinho, cebola, ovo',
+      pz20: 'natas, mozzarella, fiambre, toucinho, cebola',
+      pz21: 'tomate, mozzarella, salmão, atum, scampi',
+      stamp_title: 'Sugestões', stamp_ring: 'Sugestões',
+      board_quote: 'Novas sugestões esperam por si no O Pastor!',
+      also: 'E ainda',
+      bye: 'Até breve no O&nbsp;Pastor!',
+      map_aria: 'Abrir o mapa: O Pastor, 3 route de Luxembourg, Consdorf',
+      map_church: 'Igreja', map_house: 'O Pastor, n.º 3',
+      terrace: 'No cimo das escadas, a esplanada.',
+      directions: 'Como chegar',
+      disc: 'Demonstração Webwerk, feita a partir de informações e fotografias públicas, sem ligação oficial ao estabelecimento. Estatísticas de visitas anónimas, sem cookies nem dados pessoais.',
+      legal: 'Informações legais'
+    }
+  };
+  // French is read from the page itself, so the markup stays the one source for it
+  const metaDesc = document.querySelector('meta[name="description"]');
+  const fr = { title: document.title, meta: metaDesc.content, stamp_ring: 'Suggestions' };
+  document.querySelectorAll('[data-i18n]').forEach(el => { fr[el.dataset.i18n] = el.innerHTML; });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => { fr[el.dataset.i18nAlt] = el.alt; });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { fr[el.dataset.i18nAria] = el.getAttribute('aria-label'); });
+  I18N.fr = fr;
+
+  /* ---------- the board, rendered from BOARD ---------- */
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  function renderBoard(lang) {
+    const pick = o => (o && (o[lang] || o.fr)) || '';
+    const side = (d, cls) => '<div class="' + cls + '"><p class="dn">' + esc(d.name) + '</p>' +
+      (d.ing ? '<p class="ing">' + esc(pick(d.ing)) + '</p>' : '') + '</div>';
+    document.getElementById('pairs').innerHTML = BOARD.pairs.map(p =>
+      '<div class="pair">' + side(p[0], 'pt') + '<span class="mid" aria-hidden="true">·</span>' + side(p[1], 'lu') + '</div>').join('');
+    document.getElementById('also-list').innerHTML = BOARD.also.map(a =>
+      Array.isArray(a) ? esc(a[0]) + ' <i>(' + esc(a[1]) + ')</i>' : esc(a)).join(', ') + '.';
+    const ring = (I18N[lang] || fr).stamp_ring + ' · ' + pick(BOARD.season) + ' · ';
+    document.getElementById('ring-text').textContent = ring + ring;
+  }
+
+  let relayout = () => {};
+  const buttons = [...document.querySelectorAll('.lang button')];
+  const LOCALE = { fr: 'fr_FR', nl: 'nl_NL', de: 'de_DE', en: 'en_GB', pt: 'pt_PT' };
+  const apply = lang => {
+    const d = I18N[lang] || fr;
+    document.documentElement.lang = lang;
+    document.title = d.title;
+    metaDesc.content = d.meta;
+    document.querySelectorAll('[data-i18n]').forEach(el => { const v = d[el.dataset.i18n]; if (v != null) el.innerHTML = v; });
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => { const v = d[el.dataset.i18nAlt]; if (v != null) el.alt = v; });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => { const v = d[el.dataset.i18nAria]; if (v != null) el.setAttribute('aria-label', v); });
+    const loc = document.querySelector('meta[property="og:locale"]'); if (loc) loc.content = LOCALE[lang] || 'fr_FR';
+    renderBoard(lang);
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    try { localStorage.setItem('op-lang', lang); } catch (e) {}
+    relayout();
+  };
+  buttons.forEach(b => b.addEventListener('click', () => apply(b.dataset.lang)));
+  let startLang = 'fr';
+  try {
+    const q = new URLSearchParams(location.search).get('lang');
+    const saved = localStorage.getItem('op-lang');
+    startLang = [q, saved].find(l => l && I18N[l]) || 'fr';
+  } catch (e) {}
+  if (startLang !== 'fr') apply(startLang); else renderBoard('fr');
+
+  /* ---------- the travelling O (ported from A2 as approved) ---------- */
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const root = document.documentElement;
+  const wm = document.querySelector('.wm-hero');
+  const o2 = wm.querySelector('.o2');
+  const bl = wm.querySelector('.bl');
+  const tin = document.querySelector('.trail-in');
+  const svg = tin.querySelector('.trail-svg');
+  const pathEl = svg.querySelector('.path');
+  const hillFar = svg.querySelector('.hill.far');
+  const hillNear = svg.querySelector('.hill.near');
+  const facts = [...tin.querySelectorAll('.fact')];
+  const door = document.querySelector('.door');
+  const plate = document.querySelector('.plate');
+  const stamp = document.querySelector('.stamp');
+  const spin = document.querySelector('.stamp .spin');
+  const dot = document.getElementById('dot');
+  const trav = document.querySelector('.trav');
+  const ctx = document.createElement('canvas').getContext('2d');
+  const FONT = '"Sorts Mill Goudy"';
+
+  const clamp = v => Math.min(1, Math.max(0, v));
+  const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const mix = (a, b, t) => a + (b - a) * t;
+  const abs = el => { const r = el.getBoundingClientRect(); return { x: r.left + scrollX, y: r.top + scrollY, w: r.width, h: r.height }; };
+  const bw = el => parseFloat(getComputedStyle(el).borderTopWidth) || 0;
+
+  /* ---- wordmark fit ---- */
+  function fit() {
+    const vw = innerWidth, vh = innerHeight;
+    ctx.font = '100px ' + FONT;
+    const w = ctx.measureText('O Pastor').width || 390;
+    const target = vw < 900 ? vw * 0.92 : vw * 0.9;
+    const fs = Math.min(target / w * 100, vh * (vw < 900 ? 0.36 : 0.42));
+    wm.style.fontSize = fs.toFixed(1) + 'px';
+    return fs;
+  }
+
+  /* ---- the trail: built from the real positions of the facts ---- */
+  let L = 0, samples = [], tinBox = null, pathEnd = null;
+  function crPath(pts) {
+    let d = 'M' + pts[0][0].toFixed(1) + ' ' + pts[0][1].toFixed(1);
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += ' C' + c1.map(n => n.toFixed(1)).join(' ') + ' ' + c2.map(n => n.toFixed(1)).join(' ') + ' ' + p2.map(n => n.toFixed(1)).join(' ');
+    }
+    return d;
+  }
+  function buildTrail() {
+    const W = tin.clientWidth, H = tin.clientHeight;
+    const desk = innerWidth >= 900;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    const hy = desk ? 120 : 92;           // hill base line
+    const amp = desk ? 70 : 44;
+    // two soft hill contours across the top: the Mullerthal, stylised
+    hillFar.setAttribute('d', 'M0 ' + (hy - amp * .55) + ' C ' + W * .18 + ' ' + (hy - amp * 1.1) + ', ' + W * .3 + ' ' + (hy - amp * .2) + ', ' + W * .46 + ' ' + (hy - amp * .7) +
+      ' S ' + W * .78 + ' ' + (hy - amp * 1.25) + ', ' + W + ' ' + (hy - amp * .9));
+    hillNear.setAttribute('d', 'M0 ' + hy + ' C ' + W * .2 + ' ' + (hy - amp * .35) + ', ' + W * .36 + ' ' + (hy + amp * .05) + ', ' + W * .55 + ' ' + (hy - amp * .45) +
+      ' S ' + W * .86 + ' ' + (hy - amp * .15) + ', ' + W + ' ' + (hy - amp * .55));
+
+    const left = desk ? .74 : .9, right = desk ? .26 : .1;
+    const wig = desk ? 34 : 8;
+    const pts = [[W + 2, hy - amp * .55], [W * (desk ? .9 : .96), hy + 20]];
+    facts.forEach((f, i) => {
+      const top = f.offsetTop, bot = top + f.offsetHeight;
+      const x = (i % 2 === 0 ? left : right) * W;
+      const s = i % 2 === 0 ? 1 : -1;
+      pts.push([x + wig * s, top - 6]);
+      pts.push([x - wig * s, bot + 6]);
+    });
+    const dw = door.parentElement;
+    const ringTop = dw.offsetTop + door.offsetTop;
+    const cx = W / 2;
+    const lastBot = facts[facts.length - 1].offsetTop + facts[facts.length - 1].offsetHeight;
+    pts.push([cx + (desk ? 60 : 24), ringTop - Math.min(desk ? 70 : 40, (ringTop - lastBot) * 0.45)]);
+    pts.push([cx, ringTop]);
+    pathEl.setAttribute('d', crPath(pts));
+    L = pathEl.getTotalLength();
+    // samples in document coordinates, with a running max of y for lookups
+    tinBox = abs(tin);
+    samples = [];
+    let my = -Infinity;
+    const N = 420;
+    for (let k = 0; k <= N; k++) {
+      const l = L * k / N, p = pathEl.getPointAtLength(l);
+      my = Math.max(my, p.y + tinBox.y);
+      samples.push({ l, x: p.x + tinBox.x, y: p.y + tinBox.y, my });
+    }
+    pathEnd = samples[samples.length - 1];
+    if (reduce.matches) { pathEl.style.strokeDasharray = 'none'; }
+    else { pathEl.style.strokeDasharray = L + ' ' + L; }
+  }
+  // the length at which the trail reaches a document y
+  function lenAt(docY) {
+    if (docY <= samples[0].my) return 0;
+    let lo = 0, hi = samples.length - 1;
+    if (docY >= samples[hi].my) return L;
+    while (hi - lo > 1) { const m = (lo + hi) >> 1; if (samples[m].my >= docY) hi = m; else lo = m; }
+    const a = samples[lo], b = samples[hi];
+    const t = (docY - a.my) / Math.max(1e-6, b.my - a.my);
+    return mix(a.l, b.l, clamp(t));
+  }
+  function pointAt(l) {
+    const k = Math.min(samples.length - 1, Math.max(0, Math.round(l / L * (samples.length - 1))));
+    return samples[k];
+  }
+
+  /* ---- anchors and the scroll timeline ---- */
+  let H0, R, P, S, D, riderD, T = {};
+  const HEAD = 0.6;   // the trail's drawing tip sits at 60% of the viewport
+
+  function measure() {
+    const fs = fit();
+    ctx.font = fs + 'px ' + FONT;
+    const m = ctx.measureText('o');
+    const r = o2.getBoundingClientRect();
+    const base = bl.getBoundingClientRect().top + scrollY;
+    const x0 = r.left + scrollX - m.actualBoundingBoxLeft, x1 = r.left + scrollX + m.actualBoundingBoxRight;
+    const y0 = base - m.actualBoundingBoxAscent, y1 = base + m.actualBoundingBoxDescent;
+    H0 = { x: x0, y: y0, w: x1 - x0, h: y1 - y0, bs: (x1 - x0) * 0.17, bt: (y1 - y0) * 0.075 };
+    buildTrail();
+    const d = abs(door); R = { ...d, bs: bw(door), bt: bw(door) };
+    const p = abs(plate); P = { ...p, bs: bw(door), bt: bw(door) };   // the plate stays printed; the O arrives as a ring around its rim
+    const s = abs(stamp); S = { ...s, bs: bw(stamp), bt: bw(stamp) };
+    const q = abs(dot); D = { ...q, bs: q.w / 2, bt: q.w / 2 };
+    riderD = R.w * 0.5;
+
+    const vh = innerHeight;
+    const maxS = Math.max(1, document.documentElement.scrollHeight - vh);
+    const K = a => a.y + a.h / 2 - vh * 0.5;
+    T.ys = samples[0].y - vh * HEAD;                       // tip starts drawing
+    T.join = Math.max(1, T.ys + vh * 0.22);                 // O has caught the tip
+    T.ye = pathEnd.y - vh * HEAD;                           // tip reaches the door
+    T.yd = Math.max(T.ye + 1, K(R));                        // O settles in the door ring
+    const seg = (from, a, win = 0.7) => {
+      let end = Math.min(K(a), maxS);
+      let st = Math.max(from, end - vh * win);
+      if (end - st < 1) end = st + 1;
+      return [st, end];
+    };
+    // ring -> plate and stamp -> dot would cross text: the O shrinks, runs down the right margin, then grows into place
+    const route = (from, A, B) => {
+      const end = Math.min(K(B), maxS);
+      const st = Math.max(from, K(A) + vh * 0.25);
+      if (end - st < vh * 0.5) return { r: seg(from, B), routed: false };
+      return { r: [st, end], routed: true, A, B };
+    };
+    const gut = parseFloat(getComputedStyle(root).getPropertyValue('--gut')) || 20;
+    T.gx = document.documentElement.clientWidth - gut / 2;
+    T.gs = Math.min(gut * 0.6, 22);
+    T.RP = route(T.yd, R, P); T.rp = T.RP.r;
+    T.ps = seg(T.rp[1], S, innerWidth < 900 ? 0.4 : 0.7);   // short on mobile: plate, ring, stamp and quote share one screen
+    T.SD = route(T.ps[1], S, D); T.sd = T.SD.r;
+  }
+
+  function gutter(A, B, y) {
+    const vh = innerHeight, sz = T.gs;
+    const a = A.y + A.h / 2, st = seg0(A);
+    const cy = Math.min(B.y + B.h / 2, Math.min(y + vh * 0.5, a + Math.max(0, y - st) * 2));
+    return { x: T.gx - sz / 2, y: cy - sz / 2, w: sz, h: sz, bs: sz * 0.2, bt: sz * 0.2 };
+  }
+  function seg0(A) { return (A === R ? T.RP.r[0] : T.SD.r[0]) + innerHeight * 0.2; }
+  function gutterAt(A, cy) { const sz = T.gs; return { x: T.gx - sz / 2, y: cy - sz / 2, w: sz, h: sz, bs: sz * 0.2, bt: sz * 0.2 }; }
+  function routed(seg, y) {
+    const [st, end] = seg.r, A = seg.A, B = seg.B;
+    if (!seg.routed) return lerp(A || R, B || P, (y - st) / (end - st));
+    const vh = innerHeight, ph = vh * 0.2;
+    const g = gutter(A, B, y);
+    if (y < st + ph) return lerp(A, gutterAt(A, A.y + A.h / 2), (y - st) / ph);
+    if (y < end - ph) return g;
+    return lerp(g, B, (y - (end - ph)) / ph);
+  }
+
+  function rider(l) {
+    const p = pointAt(l);
+    return { x: p.x - riderD / 2, y: p.y - riderD / 2, w: riderD, h: riderD, bs: riderD * 0.13, bt: riderD * 0.13 };
+  }
+  function lerp(a, b, t) {
+    const e = ease(clamp(t));
+    return { x: mix(a.x, b.x, e), y: mix(a.y, b.y, e), w: mix(a.w, b.w, e), h: mix(a.h, b.h, e), bs: mix(a.bs, b.bs, e), bt: mix(a.bt, b.bt, e) };
+  }
+
+  function frame() {
+    ticking = false;
+    const y = scrollY, vh = innerHeight;
+    const l = lenAt(y + vh * HEAD);
+    pathEl.style.strokeDashoffset = (L - l).toFixed(1);
+    spin.style.transform = 'rotate(' + (y * 0.04).toFixed(2) + 'deg)';
+
+    let c, lift = 1, docked = false;
+    if (y < T.join) {
+      c = lerp(H0, rider(l), y / T.join);
+      const dx = (c.x + c.w / 2) - (H0.x + H0.w / 2), dy = (c.y + c.h / 2) - (H0.y + H0.h / 2);
+      lift = clamp((Math.hypot(dx, dy) - H0.h * 0.6) / (H0.h * 1.2));
+    }
+    else if (y < T.ye) c = rider(l);
+    else if (y < T.yd) {
+      // grow into the door ring; its top moves onto the trail's end early, then stays tangent there
+      const t = (y - T.ye) / (T.yd - T.ye);
+      c = lerp(rider(L), R, t);
+      const top = mix(pathEnd.y - c.h / 2, R.y, ease(clamp(t * 3)));
+      c = { ...c, x: pathEnd.x - c.w / 2, y: top };
+    }
+    else if (y < T.rp[0]) c = R;
+    else if (y < T.rp[1]) c = T.RP.routed ? routed(T.RP, y) : lerp(R, P, (y - T.rp[0]) / (T.rp[1] - T.rp[0]));
+    else if (y < T.ps[0]) { c = P; docked = true; }
+    else if (y < T.ps[1]) c = lerp(P, S, (y - T.ps[0]) / (T.ps[1] - T.ps[0]));
+    else if (y < T.sd[0]) c = S;
+    else if (y < T.sd[1]) c = T.SD.routed ? routed(T.SD, y) : lerp(S, D, (y - T.sd[0]) / (T.sd[1] - T.sd[0]));
+    else c = D;
+
+    const f = 0.5;
+    plate.classList.toggle('vacant', !(y >= T.rp[1] - f * (T.rp[1] - T.rp[0]) && y < T.ps[0] + f * (T.ps[1] - T.ps[0])));
+    stamp.classList.toggle('vacant', !(y >= T.ps[1] - f * (T.ps[1] - T.ps[0]) && y < T.sd[0] + f * (T.sd[1] - T.sd[0])));
+    const bs = Math.min(c.w / 2, c.bs), bt = Math.min(c.h / 2, c.bt);
+    trav.style.width = c.w + 'px';
+    trav.style.height = c.h + 'px';
+    trav.style.borderWidth = bt + 'px ' + bs + 'px';
+    trav.style.transform = 'translate3d(' + (c.x - scrollX) + 'px,' + (c.y - y) + 'px,0)';
+    // keep the traveller inside the viewport while it grows out of the margin
+    const vw = document.documentElement.clientWidth;
+    if (c.w > T.gs + 1 && c.x - scrollX + c.w > vw - 8) c = { ...c, x: scrollX + vw - 8 - c.w };
+    if (c.w > T.gs + 1 && c.x - scrollX < 8) c = { ...c, x: scrollX + 8 };
+    plate.classList.toggle('docked', docked);
+    trav.style.transform = 'translate3d(' + (c.x - scrollX) + 'px,' + (c.y - y) + 'px,0)';
+    // a full disc is drawn as a fill, so no centre hole can show
+    trav.style.backgroundColor = (bs >= c.w / 2 - 0.5 && bt >= c.h / 2 - 0.5) ? 'var(--crim)' : 'transparent';
+    trav.style.opacity = docked ? 0 : lift;
+  }
+
+  let ticking = false;
+  const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  const remeasure = () => { measure(); req(); };
+
+  function start() {
+    if (reduce.matches) {
+      const still = () => { fit(); buildTrail(); };
+      still();
+      relayout = still;
+      addEventListener('resize', still);
+      addEventListener('load', still);
+      return;
+    }
+    root.classList.add('moving');
+    measure(); frame();
+    relayout = remeasure;
+    addEventListener('scroll', req, { passive: true });
+    addEventListener('resize', remeasure);
+    addEventListener('load', remeasure);
+    if ('ResizeObserver' in window) new ResizeObserver(() => remeasure()).observe(document.body);
+  }
+
+  let started = false;
+  const go = () => { if (!started) { started = true; start(); } };
+  if (document.fonts && document.fonts.load) {
+    Promise.all([document.fonts.load('100px ' + FONT), document.fonts.load('italic 100px ' + FONT)]).then(go, go);
+  } else { go(); }
+})();
+</script>
+<script>
+/* Cookieless visit count (GoatCounter). Skipped inside the preview frame and with ?embed=1. */
 (function(){
-  if (window.top !== window.self || /[?&]embed=1/.test(location.search)) return;
+  if (window.top !== window.self || /[?&]embed=1/.test(location.search) || location.protocol === 'file:') return;
   var g = document.createElement('script');
   g.async = true; g.src = 'https://gc.zgo.at/count.js';
   g.setAttribute('data-goatcounter', 'https://webwerklu.goatcounter.com/count');
