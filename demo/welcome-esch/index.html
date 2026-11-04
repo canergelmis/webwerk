@@ -105,16 +105,11 @@ figure{margin:0}
 
 /* ---------- 6. proof strip ---------- */
 .proof{background:var(--ink);color:var(--paper);padding:56px var(--pad) 60px}
-.proof-row{display:grid;grid-template-columns:1fr 1fr;gap:28px 14px;align-items:start}
-.proof figure{display:grid;gap:12px}
-.proof .ph{aspect-ratio:4/5;overflow:hidden}
-.proof .ph img{width:100%;height:100%;object-fit:cover}
-.proof .cup img{object-position:60% 45%}
-.proof .pig img{object-position:70% 55%}
-.proof .fac-fig{grid-column:1 / -1}
-.proof .fac{aspect-ratio:522/346}
-.proof .fac img{object-position:50% 100%}
-.proof figcaption{color:#d9ccb4}
+.proof figcaption{color:#d9ccb4;margin-top:14px}
+.casa{display:grid;gap:36px}
+.casa-art{max-width:420px}
+.casa-name{font-family:var(--serif);font-weight:400;font-size:56px;line-height:1;color:var(--paper)}
+.proof .fr{margin-top:12px;color:var(--terra-l)}
 
 /* ---------- 7. contact ---------- */
 .con{background:var(--espresso);color:var(--paper);padding:60px var(--pad) 64px}
@@ -127,7 +122,7 @@ figure{margin:0}
 .btn{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px}
 .btn.solid{background:var(--green);color:var(--paper)}
 .btn.line{border:1.5px solid rgba(246,240,228,.55);color:var(--paper)}
-.map{display:block;margin-top:40px;background:var(--ink);border-radius:4px;overflow:hidden;text-decoration:none}
+.map{display:block;margin-top:40px;text-decoration:none;box-shadow:0 0 0 1px rgba(58,36,24,.22),0 18px 38px -18px rgba(20,8,4,.7)}
 .map svg{display:block;width:100%;height:auto}
 
 /* ---------- footer ---------- */
@@ -191,8 +186,9 @@ html[lang="pt"] .sec{display:none}
   .dish{font-size:64px}
 
   .proof{padding:88px var(--pad)}
-  .proof-row{grid-template-columns:minmax(0,340px) minmax(0,340px) minmax(0,520px);gap:40px;justify-content:center;align-items:end}
-  .proof .fac-fig{grid-column:auto}
+  .casa{grid-template-columns:auto 1fr;gap:72px;align-items:center;max-width:1200px;margin:0 auto}
+  .casa-art .panel{max-height:76vh;width:auto;max-width:100%}
+  .casa-name{font-size:104px}
 
   .con{padding:96px var(--pad)}
   .con-wrap{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:start}
@@ -315,24 +311,18 @@ html[lang="pt"] .sec{display:none}
 
   <div class="frieze" aria-hidden="true"></div>
 
-  <!-- 6. PROOF STRIP -->
+  <!-- 6. A CASA -->
   <section class="proof" data-i18n-aria="proof_aria" aria-label="La maison">
-    <div class="proof-row">
-      <figure>
-        <div class="ph cup"><img src="assets/coupes-row.webp" width="984" height="1116" loading="lazy" data-i18n-alt="alt_coupes"
-             alt="Une rangée de coupes de dessert sur le comptoir en granit."></div>
-        <figcaption class="caps"><span lang="pt">Feito em casa</span><span class="sec"> · <span data-i18n="cup_fr">Fait maison</span></span></figcaption>
+    <div class="casa">
+      <figure class="casa-art">
+        <img class="panel" src="assets/tile-pig.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_pig"
+             alt="Illustration façon azulejo peint à la main : le cochon en céramique de la maison, son petit panneau et une orchidée.">
+        <figcaption class="caps"><span lang="pt">Ao balcão</span><span class="sec"> · <span data-i18n="proof_bar">Au comptoir</span></span></figcaption>
       </figure>
-      <figure>
-        <div class="ph pig"><img src="assets/proof-pig.webp" width="900" height="1040" loading="lazy" data-i18n-alt="alt_pig"
-             alt="Le cochon en céramique au panneau « WELCOME », à côté d'une orchidée, sur le comptoir."></div>
-        <figcaption class="caps" data-i18n="proof_bar">Au comptoir</figcaption>
-      </figure>
-      <figure class="fac-fig">
-        <div class="ph fac"><img src="assets/proof-facade.webp" width="522" height="346" loading="lazy" data-i18n-alt="alt_facade"
-             alt="La façade : « Restaurant » en lettres vertes et « WELCOME » en lettres dorées."></div>
-        <figcaption class="caps">103, rue du Canal</figcaption>
-      </figure>
+      <div class="casa-text">
+        <h2 class="casa-name" lang="pt">Feito em casa</h2>
+        <p class="fr sec" data-i18n="cup_fr">Fait maison</p>
+      </div>
     </div>
   </section>
 
@@ -369,41 +359,7 @@ html[lang="pt"] .sec{display:none}
 
       <a class="map" href="https://maps.google.com/?cid=9784293187068887660" target="_blank" rel="noopener" data-i18n-aria="map_aria"
          aria-label="Plan du quartier : la rue du Canal et le restaurant au numéro 103. Ouvrir dans Google Maps.">
-        <svg viewBox="0 0 600 420" aria-hidden="true" focusable="false" font-family="Rethink Sans, system-ui, sans-serif">
-          <rect width="600" height="420" fill="#4a1d11"/>
-          <!-- blocks -->
-          <g fill="#6a2a19">
-            <rect x="110" y="40" width="96" height="104" rx="3"/><rect x="226" y="40" width="128" height="104" rx="3"/>
-            <rect x="374" y="40" width="108" height="104" rx="3"/><rect x="502" y="40" width="98" height="104" rx="3"/>
-            <rect x="110" y="176" width="96" height="88" rx="3"/><rect x="226" y="176" width="128" height="88" rx="3"/>
-            <rect x="374" y="176" width="108" height="88" rx="3"/><rect x="502" y="176" width="98" height="88" rx="3"/>
-            <rect x="110" y="296" width="96" height="124" rx="3"/><rect x="502" y="296" width="98" height="124" rx="3"/>
-          </g>
-          <!-- side streets -->
-          <g stroke="#8f4c33" stroke-width="10" fill="none" stroke-linecap="round">
-            <path d="M216 0 V420"/><path d="M364 0 V420"/><path d="M492 0 V420"/>
-            <path d="M96 280 H600"/>
-          </g>
-          <!-- museum, a few streets south -->
-          <rect x="226" y="296" width="256" height="124" rx="3" fill="#3f7364" opacity=".55"/>
-          <g fill="#ad8f46"><rect x="340" y="336" width="22" height="22" rx="2"/></g>
-          <text x="354" y="384" text-anchor="middle" font-size="17" font-weight="600" fill="#efe4cc">Musée National</text>
-          <text x="354" y="405" text-anchor="middle" font-size="17" font-weight="600" fill="#efe4cc">de la Résistance</text>
-          <!-- rue du Canal, the main street -->
-          <path d="M70 160 H600" stroke="#efe4cc" stroke-width="18" fill="none"/>
-          <text x="560" y="194" text-anchor="end" font-size="15" font-weight="600" letter-spacing="3" fill="#efe4cc">RUE DU CANAL</text>
-          <!-- roundabout at the west end -->
-          <circle cx="54" cy="160" r="34" fill="none" stroke="#efe4cc" stroke-width="14"/>
-          <circle cx="54" cy="160" r="20" fill="#3f7364" opacity=".7"/>
-          <path d="M54 126 V0" stroke="#8f4c33" stroke-width="10"/><path d="M54 194 V420" stroke="#8f4c33" stroke-width="10"/>
-          <!-- venue at no. 103 -->
-          <circle cx="428" cy="146" r="22" fill="#b5654a" opacity=".3"/>
-          <circle cx="428" cy="146" r="11" fill="#ef9a6e" stroke="#4a1d11" stroke-width="3"/>
-          <rect x="384" y="58" width="96" height="46" rx="4" fill="#f6f0e4"/>
-          <text x="432" y="80" text-anchor="middle" font-family="Young Serif, Georgia, serif" font-size="19" fill="#b5654a">Welcome</text>
-          <text x="432" y="97" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="1.5" fill="#3a2418">N° 103</text>
-          <path d="M428 104 V130" stroke="#f6f0e4" stroke-width="2"/>
-        </svg>
+        <svg viewBox="0 0 720 600" aria-hidden="true" focusable="false" font-family="Rethink Sans, system-ui, sans-serif"><defs><filter id="mbrush" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter></defs><rect width="720" height="600" fill="#f8f4ea"/><g><rect x="0" y="0" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="60" y="0" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="120" y="0" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="180" y="0" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="240" y="0" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="300" y="0" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="360" y="0" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="420" y="0" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="480" y="0" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="540" y="0" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="600" y="0" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="660" y="0" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="0" y="60" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="60" y="60" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="120" y="60" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="180" y="60" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="240" y="60" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="300" y="60" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="360" y="60" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="420" y="60" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="480" y="60" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="540" y="60" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="600" y="60" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="660" y="60" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="0" y="120" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="60" y="120" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="120" y="120" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="180" y="120" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="240" y="120" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="300" y="120" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="360" y="120" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="420" y="120" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="480" y="120" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="540" y="120" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="600" y="120" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="660" y="120" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="0" y="180" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="60" y="180" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="120" y="180" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="180" y="180" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="240" y="180" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="300" y="180" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="360" y="180" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="420" y="180" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="480" y="180" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="540" y="180" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="600" y="180" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="660" y="180" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="0" y="240" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="60" y="240" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="120" y="240" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="180" y="240" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="240" y="240" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="300" y="240" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="360" y="240" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="420" y="240" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="480" y="240" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="540" y="240" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="600" y="240" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="660" y="240" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="0" y="300" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="60" y="300" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="120" y="300" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="180" y="300" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="240" y="300" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="300" y="300" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="360" y="300" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="420" y="300" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="480" y="300" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="540" y="300" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="600" y="300" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="660" y="300" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="0" y="360" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="60" y="360" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="120" y="360" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="180" y="360" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="240" y="360" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="300" y="360" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="360" y="360" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="420" y="360" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="480" y="360" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="540" y="360" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="600" y="360" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="660" y="360" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="0" y="420" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="60" y="420" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="120" y="420" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="180" y="420" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="240" y="420" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="300" y="420" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="360" y="420" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="420" y="420" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="480" y="420" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="540" y="420" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="600" y="420" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="660" y="420" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="0" y="480" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="60" y="480" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="120" y="480" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="180" y="480" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="240" y="480" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="300" y="480" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="360" y="480" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="420" y="480" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="480" y="480" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="540" y="480" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="600" y="480" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="660" y="480" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="0" y="540" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="60" y="540" width="60" height="60" fill="#f3ead9" opacity=".55"/><rect x="120" y="540" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="180" y="540" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="240" y="540" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="300" y="540" width="60" height="60" fill="#fbf6ec" opacity=".55"/><rect x="360" y="540" width="60" height="60" fill="#efe6d4" opacity=".55"/><rect x="420" y="540" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="480" y="540" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="540" y="540" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="600" y="540" width="60" height="60" fill="#fffaf0" opacity=".55"/><rect x="660" y="540" width="60" height="60" fill="#efe6d4" opacity=".55"/></g><g filter="url(#mbrush)"><rect x="10" y="10" width="700" height="580" fill="none" stroke="#c4553a" stroke-width="6"/><rect x="50" y="50" width="620" height="500" fill="none" stroke="#c4553a" stroke-width="4"/><circle cx="30" cy="30" r="11" fill="#d69b34"/><circle cx="30" cy="30" r="4.5" fill="#c4553a"/><circle cx="30" cy="570" r="11" fill="#d69b34"/><circle cx="30" cy="570" r="4.5" fill="#c4553a"/><path d="M73 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="90" cy="39" r="3" fill="#d69b34"/><path d="M73 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="90" cy="579" r="3" fill="#d69b34"/><path d="M133 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="150" cy="39" r="3" fill="#d69b34"/><path d="M133 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="150" cy="579" r="3" fill="#d69b34"/><path d="M193 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="210" cy="39" r="3" fill="#d69b34"/><path d="M193 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="210" cy="579" r="3" fill="#d69b34"/><path d="M253 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="270" cy="39" r="3" fill="#d69b34"/><path d="M253 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="270" cy="579" r="3" fill="#d69b34"/><path d="M313 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="330" cy="39" r="3" fill="#d69b34"/><path d="M313 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="330" cy="579" r="3" fill="#d69b34"/><path d="M373 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="390" cy="39" r="3" fill="#d69b34"/><path d="M373 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="390" cy="579" r="3" fill="#d69b34"/><path d="M433 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="450" cy="39" r="3" fill="#d69b34"/><path d="M433 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="450" cy="579" r="3" fill="#d69b34"/><path d="M493 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="510" cy="39" r="3" fill="#d69b34"/><path d="M493 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="510" cy="579" r="3" fill="#d69b34"/><path d="M553 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="570" cy="39" r="3" fill="#d69b34"/><path d="M553 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="570" cy="579" r="3" fill="#d69b34"/><path d="M613 36 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="630" cy="39" r="3" fill="#d69b34"/><path d="M613 576 q8 -16 17 -6 q9 10 17 -6" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="630" cy="579" r="3" fill="#d69b34"/><circle cx="690" cy="30" r="11" fill="#d69b34"/><circle cx="690" cy="30" r="4.5" fill="#c4553a"/><circle cx="690" cy="570" r="11" fill="#d69b34"/><circle cx="690" cy="570" r="4.5" fill="#c4553a"/><path d="M24 73 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="90" r="3" fill="#d69b34"/><path d="M684 73 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="693" cy="90" r="3" fill="#d69b34"/><path d="M24 133 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="150" r="3" fill="#d69b34"/><path d="M684 133 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="693" cy="150" r="3" fill="#d69b34"/><path d="M24 193 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="210" r="3" fill="#d69b34"/><path d="M684 193 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="693" cy="210" r="3" fill="#d69b34"/><path d="M24 253 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="270" r="3" fill="#d69b34"/><path d="M684 253 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="693" cy="270" r="3" fill="#d69b34"/><path d="M24 313 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="330" r="3" fill="#d69b34"/><path d="M684 313 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="693" cy="330" r="3" fill="#d69b34"/><path d="M24 373 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="390" r="3" fill="#d69b34"/><path d="M684 373 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="693" cy="390" r="3" fill="#d69b34"/><path d="M24 433 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="450" r="3" fill="#d69b34"/><path d="M684 433 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="693" cy="450" r="3" fill="#d69b34"/><path d="M24 493 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="510" r="3" fill="#d69b34"/><path d="M684 493 q-16 8 -6 17 q10 9 -6 17" transform="translate(12 0)" fill="none" stroke="#2f6b57" stroke-width="4" stroke-linecap="round"/><circle cx="693" cy="510" r="3" fill="#d69b34"/><g transform="translate(60 90)"><rect x="226" y="296" width="256" height="124" rx="4" fill="#d69b34" opacity=".5"/><g stroke="#2f6b57" stroke-width="9" fill="none" stroke-linecap="round"><path d="M216 -24 V444"/><path d="M364 -24 V280"/><path d="M492 -24 V444"/><path d="M96 280 H606"/><path d="M54 126 V-24"/><path d="M54 194 V444"/></g><path d="M70 160 H606" stroke="#c4553a" stroke-width="20" fill="none" stroke-linecap="round"/><circle cx="54" cy="160" r="34" fill="none" stroke="#c4553a" stroke-width="13"/><circle cx="54" cy="160" r="17" fill="#2f6b57"/><circle cx="428" cy="146" r="24" fill="#d69b34" opacity=".6"/><circle cx="428" cy="146" r="12" fill="#c4553a"/></g></g><g stroke="#cdbfa6" stroke-width="1.4" opacity=".75"><path d="M60 0 V600"/><path d="M120 0 V600"/><path d="M180 0 V600"/><path d="M240 0 V600"/><path d="M300 0 V600"/><path d="M360 0 V600"/><path d="M420 0 V600"/><path d="M480 0 V600"/><path d="M540 0 V600"/><path d="M600 0 V600"/><path d="M660 0 V600"/><path d="M0 60 H720"/><path d="M0 120 H720"/><path d="M0 180 H720"/><path d="M0 240 H720"/><path d="M0 300 H720"/><path d="M0 360 H720"/><path d="M0 420 H720"/><path d="M0 480 H720"/><path d="M0 540 H720"/></g><g transform="translate(60 90)"><rect x="364" y="40" width="136" height="66" rx="3" fill="#f8f4ea" stroke="#c4553a" stroke-width="3"/><text x="432" y="74" text-anchor="middle" font-family="Young Serif, Georgia, serif" font-size="27" fill="#c4553a">Welcome</text><text x="432" y="96" text-anchor="middle" font-size="15" font-weight="600" letter-spacing="1.5" fill="#2f6b57">N° 103</text><path d="M428 106 V128" stroke="#c4553a" stroke-width="2.5"/><text x="290" y="206" text-anchor="middle" font-family="Young Serif, Georgia, serif" font-size="28" fill="#5a2416">Rue du Canal</text><text x="354" y="340" text-anchor="middle" font-size="22" font-weight="600" fill="#5a2416">Musée National</text><text x="354" y="368" text-anchor="middle" font-size="22" font-weight="600" fill="#5a2416">de la Résistance</text></g></svg>
       </a>
     </div>
   </section>
@@ -417,7 +373,7 @@ html[lang="pt"] .sec{display:none}
     <p><span data-i18n="foot_days">7 jours sur 7</span>, 12:00–14:30 &amp; 18:30–22:00</p>
     <p><a href="tel:+352542558">54 25 58</a></p>
   </div>
-  <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Les panneaux d'azulejos des plats sont des illustrations générées. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
+  <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Les panneaux d'azulejos sont des illustrations générées. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
 </footer>
 
 <a class="call" href="tel:+352542558">
@@ -448,11 +404,9 @@ html[lang="pt"] .sec{display:none}
       alt_bacalhau: "Illustration façon azulejo peint à la main : un pavé de morue, de petites pommes de terre et de l'ail.",
       bac_fr: "Morue grillée",
       cup_fr: "Fait maison",
-      alt_coupes: "Une rangée de coupes de dessert sur le comptoir en granit.",
       proof_aria: "La maison",
-      alt_pig: "Le cochon en céramique au panneau « WELCOME », à côté d'une orchidée, sur le comptoir.",
+      alt_pig: "Illustration façon azulejo peint à la main : le cochon en céramique de la maison, son petit panneau et une orchidée.",
       proof_bar: "Au comptoir",
-      alt_facade: "La façade : « Restaurant » en lettres vertes et « WELCOME » en lettres dorées.",
       con_h: "Cuisine portugaise et française",
       k_when: "Quand",
       when_days: "7 jours sur 7",
@@ -468,7 +422,7 @@ html[lang="pt"] .sec{display:none}
       map_aria: "Plan du quartier : la rue du Canal et le restaurant au numéro 103. Ouvrir dans Google Maps.",
       bom: "Bon appétit",
       foot_days: "7 jours sur 7",
-      disc: "Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Les panneaux d'azulejos des plats sont des illustrations générées. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
+      disc: "Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Les panneaux d'azulejos sont des illustrations générées. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
     },
     pt: {
       _title: "Restaurante Welcome · Esch-sur-Alzette",
@@ -490,11 +444,9 @@ html[lang="pt"] .sec{display:none}
       alt_bacalhau: "Ilustração ao estilo de azulejo pintado à mão: uma posta de bacalhau, batatinhas e alho.",
       bac_fr: "Bacalhau grelhado",
       cup_fr: "Feito em casa",
-      alt_coupes: "Uma fila de taças de sobremesa no balcão de granito.",
       proof_aria: "A casa",
-      alt_pig: "O porco de cerâmica com a placa «WELCOME», ao lado de uma orquídea, no balcão.",
+      alt_pig: "Ilustração ao estilo de azulejo pintado à mão: o porco de cerâmica da casa, a sua plaquinha e uma orquídea.",
       proof_bar: "Ao balcão",
-      alt_facade: "A fachada: «Restaurant» em letras verdes e «WELCOME» em letras douradas.",
       con_h: "Cozinha portuguesa e francesa",
       k_when: "Quando",
       when_days: "Todos os dias",
@@ -510,7 +462,7 @@ html[lang="pt"] .sec{display:none}
       map_aria: "Mapa do bairro: a rue du Canal e o restaurante no número 103. Abrir no Google Maps.",
       bom: "Bom apetite",
       foot_days: "Todos os dias",
-      disc: "Proposta de site não oficial, feita pela Webwerk a partir de informações e fotografias públicas, sem ligação ao estabelecimento. Os painéis de azulejos dos pratos são ilustrações geradas. Estatísticas de visitas anónimas, sem cookies nem dados pessoais."
+      disc: "Proposta de site não oficial, feita pela Webwerk a partir de informações e fotografias públicas, sem ligação ao estabelecimento. Os painéis de azulejos são ilustrações geradas. Estatísticas de visitas anónimas, sem cookies nem dados pessoais."
     },
     de: {
       _title: "Restaurant Welcome · Esch-sur-Alzette",
@@ -532,11 +484,9 @@ html[lang="pt"] .sec{display:none}
       alt_bacalhau: "Illustration im Stil handbemalter Azulejos: ein Stück Kabeljau, kleine Kartoffeln und Knoblauch.",
       bac_fr: "Gegrillter Klippfisch",
       cup_fr: "Hausgemacht",
-      alt_coupes: "Eine Reihe Dessertschalen auf der Granittheke.",
       proof_aria: "Das Haus",
-      alt_pig: "Das Keramikschwein mit dem Schild „WELCOME“ neben einer Orchidee auf der Theke.",
+      alt_pig: "Illustration im Stil handbemalter Azulejos: das Keramikschwein des Hauses mit seinem Schildchen und einer Orchidee.",
       proof_bar: "An der Theke",
-      alt_facade: "Die Fassade: „Restaurant“ in grünen und „WELCOME“ in goldenen Buchstaben.",
       con_h: "Portugiesische und französische Küche",
       k_when: "Wann",
       when_days: "Täglich geöffnet",
@@ -552,7 +502,7 @@ html[lang="pt"] .sec{display:none}
       map_aria: "Lageplan: die Rue du Canal und das Restaurant in Nummer 103. In Google Maps öffnen.",
       bom: "Guten Appetit",
       foot_days: "Täglich",
-      disc: "Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Die Azulejo-Bilder der Gerichte sind generierte Illustrationen. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
+      disc: "Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Die Azulejo-Bilder sind generierte Illustrationen. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
     },
     en: {
       _title: "Restaurant Welcome · Esch-sur-Alzette",
@@ -574,11 +524,9 @@ html[lang="pt"] .sec{display:none}
       alt_bacalhau: "Hand-painted azulejo-style illustration: a piece of cod, small potatoes and garlic.",
       bac_fr: "Grilled salt cod",
       cup_fr: "Homemade",
-      alt_coupes: "A row of dessert bowls on the granite counter.",
       proof_aria: "The house",
-      alt_pig: "The ceramic pig with its “WELCOME” sign, next to an orchid on the counter.",
+      alt_pig: "Hand-painted azulejo-style illustration: the house ceramic pig, its little sign and an orchid.",
       proof_bar: "At the bar",
-      alt_facade: "The front: “Restaurant” in green letters and “WELCOME” in gold.",
       con_h: "Portuguese and French cooking",
       k_when: "When",
       when_days: "Open every day",
@@ -594,7 +542,7 @@ html[lang="pt"] .sec{display:none}
       map_aria: "Street map: rue du Canal and the restaurant at number 103. Open in Google Maps.",
       bom: "Enjoy your meal",
       foot_days: "Every day",
-      disc: "An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. The azulejo dish panels are generated illustrations. Anonymous visit statistics, with no cookies and no personal data."
+      disc: "An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. The azulejo panels are generated illustrations. Anonymous visit statistics, with no cookies and no personal data."
     }
   };
 
