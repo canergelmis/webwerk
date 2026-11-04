@@ -138,6 +138,7 @@ figure{margin:0}
 .end .bom .bom-2{color:var(--paper)}
 .end .info p{color:#efe4cc}
 .end .info a{text-decoration:none;border-bottom:1px solid rgba(246,240,228,.4)}
+html[lang="pt"] .sec{display:none}
 .disc{font-size:13px;line-height:1.55;color:#c9bca6;max-width:62ch}
 
 /* ================= desktop ================= */
@@ -242,7 +243,7 @@ figure{margin:0}
 <header class="top">
   <a class="napkin" href="#top" data-i18n-aria="logo_aria" aria-label="Restaurant Welcome, Esch/Alzette, retour en haut"><svg viewBox="0 0 200 150" aria-hidden="true" focusable="false"><use href="#lockup"/></svg></a>
   <nav class="lang caps" data-i18n-aria="lang_aria" aria-label="Langue">
-    <button type="button" data-lang="fr" lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="de" lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang="fr" lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="pt" lang="pt" aria-pressed="false">PT</button><button type="button" data-lang="de" lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
   </nav>
 </header>
 
@@ -264,7 +265,7 @@ figure{margin:0}
 
   <!-- 2. PICANHA -->
   <section class="pic" aria-labelledby="pic-t">
-    <span class="pic-label caps"><span lang="pt">Na grelha</span> · <span data-i18n="pic_label">Au gril</span></span>
+    <span class="pic-label caps"><span lang="pt">Na grelha</span><span class="sec"> · <span data-i18n="pic_label">Au gril</span></span></span>
     <figure class="print">
       <img class="panel" src="assets/tile-picanha.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_picanha"
            alt="Illustration façon azulejo peint à la main : des tranches de picanha sur une broche.">
@@ -277,12 +278,12 @@ figure{margin:0}
 
   <!-- 3. POLVO -->
   <section class="pol" aria-labelledby="pol-t">
-    <span class="pol-label caps"><span lang="pt">Polvo grelhado</span> · <span data-i18n="pol_label">Poulpe grillé</span></span>
+    <span class="pol-label caps"><span lang="pt">Polvo grelhado</span><span class="sec"> · <span data-i18n="pol_label">Poulpe grillé</span></span></span>
     <div class="pol-stage">
       <div class="pol-col"><img class="panel" src="assets/tile-polvo.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_polvo"
            alt="Illustration façon azulejo peint à la main : les tentacules du poulpe et les pommes de terre, dans un plat en terre cuite."></div>
       <h2 class="pol-name" id="pol-t" lang="pt" data-fit><span>Polvo</span></h2>
-      <p class="fr" data-i18n="pol_fr">Poulpe</p>
+      <p class="fr sec" data-i18n="pol_fr">Poulpe</p>
     </div>
   </section>
 
@@ -290,7 +291,7 @@ figure{margin:0}
 
   <!-- 4. LEITAO -->
   <section class="lei" aria-labelledby="lei-t">
-    <span class="lei-label caps"><span lang="pt">Ao domingo</span> · <span data-i18n="lei_label">Le dimanche</span></span>
+    <span class="lei-label caps"><span lang="pt">Ao domingo</span><span class="sec"> · <span data-i18n="lei_label">Le dimanche</span></span></span>
     <figure class="lei-print">
       <img class="panel" src="assets/tile-leitao.webp" width="1344" height="896" loading="lazy" data-i18n-alt="alt_leitao"
            alt="Illustration façon azulejo peint à la main : un porcelet rôti sur une planche, avec des oranges et des pommes de terre.">
@@ -308,7 +309,7 @@ figure{margin:0}
         <img class="panel" src="assets/tile-bacalhau.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_bacalhau"
              alt="Illustration façon azulejo peint à la main : un pavé de morue, de petites pommes de terre et de l'ail.">
       </figure>
-      <h2 class="dish" id="bac-t"><span lang="pt">Bacalhau à lagareiro</span><small data-i18n="bac_fr">Morue grillée</small></h2>
+      <h2 class="dish" id="bac-t"><span lang="pt">Bacalhau à lagareiro</span><small class="sec" data-i18n="bac_fr">Morue grillée</small></h2>
     </div>
   </section>
 
@@ -320,7 +321,7 @@ figure{margin:0}
       <figure>
         <div class="ph cup"><img src="assets/coupes-row.webp" width="984" height="1116" loading="lazy" data-i18n-alt="alt_coupes"
              alt="Une rangée de coupes de dessert sur le comptoir en granit."></div>
-        <figcaption class="caps"><span lang="pt">Feito em casa</span> · <span data-i18n="cup_fr">Fait maison</span></figcaption>
+        <figcaption class="caps"><span lang="pt">Feito em casa</span><span class="sec"> · <span data-i18n="cup_fr">Fait maison</span></span></figcaption>
       </figure>
       <figure>
         <div class="ph pig"><img src="assets/proof-pig.webp" width="900" height="1040" loading="lazy" data-i18n-alt="alt_pig"
@@ -410,7 +411,7 @@ figure{margin:0}
 
 <footer class="end">
   <span class="napkin" aria-hidden="true"><svg viewBox="0 0 200 150" focusable="false"><use href="#lockup"/></svg></span>
-  <p class="bom"><span lang="pt">Bom apetite</span><span class="bom-2" data-i18n="bom">Bon appétit</span></p>
+  <p class="bom"><span lang="pt">Bom apetite</span><span class="bom-2 sec" data-i18n="bom">Bon appétit</span></p>
   <div class="info">
     <p>103, rue du Canal, L-4051 Esch-sur-Alzette</p>
     <p><span data-i18n="foot_days">7 jours sur 7</span>, 12:00–14:30 &amp; 18:30–22:00</p>
@@ -468,6 +469,48 @@ figure{margin:0}
       bom: "Bon appétit",
       foot_days: "7 jours sur 7",
       disc: "Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Les panneaux d'azulejos des plats sont des illustrations générées. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
+    },
+    pt: {
+      _title: "Restaurante Welcome · Esch-sur-Alzette",
+      _desc: "Restaurante Welcome, 103, rue du Canal, em Esch-sur-Alzette. Cozinha portuguesa e francesa desde 1995, no local ou para levar. Reservas por telefone: 54 25 58.",
+      logo_aria: "Restaurante Welcome, Esch/Alzette, voltar ao início",
+      lang_aria: "Idioma",
+      alt_pan: "Ilustração ao estilo de azulejo pintado à mão: a paelha, com camarão, limão e salsa.",
+      hero_line: "Restaurante · Esch/Alzette · desde 1995",
+      hero_hours: "Todos os dias · 12:00–14:30 · 18:30–22:00<br>No local ou para levar",
+      pic_label: "Na grelha",
+      alt_picanha: "Ilustração ao estilo de azulejo pintado à mão: fatias de picanha num espeto.",
+      pic_fr: "Picanha às fatias",
+      pol_label: "Polvo grelhado",
+      alt_polvo: "Ilustração ao estilo de azulejo pintado à mão: tentáculos de polvo e batatas num prato de barro.",
+      pol_fr: "Polvo",
+      lei_label: "Ao domingo",
+      alt_leitao: "Ilustração ao estilo de azulejo pintado à mão: um leitão assado numa tábua, com laranjas e batatas.",
+      lei_fr: "Leitão assado a lenha",
+      alt_bacalhau: "Ilustração ao estilo de azulejo pintado à mão: uma posta de bacalhau, batatinhas e alho.",
+      bac_fr: "Bacalhau grelhado",
+      cup_fr: "Feito em casa",
+      alt_coupes: "Uma fila de taças de sobremesa no balcão de granito.",
+      proof_aria: "A casa",
+      alt_pig: "O porco de cerâmica com a placa «WELCOME», ao lado de uma orquídea, no balcão.",
+      proof_bar: "Ao balcão",
+      alt_facade: "A fachada: «Restaurant» em letras verdes e «WELCOME» em letras douradas.",
+      con_h: "Cozinha portuguesa e francesa",
+      k_when: "Quando",
+      when_days: "Todos os dias",
+      when_noon: "Almoço",
+      when_eve: "Jantar",
+      k_where: "Onde",
+      btn_place: "Ver no Google Maps",
+      btn_dir: "Como chegar",
+      k_how: "Como",
+      how_1: "No local ou para levar.",
+      how_2: "Reservas e encomendas para levar por telefone.",
+      btn_call: "Ligar",
+      map_aria: "Mapa do bairro: a rue du Canal e o restaurante no número 103. Abrir no Google Maps.",
+      bom: "Bom apetite",
+      foot_days: "Todos os dias",
+      disc: "Proposta de site não oficial, feita pela Webwerk a partir de informações e fotografias públicas, sem ligação ao estabelecimento. Os painéis de azulejos dos pratos são ilustrações geradas. Estatísticas de visitas anónimas, sem cookies nem dados pessoais."
     },
     de: {
       _title: "Restaurant Welcome · Esch-sur-Alzette",
@@ -584,7 +627,7 @@ figure{margin:0}
 
   var start = 'fr';
   try { var sv = localStorage.getItem('welcome_lang'); if (sv && I18N[sv]) start = sv; } catch(e) {}
-  var q = /[?&]lang=(fr|de|en)\b/.exec(location.search); if (q) start = q[1];
+  var q = /[?&]lang=(fr|pt|de|en)\b/.exec(location.search); if (q) start = q[1];
   if (start !== 'fr') applyLang(start); else fit();
 
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
