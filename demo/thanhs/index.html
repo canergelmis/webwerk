@@ -1083,7 +1083,7 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
   // the drum turns once, slowly, as the menu passes
   const menuEl = document.getElementById('menu'), dimg = document.getElementById('dimg');
   function turnDrum() {
-    if (!menuEl) return;
+    if (!menuEl || !dimg) return;   // r30: no drum on the menu page
     const b = menuEl.getBoundingClientRect(); if (b.bottom < 0 || b.top > innerHeight) return;
     const t = clamp((innerHeight - b.top) / (b.height + innerHeight));
     dimg.style.transform = `rotate(${(-40 * t).toFixed(2)}deg)`;
