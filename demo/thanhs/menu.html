@@ -612,6 +612,9 @@ footer{background:var(--cream)}
 }
 /* their roundel in the header */
 .top .disc{display:block}
+/* ---------- r30: no drum ---------- */
+.menu.page .mh{margin-bottom:var(--s3)}
+@media (min-width:900px){ .sig{margin-top:0} }
 header .disc{flex-shrink:0}
 @media (max-width:899px){.s-bobun + .still{margin-top:-38vh;padding-top:0}}
 footer .langs button{font:inherit;background:none;border:0;padding:0 0 3px;cursor:pointer;color:var(--soft);letter-spacing:.06em}
@@ -658,13 +661,9 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
 </button>
 
 <main id="top">
-  <!-- the drum is the menu -->
   <section class="menu page" id="menu" aria-label="Menu">
     <div class="wrap">
       <h1 class="mh" data-t="nav_menu">Menu</h1>
-      <div class="drum" aria-hidden="true">
-        <img id="dimg" src="img/drum-disc.webp" alt="" width="900" height="900" loading="lazy">
-      </div>
 
       <div class="list">
         <p class="morning" data-t="morning">Our dishes are prepared each morning and everything is made to order with fresh ingredients, consciously sourced. Our menu is deliberately short with limited stock to ensure freshness and quality every day. Bon Appétit !</p>
@@ -1044,7 +1043,7 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
   // the drum turns once, slowly, as the menu passes
   const menuEl = document.getElementById('menu'), dimg = document.getElementById('dimg');
   function turnDrum() {
-    if (!menuEl) return;
+    if (!menuEl || !dimg) return;   // r30: no drum on the menu page
     const b = menuEl.getBoundingClientRect(); if (b.bottom < 0 || b.top > innerHeight) return;
     const t = clamp((innerHeight - b.top) / (b.height + innerHeight));
     dimg.style.transform = `rotate(${(-40 * t).toFixed(2)}deg)`;
