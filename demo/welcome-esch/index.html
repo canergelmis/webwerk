@@ -59,65 +59,59 @@ figure{margin:0}
 .call svg{width:18px;height:18px;flex:none}
 .call:focus-visible{outline:3px solid var(--gold);outline-offset:-5px}
 
-/* ---------- 1. hero: inside the pan ---------- */
-.hero{position:relative;height:calc(100svh - var(--callh));min-height:560px;overflow:hidden;background:var(--ink);color:var(--paper)}
-.pan-window{position:absolute;inset:0;overflow:hidden;container-type:size;background:#7a5a1c}
-.pan-disc{position:absolute;left:50%;top:50%;
-  width:calc(max(100cqw, 100cqh) * 1.2);height:calc(max(100cqw, 100cqh) * 1.2);
-  max-width:none;transform:translate(-50%,-50%)}
-.pan-window::after{content:"";position:absolute;inset:0;pointer-events:none;background:
-  linear-gradient(to bottom,rgba(30,22,18,.84) 0%,rgba(30,22,18,.62) 30%,rgba(30,22,18,.12) 52%,rgba(30,22,18,0) 66%,rgba(30,22,18,.5) 100%)}
-.hero-type{position:absolute;z-index:2;left:0;right:0;top:118px;padding:0 calc(var(--pad) - 4px)}
-.wordmark{color:var(--paper);text-shadow:0 2px 36px rgba(30,22,18,.45)}
+/* ---------- azulejo panels + tile friezes ---------- */
+.panel{display:block;width:100%;height:auto;box-shadow:0 0 0 1px rgba(58,36,24,.22),0 16px 34px -20px rgba(30,22,18,.6)}
+.frieze{display:block;height:36px;background:url(assets/tile-pattern.webp) 0 50%/36px 36px repeat-x;
+  border-top:1px solid rgba(58,36,24,.25);border-bottom:1px solid rgba(58,36,24,.25)}
+
+/* ---------- 1. hero: wordmark on brown, the paella panel below ---------- */
+.hero{position:relative;background:var(--ink);color:var(--paper);padding:118px 0 40px}
+.hero-type{position:relative;padding:0 calc(var(--pad) - 4px)}
+.wordmark{color:var(--paper)}
 .hero-line{margin-top:16px;padding-left:4px;color:var(--paper)}
 .hero-hours{margin-top:10px;padding-left:4px;color:var(--paper);font-size:15px;line-height:1.5;opacity:.92}
+.hero-art{margin:32px var(--pad) 0}
 
-/* ---------- 2. picanha (print) ---------- */
+/* ---------- 2. picanha (panel) ---------- */
 .pic{position:relative;background:var(--paper);padding:60px 0 64px;overflow:hidden}
 .pic-label{display:block;color:var(--green);padding:0 var(--pad);margin-bottom:18px}
-.print{position:relative;z-index:1;width:88%;aspect-ratio:4/5;background:var(--cream);overflow:hidden}
-.print img{width:100%;height:100%;object-fit:cover}
-.pic-text{position:relative;z-index:3;margin-top:-.42em;padding:0 calc(var(--pad) - 4px)}
+.print{position:relative;z-index:1;width:80%;margin-left:var(--pad)}
+.pic-text{position:relative;z-index:3;margin-top:22px;padding:0 calc(var(--pad) - 4px)}
 .pic-name{color:var(--terra);font-size:30vw}
 .pic .fr{margin-top:14px;padding:0 4px;text-align:left;color:var(--ink)}
 
-/* ---------- 3. polvo (real, into the food) ---------- */
+/* ---------- 3. polvo (panel right, word below) ---------- */
 .pol{position:relative;background:var(--ink);color:var(--paper);padding:60px 0 64px;overflow:hidden}
 .pol-label{display:block;color:var(--gold);padding:0 var(--pad);margin-bottom:22px}
 .pol-stage{position:relative}
-.pol-col{width:70%;margin-left:auto;margin-right:var(--pad);aspect-ratio:500/860;overflow:hidden}
-.pol-col img{width:122%;max-width:none;height:auto;margin-left:-22%}
-.pol-name{position:absolute;z-index:2;left:calc(var(--pad) - 4px);right:calc(var(--pad) - 4px);top:54%;color:var(--paper);
-  text-shadow:0 2px 30px rgba(30,22,18,.6),0 0 2px rgba(30,22,18,.3)}
-.pol .fr{margin-top:20px;padding:0 var(--pad);color:var(--paper)}
+.pol-col{width:80%;margin-left:auto;margin-right:var(--pad)}
+.pol-name{position:relative;margin:22px calc(var(--pad) - 4px) 0;color:var(--paper)}
+.pol .fr{margin-top:14px;padding:0 var(--pad);color:var(--paper)}
 
-/* ---------- 4. leitao (print, wide, on cream) ---------- */
+/* ---------- 4. leitao (panel, wide, on cream) ---------- */
 .lei{position:relative;background:var(--cream);padding:60px 0 64px;overflow:hidden}
-.lei-label{display:block;color:var(--terra);padding:0 var(--pad);margin-bottom:10px}
-.lei-print{margin:0 var(--pad);aspect-ratio:1344/896;overflow:hidden}
-.lei-print img{width:100%;height:100%;object-fit:cover}
-.lei-text{position:relative;margin-top:-10vw;padding:0 calc(var(--pad) - 4px)}
+.lei-label{display:block;color:var(--terra);padding:0 var(--pad);margin-bottom:18px}
+.lei-print{margin:0 var(--pad)}
+.lei-text{position:relative;margin-top:22px;padding:0 calc(var(--pad) - 4px)}
 .lei-name{color:var(--espresso);font-size:28vw}
 .lei .fr{margin-top:14px;padding:0 4px;color:var(--espresso)}
 
-/* ---------- 5. bacalhau + feito em casa ---------- */
+/* ---------- 5. bacalhau ---------- */
 .bac{background:var(--paper);padding:60px var(--pad) 56px}
-.bac-row{display:grid;gap:18px}
-.bac-print{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--cream)}
-.bac-print img{width:100%;height:100%;object-fit:cover;object-position:45% 50%;transform:scale(1.12)}
+.bac-row{display:grid;gap:22px}
+.bac-print{width:80%;margin-left:auto}
 .dish{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1;color:var(--terra)}
 .dish small{display:block;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-top:12px;line-height:1.4}
-.bac-row + .bac-row{margin-top:56px;padding-top:44px;border-top:1px solid rgba(58,36,24,.22)}
-.cup-img{height:260px;overflow:hidden}
-.cup-img img{width:100%;height:100%;object-fit:cover;object-position:60% 45%}
 
 /* ---------- 6. proof strip ---------- */
 .proof{background:var(--ink);color:var(--paper);padding:56px var(--pad) 60px}
-.proof-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.proof-row{display:grid;grid-template-columns:1fr 1fr;gap:28px 14px;align-items:start}
 .proof figure{display:grid;gap:12px}
 .proof .ph{aspect-ratio:4/5;overflow:hidden}
 .proof .ph img{width:100%;height:100%;object-fit:cover}
+.proof .cup img{object-position:60% 45%}
 .proof .pig img{object-position:70% 55%}
+.proof .fac-fig{grid-column:1 / -1}
 .proof .fac{aspect-ratio:522/346}
 .proof .fac img{object-position:50% 100%}
 .proof figcaption{color:#d9ccb4}
@@ -156,42 +150,48 @@ figure{margin:0}
   .call{left:auto;right:var(--pad);bottom:auto;top:18px;height:auto;padding:16px 26px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.3);font-size:16px}
   .fr{font-size:26px}
 
-  .hero{height:100vh;min-height:720px;display:grid;grid-template-columns:58fr 42fr}
-  .pan-window{position:relative;inset:auto;grid-column:2;grid-row:1;align-self:center;height:min(100%,940px);max-width:720px;width:100%;justify-self:end}
-  .pan-window::after{background:linear-gradient(to left,rgba(30,22,18,0) 70%,rgba(30,22,18,.28) 100%)}
-  .hero-type{position:relative;grid-column:1;grid-row:1;top:auto;align-self:center;padding:0 var(--pad) 0 calc(var(--pad) - 8px);display:flex;flex-direction:column-reverse}
-  .wordmark{text-shadow:none}
+  .frieze{height:56px;background-size:56px 56px}
+
+  .hero{height:100vh;min-height:720px;display:grid;grid-template-columns:50fr 50fr;padding:0}
+  .hero-art{position:relative;grid-column:2;grid-row:1;margin:0;min-height:0;display:flex;align-items:center;justify-content:center;
+    padding:96px var(--pad) 40px calc(56px + var(--pad))}
+  .hero-art::before{content:"";position:absolute;left:0;top:0;bottom:0;width:56px;background:url(assets/tile-pattern.webp) 50% 0/56px 56px repeat-y;
+    border-left:1px solid rgba(246,240,228,.18);border-right:1px solid rgba(246,240,228,.18)}
+  .hero-art .panel{width:auto;max-width:100%;max-height:90vh}
+  .hero-type{position:relative;grid-column:1;grid-row:1;align-self:center;padding:0 var(--pad) 0 calc(var(--pad) - 8px);display:flex;flex-direction:column-reverse}
   .hero-line{margin:0 0 18px;padding-left:10px;font-size:13px}
   .hero-hours{order:-1;margin:22px 0 0;padding-left:10px;font-size:18px}
 
   .pic{display:grid;grid-template-columns:46fr 54fr;align-items:end;padding:96px 0 96px;min-height:100vh}
   .pic-label{position:absolute;top:56px;left:var(--pad);padding:0;margin:0}
-  .print{width:auto;height:min(82vh,820px);justify-self:start;margin-left:var(--pad)}
+  .print{width:auto;height:min(82vh,820px);aspect-ratio:4/5;justify-self:start;margin-left:var(--pad)}
+  .print .panel{height:100%;width:auto}
   .pic-text{margin:0 0 6vh 3vw;padding:0 var(--pad) 0 0}
   .pic-name{font-size:12.5vw}
   .pic .fr{text-align:left;padding-left:4px}
 
-  .pol{min-height:100vh;padding:96px 0}
+  .pol{min-height:100vh;padding:96px 0;display:flex;flex-direction:column;justify-content:center}
   .pol-label{position:absolute;top:56px;left:var(--pad);margin:0;padding:0}
-  .pol-col{width:min(28vw,420px);margin:0 0 0 52vw}
-  .pol-name{left:calc(var(--pad) - 8px);right:auto;width:74vw;top:42%}
-  .pol .fr{margin-top:28px;padding-left:calc(var(--pad) + 4px)}
+  .pol-stage{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:1fr auto 1fr;column-gap:5vw;align-items:center;padding:0 var(--pad) 0 calc(var(--pad) - 8px)}
+  .pol-col{grid-column:2;grid-row:1 / 4;height:min(80vh,780px);aspect-ratio:4/5;width:auto;margin:0}
+  .pol-col .panel{height:100%;width:auto}
+  .pol-name{grid-column:1;grid-row:2;margin:0;padding:0}
+  .pol .fr{grid-column:1;grid-row:3;align-self:start;margin-top:22px;padding-left:10px}
 
   .lei{padding:96px 0 104px}
   .lei-label{position:absolute;top:56px;left:var(--pad);margin:0;padding:0}
-  .lei-print{width:72vw;margin-left:auto;margin-right:var(--pad)}
-  .lei-text{margin-top:-7vw;padding:0 0 0 calc(var(--pad) - 8px);width:58vw}
+  .lei-print{width:min(100% - 2 * var(--pad), 1160px);margin:0 auto}
+  .lei-text{margin:36px 0 0 calc(max(var(--pad), (100% - 1160px) / 2) - 8px);padding:0;width:58vw}
   .lei .fr{padding-left:10px}
 
   .bac{padding:96px var(--pad)}
-  .bac-row{grid-template-columns:minmax(0,560px) 1fr;align-items:center;gap:64px}
-  .bac-row.flip{grid-template-columns:1fr minmax(0,720px)}
-  .bac-row + .bac-row{margin-top:80px;padding-top:80px}
+  .bac-row{grid-template-columns:minmax(0,520px) 1fr;align-items:center;gap:64px}
+  .bac-print{width:100%;margin:0}
   .dish{font-size:64px}
-  .cup-img{height:420px}
 
   .proof{padding:88px var(--pad)}
-  .proof-row{grid-template-columns:minmax(0,520px) minmax(0,520px);gap:48px;justify-content:center}
+  .proof-row{grid-template-columns:minmax(0,340px) minmax(0,340px) minmax(0,520px);gap:40px;justify-content:center;align-items:end}
+  .proof .fac-fig{grid-column:auto}
 
   .con{padding:96px var(--pad)}
   .con-wrap{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:start}
@@ -249,23 +249,25 @@ figure{margin:0}
 <main id="top">
   <!-- 1. HERO -->
   <section class="hero" aria-label="Restaurant Welcome">
-    <div class="pan-window">
-      <img class="pan-disc" src="assets/paella-pan.webp" width="1030" height="1030" fetchpriority="high"
-           data-i18n-alt="alt_pan" alt="La paella vue de tout près : crevettes, fruits de mer, citron, persil.">
-    </div>
     <div class="hero-type">
       <h1 class="wordmark" data-fit><span>Welcome</span></h1>
       <p class="hero-line caps" data-i18n="hero_line">Restaurant · Esch/Alzette · depuis 1995</p>
       <p class="hero-hours" data-i18n="hero_hours">7 jours sur 7 · 12:00–14:30 · 18:30–22:00<br>Sur place ou à emporter</p>
     </div>
+    <figure class="hero-art">
+      <img class="panel" src="assets/tile-paella.webp" width="960" height="1200" fetchpriority="high"
+           data-i18n-alt="alt_pan" alt="Illustration façon azulejo peint à la main : la paella, crevettes, citron et persil.">
+    </figure>
   </section>
+
+  <div class="frieze" aria-hidden="true"></div>
 
   <!-- 2. PICANHA -->
   <section class="pic" aria-labelledby="pic-t">
     <span class="pic-label caps"><span lang="pt">Na grelha</span> · <span data-i18n="pic_label">Au gril</span></span>
     <figure class="print">
-      <img src="assets/print-picanha.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_picanha"
-           alt="Illustration générée, estampe en deux couleurs : des tranches de picanha sur une broche.">
+      <img class="panel" src="assets/tile-picanha.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_picanha"
+           alt="Illustration façon azulejo peint à la main : des tranches de picanha sur une broche.">
     </figure>
     <div class="pic-text">
       <h2 class="pic-name" id="pic-t" lang="pt" data-fit><span>Picanha</span></h2>
@@ -277,19 +279,21 @@ figure{margin:0}
   <section class="pol" aria-labelledby="pol-t">
     <span class="pol-label caps"><span lang="pt">Polvo grelhado</span> · <span data-i18n="pol_label">Poulpe grillé</span></span>
     <div class="pol-stage">
-      <div class="pol-col"><img src="assets/polvo.webp" width="607" height="1386" loading="lazy" data-i18n-alt="alt_polvo"
-           alt="Les tentacules du poulpe, l'ail et les pommes de terre, dans le plat en terre cuite."></div>
+      <div class="pol-col"><img class="panel" src="assets/tile-polvo.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_polvo"
+           alt="Illustration façon azulejo peint à la main : les tentacules du poulpe et les pommes de terre, dans un plat en terre cuite."></div>
       <h2 class="pol-name" id="pol-t" lang="pt" data-fit><span>Polvo</span></h2>
       <p class="fr" data-i18n="pol_fr">Poulpe</p>
     </div>
   </section>
 
+  <div class="frieze" aria-hidden="true"></div>
+
   <!-- 4. LEITAO -->
   <section class="lei" aria-labelledby="lei-t">
     <span class="lei-label caps"><span lang="pt">Ao domingo</span> · <span data-i18n="lei_label">Le dimanche</span></span>
     <figure class="lei-print">
-      <img src="assets/print-leitao.webp" width="1344" height="896" loading="lazy" data-i18n-alt="alt_leitao"
-           alt="Illustration générée, estampe en deux couleurs : un porcelet rôti sur une planche en bois.">
+      <img class="panel" src="assets/tile-leitao.webp" width="1344" height="896" loading="lazy" data-i18n-alt="alt_leitao"
+           alt="Illustration façon azulejo peint à la main : un porcelet rôti sur une planche, avec des oranges et des pommes de terre.">
     </figure>
     <div class="lei-text">
       <h2 class="lei-name" id="lei-t" lang="pt" data-fit><span>Leitão</span></h2>
@@ -297,37 +301,41 @@ figure{margin:0}
     </div>
   </section>
 
-  <!-- 5. BACALHAU + FEITO EM CASA -->
+  <!-- 5. BACALHAU -->
   <section class="bac" aria-labelledby="bac-t">
     <div class="bac-row">
       <figure class="bac-print">
-        <img src="assets/print-bacalhau.webp" width="1000" height="1000" loading="lazy" data-i18n-alt="alt_bacalhau"
-             alt="Illustration générée, estampe en deux couleurs : un pavé de morue, de petites pommes de terre et de l'ail.">
+        <img class="panel" src="assets/tile-bacalhau.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_bacalhau"
+             alt="Illustration façon azulejo peint à la main : un pavé de morue, de petites pommes de terre et de l'ail.">
       </figure>
       <h2 class="dish" id="bac-t"><span lang="pt">Bacalhau à lagareiro</span><small data-i18n="bac_fr">Morue grillée</small></h2>
     </div>
-    <div class="bac-row flip">
-      <h2 class="dish"><span lang="pt">Feito em casa</span><small data-i18n="cup_fr">Fait maison</small></h2>
-      <div class="cup-img"><img src="assets/coupes-row.webp" width="984" height="1116" loading="lazy" data-i18n-alt="alt_coupes"
-           alt="Une rangée de coupes de dessert sur le comptoir en granit."></div>
-    </div>
   </section>
+
+  <div class="frieze" aria-hidden="true"></div>
 
   <!-- 6. PROOF STRIP -->
   <section class="proof" data-i18n-aria="proof_aria" aria-label="La maison">
     <div class="proof-row">
       <figure>
+        <div class="ph cup"><img src="assets/coupes-row.webp" width="984" height="1116" loading="lazy" data-i18n-alt="alt_coupes"
+             alt="Une rangée de coupes de dessert sur le comptoir en granit."></div>
+        <figcaption class="caps"><span lang="pt">Feito em casa</span> · <span data-i18n="cup_fr">Fait maison</span></figcaption>
+      </figure>
+      <figure>
         <div class="ph pig"><img src="assets/proof-pig.webp" width="900" height="1040" loading="lazy" data-i18n-alt="alt_pig"
              alt="Le cochon en céramique au panneau « WELCOME », à côté d'une orchidée, sur le comptoir."></div>
         <figcaption class="caps" data-i18n="proof_bar">Au comptoir</figcaption>
       </figure>
-      <figure>
+      <figure class="fac-fig">
         <div class="ph fac"><img src="assets/proof-facade.webp" width="522" height="346" loading="lazy" data-i18n-alt="alt_facade"
              alt="La façade : « Restaurant » en lettres vertes et « WELCOME » en lettres dorées."></div>
         <figcaption class="caps">103, rue du Canal</figcaption>
       </figure>
     </div>
   </section>
+
+  <div class="frieze" aria-hidden="true"></div>
 
   <!-- 7. CONTACT -->
   <section class="con" id="contact" aria-labelledby="con-t">
@@ -408,7 +416,7 @@ figure{margin:0}
     <p><span data-i18n="foot_days">7 jours sur 7</span>, 12:00–14:30 &amp; 18:30–22:00</p>
     <p><a href="tel:+352542558">54 25 58</a></p>
   </div>
-  <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Les illustrations des plats sont générées. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
+  <p class="disc" data-i18n="disc">Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Les panneaux d'azulejos des plats sont des illustrations générées. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
 </footer>
 
 <a class="call" href="tel:+352542558">
@@ -424,19 +432,19 @@ figure{margin:0}
       _desc: "Restaurant Welcome, 103, rue du Canal à Esch-sur-Alzette. Cuisine portugaise et française depuis 1995, sur place ou à emporter. Réservation par téléphone au 54 25 58.",
       logo_aria: "Restaurant Welcome, Esch/Alzette, retour en haut",
       lang_aria: "Langue",
-      alt_pan: "La paella vue de tout près : crevettes, fruits de mer, citron, persil.",
+      alt_pan: "Illustration façon azulejo peint à la main : la paella, crevettes, citron et persil.",
       hero_line: "Restaurant · Esch/Alzette · depuis 1995",
       hero_hours: "7 jours sur 7 · 12:00–14:30 · 18:30–22:00<br>Sur place ou à emporter",
       pic_label: "Au gril",
-      alt_picanha: "Illustration générée, estampe en deux couleurs : des tranches de picanha sur une broche.",
+      alt_picanha: "Illustration façon azulejo peint à la main : des tranches de picanha sur une broche.",
       pic_fr: "Picanha en tranches",
       pol_label: "Poulpe grillé",
-      alt_polvo: "Les tentacules du poulpe, l'ail et les pommes de terre, dans le plat en terre cuite.",
+      alt_polvo: "Illustration façon azulejo peint à la main : les tentacules du poulpe et les pommes de terre, dans un plat en terre cuite.",
       pol_fr: "Poulpe",
       lei_label: "Le dimanche",
-      alt_leitao: "Illustration générée, estampe en deux couleurs : un porcelet rôti sur une planche en bois.",
+      alt_leitao: "Illustration façon azulejo peint à la main : un porcelet rôti sur une planche, avec des oranges et des pommes de terre.",
       lei_fr: "Porcelet au feu de bois",
-      alt_bacalhau: "Illustration générée, estampe en deux couleurs : un pavé de morue, de petites pommes de terre et de l'ail.",
+      alt_bacalhau: "Illustration façon azulejo peint à la main : un pavé de morue, de petites pommes de terre et de l'ail.",
       bac_fr: "Morue grillée",
       cup_fr: "Fait maison",
       alt_coupes: "Une rangée de coupes de dessert sur le comptoir en granit.",
@@ -459,26 +467,26 @@ figure{margin:0}
       map_aria: "Plan du quartier : la rue du Canal et le restaurant au numéro 103. Ouvrir dans Google Maps.",
       bom: "Bon appétit",
       foot_days: "7 jours sur 7",
-      disc: "Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Les illustrations des plats sont générées. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
+      disc: "Proposition de site non officielle, réalisée par Webwerk à partir d'informations et de photos publiques, sans lien avec l'établissement. Les panneaux d'azulejos des plats sont des illustrations générées. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."
     },
     de: {
       _title: "Restaurant Welcome · Esch-sur-Alzette",
       _desc: "Restaurant Welcome, 103, rue du Canal in Esch-sur-Alzette. Portugiesische und französische Küche seit 1995, im Restaurant oder zum Mitnehmen. Reservierung telefonisch unter 54 25 58.",
       logo_aria: "Restaurant Welcome, Esch/Alzette, nach oben",
       lang_aria: "Sprache",
-      alt_pan: "Die Paella ganz aus der Nähe: Garnelen, Meeresfrüchte, Zitrone, Petersilie.",
+      alt_pan: "Illustration im Stil handbemalter Azulejos: die Paella mit Garnelen, Zitrone und Petersilie.",
       hero_line: "Restaurant · Esch/Alzette · seit 1995",
       hero_hours: "Täglich · 12:00–14:30 · 18:30–22:00<br>Vor Ort oder zum Mitnehmen",
       pic_label: "Vom Grill",
-      alt_picanha: "Generierte Illustration, zweifarbiger Druck: Picanha-Scheiben am Spieß.",
+      alt_picanha: "Illustration im Stil handbemalter Azulejos: Picanha-Scheiben am Spieß.",
       pic_fr: "Picanha in Scheiben",
       pol_label: "Gegrillter Oktopus",
-      alt_polvo: "Oktopusarme mit Knoblauch und Kartoffeln in der Tonform.",
+      alt_polvo: "Illustration im Stil handbemalter Azulejos: Oktopusarme und Kartoffeln in einer Tonform.",
       pol_fr: "Oktopus",
       lei_label: "Sonntags",
-      alt_leitao: "Generierte Illustration, zweifarbiger Druck: ein gebratenes Spanferkel auf einem Holzbrett.",
+      alt_leitao: "Illustration im Stil handbemalter Azulejos: ein gebratenes Spanferkel auf einem Brett, mit Orangen und Kartoffeln.",
       lei_fr: "Spanferkel vom Holzfeuer",
-      alt_bacalhau: "Generierte Illustration, zweifarbiger Druck: ein Stück Kabeljau, kleine Kartoffeln und Knoblauch.",
+      alt_bacalhau: "Illustration im Stil handbemalter Azulejos: ein Stück Kabeljau, kleine Kartoffeln und Knoblauch.",
       bac_fr: "Gegrillter Klippfisch",
       cup_fr: "Hausgemacht",
       alt_coupes: "Eine Reihe Dessertschalen auf der Granittheke.",
@@ -501,26 +509,26 @@ figure{margin:0}
       map_aria: "Lageplan: die Rue du Canal und das Restaurant in Nummer 103. In Google Maps öffnen.",
       bom: "Guten Appetit",
       foot_days: "Täglich",
-      disc: "Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Die Illustrationen der Gerichte sind generiert. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
+      disc: "Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Die Azulejo-Bilder der Gerichte sind generierte Illustrationen. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."
     },
     en: {
       _title: "Restaurant Welcome · Esch-sur-Alzette",
       _desc: "Restaurant Welcome, 103 rue du Canal, Esch-sur-Alzette. Portuguese and French cooking since 1995, to eat in or take away. Book by phone on 54 25 58.",
       logo_aria: "Restaurant Welcome, Esch/Alzette, back to top",
       lang_aria: "Language",
-      alt_pan: "The paella up close: prawns, seafood, lemon and parsley.",
+      alt_pan: "Hand-painted azulejo-style illustration: the paella with prawns, lemon and parsley.",
       hero_line: "Restaurant · Esch/Alzette · since 1995",
       hero_hours: "Every day · 12:00–14:30 · 18:30–22:00<br>Eat in or take away",
       pic_label: "From the grill",
-      alt_picanha: "Generated illustration, a two-colour print: slices of picanha on a skewer.",
+      alt_picanha: "Hand-painted azulejo-style illustration: slices of picanha on a skewer.",
       pic_fr: "Sliced picanha",
       pol_label: "Grilled octopus",
-      alt_polvo: "Octopus tentacles with garlic and potatoes in the clay dish.",
+      alt_polvo: "Hand-painted azulejo-style illustration: octopus tentacles and potatoes in a clay dish.",
       pol_fr: "Octopus",
       lei_label: "On Sundays",
-      alt_leitao: "Generated illustration, a two-colour print: a roast suckling pig on a wooden board.",
+      alt_leitao: "Hand-painted azulejo-style illustration: a roast suckling pig on a board, with oranges and potatoes.",
       lei_fr: "Wood-fired suckling pig",
-      alt_bacalhau: "Generated illustration, a two-colour print: a piece of cod, small potatoes and garlic.",
+      alt_bacalhau: "Hand-painted azulejo-style illustration: a piece of cod, small potatoes and garlic.",
       bac_fr: "Grilled salt cod",
       cup_fr: "Homemade",
       alt_coupes: "A row of dessert bowls on the granite counter.",
@@ -543,7 +551,7 @@ figure{margin:0}
       map_aria: "Street map: rue du Canal and the restaurant at number 103. Open in Google Maps.",
       bom: "Enjoy your meal",
       foot_days: "Every day",
-      disc: "An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. The dish illustrations are generated. Anonymous visit statistics, with no cookies and no personal data."
+      disc: "An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. The azulejo dish panels are generated illustrations. Anonymous visit statistics, with no cookies and no personal data."
     }
   };
 
