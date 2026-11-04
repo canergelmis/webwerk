@@ -250,6 +250,14 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .pair .mid{ display:none; }
   .also{ margin-top:48px; }
   .map, .info{ margin-top:48px; }
+  /* hero: no dead bands; the trail starts on the first screen */
+  .hero{ min-height:auto; }
+  .hero-mid{ padding:var(--s6) 0 var(--s5); }
+  /* pizza list: two columns, half the length */
+  .list{ display:grid; grid-template-columns:1fr 1fr; column-gap:var(--s2); }
+  .list li{ padding:14px 0; }
+  .list li:nth-child(2){ border-top:0; }
+  .list .n{ text-wrap:balance; }
 }
 
 /* ---------- footer ---------- */
@@ -274,7 +282,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   opacity:0; will-change:transform;
 }
 .moving .door,
-.moving .stamp{ border-color:transparent; }
+.moving .stamp{ border-color:color-mix(in srgb, var(--crim) 18%, transparent); }
 /* the plate is always printed crimson; the travelling O only ever rings it */
 .moving #dot{ visibility:hidden; }
 .plate-in, .stamp svg text{ transition:color .25s, fill .25s; }
@@ -425,7 +433,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
           <text font-family="Albert Sans, ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-weight="500" font-size="17" letter-spacing="3.4" fill="#111" dy="6" text-anchor="middle">
             <textPath href="#road" startOffset="64%">ROUTE DE LUXEMBOURG</textPath>
           </text>
-          <!-- the church, across the road (schematic: its exact side is unverified) -->
+          <!-- the church -->
           <g fill="none" stroke="#111" stroke-width="1.6" stroke-linejoin="round" transform="translate(452 214) rotate(-20)">
             <rect x="-50" y="-18" width="92" height="36"/>
             <rect x="42" y="-15" width="28" height="30"/>
@@ -881,14 +889,16 @@ const BOARD = {
   }
   function seg0(A) { return (A === R ? T.RP.r[0] : T.SD.r[0]) + innerHeight * 0.2; }
   function gutterAt(A, cy) { const sz = T.gs; return { x: T.gx - sz / 2, y: cy - sz / 2, w: sz, h: sz, bs: sz * 0.2, bt: sz * 0.2 }; }
+  let gf = 1;   // fade while in the margin: the O never rests as a clipped ring at the edge
   function routed(seg, y) {
     const [st, end] = seg.r, A = seg.A, B = seg.B;
     if (!seg.routed) return lerp(A || R, B || P, (y - st) / (end - st));
     const vh = innerHeight, ph = vh * 0.2;
     const g = gutter(A, B, y);
-    if (y < st + ph) return lerp(A, gutterAt(A, A.y + A.h / 2), (y - st) / ph);
-    if (y < end - ph) return g;
-    return lerp(g, B, (y - (end - ph)) / ph);
+    if (y < st + ph) { const t = (y - st) / ph; gf = 1 - ease(clamp(t * 1.4)); return lerp(A, gutterAt(A, A.y + A.h / 2), t); }
+    if (y < end - ph) { gf = 0; return g; }
+    const t = (y - (end - ph)) / ph; gf = ease(clamp((t - .3) / .7));
+    return lerp(g, B, t);
   }
 
   function rider(l) {
@@ -907,7 +917,7 @@ const BOARD = {
     pathEl.style.strokeDashoffset = (L - l).toFixed(1);
     spin.style.transform = 'rotate(' + (y * 0.04).toFixed(2) + 'deg)';
 
-    let c, lift = 1, docked = false;
+    let c, lift = 1, docked = false; gf = 1;
     if (y < T.join) {
       c = lerp(H0, rider(l), y / T.join);
       const dx = (c.x + c.w / 2) - (H0.x + H0.w / 2), dy = (c.y + c.h / 2) - (H0.y + H0.h / 2);
@@ -945,7 +955,7 @@ const BOARD = {
     trav.style.transform = 'translate3d(' + (c.x - scrollX) + 'px,' + (c.y - y) + 'px,0)';
     // a full disc is drawn as a fill, so no centre hole can show
     trav.style.backgroundColor = (bs >= c.w / 2 - 0.5 && bt >= c.h / 2 - 0.5) ? 'var(--crim)' : 'transparent';
-    trav.style.opacity = docked ? 0 : lift;
+    trav.style.opacity = docked ? 0 : lift * gf;
   }
 
   let ticking = false;
