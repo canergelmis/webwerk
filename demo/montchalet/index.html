@@ -3,157 +3,212 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MontChalet · Bistro • Brasserie · Dudelange</title>
+<title>MontChalet · Bistro • Brasserie • Biergarten · Dudelange</title>
 <meta name="description" content="MontChalet, Bistro • Brasserie, 6 Am Duerf, Dudelange. À la façon des chalets du Tyrol du Sud.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#1B5E58">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* ---------- self-hosted fonts (OFL), latin + latin-ext ---------- */
-@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;
-  src:url(assets/fonts/geist-latin-ext.woff2) format("woff2");
+/* ---------- self-hosted fonts (OFL), latin + latin-ext ----------
+   Marcellus: a flared roman, the same flare as the strokes of their MontChalet wordmark.
+   Alegreya Sans: a quiet humanist sans for everything you read or tap. */
+@font-face{font-family:"Marcellus";font-style:normal;font-weight:400;font-display:swap;
+  src:url(assets/fonts/marcellus-latin-ext.woff2) format("woff2");
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
-@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;
-  src:url(assets/fonts/geist-latin.woff2) format("woff2");
+@font-face{font-family:"Marcellus";font-style:normal;font-weight:400;font-display:swap;
+  src:url(assets/fonts/marcellus-latin.woff2) format("woff2");
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;
-  src:url(assets/fonts/instrument-serif-italic-latin-ext.woff2) format("woff2");
+@font-face{font-family:"Alegreya Sans";font-style:normal;font-weight:400;font-display:swap;
+  src:url(assets/fonts/alegreyasans-400-latin-ext.woff2) format("woff2");
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
-@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;
-  src:url(assets/fonts/instrument-serif-italic-latin.woff2) format("woff2");
+@font-face{font-family:"Alegreya Sans";font-style:normal;font-weight:400;font-display:swap;
+  src:url(assets/fonts/alegreyasans-400-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Alegreya Sans";font-style:normal;font-weight:500;font-display:swap;
+  src:url(assets/fonts/alegreyasans-500-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Alegreya Sans";font-style:normal;font-weight:500;font-display:swap;
+  src:url(assets/fonts/alegreyasans-500-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Alegreya Sans";font-style:normal;font-weight:700;font-display:swap;
+  src:url(assets/fonts/alegreyasans-700-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Alegreya Sans";font-style:normal;font-weight:700;font-display:swap;
+  src:url(assets/fonts/alegreyasans-700-latin.woff2) format("woff2");
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 
 /* =====================================================================
-   One colour world, taken from their room: petrol wall, pine, the mural's gold.
-   One type scale: display / title / body / label.
+   One colour world, taken from their room: petrol wall, sage-cream lettering, the mural's gold.
+   Two type voices: Marcellus speaks, Alegreya Sans informs.
    ===================================================================== */
 :root{
-  --petrol:#1B5E58; --cream:#E0E4BC; --ink:#232323; --grey:#585858;
+  --petrol:#1B5E58; --petrol-d:#164E49; --cream:#E0E4BC; --ink:#232323; --grey:#585858;
   --gold:#D9B36A; --film-ink:#F4F1E1; --scrim:14,30,28;
-  --fs-display:clamp(2.75rem, 1.7rem + 4.4vw, 5.5rem);
-  --fs-title:clamp(1.625rem, 1.2rem + 1.7vw, 2.625rem);
-  --fs-body:1.0625rem;
-  --fs-label:0.8125rem;
-  --hd:56px; --gut:16px; --gap:16px;
+  --f-voice:"Marcellus","Optima","Palatino Linotype",serif;
+  --f-text:"Alegreya Sans",system-ui,sans-serif;
+  --fs-hero:clamp(2.75rem, 1.6rem + 4.4vw, 6.25rem);
+  --fs-voice:clamp(2.125rem, 1.5rem + 2.6vw, 3.75rem);
+  --fs-title:clamp(1.5rem, 1.15rem + 1.3vw, 2.25rem);
+  --fs-dish:clamp(1.375rem, 1.15rem + .8vw, 1.75rem);
+  --fs-body:1.125rem;
+  --fs-small:1rem;
+  --hd:56px; --gut:20px; --gap:16px;
   color-scheme:light;
 }
-@media (min-width:900px){:root{--hd:68px; --gut:48px; --gap:24px}}
+@media (min-width:900px){:root{--hd:72px; --gut:56px; --gap:24px; --fs-body:1.25rem; --fs-small:1.0625rem}}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{background:var(--petrol);color:var(--cream);font-family:"Geist",system-ui,sans-serif;
+body{background:var(--petrol);color:var(--cream);font-family:var(--f-text);
   font-size:var(--fs-body);line-height:1.5;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%;height:auto}
-a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+a{color:inherit;text-underline-offset:.24em;text-decoration-thickness:1px}
 ul{list-style:none}
-.display{font-size:var(--fs-display);line-height:1;font-weight:600;letter-spacing:-.025em}
-.title{font-size:var(--fs-title);line-height:1.15;font-weight:500;letter-spacing:-.012em}
-.hero{font-size:clamp(38px,5.4vw,80px);line-height:1.02;font-weight:600;letter-spacing:-.022em;text-wrap:balance}
-.label{font-size:var(--fs-label);line-height:1.4;font-weight:500}
-.serif{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em;line-height:1.04}
-.serif span{display:block;text-wrap:balance}
+.voice{font-family:var(--f-voice);font-weight:400;letter-spacing:-.005em;line-height:1.06;text-wrap:balance;
+  -webkit-text-stroke:.011em currentColor} /* Marcellus has one weight: a hairline stroke keeps its thins alive on petrol */
 .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--gap);
   padding-inline:var(--gut);max-width:1440px;margin-inline:auto;width:100%}
 @media (min-width:900px){.wrap{grid-template-columns:repeat(12,minmax(0,1fr))}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.acts{display:flex;flex-wrap:wrap;gap:6px 26px}
+.acts{align-items:center}
+.acts a{font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;padding-block:8px 2px}
+.acts a.cta{background:var(--cream);color:var(--petrol);border:0;padding:12px 20px;border-radius:2px}
 
-/* ---------- header: the wordmark never boxed; a soft top scrim over the film, petrol after it ---------- */
+/* ---------- header: the wordmark never boxed ---------- */
 .hd{position:fixed;inset:0 0 auto 0;z-index:10;height:var(--hd);color:var(--film-ink)}
-.hd::before{content:"";position:absolute;inset:0 0 -48px 0;z-index:-1;pointer-events:none;
-  background:linear-gradient(rgba(var(--scrim),.8),rgba(var(--scrim),.74) 50%,rgba(var(--scrim),0));transition:opacity .3s}
-.hd.solid{background:var(--petrol)}
-.hd.solid::before{opacity:0}
+.hd::before{content:"";position:absolute;inset:0 0 -40px 0;z-index:-1;pointer-events:none;
+  background:linear-gradient(rgba(var(--scrim),.72),rgba(var(--scrim),.5) 55%,rgba(var(--scrim),0));transition:opacity .3s}
+.hd,.hd.solid{background:var(--petrol)}
+.hd::before{display:none}
 .hd .wrap{height:100%;align-items:center}
-.wm{grid-column:1 / span 2;display:block;width:clamp(116px,10vw,150px)}
+.wm{grid-column:1 / span 2;display:block;width:clamp(124px,13vw,212px)}
 .wm img{width:100%}
 .hd-r{grid-column:3 / -1;display:flex;justify-content:flex-end;align-items:center;gap:clamp(12px,2vw,28px)}
 @media (min-width:900px){.wm{grid-column:1 / span 3}.hd-r{grid-column:4 / -1}}
 .lang{display:flex;align-items:center;gap:2px}
-.lang button{font:inherit;font-size:var(--fs-label);font-weight:600;color:inherit;background:none;border:0;
-  padding:10px 5px;cursor:pointer;opacity:.78;text-decoration:none}
+.lang button{font:inherit;font-size:var(--fs-small);font-weight:500;color:inherit;background:none;border:0;
+  padding:10px 5px;cursor:pointer;opacity:.75}
 .lang button[aria-pressed="true"]{opacity:1;text-decoration:underline;text-underline-offset:.35em}
-.lang .dot{font-size:var(--fs-label);opacity:.6}
-.call{font-size:var(--fs-label);font-weight:600;text-decoration:none;white-space:nowrap;padding:10px 0;
-  border-bottom:1px solid currentColor;padding-bottom:3px}
+.lang .dot{opacity:.55}
+.call{font-size:var(--fs-small);font-weight:700;white-space:nowrap;text-decoration:underline;text-underline-offset:.35em;padding:10px 0}
 .call .num{display:none}
+.js .hd:not(.past) .call{display:none}
 @media (min-width:600px){.call .num{display:inline}}
 
-/* ---------- the film: one sticky stage, scrubbed by scroll ---------- */
-.film{position:relative;height:500vh;background:#2b2a24}
-.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:clip;color:var(--film-ink)}
-.stage .poster,.stage canvas{position:absolute;inset:0;width:100%;height:100%}
-/* the poster is the room still, framed exactly as the canvas frames it */
-.stage .poster{object-fit:cover;object-position:100% 100%}
-@media (max-aspect-ratio:9/10){.stage .poster{object-position:50% 0}}
-.beat{position:absolute;inset-inline:0;pointer-events:none}
-.beat .txt{position:relative;isolation:isolate;pointer-events:auto}
-/* the soft local scrim: a blurred patch of shade behind the words only, never a box */
-.beat .txt::before{content:"";position:absolute;inset:-44px -52px;z-index:-1;
-  background:rgba(var(--scrim),.7);filter:blur(30px);border-radius:48px}
-.beat .txt > * + *{margin-top:.55em}
-.beat .label{letter-spacing:.14em;text-transform:uppercase;opacity:.92}
-/* the room: words on the mural, above the stag */
-.b1 .txt::before{background:rgba(var(--scrim),.56)}
-.b1{top:calc(var(--hd) + 20px)}
-.b2,.b3,.b4{bottom:max(6svh,32px)}
-.beat .txt{grid-column:1 / -1}
+/* ---------- the room: their stag wall, sharp, with who / where / when beside it ---------- */
+.top{position:relative;z-index:2;background:var(--petrol)}
+.top{padding-top:var(--hd)}
+.top .ph{position:relative;height:54svh;min-height:320px;overflow:hidden}
+.top .ph img{width:100%;height:100%;object-fit:cover;object-position:40% 12%}
+.top .wrap{padding-block:26px 34px;row-gap:0}
+.top .txt{grid-column:1 / -1}
+.top h1{font-size:var(--fs-hero)}
+.top .kind{margin-top:14px;font-size:var(--fs-body);font-weight:400;opacity:.9}
+.top .when{margin-top:14px;font-size:var(--fs-body)}
+.top .acts{margin-top:14px}
 @media (min-width:900px){
-  .b1{top:calc(var(--hd) + 4svh)}
-  .b1 .txt{grid-column:1 / span 7}
-  .b2 .txt{grid-column:1 / span 9}
-  .b3 .txt,.b4 .txt{grid-column:1 / span 6}
+  .top{min-height:100svh;display:flex;align-items:center;padding-top:0}
+  .top .ph{position:absolute;top:0;right:0;bottom:0;width:50%;height:auto;min-height:0}
+  .top .ph img{object-position:40% 22%}
+  .top .wrap{padding-block:calc(var(--hd) + 32px) 32px}
+  .top .txt{grid-column:1 / span 6;padding-right:24px}
+  .top .kind{margin-top:22px}
+  .top .when{margin-top:28px;font-size:1.25rem}
+  .top .acts{margin-top:18px}
 }
-/* every beat is either fully in or fully out (a quick fade on the switch, never a half state) */
-.beat{opacity:0;visibility:hidden;transition:opacity .22s linear,visibility 0s linear .22s}
-.beat.on{opacity:1;visibility:visible;transition:opacity .22s linear,visibility 0s}
-html:not(.js) .b1{opacity:1;visibility:visible}
 
-/* ---------- after the film: petrol ground, real photos, plain words ---------- */
-.carte{padding-block:80px clamp(72px,10vw,144px)}
-.carte .wrap{row-gap:32px}
-.carte .lead{grid-column:1 / -1}
-.carte .lead span{display:block;text-wrap:balance}
-.carte figure{grid-column:1 / -1;margin-inline:calc(-1 * var(--gut))}
-.carte figure img{width:100%}
-.menu{grid-column:1 / -1}
-.dishes li + li{margin-top:.3em}
-.dishes .for2{display:block;font-size:var(--fs-body);font-weight:400;letter-spacing:0;margin-top:.2em}
-.menu .vins{margin-top:28px;font-weight:600}
-@media (min-width:900px){
-  .carte .wrap{row-gap:48px}
-  .carte .lead{grid-column:1 / span 11}
-  .carte figure{grid-column:1 / span 7;margin-inline:0}
-  .menu{grid-column:8 / span 5;align-self:end}
+/* ---------- the film: one screen. Their mural holds, then turns into a painting ---------- */
+.film{position:relative;z-index:1;margin-top:-100vh;margin-top:-100svh;height:calc(150vh + 100svh);background:#2b2a24}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:clip;color:var(--film-ink)}
+.stage .paint{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:46% 30%;
+  transform-origin:46% 14%;will-change:transform}
+/* one flat shade under the words: a gradient band from the bottom edge, never a blurred blob */
+.stage{color:var(--ink)}
+@media (max-aspect-ratio:9/10){
+  .stage .paint{object-position:50% 0;transform-origin:50% 22%}
+  .beat.b2{top:auto;bottom:max(7svh,32px)}
+  .beat.b2 .voice{color:var(--film-ink);text-shadow:0 1px 16px rgba(14,30,28,.85)}
+  .stage::after{content:"";position:absolute;inset:auto 0 0 0;height:52%;pointer-events:none;
+    background:linear-gradient(rgba(14,30,28,0),rgba(14,30,28,.62) 45%,rgba(14,30,28,.86))}
 }
-.bar{padding-bottom:clamp(72px,10vw,144px)}
-.bar .wrap{row-gap:32px}
-.bar h2{grid-column:1 / -1}
-.bar figure{grid-column:1 / -1;margin-inline:calc(-1 * var(--gut))}
-.bar figure img{width:100%}
-.drinks{grid-column:1 / -1}
-.drinks li + li{margin-top:.3em}
+.beat{position:absolute;inset-inline:0;top:calc(var(--hd) + 4svh);z-index:1;pointer-events:none}
+.beat .txt{grid-column:1 / -1;pointer-events:auto}
+.b2 .voice{font-size:var(--fs-voice);text-shadow:0 0 18px rgba(224,228,188,.9),0 0 2px rgba(224,228,188,.9)}
+.b2 .voice span{display:block}
+@media (min-width:900px){.b2 .txt{grid-column:1 / span 5}}
+.beat{opacity:0;visibility:hidden;transition:opacity .25s linear,visibility 0s linear .25s}
+.beat.on{opacity:1;visibility:visible;transition:opacity .25s linear,visibility 0s}
+html:not(.js) .b2{opacity:1;visibility:visible}
+
+/* ---------- the day after the film: three type sizes only (hero, section, item) ---------- */
+.carte{padding-block:clamp(72px,9vw,128px) clamp(56px,7vw,96px)}
+.carte .wrap{row-gap:28px}
+.matin{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr);row-gap:18px;
+  padding-bottom:clamp(40px,6vw,80px);border-bottom:1px solid rgba(224,228,188,.28)}
+.matin h2{font-size:var(--fs-voice)}
+.matin .copy > * + *{margin-top:18px}
+.matin .ev{font-family:var(--f-voice);font-size:var(--fs-dish);line-height:1.2;-webkit-text-stroke:.011em currentColor}
+.matin .ev .t{display:block}
+.matin .ev .d{display:block;font-family:var(--f-text);font-size:var(--fs-body);-webkit-text-stroke:0;margin-top:2px;opacity:.9}
+.carte .lead{grid-column:1 / -1;font-size:var(--fs-voice);margin-top:12px}
+.carte figure{grid-column:1 / -1;margin-inline:calc(-1 * var(--gut))}
+.carte figure img{width:100%;aspect-ratio:1;object-fit:cover}
+.menu{grid-column:1 / -1}
+.dishes li + li{margin-top:22px}
+.dishes .n{display:block;font-family:var(--f-voice);font-size:var(--fs-dish);line-height:1.15;-webkit-text-stroke:.011em currentColor}
+.dishes .d{display:block;margin-top:4px;font-size:1.0625rem;opacity:.88}
+.menu .vins{margin-top:28px;padding-top:16px;border-top:1px solid rgba(224,228,188,.3)}
+.menu .more{margin-top:12px}
+.menu .more a{font-weight:700;text-decoration:none;border-bottom:1px solid currentColor}
 @media (min-width:900px){
-  .bar figure{grid-column:1 / span 8;margin-inline:0}
-  .drinks{grid-column:9 / span 4;align-self:end}
+  .carte .wrap{row-gap:40px}
+  .matin{grid-column:1 / -1;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
+  .matin h2{grid-column:1 / span 6}
+  .matin .copy{grid-column:8 / span 5;padding-top:.5em}
+  .carte .lead{grid-column:1 / span 10}
+  .carte figure{grid-column:1 / span 7;margin-inline:0}
+  .menu{grid-column:8 / span 5;align-self:end;padding-left:8px}
+  .dishes li + li{margin-top:30px}
+}
+
+.bar{position:relative;background:#101a19;padding-top:clamp(64px,8vw,112px)}
+.bar .wrap{row-gap:24px}
+.bar .txt{grid-column:1 / -1}
+.bar h2{font-size:var(--fs-voice)}
+.bar .cap{margin-top:12px;font-size:var(--fs-body);opacity:.9}
+.bar figure{grid-column:1 / -1;margin-inline:calc(-1 * var(--gut))}
+.bar figure img{width:100%;aspect-ratio:1008 / 712;object-fit:cover}
+.drinks{margin-top:18px;font-size:var(--fs-body);line-height:1.6}
+.drinks li{display:inline;white-space:nowrap}
+.drinks li:not(:last-child)::after{content:","}
+@media (min-width:900px){
+  .bar{min-height:62svh;display:flex;align-items:center;padding-block:clamp(64px,8vw,112px)}
+  .bar .txt{grid-column:1 / span 5}
+  .bar figure{position:absolute;top:0;right:0;bottom:0;width:55%;margin:0}
+  .bar figure img{height:100%;aspect-ratio:auto;object-position:50% 0}
 }
 
 /* ---------- footer: the plain summary, on their sage-cream ---------- */
-.ft{background:var(--cream);color:var(--ink);padding-block:clamp(56px,8vw,112px) 40px}
-.ft .wrap{row-gap:32px}
-.ft .disc{grid-column:1 / span 1;width:72px}
-.ft .hello{grid-column:1 / -1}
+.ft{background:var(--cream);color:var(--ink);padding-block:clamp(48px,7vw,88px) 36px}
+.ft .wrap{row-gap:28px}
+.ft .hello{grid-column:1 / -1;font-size:var(--fs-voice);margin-bottom:8px}
+.ft .disc{grid-column:1 / span 1;width:64px}
 .ft .info{grid-column:1 / -1}
-.ft .info > * + *{margin-top:.7em}
+.ft .info > * + *{margin-top:.6em}
 .ft address{font-style:normal}
-.ft .links a{margin-right:1.1em;display:inline-block;padding-block:6px}
-.ft .lux{font-weight:600}
-.ft .note{grid-column:1 / -1;color:#4a4a4a;border-top:1px solid rgba(35,35,35,.25);padding-top:20px;margin-top:16px}
+.ft .links{display:flex;flex-wrap:wrap;gap:4px 22px}
+.ft .links a{display:inline-block;padding-block:6px;font-weight:500}
+.ft .lux{font-family:var(--f-voice);font-size:var(--fs-dish);line-height:1.2;-webkit-text-stroke:.011em currentColor;margin-top:14px}
+.ft .note{grid-column:1 / -1;font-size:.9375rem;color:#4a4a4a;border-top:1px solid rgba(35,35,35,.25);padding-top:20px;margin-top:12px}
 @media (min-width:900px){
   .ft .disc{grid-column:1 / span 1;align-self:start}
-  .ft .hello{grid-column:2 / span 5}
-  .ft .info{grid-column:8 / span 5}
+  .ft .info{grid-column:3 / span 9;display:grid;grid-template-columns:1fr 1fr;column-gap:var(--gap)}
+  .ft .info > * + *{margin-top:0}
 }
+.ft .col > * + *{margin-top:.6em}
 
 @media (prefers-reduced-motion:reduce){.hd::before,.beat,.beat.on{transition:none}}
 </style>
@@ -175,104 +230,147 @@ html:not(.js) .b1{opacity:1;visibility:visible}
 </header>
 
 <main id="top">
-  <section class="film" id="film" aria-label="MontChalet">
+  <section class="top">
+    <div class="ph"><img src="assets/img/room-stag.webp" width="720" height="1040" fetchpriority="high" decoding="async" alt="La salle de MontChalet : le cerf blanc sur le mur pétrole, les photos noir et blanc, le bois clair" data-i18n-alt="alt_room"></div>
+    <div class="wrap"><div class="txt">
+      <h1 class="voice"><span class="sr">MontChalet · </span><span data-i18n="founder">À la façon des chalets du Tyrol du Sud</span></h1>
+      <p class="kind">Bistro • Brasserie • Biergarten</p>
+      <p class="when">6 Am Duerf, Dudelange · <span data-i18n="hours">Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00</span></p>
+      <p class="acts"><a class="cta" href="tel:+35226511156"><span data-i18n="call">Appeler</span> 26 51 11 56</a><a href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange&amp;query_place_id=ChIJ82Gg1-Q2lUcRVQXcEOkbeU0" rel="noopener" data-i18n="dir">Itinéraire</a></p>
+    </div></div>
+  </section>
+
+  <section class="film" id="film" aria-label="Paysage peint" data-i18n-aria-label="film">
     <div class="stage" id="stage">
       <picture>
-        <source media="(max-aspect-ratio: 9/10)" srcset="assets/m/room.webp">
-        <img class="poster" src="assets/d/room.webp" alt="La salle de MontChalet : la grande fresque de montagne dorée, le cerf blanc, le mur pétrole" data-i18n-alt="alt_room" fetchpriority="high" decoding="async">
+        <source media="(max-aspect-ratio: 9/10)" srcset="assets/img/painting-m.webp">
+        <img class="paint" id="paint" src="assets/img/painting-d.webp" width="2400" height="1357" alt="" decoding="async">
       </picture>
-      <canvas id="cv" aria-hidden="true"></canvas>
-
-      <div class="beat b1 on" id="b1"><div class="wrap"><div class="txt">
-        <h1 class="hero"><span class="sr">MontChalet · </span><span data-i18n="founder">À la façon des chalets du Tyrol du Sud</span></h1>
-        <p class="label">Bistro • Brasserie • Biergarten</p>
-      </div></div></div>
 
       <div class="beat b2" id="b2"><div class="wrap"><div class="txt" lang="en">
-        <p class="display serif"><span>You are not in the mountains.</span> <span>The mountains are in you.</span></p>
-      </div></div></div>
-
-      <div class="beat b3" id="b3"><div class="wrap"><div class="txt" lang="en">
-        <p class="title">Cozy mornings at MontChalet</p>
-      </div></div></div>
-
-      <div class="beat b4" id="b4"><div class="wrap"><div class="txt">
-        <h2 class="title" lang="en">Sundays at the Chalet</h2>
-        <p data-i18n="brunch">Brunch, chaque dimanche, 11:00–15:00</p>
+        <p class="voice"><span>You are not in the mountains.</span> <span>The mountains are in you.</span></p>
       </div></div></div>
     </div>
   </section>
 
   <section class="carte">
     <div class="wrap">
-      <p class="lead display" lang="fr"><span>Des saveurs à découvrir,</span> <span>des instants à savourer.</span></p>
-      <figure><img src="assets/img/board.webp" width="840" height="840" decoding="async" alt="Leur planche Charcuterie &amp; Fromage, vue du dessus" data-i18n-alt="alt_board"></figure>
+      <div class="matin">
+        <h2 class="voice" data-i18n="morn_t">Commencer la journée en douceur, de la meilleure des façons.</h2>
+        <div class="copy">
+          <p data-i18n="morn">Un café frais, des coins paisibles et la beauté tranquille d’un nouveau matin.</p>
+          <p class="ev"><span class="t" lang="en">Sundays at the Chalet</span><span class="d" data-i18n="brunch">Brunch, chaque dimanche, 11:00⁠–⁠15:00</span></p>
+          <p class="ev"><span class="t" lang="fr">Bienvenue à la terrasse Mont&nbsp;Chalet</span><span class="d" lang="en">Sun, terrace views, and the perfect vibe.</span></p>
+        </div>
+      </div>
+      <h2 class="lead voice" lang="fr">Des saveurs à découvrir, des instants à savourer.</h2>
+      <figure><img src="assets/img/board.webp" width="840" height="840" loading="lazy" decoding="async" alt="Leur planche Charcuterie &amp; Fromage, vue du dessus" data-i18n-alt="alt_board"></figure>
       <div class="menu">
-        <ul class="dishes title" lang="fr">
-          <li>Charcuterie &amp; Fromage <span class="for2" data-i18n="for2">(pour 2 personnes)</span></li>
-          <li>Salade César</li>
-          <li>Pinsa chalet</li>
-          <li>Cheesecake pistache</li>
+        <ul class="dishes">
+          <li><span class="n" lang="fr">Charcuterie &amp; Fromage</span><span class="d" data-i18n="d_char">pour 2, 4 ou 6 personnes</span></li>
+          <li><span class="n" lang="fr">Pinsa chalet</span><span class="d" data-i18n="d_pinsa">Stracciatella, saumon fumé, granella di pistacchio</span></li>
+          <li><span class="n" lang="fr">Salade César</span><span class="d" data-i18n="d_cesar">Salade, poulet, pain croustillant, maïs, tomates cerises, Grana &amp; sauce César</span></li>
+          <li><span class="n" lang="fr">Salade Burrata</span><span class="d" data-i18n="d_burrata">Pain croustillant, houmous à la betterave, roquette, olives &amp; tomates</span></li>
+          <li><span class="n">Desserts</span><span class="d" lang="fr">Cheesecake pistache · Chocolate cake</span></li>
         </ul>
         <p class="vins" data-i18n="vins">Vins du Luxembourg, de France et d’Italie</p>
+        <p class="more"><a href="https://wolt.com/fr/lux/luxembourg-south/restaurant/mont-chalet-lux" rel="noopener" data-i18n="order">Toute la carte sur Wolt</a></p>
       </div>
     </div>
   </section>
 
   <section class="bar">
     <div class="wrap">
-      <h2 class="display">MontChalet Bar</h2>
-      <figure><img src="assets/img/bar.webp" width="850" height="470" loading="lazy" decoding="async" alt="Le bar en bois de MontChalet et ses lettres de cuivre « Mont Chalet »" data-i18n-alt="alt_bar"></figure>
-      <ul class="drinks title">
-        <li>Whisky</li><li>Gin</li><li data-i18n="rhum">Rhum</li><li>Espresso martini</li><li>Spritz</li>
-      </ul>
+      <div class="txt">
+        <h2 class="voice">MontChalet Bar</h2>
+        <p class="cap" lang="en">Good food. Great drinks. Live music.</p>
+        <ul class="drinks">
+          <li>Espresso martini</li> <li>Spritz</li> <li>Whisky</li> <li>Gin</li> <li data-i18n="rhum">Rhum</li> <li data-i18n="biere">Bières</li>
+        </ul>
+      </div>
+      <figure><img src="assets/img/bar-copper.webp" width="1008" height="712" loading="lazy" decoding="async" alt="Le bar en bois de MontChalet et ses lettres de cuivre « Mont Chalet »" data-i18n-alt="alt_bar"></figure>
     </div>
   </section>
+
 </main>
 
 <footer class="ft">
   <div class="wrap">
+    <p class="hello voice" data-i18n="hello">On vous attend nombreux !</p>
     <img class="disc" src="assets/img/logo-disc-240.webp" width="240" height="240" alt="MontChalet, Bistro • Brasserie • Biergarten" loading="lazy">
-    <p class="hello title" lang="fr">On vous attend nombreux !</p>
     <div class="info">
-      <address>6 Am Duerf, Dudelange<br><a href="tel:+35226511156">26 51 11 56</a></address>
-      <p data-i18n="hours">Tous les jours dès 09:00</p>
-      <p data-i18n="brunch">Brunch, chaque dimanche, 11:00–15:00</p>
-      <p class="links">
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange&amp;query_place_id=ChIJ82Gg1-Q2lUcRVQXcEOkbeU0" rel="noopener" data-i18n="dir">Itinéraire</a><a href="https://www.instagram.com/montchalet_luxembourg/" rel="noopener">Instagram</a><a href="https://wolt.com/fr/lux/luxembourg-south/restaurant/mont-chalet-lux" rel="noopener">Wolt</a>
-      </p>
-      <p class="lux" lang="lb">bei eis kri Dir eng geschmiert</p>
+      <div class="col">
+        <address>6 Am Duerf, Dudelange<br><a href="tel:+35226511156">26 51 11 56</a></address>
+        <p data-i18n="hours">Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00</p>
+        <p data-i18n="brunch">Brunch, chaque dimanche, 11:00⁠–⁠15:00</p>
+      </div>
+      <div class="col">
+        <p class="links">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange&amp;query_place_id=ChIJ82Gg1-Q2lUcRVQXcEOkbeU0" rel="noopener" data-i18n="dir">Itinéraire</a><a href="https://www.instagram.com/montchalet_luxembourg/" rel="noopener">Instagram</a><a href="https://wolt.com/fr/lux/luxembourg-south/restaurant/mont-chalet-lux" rel="noopener">Wolt</a>
+        </p>
+        <p class="lux" lang="lb">bei eis kri Dir eng geschmiert</p>
+      </div>
     </div>
-    <p class="note label" data-i18n="note">Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
+    <p class="note" data-i18n="note">Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Le paysage peint est généré par Webwerk et ne représente pas un lieu réel. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
   </div>
 </footer>
 
 <script>
 /* ---- words: FR is the venue's language; DE/EN translate the same keys.
-   Their caption (English), "Sundays at the Chalet", the dish names, their terrace sign,
-   "On vous attend nombreux !" and the Luxembourgish tagline stay as they wrote them. ---- */
+   Their own lines stay as they wrote them: the English captions ("You are not in the mountains…",
+   "Sundays at the Chalet", "Cozy mornings at MontChalet", "Hand-crafted and high-class."), the dish
+   names, their terrace chalkboard, "On vous attend nombreux !" and the Luxembourgish tagline.
+   Dish notes: their own Wolt FR text (Pinsa chalet, Salade César); the board comes for 2, 4 or 6.
+   Provenance (all checked; ids refer to the studio's evidence log):
+   - "Good food. Great drinks. Live music." = their Instagram caption (E10).
+   - "Commencer la journée en douceur, de la meilleure des façons." and "Un café frais, des coins paisibles
+     et la beauté tranquille d’un nouveau matin." = their Instagram morning caption, verbatim (E11).
+   - "Des saveurs à découvrir, des instants à savourer." = their printed menu cover and Wolt line (E4).
+   - "See you soon" (EN sign-off) = their Instagram wording (E10).
+   - "Sun, terrace views, and the perfect vibe." = their Instagram terrace caption (E11).
+   - Salade Burrata note = their Wolt FR text. Desserts: "Cheesecake pistache" and "Chocolate cake" are
+     their Wolt FR names (both marked Populaire there).
+   - Wines LU/FR/IT and the drinks (espresso martini, spritz, whisky, gin, rhum, bottled beers):
+     their Wolt list and Instagram (E12); "Bières bouteille" is a Wolt category of theirs.
+   - Hours: Google Places, checked 2026-11-02 (Mon–Thu, Sun 09:00⁠–⁠00:00; Fri–Sat 09:00⁠–⁠01:00).
+   - Brunch Sundays 11:00⁠–⁠15:00: their own posts since 2022 (E11).
+   - Photos: their own 2025–26 Instagram set (@montchalet_luxembourg): stag wall, board, cocktail.
+   - "À la façon des chalets du Tyrol du Sud": adapted from the 2017 town-blog interview (E1: "à la façon
+     des chalets dans le Tyrol du Sud … chic et alpestre"); the lead chosen at Gate 1. ---- */
 var MC_I18N={
-  fr:{lang:"Langue",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
-    brunch:"Brunch, chaque dimanche, 11:00–15:00",for2:"(pour 2 personnes)",
-    vins:"Vins du Luxembourg, de France et d’Italie",rhum:"Rhum",dir:"Itinéraire",hours:"Tous les jours dès 09:00",
-    alt_room:"La salle de MontChalet : la grande fresque de montagne dorée, le cerf blanc, le mur pétrole",
+  fr:{lang:"Langue",film:"Paysage peint",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
+    hours:"Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00",dir:"Itinéraire",brunch:"Brunch, chaque dimanche, 11:00⁠–⁠15:00",
+    morn_t:"Commencer la journée en douceur, de la meilleure des façons.",order:"Toute la carte sur Wolt",hello:"On vous attend nombreux !",d_burrata:"Pain croustillant, houmous à la betterave, roquette, olives & tomates",
+    morn:"Un café frais, des coins paisibles et la beauté tranquille d’un nouveau matin.",
+    d_char:"pour 2, 4 ou 6 personnes",d_pinsa:"Stracciatella, saumon fumé, granella di pistacchio",
+    d_cesar:"Salade, poulet, pain croustillant, maïs, tomates cerises, Grana & sauce César",
+    vins:"Vins du Luxembourg, de France et d’Italie",rhum:"Rhum",biere:"Bières",
+    alt_room:"La salle de MontChalet : le cerf blanc sur le mur pétrole, les photos noir et blanc, le bois clair",
     alt_board:"Leur planche Charcuterie & Fromage, vue du dessus",
     alt_bar:"Le bar en bois de MontChalet et ses lettres de cuivre « Mont Chalet »",
-    note:"Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."},
-  de:{lang:"Sprache",call:"Anrufen",founder:"Nach Art der Chalets in Südtirol",
-    brunch:"Brunch, jeden Sonntag, 11:00–15:00",for2:"(für 2 Personen)",
-    vins:"Weine aus Luxemburg, Frankreich und Italien",rhum:"Rum",dir:"Anfahrt",hours:"Täglich ab 09:00",
-    alt_room:"Der Raum des MontChalet: das große goldene Bergwandbild, der weiße Hirsch, die petrolfarbene Wand",
+    note:"Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Le paysage peint est généré par Webwerk et ne représente pas un lieu réel. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."},
+  de:{lang:"Sprache",film:"Gemalte Landschaft",call:"Anrufen",founder:"Nach Art der Chalets in Südtirol",
+    hours:"Täglich 09:00⁠–⁠00:00, Fr. und Sa. bis 01:00",dir:"Anfahrt",brunch:"Brunch, jeden Sonntag, 11:00⁠–⁠15:00",
+    morn_t:"Sanft in den Tag starten, auf die beste Art.",order:"Die ganze Karte bei Wolt",hello:"Bis bald!",d_burrata:"Knuspriges Brot, Rote-Bete-Hummus, Rucola, Oliven & Tomaten",
+    morn:"Ein frischer Kaffee, ruhige Ecken und die stille Schönheit eines neuen Morgens.",
+    d_char:"für 2, 4 oder 6 Personen",d_pinsa:"Stracciatella, Räucherlachs, Granella di Pistacchio",
+    d_cesar:"Salat, Hähnchen, knuspriges Brot, Mais, Kirschtomaten, Grana & Caesar-Dressing",
+    vins:"Weine aus Luxemburg, Frankreich und Italien",rhum:"Rum",biere:"Bier",
+    alt_room:"Der Raum des MontChalet: der weiße Hirsch an der petrolfarbenen Wand, Schwarzweißfotos, helles Holz",
     alt_board:"Ihr Brett Charcuterie & Fromage, von oben",
     alt_bar:"Die Holzbar des MontChalet mit den Kupferbuchstaben „Mont Chalet“",
-    note:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."},
-  en:{lang:"Language",call:"Call",founder:"In the manner of the chalets of South Tyrol",
-    brunch:"Brunch, every Sunday, 11:00–15:00",for2:"(for 2 people)",
-    vins:"Wines from Luxembourg, France and Italy",rhum:"Rum",dir:"Directions",hours:"Every day from 09:00",
-    alt_room:"The MontChalet room: the big golden mountain mural, the white stag, the petrol wall",
+    note:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Die gemalte Landschaft wurde von Webwerk generiert und zeigt keinen realen Ort. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."},
+  en:{lang:"Language",film:"Painted landscape",call:"Call",founder:"In the manner of the chalets of South Tyrol",
+    hours:"Every day 09:00⁠–⁠00:00, Fri and Sat until 01:00",dir:"Directions",brunch:"Brunch, every Sunday, 11:00⁠–⁠15:00",
+    morn_t:"Cozy mornings at MontChalet",order:"The full menu on Wolt",hello:"See you soon!",d_burrata:"Crusty bread, beetroot hummus, rocket, olives & tomatoes",
+    morn:"Fresh coffee, quiet corners and the calm beauty of a new morning.",
+    d_char:"for 2, 4 or 6 people",d_pinsa:"Stracciatella, smoked salmon, granella di pistacchio",
+    d_cesar:"Salad, chicken, crusty bread, corn, cherry tomatoes, Grana & Caesar dressing",
+    vins:"Wines from Luxembourg, France and Italy",rhum:"Rum",biere:"Beer",
+    alt_room:"The MontChalet room: the white stag on the petrol wall, black-and-white photos, light wood",
     alt_board:"Their Charcuterie & Fromage board, from above",
     alt_bar:"The MontChalet wooden bar with its copper “Mont Chalet” letters",
-    note:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data."}
+    note:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. The painted landscape is generated by Webwerk and does not show a real place. Anonymous visit statistics, with no cookies and no personal data."}
 };
 (function(){
   "use strict";
@@ -295,134 +393,37 @@ var MC_I18N={
   });
 })();
 
-/* ---- the film: scroll position -> one frame on one canvas.
-   Timeline (p = progress through the film section, 4 screens of scroll):
-     0.00-0.15  their room, the real photo (still)
-     0.15       cut into the mural
-     0.15-0.525 the mural turns into a painting (clip a)
-     0.525-1.00 the painted slope, the light moving (clip b); the painting holds to the end and the
-                petrol page (their wall colour) slides up over it with a clean edge: no tint, no fade
-   Frames load progressively; the nearest loaded frame is always drawn, never a blank. ---- */
+/* ---- the film: one painting of their mountain (their mural's peak, repainted calm), pinned under the
+   hero, which lifts off it like a curtain. Scroll then moves us slowly toward the peak: one motion.
+   p < 0 while the hero still lifts off; 0..1 once it is gone (half a screen of scroll). ---- */
 (function(){
   "use strict";
-  var N={a:0,b:63},NA={d:68,m:42};
-  var R0=.15,A1=.525,B1=1;
-  var BEATS=[["b1",-1,.13],["b2",.19,.50],["b3",.56,.71],["b4",.74,.89]]; /* id, on, off */
-  /* how each set frames the room still: focal point of the cover crop, and the stag inside it */
-  var ROOM={d:{w:920,h:510,fx:1,fy:1,stag:[668,258,102,232]},m:{w:400,h:690,fx:.5,fy:0,stag:[148,258,102,232]}};
-  var film=document.getElementById("film"),stage=document.getElementById("stage"),cv=document.getElementById("cv"),
-      hd=document.getElementById("hd"),ctx=cv.getContext("2d");
-  var beats=BEATS.map(function(b){return {el:document.getElementById(b[0]),r:b,on:b[0]==="b1"};});
-  var portrait=matchMedia("(max-aspect-ratio: 9/10)"),reduce=matchMedia("(prefers-reduced-motion: reduce)");
-  var set="",imgs={},queue=[],active=0,MAXC=6,last="",raf=0,W=0,H=0,dpr=1;
-
-  function key(s,i){return s+("00"+i).slice(-3);}
-  function get(k){var o=imgs[set+"/"+k];return o&&o.ok?o.img:null;}
-  function want(k,front){
-    var id=set+"/"+k;if(imgs[id])return;
-    imgs[id]={img:null,ok:false,k:k,set:set};
-    if(front)queue.unshift(id);else queue.push(id);
-  }
-  function pump(){
-    while(active<MAXC&&queue.length){
-      var id=queue.shift(),o=imgs[id];if(!o||o.img)continue;
-      active++;
-      (function(o){
-        var im=new Image();o.img=im;im.decoding="async";
-        var done=function(okv){active--;o.ok=okv;if(okv&&o.set===set){last="";schedule();}pump();};
-        im.onload=function(){if(im.decode){im.decode().then(function(){done(true);},function(){done(true);});}else done(true);};
-        im.onerror=function(){done(false);};
-        im.src="assets/"+o.set+"/"+o.k+".webp";
-      })(o);
-    }
-  }
-  function plan(){
-    queue=[];N.a=NA[set];
-    want("room",true);
-    if(reduce.matches){
-      [key("a",N.a-1),key("b",N.b-1)].forEach(function(k){want(k);});
-    }else{
-      var i;
-      for(i=0;i<N.a;i+=6)want(key("a",i));want(key("a",N.a-1));
-      for(i=0;i<N.b;i+=6)want(key("b",i));want(key("b",N.b-1));
-      for(i=1;i<N.a;i++)want(key("a",i));
-      for(i=1;i<N.b;i++)want(key("b",i));
-    }
-    pump();
-  }
-  /* the nearest loaded frame of a clip; falls back across the film so the canvas is never blank */
-  function near(s,i){
-    var n=N[s],d,im;
-    for(d=0;d<n;d++){
-      if(i-d>=0&&(im=get(key(s,i-d))))return im;
-      if(i+d<n&&(im=get(key(s,i+d))))return im;
-    }
-    var o=s==="b"?"a":"b";
-    return get(key(o,o==="a"?N.a-1:0))||get("room");
-  }
-  function cover(im,fx,fy){
-    var iw=im.naturalWidth,ih=im.naturalHeight,sc=Math.max(W/iw,H/ih),dw=iw*sc,dh=ih*sc;
-    ctx.drawImage(im,(W-dw)*fx,(H-dh)*fy,dw,dh);
-  }
+  var top=document.querySelector(".top"),film=document.getElementById("film"),paint=document.getElementById("paint"),
+      hd=document.getElementById("hd"),b2=document.getElementById("b2");
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)"),raf=0,on=false,lastS="";
   function clamp(v){return v<0?0:v>1?1:v;}
   function progress(){
-    var r=film.getBoundingClientRect(),run=film.offsetHeight-stage.offsetHeight;
-    return run>0?clamp(-r.top/run):0;
-  }
-  function frameAt(p){
-    if(p<R0)return ["room",0];
-    if(reduce.matches)return p<A1?["a",N.a-1]:["b",N.b-1];
-    if(p<A1)return ["a",Math.round((p-R0)/(A1-R0)*(N.a-1))];
-    return ["b",Math.min(N.b-1,Math.round((p-A1)/(B1-A1)*(N.b-1)))];
-  }
-  function draw(p){
-    var f=frameAt(p);
-    var im=f[0]==="room"?get("room"):near(f[0],f[1]),rm=ROOM[set];
-    var k=(im?im.src:"-")+"|"+W+"x"+H;
-    if(k===last)return;last=k;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    if(im){if(im===get("room"))cover(im,rm.fx,rm.fy);else cover(im,.5,.5);}
-  }
-  function beatsAt(p){
-    beats.forEach(function(b){
-      var on=p>=b.r[1]&&p<b.r[2];
-      if(on!==b.on){b.on=on;b.el.classList.toggle("on",on);}
-    });
+    var vh=window.innerHeight,hb=top.getBoundingClientRect().bottom,fb=film.getBoundingClientRect().bottom;
+    var gone=-hb,span=gone+(fb-vh);
+    if(hb>0)return -1;
+    return span>0?clamp(gone/span):1;
   }
   function update(){
     raf=0;
-    var p=progress();
-    beatsAt(p);draw(p);
-    var end=film.getBoundingClientRect().bottom;
-    hd.classList.toggle("solid",p>=.97||end<=hd.offsetHeight+1);
+    var p=progress(),r=film.getBoundingClientRect(),vh=window.innerHeight,hb=top.getBoundingClientRect().bottom;
+    var sc=reduce.matches?"1":(1+.14*clamp(p)).toFixed(4);
+    if(sc!==lastS){paint.style.transform="scale("+sc+")";lastS=sc;}
+    var show=hb<=1&&r.bottom>0;
+    if(show!==on){on=show;b2.classList.toggle("on",show);}
+    hd.classList.toggle("solid",!(hb<=1&&r.bottom>=vh-1));
+    hd.classList.toggle("past",hb<=hd.offsetHeight);
   }
   function schedule(){if(!raf)raf=requestAnimationFrame(update);}
-  function size(){
-    var ns=portrait.matches?"m":"d";
-    dpr=Math.min(window.devicePixelRatio||1,2);
-    W=stage.clientWidth;H=stage.clientHeight;
-    var bw=Math.round(W*dpr),bh=Math.round(H*dpr);
-    if(cv.width!==bw||cv.height!==bh){cv.width=bw;cv.height=bh;}
-    ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality="high";
-    last="";
-    if(ns!==set){set=ns;plan();}
-    schedule();
-  }
-  window.__mcLayout=function(){last="";schedule();};
-  /* for the checks: the film's progress, the frame set, what has loaded, the stag on screen at the start */
-  window.__mc={
-    p:progress,set:function(){return set;},
-    loaded:function(){var c=0,t=0;for(var k in imgs){if(imgs[k].set===set){t++;if(imgs[k].ok)c++;}}return [c,t];},
-    stag:function(){
-      var rm=ROOM[set],sc=Math.max(W/rm.w,H/rm.h),ox=(W-rm.w*sc)*rm.fx,oy=(H-rm.h*sc)*rm.fy,s=rm.stag;
-      return {x:ox+s[0]*sc,y:oy+s[1]*sc,w:s[2]*sc,h:s[3]*sc};
-    },
-    beats:BEATS
-  };
+  window.__mcLayout=schedule;
+  window.__mc={p:progress};
   addEventListener("scroll",schedule,{passive:true});
-  addEventListener("resize",size);
-  if(portrait.addEventListener){portrait.addEventListener("change",size);reduce.addEventListener("change",function(){set="";size();});}
-  size();
+  addEventListener("resize",schedule);
+  update();
 })();
 </script>
 <script>
