@@ -46,7 +46,7 @@ figure{margin:0}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
 /* ---------- header ---------- */
-.top{position:absolute;inset:0 0 auto 0;z-index:5;display:flex;justify-content:space-between;align-items:flex-start;padding:14px var(--pad)}
+.top{display:flex;justify-content:space-between;align-items:flex-start}
 .napkin{display:block;width:104px;--rope:#d0805f;--rope-gap:#5a2416;--letter:#f6f0e4;filter:drop-shadow(0 1px 6px rgba(30,22,18,.55))}
 .napkin svg{display:block;width:100%;height:auto}
 .lang{display:flex;gap:2px;color:var(--paper);padding-top:4px}
@@ -64,13 +64,42 @@ figure{margin:0}
 .frieze{display:block;height:36px;background:url(assets/tile-pattern.webp) 0 50%/36px 36px repeat-x;
   border-top:1px solid rgba(58,36,24,.25);border-bottom:1px solid rgba(58,36,24,.25)}
 
-/* ---------- 1. hero: wordmark on brown, the paella panel below ---------- */
-.hero{position:relative;background:var(--ink);color:var(--paper);padding:118px 0 40px}
-.hero-type{position:relative;padding:0 calc(var(--pad) - 4px)}
+/* ---------- 1. hero: a wall of whole tiles, the name plaque and the paella panel set into it ---------- */
+.hero{position:relative;background:var(--ink);color:var(--paper);height:calc(100svh - var(--callh));min-height:520px;overflow:hidden}
+.wall{position:absolute;left:0;top:0;width:100%}
+.wall i{position:absolute;display:block;background:url(assets/tile-pattern.webp) 0 0/100% 100%;box-shadow:inset 0 0 0 .5px rgba(90,36,22,.28)}
+.wall::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;
+  background:linear-gradient(112deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%) 0 0/300% 100% no-repeat;background-position:150% 0}
+.plaque,.hero-art{position:absolute;left:0;top:0}
+.plaque{background:var(--ink);display:flex;flex-direction:column;justify-content:space-between;font-size:calc(var(--s,1) * 16px);
+  box-shadow:0 0 0 1px rgba(90,36,22,.5),inset 0 0 0 .5em var(--ink),inset 0 0 0 calc(.5em + 1.5px) rgba(239,154,110,.55);padding:1.1em 1.25em 1.25em}
+.plaque .napkin{width:5.6em;filter:none}
+.plaque .lang{font-size:.72em;padding-top:.2em}
+.plaque .lang button{padding:.6em .5em}
 .wordmark{color:var(--paper)}
-.hero-line{margin-top:16px;padding-left:4px;color:var(--paper)}
-.hero-hours{margin-top:10px;padding-left:4px;color:var(--paper);font-size:15px;line-height:1.5;opacity:.92}
-.hero-art{margin:32px var(--pad) 0}
+.hero-line{margin-top:.9em;color:var(--paper);font-size:.72em;letter-spacing:.2em}
+.hero-hours{margin-top:.55em;color:var(--paper);font-size:.8em;line-height:1.5;opacity:.92}
+.hero-type{flex:1;display:flex;flex-direction:column}
+.hero-type .wordmark{margin-top:auto}
+.hero-call{display:none}
+.hero-art{box-shadow:0 0 0 1px rgba(90,36,22,.5),0 18px 40px -18px rgba(30,10,4,.65)}
+.hero-art .panel{width:100%;height:100%;box-shadow:none}
+.pieces{position:absolute;inset:0;perspective:1400px}
+.pieces b{position:absolute;display:block;background-image:url(assets/tile-paella.webp);backface-visibility:hidden}
+.hero.js .wall i{opacity:0;transform:scale(.82) rotate(-6deg)}
+.hero.js .plaque{opacity:0;transform:translateY(10px)}
+.hero.js .hero-art .panel{opacity:0}
+.hero.js .hero-art{box-shadow:none}
+.hero.set .hero-art{box-shadow:0 0 0 1px rgba(90,36,22,.5),0 18px 40px -18px rgba(30,10,4,.65);transition:box-shadow .5s}
+.hero.js .pieces b{opacity:0;transform:rotateY(-88deg)}
+.hero.laid .wall i{opacity:1;transform:none;transition:opacity .45s ease-out,transform .55s cubic-bezier(.2,.9,.3,1.15);transition-delay:var(--d)}
+.hero.laid .pieces b{opacity:1;transform:none;transition:opacity .3s ease-out,transform .6s cubic-bezier(.2,.8,.3,1);transition-delay:var(--d)}
+.hero.laid .plaque{opacity:1;transform:none;transition:opacity .7s ease-out .55s,transform .7s ease-out .55s}
+.hero.set .hero-art .panel{opacity:1}
+.hero.set .pieces{display:none}
+.hero.set .wall::after{animation:glaze 9s ease-in-out 1s infinite}
+@keyframes glaze{0%{background-position:150% 0}55%,100%{background-position:-50% 0}}
+@media (prefers-reduced-motion:reduce){.hero.set .wall::after{animation:none}}
 
 /* ---------- 2. picanha (panel) ---------- */
 .pic{position:relative;background:var(--paper);padding:60px 0 64px;overflow:hidden}
@@ -141,22 +170,22 @@ html[lang="pt"] .sec{display:none}
   :root{--pad:40px}
   body{padding-bottom:0}
   .napkin{width:128px}
-  .top{justify-content:flex-start;gap:28px}
-  .lang{padding-top:10px}
-  .call{left:auto;right:var(--pad);bottom:auto;top:18px;height:auto;padding:16px 26px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.3);font-size:16px}
+  .top{gap:1.6em;justify-content:space-between}
+  .call{left:auto;right:var(--pad);bottom:auto;top:18px;height:auto;padding:16px 26px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.3);font-size:16px;
+    opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .3s,transform .3s}
+  body.past .call{opacity:1;transform:none;pointer-events:auto}
+  .hero{height:100vh;min-height:600px}
+  .plaque{padding:1.6em 1.8em 1.8em}
+  .plaque .napkin{width:7.5em}
+  .plaque .lang{font-size:.85em}
+  .hero-line{font-size:.8em}
+  .hero-hours{font-size:1.05em;margin-top:auto}
+  .hero-call{display:inline-flex;align-items:center;gap:.6em;align-self:flex-start;margin-top:1.4em;background:var(--green);color:var(--paper);text-decoration:none;
+    font-weight:600;font-size:1em;padding:.8em 1.4em;border-radius:999px}
+  .hero-call svg{width:1.1em;height:1.1em}
   .fr{font-size:26px}
 
   .frieze{height:56px;background-size:56px 56px}
-
-  .hero{height:100vh;min-height:720px;display:grid;grid-template-columns:50fr 50fr;padding:0}
-  .hero-art{position:relative;grid-column:2;grid-row:1;margin:0;min-height:0;display:flex;align-items:center;justify-content:center;
-    padding:96px var(--pad) 40px calc(56px + var(--pad))}
-  .hero-art::before{content:"";position:absolute;left:0;top:0;bottom:0;width:56px;background:url(assets/tile-pattern.webp) 50% 0/56px 56px repeat-y;
-    border-left:1px solid rgba(246,240,228,.18);border-right:1px solid rgba(246,240,228,.18)}
-  .hero-art .panel{width:auto;max-width:100%;max-height:90vh}
-  .hero-type{position:relative;grid-column:1;grid-row:1;align-self:center;padding:0 var(--pad) 0 calc(var(--pad) - 8px);display:flex;flex-direction:column-reverse}
-  .hero-line{margin:0 0 18px;padding-left:10px;font-size:13px}
-  .hero-hours{order:-1;margin:22px 0 0;padding-left:10px;font-size:18px}
 
   .pic{display:grid;grid-template-columns:46fr 54fr;align-items:end;padding:96px 0 96px;min-height:100vh}
   .pic-label{position:absolute;top:56px;left:var(--pad);padding:0;margin:0}
@@ -236,24 +265,30 @@ html[lang="pt"] .sec{display:none}
   </defs>
 </svg>
 
-<header class="top">
-  <a class="napkin" href="#top" data-i18n-aria="logo_aria" aria-label="Restaurant Welcome, Esch/Alzette, retour en haut"><svg viewBox="0 0 200 150" aria-hidden="true" focusable="false"><use href="#lockup"/></svg></a>
-  <nav class="lang caps" data-i18n-aria="lang_aria" aria-label="Langue">
-    <button type="button" data-lang="fr" lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="pt" lang="pt" aria-pressed="false">PT</button><button type="button" data-lang="de" lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
-  </nav>
-</header>
+
 
 <main id="top">
   <!-- 1. HERO -->
   <section class="hero" aria-label="Restaurant Welcome">
-    <div class="hero-type">
-      <h1 class="wordmark" data-fit><span>Welcome</span></h1>
+    <div class="wall" aria-hidden="true"></div>
+    <div class="plaque">
+      <header class="top">
+        <a class="napkin" href="#top" data-i18n-aria="logo_aria" aria-label="Restaurant Welcome, Esch/Alzette, retour en haut"><svg viewBox="0 0 200 150" aria-hidden="true" focusable="false"><use href="#lockup"/></svg></a>
+        <nav class="lang caps" data-i18n-aria="lang_aria" aria-label="Langue">
+          <button type="button" data-lang="fr" lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="pt" lang="pt" aria-pressed="false">PT</button><button type="button" data-lang="de" lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+        </nav>
+      </header>
+      <div class="hero-type">
+        <h1 class="wordmark" data-fit><span>Welcome</span></h1>
       <p class="hero-line caps" data-i18n="hero_line">Restaurant · Esch/Alzette · depuis 1995</p>
       <p class="hero-hours" data-i18n="hero_hours">7 jours sur 7 · 12:00–14:30 · 18:30–22:00<br>Sur place ou à emporter</p>
+        <a class="hero-call" href="tel:+352542558"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span><span data-i18n="btn_call">Appeler</span> · 54 25 58</span></a>
+      </div>
     </div>
     <figure class="hero-art">
       <img class="panel" src="assets/tile-paella.webp" width="960" height="1200" fetchpriority="high"
            data-i18n-alt="alt_pan" alt="Illustration façon azulejo peint à la main : la paella, crevettes, citron et persil.">
+      <div class="pieces" aria-hidden="true"></div>
     </figure>
   </section>
 
@@ -546,6 +581,61 @@ html[lang="pt"] .sec{display:none}
     }
   };
 
+  /* hero wall: whole tiles fill the hero edge to edge; the plaque and the panel sit on the tile grid */
+  var hero = document.querySelector('.hero'), wall = hero.querySelector('.wall'), plaque = hero.querySelector('.plaque'),
+      art = hero.querySelector('.hero-art'), pieces = hero.querySelector('.pieces');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches, laidOnce = false, lastW = 0, lastH = 0;
+  function layWall(){
+    var W = hero.clientWidth, H = hero.clientHeight, desk = W >= 900;
+    if (laidOnce && W === lastW && (!desk || H === lastH)) return;
+    lastW = W; lastH = H;
+    var cw = desk ? 17 : 8, ch = desk ? 10 : 18;
+    /* pick the grid whose tiles are closest to square, with at least one border tile all round */
+    var best = null;
+    for (var rows = ch + 2; rows <= ch + 8; rows++) {
+      var th = H / rows, cols = Math.max(cw + 2, Math.round(W / th)), tw = W / cols, err = Math.abs(tw / th - 1);
+      if (!best || err < best.err - 0.004) best = {rows: rows, cols: cols, tw: tw, th: th, err: err};
+      if (err < 0.07) { best = {rows: rows, cols: cols, tw: tw, th: th, err: err}; break; }
+    }
+    var rows = best.rows, cols = best.cols, tw = best.tw, th = best.th;
+    wall.style.top = '0px'; wall.style.height = H + 'px';
+    var c0 = Math.floor((cols - cw) / 2), r0 = Math.floor((rows - ch) / 2);
+    var P = desk ? {c: c0, r: r0, w: 8, h: 10} : {c: c0, r: r0, w: 8, h: 7};
+    var A = desk ? {c: c0 + 9, r: r0, w: 8, h: 10} : {c: c0, r: r0 + 8, w: 8, h: 10};
+    plaque.style.left = P.c * tw + 'px'; plaque.style.top = P.r * th + 'px';
+    plaque.style.width = P.w * tw + 'px'; plaque.style.height = P.h * th + 'px';
+    /* the panel keeps its own 4:5, centred in its tile slot */
+    var sw = A.w * tw, sh = A.h * th, pw = Math.min(sw, sh * 0.8), phh = pw * 1.25;
+    art.style.left = A.c * tw + (sw - pw) / 2 + 'px'; art.style.top = A.r * th + (sh - phh) / 2 + 'px';
+    art.style.width = pw + 'px'; art.style.height = phh + 'px';
+    plaque.style.setProperty('--s', (desk ? tw / 72 : tw / 39).toFixed(3));
+    var ac = A.c + A.w / 2, ar = A.r + A.h / 2, html = '';
+    for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+      if (c >= P.c && c < P.c + P.w && r >= P.r && r < P.r + P.h) continue;
+      var d = Math.hypot(c + .5 - ac, r + .5 - ar);
+      html += '<i style="left:' + (c * tw).toFixed(2) + 'px;top:' + (r * th).toFixed(2) + 'px;width:' + (tw + .3).toFixed(2) + 'px;height:' + (th + .3).toFixed(2) +
+              'px;--d:' + Math.round(220 + d * 34) + 'ms;filter:brightness(' + (0.95 + ((c * 7 + r * 13) % 10) / 100).toFixed(2) + ')"></i>';
+    }
+    wall.innerHTML = html;
+    var qw = pw / 4, qh = phh / 5, h2 = '';
+    for (var y = 0; y < 5; y++) for (var x = 0; x < 4; x++)
+      h2 += '<b style="left:' + (x * qw) + 'px;top:' + (y * qh) + 'px;width:' + (qw + .5) + 'px;height:' + (qh + .5) + 'px;background-size:' + pw + 'px ' + phh +
+            'px;background-position:-' + (x * qw) + 'px -' + (y * qh) + 'px;--d:' + (60 + (x + y) * 70) + 'ms"></b>';
+    pieces.innerHTML = h2;
+    if (!laidOnce) {
+      laidOnce = true;
+      if (still) { hero.classList.add('set'); }
+      else {
+        hero.classList.add('js');
+        var go = function(){ requestAnimationFrame(function(){ requestAnimationFrame(function(){
+          hero.classList.add('laid'); setTimeout(function(){ hero.classList.add('set'); }, 2000); }); }); };
+        if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+      }
+    }
+  }
+  layWall();
+  new IntersectionObserver(function(e){ document.body.classList.toggle('past', !e[0].isIntersecting); }, {threshold: 0.05}).observe(hero);
+
   function fit(){
     document.querySelectorAll('[data-fit]').forEach(function(el){
       var span = el.firstElementChild;
@@ -579,7 +669,7 @@ html[lang="pt"] .sec{display:none}
   if (start !== 'fr') applyLang(start); else fit();
 
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(fit, 60); });
+  var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ layWall(); fit(); }, 80); });
 })();
 </script>
 <script>
