@@ -233,6 +233,24 @@ html[lang="pt"] .sec{display:none}
   .end .bom{font-size:56px}
   .end .disc{grid-column:1 / -1}
 }
+/* ---------- wow: the wall answers the hand, the pig speaks, the panels lay themselves ---------- */
+.wall i::before{content:"";position:absolute;inset:0;background:#fff;opacity:var(--lift,0);mix-blend-mode:soft-light;pointer-events:none}
+.hero.set .wall i{transition:transform .35s ease-out;transition-delay:0s}
+.casa-art{position:relative}
+.casa-art .sign{position:absolute;left:11.667%;top:65.167%;width:21.25%;height:10.667%;max-width:none;pointer-events:none}
+.casa-art .sign.flip{animation:signflip .34s ease-in-out}
+@keyframes signflip{50%{transform:perspective(400px) rotateY(90deg)}}
+.js-pig .casa-art{cursor:pointer}
+.layfig{position:relative}
+.layfig .pieces{position:absolute;perspective:1400px;pointer-events:none;z-index:2}
+.layfig .pieces b{position:absolute;display:block;backface-visibility:hidden;opacity:0;transform:rotateY(-88deg)}
+.layfig.laying .pieces b{opacity:1;transform:none;transition:opacity .3s ease-out,transform .6s cubic-bezier(.2,.8,.3,1);transition-delay:var(--d)}
+html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity:0}
+.layfig::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;mix-blend-mode:soft-light;opacity:0;
+  background:linear-gradient(112deg,transparent 40%,rgba(255,255,255,.7) 50%,transparent 60%) 150% 0/300% 100% no-repeat}
+.layfig.glint::after{animation:glint 1.2s ease-in-out}
+@keyframes glint{0%{opacity:1;background-position:150% 0}100%{opacity:1;background-position:-50% 0}}
+@media (prefers-reduced-motion:reduce){.casa-art .sign.flip{animation:none}}
 </style>
 </head>
 <body>
@@ -302,7 +320,7 @@ html[lang="pt"] .sec{display:none}
   <!-- 2. PICANHA -->
   <section class="pic" aria-labelledby="pic-t">
     <span class="pic-label caps"><span lang="pt">Na grelha</span><span class="sec"> · <span data-i18n="pic_label">Au gril</span></span></span>
-    <figure class="print">
+    <figure class="print layfig">
       <img class="panel" src="assets/tile-picanha.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_picanha"
            alt="Illustration façon azulejo peint à la main : des tranches de picanha sur une broche.">
     </figure>
@@ -316,7 +334,7 @@ html[lang="pt"] .sec{display:none}
   <section class="pol" aria-labelledby="pol-t">
     <span class="pol-label caps"><span lang="pt">Polvo grelhado</span><span class="sec"> · <span data-i18n="pol_label">Poulpe grillé</span></span></span>
     <div class="pol-stage">
-      <div class="pol-col"><img class="panel" src="assets/tile-polvo.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_polvo"
+      <div class="pol-col layfig"><img class="panel" src="assets/tile-polvo.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_polvo"
            alt="Illustration façon azulejo peint à la main : les tentacules du poulpe et les pommes de terre, dans un plat en terre cuite."></div>
       <h2 class="pol-name" id="pol-t" lang="pt" data-fit><span>Polvo</span></h2>
       <p class="fr sec" data-i18n="pol_fr">Poulpe</p>
@@ -328,7 +346,7 @@ html[lang="pt"] .sec{display:none}
   <!-- 4. LEITAO -->
   <section class="lei" aria-labelledby="lei-t">
     <span class="lei-label caps"><span lang="pt">Ao domingo</span><span class="sec"> · <span data-i18n="lei_label">Le dimanche</span></span></span>
-    <figure class="lei-print">
+    <figure class="lei-print layfig">
       <img class="panel" src="assets/tile-leitao.webp" width="1344" height="896" loading="lazy" data-i18n-alt="alt_leitao"
            alt="Illustration façon azulejo peint à la main : un porcelet rôti sur une planche, avec des oranges et des pommes de terre.">
     </figure>
@@ -341,7 +359,7 @@ html[lang="pt"] .sec{display:none}
   <!-- 5. BACALHAU -->
   <section class="bac" aria-labelledby="bac-t">
     <div class="bac-row">
-      <figure class="bac-print">
+      <figure class="bac-print layfig">
         <img class="panel" src="assets/tile-bacalhau.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_bacalhau"
              alt="Illustration façon azulejo peint à la main : un pavé de morue, de petites pommes de terre et de l'ail.">
       </figure>
@@ -354,9 +372,10 @@ html[lang="pt"] .sec{display:none}
   <!-- 6. A CASA -->
   <section class="proof" data-i18n-aria="proof_aria" aria-label="La maison">
     <div class="casa">
-      <figure class="casa-art">
+      <figure class="casa-art layfig">
         <img class="panel" src="assets/tile-pig.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_pig"
-             alt="Illustration façon azulejo peint à la main : le cochon en céramique de la maison, son petit panneau « Welcome » et une orchidée.">
+             alt="Illustration façon azulejo peint à la main : le cochon en céramique de la maison, son panneau de bienvenue et une orchidée.">
+        <img class="sign" src="assets/sign-welcome.webp" width="204" height="128" alt="" aria-hidden="true">
       </figure>
       <div class="casa-text">
         <h2 class="casa-name" lang="pt">Feito em casa</h2>
@@ -447,7 +466,7 @@ html[lang="pt"] .sec{display:none}
       bac_fr: "Morue grillée",
       cup_fr: "Fait maison",
       proof_aria: "La maison",
-      alt_pig: "Illustration façon azulejo peint à la main : le cochon en céramique de la maison, son petit panneau « Welcome » et une orchidée.",
+      alt_pig: "Illustration façon azulejo peint à la main : le cochon en céramique de la maison, son panneau de bienvenue et une orchidée.",
       con_h: "Cuisine portugaise et française",
       k_when: "Quand",
       when_days: "7 jours sur 7",
@@ -489,7 +508,7 @@ html[lang="pt"] .sec{display:none}
       bac_fr: "Bacalhau grelhado",
       cup_fr: "Feito em casa",
       proof_aria: "A casa",
-      alt_pig: "Ilustração ao estilo de azulejo pintado à mão: o porco de cerâmica da casa, a sua plaquinha «Welcome» e uma orquídea.",
+      alt_pig: "Ilustração ao estilo de azulejo pintado à mão: o porco de cerâmica da casa, a sua placa de boas-vindas e uma orquídea.",
       con_h: "Cozinha portuguesa e francesa",
       k_when: "Quando",
       when_days: "Todos os dias",
@@ -531,7 +550,7 @@ html[lang="pt"] .sec{display:none}
       bac_fr: "Gegrillter Klippfisch",
       cup_fr: "Hausgemacht",
       proof_aria: "Das Haus",
-      alt_pig: "Illustration im Stil handbemalter Azulejos: das Keramikschwein des Hauses mit seinem „Welcome“-Schildchen und einer Orchidee.",
+      alt_pig: "Illustration im Stil handbemalter Azulejos: das Keramikschwein des Hauses mit seinem Willkommensschild und einer Orchidee.",
       con_h: "Portugiesische und französische Küche",
       k_when: "Wann",
       when_days: "Täglich geöffnet",
@@ -573,7 +592,7 @@ html[lang="pt"] .sec{display:none}
       bac_fr: "Grilled salt cod",
       cup_fr: "Homemade",
       proof_aria: "The house",
-      alt_pig: "Hand-painted azulejo-style illustration: the house ceramic pig, its little “Welcome” sign and an orchid.",
+      alt_pig: "Hand-painted azulejo-style illustration: the house ceramic pig, its welcome sign and an orchid.",
       con_h: "Portuguese and French cooking",
       k_when: "When",
       when_days: "Open every day",
@@ -599,7 +618,7 @@ html[lang="pt"] .sec{display:none}
   /* hero wall: whole tiles fill the hero edge to edge; the plaque and the panel sit on the tile grid */
   var hero = document.querySelector('.hero'), wall = hero.querySelector('.wall'), plaque = hero.querySelector('.plaque'),
       art = hero.querySelector('.hero-art'), pieces = hero.querySelector('.pieces');
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches, laidOnce = false, lastW = 0, lastH = 0;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches, laidOnce = false, lastW = 0, lastH = 0, cells = [], TW = 1, TH = 1;
   function layWall(){
     var W = hero.clientWidth, H = hero.clientHeight, desk = W >= 900;
     if (laidOnce && W === lastW && (!desk || H === lastH)) return;
@@ -632,6 +651,8 @@ html[lang="pt"] .sec{display:none}
               'px;--d:' + Math.round(220 + d * 34) + 'ms;filter:brightness(' + (0.95 + ((c * 7 + r * 13) % 10) / 100).toFixed(2) + ')"></i>';
     }
     wall.innerHTML = html;
+    TW = tw; TH = th;
+    cells = Array.prototype.map.call(wall.children, function(el){ return {el: el, x: parseFloat(el.style.left) + tw / 2, y: parseFloat(el.style.top) + th / 2, on: false}; });
     var qw = pw / 4, qh = phh / 5, h2 = '';
     for (var y = 0; y < 5; y++) for (var x = 0; x < 4; x++)
       h2 += '<b style="left:' + (x * qw) + 'px;top:' + (y * qh) + 'px;width:' + (qw + .5) + 'px;height:' + (qh + .5) + 'px;background-size:' + pw + 'px ' + phh +
@@ -661,6 +682,89 @@ html[lang="pt"] .sec{display:none}
     });
   }
 
+
+  /* ---- the wall answers the hand ---- */
+  if (!still) {
+    var px = -9999, py = -9999, raf = 0;
+    var tilt = function(){
+      raf = 0;
+      if (!hero.classList.contains('set')) return;
+      var R = 2.6 * TW;
+      for (var i = 0; i < cells.length; i++) {
+        var c = cells[i], dx = c.x - px, dy = c.y - py, dd = Math.sqrt(dx * dx + dy * dy);
+        if (dd < R) {
+          var k = 1 - dd / R, a = 16 * k, ux = dd ? dx / dd : 0, uy = dd ? dy / dd : 0;
+          c.el.style.transform = 'perspective(500px) rotateX(' + (-uy * a).toFixed(1) + 'deg) rotateY(' + (ux * a).toFixed(1) + 'deg) scale(' + (1 - .05 * k).toFixed(3) + ')';
+          c.el.style.setProperty('--lift', (.55 * k).toFixed(2)); c.on = true;
+        } else if (c.on) { c.el.style.transform = ''; c.el.style.setProperty('--lift', 0); c.on = false; }
+      }
+    };
+    var at = function(e){ var r = hero.getBoundingClientRect(); px = e.clientX - r.left; py = e.clientY - r.top; };
+    if (window.matchMedia('(pointer: fine)').matches) {
+      hero.addEventListener('pointermove', function(e){ at(e); if (!raf) raf = requestAnimationFrame(tilt); });
+      hero.addEventListener('pointerleave', function(){ px = py = -9999; if (!raf) raf = requestAnimationFrame(tilt); });
+    }
+    /* a tap on the bare wall sends a wave of turning tiles */
+    var down = null;
+    hero.addEventListener('pointerdown', function(e){ down = {x: e.clientX, y: e.clientY, t: e.target}; });
+    hero.addEventListener('pointerup', function(e){
+      if (!down || !hero.classList.contains('set')) return;
+      var moved = Math.abs(e.clientX - down.x) + Math.abs(e.clientY - down.y), t = down.t; down = null;
+      if (moved > 8 || !t || t.parentNode !== wall || !t.animate) return;
+      var r = hero.getBoundingClientRect(), ox = e.clientX - r.left, oy = e.clientY - r.top, R = 7 * TW;
+      for (var i = 0; i < cells.length; i++) {
+        var c = cells[i], d = Math.sqrt((c.x - ox) * (c.x - ox) + (c.y - oy) * (c.y - oy));
+        if (d < R) c.el.animate([{transform: 'perspective(500px) rotateY(0deg)'}, {transform: 'perspective(500px) rotateY(180deg)'}, {transform: 'perspective(500px) rotateY(360deg)'}],
+                               {duration: 700, delay: d / TW * 55, easing: 'ease-in-out'});
+      }
+    });
+  }
+
+  /* ---- the dish panels lay themselves as they arrive ---- */
+  var figs = document.querySelectorAll('.layfig');
+  var finish = function(f){ if (f.classList.contains('laid')) return; f.classList.add('laid'); var pc = f.querySelector('.pieces'); if (pc) pc.remove(); };
+  var lay = function(f){
+    var img = f.querySelector('.panel');
+    var go = function(){
+      var W = img.offsetWidth, H = img.offsetHeight, wide = W > H * 1.2, cols = wide ? 6 : 4, rows = wide ? 4 : 5, qw = W / cols, qh = H / rows, h = '';
+      for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++)
+        h += '<b style="left:' + (x * qw) + 'px;top:' + (y * qh) + 'px;width:' + (qw + .5) + 'px;height:' + (qh + .5) + 'px;background-image:url(' + (img.currentSrc || img.src) + ');background-size:' + W + 'px ' + H +
+             'px;background-position:-' + (x * qw) + 'px -' + (y * qh) + 'px;--d:' + ((x + y) * 70) + 'ms"></b>';
+      var pc = document.createElement('div'); pc.className = 'pieces'; pc.setAttribute('aria-hidden', 'true');
+      pc.style.cssText = 'left:' + img.offsetLeft + 'px;top:' + img.offsetTop + 'px;width:' + W + 'px;height:' + H + 'px';
+      pc.innerHTML = h; f.appendChild(pc);
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ f.classList.add('laying'); }); });
+      setTimeout(function(){ finish(f); f.classList.add('glint'); }, (cols + rows) * 70 + 650);
+    };
+    (img.decode ? img.decode() : Promise.resolve()).then(go, go);
+  };
+  if (!still && 'IntersectionObserver' in window && figs.length) {
+    document.documentElement.classList.add('lay');
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { io.unobserve(e.target); lay(e.target); } });
+    }, {threshold: 0.25});
+    figs.forEach(function(f){ io.observe(f); });
+    /* never leave a panel hidden: a fast scroll past lays it at once */
+    window.addEventListener('scroll', function(){
+      figs.forEach(function(f){ if (!f.classList.contains('laying') && f.getBoundingClientRect().bottom < 0) { io.unobserve(f); finish(f); } });
+    }, {passive: true});
+  }
+
+  /* ---- the pig's sign speaks your language; a tap tries the others ---- */
+  var sign = document.querySelector('.casa-art .sign'), WORDS = ['welcome', 'bienvenue', 'bemvindo', 'willkommen'], LANGSIGN = {fr: 'welcome', en: 'welcome', pt: 'bemvindo', de: 'willkommen'};
+  var setSign = function(w, animate){
+    if (!sign || sign.getAttribute('data-w') === w) return;
+    var put = function(){ sign.src = 'assets/sign-' + w + '.webp'; sign.setAttribute('data-w', w); };
+    if (!animate || still) { put(); return; }
+    sign.classList.remove('flip'); void sign.offsetWidth; sign.classList.add('flip'); setTimeout(put, 170);
+  };
+  if (sign) {
+    sign.setAttribute('data-w', 'welcome');
+    WORDS.forEach(function(w){ var im = new Image(); im.src = 'assets/sign-' + w + '.webp'; });
+    document.documentElement.classList.add('js-pig');
+    sign.parentNode.addEventListener('click', function(){ var w = sign.getAttribute('data-w'); setSign(WORDS[(WORDS.indexOf(w) + 1) % WORDS.length], true); });
+  }
+
   var meta = document.querySelector('meta[name="description"]');
   function applyLang(l){
     var d = I18N[l] || I18N.fr;
@@ -671,6 +775,7 @@ html[lang="pt"] .sec{display:none}
     document.querySelectorAll('[data-i18n-alt]').forEach(function(el){ var k = el.getAttribute('data-i18n-alt'); if (d[k] != null) el.alt = d[k]; });
     document.querySelectorAll('[data-i18n-aria]').forEach(function(el){ var k = el.getAttribute('data-i18n-aria'); if (d[k] != null) el.setAttribute('aria-label', d[k]); });
     document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false'); });
+    setSign(LANGSIGN[l] || 'welcome', true);
     try { localStorage.setItem('welcome_lang', l); } catch(e) {}
     fit();
   }
