@@ -127,11 +127,11 @@ figure{margin:0}
 .lei .fr{margin-top:14px;padding:0 4px;color:var(--espresso)}
 
 /* ---------- 5. bacalhau ---------- */
-.bac{background:var(--paper);padding:40px var(--pad) 44px}
+.bac{background:var(--green);padding:40px var(--pad) 44px}
 .bac-row{display:grid;grid-template-columns:44% 1fr;gap:18px;align-items:end}
 .bac-print{margin:0}
-.dish{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1;color:var(--terra)}
-.dish small{display:block;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-top:12px;line-height:1.4}
+.dish{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1;color:var(--paper)}
+.dish small{display:block;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);margin-top:12px;line-height:1.4}
 
 /* ---------- 6. proof strip ---------- */
 .proof{background:var(--ink);color:var(--paper);padding:44px var(--pad) 48px}
@@ -143,16 +143,16 @@ figure{margin:0}
 .casa-note{margin-top:18px;color:#efe4cc;font-size:16px;line-height:1.5;max-width:34ch}
 
 /* ---------- 7. contact ---------- */
-.con{background:var(--espresso);color:var(--paper);padding:48px var(--pad) 56px}
-.con-h{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.02;color:var(--paper);max-width:14ch}
+.con{background:var(--paper);color:var(--ink);padding:48px var(--pad) 56px}
+.con-h{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.02;color:var(--ink);max-width:14ch}
 .con-grid{display:grid;gap:30px;margin-top:40px}
-.con-k{display:block;color:var(--gold);margin-bottom:10px}
-.con p{color:#efe4cc}
-.con .big{font-family:var(--serif);font-size:22px;line-height:1.2;color:var(--paper);text-decoration:none}
+.con-k{display:block;color:var(--terra);margin-bottom:10px}
+.con p{color:var(--ink)}
+.con .big{font-family:var(--serif);font-size:22px;line-height:1.2;color:var(--ink);text-decoration:none}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .btn{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px}
 .btn.solid{background:var(--green);color:var(--paper)}
-.btn.line{border:1.5px solid rgba(246,240,228,.55);color:var(--paper)}
+.btn.line{border:1.5px solid rgba(90,36,22,.45);color:var(--ink)}
 .map{display:block;margin-top:40px;text-decoration:none;box-shadow:0 0 0 1px rgba(58,36,24,.22),0 18px 38px -18px rgba(20,8,4,.7)}
 .map svg{display:block;width:100%;height:auto}
 
@@ -357,7 +357,6 @@ html[lang="pt"] .sec{display:none}
       <figure class="casa-art">
         <img class="panel" src="assets/tile-pig.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_pig"
              alt="Illustration façon azulejo peint à la main : le cochon en céramique de la maison, son petit panneau « Welcome » et une orchidée.">
-        <figcaption class="caps"><span lang="pt">Ao balcão</span><span class="sec"> · <span data-i18n="proof_bar">Au comptoir</span></span></figcaption>
       </figure>
       <div class="casa-text">
         <h2 class="casa-name" lang="pt">Feito em casa</h2>
@@ -393,6 +392,7 @@ html[lang="pt"] .sec{display:none}
             <span class="con-k caps" data-i18n="k_how">Comment</span>
             <p data-i18n="how_1">Sur place ou à emporter.</p>
             <p data-i18n="how_2">Réservations et plats à emporter par téléphone.</p>
+            <p data-i18n="how_4">Familles et groupes sur réservation.</p>
             <p data-i18n="how_3">Plat du jour à midi. Ticket Restaurant et Chèque Repas acceptés.</p>
             <div class="btns"><a class="btn solid" href="tel:+352542558"><span data-i18n="btn_call">Appeler</span>&nbsp;54 25 58</a></div>
           </div>
@@ -448,7 +448,6 @@ html[lang="pt"] .sec{display:none}
       cup_fr: "Fait maison",
       proof_aria: "La maison",
       alt_pig: "Illustration façon azulejo peint à la main : le cochon en céramique de la maison, son petit panneau « Welcome » et une orchidée.",
-      proof_bar: "Au comptoir",
       con_h: "Cuisine portugaise et française",
       k_when: "Quand",
       when_days: "7 jours sur 7",
@@ -461,6 +460,7 @@ html[lang="pt"] .sec{display:none}
       how_1: "Sur place ou à emporter.",
       casa_note: "Tout est cuisiné ici, jusqu’aux pommes de terre, épluchées à la main.",
       how_2: "Réservations et plats à emporter par téléphone.",
+      how_4: "Familles et groupes sur réservation.",
       how_3: "Plat du jour à midi. Ticket Restaurant et Chèque Repas acceptés.",
       btn_call: "Appeler",
       map_aria: "Plan du quartier : la rue du Canal et le restaurant au numéro 103. Ouvrir dans Google Maps.",
@@ -490,7 +490,6 @@ html[lang="pt"] .sec{display:none}
       cup_fr: "Feito em casa",
       proof_aria: "A casa",
       alt_pig: "Ilustração ao estilo de azulejo pintado à mão: o porco de cerâmica da casa, a sua plaquinha «Welcome» e uma orquídea.",
-      proof_bar: "Ao balcão",
       con_h: "Cozinha portuguesa e francesa",
       k_when: "Quando",
       when_days: "Todos os dias",
@@ -503,6 +502,7 @@ html[lang="pt"] .sec{display:none}
       how_1: "No local ou para levar.",
       casa_note: "Tudo é feito cá, até as batatas, descascadas à mão.",
       how_2: "Reservas e encomendas para levar por telefone.",
+      how_4: "Famílias e grupos com reserva.",
       how_3: "Prato do dia ao almoço. Aceitamos Ticket Restaurant e Chèque Repas.",
       btn_call: "Ligar",
       map_aria: "Mapa do bairro: a rue du Canal e o restaurante no número 103. Abrir no Google Maps.",
@@ -532,7 +532,6 @@ html[lang="pt"] .sec{display:none}
       cup_fr: "Hausgemacht",
       proof_aria: "Das Haus",
       alt_pig: "Illustration im Stil handbemalter Azulejos: das Keramikschwein des Hauses mit seinem „Welcome“-Schildchen und einer Orchidee.",
-      proof_bar: "An der Theke",
       con_h: "Portugiesische und französische Küche",
       k_when: "Wann",
       when_days: "Täglich geöffnet",
@@ -545,6 +544,7 @@ html[lang="pt"] .sec{display:none}
       how_1: "Im Restaurant oder zum Mitnehmen.",
       casa_note: "Alles wird hier gekocht, bis zu den Kartoffeln, von Hand geschält.",
       how_2: "Reservierungen und Gerichte zum Mitnehmen telefonisch.",
+      how_4: "Familien und Gruppen mit Reservierung.",
       how_3: "Mittags ein Tagesgericht. Ticket Restaurant und Chèque Repas werden angenommen.",
       btn_call: "Anrufen",
       map_aria: "Lageplan: die Rue du Canal und das Restaurant in Nummer 103. In Google Maps öffnen.",
@@ -574,7 +574,6 @@ html[lang="pt"] .sec{display:none}
       cup_fr: "Homemade",
       proof_aria: "The house",
       alt_pig: "Hand-painted azulejo-style illustration: the house ceramic pig, its little “Welcome” sign and an orchid.",
-      proof_bar: "At the bar",
       con_h: "Portuguese and French cooking",
       k_when: "When",
       when_days: "Open every day",
@@ -587,6 +586,7 @@ html[lang="pt"] .sec{display:none}
       how_1: "Eat in or take away.",
       casa_note: "Everything is cooked here, down to the potatoes, peeled by hand.",
       how_2: "Bookings and takeaway by phone.",
+      how_4: "Families and groups by reservation.",
       how_3: "A dish of the day at lunch. Ticket Restaurant and Chèque Repas accepted.",
       btn_call: "Call",
       map_aria: "Street map: rue du Canal and the restaurant at number 103. Open in Google Maps.",
