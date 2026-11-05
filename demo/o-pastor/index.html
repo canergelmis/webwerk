@@ -227,7 +227,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .map:focus-visible{ outline-offset:4px; }
 .info{ margin-top:var(--s5); display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--s3); }
 .info .addr{ font-size:var(--t3); line-height:1.2; }
-.info .terr{ font-size:var(--t2); margin-top:var(--s2); }
+.info .terr{ font-size:var(--t2); margin-top:var(--s2); text-wrap:balance; }
 .info .dir{ display:inline-block; margin-top:var(--s2); padding:var(--s1) 0; border-bottom:1px solid var(--ink); }
 .info .tel{ font-size:var(--t3); letter-spacing:.04em; }
 @media (min-width:900px){
@@ -306,7 +306,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   </div>
 
   <div class="hero-foot">
-    <span class="where-d sans">Consdorf</span>
+    <span class="where-d sans">Consdorf · <span data-i18n="days_short">mercredi – dimanche</span></span>
     <a class="call" href="tel:+35226784370" data-i18n="call">Pensez à réserver votre table&nbsp;!</a>
     <a class="num sans" href="tel:+35226784370">26 78 43 70</a>
   </div>
@@ -452,7 +452,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
       <div class="info">
         <div class="addr-col">
-          <p class="addr">3, route de Luxembourg<br>L-6210 Consdorf</p><p class="terr" data-i18n="terrace">En haut des marches, la terrasse.</p>
+          <p class="addr">3, route de Luxembourg<br>L-6210 Consdorf</p><p class="terr" data-i18n="terrace">En haut des marches, la terrasse.</p><p class="terr" data-i18n="days">Ouvert du mercredi au dimanche. Fermé lundi et mardi.</p><p class="terr" data-i18n="take">Aussi à emporter.</p>
           <a class="dir sans" href="https://www.google.com/maps/search/?api=1&amp;query=O%20Pastor%20Consdorf&amp;query_place_id=ChIJLQDg0JVelUcR23J6tiksCog" target="_blank" rel="noopener" data-i18n="directions">Itinéraire</a>
         </div>
         <a class="tel" href="tel:+35226784370">26 78 43 70</a>
@@ -563,6 +563,9 @@ const BOARD = {
       map_aria: 'Open de kaart: O Pastor, 3 route de Luxembourg, Consdorf',
       map_church: 'Kerk', map_house: 'O Pastor, nr. 3',
       terrace: 'Boven aan de trap, het terras.',
+      days_short: 'woensdag – zondag',
+      days: 'Open van woensdag tot zondag. Maandag en dinsdag gesloten.',
+      take: 'Ook om mee te nemen.',
       directions: 'Routebeschrijving',
       disc: 'Een demonstratie van Webwerk, gemaakt met openbare informatie en foto’s, zonder officiële band met de zaak. Anonieme bezoekersstatistieken, zonder cookies of persoonsgegevens.',
       legal: 'Juridische informatie'
@@ -599,6 +602,9 @@ const BOARD = {
       map_aria: 'Karte öffnen: O Pastor, 3 route de Luxembourg, Consdorf',
       map_church: 'Kirche', map_house: 'O Pastor, Nr. 3',
       terrace: 'Oben an der Treppe: die Terrasse.',
+      days_short: 'Mittwoch – Sonntag',
+      days: 'Mittwoch bis Sonntag geöffnet. Montag und Dienstag geschlossen.',
+      take: 'Auch zum Mitnehmen.',
       directions: 'Route planen',
       disc: 'Eine Demonstration von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne offizielle Verbindung zum Betrieb. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten.',
       legal: 'Impressum'
@@ -635,6 +641,9 @@ const BOARD = {
       map_aria: 'Open the map: O Pastor, 3 route de Luxembourg, Consdorf',
       map_church: 'Church', map_house: 'O Pastor, no. 3',
       terrace: 'At the top of the steps, the terrace.',
+      days_short: 'Wednesday – Sunday',
+      days: 'Open Wednesday to Sunday. Closed Monday and Tuesday.',
+      take: 'Takeaway too.',
       directions: 'Directions',
       disc: 'A Webwerk demonstration, built from public information and photos, with no official link to the venue. Anonymous visit statistics, with no cookies and no personal data.',
       legal: 'Legal notice'
@@ -671,6 +680,9 @@ const BOARD = {
       map_aria: 'Abrir o mapa: O Pastor, 3 route de Luxembourg, Consdorf',
       map_church: 'Igreja', map_house: 'O Pastor, n.º 3',
       terrace: 'No cimo das escadas, a esplanada.',
+      days_short: 'quarta – domingo',
+      days: 'Aberto de quarta a domingo. Fechado à segunda e à terça.',
+      take: 'Também para levar.',
       directions: 'Como chegar',
       disc: 'Demonstração Webwerk, feita a partir de informações e fotografias públicas, sem ligação oficial ao estabelecimento. Estatísticas de visitas anónimas, sem cookies nem dados pessoais.',
       legal: 'Informações legais'
