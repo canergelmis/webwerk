@@ -98,50 +98,51 @@ ul{list-style:none}
 .js .hd:not(.past) .call{display:none}
 @media (min-width:600px){.call .num{display:inline}}
 
-/* ---------- the room: their stag wall, sharp, with who / where / when beside it ---------- */
-.top{position:relative;z-index:2;background:var(--petrol)}
-.top{padding-top:var(--hd)}
-.top .ph{position:relative;height:54svh;min-height:320px;overflow:hidden}
-.top .ph img{width:100%;height:100%;object-fit:cover;object-position:40% 12%}
-.top .wrap{padding-block:26px 34px;row-gap:0}
-.top .txt{grid-column:1 / -1}
-.top h1{font-size:var(--fs-hero)}
-.top .kind{margin-top:14px;font-size:var(--fs-body);font-weight:400;opacity:.9}
-.top .when{margin-top:14px;font-size:var(--fs-body)}
-.top .acts{margin-top:14px}
+/* ---------- the hour: the page opens on what is happening at MontChalet right now ----------
+   Their own reel footage for each part of the day; the time in Dudelange, ticking; their line for that hour.
+   A dial lets you drag through their day, 09:00 to closing. */
+.hour{position:relative;min-height:100vh;min-height:100svh;color:var(--film-ink);background:#101a19;overflow:clip;
+  transition:background-color .6s ease,color .6s ease}
+.hour .media{position:absolute;inset:0;background:#101a19}
+.hour .media img,.hour .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
+.hour .media video{opacity:0}
+.hour .media video.on{opacity:1}
+.hour .media::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(rgba(14,30,28,.55),rgba(14,30,28,0) 30%,rgba(14,30,28,0) 38%,rgba(14,30,28,.78) 70%,rgba(14,30,28,.92))}
+.hour .wrap{position:relative;z-index:1;min-height:100vh;min-height:100svh;align-content:end;
+  padding-top:calc(var(--hd) + 16px);padding-bottom:max(22px,env(safe-area-inset-bottom))}
+.hour .txt{grid-column:1 / -1}
+.hour .where{font-size:var(--fs-small);font-weight:500;letter-spacing:.02em;opacity:.92}
+.hour .where button{font:inherit;color:inherit;background:none;border:0;border-bottom:1px solid currentColor;padding:6px 0 1px;margin-left:10px;cursor:pointer}
+.hour .clock{font-family:var(--f-voice);font-weight:400;font-size:clamp(5.5rem,28vw,15rem);line-height:1.08;letter-spacing:-.02em;
+  -webkit-text-stroke:.011em currentColor;font-variant-numeric:tabular-nums;margin-top:4px}
+.hour .line{font-size:var(--fs-title);margin-top:14px;max-width:22ch;min-height:2.2em}
+.hour .line .sub{display:block;font-family:var(--f-text);font-size:var(--fs-body);-webkit-text-stroke:0;margin-top:8px;opacity:.92;line-height:1.35}
+.hour .state{margin-top:16px;font-size:var(--fs-body);font-weight:500}
+.hour .acts{margin-top:14px}
+.hour .acts a.cta{background:var(--cream);color:var(--petrol)}
+.dial{grid-column:1 / -1;margin-top:26px}
+.dial input{-webkit-appearance:none;appearance:none;display:block;width:100%;height:36px;background:none;margin:0;cursor:pointer;color:inherit}
+.dial input::-webkit-slider-runnable-track{height:2px;background:currentColor;opacity:.9}
+.dial input::-moz-range-track{height:2px;background:currentColor}
+.dial input::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--cream);margin-top:-10px;border:3px solid var(--petrol);box-shadow:0 0 0 1px var(--cream)}
+.dial input::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--cream);border:3px solid var(--petrol)}
+.dial input:focus-visible{outline:2px solid var(--cream);outline-offset:4px}
+.dial .ticks span{position:absolute;top:0;transform:translateX(-50%)}
+.dial .hint{display:block;font-size:.9375rem;font-weight:500;opacity:.9}
+.dial .ticks{position:relative;height:1.4em;margin-inline:11px;font-size:.9375rem;font-variant-numeric:tabular-nums;opacity:.85;margin-top:2px}
 @media (min-width:900px){
-  .top{min-height:100svh;display:flex;align-items:center;padding-top:0}
-  .top .ph{position:absolute;top:0;right:0;bottom:0;width:50%;height:auto;min-height:0}
-  .top .ph img{object-position:40% 22%}
-  .top .wrap{padding-block:calc(var(--hd) + 32px) 32px}
-  .top .txt{grid-column:1 / span 6;padding-right:24px}
-  .top .kind{margin-top:22px}
-  .top .when{margin-top:28px;font-size:1.25rem}
-  .top .acts{margin-top:18px}
+  .hour .media{left:auto;width:50%}
+  .hour .media::after{display:none}
+  .hour .wrap{align-content:center;padding-bottom:40px}
+  .hour .txt{grid-column:1 / span 6}
+  .hour .clock{font-size:clamp(9rem,15vw,15rem)}
+  .dial{grid-column:1 / span 6}
+  .hour.day{background:var(--cream);color:var(--ink)}
+  .hour.day .acts a.cta{background:var(--petrol);color:var(--cream)}
+  .hour.day .dial input::-webkit-slider-thumb{background:var(--petrol);border-color:var(--cream);box-shadow:0 0 0 1px var(--petrol)}
+  .hour.eve{background:var(--petrol)}
 }
-
-/* ---------- the film: one screen. Their mural holds, then turns into a painting ---------- */
-.film{position:relative;z-index:1;margin-top:-100vh;margin-top:-100svh;height:calc(150vh + 100svh);background:#2b2a24}
-.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:clip;color:var(--film-ink)}
-.stage .paint{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:46% 30%;
-  transform-origin:46% 14%;will-change:transform}
-/* one flat shade under the words: a gradient band from the bottom edge, never a blurred blob */
-.stage{color:var(--ink)}
-@media (max-aspect-ratio:9/10){
-  .stage .paint{object-position:50% 0;transform-origin:50% 22%}
-  .beat.b2{top:auto;bottom:max(7svh,32px)}
-  .beat.b2 .voice{color:var(--film-ink);text-shadow:0 1px 16px rgba(14,30,28,.85)}
-  .stage::after{content:"";position:absolute;inset:auto 0 0 0;height:52%;pointer-events:none;
-    background:linear-gradient(rgba(14,30,28,0),rgba(14,30,28,.62) 45%,rgba(14,30,28,.86))}
-}
-.beat{position:absolute;inset-inline:0;top:calc(var(--hd) + 4svh);z-index:1;pointer-events:none}
-.beat .txt{grid-column:1 / -1;pointer-events:auto}
-.b2 .voice{font-size:var(--fs-voice);text-shadow:0 0 18px rgba(224,228,188,.9),0 0 2px rgba(224,228,188,.9)}
-.b2 .voice span{display:block}
-@media (min-width:900px){.b2 .txt{grid-column:1 / span 5}}
-.beat{opacity:0;visibility:hidden;transition:opacity .25s linear,visibility 0s linear .25s}
-.beat.on{opacity:1;visibility:visible;transition:opacity .25s linear,visibility 0s}
-html:not(.js) .b2{opacity:1;visibility:visible}
 
 /* ---------- the day after the film: three type sizes only (hero, section, item) ---------- */
 .carte{padding-block:clamp(72px,9vw,128px) clamp(56px,7vw,96px)}
@@ -210,7 +211,7 @@ html:not(.js) .b2{opacity:1;visibility:visible}
 }
 .ft .col > * + *{margin-top:.6em}
 
-@media (prefers-reduced-motion:reduce){.hd::before,.beat,.beat.on{transition:none}}
+@media (prefers-reduced-motion:reduce){.hour,.hour .media video{transition:none}}
 </style>
 </head>
 <body>
@@ -230,26 +231,25 @@ html:not(.js) .b2{opacity:1;visibility:visible}
 </header>
 
 <main id="top">
-  <section class="top">
-    <div class="ph"><img src="assets/img/room-stag.webp" width="720" height="1040" fetchpriority="high" decoding="async" alt="La salle de MontChalet : le cerf blanc sur le mur pétrole, les photos noir et blanc, le bois clair" data-i18n-alt="alt_room"></div>
-    <div class="wrap"><div class="txt">
-      <h1 class="voice"><span class="sr">MontChalet · </span><span data-i18n="founder">À la façon des chalets du Tyrol du Sud</span></h1>
-      <p class="kind">Bistro • Brasserie • Biergarten</p>
-      <p class="when">6 Am Duerf, Dudelange · <span data-i18n="hours">Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00</span></p>
-      <p class="acts"><a class="cta" href="tel:+35226511156"><span data-i18n="call">Appeler</span> 26 51 11 56</a><a href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange&amp;query_place_id=ChIJ82Gg1-Q2lUcRVQXcEOkbeU0" rel="noopener" data-i18n="dir">Itinéraire</a></p>
-    </div></div>
-  </section>
-
-  <section class="film" id="film" aria-label="Paysage peint" data-i18n-aria-label="film">
-    <div class="stage" id="stage">
-      <picture>
-        <source media="(max-aspect-ratio: 9/10)" srcset="assets/img/painting-m.webp">
-        <img class="paint" id="paint" src="assets/img/painting-d.webp" width="2400" height="1357" alt="" decoding="async">
-      </picture>
-
-      <div class="beat b2" id="b2"><div class="wrap"><div class="txt" lang="en">
-        <p class="voice"><span>You are not in the mountains.</span> <span>The mountains are in you.</span></p>
-      </div></div></div>
+  <section class="hour" id="hour" aria-labelledby="clock">
+    <div class="media" aria-hidden="true">
+      <img id="poster" src="assets/img/matin.webp" width="720" height="1280" alt="" fetchpriority="high">
+      <video id="va" muted playsinline loop preload="none"></video>
+      <video id="vb" muted playsinline loop preload="none"></video>
+    </div>
+    <div class="wrap">
+      <div class="txt">
+        <p class="where"><span id="where" data-i18n="now">Maintenant à Dudelange</span><button type="button" id="back" hidden data-i18n="back">Revenir à maintenant</button></p>
+        <h1 class="clock" id="clock"><span class="sr">MontChalet, Dudelange · </span><span id="hh">09:00</span></h1>
+        <p class="line voice" id="line"><span id="lt" lang="fr">Commencer la journée en douceur, de la meilleure des façons.</span><span class="sub" id="ls"></span></p>
+        <p class="state" id="state">6 Am Duerf, Dudelange · <span data-i18n="hours">Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00</span></p>
+        <p class="acts"><a class="cta" href="tel:+35226511156"><span data-i18n="call">Appeler</span> 26 51 11 56</a><a href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange&amp;query_place_id=ChIJ82Gg1-Q2lUcRVQXcEOkbeU0" rel="noopener" data-i18n="dir">Itinéraire</a></p>
+      </div>
+      <div class="dial">
+        <label class="hint" for="dial" data-i18n="dial">Faites glisser la journée →</label>
+        <input type="range" id="dial" min="540" max="1530" step="5" value="540">
+        <p class="ticks" aria-hidden="true"><span style="left:0%">09</span><span style="left:18.18%">12</span><span style="left:36.36%">15</span><span style="left:54.55%">18</span><span style="left:72.73%">21</span><span style="left:90.91%">00</span></p>
+      </div>
     </div>
   </section>
 
@@ -311,7 +311,7 @@ html:not(.js) .b2{opacity:1;visibility:visible}
         <p class="lux" lang="lb">bei eis kri Dir eng geschmiert</p>
       </div>
     </div>
-    <p class="note" data-i18n="note">Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Le paysage peint est généré par Webwerk et ne représente pas un lieu réel. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
+    <p class="note" data-i18n="note">Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Les vidéos et photos sont les leurs, publiées sur leur Instagram. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle.</p>
   </div>
 </footer>
 
@@ -338,7 +338,7 @@ html:not(.js) .b2{opacity:1;visibility:visible}
    - "À la façon des chalets du Tyrol du Sud": adapted from the 2017 town-blog interview (E1: "à la façon
      des chalets dans le Tyrol du Sud … chic et alpestre"); the lead chosen at Gate 1. ---- */
 var MC_I18N={
-  fr:{lang:"Langue",film:"Paysage peint",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
+  fr:{lang:"Langue",now:"Maintenant à Dudelange",scrub:"Un jour à MontChalet",back:"Revenir à maintenant",dial:"Faites glisser la journée →",open_until:"Ouvert jusqu’à {h}",closed_now:"Fermé",tomorrow:"Demain dès 09:00. Tous les jours, ven. et sam. jusqu’à 01:00.",terr:"Bienvenue à la terrasse Mont Chalet",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, pour 2, 4 ou 6 personnes",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
     hours:"Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00",dir:"Itinéraire",brunch:"Brunch, chaque dimanche, 11:00⁠–⁠15:00",
     morn_t:"Commencer la journée en douceur, de la meilleure des façons.",order:"Toute la carte sur Wolt",hello:"On vous attend nombreux !",d_burrata:"Pain croustillant, houmous à la betterave, roquette, olives & tomates",
     morn:"Un café frais, des coins paisibles et la beauté tranquille d’un nouveau matin.",
@@ -348,8 +348,8 @@ var MC_I18N={
     alt_room:"La salle de MontChalet : le cerf blanc sur le mur pétrole, les photos noir et blanc, le bois clair",
     alt_board:"Leur planche Charcuterie & Fromage, vue du dessus",
     alt_bar:"Le bar en bois de MontChalet et ses lettres de cuivre « Mont Chalet »",
-    note:"Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Le paysage peint est généré par Webwerk et ne représente pas un lieu réel. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."},
-  de:{lang:"Sprache",film:"Gemalte Landschaft",call:"Anrufen",founder:"Nach Art der Chalets in Südtirol",
+    note:"Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Les vidéos et photos sont les leurs, publiées sur leur Instagram. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."},
+  de:{lang:"Sprache",now:"Jetzt in Düdelingen",scrub:"Ein Tag im MontChalet",back:"Zurück zu jetzt",dial:"Ziehen Sie durch den Tag →",open_until:"Geöffnet bis {h}",closed_now:"Geschlossen",tomorrow:"Morgen ab 09:00. Täglich, Fr. und Sa. bis 01:00.",terr:"Willkommen auf der Terrasse des Mont Chalet",bar_s:"MontChalet Bar · Espresso Martini, Spritz, Whisky, Gin",d_board:"Charcuterie & Fromage, für 2, 4 oder 6 Personen",call:"Anrufen",founder:"Nach Art der Chalets in Südtirol",
     hours:"Täglich 09:00⁠–⁠00:00, Fr. und Sa. bis 01:00",dir:"Anfahrt",brunch:"Brunch, jeden Sonntag, 11:00⁠–⁠15:00",
     morn_t:"Sanft in den Tag starten, auf die beste Art.",order:"Die ganze Karte bei Wolt",hello:"Bis bald!",d_burrata:"Knuspriges Brot, Rote-Bete-Hummus, Rucola, Oliven & Tomaten",
     morn:"Ein frischer Kaffee, ruhige Ecken und die stille Schönheit eines neuen Morgens.",
@@ -359,8 +359,8 @@ var MC_I18N={
     alt_room:"Der Raum des MontChalet: der weiße Hirsch an der petrolfarbenen Wand, Schwarzweißfotos, helles Holz",
     alt_board:"Ihr Brett Charcuterie & Fromage, von oben",
     alt_bar:"Die Holzbar des MontChalet mit den Kupferbuchstaben „Mont Chalet“",
-    note:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Die gemalte Landschaft wurde von Webwerk generiert und zeigt keinen realen Ort. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."},
-  en:{lang:"Language",film:"Painted landscape",call:"Call",founder:"In the manner of the chalets of South Tyrol",
+    note:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Videos und Fotos stammen von ihrem Instagram. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."},
+  en:{lang:"Language",now:"Right now in Dudelange",scrub:"A day at MontChalet",back:"Back to now",dial:"Drag through the day →",open_until:"Open until {h}",closed_now:"Closed",tomorrow:"Tomorrow from 09:00. Every day, Fri and Sat until 01:00.",terr:"Welcome to the Mont Chalet terrace",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, for 2, 4 or 6 people",call:"Call",founder:"In the manner of the chalets of South Tyrol",
     hours:"Every day 09:00⁠–⁠00:00, Fri and Sat until 01:00",dir:"Directions",brunch:"Brunch, every Sunday, 11:00⁠–⁠15:00",
     morn_t:"Cozy mornings at MontChalet",order:"The full menu on Wolt",hello:"See you soon!",d_burrata:"Crusty bread, beetroot hummus, rocket, olives & tomatoes",
     morn:"Fresh coffee, quiet corners and the calm beauty of a new morning.",
@@ -370,7 +370,7 @@ var MC_I18N={
     alt_room:"The MontChalet room: the white stag on the petrol wall, black-and-white photos, light wood",
     alt_board:"Their Charcuterie & Fromage board, from above",
     alt_bar:"The MontChalet wooden bar with its copper “Mont Chalet” letters",
-    note:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. The painted landscape is generated by Webwerk and does not show a real place. Anonymous visit statistics, with no cookies and no personal data."}
+    note:"An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. The videos and photos are their own, from their Instagram. Anonymous visit statistics, with no cookies and no personal data."}
 };
 (function(){
   "use strict";
@@ -393,37 +393,102 @@ var MC_I18N={
   });
 })();
 
-/* ---- the film: one painting of their mountain (their mural's peak, repainted calm), pinned under the
-   hero, which lifts off it like a curtain. Scroll then moves us slowly toward the peak: one motion.
-   p < 0 while the hero still lifts off; 0..1 once it is gone (half a screen of scroll). ---- */
+/* ---- the hour. Dudelange time (Europe/Luxembourg), whatever the visitor's clock.
+   Their service day runs 09:00 to 00:00, Fri and Sat to 01:00 (Google Places, 2026-11-02); after midnight
+   still belongs to the evening before. Each part of the day plays one of their own Instagram reels:
+   matin = latte pour (reel DNXnMLPISwL); brunch, Sundays 11-15 = buffet under their mural (DOId_cFiGS7);
+   midi = their charcuterie (DOId_cFiGS7); terrasse = their terrace chair (DV29MnBjL3X);
+   apéro = white wine pour (DV29MnBjL3X); bar = coupe pour (DPyPNqYjCqd); tard = a cocktail strained
+   at the bar (DUtRxcrjIEy); nuit = their room after dark, the mural lit low (DbX9qnpoogE).
+   Lines: their own captions, as written (E4, E7, E10, E11, E12). ---- */
+var MC_SLOTS={
+  matin:{t:"morn_t",s:"morn"},
+  brunch:{t:"=Sundays at the Chalet",tl:"en",s:"brunch"},
+  midi:{t:"=Des saveurs à découvrir, des instants à savourer.",tl:"fr",s:"d_board"},
+  terrasse:{t:"=Sun, terrace views, and the perfect vibe.",tl:"en",s:"terr"},
+  apero:{t:"=Great company, cold drinks, and la bella vita!",tl:"en",s:"vins"},
+  bar:{t:"=Good food. Great drinks. Live music.",tl:"en",s:"bar_s"},
+  tard:{t:"=Hand-crafted and high-class.",tl:"en",s:"bar_s"},
+  nuit:{t:"hello",s:"tomorrow"}
+};
 (function(){
   "use strict";
-  var top=document.querySelector(".top"),film=document.getElementById("film"),paint=document.getElementById("paint"),
-      hd=document.getElementById("hd"),b2=document.getElementById("b2");
-  var reduce=matchMedia("(prefers-reduced-motion: reduce)"),raf=0,on=false,lastS="";
-  function clamp(v){return v<0?0:v>1?1:v;}
-  function progress(){
-    var vh=window.innerHeight,hb=top.getBoundingClientRect().bottom,fb=film.getBoundingClientRect().bottom;
-    var gone=-hb,span=gone+(fb-vh);
-    if(hb>0)return -1;
-    return span>0?clamp(gone/span):1;
+  var sec=document.getElementById("hour"),hh=document.getElementById("hh"),lt=document.getElementById("lt"),ls=document.getElementById("ls"),
+      dial=document.getElementById("dial"),back=document.getElementById("back"),where=document.getElementById("where"),
+      poster=document.getElementById("poster"),va=document.getElementById("va"),vb=document.getElementById("vb"),
+      hd=document.getElementById("hd"),state=document.getElementById("state");
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)");
+  var live=true,cur="",front=va,timer=0,svc=0;
+  function lux(){
+    var p={};
+    new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Luxembourg",hour:"2-digit",minute:"2-digit",weekday:"short",hourCycle:"h23"})
+      .formatToParts(new Date()).forEach(function(x){p[x.type]=x.value;});
+    var wd=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(p.weekday),m=(+p.hour)*60+(+p.minute);
+    if(m<540){m+=1440;wd=(wd+6)%7;}           /* after midnight: still the evening before */
+    return {t:m,day:wd};
   }
-  function update(){
-    raf=0;
-    var p=progress(),r=film.getBoundingClientRect(),vh=window.innerHeight,hb=top.getBoundingClientRect().bottom;
-    var sc=reduce.matches?"1":(1+.14*clamp(p)).toFixed(4);
-    if(sc!==lastS){paint.style.transform="scale("+sc+")";lastS=sc;}
-    var show=hb<=1&&r.bottom>0;
-    if(show!==on){on=show;b2.classList.toggle("on",show);}
-    hd.classList.toggle("solid",!(hb<=1&&r.bottom>=vh-1));
-    hd.classList.toggle("past",hb<=hd.offsetHeight);
+  function closes(day){return (day===5||day===6)?1500:1440;}
+  function slot(t,day){
+    if(t>=closes(day))return "nuit";
+    if(t<660)return "matin";
+    if(t<900)return day===0?"brunch":"midi";
+    if(t<1080)return "terrasse";
+    if(t<1230)return "apero";
+    if(t<1350)return "bar";
+    return "tard";
   }
-  function schedule(){if(!raf)raf=requestAnimationFrame(update);}
-  window.__mcLayout=schedule;
-  window.__mc={p:progress};
-  addEventListener("scroll",schedule,{passive:true});
-  addEventListener("resize",schedule);
-  update();
+  function fmt(t){var h=Math.floor(t/60)%24,m=t%60;return (h<10?"0":"")+h+":"+(m<10?"0":"")+m;}
+  function words(k){var l=document.documentElement.lang,d=MC_I18N[l]||MC_I18N.fr;return d[k]||"";}
+  function show(name,force){
+    if(name===cur&&!force){return;}
+    var changed=name!==cur;cur=name;
+    var s=MC_SLOTS[name];
+    if(s.t.charAt(0)==="="){lt.textContent=s.t.slice(1);lt.lang=s.tl;}else{lt.textContent=words(s.t);lt.removeAttribute("lang");}
+    ls.textContent=words(s.s);
+    var day=(name==="matin"||name==="brunch"||name==="midi"||name==="terrasse");
+    sec.classList.toggle("day",day);sec.classList.toggle("eve",name==="apero"||name==="bar");
+    if(!changed)return;
+    poster.src="assets/img/"+name+".webp";
+    clearTimeout(timer);
+    timer=setTimeout(function(){play(name);},live?0:220);
+  }
+  function play(name){
+    if(reduce.matches)return;
+    var back2=front===va?vb:va;
+    back2.src="assets/v/"+name+".mp4";
+    back2.oncanplay=function(){
+      back2.oncanplay=null;if(cur!==name)return;
+      var p=back2.play();if(p&&p.catch)p.catch(function(){});
+      back2.classList.add("on");front.classList.remove("on");
+      var old=front;front=back2;setTimeout(function(){if(old!==front){old.pause();}},500);
+    };
+    back2.load();
+  }
+  function stateLine(){
+    var n=lux(),open=n.t<closes(n.day);
+    var w=open?words("open_until").replace("{h}",fmt(closes(n.day))):words("closed_now");
+    state.textContent=w+" · 6 Am Duerf, Dudelange";
+  }
+  function tick(){
+    if(!live)return;
+    var n=lux();svc=n.day;
+    hh.textContent=fmt(n.t);
+    dial.value=Math.min(1530,n.t);
+    show(slot(n.t,n.day));
+    stateLine();
+  }
+  dial.addEventListener("input",function(){
+    live=false;back.hidden=false;where.textContent=words("scrub");
+    var t=+dial.value;hh.textContent=fmt(t);show(slot(t,svc));
+  });
+  back.addEventListener("click",function(){live=true;back.hidden=true;where.textContent=words("now");tick();});
+  window.__mcLayout=function(){if(cur)show(cur,true);if(live){where.textContent=words("now");stateLine();}else where.textContent=words("scrub");};
+  setInterval(tick,15000);
+  tick();
+  /* the header's call link appears once the hour has scrolled away */
+  function past(){hd.classList.toggle("past",sec.getBoundingClientRect().bottom<=hd.offsetHeight);}
+  addEventListener("scroll",past,{passive:true});past();
+  window.__mc={slot:slot,lux:lux,show:function(n){live=false;show(n);}};
 })();
 </script>
 <script>
