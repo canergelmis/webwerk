@@ -121,13 +121,16 @@ ul{list-style:none}
 .hour .state{margin-top:16px;font-size:var(--fs-body);font-weight:500}
 .hour .acts{margin-top:14px}
 .hour .acts a.cta{background:var(--cream);color:var(--petrol)}
-.dial{grid-column:1 / -1;margin-top:24px}
-.dial .play{font:inherit;font-size:.9375rem;font-weight:700;color:inherit;background:none;border:0;padding:8px 0;cursor:pointer;
-  display:inline-flex;align-items:center;gap:10px;letter-spacing:.01em}
-.dial .play i{display:inline-block;width:0;height:0;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent currentColor}
-.dial .play[aria-pressed="true"] i{width:10px;height:12px;border:0;border-left:3px solid currentColor;border-right:3px solid currentColor}
+.dial{grid-column:1 / -1;margin-top:24px;position:relative}
+.dial .slot{position:absolute;top:4px;right:0;display:flex;gap:10px}
+.dial .slot .arr{position:static;margin:0;width:44px;height:44px}
+.dial .play{font:inherit;font-size:1rem;font-weight:700;color:inherit;background:none;border:0;padding:4px 0;cursor:pointer;
+  display:inline-flex;align-items:center;gap:12px;letter-spacing:.01em}
+.dial .play .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--cream);color:var(--petrol);flex:none}
+.dial .play i{display:inline-block;margin-left:3px;width:0;height:0;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent currentColor}
+.dial .play[aria-pressed="true"] i{margin-left:0;width:10px;height:12px;border:0;border-left:3px solid currentColor;border-right:3px solid currentColor}
 .dial .play:focus-visible,.stops button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-.stops{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:6px}
+.stops{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:10px}
 .stops button{font:inherit;color:inherit;background:none;border:0;padding:12px 0 4px;cursor:pointer;text-align:left;
   font-size:.9375rem;font-variant-numeric:tabular-nums;opacity:.7;transition:opacity .2s}
 .stops button .seg{display:block;position:relative;height:3px;background:currentColor;opacity:.32;margin-bottom:9px;border-radius:2px}
@@ -136,6 +139,21 @@ ul{list-style:none}
 .stops button.done .seg b{width:100%}
 .stops button.on,.stops button:hover{opacity:1}
 .stops button.on .lbl{font-weight:700}
+.stops button:hover .lbl{transform:translateY(-2px)}
+.stops .lbl{display:block;transition:transform .2s}
+.stops .lbl .nm{display:block;font-size:.75rem;line-height:1.2;margin-top:1px;white-space:nowrap;letter-spacing:-.01em}
+/* the arrows: the clearest sign that the hour can be changed */
+.hour .arr{position:absolute;z-index:2;top:40%;width:48px;height:48px;margin-top:-24px;border-radius:50%;border:0;cursor:pointer;
+  display:grid;place-items:center;background:rgba(237,240,214,.92);color:var(--petrol);box-shadow:0 2px 14px rgba(0,0,0,.28);
+  transition:transform .2s,opacity .2s}
+.hour .arr svg{width:20px;height:20px}
+.hour .arr.prev{left:10px}
+.hour .arr.next{right:10px}
+.hour .arr:hover{transform:scale(1.06)}
+.hour .arr:disabled{opacity:0;pointer-events:none}
+.hour .arr:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.hour.hint .arr,.hour.hint .play .ic{animation:mc-pulse 1.1s ease 2}
+@keyframes mc-pulse{0%,100%{transform:scale(1)}45%{transform:scale(1.16)}}
 @media (min-width:900px){
   .hour .media{left:auto;width:50%}
   .hour .media::after{display:none}
@@ -143,6 +161,13 @@ ul{list-style:none}
   .hour .txt{grid-column:1 / span 6}
   .hour .clock{font-size:clamp(9rem,15vw,15rem)}
   .dial{grid-column:1 / span 6}
+  .hour .arr{top:50%!important}
+  .hour .arr.prev{left:calc(50% + 20px)}
+  .hour .arr.next{right:20px}
+  .hour.day .dial .play .ic{background:var(--petrol);color:var(--cream)}
+  .dial .play{font-size:1.125rem}
+  .stops button{font-size:1.125rem}
+  .stops .lbl .nm{font-size:.9375rem}
   .hour.day{background:var(--cream);color:var(--ink)}
   .hour.day .acts a.cta{background:var(--petrol);color:var(--cream)}
   .hour.eve{background:var(--petrol)}
@@ -211,7 +236,7 @@ ul{list-style:none}
 }
 .ft .col > * + *{margin-top:.6em}
 
-@media (prefers-reduced-motion:reduce){.hour,.hour .media video{transition:none}}
+@media (prefers-reduced-motion:reduce){.hour,.hour .media video{transition:none}.hour.hint .arr,.hour.hint .play .ic{animation:none}}
 </style>
 </head>
 <body>
@@ -237,6 +262,8 @@ ul{list-style:none}
       <video id="va" muted playsinline loop preload="none"></video>
       <video id="vb" muted playsinline loop preload="none"></video>
     </div>
+    <button type="button" class="arr prev" id="prev" aria-label="Heure précédente" data-i18n-aria-label="prev"><svg viewBox="0 0 20 20" aria-hidden="true"><polyline points="12.5,4 6.5,10 12.5,16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button type="button" class="arr next" id="next" aria-label="Heure suivante" data-i18n-aria-label="next"><svg viewBox="0 0 20 20" aria-hidden="true"><polyline points="7.5,4 13.5,10 7.5,16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     <div class="wrap">
       <div class="txt">
         <p class="where"><span id="where" data-i18n="now">Maintenant à Dudelange</span><button type="button" id="back" hidden data-i18n="back">Revenir à maintenant</button></p>
@@ -246,7 +273,7 @@ ul{list-style:none}
         <p class="acts"><a class="cta" href="tel:+35226511156"><span data-i18n="call">Appeler</span> 26 51 11 56</a><a href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange&amp;query_place_id=ChIJ82Gg1-Q2lUcRVQXcEOkbeU0" rel="noopener" data-i18n="dir">Itinéraire</a></p>
       </div>
       <div class="dial">
-        <button type="button" class="play" id="play" aria-pressed="false"><i aria-hidden="true"></i><span data-i18n="dial">Voir la journée</span></button>
+        <button type="button" class="play" id="play" aria-pressed="false"><span class="ic"><i aria-hidden="true"></i></span><span data-i18n="dial">Voir la journée</span></button><span class="slot" id="slot"></span>
         <div class="stops" id="stops" role="group" aria-label="Heures" data-i18n-aria-label="stops_l"></div>
       </div>
     </div>
@@ -336,7 +363,7 @@ ul{list-style:none}
    - "À la façon des chalets du Tyrol du Sud": adapted from the 2017 town-blog interview (E1: "à la façon
      des chalets dans le Tyrol du Sud … chic et alpestre"); the lead chosen at Gate 1. ---- */
 var MC_I18N={
-  fr:{lang:"Langue",now:"Maintenant à Dudelange",scrub:"Un jour à MontChalet",back:"Revenir à maintenant",dial:"Voir la journée",pause:"Pause",stops_l:"Heures de la journée",open_until:"Ouvert jusqu’à {h}",closed_now:"Fermé",tomorrow:"Demain dès 09:00. Tous les jours, ven. et sam. jusqu’à 01:00.",terr:"Bienvenue à la terrasse Mont Chalet",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, pour 2, 4 ou 6 personnes",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
+  fr:{lang:"Langue",now:"Maintenant à Dudelange",scrub:"Un jour à MontChalet",back:"Revenir à maintenant",dial:"Voir la journée",pause:"Pause",stops_l:"Heures de la journée",prev:"Heure précédente",next:"Heure suivante",n_matin:"Café",n_brunch:"Brunch",n_midi:"Midi",n_terrasse:"Terrasse",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Nuit",open_until:"Ouvert jusqu’à {h}",closed_now:"Fermé",tomorrow:"Demain dès 09:00. Tous les jours, ven. et sam. jusqu’à 01:00.",terr:"Bienvenue à la terrasse Mont Chalet",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, pour 2, 4 ou 6 personnes",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
     hours:"Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00",dir:"Itinéraire",brunch:"Brunch, chaque dimanche, 11:00⁠–⁠15:00",
     morn_t:"Commencer la journée en douceur, de la meilleure des façons.",order:"Toute la carte sur Wolt",hello:"On vous attend nombreux !",d_burrata:"Pain croustillant, houmous à la betterave, roquette, olives & tomates",
     morn:"Un café frais, des coins paisibles et la beauté tranquille d’un nouveau matin.",
@@ -347,7 +374,7 @@ var MC_I18N={
     alt_board:"Leur planche Charcuterie & Fromage, vue du dessus",
     alt_bar:"Le bar en bois de MontChalet et ses lettres de cuivre « Mont Chalet »",
     note:"Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Les vidéos et photos sont les leurs, publiées sur leur Instagram. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."},
-  de:{lang:"Sprache",now:"Jetzt in Düdelingen",scrub:"Ein Tag im MontChalet",back:"Zurück zu jetzt",dial:"Den Tag ansehen",pause:"Pause",stops_l:"Tageszeiten",open_until:"Geöffnet bis {h}",closed_now:"Geschlossen",tomorrow:"Morgen ab 09:00. Täglich, Fr. und Sa. bis 01:00.",terr:"Willkommen auf der Terrasse des Mont Chalet",bar_s:"MontChalet Bar · Espresso Martini, Spritz, Whisky, Gin",d_board:"Charcuterie & Fromage, für 2, 4 oder 6 Personen",call:"Anrufen",founder:"Nach Art der Chalets in Südtirol",
+  de:{lang:"Sprache",now:"Jetzt in Düdelingen",scrub:"Ein Tag im MontChalet",back:"Zurück zu jetzt",dial:"Den Tag ansehen",pause:"Pause",stops_l:"Tageszeiten",prev:"Frühere Stunde",next:"Spätere Stunde",n_matin:"Kaffee",n_brunch:"Brunch",n_midi:"Mittag",n_terrasse:"Terrasse",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Nacht",open_until:"Geöffnet bis {h}",closed_now:"Geschlossen",tomorrow:"Morgen ab 09:00. Täglich, Fr. und Sa. bis 01:00.",terr:"Willkommen auf der Terrasse des Mont Chalet",bar_s:"MontChalet Bar · Espresso Martini, Spritz, Whisky, Gin",d_board:"Charcuterie & Fromage, für 2, 4 oder 6 Personen",call:"Anrufen",founder:"Nach Art der Chalets in Südtirol",
     hours:"Täglich 09:00⁠–⁠00:00, Fr. und Sa. bis 01:00",dir:"Anfahrt",brunch:"Brunch, jeden Sonntag, 11:00⁠–⁠15:00",
     morn_t:"Sanft in den Tag starten, auf die beste Art.",order:"Die ganze Karte bei Wolt",hello:"Bis bald!",d_burrata:"Knuspriges Brot, Rote-Bete-Hummus, Rucola, Oliven & Tomaten",
     morn:"Ein frischer Kaffee, ruhige Ecken und die stille Schönheit eines neuen Morgens.",
@@ -358,7 +385,7 @@ var MC_I18N={
     alt_board:"Ihr Brett Charcuterie & Fromage, von oben",
     alt_bar:"Die Holzbar des MontChalet mit den Kupferbuchstaben „Mont Chalet“",
     note:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Videos und Fotos stammen von ihrem Instagram. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."},
-  en:{lang:"Language",now:"Right now in Dudelange",scrub:"A day at MontChalet",back:"Back to now",dial:"Watch the day",pause:"Pause",stops_l:"Hours of the day",open_until:"Open until {h}",closed_now:"Closed",tomorrow:"Tomorrow from 09:00. Every day, Fri and Sat until 01:00.",terr:"Welcome to the Mont Chalet terrace",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, for 2, 4 or 6 people",call:"Call",founder:"In the manner of the chalets of South Tyrol",
+  en:{lang:"Language",now:"Right now in Dudelange",scrub:"A day at MontChalet",back:"Back to now",dial:"Watch the day",pause:"Pause",stops_l:"Hours of the day",prev:"Earlier hour",next:"Later hour",n_matin:"Coffee",n_brunch:"Brunch",n_midi:"Lunch",n_terrasse:"Terrace",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Night",open_until:"Open until {h}",closed_now:"Closed",tomorrow:"Tomorrow from 09:00. Every day, Fri and Sat until 01:00.",terr:"Welcome to the Mont Chalet terrace",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, for 2, 4 or 6 people",call:"Call",founder:"In the manner of the chalets of South Tyrol",
     hours:"Every day 09:00⁠–⁠00:00, Fri and Sat until 01:00",dir:"Directions",brunch:"Brunch, every Sunday, 11:00⁠–⁠15:00",
     morn_t:"Cozy mornings at MontChalet",order:"The full menu on Wolt",hello:"See you soon!",d_burrata:"Crusty bread, beetroot hummus, rocket, olives & tomatoes",
     morn:"Fresh coffee, quiet corners and the calm beauty of a new morning.",
@@ -412,11 +439,12 @@ var MC_SLOTS={
 (function(){
   "use strict";
   var sec=document.getElementById("hour"),hh=document.getElementById("hh"),lt=document.getElementById("lt"),ls=document.getElementById("ls"),
-      stopsEl=document.getElementById("stops"),playBtn=document.getElementById("play"),back=document.getElementById("back"),where=document.getElementById("where"),
+      stopsEl=document.getElementById("stops"),playBtn=document.getElementById("play"),
+      prevBtn=document.getElementById("prev"),nextBtn=document.getElementById("next"),txt=sec.querySelector(".txt"),back=document.getElementById("back"),where=document.getElementById("where"),
       poster=document.getElementById("poster"),va=document.getElementById("va"),vb=document.getElementById("vb"),
       hd=document.getElementById("hd"),state=document.getElementById("state");
   var reduce=matchMedia("(prefers-reduced-motion: reduce)");
-  var live=true,cur="",front=va,timer=0,svc=0,stopsDay=-1,pos=-1,run=0,STEP=3200;
+  var live=true,cur="",front=va,timer=0,svc=0,stopsDay=-1,pos=-1,run=0,STEP=3200,lastT=-1,demoing=false;
   function lux(){
     var p={};
     new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Luxembourg",hour:"2-digit",minute:"2-digit",weekday:"short",hourCycle:"h23"})
@@ -437,7 +465,7 @@ var MC_SLOTS={
   }
   function fmt(t){var h=Math.floor(t/60)%24,m=t%60;return (h<10?"0":"")+h+":"+(m<10?"0":"")+m;}
   function words(k){var l=document.documentElement.lang,d=MC_I18N[l]||MC_I18N.fr;return d[k]||"";}
-  function show(name,force){
+  function show(name,force,still){
     if(name===cur&&!force){return;}
     var changed=name!==cur;cur=name;
     var s=MC_SLOTS[name];
@@ -448,6 +476,7 @@ var MC_SLOTS={
     if(!changed)return;
     poster.src="assets/img/"+name+".webp";
     clearTimeout(timer);
+    if(still){[va,vb].forEach(function(v){v.classList.remove("on");v.pause();});return;}  /* the first-visit sweep: pictures only, no downloads */
     timer=setTimeout(function(){play(name);},live?0:220);
   }
   function play(name){
@@ -475,14 +504,16 @@ var MC_SLOTS={
     if(stopsDay===svc)return;stopsDay=svc;stopsEl.textContent="";
     stops(svc).forEach(function(st,i){
       var b=document.createElement("button");b.type="button";b.setAttribute("aria-label",fmt(st[0]));
-      b.innerHTML='<span class="seg"><b></b></span><span class="lbl">'+fmt(st[0]).slice(0,2)+'</span>';
+      b.setAttribute("aria-label",fmt(st[0])+" · "+words("n_"+st[1]));
+      b.innerHTML='<span class="seg"><b></b></span><span class="lbl"><span class="h">'+fmt(st[0]).slice(0,2)+'</span><span class="nm">'+words("n_"+st[1])+'</span></span>';
       b.addEventListener("click",function(){stopPlay();go(i);});
       stopsEl.appendChild(b);
     });
+    if(lastT>=0)mark(lastT);
   }
   /* fill the bars up to t: the stops behind are full, the current one fills as its hours pass */
   function mark(t){
-    var st=stops(svc),bs=stopsEl.children,k=0;
+    var st=stops(svc),bs=stopsEl.children,k=0;lastT=t;
     for(var i=0;i<st.length;i++)if(t>=st[i][0])k=i;
     for(i=0;i<bs.length;i++){
       var f=i<k?1:i>k?0:(i===st.length-1?1:Math.min(1,(t-st[i][0])/(st[i+1][0]-st[i][0])));
@@ -490,6 +521,7 @@ var MC_SLOTS={
       bs[i].setAttribute("aria-current",i===k?"true":"false");
       bs[i].firstChild.firstChild.style.width=(f*100)+"%";
     }
+    prevBtn.disabled=k===0;nextBtn.disabled=k===st.length-1;
     return k;
   }
   function away(){live=false;back.hidden=false;where.textContent=words("scrub");}
@@ -502,18 +534,23 @@ var MC_SLOTS={
     if(!run)return;cancelAnimationFrame(run);run=0;
     playBtn.setAttribute("aria-pressed","false");playBtn.lastChild.textContent=words("dial");
   }
-  function startPlay(){
-    var st=stops(svc),t0=performance.now();
-    away();playBtn.setAttribute("aria-pressed","true");playBtn.lastChild.textContent=words("pause");
+  function startPlay(step,still,onEnd){
+    var st=stops(svc),t0=performance.now();step=step||STEP;
+    away();
+    if(!still){playBtn.setAttribute("aria-pressed","true");playBtn.lastChild.textContent=words("pause");}
     (function frame(now){
-      var e=Math.max(0,(now-t0)/STEP),i=Math.floor(e);
-      if(i>=st.length-1){run=0;go(st.length-1);playBtn.setAttribute("aria-pressed","false");playBtn.lastChild.textContent=words("dial");return;}
+      var e=Math.max(0,(now-t0)/step),i=Math.floor(e);
+      if(i>=st.length-1){run=0;playBtn.setAttribute("aria-pressed","false");playBtn.lastChild.textContent=words("dial");
+        if(onEnd)onEnd();else go(st.length-1);return;}
       var t=Math.round(st[i][0]+(st[i+1][0]-st[i][0])*(e-i));
-      hh.textContent=fmt(t);pos=i;mark(t);show(st[i][1]);
+      hh.textContent=fmt(t);pos=i;mark(t);show(st[i][1],false,still);
       run=requestAnimationFrame(frame);
     })(t0);
   }
   playBtn.addEventListener("click",function(){if(run)stopPlay();else startPlay();});
+  function step(d){stopPlay();if(pos<0)pos=mark(lux().t);go(pos+d);}
+  prevBtn.addEventListener("click",function(){step(-1);});
+  nextBtn.addEventListener("click",function(){step(1);});
   /* swipe the picture, like their stories: left = later, right = earlier */
   var sx=0,sy=0;
   sec.addEventListener("touchstart",function(e){var p=e.touches[0];sx=p.clientX;sy=p.clientY;},{passive:true});
@@ -521,7 +558,7 @@ var MC_SLOTS={
     if(e.target.closest&&e.target.closest("a,button"))return;
     var p=e.changedTouches[0],dx=p.clientX-sx,dy=p.clientY-sy;
     if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy)*1.4)return;
-    stopPlay();if(pos<0)pos=mark(lux().t);go(pos+(dx<0?1:-1));
+    step(dx<0?1:-1);
   },{passive:true});
   function tick(){
     if(!live)return;
@@ -531,14 +568,45 @@ var MC_SLOTS={
     show(slot(n.t,n.day));
     stateLine();
   }
-  back.addEventListener("click",function(){stopPlay();live=true;back.hidden=true;where.textContent=words("now");tick();});
-  window.__mcLayout=function(){if(cur)show(cur,true);if(run)playBtn.lastChild.textContent=words("pause");if(live){where.textContent=words("now");stateLine();}else where.textContent=words("scrub");};
+  function toNow(){stopPlay();live=true;back.hidden=true;where.textContent=words("now");tick();}
+  back.addEventListener("click",toNow);
+  window.__mcLayout=function(){stopsDay=-1;buildStops();placeArrows();if(cur)show(cur,true,demoing);if(run)playBtn.lastChild.textContent=words("pause");if(live){where.textContent=words("now");stateLine();}else where.textContent=words("scrub");};
   setInterval(tick,15000);
   tick();
+  /* phones: the arrows sit midway down the open picture, above the words */
+  /* short phones have no open picture above the words: the arrows then sit beside "Voir la journée" */
+  var slotEl=document.getElementById("slot");
+  function placeArrows(){
+    var home=function(){if(prevBtn.parentNode!==sec){sec.insertBefore(nextBtn,sec.firstChild.nextSibling);sec.insertBefore(prevBtn,nextBtn);}};
+    if(innerWidth>=900){home();prevBtn.style.top=nextBtn.style.top="";return;}
+    home();
+    var gap=txt.getBoundingClientRect().top-sec.getBoundingClientRect().top-hd.offsetHeight;
+    if(gap<110){slotEl.appendChild(prevBtn);slotEl.appendChild(nextBtn);prevBtn.style.top=nextBtn.style.top="";return;}
+    prevBtn.style.top=nextBtn.style.top=(hd.offsetHeight+Math.min(gap/2,140))+"px";
+  }
+  addEventListener("resize",placeArrows);placeArrows();
+  /* first visit: the page shows that the hour moves. A 5 s sweep through their day (pictures only),
+     then back to now, and the arrows and the play button pulse. Once per browser; any touch ends it. */
+  function endDemo(){
+    if(!demoing)return;demoing=false;stopPlay();cur="";toNow();
+    sec.classList.add("hint");setTimeout(function(){sec.classList.remove("hint");},2400);
+  }
+  (function(){
+    var seen=false;try{seen=!!localStorage.getItem("mc-demo");}catch(e){}
+    if(seen||reduce.matches)return;
+    var stop=function(){if(demoing)endDemo();};
+    ["pointerdown","keydown","wheel","touchstart"].forEach(function(ev){addEventListener(ev,stop,{capture:true,passive:true});});
+    setTimeout(function(){
+      var r=sec.getBoundingClientRect();
+      if(!live||r.bottom<innerHeight*.5||r.top>innerHeight*.5)return;
+      try{localStorage.setItem("mc-demo","1");}catch(e){}
+      demoing=true;startPlay(720,true,endDemo);
+    },1500);
+  })();
   /* the header's call link appears once the hour has scrolled away */
   function past(){hd.classList.toggle("past",sec.getBoundingClientRect().bottom<=hd.offsetHeight);}
   addEventListener("scroll",past,{passive:true});past();
-  window.__mc={slot:slot,lux:lux,go:go,play:startPlay,show:function(n){live=false;show(n);}};
+  window.__mc={slot:slot,lux:lux,go:go,play:startPlay,demoing:function(){return demoing;},show:function(n){live=false;show(n);}};
 })();
 </script>
 <script>
