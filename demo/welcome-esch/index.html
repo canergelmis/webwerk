@@ -46,7 +46,7 @@ figure{margin:0}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
 /* ---------- header ---------- */
-.top{display:flex;justify-content:space-between;align-items:flex-start}
+.top{display:flex;justify-content:flex-end;align-items:flex-start}
 .napkin{display:block;width:104px;--rope:#d0805f;--rope-gap:#5a2416;--letter:#f6f0e4;filter:drop-shadow(0 1px 6px rgba(30,22,18,.55))}
 .napkin svg{display:block;width:100%;height:auto}
 .lang{display:flex;gap:2px;color:var(--paper);padding-top:4px}
@@ -72,7 +72,7 @@ figure{margin:0}
   background:linear-gradient(112deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%) 0 0/300% 100% no-repeat;background-position:150% 0}
 .plaque,.hero-art{position:absolute;left:0;top:0}
 .plaque{background:var(--ink);display:flex;flex-direction:column;justify-content:space-between;font-size:calc(var(--s,1) * 16px);
-  box-shadow:0 0 0 1px rgba(90,36,22,.5),inset 0 0 0 .5em var(--ink),inset 0 0 0 calc(.5em + 1.5px) rgba(239,154,110,.55);padding:1.1em 1.25em 1.25em}
+  box-shadow:0 0 0 1px rgba(90,36,22,.5);padding:1.1em 1.25em 1.25em}
 .plaque .napkin{width:5.6em;filter:none}
 .plaque .lang{font-size:.72em;padding-top:.2em}
 .plaque .lang button{padding:.6em .5em}
@@ -95,7 +95,7 @@ figure{margin:0}
 .hero.js .pieces b{opacity:0;transform:rotateY(-88deg)}
 .hero.laid .wall i{opacity:1;transform:none;transition:opacity .45s ease-out,transform .55s cubic-bezier(.2,.9,.3,1.15);transition-delay:var(--d)}
 .hero.laid .pieces b{opacity:1;transform:none;transition:opacity .3s ease-out,transform .6s cubic-bezier(.2,.8,.3,1);transition-delay:var(--d)}
-.hero.laid .plaque{opacity:1;transform:none;transition:opacity .7s ease-out .55s,transform .7s ease-out .55s}
+.hero.laid .plaque{opacity:1;transform:none;transition:opacity .5s ease-out .3s,transform .5s ease-out .3s}
 .hero.set .hero-art .panel{opacity:1}
 .hero.set .pieces{display:none}
 .hero.set .wall::after{animation:glaze 9s ease-in-out 1s infinite}
@@ -150,7 +150,7 @@ figure{margin:0}
 .con p{color:var(--ink)}
 .con .big{font-family:var(--serif);font-size:22px;line-height:1.2;color:var(--ink);text-decoration:none}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.btn{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:2px;text-decoration:none;font-weight:600;font-size:15px}
 .btn.solid{background:var(--green);color:var(--paper)}
 .btn.line{border:1.5px solid rgba(90,36,22,.45);color:var(--ink)}
 .map{display:block;margin-top:40px;text-decoration:none;box-shadow:0 0 0 1px rgba(58,36,24,.22),0 18px 38px -18px rgba(20,8,4,.7)}
@@ -173,7 +173,7 @@ html[lang="pt"] .sec{display:none}
   body{padding-bottom:0}
   .napkin{width:128px}
   .top{gap:1.6em;justify-content:space-between}
-  .call{left:auto;right:var(--pad);bottom:auto;top:18px;height:auto;padding:16px 26px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.3);font-size:16px;
+  .call{left:auto;right:var(--pad);bottom:auto;top:18px;height:auto;padding:16px 26px;border-radius:2px;box-shadow:0 6px 24px rgba(0,0,0,.3);font-size:16px;
     opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .3s,transform .3s}
   body.past .call{opacity:1;transform:none;pointer-events:auto}
   .hero{height:100vh;min-height:600px}
@@ -185,7 +185,7 @@ html[lang="pt"] .sec{display:none}
   .hero-line .hl-dot{display:inline}
   .hero-hours{font-size:1.05em;margin-top:auto}
   .hero-call{display:inline-flex;align-items:center;gap:.6em;align-self:flex-start;margin-top:1.4em;background:var(--green);color:var(--paper);text-decoration:none;
-    font-weight:600;font-size:1em;padding:.8em 1.4em;border-radius:999px}
+    font-weight:600;font-size:1em;padding:.8em 1.4em;border-radius:2px}
   .hero-call svg{width:1.1em;height:1.1em}
   .fr{font-size:26px}
 
@@ -251,6 +251,59 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
 .layfig.glint::after{animation:glint 1.2s ease-in-out}
 @keyframes glint{0%{opacity:1;background-position:150% 0}100%{opacity:1;background-position:-50% 0}}
 @media (prefers-reduced-motion:reduce){.casa-art .sign.flip{animation:none}}
+/* ---------- r12: plate, sea spread, Sunday board, quieter labels ---------- */
+.plate{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);z-index:4;white-space:nowrap;background:var(--ink);color:var(--paper);
+  font-family:var(--serif);font-size:15px;line-height:1;padding:.6em 1em;box-shadow:0 0 0 1px rgba(239,154,110,.55),0 6px 16px -6px rgba(20,8,4,.7)}
+.plate .sec{color:var(--terra-l)}
+.hero.js .plate{opacity:0}
+.hero.laid .plate{opacity:1;transition:opacity .4s ease-out .7s}
+.mar{background:var(--green);color:var(--paper);padding:44px var(--pad) 48px}
+.mar-h{font-family:var(--serif);font-weight:400;font-size:56px;line-height:1}
+.mar-h .sec{display:block;font-size:22px;line-height:1.2;color:var(--cream);margin-top:10px}
+.mar-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;align-items:start}
+.mar-fig figcaption{margin-top:12px}
+.mar-n{display:block;font-family:var(--serif);font-size:22px;line-height:1.1}
+.mar-f{display:block;margin-top:6px;font-size:15px;color:var(--cream)}
+.sun{margin-top:22px;padding:16px 4px 0;border-top:1.5px solid rgba(110,46,28,.3);font-family:var(--serif);font-size:22px;line-height:1.3;color:var(--espresso);max-width:44ch}
+.sun-f{display:block;margin-top:8px;font-family:var(--sans);font-size:15px;line-height:1.45}
+.con-k{font-family:var(--serif);font-size:22px;line-height:1.1;color:var(--terra)}
+.con-note{margin-top:8px;max-width:30ch}
+@media (min-width:900px){
+  .plate{font-size:16px}
+  .hero-type{justify-content:center}
+  .hero-type .wordmark{margin-top:0}
+  .hero-hours{margin-top:1.4em}
+  .pic{align-items:center}
+  .pic-text{margin:0 0 0 3vw}
+  .mar{padding:96px var(--pad) 104px}
+  .mar-wrap{max-width:1160px;margin:0 auto}
+  .mar-h{font-size:104px;max-width:1160px;margin:0 auto}
+  .mar-h .sec{font-size:26px;margin-top:14px}
+  .mar-row{gap:56px;margin:56px auto 0;max-width:1160px}
+  .mar-n{font-size:36px}
+  .mar-f{font-size:16px;margin-top:8px}
+  .sun{font-size:26px;margin-top:36px;padding-left:10px;max-width:52ch}
+  .sun-f{font-size:16px}
+}
+/* ---------- r12b ---------- */
+.hero-pre{font-family:var(--serif);font-size:1.1em;line-height:1;color:var(--terra-l);margin-top:auto;margin-bottom:.35em}
+.hero-type .wordmark{margin-top:0}
+.hero-line{font-family:var(--serif);letter-spacing:0;font-size:1.05em;line-height:1.3;margin-top:.7em}
+.sun-t{display:block;margin-top:10px;font-family:var(--sans);font-size:15px;font-weight:600}
+.sun-t a{text-decoration:none;border-bottom:1.5px solid currentColor}
+.lei-print{margin:0}
+.lei-print .panel{box-shadow:none}
+.casa{grid-template-columns:44% 1fr;gap:18px;align-items:end}
+.casa-name{font-size:44px}
+@media (min-width:900px){
+  .hero-pre{margin-top:0;font-size:1.25em}
+  .hero-line{font-size:1.15em}
+  .hero-line br{display:inline}
+  .lei-print{width:100%;margin:0}
+  .sun-t{font-size:16px}
+  .casa{grid-template-columns:auto 1fr;gap:72px;align-items:center}
+  .casa-name{font-size:104px}
+}
 </style>
 </head>
 <body>
@@ -296,15 +349,15 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
     <div class="wall" aria-hidden="true"></div>
     <div class="plaque">
       <header class="top">
-        <a class="napkin" href="#top" data-i18n-aria="logo_aria" aria-label="Restaurant Welcome, Esch/Alzette, retour en haut"><svg viewBox="0 0 200 150" aria-hidden="true" focusable="false"><use href="#lockup"/></svg></a>
         <nav class="lang caps" data-i18n-aria="lang_aria" aria-label="Langue">
           <button type="button" data-lang="fr" lang="fr" aria-pressed="true">FR</button><button type="button" data-lang="pt" lang="pt" aria-pressed="false">PT</button><button type="button" data-lang="de" lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
         </nav>
       </header>
       <div class="hero-type">
+        <p class="hero-pre" data-i18n="hero_pre">Restaurant</p>
         <h1 class="wordmark" data-fit><span>Welcome</span></h1>
-      <p class="hero-line caps" data-i18n="hero_line">Restaurant · Esch/Alzette<span class="hl-dot"> · </span><br>depuis 1995</p>
-      <p class="hero-hours" data-i18n="hero_hours">7 jours sur 7 · 12:00–14:30 · 18:30–22:00<br>Sur place ou à emporter</p>
+      <p class="hero-line" data-i18n="hero_line">Cuisine portugaise et française<br>Esch/Alzette · depuis 1995</p>
+      <p class="hero-hours" data-i18n="hero_hours">7 jours sur 7 · 12:00–14:30 · 18:30–22:00<br>Sur place ou à emporter · plat du jour à midi</p>
         <a class="hero-call" href="tel:+352542558"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span><span data-i18n="btn_call">Appeler</span> · 54 25 58</span></a>
       </div>
     </div>
@@ -312,6 +365,7 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
       <img class="panel" src="assets/tile-paella.webp" width="960" height="1200" fetchpriority="high"
            data-i18n-alt="alt_pan" alt="Illustration façon azulejo peint à la main : la paella, crevettes, citron et persil.">
       <div class="pieces" aria-hidden="true"></div>
+      <figcaption class="plate"><span lang="pt">Paelha de peixe</span><span class="sec"> · <span data-i18n="pan_fr">Paella de poisson</span></span></figcaption>
     </figure>
   </section>
 
@@ -319,7 +373,6 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
 
   <!-- 2. PICANHA -->
   <section class="pic" aria-labelledby="pic-t">
-    <span class="pic-label caps"><span lang="pt">Na grelha</span><span class="sec"> · <span data-i18n="pic_label">Au gril</span></span></span>
     <figure class="print layfig">
       <img class="panel" src="assets/tile-picanha.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_picanha"
            alt="Illustration façon azulejo peint à la main : des tranches de picanha sur une broche.">
@@ -330,22 +383,26 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
     </div>
   </section>
 
-  <!-- 3. POLVO -->
-  <section class="pol" aria-labelledby="pol-t">
-    <span class="pol-label caps"><span lang="pt">Polvo grelhado</span><span class="sec"> · <span data-i18n="pol_label">Poulpe grillé</span></span></span>
-    <div class="pol-stage">
-      <div class="pol-col layfig"><img class="panel" src="assets/tile-polvo.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_polvo"
-           alt="Illustration façon azulejo peint à la main : les tentacules du poulpe et les pommes de terre, dans un plat en terre cuite."></div>
-      <h2 class="pol-name" id="pol-t" lang="pt" data-fit><span>Polvo</span></h2>
-      <p class="fr sec" data-i18n="pol_fr">Poulpe</p>
+  <!-- 3. DO MAR: polvo + bacalhau, side by side -->
+  <section class="mar" aria-labelledby="mar-t">
+    <h2 class="mar-h" id="mar-t"><span lang="pt">Do mar</span><span class="sec" data-i18n="mar_fr">De la mer</span></h2>
+    <div class="mar-row">
+      <figure class="mar-fig">
+        <div class="layfig"><img class="panel" src="assets/tile-polvo.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_polvo"
+             alt="Illustration façon azulejo peint à la main : les tentacules du poulpe et les pommes de terre, dans un plat en terre cuite."></div>
+        <figcaption><span class="mar-n" lang="pt">Polvo grelhado</span><span class="mar-f sec" data-i18n="pol_label">Poulpe grillé</span></figcaption>
+      </figure>
+      <figure class="mar-fig">
+        <div class="layfig"><img class="panel" src="assets/tile-bacalhau.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_bacalhau"
+             alt="Illustration façon azulejo peint à la main : un pavé de morue, de petites pommes de terre et de l'ail."></div>
+        <figcaption><span class="mar-n" lang="pt">Bacalhau à lagareiro</span><span class="mar-f sec" data-i18n="bac_fr">Morue grillée</span></figcaption>
+      </figure>
     </div>
   </section>
 
-  <div class="frieze" aria-hidden="true"></div>
 
   <!-- 4. LEITAO -->
   <section class="lei" aria-labelledby="lei-t">
-    <span class="lei-label caps"><span lang="pt">Ao domingo</span><span class="sec"> · <span data-i18n="lei_label">Le dimanche</span></span></span>
     <figure class="lei-print layfig">
       <img class="panel" src="assets/tile-leitao.webp" width="1344" height="896" loading="lazy" data-i18n-alt="alt_leitao"
            alt="Illustration façon azulejo peint à la main : un porcelet rôti sur une planche, avec des oranges et des pommes de terre.">
@@ -353,21 +410,10 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
     <div class="lei-text">
       <h2 class="lei-name" id="lei-t" lang="pt" data-fit><span>Leitão</span></h2>
       <p class="fr" data-i18n="lei_fr">Porcelet au feu de bois</p>
+      <p class="sun"><span lang="pt">Ao domingo: costeleta de novilho · cabrito · leitão · vitela · bife de cavalo · picanha</span><span class="sun-f sec" data-i18n="sun_fr">Le dimanche : côte à l’os · cabri · porcelet · rôti de veau · steak de cheval · picanha</span><span class="sun-t"><span data-i18n="sun_take">Sur place ou à emporter</span> · <a href="tel:+352542558">54 25 58</a></span></p>
     </div>
   </section>
 
-  <!-- 5. BACALHAU -->
-  <section class="bac" aria-labelledby="bac-t">
-    <div class="bac-row">
-      <figure class="bac-print layfig">
-        <img class="panel" src="assets/tile-bacalhau.webp" width="960" height="1200" loading="lazy" data-i18n-alt="alt_bacalhau"
-             alt="Illustration façon azulejo peint à la main : un pavé de morue, de petites pommes de terre et de l'ail.">
-      </figure>
-      <h2 class="dish" id="bac-t"><span lang="pt">Bacalhau à lagareiro</span><small class="sec" data-i18n="bac_fr">Morue grillée</small></h2>
-    </div>
-  </section>
-
-  <div class="frieze" aria-hidden="true"></div>
 
   <!-- 6. A CASA -->
   <section class="proof" data-i18n-aria="proof_aria" aria-label="La maison">
@@ -385,7 +431,6 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
     </div>
   </section>
 
-  <div class="frieze" aria-hidden="true"></div>
 
   <!-- 7. CONTACT -->
   <section class="con" id="contact" aria-labelledby="con-t">
@@ -394,13 +439,14 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
         <h2 class="con-h" id="con-t" data-i18n="con_h">Cuisine portugaise et française</h2>
         <div class="con-grid">
           <div>
-            <span class="con-k caps" data-i18n="k_when">Quand</span>
+            <span class="con-k" data-i18n="k_when">Quand</span>
             <p data-i18n="when_days">7 jours sur 7</p>
             <p><span data-i18n="when_noon">Midi</span> 12:00–14:30</p>
             <p><span data-i18n="when_eve">Soir</span> 18:30–22:00</p>
+            <p class="con-note" data-i18n="how_3">Plat du jour à midi. Ticket Restaurant et Chèque Repas acceptés.</p>
           </div>
           <div>
-            <span class="con-k caps" data-i18n="k_where">Où</span>
+            <span class="con-k" data-i18n="k_where">Où</span>
             <p>103, rue du Canal<br>L-4051 Esch-sur-Alzette</p>
             <div class="btns">
               <a class="btn line" href="https://maps.google.com/?cid=9784293187068887660" target="_blank" rel="noopener" data-i18n="btn_place">Voir sur Google Maps</a>
@@ -408,11 +454,10 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
             </div>
           </div>
           <div>
-            <span class="con-k caps" data-i18n="k_how">Comment</span>
+            <span class="con-k" data-i18n="k_how">Comment</span>
             <p data-i18n="how_1">Sur place ou à emporter.</p>
             <p data-i18n="how_2">Réservations et plats à emporter par téléphone.</p>
             <p data-i18n="how_4">Familles et groupes sur réservation.</p>
-            <p data-i18n="how_3">Plat du jour à midi. Ticket Restaurant et Chèque Repas acceptés.</p>
             <div class="btns"><a class="btn solid" href="tel:+352542558"><span data-i18n="btn_call">Appeler</span>&nbsp;54 25 58</a></div>
           </div>
         </div>
@@ -451,8 +496,13 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
       logo_aria: "Restaurant Welcome, Esch/Alzette, retour en haut",
       lang_aria: "Langue",
       alt_pan: "Illustration façon azulejo peint à la main : la paella, crevettes, citron et persil.",
-      hero_line: "Restaurant · Esch/Alzette<span class=\"hl-dot\"> · </span><br>depuis 1995",
-      hero_hours: "7 jours sur 7 · 12:00–14:30 · 18:30–22:00<br>Sur place ou à emporter",
+      hero_pre: "Restaurant",
+      hero_line: "Cuisine portugaise et française<br>Esch/Alzette · depuis 1995",
+      hero_hours: "7 jours sur 7 · 12:00–14:30 · 18:30–22:00<br>Sur place ou à emporter · plat du jour à midi",
+      pan_fr: "Paella de poisson",
+      mar_fr: "De la mer",
+      sun_take: "Sur place ou à emporter",
+      sun_fr: "Le dimanche : côte à l’os · cabri · porcelet · rôti de veau · steak de cheval · picanha",
       pic_label: "Au gril",
       alt_picanha: "Illustration façon azulejo peint à la main : des tranches de picanha sur une broche.",
       pic_fr: "Picanha garnie au plat",
@@ -493,8 +543,13 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
       logo_aria: "Restaurante Welcome, Esch/Alzette, voltar ao início",
       lang_aria: "Idioma",
       alt_pan: "Ilustração ao estilo de azulejo pintado à mão: a paelha, com camarão, limão e salsa.",
-      hero_line: "Restaurante · Esch/Alzette<span class=\"hl-dot\"> · </span><br>desde 1995",
-      hero_hours: "Todos os dias · 12:00–14:30 · 18:30–22:00<br>No local ou para levar",
+      hero_pre: "Restaurante",
+      hero_line: "Cozinha portuguesa e francesa<br>Esch/Alzette · desde 1995",
+      hero_hours: "Todos os dias · 12:00–14:30 · 18:30–22:00<br>No local ou para levar · prato do dia ao almoço",
+      pan_fr: "Paelha de peixe",
+      mar_fr: "Do mar",
+      sun_take: "No local ou para levar",
+      sun_fr: "Ao domingo: costeleta de novilho · cabrito · leitão · vitela · bife de cavalo · picanha",
       pic_label: "Na grelha",
       alt_picanha: "Ilustração ao estilo de azulejo pintado à mão: fatias de picanha num espeto.",
       pic_fr: "Picanha fatiada guarnecida",
@@ -535,8 +590,13 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
       logo_aria: "Restaurant Welcome, Esch/Alzette, nach oben",
       lang_aria: "Sprache",
       alt_pan: "Illustration im Stil handbemalter Azulejos: die Paella mit Garnelen, Zitrone und Petersilie.",
-      hero_line: "Restaurant · Esch/Alzette<span class=\"hl-dot\"> · </span><br>seit 1995",
-      hero_hours: "Täglich · 12:00–14:30 · 18:30–22:00<br>Vor Ort oder zum Mitnehmen",
+      hero_pre: "Restaurant",
+      hero_line: "Portugiesische und französische Küche<br>Esch/Alzette · seit 1995",
+      hero_hours: "Täglich · 12:00–14:30 · 18:30–22:00<br>Vor Ort oder zum Mitnehmen · mittags Tagesgericht",
+      pan_fr: "Fisch-Paella",
+      mar_fr: "Aus dem Meer",
+      sun_take: "Vor Ort oder zum Mitnehmen",
+      sun_fr: "Sonntags: Rinderkotelett · Zicklein · Spanferkel · Kalbsbraten · Pferdesteak · Picanha",
       pic_label: "Vom Grill",
       alt_picanha: "Illustration im Stil handbemalter Azulejos: Picanha-Scheiben am Spieß.",
       pic_fr: "Picanha in Scheiben, mit Beilagen",
@@ -577,8 +637,13 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
       logo_aria: "Restaurant Welcome, Esch/Alzette, back to top",
       lang_aria: "Language",
       alt_pan: "Hand-painted azulejo-style illustration: the paella with prawns, lemon and parsley.",
-      hero_line: "Restaurant · Esch/Alzette<span class=\"hl-dot\"> · </span><br>since 1995",
-      hero_hours: "Every day · 12:00–14:30 · 18:30–22:00<br>Eat in or take away",
+      hero_pre: "Restaurant",
+      hero_line: "Portuguese and French cooking<br>Esch/Alzette · since 1995",
+      hero_hours: "Every day · 12:00–14:30 · 18:30–22:00<br>Eat in or take away · dish of the day at lunch",
+      pan_fr: "Fish paella",
+      mar_fr: "From the sea",
+      sun_take: "Eat in or take away",
+      sun_fr: "On Sundays: rib of beef · kid goat · suckling pig · roast veal · horse steak · picanha",
       pic_label: "From the grill",
       alt_picanha: "Hand-painted azulejo-style illustration: slices of picanha on a skewer.",
       pic_fr: "Sliced picanha, with the sides",
@@ -632,9 +697,12 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
       if (err < 0.07) { best = {rows: rows, cols: cols, tw: tw, th: th, err: err}; break; }
     }
     var rows = best.rows, cols = best.cols, tw = best.tw, th = best.th;
+    hero.style.backgroundImage = 'linear-gradient(90deg,rgba(242,230,208,.13) 1px,transparent 1px),linear-gradient(rgba(242,230,208,.13) 1px,transparent 1px)';
+    hero.style.backgroundSize = tw + 'px ' + th + 'px';
     wall.style.top = '0px'; wall.style.height = H + 'px';
+
     var c0 = Math.floor((cols - cw) / 2), r0 = Math.floor((rows - ch) / 2);
-    var P = desk ? {c: c0, r: r0, w: 8, h: 10} : {c: c0, r: r0, w: 8, h: 7};
+    var P = desk ? {c: c0, r: r0 + 1, w: 8, h: 8} : {c: c0, r: r0, w: 8, h: 7};
     var A = desk ? {c: c0 + 9, r: r0, w: 8, h: 10} : {c: c0, r: r0 + 8, w: 8, h: 10};
     plaque.style.left = P.c * tw + 'px'; plaque.style.top = P.r * th + 'px';
     plaque.style.width = P.w * tw + 'px'; plaque.style.height = P.h * th + 'px';
@@ -648,7 +716,7 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
       if (c >= P.c && c < P.c + P.w && r >= P.r && r < P.r + P.h) continue;
       var d = Math.hypot(c + .5 - ac, r + .5 - ar);
       html += '<i style="left:' + (c * tw).toFixed(2) + 'px;top:' + (r * th).toFixed(2) + 'px;width:' + (tw + .3).toFixed(2) + 'px;height:' + (th + .3).toFixed(2) +
-              'px;--d:' + Math.round(220 + d * 34) + 'ms;filter:brightness(' + (0.95 + ((c * 7 + r * 13) % 10) / 100).toFixed(2) + ')"></i>';
+              'px;--d:' + Math.round(120 + d * 17) + 'ms;filter:brightness(' + (0.95 + ((c * 7 + r * 13) % 10) / 100).toFixed(2) + ')"></i>';
     }
     wall.innerHTML = html;
     TW = tw; TH = th;
@@ -656,7 +724,7 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
     var qw = pw / 4, qh = phh / 5, h2 = '';
     for (var y = 0; y < 5; y++) for (var x = 0; x < 4; x++)
       h2 += '<b style="left:' + (x * qw) + 'px;top:' + (y * qh) + 'px;width:' + (qw + .5) + 'px;height:' + (qh + .5) + 'px;background-size:' + pw + 'px ' + phh +
-            'px;background-position:-' + (x * qw) + 'px -' + (y * qh) + 'px;--d:' + (60 + (x + y) * 70) + 'ms"></b>';
+            'px;background-position:-' + (x * qw) + 'px -' + (y * qh) + 'px;--d:' + (40 + (x + y) * 50) + 'ms"></b>';
     pieces.innerHTML = h2;
     if (!laidOnce) {
       laidOnce = true;
@@ -664,13 +732,15 @@ html.lay .layfig:not(.laid) > .panel,html.lay .layfig:not(.laid) > .sign{opacity
       else {
         hero.classList.add('js');
         var go = function(){ requestAnimationFrame(function(){ requestAnimationFrame(function(){
-          hero.classList.add('laid'); setTimeout(function(){ hero.classList.add('set'); }, 2000); }); }); };
+          hero.classList.add('laid'); setTimeout(function(){ hero.classList.add('set'); }, 1400); }); }); };
         if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
       }
     }
   }
   layWall();
-  new IntersectionObserver(function(e){ document.body.classList.toggle('past', !e[0].isIntersecting); }, {threshold: 0.05}).observe(hero);
+  /* the floating call pill shows only once the hero (which has its own call) is gone */
+  var past = function(){ document.body.classList.toggle('past', hero.getBoundingClientRect().bottom < 80); };
+  window.addEventListener('scroll', past, {passive: true}); past();
 
   function fit(){
     document.querySelectorAll('[data-fit]').forEach(function(el){
