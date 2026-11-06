@@ -826,13 +826,18 @@ function heroUpdate(){
   const vb=[Cxc-W/(2*sc),Cy-H/(2*sc),W/sc,H/sc];
   svg.setAttribute('viewBox',vb.map(v=>v.toFixed(3)).join(' '));
   Room.reveal(clamp((z-.35)/.65),e2,[H/2+(-388-Cy)*sc, W/2+(293-Cxc)*sc, H/2+(-306-Cy)*sc, W/2+(247-Cxc)*sc],W,H);
-  salleLabel.style.top=(H/2+(-418-Cy)*sc).toFixed(1)+'px';
+  // the words stay on the stone while the window grows: they ride the façade, but never leave the screen under the header
+  const lh=salleLabel.offsetHeight||120, minTop=hdr.offsetHeight+lh/2+12;
+  const lTop=Math.max(minTop,H/2+(-418-Cy)*sc); salleLabel.style.top=lTop.toFixed(1)+'px';
+  const glassTop=H/2+(-400-Cy)*sc;                                   // the stone reveal's upper edge
   // 3. the room's lamp light floods to the amber of the Menu du jour
   const fl=clamp((t-(R-100))/40);
   // a wipe, not a crossfade: the amber ground slides up from the bottom edge like a card, hard-edged over the room
-  amb.style.opacity=fl>0?1:0; amb.style.clipPath=`inset(${((1-fl)*100).toFixed(2)}% 0 0 0)`;
-  jourFirst.style.opacity=clamp((fl-.6)/.4).toFixed(3); jourFirst.style.clipPath='none';   // the words arrive once the colour is in, top to bottom together jourFirst.classList.toggle('on',fl>=.999);   // the words ride up with the colour
-  Room.label(z>=.95 && z2<.35);
+  // the menu arrives as one card sliding up over the room: amber, lamps and words together, top edge first
+  const slide=`translateY(${((1-ease(fl))*100).toFixed(2)}%)`;
+  amb.style.opacity=fl>0?1:0; amb.style.clipPath='none'; amb.style.transform=slide;
+  jourFirst.style.opacity=fl>0?1:0; jourFirst.style.clipPath='none'; jourFirst.style.transform=slide;   // the words arrive once the colour is in, top to bottom together jourFirst.classList.toggle('on',fl>=.999);   // the words ride up with the colour
+  Room.label(z>=.95 && glassTop>lTop+lh/2-4);                     // the words leave as the window reaches them
   heroGround=fl>.92?'amber':(z>.3?'room':'sky');
   const fade=1-clamp((t-40)/30);
   brand.style.visibility=t>40?'hidden':'visible';
