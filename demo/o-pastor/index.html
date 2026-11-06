@@ -31,6 +31,7 @@
   --ink:#111;
   --crim:#a9013f;
   --band:#ecdcc4;                        /* the board: a deeper cream, their walls by lamplight */
+  --dusk:#211a17;                        /* after the walk: the table and the board, by evening */
   --serif:"Sorts Mill Goudy","Goudy Old Style",Garamond,Georgia,serif;
   --sans:"Albert Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
   /* type: 5 steps (+ the wordmark, fitted by JS) */
@@ -202,7 +203,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .pair .dn{ font-size:var(--t4); line-height:1.02; }
 .pair .ing{ font-style:italic; font-size:var(--t2); letter-spacing:.01em; margin-top:var(--s1); max-width:24em; margin-left:auto; margin-right:auto; }
 .pair .mid{ font-size:var(--t4); line-height:.6; }
-.board{ background:var(--band); box-shadow:0 0 0 100vmax var(--band); clip-path:inset(0 -100vmax); border-top:0; }
+.board, .tbl{ --ink:var(--paper); color:var(--paper); background:var(--dusk); box-shadow:0 0 0 100vmax var(--dusk); clip-path:inset(0 -100vmax); border-top:0; }
+
 .also{ margin:var(--s6) auto 0; max-width:30em; text-align:center; font-size:var(--t2); }
 .also .sans{ display:block; margin-bottom:var(--s2); }
 @media (min-width:900px){
@@ -219,7 +221,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 }
 
 /* ---------- 3b · à table ---------- */
-.tbl{ padding:0 var(--gut) var(--s6); max-width:calc(var(--max) + 2 * var(--gut)); margin:0 auto; display:grid; grid-template-columns:1fr; row-gap:48px; }
+.tbl{ padding:var(--s6) var(--gut) var(--s4); max-width:calc(var(--max) + 2 * var(--gut)); margin:0 auto; display:grid; grid-template-columns:1fr; row-gap:48px; }
 .tbl picture{ display:block; overflow:hidden; }
 .tbl img{ width:100%; height:100%; object-fit:cover; }
 .tb-glass picture{ aspect-ratio:4/5; }
@@ -377,8 +379,8 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
       </ul>
       <figure class="shot">
         <picture>
-          <source type="image/webp" srcset="assets/pizza-parma-800.webp 800w, assets/pizza-parma.webp 1200w" sizes="(min-width:900px) 46vw, 100vw">
-          <img src="assets/pizza-parma-800.jpg" srcset="assets/pizza-parma-800.jpg 800w, assets/pizza-parma.jpg 1200w" sizes="(min-width:900px) 46vw, 100vw" width="1200" height="1200" alt="Pizza Parma d'O Pastor : jambon cru et roquette" data-i18n-alt="alt_parma" loading="lazy" decoding="async">
+          <source type="image/webp" srcset="assets/pizza-parma-800-duo.webp 800w, assets/pizza-parma-duo.webp 1200w" sizes="(min-width:900px) 46vw, 100vw">
+          <img src="assets/pizza-parma-800-duo.jpg" srcset="assets/pizza-parma-800-duo.jpg 800w, assets/pizza-parma-duo.jpg 1200w" sizes="(min-width:900px) 46vw, 100vw" width="1200" height="1200" alt="Pizza Parma d'O Pastor : jambon cru et roquette" data-i18n-alt="alt_parma" loading="lazy" decoding="async">
         </picture>
         <figcaption class="sans">Parma</figcaption>
       </figure>
@@ -409,15 +411,15 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   <section class="tbl" aria-label="O Pastor, à table" data-i18n-aria="tbl_label">
     <figure class="tb-glass">
       <picture>
-        <source type="image/webp" srcset="assets/glass-diekirch-800.webp 800w, assets/glass-diekirch.webp 1280w" sizes="(min-width:900px) 38vw, 100vw">
-        <img src="assets/glass-diekirch-800.jpg" srcset="assets/glass-diekirch-800.jpg 800w, assets/glass-diekirch.jpg 1280w" sizes="(min-width:900px) 38vw, 100vw" width="1280" height="1600" alt="Une Diekirch Grand Cru sur un set de table O Pastor" data-i18n-alt="alt_glass" loading="lazy" decoding="async">
+        <source type="image/webp" srcset="assets/glass-diekirch-800-duo.webp 800w, assets/glass-diekirch-duo.webp 1280w" sizes="(min-width:900px) 38vw, 100vw">
+        <img src="assets/glass-diekirch-800-duo.jpg" srcset="assets/glass-diekirch-800-duo.jpg 800w, assets/glass-diekirch-duo.jpg 1280w" sizes="(min-width:900px) 38vw, 100vw" width="1280" height="1600" alt="Une Diekirch Grand Cru sur un set de table O Pastor" data-i18n-alt="alt_glass" loading="lazy" decoding="async">
       </picture>
       <figcaption class="sans">Diekirch Grand Cru</figcaption>
     </figure>
     <figure class="tb-plate">
       <picture>
-        <source type="image/webp" srcset="assets/plate-lamb-700.webp 700w, assets/plate-lamb.webp 1000w" sizes="(min-width:900px) 52vw, 100vw">
-        <img src="assets/plate-lamb-700.jpg" srcset="assets/plate-lamb-700.jpg 700w, assets/plate-lamb.jpg 1000w" sizes="(min-width:900px) 52vw, 100vw" width="1000" height="800" alt="Côtelettes d'agneau, pommes de terre et fèves, sur une table d'O Pastor" data-i18n-alt="alt_lamb" loading="lazy" decoding="async">
+        <source type="image/webp" srcset="assets/plate-lamb-700-duo.webp 700w, assets/plate-lamb-duo.webp 1000w" sizes="(min-width:900px) 52vw, 100vw">
+        <img src="assets/plate-lamb-700-duo.jpg" srcset="assets/plate-lamb-700-duo.jpg 700w, assets/plate-lamb-duo.jpg 1000w" sizes="(min-width:900px) 52vw, 100vw" width="1000" height="800" alt="Côtelettes d'agneau, pommes de terre et fèves, sur une table d'O Pastor" data-i18n-alt="alt_lamb" loading="lazy" decoding="async">
       </picture>
     </figure>
   </section>
