@@ -220,9 +220,9 @@ body.g-c7{background:#101a19;color:var(--cream)}
 
 /* ---------- step through the door: outside on Am Duerf, then into the room ----------
    Their own reel walks from the square through the glass front; scrolling walks it.
-   Outside is held cool and grey; at the threshold the picture warms and the room's petrol arrives. */
+   Outside is their terrace in soft daylight; at the threshold the picture warms and the room's petrol arrives. */
 .walk{position:relative;height:420vh;height:420svh}
-.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:rgb(var(--wg,206,210,208));color:var(--film-ink)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:rgb(var(--wg,224,228,188));color:var(--film-ink)}
 .film{position:absolute;inset:0}
 .film img,.film canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .film canvas{opacity:0}
@@ -665,13 +665,13 @@ var MC_I18N={
 })();
 </script>
 <script>
-/* ---- the walk-in: frames of their reel DbX9qnpoogE (00 = the square, 33 = first frame inside,
-   55-62 = the mural). Their line is their own Instagram caption, 2022-01-14 (E9). ---- */
+/* ---- the walk-in: frames of their reel DbX9qnpoogE (00 = the square, 20 = first frame inside,
+   42-49 = the mural). Their line is their own Instagram caption, 2022-01-14 (E9). ---- */
 (function(){
   "use strict";
   var walk=document.getElementById("walk"),stage=document.getElementById("stage"),film=stage.querySelector(".film"),
       cv=document.getElementById("wc"),cx=cv.getContext("2d"),w1=stage.querySelector(".w1"),w2=stage.querySelector(".w2"),
-      hd=document.getElementById("hd"),SEG=[0,0,0,0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8],N=70,IN=33,M0=55,M1=62,reduce=matchMedia("(prefers-reduced-motion: reduce)");
+      hd=document.getElementById("hd"),SEG=[0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6],N=57,IN=20,M0=42,M1=49,reduce=matchMedia("(prefers-reduced-motion: reduce)");
   hd.classList.add("past");                       /* the call link is there from the first screen */
   if(reduce.matches)return;
   var fr=[],ok=[],queued=0;
@@ -698,7 +698,8 @@ var MC_I18N={
     var f=Math.max(0,Math.min(N-1,pos)),i=Math.floor(f),a=f-i,b=near(i);
     if(b<0)return;
     cover(fr[b],1);
-    if(b===i&&i+1<N&&ok[i+1]&&a>0.01&&SEG[i+1]===SEG[i])cover(fr[i+1],a);   /* blend within a shot; cuts stay clean */
+    var q=Math.max(0,Math.min(1,(a-.62)/.38));q=q*q*(3-2*q);   /* sharp frames, a short blend just before the next */
+    if(b===i&&i+1<N&&ok[i+1]&&q>0.01&&SEG[i+1]===SEG[i])cover(fr[i+1],q);   /* blend within a shot; cuts stay clean */
     cx.globalAlpha=1;film.classList.add("ready");
   }
   function sm(a,b,x){x=Math.max(0,Math.min(1,(x-a)/(b-a)));return x*x*(3-2*x);}
@@ -710,8 +711,8 @@ var MC_I18N={
     pos=p/.9*(N-1);want=Math.round(pos);paint();
     /* outside is cool; past the door the picture warms and the ground turns to their petrol */
     var k=sm(IN-4,IN+1,pos);
-    cv.style.filter="saturate("+(0.42+0.58*k).toFixed(3)+") brightness("+(1.04-0.04*k).toFixed(3)+")";
-    stage.style.setProperty("--wg",mix(206,27,k)+","+mix(210,94,k)+","+mix(208,88,k));
+    cv.style.filter="saturate("+(0.86+0.14*k).toFixed(3)+") brightness("+(1.03-0.03*k).toFixed(3)+")";
+    stage.style.setProperty("--wg",mix(224,27,k)+","+mix(228,94,k)+","+mix(188,88,k));
     stage.style.setProperty("--wi",k>.5?"#E0E4BC":"#232323");
     var o1=1-sm(6,14,pos),o2=sm(M0-3,M0+1,pos)*(1-sm(M1+2,M1+6,pos));
     w1.style.setProperty("--o",o1.toFixed(3));w1.style.visibility=o1<.01?"hidden":"visible";
