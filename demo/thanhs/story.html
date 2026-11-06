@@ -1118,9 +1118,10 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
     // r28: the Paris - Luxembourg detail (borders, rivers, names), Luxembourg green once the line arrives
     if (jdet) {
       jdet.style.opacity = (smooth(.56, .62, t) * (1 - smooth(.72, .76, t))).toFixed(3);   // gone before the city zoom
-      jr2.style.opacity = (1 - smooth(.73, .77, t)).toFixed(3);   // the hop does not swell over the city map
+      jr2.style.opacity = (smooth(.56, .575, t) * (1 - smooth(.73, .77, t))).toFixed(3);   // hidden until it draws (its round cap dotted Luxembourg); the hop does not swell over the city map
       jlu.style.fillOpacity = (.5 * smooth(.64, .69, t)).toFixed(3);
-      const lo = smooth(.6, .64, t) * (1 - smooth(.71, .74, t)), po = smooth(.5, .54, t) * (1 - smooth(.71, .74, t));
+      jlu.style.strokeOpacity = smooth(.62, .66, t).toFixed(3);   // no Luxembourg outline before the line heads there
+      const lo = smooth(.64, .67, t) * (1 - smooth(.71, .74, t)), po = smooth(.5, .54, t) * (1 - smooth(.71, .74, t));
       jlabs.style.opacity = '1';
       jlab.forEach(l => {
         const o = l === jparis ? po : lo; l.style.opacity = o.toFixed(3); if (o <= 0) return;
@@ -1129,7 +1130,7 @@ footer .legal{flex:0 0 100%;margin:var(--s2) 0 0;padding-top:var(--s2);border-to
     }
     jdots.saigon.classList.toggle('on', t < .78);
     jdots.paris.classList.toggle('on', t > .12 && t < .78);   // the destination shows from take-off
-    jdots.lux.classList.toggle('on', t > .57 && t < .78);
+    jdots.lux.classList.toggle('on', t > .655 && t < .78);   // Luxembourg shows as the line arrives
     const cityA = smooth(.74, .84, t);
     jcity.style.opacity = cityA.toFixed(3); jcity.classList.toggle('on', cityA > .9);
     J.querySelector('.jworld').style.opacity = (1 - smooth(.8, .88, t)).toFixed(3);
