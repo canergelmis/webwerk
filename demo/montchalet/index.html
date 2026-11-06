@@ -98,125 +98,6 @@ ul{list-style:none}
 .js .hd:not(.past) .call{display:none}
 @media (min-width:600px){.call .num{display:inline}}
 
-/* ---------- the hour: the page opens on what is happening at MontChalet right now ----------
-   Their own reel footage for each part of the day; the time in Dudelange, ticking; their line for that hour.
-   Seven hour stops (tap, or swipe the picture) move through their day; "Voir la journée" plays it as a time-lapse. */
-.hour{position:relative;min-height:100vh;min-height:100svh;color:var(--film-ink);background:#101a19;overflow:clip;
-  transition:background-color .6s ease,color .6s ease}
-.hour .media{position:absolute;inset:0;background:#101a19}
-.hour .media img,.hour .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
-.hour .media video{opacity:0}
-.hour .media video.on{opacity:1}
-.hour .media::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(rgba(14,30,28,.55),rgba(14,30,28,0) 30%,rgba(14,30,28,0) 38%,rgba(14,30,28,.78) 70%,rgba(14,30,28,.92))}
-.hour .wrap{position:relative;z-index:1;min-height:100vh;min-height:100svh;align-content:end;
-  padding-top:calc(var(--hd) + 16px);padding-bottom:max(22px,env(safe-area-inset-bottom))}
-.hour .txt{grid-column:1 / -1}
-.hour .where{font-size:var(--fs-small);font-weight:500;letter-spacing:.02em;opacity:.92}
-.hour .where button{font:inherit;color:inherit;background:none;border:0;border-bottom:1px solid currentColor;padding:6px 0 1px;margin-left:10px;cursor:pointer}
-.hour .clock{font-family:var(--f-voice);font-weight:400;font-size:clamp(5.5rem,28vw,15rem);line-height:1.08;letter-spacing:-.02em;
-  -webkit-text-stroke:.011em currentColor;font-variant-numeric:tabular-nums;margin-top:4px}
-.hour .line{font-size:var(--fs-title);margin-top:14px;max-width:22ch;min-height:2.2em}
-.hour .line .sub{display:block;font-family:var(--f-text);font-size:var(--fs-body);-webkit-text-stroke:0;margin-top:8px;opacity:.92;line-height:1.35}
-.hour .state{margin-top:16px;font-size:var(--fs-body);font-weight:500}
-.hour .acts{margin-top:14px}
-.hour .acts a.cta{background:var(--cream);color:var(--petrol)}
-.dial{grid-column:1 / -1;margin-top:24px;position:relative}
-.dial .slot{position:absolute;top:4px;right:0;display:flex;gap:10px}
-.dial .slot .arr{position:static;margin:0;width:44px;height:44px}
-.dial .play{font:inherit;font-size:1rem;font-weight:700;color:inherit;background:none;border:0;padding:4px 0;cursor:pointer;
-  display:inline-flex;align-items:center;gap:12px;letter-spacing:.01em}
-.dial .play .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--cream);color:var(--petrol);flex:none}
-.dial .play i{display:inline-block;margin-left:3px;width:0;height:0;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent currentColor}
-.dial .play[aria-pressed="true"] i{margin-left:0;width:10px;height:12px;border:0;border-left:3px solid currentColor;border-right:3px solid currentColor}
-.dial .play:focus-visible,.stops button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-.stops{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:10px}
-.stops button{font:inherit;color:inherit;background:none;border:0;padding:12px 0 4px;cursor:pointer;text-align:left;
-  font-size:.9375rem;font-variant-numeric:tabular-nums;opacity:.7;transition:opacity .2s}
-.stops button .seg{display:block;position:relative;height:3px;background:currentColor;opacity:.32;margin-bottom:9px;border-radius:2px}
-.stops button .seg b{position:absolute;inset:0 auto 0 0;width:0;background:currentColor;border-radius:2px}
-.stops button.done .seg,.stops button.on .seg{opacity:1}
-.stops button.done .seg b{width:100%}
-.stops button.on,.stops button:hover{opacity:1}
-.stops button.on .lbl{font-weight:700}
-.stops button:hover .lbl{transform:translateY(-2px)}
-.stops .lbl{display:block;transition:transform .2s}
-.stops .lbl .nm{display:block;font-size:.75rem;line-height:1.2;margin-top:1px;white-space:nowrap;letter-spacing:-.01em}
-/* the arrows: the clearest sign that the hour can be changed */
-.hour .arr{position:absolute;z-index:2;top:40%;width:48px;height:48px;margin-top:-24px;border-radius:50%;border:0;cursor:pointer;
-  display:grid;place-items:center;background:rgba(237,240,214,.92);color:var(--petrol);box-shadow:0 2px 14px rgba(0,0,0,.28);
-  transition:transform .2s,opacity .2s}
-.hour .arr svg{width:20px;height:20px}
-.hour .arr.prev{left:10px}
-.hour .arr.next{right:10px}
-.hour .arr:hover{transform:scale(1.06)}
-.hour .arr:disabled{opacity:0;pointer-events:none}
-.hour .arr:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
-.hour.hint .arr,.hour.hint .play .ic{animation:mc-pulse 1.1s ease 2}
-@keyframes mc-pulse{0%,100%{transform:scale(1)}45%{transform:scale(1.16)}}
-@media (min-width:900px){
-  .hour .media{left:auto;width:50%}
-  .hour .media::after{display:none}
-  .hour .wrap{align-content:center;padding-bottom:40px}
-  .hour .txt{grid-column:1 / span 6}
-  .hour .clock{font-size:clamp(9rem,15vw,15rem)}
-  .dial{grid-column:1 / span 6}
-  .hour .arr{top:50%!important}
-  .hour .arr.prev{left:calc(50% + 20px)}
-  .hour .arr.next{right:20px}
-  .hour.day .dial .play .ic{background:var(--petrol);color:var(--cream)}
-  .dial .play{font-size:1.125rem}
-  .stops button{font-size:1.125rem}
-  .stops .lbl .nm{font-size:.9375rem}
-  .hour.day{background:var(--cream);color:var(--ink)}
-  .hour.day .acts a.cta{background:var(--petrol);color:var(--cream)}
-  .hour.eve{background:var(--petrol)}
-}
-
-/* ---------- the day after the film: three type sizes only (hero, section, item) ---------- */
-.carte{padding-block:clamp(72px,9vw,128px) clamp(56px,7vw,96px)}
-.carte .wrap{row-gap:28px}
-.matin{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr);row-gap:18px;
-  padding-bottom:clamp(40px,6vw,80px);border-bottom:1px solid rgba(224,228,188,.28)}
-.matin h2{font-size:var(--fs-voice)}
-.matin .copy > * + *{margin-top:18px}
-.matin .ev{font-family:var(--f-voice);font-size:var(--fs-dish);line-height:1.2;-webkit-text-stroke:.011em currentColor}
-.matin .ev .t{display:block}
-.matin .ev .d{display:block;font-family:var(--f-text);font-size:var(--fs-body);-webkit-text-stroke:0;margin-top:2px;opacity:.9}
-.carte .lead{grid-column:1 / -1;font-size:var(--fs-voice);margin-top:12px}
-.carte figure{grid-column:1 / -1;margin-inline:calc(-1 * var(--gut))}
-.carte figure img{width:100%;aspect-ratio:1;object-fit:cover}
-.menu{grid-column:1 / -1}
-.dishes li + li{margin-top:22px}
-.dishes .n{display:block;font-family:var(--f-voice);font-size:var(--fs-dish);line-height:1.15;-webkit-text-stroke:.011em currentColor}
-.dishes .d{display:block;margin-top:4px;font-size:1.0625rem;opacity:.88}
-.menu .vins{margin-top:28px;padding-top:16px;border-top:1px solid rgba(224,228,188,.3)}
-.menu .more{margin-top:12px}
-.menu .more a{font-weight:700;text-decoration:none;border-bottom:1px solid currentColor}
-@media (min-width:900px){
-  .carte .wrap{row-gap:40px}
-  .matin{grid-column:1 / -1;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
-  .matin h2{grid-column:1 / span 6}
-  .matin .copy{grid-column:8 / span 5;padding-top:.5em}
-  .carte .lead{grid-column:1 / span 10}
-  .carte figure{grid-column:1 / span 7;margin-inline:0}
-  .menu{grid-column:8 / span 5;align-self:end;padding-left:8px}
-  .dishes li + li{margin-top:30px}
-}
-
-.bar{position:relative;background:#101a19;padding-top:clamp(64px,8vw,112px)}
-.bar .wrap{row-gap:24px}
-.bar .txt{grid-column:1 / -1}
-.bar h2{font-size:var(--fs-voice)}
-.bar .cap{margin-top:12px;font-size:var(--fs-body);opacity:.9}
-.drinks{margin-top:18px;font-size:var(--fs-body);line-height:1.6}
-.drinks li{display:inline;white-space:nowrap}
-.drinks li:not(:last-child)::after{content:","}
-@media (min-width:900px){
-  .bar{padding-block:clamp(64px,8vw,112px)}
-  .bar .txt{grid-column:1 / span 8}
-}
-
 /* ---------- footer: the plain summary, on their sage-cream ---------- */
 .ft{background:var(--cream);color:var(--ink);padding-block:clamp(48px,7vw,88px) 36px}
 .ft .wrap{row-gap:28px}
@@ -236,7 +117,139 @@ ul{list-style:none}
 }
 .ft .col > * + *{margin-top:.6em}
 
-@media (prefers-reduced-motion:reduce){.hour,.hour .media video{transition:none}.hour.hint .arr,.hour.hint .play .ic{animation:none}}
+/* ---------- a day at MontChalet: one spread per hour, 09:00 to night ----------
+   Every hour is built the same way: their reel as the big tile, three of their own photos locked to it
+   with hairline gaps, the hour as a giant Marcellus numeral across the clip, then their line.
+   The ground follows the day: sage-cream morning, terrace green, petrol apéro, night. */
+body{background:#E0E4BC;color:var(--ink);transition:background-color .6s ease,color .6s ease}
+body.g-c1{background:#E0E4BC;color:var(--ink)}
+body.g-c2{background:#D8DDB0;color:var(--ink)}
+body.g-c3{background:#BFCB9E;color:var(--ink)}
+body.g-c4{background:#1B5E58;color:var(--cream)}
+body.g-c5{background:#164E49;color:var(--cream)}
+body.g-c6{background:#123b37;color:var(--cream)}
+body.g-c7{background:#101a19;color:var(--cream)}
+.hd .now-t{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:var(--fs-small);font-weight:700;
+  font-variant-numeric:tabular-nums;white-space:nowrap;opacity:0;transition:opacity .3s;display:none}
+.hd .bar-p{position:absolute;left:0;right:0;bottom:-3px;height:3px;background:rgba(224,228,188,.25)}
+.hd .bar-p i{display:block;height:100%;width:0;background:var(--cream)}
+@media (min-width:600px){.hd .now-t{display:block}}
+
+.hr{padding-block:clamp(36px,6vw,96px) 0}
+.hr:first-child{padding-top:calc(var(--hd) + 10px)}
+.hr:last-child{padding-bottom:clamp(36px,6vw,96px)}
+.spread{display:grid;gap:6px;padding-inline:var(--gut);max-width:1440px;margin-inline:auto;
+  grid-template-columns:minmax(0,2fr) minmax(0,1fr);
+  grid-template-areas:"clip b" "clip c" "cap cap" "a a" "ex ex"}
+.tile{position:relative;margin:0}
+.tile .m{position:absolute;inset:0;overflow:hidden;background:rgba(0,0,0,.12)}
+.tile .m img,.tile .m video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.t-clip{grid-area:clip;height:58vh;height:58svh;min-height:400px}
+.hr:first-child .t-clip{height:50svh;min-height:360px}
+.t-b{grid-area:b}.t-c{grid-area:c}
+.t-a{grid-area:a;aspect-ratio:16 / 11;margin-top:22px}
+.clip video{opacity:0;transition:opacity .5s ease}
+.clip video.on{opacity:1}
+/* the moment, one giant word across the spread: Café, Midi, Terrasse, Apéro, Bar, Cocktail, Nuit */
+.word{grid-row:1 / 3;grid-column:1 / -1;align-self:end;justify-self:start;width:max-content;z-index:3;margin:0 0 -.2em;pointer-events:none;
+  font-size:96px;line-height:1;white-space:nowrap;letter-spacing:-.015em;color:var(--film-ink);
+  -webkit-text-stroke:.008em currentColor;text-shadow:0 2px 14px rgba(0,0,0,.38)}
+.cap{grid-area:cap;padding-top:clamp(44px,13vw,72px)}
+.when{font-size:var(--fs-small);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.when .t{font-variant-numeric:tabular-nums}
+.when .dim{font-weight:500;opacity:.8;margin-left:.3em;text-transform:none;letter-spacing:.02em}
+.cap .line{font-size:var(--fs-voice);margin-top:10px;max-width:17ch}
+.cap .sub{margin-top:12px;max-width:36ch;opacity:.9}
+.cap .acts{margin-top:18px}
+.g-c4 .cap .acts a.cta,.g-c5 .cap .acts a.cta,.g-c6 .cap .acts a.cta,.g-c7 .cap .acts a.cta{background:var(--cream);color:var(--petrol)}
+.cap .acts a.cta{background:var(--petrol);color:var(--cream)}
+.cap .now{margin-top:16px}
+.cap .now a{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;
+  border:1px solid currentColor;border-radius:999px;padding:9px 16px}
+.cap .now a:empty{display:none}
+.cap .now a::before{content:"";width:8px;height:8px;border-radius:50%;background:#2f9a4e;box-shadow:0 0 0 3px rgba(47,154,78,.22)}
+.cap .now a.closed::before{background:#b8862b;box-shadow:0 0 0 3px rgba(184,134,43,.22)}
+.ex{grid-area:ex;margin-top:clamp(28px,5vw,48px)}
+.dishes li + li{margin-top:18px}
+.dishes .n{display:block;font-family:var(--f-voice);font-size:var(--fs-dish);line-height:1.15;-webkit-text-stroke:.011em currentColor}
+.dishes .d{display:block;margin-top:4px;font-size:1.0625rem;opacity:.88}
+.menu .more{margin-top:20px}
+.menu .more a{font-weight:700;text-decoration:none;border-bottom:1px solid currentColor}
+.drinks{font-family:var(--f-voice);font-size:var(--fs-dish);line-height:1.35;-webkit-text-stroke:.011em currentColor}
+.drinks li{display:inline;white-space:nowrap}
+.drinks li:not(:last-child)::after{content:" · ";white-space:pre}
+/* arrival: each tile opens like a shutter, the picture settles */
+.js .tile .m{clip-path:inset(0 0 100% 0);transition:clip-path .55s cubic-bezier(.6,0,.2,1)}
+.js .tile .m img{transform:scale(1.05);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .tile.in .m{clip-path:inset(0)}
+.js .tile.in .m img{transform:none}
+.js .t-b.in .m{transition-delay:.05s}.js .t-c.in .m{transition-delay:.1s}
+.js .word{opacity:0;transform:translateY(.12em);transition:opacity .5s ease .12s,transform .6s cubic-bezier(.2,.7,.2,1) .12s}
+.js .word.in{opacity:1;transform:none}
+@media (min-width:900px){
+  .spread{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:6px;row-gap:6px;
+    grid-template-rows:calc((min(78vh,780px) - 6px) / 2) calc((min(78vh,780px) - 6px) / 2) auto auto;
+    grid-template-areas:
+      "clip clip clip clip clip clip a a a a a a"
+      "clip clip clip clip clip clip b b b c c c"
+      "cap cap cap cap cap cap cap cap ex ex ex ex"}
+  .side-l .spread{grid-template-areas:
+      "a a a a a a clip clip clip clip clip clip"
+      "b b b c c c clip clip clip clip clip clip"
+      "cap cap cap cap cap cap cap cap ex ex ex ex"}
+  .t-clip,.hr:first-child .t-clip{height:auto;min-height:0}
+  .t-a{aspect-ratio:auto;margin-top:0}
+  .word{margin-bottom:-.21em}
+  .cap{padding-top:clamp(56px,6vw,96px)}
+  .cap .line{max-width:20ch}
+  .hr:first-child .cap .line{font-size:clamp(2.75rem,1.6rem + 2.6vw,4.5rem)}
+  .ex{margin-top:0;padding-top:clamp(56px,6vw,96px);align-self:start}
+  /* the first hour is the welcome: their line and the call sit in the spread, beside the clip */
+  .hr:first-child .spread{grid-template-rows:calc((100vh - var(--hd) - 28px) * .6) calc((100vh - var(--hd) - 28px) * .4) auto;
+    grid-template-areas:
+      "clip clip clip clip clip clip cap cap cap cap cap cap"
+      "clip clip clip clip clip clip b b b c c c"
+      "a a a a a a ex ex ex ex ex ex"}
+  .hr:first-child .cap{padding:8px 0 0 clamp(16px,2.4vw,40px);align-self:start}
+  .hr:first-child .cap .line{font-size:clamp(2.5rem,1.2rem + 2.4vw,4rem);max-width:15ch}
+  .hr:first-child .t-a{aspect-ratio:16 / 9;margin-top:30px}
+}
+.ft{background:transparent;color:inherit}
+.ft .note{color:inherit;opacity:.75;border-top-color:currentColor}
+@media (prefers-reduced-motion:reduce){body{transition:none}.js .tile .m,.js .tile .m img,.js .word{clip-path:none;transform:none;opacity:1;transition:none}.clip video{display:none}}
+
+/* ---------- step through the door: outside on Am Duerf, then into the room ----------
+   Their own reel walks from the square through the glass front; scrolling walks it.
+   Outside is held cool and grey; at the threshold the picture warms and the room's petrol arrives. */
+.walk{position:relative;height:420vh;height:420svh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:rgb(var(--wg,206,210,208));color:var(--film-ink)}
+.film{position:absolute;inset:0}
+.film img,.film canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film canvas{opacity:0}
+.film.ready canvas{opacity:1}
+.film::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(rgba(14,30,28,.45),rgba(14,30,28,0) 24%,rgba(14,30,28,0) 50%,rgba(14,30,28,.7) 82%,rgba(14,30,28,.85))}
+.wt{position:absolute;left:0;right:0;bottom:0;padding:0 var(--gut) max(34px,env(safe-area-inset-bottom));z-index:2;
+  opacity:var(--o,0);transform:translateY(calc((1 - var(--o,0)) * 18px));will-change:opacity,transform}
+.w1{--o:1}
+.w2{visibility:hidden}
+.eye{font-size:var(--fs-small);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.name{font-size:clamp(3.75rem,17vw,9.5rem);line-height:.95;margin-top:8px;letter-spacing:-.02em}
+.strap{font-size:.875rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-top:10px;opacity:.92}
+.go{margin-top:26px;font-weight:700;font-size:var(--fs-small)}
+.go span[aria-hidden]{display:inline-block;animation:mc-nudge 1.6s ease-in-out infinite}
+@keyframes mc-nudge{0%,100%{transform:none}50%{transform:translateY(5px)}}
+.mtn{font-size:clamp(2.25rem,9.5vw,5.25rem);line-height:1.05;max-width:13ch}
+@media (min-width:900px){
+  .film{left:auto;width:50%}
+  .film::after{display:none}
+  .wt{right:50%;bottom:auto;top:50%;transform:translateY(calc(-50% + (1 - var(--o,0)) * 18px));padding:0 56px 0 var(--gut);color:var(--wi,#232323)}
+  .name{font-size:clamp(4.5rem,7.4vw,7.5rem)}
+}
+@media (prefers-reduced-motion:reduce){
+  .walk{height:auto}.stage{position:relative}.film canvas{display:none}.w1{--o:1}.w2{display:none}
+  .go span[aria-hidden]{animation:none}
+}
 </style>
 </head>
 <body>
@@ -256,42 +269,86 @@ ul{list-style:none}
 </header>
 
 <main id="top">
-  <section class="hour" id="hour" aria-labelledby="clock">
-    <div class="media" aria-hidden="true">
-      <img id="poster" src="assets/img/matin.webp" width="720" height="1280" alt="" fetchpriority="high">
-      <video id="va" muted playsinline loop preload="none"></video>
-      <video id="vb" muted playsinline loop preload="none"></video>
-    </div>
-    <button type="button" class="arr prev" id="prev" aria-label="Heure précédente" data-i18n-aria-label="prev"><svg viewBox="0 0 20 20" aria-hidden="true"><polyline points="12.5,4 6.5,10 12.5,16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    <button type="button" class="arr next" id="next" aria-label="Heure suivante" data-i18n-aria-label="next"><svg viewBox="0 0 20 20" aria-hidden="true"><polyline points="7.5,4 13.5,10 7.5,16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    <div class="wrap">
-      <div class="txt">
-        <p class="where"><span id="where" data-i18n="now">Maintenant à Dudelange</span><button type="button" id="back" hidden data-i18n="back">Revenir à maintenant</button></p>
-        <h1 class="clock" id="clock"><span class="sr">MontChalet, Dudelange · </span><span id="hh">09:00</span></h1>
-        <p class="line voice" id="line"><span id="lt" lang="fr">Commencer la journée en douceur, de la meilleure des façons.</span><span class="sub" id="ls"></span></p>
-        <p class="state" id="state">6 Am Duerf, Dudelange · <span data-i18n="hours">Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00</span></p>
-        <p class="acts"><a class="cta" href="tel:+35226511156"><span data-i18n="call">Appeler</span> 26 51 11 56</a><a href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange&amp;query_place_id=ChIJ82Gg1-Q2lUcRVQXcEOkbeU0" rel="noopener" data-i18n="dir">Itinéraire</a></p>
+  <section class="walk" id="walk" aria-label="Entrer chez MontChalet, depuis la place Am Duerf" data-i18n-aria-label="walk_l">
+    <div class="stage" id="stage">
+      <div class="film" aria-hidden="true">
+        <img class="still" src="assets/w/00.webp" width="504" height="896" alt="" fetchpriority="high">
+        <canvas id="wc"></canvas>
       </div>
-      <div class="dial">
-        <button type="button" class="play" id="play" aria-pressed="false"><span class="ic"><i aria-hidden="true"></i></span><span data-i18n="dial">Voir la journée</span></button><span class="slot" id="slot"></span>
-        <div class="stops" id="stops" role="group" aria-label="Heures" data-i18n-aria-label="stops_l"></div>
+      <div class="wt w1">
+        <p class="eye">Dudelange · 6 Am Duerf</p>
+        <h1 class="name voice">MontChalet</h1>
+        <p class="strap">Bistro • Brasserie • Biergarten</p>
+        <p class="go"><span data-i18n="walk_go">Entrez</span> <span aria-hidden="true">↓</span></p>
+      </div>
+      <div class="wt w2">
+        <p class="mtn voice" lang="en">You are not in the mountains.<br>The mountains are in you.</p>
       </div>
     </div>
   </section>
 
-  <section class="carte">
-    <div class="wrap">
-      <div class="matin">
-        <h2 class="voice" data-i18n="morn_t">Commencer la journée en douceur, de la meilleure des façons.</h2>
-        <div class="copy">
-          <p data-i18n="morn">Un café frais, des coins paisibles et la beauté tranquille d’un nouveau matin.</p>
-          <p class="ev"><span class="t" lang="en">Sundays at the Chalet</span><span class="d" data-i18n="brunch">Brunch, chaque dimanche, 11:00⁠–⁠15:00</span></p>
-          <p class="ev"><span class="t" lang="fr">Bienvenue à la terrasse Mont&nbsp;Chalet</span><span class="d" lang="en">Sun, terrace views, and the perfect vibe.</span></p>
+  <section class="hr side-r" id="d-matin" data-slot="matin" data-ground="c1">
+    <div class="spread">
+      <div class="tile clip t-clip">
+        <div class="m" aria-hidden="true">
+          <img src="assets/img/matin.webp" width="720" height="1280" alt="" fetchpriority="high" decoding="async">
+          <video muted playsinline loop preload="none" data-src="assets/v/matin.mp4"></video>
         </div>
       </div>
-      <h2 class="lead voice" lang="fr">Des saveurs à découvrir, des instants à savourer.</h2>
-      <figure><img src="assets/img/board.webp" width="840" height="840" loading="lazy" decoding="async" alt="Leur planche Charcuterie &amp; Fromage, vue du dessus" data-i18n-alt="alt_board"></figure>
-      <div class="menu">
+      <p class="word voice" aria-hidden="true" data-i18n="n_matin">Café</p>
+      <figure class="tile ph t-b"><div class="m"><img src="assets/p/cafe-iced.webp" width="760" height="950" loading="lazy" decoding="async" alt="Un café glacé sur le bois"></div></figure>
+      <figure class="tile ph t-c"><div class="m"><img src="assets/p/cafe-oranges.webp" width="760" height="1349" loading="lazy" decoding="async" alt="Des oranges dans une coupe en bois" style="object-position:50% 85%"></div></figure>
+      <div class="cap">
+        <p class="when"><span class="t">09:00</span></p>
+        <h2 class="line voice"><span data-i18n="morn_t">Commencer la journée en douceur, de la meilleure des façons.</span></h2>
+        <p class="sub" data-i18n="morn">Un café frais, des coins paisibles et la beauté tranquille d’un nouveau matin.</p>
+        <p class="acts"><a class="cta" href="tel:+35226511156"><span data-i18n="call">Appeler</span> 26 51 11 56</a><a href="https://www.google.com/maps/search/?api=1&amp;query=MontChalet+6+Am+Duerf+Dudelange&amp;query_place_id=ChIJ82Gg1-Q2lUcRVQXcEOkbeU0" rel="noopener" data-i18n="dir">Itinéraire</a></p>
+        <p class="now"><a id="now" href="#d-matin"></a></p>
+      </div>
+      <figure class="tile ph t-a"><div class="m"><img src="assets/p/cafe-latte.webp" width="760" height="950" loading="lazy" decoding="async" alt="Un cappuccino sur leur table en bois" style="object-position:50% 55%"></div></figure>
+      
+    </div>
+  </section>
+
+  <section class="hr side-l" id="d-brunch" data-slot="brunch" data-ground="c1">
+    <div class="spread">
+      <div class="tile clip t-clip">
+        <div class="m" aria-hidden="true">
+          <img src="assets/img/brunch.webp" width="720" height="1280" alt="" loading="lazy" decoding="async">
+          <video muted playsinline loop preload="none" data-src="assets/v/brunch.mp4"></video>
+        </div>
+      </div>
+      <p class="word voice" aria-hidden="true" data-i18n="n_brunch">Brunch</p>
+      <figure class="tile ph t-b"><div class="m"><img src="assets/p/brunch-sign.webp" width="760" height="950" loading="lazy" decoding="async" alt="Leur ardoise « Mont Chalet Brunch, chaque dimanche »"></div></figure>
+      <figure class="tile ph t-c"><div class="m"><img src="assets/p/brunch-trays.webp" width="760" height="1351" loading="lazy" decoding="async" alt="Les plats chauds du brunch"></div></figure>
+      <div class="cap">
+        <p class="when"><span class="t">11:00</span> <span class="dim" data-i18n="sun">Le dimanche</span></p>
+        <h2 class="line voice" lang="en">Sundays at the Chalet</h2>
+        <p class="sub" data-i18n="brunch">Brunch, chaque dimanche, 11:00⁠–⁠15:00</p>
+      </div>
+      <figure class="tile ph t-a"><div class="m"><img src="assets/p/brunch-mural.webp" width="760" height="1013" loading="lazy" decoding="async" alt="Le buffet du brunch sous leur fresque de montagne" style="object-position:50% 60%"></div></figure>
+      
+    </div>
+  </section>
+
+  <section class="hr side-r" id="d-midi" data-slot="midi" data-ground="c2">
+    <div class="spread">
+      <div class="tile clip t-clip">
+        <div class="m" aria-hidden="true">
+          <img src="assets/img/midi.webp" width="720" height="1280" alt="" loading="lazy" decoding="async">
+          <video muted playsinline loop preload="none" data-src="assets/v/midi.mp4"></video>
+        </div>
+      </div>
+      <p class="word voice" aria-hidden="true" data-i18n="n_midi">Midi</p>
+      <figure class="tile ph t-b"><div class="m"><img src="assets/p/midi-dips.webp" width="760" height="950" loading="lazy" decoding="async" alt="Trois houmous et du pain grillé"></div></figure>
+      <figure class="tile ph t-c"><div class="m"><img src="assets/p/midi-gnocchi.webp" width="760" height="950" loading="lazy" decoding="async" alt="Des gnocchis au parmesan"></div></figure>
+      <div class="cap">
+        <p class="when"><span class="t">12:00</span></p>
+        <h2 class="line voice" lang="fr">Des saveurs à découvrir, des instants à savourer.</h2>
+        <p class="sub" data-i18n="d_board">Charcuterie & Fromage, pour 2, 4 ou 6 personnes</p>
+      </div>
+      <figure class="tile ph t-a"><div class="m"><img src="assets/p/midi-board.webp" width="760" height="507" loading="lazy" decoding="async" alt="Leur planche Charcuterie & Fromage, vue du dessus"></div></figure>
+      <div class="ex menu">
         <ul class="dishes">
           <li><span class="n" lang="fr">Charcuterie &amp; Fromage</span><span class="d" data-i18n="d_char">pour 2, 4 ou 6 personnes</span></li>
           <li><span class="n" lang="fr">Pinsa chalet</span><span class="d" data-i18n="d_pinsa">Stracciatella, saumon fumé, granella di pistacchio</span></li>
@@ -299,17 +356,71 @@ ul{list-style:none}
           <li><span class="n" lang="fr">Salade Burrata</span><span class="d" data-i18n="d_burrata">Pain croustillant, houmous à la betterave, roquette, olives &amp; tomates</span></li>
           <li><span class="n">Desserts</span><span class="d" lang="fr">Cheesecake pistache · Chocolate cake</span></li>
         </ul>
-        <p class="vins" data-i18n="vins">Vins du Luxembourg, de France et d’Italie</p>
         <p class="more"><a href="https://wolt.com/fr/lux/luxembourg-south/restaurant/mont-chalet-lux" rel="noopener" data-i18n="order">Toute la carte sur Wolt</a></p>
       </div>
     </div>
   </section>
 
-  <section class="bar">
-    <div class="wrap">
-      <div class="txt">
-        <h2 class="voice">MontChalet Bar</h2>
-        <p class="cap" lang="en">Good food. Great drinks. Live music.</p>
+  <section class="hr side-l" id="d-terrasse" data-slot="terrasse" data-ground="c3">
+    <div class="spread">
+      <div class="tile clip t-clip">
+        <div class="m" aria-hidden="true">
+          <img src="assets/img/terrasse.webp" width="720" height="1280" alt="" loading="lazy" decoding="async">
+          <video muted playsinline loop preload="none" data-src="assets/v/terrasse.mp4"></video>
+        </div>
+      </div>
+      <p class="word voice" aria-hidden="true" data-i18n="n_terrasse">Terrasse</p>
+      <figure class="tile ph t-b"><div class="m"><img src="assets/p/terr-sign.webp" width="760" height="1351" loading="lazy" decoding="async" alt="Leur ardoise « Bienvenue à la terrasse Mont Chalet »" style="object-position:50% 75%"></div></figure>
+      <figure class="tile ph t-c"><div class="m"><img src="assets/p/terr-table.webp" width="760" height="950" loading="lazy" decoding="async" alt="Une table de la terrasse et ses fleurs"></div></figure>
+      <div class="cap">
+        <p class="when"><span class="t">15:00</span></p>
+        <h2 class="line voice" lang="en">Sun, terrace views, and the perfect vibe.</h2>
+        <p class="sub" data-i18n="terr">Bienvenue à la terrasse Mont Chalet</p>
+      </div>
+      <figure class="tile ph t-a"><div class="m"><img src="assets/p/terr-street.webp" width="760" height="1351" loading="lazy" decoding="async" alt="La terrasse sous les parasols, Am Duerf" style="object-position:50% 45%"></div></figure>
+      
+    </div>
+  </section>
+
+  <section class="hr side-r" id="d-apero" data-slot="apero" data-ground="c4">
+    <div class="spread">
+      <div class="tile clip t-clip">
+        <div class="m" aria-hidden="true">
+          <img src="assets/img/apero.webp" width="720" height="1280" alt="" loading="lazy" decoding="async">
+          <video muted playsinline loop preload="none" data-src="assets/v/apero.mp4"></video>
+        </div>
+      </div>
+      <p class="word voice" aria-hidden="true" data-i18n="n_apero">Apéro</p>
+      <figure class="tile ph t-b"><div class="m"><img src="assets/p/apero-mojito.webp" width="760" height="950" loading="lazy" decoding="async" alt="Un mojito dans la verdure" style="object-position:60% 50%"></div></figure>
+      <figure class="tile ph t-c"><div class="m"><img src="assets/p/apero-pour.webp" width="760" height="1351" loading="lazy" decoding="async" alt="Un spritz versé au comptoir" style="object-position:50% 70%"></div></figure>
+      <div class="cap">
+        <p class="when"><span class="t">18:00</span></p>
+        <h2 class="line voice" lang="en">Great company, cold drinks, and la bella vita!</h2>
+        <p class="sub" data-i18n="vins">Vins du Luxembourg, de France et d’Italie</p>
+      </div>
+      <figure class="tile ph t-a"><div class="m"><img src="assets/p/apero-glass.webp" width="760" height="760" loading="lazy" decoding="async" alt="Un verre aux fraises et à l’orange" style="object-position:50% 30%"></div></figure>
+      
+    </div>
+  </section>
+
+  <section class="hr side-l" id="d-bar" data-slot="bar" data-ground="c5">
+    <div class="spread">
+      <div class="tile clip t-clip">
+        <div class="m" aria-hidden="true">
+          <img src="assets/img/bar.webp" width="720" height="1280" alt="" loading="lazy" decoding="async">
+          <video muted playsinline loop preload="none" data-src="assets/v/bar.mp4"></video>
+        </div>
+      </div>
+      <p class="word voice" aria-hidden="true" data-i18n="n_bar">Bar</p>
+      <figure class="tile ph t-b"><div class="m"><img src="assets/p/bar-coupe.webp" width="760" height="1350" loading="lazy" decoding="async" alt="Une coupe au fruit de la passion" style="object-position:50% 60%"></div></figure>
+      <figure class="tile ph t-c"><div class="m"><img src="assets/p/bar-sour.webp" width="760" height="1013" loading="lazy" decoding="async" alt="Un sour à la rondelle d’orange séchée"></div></figure>
+      <div class="cap">
+        <p class="when"><span class="t">21:00</span></p>
+        <h2 class="line voice" lang="en">Good food. Great drinks. Live music.</h2>
+        <p class="sub" data-i18n="bar_s">MontChalet Bar · Espresso martini, spritz, whisky, gin</p>
+      </div>
+      <figure class="tile ph t-a"><div class="m"><img src="assets/p/bar-counter.webp" width="760" height="1013" loading="lazy" decoding="async" alt="Leur bar en bois et ses lettres « Mont Chalet »" style="object-position:50% 40%"></div></figure>
+      <div class="ex drinks-b">
         <ul class="drinks">
           <li>Espresso martini</li> <li>Spritz</li> <li>Whisky</li> <li>Gin</li> <li data-i18n="rhum">Rhum</li> <li data-i18n="biere">Bières</li>
         </ul>
@@ -317,11 +428,51 @@ ul{list-style:none}
     </div>
   </section>
 
+  <section class="hr side-r" id="d-tard" data-slot="tard" data-ground="c6">
+    <div class="spread">
+      <div class="tile clip t-clip">
+        <div class="m" aria-hidden="true">
+          <img src="assets/img/tard.webp" width="720" height="1280" alt="" loading="lazy" decoding="async">
+          <video muted playsinline loop preload="none" data-src="assets/v/tard.mp4"></video>
+        </div>
+      </div>
+      <p class="word voice" aria-hidden="true" data-i18n="n_tard">Cocktail</p>
+      <figure class="tile ph t-b"><div class="m"><img src="assets/p/tard-martini.webp" width="760" height="950" loading="lazy" decoding="async" alt="Un espresso martini sur le comptoir"></div></figure>
+      <figure class="tile ph t-c"><div class="m"><img src="assets/p/tard-flip.webp" width="760" height="950" loading="lazy" decoding="async" alt="Un cocktail mousseux sur fond noir"></div></figure>
+      <div class="cap">
+        <p class="when"><span class="t">23:00</span></p>
+        <h2 class="line voice" lang="en">Hand-crafted and high-class.</h2>
+        
+      </div>
+      <figure class="tile ph t-a"><div class="m"><img src="assets/p/tard-bar.webp" width="760" height="1351" loading="lazy" decoding="async" alt="Un cocktail ambré au bar" style="object-position:50% 75%"></div></figure>
+      
+    </div>
+  </section>
+
+  <section class="hr side-l" id="d-nuit" data-slot="nuit" data-ground="c7">
+    <div class="spread">
+      <div class="tile clip t-clip">
+        <div class="m" aria-hidden="true">
+          <img src="assets/img/nuit.webp" width="720" height="1280" alt="" loading="lazy" decoding="async">
+          <video muted playsinline loop preload="none" data-src="assets/v/nuit.mp4"></video>
+        </div>
+      </div>
+      <p class="word voice" aria-hidden="true" data-i18n="n_nuit">Nuit</p>
+      <figure class="tile ph t-b"><div class="m"><img src="assets/p/nuit-lamp.webp" width="760" height="1349" loading="lazy" decoding="async" alt="Un coin de la salle à la lumière d’une lampe"></div></figure>
+      <figure class="tile ph t-c"><div class="m"><img src="assets/p/nuit-frame.webp" width="760" height="1350" loading="lazy" decoding="async" alt="Une photo de forêt au mur, une tasse"></div></figure>
+      <div class="cap">
+        <p class="when"><span class="t">00:00</span></p>
+        <h2 class="line voice"><span data-i18n="hello">On vous attend nombreux !</span></h2>
+        <p class="sub" data-i18n="tomorrow">Demain dès 09:00. Tous les jours, ven. et sam. jusqu’à 01:00.</p>
+      </div>
+      <figure class="tile ph t-a"><div class="m"><img src="assets/p/nuit-room.webp" width="760" height="1351" loading="lazy" decoding="async" alt="La salle : bois clair, tableaux et livres" style="object-position:50% 40%"></div></figure>
+      
+    </div>
+  </section>
 </main>
 
 <footer class="ft">
   <div class="wrap">
-    <p class="hello voice" data-i18n="hello">On vous attend nombreux !</p>
     <img class="disc" src="assets/img/logo-disc-240.webp" width="240" height="240" alt="MontChalet, Bistro • Brasserie • Biergarten" loading="lazy">
     <div class="info">
       <div class="col">
@@ -363,7 +514,7 @@ ul{list-style:none}
    - "À la façon des chalets du Tyrol du Sud": adapted from the 2017 town-blog interview (E1: "à la façon
      des chalets dans le Tyrol du Sud … chic et alpestre"); the lead chosen at Gate 1. ---- */
 var MC_I18N={
-  fr:{lang:"Langue",now:"Maintenant à Dudelange",scrub:"Un jour à MontChalet",back:"Revenir à maintenant",dial:"Voir la journée",pause:"Pause",stops_l:"Heures de la journée",prev:"Heure précédente",next:"Heure suivante",n_matin:"Café",n_brunch:"Brunch",n_midi:"Midi",n_terrasse:"Terrasse",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Nuit",open_until:"Ouvert jusqu’à {h}",closed_now:"Fermé",tomorrow:"Demain dès 09:00. Tous les jours, ven. et sam. jusqu’à 01:00.",terr:"Bienvenue à la terrasse Mont Chalet",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, pour 2, 4 ou 6 personnes",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
+  fr:{cue:"La journée défile vers le bas",walk_go:"Entrez",walk_l:"Entrer chez MontChalet, depuis la place Am Duerf",now_is:"Il est {h} à Dudelange",closed_now:"Fermé, demain dès 09:00",sun:"Le dimanche",lang:"Langue",now:"Maintenant à Dudelange",scrub:"Un jour à MontChalet",back:"Revenir à maintenant",dial:"Voir la journée",pause:"Pause",stops_l:"Heures de la journée",prev:"Heure précédente",next:"Heure suivante",n_matin:"Café",n_brunch:"Brunch",n_midi:"Midi",n_terrasse:"Terrasse",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Nuit",open_until:"Ouvert jusqu’à {h}",tomorrow:"Demain dès 09:00. Tous les jours, ven. et sam. jusqu’à 01:00.",terr:"Bienvenue à la terrasse Mont Chalet",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, pour 2, 4 ou 6 personnes",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
     hours:"Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00",dir:"Itinéraire",brunch:"Brunch, chaque dimanche, 11:00⁠–⁠15:00",
     morn_t:"Commencer la journée en douceur, de la meilleure des façons.",order:"Toute la carte sur Wolt",hello:"On vous attend nombreux !",d_burrata:"Pain croustillant, houmous à la betterave, roquette, olives & tomates",
     morn:"Un café frais, des coins paisibles et la beauté tranquille d’un nouveau matin.",
@@ -374,7 +525,7 @@ var MC_I18N={
     alt_board:"Leur planche Charcuterie & Fromage, vue du dessus",
     alt_bar:"Le bar en bois de MontChalet et ses lettres de cuivre « Mont Chalet »",
     note:"Proposition de site non officielle, réalisée par Webwerk à partir d’informations et de photos publiques, sans lien avec l’établissement. Les vidéos et photos sont les leurs, publiées sur leur Instagram. Statistiques de fréquentation anonymes, sans cookie ni donnée personnelle."},
-  de:{lang:"Sprache",now:"Jetzt in Düdelingen",scrub:"Ein Tag im MontChalet",back:"Zurück zu jetzt",dial:"Den Tag ansehen",pause:"Pause",stops_l:"Tageszeiten",prev:"Frühere Stunde",next:"Spätere Stunde",n_matin:"Kaffee",n_brunch:"Brunch",n_midi:"Mittag",n_terrasse:"Terrasse",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Nacht",open_until:"Geöffnet bis {h}",closed_now:"Geschlossen",tomorrow:"Morgen ab 09:00. Täglich, Fr. und Sa. bis 01:00.",terr:"Willkommen auf der Terrasse des Mont Chalet",bar_s:"MontChalet Bar · Espresso Martini, Spritz, Whisky, Gin",d_board:"Charcuterie & Fromage, für 2, 4 oder 6 Personen",call:"Anrufen",founder:"Nach Art der Chalets in Südtirol",
+  de:{cue:"Der Tag läuft nach unten",walk_go:"Treten Sie ein",walk_l:"Vom Platz Am Duerf hinein ins MontChalet",now_is:"Es ist {h} in Düdelingen",closed_now:"Geschlossen, morgen ab 09:00",sun:"Sonntags",lang:"Sprache",now:"Jetzt in Düdelingen",scrub:"Ein Tag im MontChalet",back:"Zurück zu jetzt",dial:"Den Tag ansehen",pause:"Pause",stops_l:"Tageszeiten",prev:"Frühere Stunde",next:"Spätere Stunde",n_matin:"Kaffee",n_brunch:"Brunch",n_midi:"Mittag",n_terrasse:"Terrasse",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Nacht",open_until:"Geöffnet bis {h}",tomorrow:"Morgen ab 09:00. Täglich, Fr. und Sa. bis 01:00.",terr:"Willkommen auf der Terrasse des Mont Chalet",bar_s:"MontChalet Bar · Espresso Martini, Spritz, Whisky, Gin",d_board:"Charcuterie & Fromage, für 2, 4 oder 6 Personen",call:"Anrufen",founder:"Nach Art der Chalets in Südtirol",
     hours:"Täglich 09:00⁠–⁠00:00, Fr. und Sa. bis 01:00",dir:"Anfahrt",brunch:"Brunch, jeden Sonntag, 11:00⁠–⁠15:00",
     morn_t:"Sanft in den Tag starten, auf die beste Art.",order:"Die ganze Karte bei Wolt",hello:"Bis bald!",d_burrata:"Knuspriges Brot, Rote-Bete-Hummus, Rucola, Oliven & Tomaten",
     morn:"Ein frischer Kaffee, ruhige Ecken und die stille Schönheit eines neuen Morgens.",
@@ -385,7 +536,7 @@ var MC_I18N={
     alt_board:"Ihr Brett Charcuterie & Fromage, von oben",
     alt_bar:"Die Holzbar des MontChalet mit den Kupferbuchstaben „Mont Chalet“",
     note:"Inoffizieller Website-Vorschlag von Webwerk, erstellt aus öffentlichen Informationen und Fotos, ohne Verbindung zum Lokal. Videos und Fotos stammen von ihrem Instagram. Anonyme Besuchsstatistik, ohne Cookies und ohne personenbezogene Daten."},
-  en:{lang:"Language",now:"Right now in Dudelange",scrub:"A day at MontChalet",back:"Back to now",dial:"Watch the day",pause:"Pause",stops_l:"Hours of the day",prev:"Earlier hour",next:"Later hour",n_matin:"Coffee",n_brunch:"Brunch",n_midi:"Lunch",n_terrasse:"Terrace",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Night",open_until:"Open until {h}",closed_now:"Closed",tomorrow:"Tomorrow from 09:00. Every day, Fri and Sat until 01:00.",terr:"Welcome to the Mont Chalet terrace",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, for 2, 4 or 6 people",call:"Call",founder:"In the manner of the chalets of South Tyrol",
+  en:{cue:"The day runs down the page",walk_go:"Step inside",walk_l:"Walking into MontChalet from the Am Duerf square",now_is:"It’s {h} in Dudelange",closed_now:"Closed, tomorrow from 09:00",sun:"Sundays",lang:"Language",now:"Right now in Dudelange",scrub:"A day at MontChalet",back:"Back to now",dial:"Watch the day",pause:"Pause",stops_l:"Hours of the day",prev:"Earlier hour",next:"Later hour",n_matin:"Coffee",n_brunch:"Brunch",n_midi:"Lunch",n_terrasse:"Terrace",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Night",open_until:"Open until {h}",tomorrow:"Tomorrow from 09:00. Every day, Fri and Sat until 01:00.",terr:"Welcome to the Mont Chalet terrace",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, for 2, 4 or 6 people",call:"Call",founder:"In the manner of the chalets of South Tyrol",
     hours:"Every day 09:00⁠–⁠00:00, Fri and Sat until 01:00",dir:"Directions",brunch:"Brunch, every Sunday, 11:00⁠–⁠15:00",
     morn_t:"Cozy mornings at MontChalet",order:"The full menu on Wolt",hello:"See you soon!",d_burrata:"Crusty bread, beetroot hummus, rocket, olives & tomatoes",
     morn:"Fresh coffee, quiet corners and the calm beauty of a new morning.",
@@ -418,40 +569,27 @@ var MC_I18N={
   });
 })();
 
-/* ---- the hour. Dudelange time (Europe/Luxembourg), whatever the visitor's clock.
-   Their service day runs 09:00 to 00:00, Fri and Sat to 01:00 (Google Places, 2026-11-02); after midnight
-   still belongs to the evening before. Each part of the day plays one of their own Instagram reels:
-   matin = latte pour (reel DNXnMLPISwL); brunch, Sundays 11-15 = buffet under their mural (DOId_cFiGS7);
-   midi = their charcuterie (DOId_cFiGS7); terrasse = their terrace chair (DV29MnBjL3X);
-   apéro = white wine pour (DV29MnBjL3X); bar = coupe pour (DPyPNqYjCqd); tard = a cocktail strained
-   at the bar (DUtRxcrjIEy); nuit = their room after dark, the mural lit low (DbX9qnpoogE).
-   Lines: their own captions, as written (E4, E7, E10, E11, E12). ---- */
-var MC_SLOTS={
-  matin:{t:"morn_t",s:"morn"},
-  brunch:{t:"=Sundays at the Chalet",tl:"en",s:"brunch"},
-  midi:{t:"=Des saveurs à découvrir, des instants à savourer.",tl:"fr",s:"d_board"},
-  terrasse:{t:"=Sun, terrace views, and the perfect vibe.",tl:"en",s:"terr"},
-  apero:{t:"=Great company, cold drinks, and la bella vita!",tl:"en",s:"vins"},
-  bar:{t:"=Good food. Great drinks. Live music.",tl:"en",s:"bar_s"},
-  tard:{t:"=Hand-crafted and high-class.",tl:"en",s:"bar_s"},
-  nuit:{t:"hello",s:"tomorrow"}
-};
+</script>
+<script>
+/* ---- the day. Each hour plays one of their own Instagram reels (matin DNXnMLPISwL, brunch + midi
+   DOId_cFiGS7, terrasse + apéro DV29MnBjL3X, bar DPyPNqYjCqd, tard DUtRxcrjIEy, nuit DbX9qnpoogE).
+   Photos: their own Instagram posts (@montchalet_luxembourg); assets/p names map to post ids in
+   studio/day/photos.json. A clip loads only when its hour reaches the screen. Hours: Google Places,
+   2026-11-02. ---- */
 (function(){
   "use strict";
-  var sec=document.getElementById("hour"),hh=document.getElementById("hh"),lt=document.getElementById("lt"),ls=document.getElementById("ls"),
-      stopsEl=document.getElementById("stops"),playBtn=document.getElementById("play"),
-      prevBtn=document.getElementById("prev"),nextBtn=document.getElementById("next"),txt=sec.querySelector(".txt"),back=document.getElementById("back"),where=document.getElementById("where"),
-      poster=document.getElementById("poster"),va=document.getElementById("va"),vb=document.getElementById("vb"),
-      hd=document.getElementById("hd"),state=document.getElementById("state");
-  var reduce=matchMedia("(prefers-reduced-motion: reduce)");
-  var live=true,cur="",front=va,timer=0,svc=0,stopsDay=-1,pos=-1,run=0,STEP=3200,lastT=-1,demoing=false;
+  var body=document.body,hd=document.getElementById("hd"),hrs=[].slice.call(document.querySelectorAll(".hr")),
+      nowA=document.getElementById("now"),reduce=matchMedia("(prefers-reduced-motion: reduce)");
+  var ACC=document.createElement("p");ACC.className="now-t";ACC.setAttribute("aria-hidden","true");hd.appendChild(ACC);
+  var bar=document.createElement("span");bar.className="bar-p";bar.innerHTML="<i></i>";hd.appendChild(bar);
+  function words(k){var l=document.documentElement.lang,d=MC_I18N[l]||MC_I18N.fr;return d[k]||"";}
   function lux(){
     var p={};
     new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Luxembourg",hour:"2-digit",minute:"2-digit",weekday:"short",hourCycle:"h23"})
       .formatToParts(new Date()).forEach(function(x){p[x.type]=x.value;});
     var wd=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(p.weekday),m=(+p.hour)*60+(+p.minute);
-    if(m<540){m+=1440;wd=(wd+6)%7;}           /* after midnight: still the evening before */
-    return {t:m,day:wd};
+    if(m<540){m+=1440;wd=(wd+6)%7;}
+    return {t:m,day:wd,hh:p.hour+":"+p.minute};
   }
   function closes(day){return (day===5||day===6)?1500:1440;}
   function slot(t,day){
@@ -463,150 +601,126 @@ var MC_SLOTS={
     if(t<1350)return "bar";
     return "tard";
   }
-  function fmt(t){var h=Math.floor(t/60)%24,m=t%60;return (h<10?"0":"")+h+":"+(m<10?"0":"")+m;}
-  function words(k){var l=document.documentElement.lang,d=MC_I18N[l]||MC_I18N.fr;return d[k]||"";}
-  function show(name,force,still){
-    if(name===cur&&!force){return;}
-    var changed=name!==cur;cur=name;
-    var s=MC_SLOTS[name];
-    if(s.t.charAt(0)==="="){lt.textContent=s.t.slice(1);lt.lang=s.tl;}else{lt.textContent=words(s.t);lt.removeAttribute("lang");}
-    ls.textContent=words(s.s);
-    var day=(name==="matin"||name==="brunch"||name==="midi"||name==="terrasse");
-    sec.classList.toggle("day",day);sec.classList.toggle("eve",name==="apero"||name==="bar");
-    if(!changed)return;
-    poster.src="assets/img/"+name+".webp";
-    clearTimeout(timer);
-    if(still){[va,vb].forEach(function(v){v.classList.remove("on");v.pause();});return;}  /* the first-visit sweep: pictures only, no downloads */
-    timer=setTimeout(function(){play(name);},live?0:220);
+  function nowLine(){
+    var n=lux(),s=slot(n.t,n.day),open=n.t<closes(n.day);
+    nowA.textContent=words("now_is").replace("{h}",n.hh)+" · "+(open?words("n_"+s)+" ↓":words("closed_now"));
+    nowA.href="#d-"+s;nowA.classList.toggle("closed",!open);
   }
-  function play(name){
-    if(reduce.matches)return;
-    var back2=front===va?vb:va;
-    back2.src="assets/v/"+name+".mp4";
-    back2.oncanplay=function(){
-      back2.oncanplay=null;if(cur!==name)return;
-      var p=back2.play();if(p&&p.catch)p.catch(function(){});
-      back2.classList.add("on");front.classList.remove("on");
-      var old=front;front=back2;setTimeout(function(){if(old!==front){old.pause();}},500);
-    };
-    back2.load();
+  var cur=null;
+  function setCur(h){
+    if(h===cur)return;cur=h;
+    body.className=body.className.replace(/\bg-c\d\b/g,"").trim()+" g-"+h.getAttribute("data-ground");
+    ACC.textContent=h.querySelector(".when .t").textContent+" · "+words("n_"+h.getAttribute("data-slot"));
   }
-  function stateLine(){
-    var n=lux(),open=n.t<closes(n.day);
-    var w=open?words("open_until").replace("{h}",fmt(closes(n.day))):words("closed_now");
-    state.textContent=w+" · 6 Am Duerf, Dudelange";
+  function onScroll(){
+    var mid=innerHeight*.5,best=hrs[0];
+    for(var i=0;i<hrs.length;i++){if(hrs[i].getBoundingClientRect().top<=mid)best=hrs[i];}
+    setCur(best);
+    var past=document.getElementById("walk").getBoundingClientRect().bottom<=hd.offsetHeight;
+    ACC.style.opacity=past?1:0;
+    var max=document.documentElement.scrollHeight-innerHeight;
+    bar.firstChild.style.width=(max>0?Math.min(100,scrollY/max*100):0)+"%";
   }
-  /* the day as seven stops: on the hour, so the clock reads clean when you land on one */
-  function stops(day){
-    return [[540,"matin"],[day===0?660:720,day===0?"brunch":"midi"],[900,"terrasse"],[1080,"apero"],[1260,"bar"],[1380,"tard"],[closes(day),"nuit"]];
+  addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll);
+  var tiles=[].slice.call(document.querySelectorAll(".tile, .word"));
+  function load(v){
+    if(v.src)return;
+    v.preload="auto";v.src=v.getAttribute("data-src");
+    v.addEventListener("playing",function(){v.classList.add("on");},{once:true});
   }
-  function buildStops(){
-    if(stopsDay===svc)return;stopsDay=svc;stopsEl.textContent="";
-    stops(svc).forEach(function(st,i){
-      var b=document.createElement("button");b.type="button";b.setAttribute("aria-label",fmt(st[0]));
-      b.setAttribute("aria-label",fmt(st[0])+" · "+words("n_"+st[1]));
-      b.innerHTML='<span class="seg"><b></b></span><span class="lbl"><span class="h">'+fmt(st[0]).slice(0,2)+'</span><span class="nm">'+words("n_"+st[1])+'</span></span>';
-      b.addEventListener("click",function(){stopPlay();go(i);});
-      stopsEl.appendChild(b);
+  /* each word fills the spread's width (capped), measured after the fonts arrive and on each language */
+  function fit(){
+    [].forEach.call(document.querySelectorAll(".word"),function(w){
+      var sp=w.parentNode,cs=getComputedStyle(sp),avail=sp.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+      w.style.fontSize="100px";var r=w.scrollWidth||1;
+      var cap=innerWidth>=900?300:170;
+      w.style.fontSize=Math.min(cap,Math.floor(100*avail*.98/r))+"px";
     });
-    if(lastT>=0)mark(lastT);
   }
-  /* fill the bars up to t: the stops behind are full, the current one fills as its hours pass */
-  function mark(t){
-    var st=stops(svc),bs=stopsEl.children,k=0;lastT=t;
-    for(var i=0;i<st.length;i++)if(t>=st[i][0])k=i;
-    for(i=0;i<bs.length;i++){
-      var f=i<k?1:i>k?0:(i===st.length-1?1:Math.min(1,(t-st[i][0])/(st[i+1][0]-st[i][0])));
-      bs[i].classList.toggle("done",i<k);bs[i].classList.toggle("on",i===k);
-      bs[i].setAttribute("aria-current",i===k?"true":"false");
-      bs[i].firstChild.firstChild.style.width=(f*100)+"%";
-    }
-    prevBtn.disabled=k===0;nextBtn.disabled=k===st.length-1;
-    return k;
+  fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);addEventListener("resize",fit);
+  if("IntersectionObserver" in window){
+    var vio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v=e.target;
+        if(e.isIntersecting){
+          if(reduce.matches)return;
+          load(v);
+          var p=v.play();if(p&&p.catch)p.catch(function(){});
+        }else if(v.src){v.pause();}
+      });
+    },{threshold:.3});
+    hrs.forEach(function(h){vio.observe(h.querySelector("video"));});
+    var lio=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting&&!reduce.matches){load(e.target);lio.unobserve(e.target);}});
+    },{rootMargin:"150% 0px 150% 0px"});
+    hrs.forEach(function(h){lio.observe(h.querySelector("video"));});
+    var tio=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");tio.unobserve(e.target);}});
+    },{rootMargin:"0px 0px -8% 0px"});
+    tiles.forEach(function(t){tio.observe(t);});
+  }else{tiles.forEach(function(t){t.classList.add("in");});}
+  window.__mcLayout=function(){nowLine();cur=null;onScroll();if(typeof fit==="function")fit();};
+  nowLine();setInterval(nowLine,30000);onScroll();
+  window.__mc={lux:lux,slot:slot};
+})();
+</script>
+<script>
+/* ---- the walk-in: frames of their reel DbX9qnpoogE (00 = the square, 33 = first frame inside,
+   55-62 = the mural). Their line is their own Instagram caption, 2022-01-14 (E9). ---- */
+(function(){
+  "use strict";
+  var walk=document.getElementById("walk"),stage=document.getElementById("stage"),film=stage.querySelector(".film"),
+      cv=document.getElementById("wc"),cx=cv.getContext("2d"),w1=stage.querySelector(".w1"),w2=stage.querySelector(".w2"),
+      hd=document.getElementById("hd"),SEG=[0,0,0,0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8],N=70,IN=33,M0=55,M1=62,reduce=matchMedia("(prefers-reduced-motion: reduce)");
+  hd.classList.add("past");                       /* the call link is there from the first screen */
+  if(reduce.matches)return;
+  var fr=[],ok=[],queued=0;
+  function get(i){
+    if(fr[i])return;var im=new Image();im.decoding="async";
+    im.onload=function(){ok[i]=true;if(i===0||Math.abs(i-want)<2)paint();};
+    im.src="assets/w/"+(i<10?"0":"")+i+".webp";fr[i]=im;
   }
-  function away(){live=false;back.hidden=false;where.textContent=words("scrub");}
-  function go(i){
-    var st=stops(svc);i=Math.max(0,Math.min(st.length-1,i));
-    away();pos=i;hh.textContent=fmt(st[i][0]);mark(st[i][0]);show(st[i][1]);
+  for(var i=0;i<6;i++)get(i);
+  function rest(){for(var i=0;i<N;i++)get(i);}
+  if(document.readyState==="complete")setTimeout(rest,200);else addEventListener("load",function(){setTimeout(rest,200);});
+  var want=0,pos=0,W=0,H=0;
+  function size(){
+    var d=Math.min(devicePixelRatio||1,2),r=cv.getBoundingClientRect();
+    W=cv.width=Math.round(r.width*d);H=cv.height=Math.round(r.height*d);paint();
   }
-  /* "Voir la journée": the clock runs from 09:00 to closing, one stop every STEP ms */
-  function stopPlay(){
-    if(!run)return;cancelAnimationFrame(run);run=0;
-    playBtn.setAttribute("aria-pressed","false");playBtn.lastChild.textContent=words("dial");
+  function cover(im,a){
+    var s=Math.max(W/im.naturalWidth,H/im.naturalHeight),w=im.naturalWidth*s,h=im.naturalHeight*s;
+    cx.globalAlpha=a;cx.drawImage(im,(W-w)/2,(H-h)/2,w,h);
   }
-  function startPlay(step,still,onEnd){
-    var st=stops(svc),t0=performance.now();step=step||STEP;
-    away();
-    if(!still){playBtn.setAttribute("aria-pressed","true");playBtn.lastChild.textContent=words("pause");}
-    (function frame(now){
-      var e=Math.max(0,(now-t0)/step),i=Math.floor(e);
-      if(i>=st.length-1){run=0;playBtn.setAttribute("aria-pressed","false");playBtn.lastChild.textContent=words("dial");
-        if(onEnd)onEnd();else go(st.length-1);return;}
-      var t=Math.round(st[i][0]+(st[i+1][0]-st[i][0])*(e-i));
-      hh.textContent=fmt(t);pos=i;mark(t);show(st[i][1],false,still);
-      run=requestAnimationFrame(frame);
-    })(t0);
+  function near(i){for(var k=i;k>=0;k--)if(ok[k])return k;return -1;}
+  function paint(){
+    if(!W)return;
+    var f=Math.max(0,Math.min(N-1,pos)),i=Math.floor(f),a=f-i,b=near(i);
+    if(b<0)return;
+    cover(fr[b],1);
+    if(b===i&&i+1<N&&ok[i+1]&&a>0.01&&SEG[i+1]===SEG[i])cover(fr[i+1],a);   /* blend within a shot; cuts stay clean */
+    cx.globalAlpha=1;film.classList.add("ready");
   }
-  playBtn.addEventListener("click",function(){if(run)stopPlay();else startPlay();});
-  function step(d){stopPlay();if(pos<0)pos=mark(lux().t);go(pos+d);}
-  prevBtn.addEventListener("click",function(){step(-1);});
-  nextBtn.addEventListener("click",function(){step(1);});
-  /* swipe the picture, like their stories: left = later, right = earlier */
-  var sx=0,sy=0;
-  sec.addEventListener("touchstart",function(e){var p=e.touches[0];sx=p.clientX;sy=p.clientY;},{passive:true});
-  sec.addEventListener("touchend",function(e){
-    if(e.target.closest&&e.target.closest("a,button"))return;
-    var p=e.changedTouches[0],dx=p.clientX-sx,dy=p.clientY-sy;
-    if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy)*1.4)return;
-    step(dx<0?1:-1);
-  },{passive:true});
-  function tick(){
-    if(!live)return;
-    var n=lux();svc=n.day;buildStops();
-    hh.textContent=fmt(n.t);
-    pos=mark(n.t);
-    show(slot(n.t,n.day));
-    stateLine();
+  function sm(a,b,x){x=Math.max(0,Math.min(1,(x-a)/(b-a)));return x*x*(3-2*x);}
+  function mix(a,b,k){return Math.round(a+(b-a)*k);}
+  var raf=0;
+  function frame(){
+    raf=0;
+    var r=walk.getBoundingClientRect(),span=r.height-innerHeight,p=span>0?Math.max(0,Math.min(1,-r.top/span)):0;
+    pos=p/.9*(N-1);want=Math.round(pos);paint();
+    /* outside is cool; past the door the picture warms and the ground turns to their petrol */
+    var k=sm(IN-4,IN+1,pos);
+    cv.style.filter="saturate("+(0.42+0.58*k).toFixed(3)+") brightness("+(1.04-0.04*k).toFixed(3)+")";
+    stage.style.setProperty("--wg",mix(206,27,k)+","+mix(210,94,k)+","+mix(208,88,k));
+    stage.style.setProperty("--wi",k>.5?"#E0E4BC":"#232323");
+    var o1=1-sm(6,14,pos),o2=sm(M0-3,M0+1,pos)*(1-sm(M1+2,M1+6,pos));
+    w1.style.setProperty("--o",o1.toFixed(3));w1.style.visibility=o1<.01?"hidden":"visible";
+    w2.style.setProperty("--o",o2.toFixed(3));w2.style.visibility=o2<.01?"hidden":"visible";
   }
-  function toNow(){stopPlay();live=true;back.hidden=true;where.textContent=words("now");tick();}
-  back.addEventListener("click",toNow);
-  window.__mcLayout=function(){stopsDay=-1;buildStops();placeArrows();if(cur)show(cur,true,demoing);if(run)playBtn.lastChild.textContent=words("pause");if(live){where.textContent=words("now");stateLine();}else where.textContent=words("scrub");};
-  setInterval(tick,15000);
-  tick();
-  /* phones: the arrows sit midway down the open picture, above the words */
-  /* short phones have no open picture above the words: the arrows then sit beside "Voir la journée" */
-  var slotEl=document.getElementById("slot");
-  function placeArrows(){
-    var home=function(){if(prevBtn.parentNode!==sec){sec.insertBefore(nextBtn,sec.firstChild.nextSibling);sec.insertBefore(prevBtn,nextBtn);}};
-    if(innerWidth>=900){home();prevBtn.style.top=nextBtn.style.top="";return;}
-    home();
-    var gap=txt.getBoundingClientRect().top-sec.getBoundingClientRect().top-hd.offsetHeight;
-    if(gap<110){slotEl.appendChild(prevBtn);slotEl.appendChild(nextBtn);prevBtn.style.top=nextBtn.style.top="";return;}
-    prevBtn.style.top=nextBtn.style.top=(hd.offsetHeight+Math.min(gap/2,140))+"px";
-  }
-  addEventListener("resize",placeArrows);placeArrows();
-  /* first visit: the page shows that the hour moves. A 5 s sweep through their day (pictures only),
-     then back to now, and the arrows and the play button pulse. Once per browser; any touch ends it. */
-  function endDemo(){
-    if(!demoing)return;demoing=false;stopPlay();cur="";toNow();
-    sec.classList.add("hint");setTimeout(function(){sec.classList.remove("hint");},2400);
-  }
-  (function(){
-    var seen=false;try{seen=!!localStorage.getItem("mc-demo");}catch(e){}
-    if(seen||reduce.matches)return;
-    var stop=function(){if(demoing)endDemo();};
-    ["pointerdown","keydown","wheel","touchstart"].forEach(function(ev){addEventListener(ev,stop,{capture:true,passive:true});});
-    setTimeout(function(){
-      var r=sec.getBoundingClientRect();
-      if(!live||r.bottom<innerHeight*.5||r.top>innerHeight*.5)return;
-      try{localStorage.setItem("mc-demo","1");}catch(e){}
-      demoing=true;startPlay(720,true,endDemo);
-    },1500);
-  })();
-  /* the header's call link appears once the hour has scrolled away */
-  function past(){hd.classList.toggle("past",sec.getBoundingClientRect().bottom<=hd.offsetHeight);}
-  addEventListener("scroll",past,{passive:true});past();
-  window.__mc={slot:slot,lux:lux,go:go,play:startPlay,demoing:function(){return demoing;},show:function(n){live=false;show(n);}};
+  function onS(){if(!raf)raf=requestAnimationFrame(frame);}
+  addEventListener("scroll",onS,{passive:true});
+  addEventListener("resize",function(){size();onS();});
+  size();frame();
 })();
 </script>
 <script>
