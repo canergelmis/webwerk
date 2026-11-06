@@ -30,7 +30,7 @@
   --paper:#f7f0e4;
   --ink:#111;
   --crim:#a9013f;
-  --band:#efe3cf;                        /* the board: a deeper cream, their walls by lamplight */
+  --band:#ecdcc4;                        /* the board: a deeper cream, their walls by lamplight */
   --serif:"Sorts Mill Goudy","Goudy Old Style",Garamond,Georgia,serif;
   --sans:"Albert Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
   /* type: 5 steps (+ the wordmark, fitted by JS) */
@@ -157,7 +157,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .list i{ display:block; font-size:var(--t2); line-height:1.35; margin-top:2px; letter-spacing:.01em; }
 .shot{ grid-area:photo; margin-top:var(--s5); width:100%; }
 .shot picture{ display:block; width:100%; aspect-ratio:1; overflow:hidden; }
-.shot img{ width:100%; height:100%; object-fit:cover; filter:sepia(.1) saturate(1.03) brightness(.96); }
+.shot img{ width:100%; height:100%; object-fit:cover; }
 .shot figcaption{ margin-top:var(--s2); }
 .plate-cell{ grid-area:plate; display:flex; justify-content:center; margin-top:var(--s6); }
 .plate{
@@ -203,9 +203,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .pair .ing{ font-style:italic; font-size:var(--t2); letter-spacing:.01em; margin-top:var(--s1); max-width:24em; margin-left:auto; margin-right:auto; }
 .pair .mid{ font-size:var(--t4); line-height:.6; }
 .board{ background:var(--band); box-shadow:0 0 0 100vmax var(--band); clip-path:inset(0 -100vmax); border-top:0; }
-.bd-shot{ margin:var(--s6) auto 0; max-width:820px; }
-.bd-shot picture{ display:block; aspect-ratio:5/4; overflow:hidden; }
-.bd-shot img{ width:100%; height:100%; object-fit:cover; }
 .also{ margin:var(--s6) auto 0; max-width:30em; text-align:center; font-size:var(--t2); }
 .also .sans{ display:block; margin-bottom:var(--s2); }
 @media (min-width:900px){
@@ -219,6 +216,18 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .pair .lu{ text-align:left; }
   .pair .pt .ing{ margin-right:0; }
   .pair .lu .ing{ margin-left:0; }
+}
+
+/* ---------- 3b · à table ---------- */
+.tbl{ padding:0 var(--gut) var(--s6); max-width:calc(var(--max) + 2 * var(--gut)); margin:0 auto; display:grid; grid-template-columns:1fr; row-gap:48px; }
+.tbl picture{ display:block; overflow:hidden; }
+.tbl img{ width:100%; height:100%; object-fit:cover; }
+.tb-glass picture{ aspect-ratio:4/5; }
+.tb-plate picture{ aspect-ratio:5/4; }
+.tbl figcaption{ margin-top:var(--s2); }
+@media (min-width:900px){
+  .tbl{ grid-template-columns:5fr 7fr; column-gap:var(--s6); align-items:end; padding-bottom:var(--s7); }
+  .tb-plate{ margin-bottom:var(--s6); }
 }
 
 /* ---------- 5 · the map dot ---------- */
@@ -251,9 +260,16 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   .shot, .plate-cell{ margin-top:48px; }
   .bd-top{ gap:48px; }
   .pairs{ margin-top:48px; gap:48px; }
-  .pair{ row-gap:48px; }
-  .pair .mid{ display:none; }
-  .also, .bd-shot{ margin-top:48px; }
+  /* the pairs stay side by side: Portugal left, the Grand-Duché right, a dot between */
+  .pair{ grid-template-columns:1fr auto 1fr; column-gap:12px; row-gap:0; align-items:start; }
+  .pair .pt{ text-align:right; }
+  .pair .lu{ text-align:left; }
+  .pair .dn{ font-size:var(--t3); line-height:1.08; text-wrap:balance; hyphens:manual; }
+  .pair .ing{ font-size:15px; line-height:1.35; margin-top:6px; }
+  .pair .pt .ing{ margin-right:0; }
+  .pair .lu .ing{ margin-left:0; }
+  .pair .mid{ display:block; font-size:var(--t3); line-height:1.08; }
+  .also{ margin-top:48px; }
   .map, .info{ margin-top:48px; }
   /* hero: no dead bands; the trail starts on the first screen */
   .hero{ min-height:auto; }
@@ -389,6 +405,23 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
     </div>
   </section>
 
+  <!-- 3b · à table: their real photos, one grade -->
+  <section class="tbl" aria-label="O Pastor, à table" data-i18n-aria="tbl_label">
+    <figure class="tb-glass">
+      <picture>
+        <source type="image/webp" srcset="assets/glass-diekirch-800.webp 800w, assets/glass-diekirch.webp 1280w" sizes="(min-width:900px) 38vw, 100vw">
+        <img src="assets/glass-diekirch-800.jpg" srcset="assets/glass-diekirch-800.jpg 800w, assets/glass-diekirch.jpg 1280w" sizes="(min-width:900px) 38vw, 100vw" width="1280" height="1600" alt="Une Diekirch Grand Cru sur un set de table O Pastor" data-i18n-alt="alt_glass" loading="lazy" decoding="async">
+      </picture>
+      <figcaption class="sans">Diekirch Grand Cru</figcaption>
+    </figure>
+    <figure class="tb-plate">
+      <picture>
+        <source type="image/webp" srcset="assets/plate-lamb-700.webp 700w, assets/plate-lamb.webp 1000w" sizes="(min-width:900px) 52vw, 100vw">
+        <img src="assets/plate-lamb-700.jpg" srcset="assets/plate-lamb-700.jpg 700w, assets/plate-lamb.jpg 1000w" sizes="(min-width:900px) 52vw, 100vw" width="1000" height="800" alt="Côtelettes d'agneau, pommes de terre et fèves, sur une table d'O Pastor" data-i18n-alt="alt_lamb" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+  </section>
+
   <!-- 4 · the board stamp (content: the BOARD block in the script) -->
   <section class="board" id="suggestions" aria-labelledby="bd-h">
     <div class="bd-top">
@@ -407,13 +440,6 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
     </div>
 
     <div class="pairs" id="pairs"></div>
-
-    <figure class="bd-shot">
-      <picture>
-        <source type="image/webp" srcset="assets/plate-lamb-700.webp 700w, assets/plate-lamb.webp 1000w" sizes="(min-width:900px) 820px, 100vw">
-        <img src="assets/plate-lamb-700.jpg" srcset="assets/plate-lamb-700.jpg 700w, assets/plate-lamb.jpg 1000w" sizes="(min-width:900px) 820px, 100vw" width="1000" height="800" alt="Côtelettes d'agneau, pommes de terre et fèves, sur une table d'O Pastor" data-i18n-alt="alt_lamb" loading="lazy" decoding="async">
-      </picture>
-    </figure>
 
     <p class="also"><span class="sans" data-i18n="also">Et aussi</span><span id="also-list"></span></p>
   </section>
@@ -532,7 +558,7 @@ const BOARD = {
     ]
   ],
   also: [
-    'Pizza aux Sardines', 'Escalope de porc panée', 'T-bone steak', 'Hachis parmentier',
+    'Pizza aux Sardines', 'Escalope de porc panée', 'T‑bone steak', 'Hachis parmentier',
     ['Burger Gourmet', 'foie gras'], ['Burger Inferno', 'ndjua'],
     'Spaghettis bolognese', 'Dessert du jour'
   ]
@@ -560,6 +586,7 @@ const BOARD = {
       pz_base: 'Op een basis van tomaat en mozzarella, behalve de Biancaneve',
       alt_parma: 'Pizza Parma van O Pastor: rauwe ham en rucola',
       alt_lamb: 'Lamskoteletten, aardappelen en tuinbonen, op een tafel bij O Pastor',
+      alt_glass: 'Een Diekirch Grand Cru op een placemat van O Pastor', tbl_label: 'O Pastor, aan tafel',
       pz1: 'tomaat, mozzarella', pz2: 'ham', pz4: 'pikante salami',
       pz5: 'pikante salami, pepperoncini', pz6: 'champignons', pz7: 'ansjovis, kappertjes, olijven',
       pz8: 'ham, champignons', pz9: 'ham, salami, groenten', pz10: 'parmezaan, gorgonzola, geitenkaas',
@@ -599,6 +626,7 @@ const BOARD = {
       pz_base: 'Mit Tomate und Mozzarella, außer der Biancaneve',
       alt_parma: 'Pizza Parma von O Pastor: Rohschinken und Rucola',
       alt_lamb: 'Lammkoteletts, Kartoffeln und dicke Bohnen auf einem Tisch im O Pastor',
+      alt_glass: 'Ein Diekirch Grand Cru auf einem Tischset von O Pastor', tbl_label: 'O Pastor, bei Tisch',
       pz1: 'Tomate, Mozzarella', pz2: 'Schinken', pz4: 'scharfe Salami',
       pz5: 'scharfe Salami, Peperoncini', pz6: 'Champignons', pz7: 'Sardellen, Kapern, Oliven',
       pz8: 'Schinken, Champignons', pz9: 'Schinken, Salami, Gemüse', pz10: 'Parmesan, Gorgonzola, Ziegenkäse',
@@ -638,6 +666,7 @@ const BOARD = {
       pz_base: 'On a tomato and mozzarella base, except the Biancaneve',
       alt_parma: 'O Pastor’s Parma pizza: cured ham and rocket',
       alt_lamb: 'Lamb chops, potatoes and broad beans on a table at O Pastor',
+      alt_glass: 'A Diekirch Grand Cru on an O Pastor placemat', tbl_label: 'O Pastor, at the table',
       pz1: 'tomato, mozzarella', pz2: 'ham', pz4: 'spicy salami',
       pz5: 'spicy salami, pepperoncini', pz6: 'mushrooms', pz7: 'anchovies, capers, olives',
       pz8: 'ham, mushrooms', pz9: 'ham, salami, vegetables', pz10: 'parmesan, gorgonzola, goat’s cheese',
@@ -677,6 +706,7 @@ const BOARD = {
       pz_base: 'Com base de tomate e mozzarella, exceto a Biancaneve',
       alt_parma: 'Pizza Parma do O Pastor: presunto e rúcula',
       alt_lamb: 'Costeletas de borrego, batatas e favas, numa mesa do O Pastor',
+      alt_glass: 'Uma Diekirch Grand Cru num individual do O Pastor', tbl_label: 'O Pastor, à mesa',
       pz1: 'tomate, mozzarella', pz2: 'fiambre', pz4: 'salame picante',
       pz5: 'salame picante, pepperoncini', pz6: 'cogumelos', pz7: 'anchovas, alcaparras, azeitonas',
       pz8: 'fiambre, cogumelos', pz9: 'fiambre, salame, legumes', pz10: 'parmesão, gorgonzola, queijo de cabra',
