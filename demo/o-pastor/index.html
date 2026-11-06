@@ -204,6 +204,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .pair .ing{ font-style:italic; font-size:var(--t2); letter-spacing:.01em; margin-top:var(--s1); max-width:24em; margin-left:auto; margin-right:auto; }
 .pair .mid{ font-size:var(--t4); line-height:.6; }
 .board, .tbl{ --ink:var(--paper); color:var(--paper); background:var(--dusk); box-shadow:0 0 0 100vmax var(--dusk); clip-path:inset(0 -100vmax); border-top:0; }
+.board{ clip-path:inset(-2px -100vmax 0); }                /* overlap the table above: no seam */
 
 .also{ margin:var(--s6) auto 0; max-width:30em; text-align:center; font-size:var(--t2); }
 .also .sans{ display:block; margin-bottom:var(--s2); }
@@ -224,12 +225,10 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 .tbl{ padding:var(--s6) var(--gut) var(--s4); max-width:calc(var(--max) + 2 * var(--gut)); margin:0 auto; display:grid; grid-template-columns:1fr; row-gap:48px; }
 .tbl picture{ display:block; overflow:hidden; }
 .tbl img{ width:100%; height:100%; object-fit:cover; }
-.tb-glass picture{ aspect-ratio:4/5; }
 .tb-plate picture{ aspect-ratio:5/4; }
-.tbl figcaption{ margin-top:var(--s2); }
 @media (min-width:900px){
-  .tbl{ grid-template-columns:5fr 7fr; column-gap:var(--s6); align-items:end; padding-bottom:var(--s7); }
-  .tb-plate{ margin-bottom:var(--s6); }
+  .tbl{ padding-bottom:var(--s6); }
+  .tb-plate{ width:min(100%, 880px); margin:0 auto; }
 }
 
 /* ---------- 5 · the map dot ---------- */
@@ -409,17 +408,10 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
 
   <!-- 3b · à table: their real photos, one grade -->
   <section class="tbl" aria-label="O Pastor, à table" data-i18n-aria="tbl_label">
-    <figure class="tb-glass">
-      <picture>
-        <source type="image/webp" srcset="assets/glass-diekirch-800-duo.webp 800w, assets/glass-diekirch-duo.webp 1280w" sizes="(min-width:900px) 38vw, 100vw">
-        <img src="assets/glass-diekirch-800-duo.jpg" srcset="assets/glass-diekirch-800-duo.jpg 800w, assets/glass-diekirch-duo.jpg 1280w" sizes="(min-width:900px) 38vw, 100vw" width="1280" height="1600" alt="Une Diekirch Grand Cru sur un set de table O Pastor" data-i18n-alt="alt_glass" loading="lazy" decoding="async">
-      </picture>
-      <figcaption class="sans">Diekirch Grand Cru</figcaption>
-    </figure>
     <figure class="tb-plate">
       <picture>
-        <source type="image/webp" srcset="assets/plate-lamb-700-duo.webp 700w, assets/plate-lamb-duo.webp 1000w" sizes="(min-width:900px) 52vw, 100vw">
-        <img src="assets/plate-lamb-700-duo.jpg" srcset="assets/plate-lamb-700-duo.jpg 700w, assets/plate-lamb-duo.jpg 1000w" sizes="(min-width:900px) 52vw, 100vw" width="1000" height="800" alt="Côtelettes d'agneau, pommes de terre et fèves, sur une table d'O Pastor" data-i18n-alt="alt_lamb" loading="lazy" decoding="async">
+        <source type="image/webp" srcset="assets/plate-lamb-700-duo.webp 700w, assets/plate-lamb-duo.webp 1000w" sizes="(min-width:900px) 880px, 100vw">
+        <img src="assets/plate-lamb-700-duo.jpg" srcset="assets/plate-lamb-700-duo.jpg 700w, assets/plate-lamb-duo.jpg 1000w" sizes="(min-width:900px) 880px, 100vw" width="1000" height="800" alt="Côtelettes d'agneau, pommes de terre et fèves, sur une table d'O Pastor" data-i18n-alt="alt_lamb" loading="lazy" decoding="async">
       </picture>
     </figure>
   </section>
@@ -588,7 +580,7 @@ const BOARD = {
       pz_base: 'Op een basis van tomaat en mozzarella, behalve de Biancaneve',
       alt_parma: 'Pizza Parma van O Pastor: rauwe ham en rucola',
       alt_lamb: 'Lamskoteletten, aardappelen en tuinbonen, op een tafel bij O Pastor',
-      alt_glass: 'Een Diekirch Grand Cru op een placemat van O Pastor', tbl_label: 'O Pastor, aan tafel',
+      tbl_label: 'O Pastor, aan tafel',
       pz1: 'tomaat, mozzarella', pz2: 'ham', pz4: 'pikante salami',
       pz5: 'pikante salami, pepperoncini', pz6: 'champignons', pz7: 'ansjovis, kappertjes, olijven',
       pz8: 'ham, champignons', pz9: 'ham, salami, groenten', pz10: 'parmezaan, gorgonzola, geitenkaas',
@@ -628,7 +620,7 @@ const BOARD = {
       pz_base: 'Mit Tomate und Mozzarella, außer der Biancaneve',
       alt_parma: 'Pizza Parma von O Pastor: Rohschinken und Rucola',
       alt_lamb: 'Lammkoteletts, Kartoffeln und dicke Bohnen auf einem Tisch im O Pastor',
-      alt_glass: 'Ein Diekirch Grand Cru auf einem Tischset von O Pastor', tbl_label: 'O Pastor, bei Tisch',
+      tbl_label: 'O Pastor, bei Tisch',
       pz1: 'Tomate, Mozzarella', pz2: 'Schinken', pz4: 'scharfe Salami',
       pz5: 'scharfe Salami, Peperoncini', pz6: 'Champignons', pz7: 'Sardellen, Kapern, Oliven',
       pz8: 'Schinken, Champignons', pz9: 'Schinken, Salami, Gemüse', pz10: 'Parmesan, Gorgonzola, Ziegenkäse',
@@ -668,7 +660,7 @@ const BOARD = {
       pz_base: 'On a tomato and mozzarella base, except the Biancaneve',
       alt_parma: 'O Pastor’s Parma pizza: cured ham and rocket',
       alt_lamb: 'Lamb chops, potatoes and broad beans on a table at O Pastor',
-      alt_glass: 'A Diekirch Grand Cru on an O Pastor placemat', tbl_label: 'O Pastor, at the table',
+      tbl_label: 'O Pastor, at the table',
       pz1: 'tomato, mozzarella', pz2: 'ham', pz4: 'spicy salami',
       pz5: 'spicy salami, pepperoncini', pz6: 'mushrooms', pz7: 'anchovies, capers, olives',
       pz8: 'ham, mushrooms', pz9: 'ham, salami, vegetables', pz10: 'parmesan, gorgonzola, goat’s cheese',
@@ -708,7 +700,7 @@ const BOARD = {
       pz_base: 'Com base de tomate e mozzarella, exceto a Biancaneve',
       alt_parma: 'Pizza Parma do O Pastor: presunto e rúcula',
       alt_lamb: 'Costeletas de borrego, batatas e favas, numa mesa do O Pastor',
-      alt_glass: 'Uma Diekirch Grand Cru num individual do O Pastor', tbl_label: 'O Pastor, à mesa',
+      tbl_label: 'O Pastor, à mesa',
       pz1: 'tomate, mozzarella', pz2: 'fiambre', pz4: 'salame picante',
       pz5: 'salame picante, pepperoncini', pz6: 'cogumelos', pz7: 'anchovas, alcaparras, azeitonas',
       pz8: 'fiambre, cogumelos', pz9: 'fiambre, salame, legumes', pz10: 'parmesão, gorgonzola, queijo de cabra',
