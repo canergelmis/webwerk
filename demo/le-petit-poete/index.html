@@ -138,11 +138,11 @@ svg .gl{opacity:var(--g,.86)}
 .menu-j{position:absolute;inset:0;z-index:5;display:flex;align-items:center;color:var(--black);opacity:0;pointer-events:none}
 .menu-j.on{pointer-events:auto}
 .menu-j{align-items:flex-start}
-.mj-in{width:100%;display:flex;flex-direction:column;gap:var(--s3);padding-top:calc(var(--hh) + 21vh);padding-top:calc(var(--hh) + 21svh)}
-.mj-lamps{position:absolute;left:0;right:0;top:var(--hh);width:100%;height:24vh;height:24svh;display:block;pointer-events:none}
+.mj-in{width:100%;display:flex;flex-direction:column;gap:var(--s3);padding-top:calc(var(--hh) + 14vh);padding-top:calc(var(--hh) + 14svh)}
+.mj-lamps{position:absolute;left:0;right:0;top:var(--hh);width:100%;height:16vh;height:16svh;display:block;pointer-events:none}
 @media (min-width:900px){
   .mj-in{padding-top:calc(var(--hh) + var(--s4));padding-right:46%;min-height:100vh;justify-content:center;padding-bottom:var(--s4)}
-  .mj-lamps{left:auto;right:0;width:46%;height:72vh}
+  .mj-lamps{left:auto;right:0;width:46%;height:44vh}
 }
 .mj-head .body{margin-top:var(--s1)}
 .mj-b{color:var(--burg);padding-top:var(--s2)}
@@ -546,7 +546,7 @@ const P = {
 const BAYS=[70,170,270,370,470], SILLS=[-306,-442,-578], GW=46, GH=82, SW=12;
 const r = (x,y,w,h,f,extra='') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${f}" ${extra}/>`;
 const line = (x1,y1,x2,y2,c,w,extra='') => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="${w}" ${extra}/>`;
-const STONE = (x,y,w,h,op=.7) => r(x,y,w,h,'url(#stone)',`opacity="${op}"`);
+const STONE = (x,y,w,h,op=.7) => r(x,y,w,h,'url(#stone)',`opacity="${(op*.3).toFixed(3)}"`);   // flat stone: the texture only hints
 const GRAIN = (x,y,w,h,op=.6) => r(x,y,w,h,'url(#grain)',`opacity="${op}"`);
 /* ashlar: courses 24 high, blocks of uneven length, each its own tone; light mortar joints, a shadow under each arris */
 function ashlar(x0,y0,w,h,seed=7){
@@ -648,9 +648,9 @@ function terrace(){
   g+=r(-12,-294,564,62,P.cream);
   const band = r(-7,-289,554,52,'none',`stroke="${P.burg}" stroke-width=".7" opacity=".55"`)+
     `<g font-family="'Cormorant Garamond', Georgia, serif" fill="${P.burg}" text-anchor="middle">`+
-    `<text x="112" y="-255" font-size="15.5" font-weight="500" letter-spacing="1.3">HOTEL · CAFE</text>`+
-    `<text x="432" y="-255" font-size="15.5" font-weight="500" letter-spacing="1.3">RESTAURANT</text></g>`+
-    `<g class="sname"><image href="assets/logo-wordmark-white.png" x="194" y="-273.5" width="152" height="19.4" filter="url(#toBurg)"/></g>`+
+    `<text x="102" y="-256" font-size="13.5" font-weight="500" letter-spacing="1.2">HOTEL · CAFE</text>`+
+    `<text x="442" y="-256" font-size="13.5" font-weight="500" letter-spacing="1.2">RESTAURANT</text></g>`+
+    `<g class="sname"><image href="assets/logo-wordmark-white.png" x="163" y="-277.4" width="214" height="27.3" filter="url(#toBurg)"/></g>`+
     quill(20,-262,false,.72)+quill(521,-264,true,1.3)+r(-12,-233.5,564,1.5,'#5f5c66');
   const posts = c=>r(106,-232,4,232,c)+r(430,-232,4,232,c);
   let out = s+`<g class="gl">${g}</g>`+band+posts(P.post)+`<g class="gl">${posts(P.postL)}</g>`;
@@ -710,7 +710,7 @@ function houseSVG(pre,litFn,opts={}){
   s+=`<path d="M-6,-702 L546,-702 L512,-740 L28,-740Z" fill="${P.roof}"/>`+r(28,-741,484,1.4,P.roofHi);
   s+=r(0,-690,540,396,P.wall)+ashlar(0,-690,540,396);
   for(let k=0;k<16;k++){const y=-296-(k+1)*24, lw=k%2?24:36; s+=r(0,y,lw,22,P.surr)+r(0,y,lw,1.2,P.surrHi)+r(540-lw,y,lw,22,P.surr)+r(540-lw,y,lw,1.2,P.surrHi);}
-  s+=GRAIN(0,-690,540,396,.28);
+  s+=GRAIN(0,-690,540,396,.1);
   s+=r(-4,-692,548,8,P.corn)+r(-10,-704,560,12,P.crown)+STONE(-10,-704,560,20,.7)+r(-10,-704,560,1.4,'#a89f91')+r(-4,-684,548,2,'#5d564d');
   SILLS.forEach((sb,ri)=>BAYS.forEach((cx,ci)=>{ s+=windowSVG(cx,sb,`w${ri}${ci}`,litFn(ri,ci),pre,(ri*5+ci)%4); }));
   s+=terrace();
@@ -785,7 +785,7 @@ function heroLayout(){
   } else {
     const m=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--m'))||48;
     pav=Math.max(48,H*.055);
-    s=(H-pav-hh*.35)/742;                                   // the roof rises behind the header: a bigger house
+    s=(H-pav-hh-40)/742;                                    // the roof clears the nav by 40px
     const bRight=m+Math.max(cta.offsetWidth,300);
     cx=Math.max(W/2+60,bRight+64+270*s);
     if(cx+282*s>W){ s=Math.min(s,(W-bRight-64)/552); cx=bRight+64+270*s; }
@@ -793,7 +793,7 @@ function heroLayout(){
     cta.style.left=Math.max(m,houseL-56-cta.offsetWidth)+'px'; cta.style.top=Math.round(signY-cta.offsetHeight/2)+'px';
   }
   const groundY=H-pav;
-  brand.style.left=(cx+(194-270)*s)+'px'; brand.style.top=(groundY-273.5*s)+'px'; brand.style.width=(152*s)+'px'; brand.style.height=(19.4*s)+'px'; brand.style.fontSize=(17*s)+'px';
+  brand.style.left=(cx+(163-270)*s)+'px'; brand.style.top=(groundY-277.4*s)+'px'; brand.style.width=(214*s)+'px'; brand.style.height=(27.3*s)+'px'; brand.style.fontSize=(24*s)+'px';
   svg.setAttribute('viewBox',`${270-cx/s} ${-groundY/s} ${W/s} ${H/s}`);
   svg.setAttribute('preserveAspectRatio','none');
   // the camera at rest: scale s0 (px per unit) and the facade point at the screen centre
@@ -1119,7 +1119,10 @@ function layout(){
 function reveal(z,e,[t,r,b,l],W,H){
   clip.style.opacity=clamp(z/0.25).toFixed(3);
   clip.style.clipPath=`inset(${Math.max(0,t).toFixed(1)}px ${Math.max(0,W-r).toFixed(1)}px ${Math.max(0,H-b).toFixed(1)}px ${Math.max(0,l).toFixed(1)}px)`;
-  room.style.transform=`scale(${(1.22-0.22*e).toFixed(4)})`;        // seen through the glass it sits a little deeper, then settles as we step in
+  // the whole room fills the window (cover), bottom-anchored so the bread and the glass are never cut; it reaches full screen as we step in
+  const gw=r-l, gh=b-t, k=Math.min(1,Math.max(gw/W,gh/H));
+  let tx=(l+r)/2-k*W/2, ty=b-k*H; const f=clamp((k-.85)/.15); tx*=1-f; ty*=1-f;
+  room.style.transformOrigin='0 0'; room.style.transform=`translate(${tx.toFixed(1)}px,${ty.toFixed(1)}px) scale(${k.toFixed(4)})`;
 }
 function still(){ clip.style.opacity=1; clip.style.clipPath='none'; room.style.transform='none'; label.classList.add('on'); }
 function update(){}
