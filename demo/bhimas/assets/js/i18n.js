@@ -92,7 +92,7 @@
       'title.game': 'Bhimas Gada Challenge · Bhimas Indian Kitchen & Bar',
       'nav.aria': 'Hauptnavigation', 'lang.aria': 'Sprache',
       'nav.home': 'Start', 'nav.food': 'Küche', 'nav.gada': 'The Gada', 'nav.visit': 'Besuch',
-      'veg': 'Vegetarisch & nicht vegetarisch',
+      'veg': 'Mit & ohne Fleisch',
       'lunch': 'Mittagsbuffet', 'weekend': 'Wochenend-Spezialitäten',
       'days.tuefri': 'Dienstag bis Freitag', 'days.every': 'Dienstag bis Freitag',
       'time.lunch': '12–14 Uhr', 'days.weekend': 'Freitagabend bis Sonntagabend',
