@@ -282,8 +282,10 @@ header{mix-blend-mode:normal;color:var(--ink)}
 .store h1{font-size:clamp(46px,6vw,84px);font-weight:400;line-height:1;margin-bottom:clamp(40px,5vw,64px)}
 .pdp-title{font-size:clamp(34px,3.4vw,50px);font-weight:500;line-height:1}
 .pdp-title a{color:inherit;text-decoration:none}
-.media a{display:block;height:100%}
-.range-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.4vw,36px);margin-top:clamp(70px,9vw,120px)}
+.feature{display:block;color:inherit;text-decoration:none}
+.store .product{align-items:center}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,.8vw,12px)}
+.range-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(40px,5vw,72px) clamp(24px,4vw,56px);margin-top:clamp(70px,9vw,120px)}
 .herbs-head{margin-top:clamp(70px,9vw,120px);border-top:1px solid var(--rule);padding-top:26px}
 .herbs-head h2{font-size:clamp(30px,3vw,44px);font-weight:400;line-height:1.05}
 .herbs-head + .range-grid{margin-top:clamp(28px,3vw,44px)}
@@ -292,8 +294,8 @@ header{mix-blend-mode:normal;color:var(--ink)}
 .pcard h3{font-size:clamp(24px,2.2vw,32px);font-weight:500;line-height:1.05;margin-top:16px}
 .pcard .stat{margin-top:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);line-height:1.5}
 @media (max-width:760px){
-  .range-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 14px}
-  .pcard .ph-img{right:auto}
+  .range-grid{grid-template-columns:minmax(0,1fr);gap:34px}
+  .store .ph-img{right:auto}
 }
 </style>
 </head>
@@ -317,10 +319,12 @@ header{mix-blend-mode:normal;color:var(--ink)}
   <div class="store-in">
     <h1 class="serif" data-en="Our shop">Mağazamız</h1>
     <div class="product">
-      <div class="media">
-        <a href="bal.html"><img src="img/bal-lg.webp" alt="Ida Nefes bal kavanozu, pirinç rengi kapak" data-en-alt="An Ida Nefes honey jar with a brass-toned lid"></a>
-        <span class="ph ph-img" data-en="Placeholder: client concept image, the product shoot replaces it">Taslak: müşteri konsept görseli, ürün çekimiyle değişecek</span>
-      </div>
+      <a class="feature" href="bal.html">
+        <div class="duo">
+          <div class="card-media"><img src="img/jar-bal.webp" alt="Ida Nefes Bal kavanozu" data-en-alt="An Ida Nefes Honey jar" width="800" height="800" ><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+          <div class="card-media"><img src="img/life-bal.webp" alt="Bal" data-en-alt="Honey" width="800" height="800" ><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        </div>
+      </a>
       <div class="info">
         <h2 class="serif pdp-title"><a href="bal.html" data-en="Ida Nefes Honey">Ida Nefes Bal</a></h2>
         <p class="price"><span>₺890</span><span class="size">400 g</span></p>
@@ -335,22 +339,34 @@ header{mix-blend-mode:normal;color:var(--ink)}
 
     <div class="range-grid">
       <article class="pcard" id="truf">
-        <div class="card-media"><img src="img/truf.webp" alt="Trüf" data-en-alt="Truffle" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        <div class="duo">
+          <div class="card-media"><img src="img/jar-truf.webp" alt="Ida Nefes Trüf kavanozu" data-en-alt="An Ida Nefes Truffle jar" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+          <div class="card-media"><img src="img/life-truf.webp" alt="Trüf" data-en-alt="Truffle" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        </div>
         <h3 class="serif" data-en="Truffle">Trüf</h3>
         <p class="stat" data-en="First crop expected in 2028">İlk ürün 2028'de bekleniyor</p>
       </article>
       <article class="pcard" id="polen">
-        <div class="card-media"><img src="img/polen.webp" alt="Polen" data-en-alt="Pollen" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        <div class="duo">
+          <div class="card-media"><img src="img/jar-polen.webp" alt="Ida Nefes Polen kavanozu" data-en-alt="An Ida Nefes Pollen jar" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+          <div class="card-media"><img src="img/life-polen.webp" alt="Polen" data-en-alt="Pollen" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        </div>
         <h3 class="serif" data-en="Pollen">Polen</h3>
         <p class="stat" data-en="Harvested">Hasat edildi</p>
       </article>
       <article class="pcard" id="safran">
-        <div class="card-media"><img src="img/safran.webp" alt="Safran" data-en-alt="Saffron" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        <div class="duo">
+          <div class="card-media"><img src="img/jar-safran.webp" alt="Ida Nefes Safran kavanozu" data-en-alt="An Ida Nefes Saffron jar" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+          <div class="card-media"><img src="img/life-safran.webp" alt="Safran" data-en-alt="Saffron" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        </div>
         <h3 class="serif" data-en="Saffron">Safran</h3>
         <p class="stat" data-en="Harvest November 2026">Hasat Kasım 2026</p>
       </article>
       <article class="pcard" id="salep">
-        <div class="card-media"><img src="img/salep.webp" alt="Salep" data-en-alt="Salep" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        <div class="duo">
+          <div class="card-media"><img src="img/jar-salep.webp" alt="Ida Nefes Salep kavanozu" data-en-alt="An Ida Nefes Salep jar" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+          <div class="card-media"><img src="img/life-salep.webp" alt="Salep" data-en-alt="Salep" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        </div>
         <h3 class="serif" data-en="Salep">Salep</h3>
         <p class="stat" data-en="Trial plot being set up">Deneme parseli kuruluyor</p>
       </article>
@@ -359,22 +375,34 @@ header{mix-blend-mode:normal;color:var(--ink)}
     <div class="herbs-head" id="aromatik"><h2 class="serif" data-en="Aromatic Herbs">Aromatik Bitkiler</h2></div>
     <div class="range-grid">
       <article class="pcard" id="adacayi">
-        <div class="card-media"><img src="img/adacayi.webp" alt="Adaçayı" data-en-alt="Sage" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        <div class="duo">
+          <div class="card-media"><img src="img/jar-adacayi.webp" alt="Ida Nefes Adaçayı kavanozu" data-en-alt="An Ida Nefes Sage jar" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+          <div class="card-media"><img src="img/life-adacayi.webp" alt="Adaçayı" data-en-alt="Sage" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        </div>
         <h3 class="serif" data-en="Sage">Adaçayı</h3>
         <p class="stat" data-en="Growing on the land">Arazide yetişiyor</p>
       </article>
       <article class="pcard" id="kekik">
-        <div class="card-media"><img src="img/kekik.webp" alt="Kekik" data-en-alt="Thyme" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        <div class="duo">
+          <div class="card-media"><img src="img/jar-kekik.webp" alt="Ida Nefes Kekik kavanozu" data-en-alt="An Ida Nefes Thyme jar" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+          <div class="card-media"><img src="img/life-kekik.webp" alt="Kekik" data-en-alt="Thyme" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        </div>
         <h3 class="serif" data-en="Thyme">Kekik</h3>
         <p class="stat" data-en="Growing on the land">Arazide yetişiyor</p>
       </article>
       <article class="pcard" id="biberiye">
-        <div class="card-media"><img src="img/biberiye.webp" alt="Biberiye" data-en-alt="Rosemary" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        <div class="duo">
+          <div class="card-media"><img src="img/jar-biberiye.webp" alt="Ida Nefes Biberiye kavanozu" data-en-alt="An Ida Nefes Rosemary jar" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+          <div class="card-media"><img src="img/life-biberiye.webp" alt="Biberiye" data-en-alt="Rosemary" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        </div>
         <h3 class="serif" data-en="Rosemary">Biberiye</h3>
         <p class="stat" data-en="Growing on the land">Arazide yetişiyor</p>
       </article>
       <article class="pcard" id="defne">
-        <div class="card-media"><img src="img/defne.webp" alt="Defne" data-en-alt="Bay Laurel" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        <div class="duo">
+          <div class="card-media"><img src="img/jar-defne.webp" alt="Ida Nefes Defne kavanozu" data-en-alt="An Ida Nefes Bay Laurel jar" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+          <div class="card-media"><img src="img/life-defne.webp" alt="Defne" data-en-alt="Bay Laurel" width="800" height="800" loading="lazy"><span class="ph ph-img" data-en="Placeholder">Taslak</span></div>
+        </div>
         <h3 class="serif" data-en="Bay Laurel">Defne</h3>
         <p class="stat" data-en="Growing on the land">Arazide yetişiyor</p>
       </article>
