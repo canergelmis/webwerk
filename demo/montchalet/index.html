@@ -221,7 +221,7 @@ body.g-c7{background:#101a19;color:var(--cream)}
 /* ---------- step through the door: outside on Am Duerf, then into the room ----------
    Their own reel walks from the square through the glass front; scrolling walks it.
    Outside is their terrace in soft daylight; at the threshold the picture warms and the room's petrol arrives. */
-.walk{position:relative;height:420vh;height:420svh}
+.walk{position:relative;height:400vh;height:400svh}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:rgb(var(--wg,224,228,188));color:var(--film-ink)}
 .film{position:absolute;inset:0}
 .film img,.film canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -234,7 +234,7 @@ body.g-c7{background:#101a19;color:var(--cream)}
 .w1{--o:1}
 .w2{visibility:hidden}
 .eye{font-size:var(--fs-small);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.name{font-size:clamp(3.75rem,17vw,9.5rem);line-height:.95;margin-top:8px;letter-spacing:-.02em}
+.name{font-size:clamp(3.25rem,16vw,9.5rem);line-height:.95;margin-top:8px;letter-spacing:-.02em}
 .strap{font-size:.875rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-top:10px;opacity:.92}
 .go{margin-top:26px;font-weight:700;font-size:var(--fs-small)}
 .go span[aria-hidden]{display:inline-block;animation:mc-nudge 1.6s ease-in-out infinite}
@@ -244,11 +244,21 @@ body.g-c7{background:#101a19;color:var(--cream)}
   .film{left:auto;width:50%}
   .film::after{display:none}
   .wt{right:50%;bottom:auto;top:50%;transform:translateY(calc(-50% + (1 - var(--o,0)) * 18px));padding:0 56px 0 var(--gut);color:var(--wi,#232323)}
-  .name{font-size:clamp(4.5rem,7.4vw,7.5rem)}
+  .name{font-size:min(10rem,calc(9.2vw - 18px))}
+  .eye,.strap{font-size:1rem}
 }
 @media (prefers-reduced-motion:reduce){
   .walk{height:auto}.stage{position:relative}.film canvas{display:none}.w1{--o:1}.w2{display:none}
   .go span[aria-hidden]{animation:none}
+}
+
+.stagf{aspect-ratio:4 / 5;background:#2d5852;margin:0 0 clamp(36px,6vw,96px)}
+#d-tard .t-clip .m img,#d-tard .t-clip .m video{height:153.5%}
+@media (min-width:900px){
+  .stagf{aspect-ratio:auto;height:min(90vh,860px)}
+  .stagf{background:linear-gradient(180deg,#417468,#2d5852 58%)}
+  .stagf .m{left:50%;right:auto;width:calc(min(90vh,860px) * .8);margin-left:calc(min(90vh,860px) * -.4);background:none}
+  .stagf .m img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 91%,transparent)}
 }
 </style>
 </head>
@@ -322,7 +332,7 @@ body.g-c7{background:#101a19;color:var(--cream)}
       <figure class="tile ph t-b"><div class="m"><img src="assets/p/brunch-sign.webp" width="760" height="950" loading="lazy" decoding="async" alt="Leur ardoise « Mont Chalet Brunch, chaque dimanche »"></div></figure>
       <figure class="tile ph t-c"><div class="m"><img src="assets/p/brunch-trays.webp" width="760" height="1351" loading="lazy" decoding="async" alt="Les plats chauds du brunch"></div></figure>
       <div class="cap">
-        <p class="when"><span class="t">11:00</span> <span class="dim" data-i18n="sun">Le dimanche</span></p>
+        <p class="when"><span class="t">11:00</span></p>
         <h2 class="line voice"><span data-i18n="l_brunch">Le dimanche au Chalet</span></h2>
         <p class="sub" data-i18n="brunch">Brunch, chaque dimanche, 11:00⁠–⁠15:00</p>
       </div>
@@ -345,7 +355,7 @@ body.g-c7{background:#101a19;color:var(--cream)}
       <div class="cap">
         <p class="when"><span class="t">12:00</span></p>
         <h2 class="line voice"><span data-i18n="l_midi">Des saveurs à découvrir, des instants à savourer.</span></h2>
-        <p class="sub" data-i18n="d_board">Charcuterie & Fromage, pour 2, 4 ou 6 personnes</p>
+        
       </div>
       <figure class="tile ph t-a"><div class="m"><img src="assets/p/midi-board.webp" width="760" height="507" loading="lazy" decoding="async" alt="Leur planche Charcuterie & Fromage, vue du dessus"></div></figure>
       <div class="ex menu">
@@ -370,14 +380,14 @@ body.g-c7{background:#101a19;color:var(--cream)}
         </div>
       </div>
       <p class="word voice" aria-hidden="true" data-i18n="n_terrasse">Terrasse</p>
-      <figure class="tile ph t-b"><div class="m"><img src="assets/p/terr-sign.webp" width="760" height="1351" loading="lazy" decoding="async" alt="Leur ardoise « Bienvenue à la terrasse Mont Chalet »" style="object-position:50% 75%"></div></figure>
+      <figure class="tile ph t-b"><div class="m"><img src="assets/p/terr-olive.webp" width="504" height="896" loading="lazy" decoding="async" alt="L’olivier de la terrasse"></div></figure>
       <figure class="tile ph t-c"><div class="m"><img src="assets/p/terr-table.webp" width="760" height="950" loading="lazy" decoding="async" alt="Une table de la terrasse et ses fleurs"></div></figure>
       <div class="cap">
         <p class="when"><span class="t">15:00</span></p>
         <h2 class="line voice"><span data-i18n="l_terr">Du soleil, la vue depuis la terrasse et l’ambiance parfaite.</span></h2>
         <p class="sub" data-i18n="terr">Bienvenue à la terrasse Mont Chalet</p>
       </div>
-      <figure class="tile ph t-a"><div class="m"><img src="assets/p/terr-street.webp" width="760" height="1351" loading="lazy" decoding="async" alt="La terrasse sous les parasols, Am Duerf" style="object-position:50% 45%"></div></figure>
+      <figure class="tile ph t-a"><div class="m"><img src="assets/p/terr-board.webp" width="730" height="664" loading="lazy" decoding="async" alt="Leur ardoise « Bienvenue à la terrasse Mont Chalet »" style="object-position:50% 58%"></div></figure>
       
     </div>
   </section>
@@ -441,7 +451,7 @@ body.g-c7{background:#101a19;color:var(--cream)}
       <figure class="tile ph t-c"><div class="m"><img src="assets/p/tard-flip.webp" width="760" height="950" loading="lazy" decoding="async" alt="Un cocktail mousseux sur fond noir"></div></figure>
       <div class="cap">
         <p class="when"><span class="t">23:00</span></p>
-        <h2 class="line voice"><span data-i18n="l_tard">Fait main et de grande classe.</span></h2>
+        <h2 class="line voice"><span data-i18n="l_tard">Faits main, soignés.</span></h2>
         
       </div>
       <figure class="tile ph t-a"><div class="m"><img src="assets/p/tard-bar.webp" width="760" height="1351" loading="lazy" decoding="async" alt="Un cocktail ambré au bar" style="object-position:50% 75%"></div></figure>
@@ -450,6 +460,7 @@ body.g-c7{background:#101a19;color:var(--cream)}
   </section>
 
   <section class="hr side-l" id="d-nuit" data-slot="nuit" data-ground="c7">
+    <figure class="tile ph stagf"><div class="m"><img src="assets/img/stag-wall.webp" width="924" height="1156" loading="lazy" decoding="async" alt="Le cerf blanc de MontChalet sur le mur pétrole, entre leurs photos noir et blanc"></div></figure>
     <div class="spread">
       <div class="tile clip t-clip">
         <div class="m" aria-hidden="true">
@@ -514,7 +525,7 @@ body.g-c7{background:#101a19;color:var(--cream)}
    - "À la façon des chalets du Tyrol du Sud": adapted from the 2017 town-blog interview (E1: "à la façon
      des chalets dans le Tyrol du Sud … chic et alpestre"); the lead chosen at Gate 1. ---- */
 var MC_I18N={
-  fr:{l_brunch:"Le dimanche au Chalet",l_midi:"Des saveurs à découvrir, des instants à savourer.",l_terr:"Du soleil, la vue depuis la terrasse et l’ambiance parfaite.",l_apero:"Bonne compagnie, boissons fraîches et la bella vita !",l_bar:"Bonne cuisine. De bons verres. Musique live.",l_tard:"Fait main et de grande classe.",tag:"Chez nous, on vous sert une bonne tartine.",cue:"La journée défile vers le bas",walk_go:"Entrez",walk_l:"Entrer chez MontChalet, depuis la place Am Duerf",now_is:"Il est {h} à Dudelange",closed_now:"Fermé, demain dès 09:00",sun:"Le dimanche",lang:"Langue",now:"Maintenant à Dudelange",scrub:"Un jour à MontChalet",back:"Revenir à maintenant",dial:"Voir la journée",pause:"Pause",stops_l:"Heures de la journée",prev:"Heure précédente",next:"Heure suivante",n_matin:"Café",n_brunch:"Brunch",n_midi:"Midi",n_terrasse:"Terrasse",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Nuit",open_until:"Ouvert jusqu’à {h}",tomorrow:"Demain dès 09:00. Tous les jours, ven. et sam. jusqu’à 01:00.",terr:"Bienvenue à la terrasse Mont Chalet",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, pour 2, 4 ou 6 personnes",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
+  fr:{l_brunch:"Le dimanche au Chalet",l_midi:"Des saveurs à découvrir, des instants à savourer.",l_terr:"Du soleil, la vue depuis la terrasse et l’ambiance parfaite.",l_apero:"Bonne compagnie, boissons fraîches et la bella vita !",l_bar:"Bonne cuisine. De bons verres. Musique live.",l_tard:"Faits main, soignés.",tag:"Chez nous, on vous sert une bonne tartine.",cue:"La journée défile vers le bas",walk_go:"Entrez",walk_l:"Entrer chez MontChalet, depuis la place Am Duerf",now_is:"Il est {h} à Dudelange",closed_now:"Fermé, demain dès 09:00",sun:"Le dimanche",lang:"Langue",now:"Maintenant à Dudelange",scrub:"Un jour à MontChalet",back:"Revenir à maintenant",dial:"Voir la journée",pause:"Pause",stops_l:"Heures de la journée",prev:"Heure précédente",next:"Heure suivante",n_matin:"Café",n_brunch:"Brunch",n_midi:"Midi",n_terrasse:"Terrasse",n_apero:"Apéro",n_bar:"Bar",n_tard:"Cocktail",n_nuit:"Nuit",open_until:"Ouvert jusqu’à {h}",tomorrow:"Demain dès 09:00. Tous les jours, ven. et sam. jusqu’à 01:00.",terr:"Bienvenue à la terrasse Mont Chalet",bar_s:"MontChalet Bar · Espresso martini, spritz, whisky, gin",d_board:"Charcuterie & Fromage, pour 2, 4 ou 6 personnes",call:"Appeler",founder:"À la façon des chalets du Tyrol du Sud",
     hours:"Tous les jours 09:00⁠–⁠00:00, ven. et sam. jusqu’à 01:00",dir:"Itinéraire",brunch:"Brunch, chaque dimanche, 11:00⁠–⁠15:00",
     morn_t:"Commencer la journée en douceur, de la meilleure des façons.",order:"Toute la carte sur Wolt",hello:"On vous attend nombreux !",d_burrata:"Pain croustillant, houmous à la betterave, roquette, olives & tomates",
     morn:"Un café frais, des coins paisibles et la beauté tranquille d’un nouveau matin.",
@@ -671,7 +682,7 @@ var MC_I18N={
   "use strict";
   var walk=document.getElementById("walk"),stage=document.getElementById("stage"),film=stage.querySelector(".film"),
       cv=document.getElementById("wc"),cx=cv.getContext("2d"),w1=stage.querySelector(".w1"),w2=stage.querySelector(".w2"),
-      hd=document.getElementById("hd"),SEG=[0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6],N=57,IN=20,M0=42,M1=49,reduce=matchMedia("(prefers-reduced-motion: reduce)");
+      hd=document.getElementById("hd"),SEG=[0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5],N=50,IN=20,M0=42,M1=49,reduce=matchMedia("(prefers-reduced-motion: reduce)");
   hd.classList.add("past");                       /* the call link is there from the first screen */
   if(reduce.matches)return;
   var fr=[],ok=[],queued=0;
