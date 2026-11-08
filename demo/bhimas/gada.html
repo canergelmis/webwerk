@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title data-t="title.gada">The Gada · Bhimas Indian Kitchen &amp; Bar</title>
+<meta name="description" content="Only the Strong Can Lift This. ONE MAN. ONE LIFT. ONE EPIC MOMENT. Do you have what it takes to conquer the Bhimas Gada Challenge?">
+<meta name="theme-color" content="#1d140d">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preload" href="assets/fonts/zillaslab-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hind-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hind-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var still = navigator.webdriver || q.has('embed');
+    var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var on = q.get('motion') === '1' ? !reduced : (!still && !reduced);
+    document.documentElement.className = on ? 'anim' : 'no-anim';
+    if (reduced) document.documentElement.classList.add('reduced');
+    try { var l = localStorage.getItem('bh_lang'); if (l === 'fr' || l === 'de') document.documentElement.lang = l; } catch (e) {}
+  })();
+</script>
+</head>
+<body id="top" class="pg-gada">
+
+<nav class="nav" aria-label="Main" data-t-aria="nav.aria">
+  <ul class="nav__links">
+    <li><a href="./" data-t="nav.home">Home</a></li>
+    <li><a href="food.html" data-t="nav.food">Food</a></li>
+    <li><a href="gada.html" aria-current="page" data-t="nav.gada">The Gada</a></li>
+    <li><a href="visit.html" data-t="nav.visit">Visit</a></li>
+  </ul>
+  <p class="nav__lang" role="group" aria-label="Language" data-t-aria="lang.aria"><button type="button" data-lang="en" aria-pressed="true">EN</button> · <button type="button" data-lang="fr" aria-pressed="false">FR</button> · <button type="button" data-lang="de" aria-pressed="false">DE</button></p>
+</nav>
+
+<main>
+<!-- 1. HERO: the gada banner, pinned, drifting -->
+<section class="gada gada--hero" id="gada" aria-labelledby="gada-h">
+  <div class="gada__art" aria-hidden="true">
+    <div class="gada__move">
+      <picture>
+        <source media="(min-width: 820px)" srcset="assets/img/banner-gada-d.jpg" width="2000" height="1120">
+        <img src="assets/img/banner-gada-m.jpg" alt="" width="1120" height="2000" fetchpriority="high">
+      </picture>
+    </div>
+  </div>
+
+  <div class="gada__body" lang="en">
+    <div class="gada__head">
+      <h1 class="disp" id="gada-h">Only the <br>Strong Can <br>Lift This</h1>
+      <p class="epic"><span>One man.</span> <span>One lift.</span> <span>One epic moment.</span></p>
+    </div>
+
+    <div class="proof">
+      <figure class="still still--g">
+        <img src="assets/img/photo-gadas.jpg" alt="The two golden gadas standing in the dining room at Bhimas" data-t-alt="alt.gadas" width="675" height="1200" loading="lazy">
+      </figure>
+      <p class="proof__line">Challenge Accepted. <br>Strength Proven.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PLAY: the banquet banner, frozen mid-game, under an ink band -->
+<section class="play" aria-labelledby="play-h">
+  <div class="play__art" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 820px)" srcset="assets/img/banner-banquet-d.jpg" width="2000" height="1120">
+      <img class="play__bg" src="assets/img/banner-banquet-m.jpg" alt="" width="1120" height="2000" loading="lazy">
+    </picture>
+    <img class="sprite sprite--1" src="assets/img/sprites/dosa.webp" alt="" width="256" height="175" loading="lazy">
+    <img class="sprite sprite--2" src="assets/img/sprites/biryani.webp" alt="" width="238" height="256" loading="lazy">
+    <img class="sprite sprite--3" src="assets/img/sprites/idli.webp" alt="" width="256" height="212" loading="lazy">
+    <img class="sprite sprite--4" src="assets/img/sprites/chilli.webp" alt="" width="256" height="246" loading="lazy">
+    <img class="sprite sprite--5" src="assets/img/sprites/sweets.webp" alt="" width="256" height="222" loading="lazy">
+  </div>
+
+  <div class="play__band" lang="en">
+    <h2 class="play__h" id="play-h">Bhimas Gada Challenge</h2>
+    <p class="play__q">Do you have what it takes to conquer the Bhimas Gada Challenge?</p>
+    <p class="play__say">Step up, grab the legendary Gada, and prove your strength.</p>
+    <p class="go"><a class="cta" href="feast.html">Challenge Accepted.</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="end">
+  <p class="credits credits--end">
+    <span>Bhimas Indian Kitchen &amp; Bar</span><i>·</i><a href="https://maps.google.com/?cid=10481551621272200989">4b Dernier Sol, 2543 Bonnevoie, Luxembourg</a><i>·</i><a href="tel:+35227532549">+352 27 53 25 49</a>
+  </p>
+  <p class="disc" data-t="disc">An unofficial website proposal by Webwerk, built from public information and photos, not affiliated with the venue. Anonymous visit statistics, with no cookies and no personal data.</p>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/count.js"></script>
+</body>
+</html>
