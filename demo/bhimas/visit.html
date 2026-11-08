@@ -8,9 +8,12 @@
 <meta name="description" content="Bhimas Indian Kitchen &amp; Bar, 4b Dernier Sol, 2543 Bonnevoie, Luxembourg. +352 27 53 25 49. Dine In · Take Away · Party Services.">
 <meta name="theme-color" content="#1d140d">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
-<link rel="preload" href="assets/fonts/zillaslab-700-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/hind-600-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/hind-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  if (location.protocol !== 'file:') ['zillaslab-700-latin', 'hind-600-latin', 'hind-500-latin'].forEach(function (f) {
+    var l = document.createElement('link'); l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = 'anonymous';
+    l.href = 'assets/fonts/' + f + '.woff2'; document.head.appendChild(l);
+  });
+</script>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <script>
