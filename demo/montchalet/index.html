@@ -725,7 +725,7 @@ var MC_I18N={
     cv.style.filter="saturate("+(0.86+0.14*k).toFixed(3)+") brightness("+(1.03-0.03*k).toFixed(3)+")";
     stage.style.setProperty("--wg",mix(224,27,k)+","+mix(228,94,k)+","+mix(188,88,k));
     stage.style.setProperty("--wi",k>.5?"#E0E4BC":"#232323");
-    var o1=1-sm(6,14,pos),o2=sm(M0-3,M0+1,pos)*(1-sm(M1+2,M1+6,pos));
+    var o1=1-sm(6,14,pos),o2=sm(M0,M0+1.5,pos)*(1-sm(M1+2,M1+6,pos));
     w1.style.setProperty("--o",o1.toFixed(3));w1.style.visibility=o1<.01?"hidden":"visible";
     w2.style.setProperty("--o",o2.toFixed(3));w2.style.visibility=o2<.01?"hidden":"visible";
   }
