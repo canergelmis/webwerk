@@ -27,6 +27,10 @@
     try { var l = localStorage.getItem('bh_lang'); if (l === 'fr' || l === 'de') document.documentElement.lang = l; } catch (e) {}
   })();
 </script>
+<link rel="preload" as="image" type="image/webp" href="assets/img/gada-lift-m.webp" media="(max-width: 819px)">
+<link rel="preload" as="image" type="image/webp" href="assets/img/gada-patch-m.webp" media="(max-width: 819px)">
+<link rel="preload" as="image" type="image/webp" href="assets/img/gada-lift-d.webp" media="(min-width: 820px)">
+<link rel="preload" as="image" type="image/webp" href="assets/img/gada-patch-d.webp" media="(min-width: 820px)">
 </head>
 <body id="top" class="pg-home">
 
@@ -62,7 +66,7 @@
   </div>
 
   <p class="credits credits--two">
-    <span class="credits__row credits__row--gold"><span class="nw"><span data-t="lunch">Lunch Buffet</span> · <span data-t="days.tuefri">Tuesday to Friday</span></span> <span class="nw">· <span data-t="time.lunch">12:00 PM - 02:00PM</span></span></span>
+    <span class="credits__row credits__row--gold"><span class="nw credits__what"><span lang="en">Andhra &amp; Telangana</span> · <span data-t="veg">Veg &amp; Non-Veg</span></span> <span class="credits__dot">·</span> <span class="nw"><span data-t="lunch">Lunch Buffet</span> · <span data-t="days.tuefri">Tuesday to Friday</span></span> <span class="nw">· <span data-t="time.lunch">12:00 PM - 02:00PM</span></span></span>
     <span class="credits__row"><a href="https://maps.google.com/?cid=10481551621272200989">4b Dernier Sol, Bonnevoie</a><i>·</i><a href="tel:+35227532549">+352 27 53 25 49</a></span>
   </p>
 </header>
@@ -73,7 +77,6 @@
   <a class="bill bill--food" href="food.html">
     <span class="bill__text">
       <span class="bill__t" data-t="nav.food">Food</span>
-      <span class="bill__line"><span lang="en">Andhra &amp; Telangana</span> · <span data-t="veg">Veg &amp; Non-Veg</span></span>
       <span class="bill__say" lang="en">A complete meal. A traditional experience.</span>
     </span>
     <span class="bill__photo" aria-hidden="true"><img src="assets/img/photo-veg-thali-wide.jpg" alt="" width="1200" height="1100" loading="lazy"></span>
