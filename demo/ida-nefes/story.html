@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hikâyemiz · Ida Nefes</title>
+<title>Hikayemiz · Ida Nefes</title>
 <meta name="robots" content="noindex,nofollow">
 <meta name="description" content="Web sitesi önizlemesi">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ida Nefes">
-<meta property="og:title" content="Hikâyemiz · Ida Nefes">
+<meta property="og:title" content="Hikayemiz · Ida Nefes">
 <meta property="og:description" content="Web sitesi önizlemesi">
 <meta property="og:url" content="https://webwerk.lu/demo/ida-nefes/story.html">
 <meta property="og:image" content="https://webwerk.lu/demo/ida-nefes/og.jpg">
@@ -185,22 +185,25 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .facts{list-style:none;margin-top:28px;border-top:1px solid var(--rule)}
 .facts li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:13px}
 .facts li span:last-child{color:var(--muted)}
-.farm{background:var(--forest);color:var(--lime);padding:clamp(80px,10vw,140px) clamp(20px,6vw,90px)}
+.farm{background:var(--forest);color:var(--lime);padding:clamp(90px,11vw,160px) clamp(20px,6vw,90px)}
 .farm-in{max-width:1240px;margin:0 auto}
 .farm .eyebrow{color:var(--gold-soft)}
-.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,4vw,60px);margin-top:26px;padding-bottom:clamp(40px,5vw,64px);border-bottom:1px solid rgba(176,139,79,.35)}
-.strip dt{font-size:clamp(34px,4vw,58px);font-weight:400;line-height:1.05}
-.strip dd{margin-top:8px;font-size:14px;color:rgba(243,235,221,.72)}
-.farm-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,7vw,110px);margin-top:clamp(44px,6vw,76px)}
-.farm h2{font-size:clamp(30px,3vw,44px);font-weight:400;line-height:1.05}
+.farm-lead{font-size:clamp(36px,4.6vw,68px);font-weight:400;line-height:1.08;max-width:18em;margin-top:18px}
+.farm-sub{max-width:52ch;margin-top:26px;font-size:17px;line-height:1.75;color:rgba(243,235,221,.78)}
+.farm .line{color:var(--lime)}
+.stages-head{margin-top:clamp(70px,9vw,120px)}
+.stages{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:30px;border-top:1px solid rgba(176,139,79,.5)}
+.stages li{position:relative;padding:26px clamp(14px,2vw,28px) 0 0}
+.stages li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--gold-soft)}
+.stages .when{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px}
+.stages .what{display:block;font-size:clamp(26px,2.7vw,40px);line-height:1.2}
 .lab-note{margin-top:16px;font-size:14px;line-height:1.7;color:rgba(243,235,221,.72)}
 .cal{list-style:none;margin-top:22px;border-top:1px solid rgba(176,139,79,.35)}
-.cal li{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:18px;align-items:baseline;padding:15px 0;border-bottom:1px solid rgba(176,139,79,.35);font-size:14px;line-height:1.55}
-.cal li .serif{font-size:25px;line-height:1.15;color:var(--gold-soft)}
-.cal li span:last-child{color:rgba(243,235,221,.82)}
-.lab li{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
-.lab li span:first-child{color:var(--lime)}
-.lab li span:last-child{text-align:right}
+.cal li{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:18px;align-items:baseline;padding:15px 0;border-bottom:1px solid rgba(176,139,79,.35);font-size:14px;line-height:1.55}
+.cal li span:first-child{color:var(--lime)}
+.cal li span:last-child{color:rgba(243,235,221,.82);text-align:right}
+.info h3 a,.media a{color:inherit;text-decoration:none}
+.media a{display:block;height:100%}
 .table{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);max-width:1240px;margin:clamp(70px,9vw,130px) auto 0;border-top:1px solid var(--rule)}
 .table li{padding:30px clamp(14px,2vw,30px) 0;border-left:1px solid var(--rule)}
 .table li:first-child{border-left:0;padding-left:0}
@@ -256,8 +259,10 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .scrim.on{opacity:1;pointer-events:auto}
 
 @media (max-width:760px){
-  .strip{grid-template-columns:1fr;gap:22px}
-  .farm-grid{grid-template-columns:1fr}
+  .stages{grid-template-columns:1fr;border-top:0;border-left:1px solid rgba(176,139,79,.5);margin-left:4px}
+  .stages li{padding:0 0 30px 22px}
+  .stages li:last-child{padding-bottom:0}
+  .stages li::before{top:5px;left:-4px}
   .product{grid-template-columns:1fr}
   .media{margin:0 -20px}
   .ph-img{font-size:8px;letter-spacing:.1em;right:12px}
@@ -292,7 +297,7 @@ header{mix-blend-mode:normal;color:var(--ink)}
 </svg>
 
 <header>
-  <span class="hl"><a href="./#koleksiyon" data-en="Shop">Mağaza</a><a href="story.html" data-en="Our story">Hikâyemiz</a></span>
+  <span class="hl"><a href="magaza.html" data-en="Shop">Mağaza</a><a href="story.html" data-en="Our story">Hikayemiz</a></span>
   <nav>
     <button id="lang" aria-label="Dil / Language"><b>TR</b> / EN</button>
     <a href="#" data-en="Bag (0)">Sepet (0)</a>
@@ -303,7 +308,7 @@ header{mix-blend-mode:normal;color:var(--ink)}
   <figure class="story-img"><img src="frames-white/f000.webp" alt="Kazdağı, ormanlı zirve ve bulutlar" data-en-alt="Kazdağı, a forested peak above the clouds"></figure>
   <div class="col">
     <div class="eyebrow">Ida Nefes</div>
-    <h1 class="serif" data-en="Our story">Hikâyemiz</h1>
+    <h1 class="serif" data-en="Our story">Hikayemiz</h1>
 
     <h2 class="serif" data-en="Our land">Arazimiz</h2>
     <p class="body" data-en="We are in Oğlanalanı, a village in the Yenice district of Çanakkale, inside the forest ecosystem of Mount Ida, on about 15 dönüm of land. For four years we have been developing a way of growing that suits nature and the region's own flora.">Çanakkale'nin Yenice ilçesinde, Oğlanalanı köyünde, Kaz Dağları'nın orman ekosistemi içinde, yaklaşık 15 dönümlük bir arazideyiz. Dört yıldır burada doğaya ve bölgenin özgün florasına uyumlu bir üretim modeli geliştiriyoruz.</p>
@@ -325,15 +330,15 @@ header{mix-blend-mode:normal;color:var(--ink)}
     <h2 class="serif" data-en="What comes next">Sırada</h2>
     <p class="body" data-en="We want to bring products that reflect the character of Mount Ida first to customers in Türkiye, and then, selectively, to markets abroad.">Kaz Dağları'nın kendine özgü doğal karakterini yansıtan ürünleri önce Türkiye'de, ardından seçici biçimde yurt dışı pazarlarda tüketiciyle buluşturmak istiyoruz.</p>
 
-    <a class="line" href="./#koleksiyon" data-en="To the shop &rarr;">Mağazaya &rarr;</a>
+    <a class="line" href="magaza.html" data-en="Our shop &rarr;">Mağazamız &rarr;</a>
   </div>
 </main>
 
 <footer class="foot">
   <img class="fw" src="ida-nefes-wordmark-gold.svg" alt="IDA NEFES">
   <div class="cols">
-    <nav><h5 data-en="Shop">Mağaza</h5><a href="./#koleksiyon" data-en="Honey">Bal</a><a href="./#hasat" data-en="Harvest calendar">Hasat takvimi</a><a href="./#hediye" data-en="Gifting">Hediye</a></nav>
-    <nav><h5>Ida Nefes</h5><a href="story.html" data-en="Our story">Hikâyemiz</a><a href="#" data-en="Contact">İletişim</a></nav>
+    <nav><h5 data-en="Shop">Mağaza</h5><a href="magaza.html" data-en="All products">Tüm ürünler</a><a href="bal.html" data-en="Honey">Bal</a><a href="./#arazi" data-en="The land">Arazi</a><a href="./#hediye" data-en="Gifting">Hediye</a></nav>
+    <nav><h5>Ida Nefes</h5><a href="story.html" data-en="Our story">Hikayemiz</a><a href="#" data-en="Contact">İletişim</a></nav>
     <nav><h5 data-en="Help">Yardım</h5><a href="#" data-en="Shipping">Kargo</a><a href="#" data-en="Returns">İade</a><a href="#" data-en="Distance sales agreement">Mesafeli satış sözleşmesi</a><a href="#" data-en="KVKK privacy notice">KVKK aydınlatma metni</a><a href="#" data-en="Cookie policy">Çerez politikası</a></nav>
   </div>
   <p class="legal">© 2026 Ida Nefes · Kazdağı</p>
@@ -344,7 +349,7 @@ header{mix-blend-mode:normal;color:var(--ink)}
   <p class="dw-empty" id="dw-empty" data-en="Your bag is empty.">Sepetiniz boş.</p>
   <div class="dw-list" id="dw-list"></div>
   <div class="dw-foot" id="dw-foot" hidden>
-    <p><span data-en="Subtotal">Ara toplam</span><span>₺ —</span></p>
+    <p><span data-en="Subtotal">Ara toplam</span><span id="dw-sub">₺890</span></p>
     <p class="muted" data-en="Shipping is calculated at checkout.">Kargo ödeme adımında hesaplanır.</p>
     <a class="add" href="#" data-en="Checkout">Ödemeye geç</a>
   </div>
@@ -363,12 +368,48 @@ document.getElementById('lang').addEventListener('click', () => {
   document.getElementById('lang').innerHTML = lang === 'tr' ? '<b>TR</b> / EN' : 'TR / <b>EN</b>';
 });
 
+// bag: shared by home, the honey page and the story page; survives moving between pages in one visit
 (() => {
-  const drawer = document.getElementById('drawer'), scrim = document.getElementById('scrim');
-  const bag = [...document.querySelectorAll('header a')].find(a => /Sepet|Bag/.test(a.textContent));
+  const CATALOG = {"bal": {"tr": "Ida Nefes Bal", "en": "Ida Nefes Honey", "img": "img/bal-lg.webp", "size": "400 g", "price": 890}};
+  const MAX = 12, KEY = 'ida-nefes-bag', $ = id => document.getElementById(id), tl = v => '₺' + v.toLocaleString('tr-TR');
+  const bag = new Map();
+  try { for (const [id, c] of JSON.parse(sessionStorage.getItem(KEY) || '[]')) if (CATALOG[id] && c > 0) bag.set(id, Math.min(MAX, c)); } catch (e) { /* storage blocked: the bag lasts for this page only */ }
+  const save = () => { try { sessionStorage.setItem(KEY, JSON.stringify([...bag])); } catch (e) { /* storage blocked */ } };
+  const q = $('q');
+  let n = 1;
+  const set = v => { n = Math.max(1, Math.min(MAX, v)); q.value = q.textContent = n; };
+  if (q) { $('minus').onclick = () => set(n - 1); $('plus').onclick = () => set(n + 1); }
+  const drawer = $('drawer'), scrim = $('scrim'), list = $('dw-list'), empty = $('dw-empty'), foot = $('dw-foot');
+  const link = [...document.querySelectorAll('header a')].find(a => /Sepet|Bag/.test(a.textContent));
   const open = on => { drawer.classList.toggle('open', on); scrim.classList.toggle('on', on); drawer.setAttribute('aria-hidden', !on); };
-  bag.addEventListener('click', ev => { ev.preventDefault(); open(true); });
-  document.getElementById('close').onclick = () => open(false); scrim.onclick = () => open(false);
+  const paint = () => {
+    const en = document.documentElement.lang === 'en';
+    const total = [...bag.values()].reduce((a, b) => a + b, 0);
+    link.dataset.tr = `Sepet (${total})`; link.dataset.en = `Bag (${total})`;
+    link.textContent = en ? link.dataset.en : link.dataset.tr;
+    empty.hidden = total > 0; foot.hidden = total === 0;
+    $('dw-sub').textContent = tl([...bag].reduce((a, [id, c]) => a + CATALOG[id].price * c, 0));
+    list.innerHTML = [...bag].map(([id, count]) => {
+      const p = CATALOG[id];
+      return `<div class="dw-item"><img src="${p.img}" alt=""><div>
+        <p class="serif" data-tr="${p.tr}" data-en="${p.en}">${en ? p.en : p.tr}</p>
+        <p class="muted">${p.size ? p.size + ' · ' : ''}${count} × ${tl(p.price)}</p>
+        <div class="dw-qty"><button type="button" data-act="dec" data-id="${id}" aria-label="Azalt">−</button><span>${count}</span><button type="button" data-act="inc" data-id="${id}" aria-label="Artır">+</button>
+        <button type="button" class="rm" data-act="rm" data-id="${id}" data-tr="Kaldır" data-en="Remove">${en ? 'Remove' : 'Kaldır'}</button></div>
+      </div></div>`;
+    }).join('');
+  };
+  const put = (id, count) => { if (count > 0) bag.set(id, Math.min(MAX, count)); else bag.delete(id); save(); paint(); };
+  list.addEventListener('click', ev => {
+    const b = ev.target.closest('[data-act]');
+    if (!b) return;
+    const c = bag.get(b.dataset.id) || 0;
+    put(b.dataset.id, b.dataset.act === 'inc' ? c + 1 : b.dataset.act === 'dec' ? c - 1 : 0);
+  });
+  if ($('add')) $('add').onclick = () => { put('bal', (bag.get('bal') || 0) + n); set(1); open(true); };
+  link.addEventListener('click', ev => { ev.preventDefault(); open(true); });
+  paint();
+  $('close').onclick = () => open(false); scrim.onclick = () => open(false);
   addEventListener('keydown', ev => { if (ev.key === 'Escape') open(false); });
 })();
 </script>

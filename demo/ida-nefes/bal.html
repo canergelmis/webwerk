@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ida Nefes Bal</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Web sitesi önizlemesi">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ida Nefes">
+<meta property="og:title" content="Ida Nefes Bal">
+<meta property="og:description" content="Web sitesi önizlemesi">
+<meta property="og:url" content="https://webwerk.lu/demo/ida-nefes/bal.html">
+<meta property="og:image" content="https://webwerk.lu/demo/ida-nefes/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="IDA NEFES, ormanlı bir zirve ve bulutlar">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://webwerk.lu/demo/ida-nefes/og.jpg">
+<link rel="icon" type="image/svg+xml" href="ida-nefes-emblem-gold.svg">
+<style>
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-display: swap; font-weight: 400; src:url(fonts/cormorant-garamond-latin-ext-400-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-display: swap; font-weight: 400; src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-display: swap; font-weight: 500; src:url(fonts/cormorant-garamond-latin-ext-500-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-display: swap; font-weight: 500; src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-display: swap; font-weight: 600; src:url(fonts/cormorant-garamond-latin-ext-600-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-display: swap; font-weight: 600; src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-display: swap; font-weight: 400; src:url(fonts/cormorant-garamond-latin-ext-400-italic.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-display: swap; font-weight: 400; src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Jost'; font-style: normal; font-display: swap; font-weight: 300; src:url(fonts/jost-latin-ext-300-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Jost'; font-style: normal; font-display: swap; font-weight: 300; src:url(fonts/jost-latin-300-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Jost'; font-style: normal; font-display: swap; font-weight: 400; src:url(fonts/jost-latin-ext-400-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Jost'; font-style: normal; font-display: swap; font-weight: 400; src:url(fonts/jost-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Jost'; font-style: normal; font-display: swap; font-weight: 500; src:url(fonts/jost-latin-ext-500-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Jost'; font-style: normal; font-display: swap; font-weight: 500; src:url(fonts/jost-latin-500-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+
+:root{--forest:#18382E;--forest-deep:#0e231c;--lime:#F3EBDD;--gold:#B08B4F;--gold-soft:#d2b07a;--saffron:#AC4A27}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--forest-deep)}
+body{font-family:Jost,system-ui,sans-serif;font-weight:300;color:var(--lime);background:var(--forest-deep);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+
+/* header: one quiet shop path, off the image */
+header{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(18px,4vw,48px);font-size:12px;letter-spacing:.22em;text-transform:uppercase;mix-blend-mode:difference;color:#fff}
+header nav{display:flex;gap:clamp(14px,2.4vw,32px);align-items:center}
+header button{all:unset;cursor:pointer;letter-spacing:.22em}
+header button b{font-weight:500}
+
+/* hero: sticky canvas scrubbed by scroll */
+.hero{position:relative;height:420vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(14,35,28,.0) 55%,rgba(14,35,28,.55) 100%)}
+.layer{position:absolute;inset:0;display:flex;flex-direction:column;pointer-events:none;opacity:0;will-change:opacity,transform}
+.layer.on{pointer-events:auto}
+
+.intro{align-items:center;justify-content:flex-start;padding-top:22vh;text-align:center;color:var(--forest)}
+.intro img{width:min(62vw,620px);height:auto}
+.intro p{margin-top:22px;font-size:clamp(20px,2.2vw,30px);font-style:italic;color:var(--lime)}
+.clip-A .introword{filter:brightness(.42) saturate(1.4)}
+.clip-A .intro p,.clip-A .hint{color:var(--forest)}
+.switch{position:fixed;left:50%;top:52px;transform:translateX(-50%);z-index:30;display:flex;gap:6px;font:500 11px Jost,sans-serif;letter-spacing:.16em}
+.switch a{padding:7px 12px;border:1px solid rgba(176,139,79,.5);background:rgba(14,35,28,.7);color:var(--lime)}
+.switch a.on{background:var(--gold);color:var(--forest-deep)}
+
+.mid{align-items:center;justify-content:flex-end;padding-bottom:9vh;text-align:center}
+.mid p{font-size:clamp(26px,3.6vw,52px);line-height:1.1;font-weight:400;max-width:16ch;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+
+.end{justify-content:center;padding:0 clamp(22px,7vw,110px)}
+.end .mark{width:min(36vw,380px);height:auto;clip-path:inset(100% 0 0 0)}
+.end .word{width:min(40vw,420px);height:auto;margin-top:28px}
+.end h1{font-size:clamp(34px,4.6vw,68px);font-weight:400;line-height:1.02;margin-top:30px;max-width:12ch}
+.end .cta{display:inline-flex;gap:14px;align-items:center;margin-top:30px;padding:15px 26px;border:1px solid var(--gold);color:var(--lime);font-size:12px;letter-spacing:.24em;text-transform:uppercase;width:max-content;transition:background .3s}
+.end .cta:hover{background:var(--gold);color:var(--forest-deep)}
+.hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--lime);opacity:.75}
+
+/* range: four drop windows */
+.range{background:var(--forest-deep);padding:clamp(80px,12vw,160px) clamp(20px,6vw,90px) clamp(70px,9vw,120px)}
+.range header.s{position:static;mix-blend-mode:normal;display:block;padding:0;text-transform:none;letter-spacing:0;font-size:inherit;color:inherit;max-width:640px;margin:0 auto 70px;text-align:center}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-soft)}
+.range h2{font-size:clamp(38px,5vw,72px);font-weight:400;line-height:1.02;margin-top:16px}
+.range .lede{margin-top:18px;font-size:16px;line-height:1.7;color:rgba(243,235,221,.72)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.6vw,40px);max-width:1260px;margin:0 auto}
+.card{display:flex;flex-direction:column;align-items:center;text-align:center}
+.drop{width:100%;aspect-ratio:3/4;clip-path:url(#dropclip);background:#0a1a15;position:relative;overflow:hidden}
+.drop img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover .drop img{transform:scale(1.1)}
+.card h3{font-size:34px;font-weight:500;margin-top:22px}
+.card p{font-size:14px;line-height:1.6;color:rgba(243,235,221,.7);margin-top:6px;max-width:24ch}
+.card .go{margin-top:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft)}
+.card .soon{color:rgba(243,235,221,.45)}
+.note{margin:56px auto 0;text-align:center;font-size:11px;letter-spacing:.14em;color:rgba(243,235,221,.35)}
+
+footer{border-top:1px solid rgba(176,139,79,.25);padding:34px clamp(20px,6vw,90px);display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;font-size:12px;color:rgba(243,235,221,.55);letter-spacing:.06em}
+footer nav{display:flex;flex-wrap:wrap;gap:10px 22px}
+
+@media (max-width:760px){
+  .intro{padding-top:16vh}
+  .intro img{width:78vw}
+  .end{justify-content:flex-start;padding-top:15vh;align-items:center;text-align:center}
+  .end .mark{width:30vw}
+  .end .word{width:56vw;margin-top:12px}
+  .end h1{font-size:30px;margin-top:12px;max-width:none}
+  .end .cta{position:absolute;bottom:7vh;left:50%;transform:translateX(-50%);background:rgba(14,35,28,.55);backdrop-filter:blur(6px)}
+  .veil{background:linear-gradient(180deg,rgba(14,35,28,.9) 0%,rgba(14,35,28,.35) 34%,rgba(14,35,28,0) 50%,rgba(14,35,28,0) 75%,rgba(14,35,28,.7) 100%)}
+  .cards{grid-template-columns:1fr 1fr;gap:34px 16px}
+  .card h3{font-size:27px}
+  .card p{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){.hero{height:100vh}}
+
+/* scroll cue (after webwerk.lu) */
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.cue{position:fixed;right:clamp(18px,4vw,48px);bottom:clamp(18px,4vw,40px);z-index:30;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  border:1.5px solid var(--gold);color:var(--gold-soft);background:rgba(14,35,28,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  transition:opacity .4s,visibility .4s,background .3s,color .3s}
+.cue svg{animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+.cue:hover,.cue:focus-visible{background:var(--gold);color:var(--forest-deep);outline:none}
+.cue.off{opacity:0;visibility:hidden}
+@media (min-width:900px){.cue{width:56px;height:56px}}
+@media (prefers-reduced-motion:reduce){.cue svg{animation:none}}
+
+/* specimen E: calm film; type on the cloud sea */
+.veil{display:none}
+.hint{color:var(--forest);opacity:.8}
+.intro{padding-top:13vh}
+.intro img{width:min(40vw,420px)}
+.intro p{margin-top:14px}
+.end{justify-content:flex-end;align-items:center;text-align:center;padding:0 24px 8vh;color:var(--forest)}
+.end .word{width:min(20vw,240px);margin-top:0}
+.end h1{color:var(--forest);font-size:clamp(28px,3.2vw,46px);margin-top:12px;max-width:none}
+.end .cta{border-color:var(--forest);color:var(--forest);margin-top:20px}
+.end .cta:hover{background:var(--forest);color:var(--lime)}
+@media (max-width:760px){
+  .intro{padding-top:12vh}
+  .intro img{width:70vw}
+  .end{justify-content:flex-end;padding:0 20px 7vh}
+  .end .word{width:44vw;margin-top:0}
+  .end h1{font-size:28px;margin-top:10px}
+  .end .cta{position:static;transform:none;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;margin-top:18px}
+}
+
+/* specimen H: white ground; everything in forest */
+.hint{color:var(--forest)}
+.intro{color:var(--forest)}
+.intro p{color:var(--forest)}
+.end{justify-content:flex-start;padding:13vh 24px 0;color:var(--forest)}
+.end h1{color:var(--forest)}
+.end .cta{position:static;transform:none;margin-top:22px;border-color:var(--forest);color:var(--forest)}
+.end .cta:hover{background:var(--forest);color:var(--lime)}
+@media (max-width:760px){.end{padding-top:12vh}.end .cta{position:static;transform:none;margin-top:18px}}
+
+/* specimen I: the home below the hero. Warm white ground continues from the film's last frame. */
+:root{--paper:#eee8e0;--ink:#18382E;--muted:rgba(24,56,46,.62);--rule:rgba(24,56,46,.16)}
+html,body{background:var(--paper)}
+body{color:var(--ink)}
+.eyebrow{color:var(--gold)}
+.ph{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px dashed var(--gold);padding:3px 7px;vertical-align:middle}
+.line{display:inline-block;margin-top:34px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:6px}
+
+header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
+.end .cta{margin-top:30px}
+.shop{padding:clamp(90px,11vw,160px) clamp(20px,6vw,90px) clamp(70px,8vw,120px)}
+@media (min-aspect-ratio:6/5){.shop{background:linear-gradient(#f3eee7,var(--paper) 40vh)}}  /* landscape: the film's last row is lighter; fade from it */
+.shop-head{text-align:center;margin-bottom:clamp(48px,6vw,80px)}
+.shop-head h2{font-size:clamp(38px,5vw,72px);font-weight:400;line-height:1.02;margin-top:14px}
+.product{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,5vw,80px);align-items:center;max-width:1240px;margin:0 auto}
+.media{position:relative;aspect-ratio:3/2;overflow:hidden;background:#e7dfd4}
+.media img{width:100%;height:100%;object-fit:cover;display:block}
+.ph-img{position:absolute;left:12px;bottom:12px;background:rgba(240,235,228,.85)}
+
+.info h3{font-size:clamp(34px,3.4vw,50px);font-weight:500;line-height:1}
+.price{margin-top:14px;font-size:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.price .size{font-size:14px;letter-spacing:.12em;color:var(--muted);border-left:1px solid var(--rule);padding-left:12px}
+.desc{margin-top:22px;font-size:16px;line-height:1.75;color:var(--muted);max-width:40ch}
+.buy{display:flex;gap:12px;margin-top:30px}
+.qty{display:flex;align-items:center;border:1px solid var(--rule)}
+.qty button{all:unset;cursor:pointer;width:42px;text-align:center;font-size:18px;line-height:50px}
+.qty output{min-width:22px;text-align:center;font-size:15px}
+.add{all:unset;box-sizing:border-box;cursor:pointer;flex:1;text-align:center;background:var(--ink);color:var(--lime);font-size:12px;letter-spacing:.24em;text-transform:uppercase;line-height:52px;padding:0 26px;transition:background .3s}
+.add:hover{background:var(--forest-deep)}
+.facts{list-style:none;margin-top:28px;border-top:1px solid var(--rule)}
+.facts li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.facts li span:last-child{color:var(--muted)}
+.farm{background:var(--forest);color:var(--lime);padding:clamp(90px,11vw,160px) clamp(20px,6vw,90px)}
+.farm-in{max-width:1240px;margin:0 auto}
+.farm .eyebrow{color:var(--gold-soft)}
+.farm-lead{font-size:clamp(36px,4.6vw,68px);font-weight:400;line-height:1.08;max-width:18em;margin-top:18px}
+.farm-sub{max-width:52ch;margin-top:26px;font-size:17px;line-height:1.75;color:rgba(243,235,221,.78)}
+.farm .line{color:var(--lime)}
+.stages-head{margin-top:clamp(70px,9vw,120px)}
+.stages{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:30px;border-top:1px solid rgba(176,139,79,.5)}
+.stages li{position:relative;padding:26px clamp(14px,2vw,28px) 0 0}
+.stages li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--gold-soft)}
+.stages .when{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px}
+.stages .what{display:block;font-size:clamp(26px,2.7vw,40px);line-height:1.2}
+.lab-note{margin-top:16px;font-size:14px;line-height:1.7;color:rgba(243,235,221,.72)}
+.cal{list-style:none;margin-top:22px;border-top:1px solid rgba(176,139,79,.35)}
+.cal li{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:18px;align-items:baseline;padding:15px 0;border-bottom:1px solid rgba(176,139,79,.35);font-size:14px;line-height:1.55}
+.cal li span:first-child{color:var(--lime)}
+.cal li span:last-child{color:rgba(243,235,221,.82);text-align:right}
+.info h3 a,.media a{color:inherit;text-decoration:none}
+.media a{display:block;height:100%}
+.table{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);max-width:1240px;margin:clamp(70px,9vw,130px) auto 0;border-top:1px solid var(--rule)}
+.table li{padding:30px clamp(14px,2vw,30px) 0;border-left:1px solid var(--rule)}
+.table li:first-child{border-left:0;padding-left:0}
+.table .n{font-size:15px;color:var(--gold)}
+.table h4{font-size:30px;font-weight:400;margin-top:10px}
+.table p{margin-top:8px;font-size:15px;line-height:1.6;color:var(--muted)}
+
+.mountain{background:var(--forest);color:var(--lime);text-align:center;padding:clamp(90px,11vw,160px) clamp(20px,6vw,90px)}
+.mountain .emblem{width:min(46vw,460px);height:auto;margin-bottom:46px}
+.mountain .eyebrow{color:var(--gold-soft)}
+.mountain h2{font-size:clamp(38px,5vw,72px);font-weight:400;line-height:1.04;margin-top:14px}
+.mountain .lede{max-width:56ch;margin:22px auto 0;font-size:17px;line-height:1.75;color:rgba(243,235,221,.78)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,60px);max-width:1040px;margin:64px auto 0;text-align:left;border-top:1px solid rgba(176,139,79,.35);padding-top:30px}
+.three h4{font-size:28px;font-weight:400;color:var(--gold-soft)}
+.three p{margin-top:8px;font-size:15px;line-height:1.65;color:rgba(243,235,221,.72)}
+.mountain .line{color:var(--lime)}
+
+.gift{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center;max-width:1240px;margin:0 auto;padding:clamp(90px,11vw,160px) clamp(20px,6vw,90px)}
+.gift h2{font-size:clamp(36px,4.4vw,64px);font-weight:400;line-height:1.04;margin-top:14px}
+.gift .lede{margin-top:20px;font-size:16px;line-height:1.75;color:var(--muted);max-width:42ch}
+.notecard{background:#fbf8f3;aspect-ratio:7/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:8%;
+  box-shadow:0 30px 60px -30px rgba(24,56,46,.35),0 2px 6px rgba(24,56,46,.06);transform:rotate(-2deg);border:1px solid rgba(176,139,79,.35)}
+.notecard img{width:34%;height:auto}
+.ruled{width:62%;display:flex;flex-direction:column;gap:22px}.ruled i{display:block;height:1px;background:rgba(176,139,79,.45)}
+.notecard figcaption{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+
+.foot{display:block;border:0;background:var(--forest-deep);color:rgba(243,235,221,.7);padding:clamp(60px,7vw,100px) clamp(20px,6vw,90px) 34px;letter-spacing:0;font-size:14px}
+.foot .fw{width:min(40vw,300px);height:auto}
+.foot .cols{display:grid;grid-template-columns:repeat(3,minmax(0,220px));gap:30px;margin-top:46px}
+.foot nav{display:flex;flex-direction:column;gap:10px}
+.foot h5{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft);font-weight:400;margin-bottom:6px}
+.foot a:hover{color:var(--lime)}
+.foot .legal{margin-top:56px;padding-top:22px;border-top:1px solid rgba(176,139,79,.25);font-size:12px}
+
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,92vw);background:var(--paper);z-index:60;transform:translateX(100%);transition:transform .5s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;padding:26px}
+.drawer.open{transform:none}
+.dw-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);padding-bottom:16px}
+.dw-head h3{font-size:28px;font-weight:500}
+.dw-head button{all:unset;cursor:pointer;font-size:28px;line-height:1}
+.dw-list{flex:1;min-height:0;overflow-y:auto}
+.dw-empty{padding:28px 0;font-size:15px;color:var(--muted)}
+.dw-item{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--rule)}
+.dw-item img{width:84px;height:84px;object-fit:cover;flex:none}
+.dw-item .serif{font-size:22px;line-height:1.1}
+.dw-qty{display:flex;align-items:center;gap:12px;margin-top:8px;font-size:14px}
+.dw-qty button{all:unset;cursor:pointer;width:24px;height:24px;line-height:22px;text-align:center;border:1px solid var(--rule)}
+.dw-qty .rm{width:auto;height:auto;border:0;margin-left:6px;font-size:12px;color:var(--muted);text-decoration:underline}
+.muted{color:var(--muted);font-size:13px;margin-top:4px}
+.dw-foot{margin-top:auto}
+.dw-foot p:first-child{display:flex;justify-content:space-between;font-size:16px}
+.dw-foot .add{display:block;margin-top:18px}
+.scrim{position:fixed;inset:0;background:rgba(14,35,28,.35);z-index:55;opacity:0;pointer-events:none;transition:opacity .4s}
+.scrim.on{opacity:1;pointer-events:auto}
+
+@media (max-width:760px){
+  .stages{grid-template-columns:1fr;border-top:0;border-left:1px solid rgba(176,139,79,.5);margin-left:4px}
+  .stages li{padding:0 0 30px 22px}
+  .stages li:last-child{padding-bottom:0}
+  .stages li::before{top:5px;left:-4px}
+  .product{grid-template-columns:1fr}
+  .media{margin:0 -20px}
+  .ph-img{font-size:8px;letter-spacing:.1em;right:12px}
+  .table{grid-template-columns:1fr}
+  .table li{border-left:0;padding:22px 0;border-bottom:1px solid var(--rule)}
+  .three{grid-template-columns:1fr;gap:24px}
+  .mountain .emblem{width:70vw}
+  .gift{grid-template-columns:1fr}
+  .notecard{transform:rotate(-1.5deg)}
+  .foot .cols{grid-template-columns:1fr 1fr}
+  .foot .cols nav:last-child{grid-column:1/-1}
+}
+
+/* honey product page */
+header{mix-blend-mode:normal;color:var(--ink)}
+.pdp-top{padding:clamp(96px,10vw,130px) clamp(20px,6vw,90px) clamp(70px,9vw,120px)}
+.pdp-title{font-size:clamp(38px,4vw,58px);font-weight:500;line-height:1}
+.pd-info{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,7vw,110px);max-width:1240px;margin:clamp(70px,9vw,120px) auto 0}
+.pd-info h2{font-size:clamp(30px,3vw,44px);font-weight:400;line-height:1.05}
+.pd-text p{margin-top:16px;font-size:16px;line-height:1.8;color:var(--muted)}
+.pd-info .facts{margin-top:22px}
+.pd-info .facts li{align-items:baseline}
+.pd-info .facts li span:last-child{text-align:right}
+.lab-sec{background:var(--forest);color:var(--lime);padding:clamp(80px,10vw,130px) clamp(20px,6vw,90px)}
+.lab-in{max-width:760px;margin:0 auto}
+.lab-in h2{font-size:clamp(30px,3vw,44px);font-weight:400;line-height:1.05}
+.lab-in .lab + .lab-note{margin-top:22px;font-size:13px}
+@media (max-width:760px){.pd-info{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <clipPath id="dropclip" clipPathUnits="objectBoundingBox">
+    <path d="M.5 0C.56 .14 .78 .33 .9 .5C.97 .6 1 .68 1 .75C1 .89 .78 1 .5 1C.22 1 0 .89 0 .75C0 .68 .03 .6 .1 .5C.22 .33 .44 .14 .5 0Z"/>
+  </clipPath>
+</svg>
+
+<header>
+  <span class="hl"><a href="magaza.html" data-en="Shop">Mağaza</a><a href="story.html" data-en="Our story">Hikayemiz</a></span>
+  <nav>
+    <button id="lang" aria-label="Dil / Language"><b>TR</b> / EN</button>
+    <a href="#" data-en="Bag (0)">Sepet (0)</a>
+  </nav>
+</header>
+
+<main class="pdp">
+  <div class="pdp-top">
+    <div class="product">
+      <div class="media">
+        <img src="img/bal-lg.webp" alt="Ida Nefes bal kavanozu, pirinç rengi kapak" data-en-alt="An Ida Nefes honey jar with a brass-toned lid">
+        <span class="ph ph-img" data-en="Placeholder: client concept image, the product shoot replaces it">Taslak: müşteri konsept görseli, ürün çekimiyle değişecek</span>
+      </div>
+      <div class="info">
+        <h1 class="serif pdp-title" data-en="Ida Nefes Honey">Ida Nefes Bal</h1>
+        <p class="price"><span>₺890</span><span class="size">400 g</span></p>
+        <p class="desc" data-en="Harvested from our own colonies, on our land in the forest ecosystem of Mount Ida, in Yenice, Çanakkale.">Çanakkale'nin Yenice ilçesinde, Kaz Dağları'nın orman ekosistemindeki arazimizde, kendi kolonilerimizden hasat edildi.</p>
+        <div class="buy">
+          <div class="qty" role="group" aria-label="Adet"><button type="button" id="minus" aria-label="Azalt">−</button><output id="q">1</output><button type="button" id="plus" aria-label="Artır">+</button></div>
+          <button class="add" type="button" id="add" data-en="Add to bag">Sepete ekle</button>
+        </div>
+        <ul class="facts">
+          <li><span data-en="Shipping">Kargo</span><span data-en="Costs shown at checkout">Ücret ödeme adımında</span></li>
+          <li><span data-en="Instalments">Taksit</span><span data-en="Options shown at checkout">Seçenekler ödeme adımında</span></li>
+          <li><span data-en="Gift">Hediye</span><span data-en="Add a handwritten-style note">Hediye notu eklenebilir</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="pd-info">
+      <div class="pd-text">
+        <h2 class="serif" data-en="About this honey">Bu bal hakkında</h2>
+        <p data-en="Truffle-inoculated oaks, saffron, aromatic herbs and fruit trees grow together on our land. Bay laurel, thyme, chaste tree, rosemary and lavender widen the flora the bees can use.">Arazimizde trüf aşılı meşeler, safran, aromatik bitkiler ve meyve ağaçları bir arada büyüyor. Defne, kekik, hayıt, biberiye ve lavanta, arıların yararlanabileceği florayı çeşitlendiriyor.</p>
+        <p data-en="We began by choosing calm bees able to adapt to the region. We see this honey as a reflection of the land and of the way we work it.">Kolonilerimize, bölgenin koşullarına uyum sağlayabilecek sakin karakterli arıların seçimiyle başladık. Bu balı, arazinin doğal yapısını ve üretim yaklaşımımızı yansıtan bir ürün olarak görüyoruz.</p>
+        <a class="line" href="story.html" data-en="Our story &rarr;">Hikayemiz &rarr;</a>
+      </div>
+      <div>
+        <h2 class="serif" data-en="Product information">Ürün bilgisi</h2>
+        <ul class="facts">
+        <li><span data-en="Net weight">Net miktar</span><span data-en="400 g">400 g</span></li>
+        <li><span data-en="Produced in">Üretim yeri</span><span data-en="Yenice, Çanakkale · Mount Ida">Yenice, Çanakkale · Kaz Dağları</span></li>
+        <li><span data-en="Harvest">Hasat</span><span data-en="Spring 2026">2026 ilkbahar</span></li>
+        <li><span data-en="Packaging">Ambalaj</span><span data-en="Glass jar">Cam kavanoz</span></li>
+        <li><span data-en="Storage">Saklama</span><span data-en="At room temperature, somewhere dry, lid closed">Oda sıcaklığında, kuru yerde, ağzı kapalı</span></li>
+        <li><span data-en="Crystallisation">Kristalleşme</span><span data-en="A natural property of honey">Balın doğal bir özelliğidir</span></li>
+        <li><span data-en="Note">Uyarı</span><span data-en="Not to be given to infants under one year">1 yaşından küçük bebeklere verilmemelidir</span></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="lab-sec" id="analiz">
+    <div class="lab-in">
+      <h2 class="serif" data-en="Honey analysis">Bal analizi</h2>
+      <p class="lab-note" data-en="A sample from the spring 2026 harvest, analysed at Muğla Sıtkı Koçman University's food analysis centre.">2026 ilkbahar hasadından alınan numune, Muğla Sıtkı Koçman Üniversitesi Gıda Analizleri Uygulama ve Araştırma Merkezi'nde analiz edildi.</p>
+      <ul class="cal lab">
+      <li><span data-en="Proline">Prolin</span><span data-en="914.76 mg/kg">914,76 mg/kg</span></li>
+      <li><span data-en="Sucrose">Sakkaroz</span><span data-en="Not detected">Tespit edilmedi</span></li>
+      <li><span data-en="Maltose">Maltoz</span><span data-en="Not detected">Tespit edilmedi</span></li>
+      <li><span data-en="Naphthalene">Naftalin</span><span data-en="No residue found">Kalıntı bulunmadı</span></li>
+      <li><span data-en="Antibiotics (groups tested)">Antibiyotik (incelenen gruplar)</span><span data-en="No residue found">Kalıntı bulunmadı</span></li>
+      </ul>
+      <p class="lab-note" data-en="Proline is a quality indicator of how fully bees have processed and matured honey.">Prolin, balın arılar tarafından ne kadar işlendiğini ve olgunlaştığını gösteren bir kalite göstergesidir.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <img class="fw" src="ida-nefes-wordmark-gold.svg" alt="IDA NEFES">
+  <div class="cols">
+    <nav><h5 data-en="Shop">Mağaza</h5><a href="magaza.html" data-en="All products">Tüm ürünler</a><a href="bal.html" data-en="Honey">Bal</a><a href="./#arazi" data-en="The land">Arazi</a><a href="./#hediye" data-en="Gifting">Hediye</a></nav>
+    <nav><h5>Ida Nefes</h5><a href="story.html" data-en="Our story">Hikayemiz</a><a href="#" data-en="Contact">İletişim</a></nav>
+    <nav><h5 data-en="Help">Yardım</h5><a href="#" data-en="Shipping">Kargo</a><a href="#" data-en="Returns">İade</a><a href="#" data-en="Distance sales agreement">Mesafeli satış sözleşmesi</a><a href="#" data-en="KVKK privacy notice">KVKK aydınlatma metni</a><a href="#" data-en="Cookie policy">Çerez politikası</a></nav>
+  </div>
+  <p class="legal">© 2026 Ida Nefes · Kazdağı</p>
+</footer>
+
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Sepet">
+  <div class="dw-head"><h3 class="serif" data-en="Your bag">Sepetiniz</h3><button type="button" id="close" aria-label="Kapat">×</button></div>
+  <p class="dw-empty" id="dw-empty" data-en="Your bag is empty.">Sepetiniz boş.</p>
+  <div class="dw-list" id="dw-list"></div>
+  <div class="dw-foot" id="dw-foot" hidden>
+    <p><span data-en="Subtotal">Ara toplam</span><span id="dw-sub">₺890</span></p>
+    <p class="muted" data-en="Shipping is calculated at checkout.">Kargo ödeme adımında hesaplanır.</p>
+    <a class="add" href="#" data-en="Checkout">Ödemeye geç</a>
+  </div>
+</aside>
+<div class="scrim" id="scrim"></div>
+
+<script>
+let lang = 'tr';
+document.getElementById('lang').addEventListener('click', () => {
+  lang = lang === 'tr' ? 'en' : 'tr';
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (!el.dataset.tr) el.dataset.tr = el.innerHTML;
+    el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.tr;
+  });
+  document.getElementById('lang').innerHTML = lang === 'tr' ? '<b>TR</b> / EN' : 'TR / <b>EN</b>';
+});
+
+// bag: shared by home, the honey page and the story page; survives moving between pages in one visit
+(() => {
+  const CATALOG = {"bal": {"tr": "Ida Nefes Bal", "en": "Ida Nefes Honey", "img": "img/bal-lg.webp", "size": "400 g", "price": 890}};
+  const MAX = 12, KEY = 'ida-nefes-bag', $ = id => document.getElementById(id), tl = v => '₺' + v.toLocaleString('tr-TR');
+  const bag = new Map();
+  try { for (const [id, c] of JSON.parse(sessionStorage.getItem(KEY) || '[]')) if (CATALOG[id] && c > 0) bag.set(id, Math.min(MAX, c)); } catch (e) { /* storage blocked: the bag lasts for this page only */ }
+  const save = () => { try { sessionStorage.setItem(KEY, JSON.stringify([...bag])); } catch (e) { /* storage blocked */ } };
+  const q = $('q');
+  let n = 1;
+  const set = v => { n = Math.max(1, Math.min(MAX, v)); q.value = q.textContent = n; };
+  if (q) { $('minus').onclick = () => set(n - 1); $('plus').onclick = () => set(n + 1); }
+  const drawer = $('drawer'), scrim = $('scrim'), list = $('dw-list'), empty = $('dw-empty'), foot = $('dw-foot');
+  const link = [...document.querySelectorAll('header a')].find(a => /Sepet|Bag/.test(a.textContent));
+  const open = on => { drawer.classList.toggle('open', on); scrim.classList.toggle('on', on); drawer.setAttribute('aria-hidden', !on); };
+  const paint = () => {
+    const en = document.documentElement.lang === 'en';
+    const total = [...bag.values()].reduce((a, b) => a + b, 0);
+    link.dataset.tr = `Sepet (${total})`; link.dataset.en = `Bag (${total})`;
+    link.textContent = en ? link.dataset.en : link.dataset.tr;
+    empty.hidden = total > 0; foot.hidden = total === 0;
+    $('dw-sub').textContent = tl([...bag].reduce((a, [id, c]) => a + CATALOG[id].price * c, 0));
+    list.innerHTML = [...bag].map(([id, count]) => {
+      const p = CATALOG[id];
+      return `<div class="dw-item"><img src="${p.img}" alt=""><div>
+        <p class="serif" data-tr="${p.tr}" data-en="${p.en}">${en ? p.en : p.tr}</p>
+        <p class="muted">${p.size ? p.size + ' · ' : ''}${count} × ${tl(p.price)}</p>
+        <div class="dw-qty"><button type="button" data-act="dec" data-id="${id}" aria-label="Azalt">−</button><span>${count}</span><button type="button" data-act="inc" data-id="${id}" aria-label="Artır">+</button>
+        <button type="button" class="rm" data-act="rm" data-id="${id}" data-tr="Kaldır" data-en="Remove">${en ? 'Remove' : 'Kaldır'}</button></div>
+      </div></div>`;
+    }).join('');
+  };
+  const put = (id, count) => { if (count > 0) bag.set(id, Math.min(MAX, count)); else bag.delete(id); save(); paint(); };
+  list.addEventListener('click', ev => {
+    const b = ev.target.closest('[data-act]');
+    if (!b) return;
+    const c = bag.get(b.dataset.id) || 0;
+    put(b.dataset.id, b.dataset.act === 'inc' ? c + 1 : b.dataset.act === 'dec' ? c - 1 : 0);
+  });
+  if ($('add')) $('add').onclick = () => { put('bal', (bag.get('bal') || 0) + n); set(1); open(true); };
+  link.addEventListener('click', ev => { ev.preventDefault(); open(true); });
+  paint();
+  $('close').onclick = () => open(false); scrim.onclick = () => open(false);
+  addEventListener('keydown', ev => { if (ev.key === 'Escape') open(false); });
+})();
+</script>
+</body>
+</html>
