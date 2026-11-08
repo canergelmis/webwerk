@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hikâyemiz · Ida Nefes</title>
 <meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Web sitesi önizlemesi">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ida Nefes">
+<meta property="og:title" content="Hikâyemiz · Ida Nefes">
+<meta property="og:description" content="Web sitesi önizlemesi">
+<meta property="og:url" content="https://webwerk.lu/demo/ida-nefes/story.html">
+<meta property="og:image" content="https://webwerk.lu/demo/ida-nefes/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="IDA NEFES, ormanlı bir zirve ve bulutlar">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://webwerk.lu/demo/ida-nefes/og.jpg">
+<link rel="icon" type="image/svg+xml" href="ida-nefes-emblem-gold.svg">
 <style>
 @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-display: swap; font-weight: 400; src:url(fonts/cormorant-garamond-latin-ext-400-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
 @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-display: swap; font-weight: 400; src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
@@ -171,6 +185,22 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .facts{list-style:none;margin-top:28px;border-top:1px solid var(--rule)}
 .facts li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:13px}
 .facts li span:last-child{color:var(--muted)}
+.farm{background:var(--forest);color:var(--lime);padding:clamp(80px,10vw,140px) clamp(20px,6vw,90px)}
+.farm-in{max-width:1240px;margin:0 auto}
+.farm .eyebrow{color:var(--gold-soft)}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,4vw,60px);margin-top:26px;padding-bottom:clamp(40px,5vw,64px);border-bottom:1px solid rgba(176,139,79,.35)}
+.strip dt{font-size:clamp(34px,4vw,58px);font-weight:400;line-height:1.05}
+.strip dd{margin-top:8px;font-size:14px;color:rgba(243,235,221,.72)}
+.farm-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,7vw,110px);margin-top:clamp(44px,6vw,76px)}
+.farm h2{font-size:clamp(30px,3vw,44px);font-weight:400;line-height:1.05}
+.lab-note{margin-top:16px;font-size:14px;line-height:1.7;color:rgba(243,235,221,.72)}
+.cal{list-style:none;margin-top:22px;border-top:1px solid rgba(176,139,79,.35)}
+.cal li{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:18px;align-items:baseline;padding:15px 0;border-bottom:1px solid rgba(176,139,79,.35);font-size:14px;line-height:1.55}
+.cal li .serif{font-size:25px;line-height:1.15;color:var(--gold-soft)}
+.cal li span:last-child{color:rgba(243,235,221,.82)}
+.lab li{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.lab li span:first-child{color:var(--lime)}
+.lab li span:last-child{text-align:right}
 .table{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);max-width:1240px;margin:clamp(70px,9vw,130px) auto 0;border-top:1px solid var(--rule)}
 .table li{padding:30px clamp(14px,2vw,30px) 0;border-left:1px solid var(--rule)}
 .table li:first-child{border-left:0;padding-left:0}
@@ -210,9 +240,14 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .dw-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);padding-bottom:16px}
 .dw-head h3{font-size:28px;font-weight:500}
 .dw-head button{all:unset;cursor:pointer;font-size:28px;line-height:1}
-.dw-item{display:flex;gap:16px;align-items:center;padding:20px 0;border-bottom:1px solid var(--rule)}
-.dw-item img{width:96px;aspect-ratio:1;object-fit:cover}
-.dw-item .serif{font-size:22px}
+.dw-list{flex:1;min-height:0;overflow-y:auto}
+.dw-empty{padding:28px 0;font-size:15px;color:var(--muted)}
+.dw-item{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--rule)}
+.dw-item img{width:84px;height:84px;object-fit:cover;flex:none}
+.dw-item .serif{font-size:22px;line-height:1.1}
+.dw-qty{display:flex;align-items:center;gap:12px;margin-top:8px;font-size:14px}
+.dw-qty button{all:unset;cursor:pointer;width:24px;height:24px;line-height:22px;text-align:center;border:1px solid var(--rule)}
+.dw-qty .rm{width:auto;height:auto;border:0;margin-left:6px;font-size:12px;color:var(--muted);text-decoration:underline}
 .muted{color:var(--muted);font-size:13px;margin-top:4px}
 .dw-foot{margin-top:auto}
 .dw-foot p:first-child{display:flex;justify-content:space-between;font-size:16px}
@@ -221,6 +256,8 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .scrim.on{opacity:1;pointer-events:auto}
 
 @media (max-width:760px){
+  .strip{grid-template-columns:1fr;gap:22px}
+  .farm-grid{grid-template-columns:1fr}
   .product{grid-template-columns:1fr}
   .media{margin:0 -20px}
   .ph-img{font-size:8px;letter-spacing:.1em;right:12px}
@@ -242,7 +279,7 @@ header{mix-blend-mode:normal;color:var(--ink)}
 .col{max-width:680px;margin:0 auto;padding:clamp(50px,7vw,90px) 22px 0}
 .col h1{font-size:clamp(46px,6vw,84px);font-weight:400;line-height:1;margin-top:12px}
 .col h2{font-size:clamp(28px,2.6vw,36px);font-weight:400;margin-top:clamp(46px,6vw,70px)}
-.slot{margin-top:14px;padding:22px 24px;border:1px dashed var(--gold);color:var(--gold);font-size:14px;line-height:1.7;letter-spacing:.02em}
+.col .body{margin-top:14px;font-size:17px;line-height:1.8;color:var(--muted)}
 .col .line{margin-top:clamp(50px,6vw,80px)}
 </style>
 </head>
@@ -268,14 +305,25 @@ header{mix-blend-mode:normal;color:var(--ink)}
     <div class="eyebrow">Ida Nefes</div>
     <h1 class="serif" data-en="Our story">Hikâyemiz</h1>
 
-    <h2 class="serif" data-en="Who we are">Biz kimiz</h2>
-    <p class="slot" data-en="From the client: who is behind Ida Nefes, and since when.">Müşteriden: Ida Nefes'in arkasında kim var, ne zamandan beri.</p>
+    <h2 class="serif" data-en="Our land">Arazimiz</h2>
+    <p class="body" data-en="We are in Oğlanalanı, a village in the Yenice district of Çanakkale, inside the forest ecosystem of Mount Ida, on about 15 dönüm of land. For four years we have been developing a way of growing that suits nature and the region's own flora.">Çanakkale'nin Yenice ilçesinde, Oğlanalanı köyünde, Kaz Dağları'nın orman ekosistemi içinde, yaklaşık 15 dönümlük bir arazideyiz. Dört yıldır burada doğaya ve bölgenin özgün florasına uyumlu bir üretim modeli geliştiriyoruz.</p>
+    <p class="body" data-en="This land had never been farmed. We began with soil analyses and a study of the region's ecology. Our aim is not high-volume standard production. It is to grow products that suit their place and need care.">Bu arazide daha önce tarımsal üretim yapılmamıştı. Çalışmalarımıza toprak analizleriyle ve bölgenin ekolojik özelliklerini değerlendirerek başladık. Amacımız yüksek miktarlı standart üretim değil; bulunduğu coğrafyayla uyumlu, özen isteyen ürünler yetiştirmek.</p>
 
-    <h2 class="serif">Kazdağı</h2>
-    <p class="slot" data-en="From the client: where on the mountain they are, and what ties them to it.">Müşteriden: dağın neresindeler, onları dağa ne bağlıyor.</p>
+    <h2 class="serif" data-en="On the same land">Aynı arazide</h2>
+    <p class="body" data-en="Truffle-inoculated oaks, saffron, salep, aromatic herbs, fruit trees and beekeeping complement one another on the same land. Bay laurel, thyme, chaste tree, rosemary and lavender widen the flora the bees can use, and beekeeping becomes a natural part of the land's biological cycle.">Trüf aşılı meşeler, safran, salep, aromatik bitkiler, meyve ağaçları ve arıcılık aynı arazide birbirini tamamlıyor. Defne, kekik, hayıt, biberiye ve lavanta arıların yararlanabileceği florayı çeşitlendiriyor; arıcılık da arazinin biyolojik döngüsünün doğal bir parçası oluyor.</p>
 
     <h2 class="serif" data-en="Our honey">Balımız</h2>
-    <p class="slot" data-en="From the client: where the honey comes from, how it is harvested and jarred. Only what they can confirm.">Müşteriden: bal nereden geliyor, nasıl hasat edilip kavanozlanıyor. Yalnızca doğrulanabilen bilgiler.</p>
+    <p class="body" data-en="We began by choosing calm bees able to adapt to the region, and the colonies have grown over time. We see honey as more than one of our products. It reflects the nature of the land and the way we work it.">Bölgenin koşullarına uyum sağlayabilecek, sakin karakterli arıların seçimiyle başladık; koloniler zaman içinde çoğaltıldı. Balı yalnızca ürünlerimizden biri olarak değil, arazinin doğal yapısını ve üretim yaklaşımımızı yansıtan önemli bir çıktı olarak görüyoruz.</p>
+    <p class="body" data-en="A sample from the spring 2026 harvest was analysed at Muğla Sıtkı Koçman University's food analysis centre. Proline measured 914.76 mg/kg. Sucrose and maltose were not detected. No residues of naphthalene or of the antibiotic groups tested were found.">2026 ilkbahar hasadından alınan numune, Muğla Sıtkı Koçman Üniversitesi Gıda Analizleri Uygulama ve Araştırma Merkezi'nde analiz edildi. Prolin değeri 914,76 mg/kg olarak ölçüldü. Sakkaroz ve maltoz tespit edilmedi; naftalin ile analiz kapsamındaki antibiyotik gruplarında kalıntıya rastlanmadı.</p>
+
+    <h2 class="serif" data-en="In their own time">Zamanı gelince</h2>
+    <p class="body" data-en="Honey and pollen have been harvested. After a successful first planting of saffron, a second area has been planted, and the harvest is expected in November. A trial plot of about 50 m² is being set up for salep. In the truffle-inoculated oaks planted in 2023, third-year root analyses showed mycorrhizal uptake of about 85%. The first crop is expected in 2028.">Bal ve polen hasadı yapıldı. Safranda ilk ekimin başarılı sonuç vermesinin ardından ikinci alan da dikildi; kasım ayında hasat bekleniyor. Salep için yaklaşık 50 m² büyüklüğünde bir deneme parseli kuruluyor. 2023'te dikilen trüf aşılı meşelerde üçüncü yıl kök mikoriza analizleri yaklaşık %85 oranında tutunma gösterdi; ilk ürünlerin 2028'de alınması bekleniyor.</p>
+
+    <h2 class="serif" data-en="With the village">Köyle birlikte</h2>
+    <p class="body" data-en="Oğlanalanı is a forest village. As production grows, we aim to help build a trained agricultural workforce in the region and to share the value created locally as far as possible. Ida Nefes is 100% women-founded.">Oğlanalanı bir orman köyü. Üretim büyüdükçe bölgede eğitimli ve nitelikli tarım işgücünün oluşmasına katkı sağlamayı, yaratılan ekonomik değerin mümkün olduğunca yerelde paylaşılmasını hedefliyoruz. Ida Nefes %100 kadın girişimci yapısına sahip.</p>
+
+    <h2 class="serif" data-en="What comes next">Sırada</h2>
+    <p class="body" data-en="We want to bring products that reflect the character of Mount Ida first to customers in Türkiye, and then, selectively, to markets abroad.">Kaz Dağları'nın kendine özgü doğal karakterini yansıtan ürünleri önce Türkiye'de, ardından seçici biçimde yurt dışı pazarlarda tüketiciyle buluşturmak istiyoruz.</p>
 
     <a class="line" href="./#koleksiyon" data-en="To the shop &rarr;">Mağazaya &rarr;</a>
   </div>
@@ -284,7 +332,7 @@ header{mix-blend-mode:normal;color:var(--ink)}
 <footer class="foot">
   <img class="fw" src="ida-nefes-wordmark-gold.svg" alt="IDA NEFES">
   <div class="cols">
-    <nav><h5 data-en="Shop">Mağaza</h5><a href="./#koleksiyon" data-en="Honey">Bal</a><a href="./#hediye" data-en="Gifting">Hediye</a></nav>
+    <nav><h5 data-en="Shop">Mağaza</h5><a href="./#koleksiyon" data-en="Honey">Bal</a><a href="./#hasat" data-en="Harvest calendar">Hasat takvimi</a><a href="./#hediye" data-en="Gifting">Hediye</a></nav>
     <nav><h5>Ida Nefes</h5><a href="story.html" data-en="Our story">Hikâyemiz</a><a href="#" data-en="Contact">İletişim</a></nav>
     <nav><h5 data-en="Help">Yardım</h5><a href="#" data-en="Shipping">Kargo</a><a href="#" data-en="Returns">İade</a><a href="#" data-en="Distance sales agreement">Mesafeli satış sözleşmesi</a><a href="#" data-en="KVKK privacy notice">KVKK aydınlatma metni</a><a href="#" data-en="Cookie policy">Çerez politikası</a></nav>
   </div>
@@ -293,8 +341,9 @@ header{mix-blend-mode:normal;color:var(--ink)}
 
 <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Sepet">
   <div class="dw-head"><h3 class="serif" data-en="Your bag">Sepetiniz</h3><button type="button" id="close" aria-label="Kapat">×</button></div>
-  <div class="dw-item"><img src="img/bal-lg.webp" alt=""><div><p class="serif" data-en="Ida Nefes Honey">Ida Nefes Bal</p><p class="muted">400 g · <span id="dq">1</span> × ₺ —</p></div></div>
-  <div class="dw-foot">
+  <p class="dw-empty" id="dw-empty" data-en="Your bag is empty.">Sepetiniz boş.</p>
+  <div class="dw-list" id="dw-list"></div>
+  <div class="dw-foot" id="dw-foot" hidden>
     <p><span data-en="Subtotal">Ara toplam</span><span>₺ —</span></p>
     <p class="muted" data-en="Shipping is calculated at checkout.">Kargo ödeme adımında hesaplanır.</p>
     <a class="add" href="#" data-en="Checkout">Ödemeye geç</a>
