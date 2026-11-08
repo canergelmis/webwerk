@@ -740,3 +740,24 @@ a.bill:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
 .credits--two a:hover, .credits--two a:focus-visible { color: var(--gold); }
 .credits__row--gold { color: var(--gold); display: block; text-align: center; }
 @media (max-width: 819px) { .bill__sky .nw { display: block; } }
+
+/* r23: on Home the gada is the one move. The banner is there from the first frame */
+.anim .pg-home .hero__art { animation: none; }
+.anim .pg-home .hero__roller { display: none; }
+.anim .pg-home .welcome { animation-delay: .15s; }
+.anim .pg-home .block__ln:nth-child(1) { animation-delay: .7s; }
+.anim .pg-home .block__ln:nth-child(2) { animation-delay: .86s; }
+.anim .pg-home .hero .credits { animation-delay: 1.15s; }
+.hero__push img.lift { position: absolute; inset: 0; pointer-events: none; }
+.lift--gada { transform-origin: 73% 73%; animation: gada-lift 1.3s cubic-bezier(.33, 0, .2, 1) .2s both; will-change: transform; }
+@media (min-width: 820px) { .lift--gada { transform-origin: 74% 80%; } }
+@keyframes gada-lift {
+  0% { transform: none; }
+  46% { transform: translateY(-3.4%) rotate(-3.8deg); }
+  60% { transform: translateY(-3.4%) rotate(-3.8deg); }
+  84% { transform: translateY(.3%) rotate(.3deg); }
+  100% { transform: none; }
+}
+.credits__row--gold .credits__dot { padding: 0 .2em; }
+@media (max-width: 819px) { .credits__what { display: block; } .credits__dot { display: none; } }
+
