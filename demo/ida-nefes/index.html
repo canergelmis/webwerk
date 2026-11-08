@@ -185,22 +185,25 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .facts{list-style:none;margin-top:28px;border-top:1px solid var(--rule)}
 .facts li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:13px}
 .facts li span:last-child{color:var(--muted)}
-.farm{background:var(--forest);color:var(--lime);padding:clamp(80px,10vw,140px) clamp(20px,6vw,90px)}
+.farm{background:var(--forest);color:var(--lime);padding:clamp(90px,11vw,160px) clamp(20px,6vw,90px)}
 .farm-in{max-width:1240px;margin:0 auto}
 .farm .eyebrow{color:var(--gold-soft)}
-.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,4vw,60px);margin-top:26px;padding-bottom:clamp(40px,5vw,64px);border-bottom:1px solid rgba(176,139,79,.35)}
-.strip dt{font-size:clamp(34px,4vw,58px);font-weight:400;line-height:1.05}
-.strip dd{margin-top:8px;font-size:14px;color:rgba(243,235,221,.72)}
-.farm-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,7vw,110px);margin-top:clamp(44px,6vw,76px)}
-.farm h2{font-size:clamp(30px,3vw,44px);font-weight:400;line-height:1.05}
+.farm-lead{font-size:clamp(36px,4.6vw,68px);font-weight:400;line-height:1.08;max-width:18em;margin-top:18px}
+.farm-sub{max-width:52ch;margin-top:26px;font-size:17px;line-height:1.75;color:rgba(243,235,221,.78)}
+.farm .line{color:var(--lime)}
+.stages-head{margin-top:clamp(70px,9vw,120px)}
+.stages{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:30px;border-top:1px solid rgba(176,139,79,.5)}
+.stages li{position:relative;padding:26px clamp(14px,2vw,28px) 0 0}
+.stages li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--gold-soft)}
+.stages .when{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px}
+.stages .what{display:block;font-size:clamp(26px,2.7vw,40px);line-height:1.2}
 .lab-note{margin-top:16px;font-size:14px;line-height:1.7;color:rgba(243,235,221,.72)}
 .cal{list-style:none;margin-top:22px;border-top:1px solid rgba(176,139,79,.35)}
-.cal li{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:18px;align-items:baseline;padding:15px 0;border-bottom:1px solid rgba(176,139,79,.35);font-size:14px;line-height:1.55}
-.cal li .serif{font-size:25px;line-height:1.15;color:var(--gold-soft)}
-.cal li span:last-child{color:rgba(243,235,221,.82)}
-.lab li{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
-.lab li span:first-child{color:var(--lime)}
-.lab li span:last-child{text-align:right}
+.cal li{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:18px;align-items:baseline;padding:15px 0;border-bottom:1px solid rgba(176,139,79,.35);font-size:14px;line-height:1.55}
+.cal li span:first-child{color:var(--lime)}
+.cal li span:last-child{color:rgba(243,235,221,.82);text-align:right}
+.info h3 a,.media a{color:inherit;text-decoration:none}
+.media a{display:block;height:100%}
 .table{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);max-width:1240px;margin:clamp(70px,9vw,130px) auto 0;border-top:1px solid var(--rule)}
 .table li{padding:30px clamp(14px,2vw,30px) 0;border-left:1px solid var(--rule)}
 .table li:first-child{border-left:0;padding-left:0}
@@ -256,8 +259,10 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .scrim.on{opacity:1;pointer-events:auto}
 
 @media (max-width:760px){
-  .strip{grid-template-columns:1fr;gap:22px}
-  .farm-grid{grid-template-columns:1fr}
+  .stages{grid-template-columns:1fr;border-top:0;border-left:1px solid rgba(176,139,79,.5);margin-left:4px}
+  .stages li{padding:0 0 30px 22px}
+  .stages li:last-child{padding-bottom:0}
+  .stages li::before{top:5px;left:-4px}
   .product{grid-template-columns:1fr}
   .media{margin:0 -20px}
   .ph-img{font-size:8px;letter-spacing:.1em;right:12px}
@@ -281,7 +286,7 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 </svg>
 
 <header>
-  <span class="hl"><a href="#koleksiyon" data-en="Shop">Mağaza</a><a href="story.html" data-en="Our story">Hikâyemiz</a></span>
+  <span class="hl"><a href="magaza.html" data-en="Shop">Mağaza</a><a href="story.html" data-en="Our story">Hikayemiz</a></span>
   <nav>
     <button id="lang" aria-label="Dil / Language"><b>TR</b> / EN</button>
     <a href="#" data-en="Bag (0)">Sepet (0)</a>
@@ -319,14 +324,14 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
   </div>
   <div class="product">
     <div class="media" id="media">
-      <img src="img/bal-lg.webp" alt="Ida Nefes bal kavanozu, pirinç rengi kapak" data-en-alt="An Ida Nefes honey jar with a brass-toned lid">
+      <a href="bal.html"><img src="img/bal-lg.webp" alt="Ida Nefes bal kavanozu, pirinç rengi kapak" data-en-alt="An Ida Nefes honey jar with a brass-toned lid"></a>
       
       <span class="ph ph-img" data-en="Placeholder: client concept image, the product shoot replaces it">Taslak: müşteri konsept görseli, ürün çekimiyle değişecek</span>
     </div>
     <div class="info">
-      <h3 class="serif" data-en="Ida Nefes Honey">Ida Nefes Bal</h3>
-      <p class="price"><span>₺ —</span><span class="size">400 g</span> <span class="ph" data-en="price from the client">fiyat müşteriden</span></p>
-      <p class="desc"><span class="ph" data-en="product description from the client">ürün açıklaması müşteriden</span></p>
+      <h3 class="serif"><a href="bal.html" data-en="Ida Nefes Honey">Ida Nefes Bal</a></h3>
+      <p class="price"><span>₺890</span><span class="size">400 g</span></p>
+      <p class="desc" data-en="From our own colonies, on our land on Mount Ida.">Kaz Dağları'ndaki arazimizde, kendi kolonilerimizden.</p>
       <div class="buy">
         <div class="qty" role="group" aria-label="Adet"><button type="button" id="minus" aria-label="Azalt">−</button><output id="q">1</output><button type="button" id="plus" aria-label="Artır">+</button></div>
         <button class="add" type="button" id="add" data-en="Add to bag">Sepete ekle</button>
@@ -336,42 +341,24 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
         <li><span data-en="Instalments">Taksit</span><span data-en="Options shown at checkout">Seçenekler ödeme adımında</span></li>
         <li><span data-en="Gift">Hediye</span><span data-en="Add a handwritten-style note">Hediye notu eklenebilir</span></li>
       </ul>
+      <a class="line" href="bal.html" data-en="Product details &rarr;">Ürün detayları &rarr;</a>
     </div>
   </div>
 </section>
 
-<section class="farm" id="hasat">
+<section class="farm" id="arazi">
   <div class="farm-in">
     <div class="eyebrow" data-en="The land">Arazi</div>
-    <dl class="strip">
-      <div><dt class="serif" data-en="1.5 hectares">15 dönüm</dt><dd data-en="Approximate land area">Yaklaşık arazi büyüklüğü</dd></div>
-      <div><dt class="serif" data-en="4 years">4 yıl</dt><dd data-en="Of work on this land">Bu arazideki emeğimiz</dd></div>
-      <div><dt class="serif">Oğlanalanı</dt><dd data-en="Yenice, Çanakkale · Mount Ida">Yenice, Çanakkale · Kaz Dağları</dd></div>
-    </dl>
-    <div class="farm-grid">
-      <div>
-        <h2 class="serif" data-en="Harvest calendar">Hasat takvimi</h2>
-        <ul class="cal">
-      <li><span class="serif" data-en="Honey">Bal</span><span data-en="Harvested">Hasat edildi</span></li>
-      <li><span class="serif" data-en="Pollen">Polen</span><span data-en="Harvested">Hasat edildi</span></li>
-      <li><span class="serif" data-en="Saffron">Safran</span><span data-en="Harvest expected in November">Hasat kasımda bekleniyor</span></li>
-      <li><span class="serif" data-en="Aromatic Herbs">Aromatik Bitkiler</span><span data-en="Sage, thyme, rosemary and bay laurel grow on the land">Adaçayı, kekik, biberiye ve defne arazide yetişiyor</span></li>
-      <li><span class="serif" data-en="Salep">Salep</span><span data-en="A trial plot of about 50 m² is being set up">Yaklaşık 50 m² deneme parseli kuruluyor</span></li>
-      <li><span class="serif" data-en="Truffle">Trüf</span><span data-en="Inoculated oaks planted in 2023. First crop expected in 2028">Aşılı meşeler 2023'te dikildi. İlk ürün 2028'de bekleniyor</span></li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="serif" data-en="Honey analysis">Bal analizi</h2>
-        <p class="lab-note" data-en="A honey sample from the spring 2026 harvest, analysed at Muğla Sıtkı Koçman University's food analysis centre.">2026 ilkbahar hasadından alınan numune, Muğla Sıtkı Koçman Üniversitesi Gıda Analizleri Uygulama ve Araştırma Merkezi'nde analiz edildi.</p>
-        <ul class="cal lab">
-        <li><span data-en="Proline">Prolin</span><span data-en="914.76 mg/kg">914,76 mg/kg</span></li>
-        <li><span data-en="Sucrose">Sakkaroz</span><span data-en="Not detected">Tespit edilmedi</span></li>
-        <li><span data-en="Maltose">Maltoz</span><span data-en="Not detected">Tespit edilmedi</span></li>
-        <li><span data-en="Naphthalene">Naftalin</span><span data-en="No residue found">Kalıntı bulunmadı</span></li>
-        <li><span data-en="Antibiotics (groups tested)">Antibiyotik (incelenen gruplar)</span><span data-en="No residue found">Kalıntı bulunmadı</span></li>
-        </ul>
-      </div>
-    </div>
+    <h2 class="serif farm-lead" data-en="Truffle oaks, saffron, herbs and bees, on one piece of land on Mount Ida.">Trüf meşeleri, safran, aromatik bitkiler ve arılar; Kaz Dağları'nda aynı arazide.</h2>
+    <p class="farm-sub" data-en="On land never farmed before, we are building production that is measured, analysed and traceable. Ida Nefes is 100% women-founded.">Daha önce tarım yapılmamış bir arazide; ölçülen, analiz edilen ve izlenebilir bir üretim kuruyoruz. Ida Nefes %100 kadın girişimci yapısına sahip.</p>
+    <a class="line" href="story.html" data-en="Our story &rarr;">Hikayemiz &rarr;</a>
+    <div class="stages-head eyebrow" data-en="Harvest calendar">Hasat takvimi</div>
+    <ol class="stages">
+      <li><span class="when" data-en="Harvested">Hasat edildi</span><span class="what serif" data-en="Honey">Bal</span><span class="what serif" data-en="Pollen">Polen</span></li>
+      <li><span class="when" data-en="November 2026">Kasım 2026</span><span class="what serif" data-en="Saffron">Safran</span></li>
+      <li><span class="when" data-en="Growing">Gelişiyor</span><span class="what serif" data-en="Aromatic Herbs">Aromatik Bitkiler</span><span class="what serif" data-en="Salep">Salep</span></li>
+      <li><span class="when" data-en="2028">2028</span><span class="what serif" data-en="Truffle">Trüf</span></li>
+    </ol>
   </div>
 </section>
 
@@ -392,8 +379,8 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 <footer class="foot">
   <img class="fw" src="ida-nefes-wordmark-gold.svg" alt="IDA NEFES">
   <div class="cols">
-    <nav><h5 data-en="Shop">Mağaza</h5><a href="#koleksiyon" data-en="Honey">Bal</a><a href="#hasat" data-en="Harvest calendar">Hasat takvimi</a><a href="#hediye" data-en="Gifting">Hediye</a></nav>
-    <nav><h5>Ida Nefes</h5><a href="story.html" data-en="Our story">Hikâyemiz</a><a href="#" data-en="Contact">İletişim</a></nav>
+    <nav><h5 data-en="Shop">Mağaza</h5><a href="magaza.html" data-en="All products">Tüm ürünler</a><a href="bal.html" data-en="Honey">Bal</a><a href="#arazi" data-en="The land">Arazi</a><a href="#hediye" data-en="Gifting">Hediye</a></nav>
+    <nav><h5>Ida Nefes</h5><a href="story.html" data-en="Our story">Hikayemiz</a><a href="#" data-en="Contact">İletişim</a></nav>
     <nav><h5 data-en="Help">Yardım</h5><a href="#" data-en="Shipping">Kargo</a><a href="#" data-en="Returns">İade</a><a href="#" data-en="Distance sales agreement">Mesafeli satış sözleşmesi</a><a href="#" data-en="KVKK privacy notice">KVKK aydınlatma metni</a><a href="#" data-en="Cookie policy">Çerez politikası</a></nav>
   </div>
   <p class="legal">© 2026 Ida Nefes · Kazdağı</p>
@@ -404,7 +391,7 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
   <p class="dw-empty" id="dw-empty" data-en="Your bag is empty.">Sepetiniz boş.</p>
   <div class="dw-list" id="dw-list"></div>
   <div class="dw-foot" id="dw-foot" hidden>
-    <p><span data-en="Subtotal">Ara toplam</span><span>₺ —</span></p>
+    <p><span data-en="Subtotal">Ara toplam</span><span id="dw-sub">₺890</span></p>
     <p class="muted" data-en="Shipping is calculated at checkout.">Kargo ödeme adımında hesaplanır.</p>
     <a class="add" href="#" data-en="Checkout">Ödemeye geç</a>
   </div>
@@ -444,13 +431,14 @@ function draw() {
   if (im) {
     const W = cv.width, H = cv.height, portrait = W / H < 1.2;
     // landscape: cover. portrait: a wide band through the middle, sky above and cloud below filled in
-    const s = portrait ? Math.max((W * 2.4) / im.width, H * 0.5 / im.height) : Math.max(W / im.width, H / im.height);
-    const dw = im.width * s, dh = im.height * s;
+    const TRIM = 18, iw = im.width - 2 * TRIM;        // every 1920 px frame carries black strips on its left (14 px) and right (16 px) edges
+    const s = portrait ? Math.max((W * 2.4) / iw, H * 0.5 / im.height) : Math.max(W / iw, H / im.height);
+    const dw = iw * s, dh = im.height * s;
     const x = (W - dw) / 2, y = portrait ? H * 0.42 - dh / 2 : (H - dh) / 2;
     const g = cx.createLinearGradient(0, 0, 0, H);
     g.addColorStop(0, SKY); g.addColorStop(clamp((y + dh * 0.5) / H), SKY); g.addColorStop(clamp((y + dh * 0.75) / H), CLOUD); g.addColorStop(1, CLOUD);
     cx.fillStyle = g; cx.fillRect(0, 0, W, H);
-    cx.drawImage(im, x, y, dw, dh);
+    cx.drawImage(im, TRIM, 0, iw, im.height, x, y, dw, dh);
     if (portrait) {                                   // feather the band's top and bottom edges into the fills
       const f = dh * 0.12;
       const edge = (y0, y1, col) => { const e = cx.createLinearGradient(0, y0, 0, y1); e.addColorStop(0, col); e.addColorStop(1, col + '00'); cx.fillStyle = e; cx.fillRect(0, Math.min(y0, y1), W, Math.abs(y1 - y0)); };
@@ -506,17 +494,18 @@ document.getElementById('lang').addEventListener('click', () => {
 });
 
 
-// home: quantity, bag drawer
+// bag: shared by home, the honey page and the story page; survives moving between pages in one visit
 (() => {
-  const CATALOG = {"bal": {"tr": "Ida Nefes Bal", "en": "Ida Nefes Honey", "img": "img/bal-lg.webp", "size": "400 g"}};
-  const MAX = 12, bag = new Map();
-  const q = document.getElementById('q');
+  const CATALOG = {"bal": {"tr": "Ida Nefes Bal", "en": "Ida Nefes Honey", "img": "img/bal-lg.webp", "size": "400 g", "price": 890}};
+  const MAX = 12, KEY = 'ida-nefes-bag', $ = id => document.getElementById(id), tl = v => '₺' + v.toLocaleString('tr-TR');
+  const bag = new Map();
+  try { for (const [id, c] of JSON.parse(sessionStorage.getItem(KEY) || '[]')) if (CATALOG[id] && c > 0) bag.set(id, Math.min(MAX, c)); } catch (e) { /* storage blocked: the bag lasts for this page only */ }
+  const save = () => { try { sessionStorage.setItem(KEY, JSON.stringify([...bag])); } catch (e) { /* storage blocked */ } };
+  const q = $('q');
   let n = 1;
   const set = v => { n = Math.max(1, Math.min(MAX, v)); q.value = q.textContent = n; };
-  document.getElementById('minus').onclick = () => set(n - 1);
-  document.getElementById('plus').onclick = () => set(n + 1);
-  const drawer = document.getElementById('drawer'), scrim = document.getElementById('scrim');
-  const list = document.getElementById('dw-list'), empty = document.getElementById('dw-empty'), foot = document.getElementById('dw-foot');
+  if (q) { $('minus').onclick = () => set(n - 1); $('plus').onclick = () => set(n + 1); }
+  const drawer = $('drawer'), scrim = $('scrim'), list = $('dw-list'), empty = $('dw-empty'), foot = $('dw-foot');
   const link = [...document.querySelectorAll('header a')].find(a => /Sepet|Bag/.test(a.textContent));
   const open = on => { drawer.classList.toggle('open', on); scrim.classList.toggle('on', on); drawer.setAttribute('aria-hidden', !on); };
   const paint = () => {
@@ -525,27 +514,28 @@ document.getElementById('lang').addEventListener('click', () => {
     link.dataset.tr = `Sepet (${total})`; link.dataset.en = `Bag (${total})`;
     link.textContent = en ? link.dataset.en : link.dataset.tr;
     empty.hidden = total > 0; foot.hidden = total === 0;
+    $('dw-sub').textContent = tl([...bag].reduce((a, [id, c]) => a + CATALOG[id].price * c, 0));
     list.innerHTML = [...bag].map(([id, count]) => {
       const p = CATALOG[id];
       return `<div class="dw-item"><img src="${p.img}" alt=""><div>
         <p class="serif" data-tr="${p.tr}" data-en="${p.en}">${en ? p.en : p.tr}</p>
-        <p class="muted">${p.size ? p.size + ' · ' : ''}${count} × ₺ —</p>
+        <p class="muted">${p.size ? p.size + ' · ' : ''}${count} × ${tl(p.price)}</p>
         <div class="dw-qty"><button type="button" data-act="dec" data-id="${id}" aria-label="Azalt">−</button><span>${count}</span><button type="button" data-act="inc" data-id="${id}" aria-label="Artır">+</button>
         <button type="button" class="rm" data-act="rm" data-id="${id}" data-tr="Kaldır" data-en="Remove">${en ? 'Remove' : 'Kaldır'}</button></div>
       </div></div>`;
     }).join('');
   };
-  const put = (id, count) => { if (count > 0) bag.set(id, Math.min(MAX, count)); else bag.delete(id); paint(); };
+  const put = (id, count) => { if (count > 0) bag.set(id, Math.min(MAX, count)); else bag.delete(id); save(); paint(); };
   list.addEventListener('click', ev => {
     const b = ev.target.closest('[data-act]');
     if (!b) return;
     const c = bag.get(b.dataset.id) || 0;
     put(b.dataset.id, b.dataset.act === 'inc' ? c + 1 : b.dataset.act === 'dec' ? c - 1 : 0);
   });
-  document.getElementById('add').onclick = () => { put('bal', (bag.get('bal') || 0) + n); set(1); open(true); };
+  if ($('add')) $('add').onclick = () => { put('bal', (bag.get('bal') || 0) + n); set(1); open(true); };
   link.addEventListener('click', ev => { ev.preventDefault(); open(true); });
   paint();
-  document.getElementById('close').onclick = () => open(false); scrim.onclick = () => open(false);
+  $('close').onclick = () => open(false); scrim.onclick = () => open(false);
   addEventListener('keydown', ev => { if (ev.key === 'Escape') open(false); });
 })();
 </script>
