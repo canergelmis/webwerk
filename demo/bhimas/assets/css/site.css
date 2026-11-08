@@ -761,3 +761,9 @@ a.bill:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
 .credits__row--gold .credits__dot { padding: 0 .2em; }
 @media (max-width: 819px) { .credits__what { display: block; } .credits__dot { display: none; } }
 
+/* r24: as on their wall, WELCOME sits under the Telugu; a nested .nw inside the dishes stays inline */
+.pg-home .welcome { flex-direction: column; align-items: flex-start; gap: 2px; }
+.dishes i .nw { display: inline; margin: 0; font: inherit; white-space: nowrap; }
+.credits__who { color: var(--cream); }
+@media (max-width: 819px) { .credits__who { display: block; } }
+
