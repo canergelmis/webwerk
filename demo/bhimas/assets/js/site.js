@@ -51,3 +51,29 @@ if (list) {
   addEventListener('resize', tidy);
   document.fonts && document.fonts.ready.then(tidy);
 }
+
+// Home: the gada lifts once and settles. Two layers over the unchanged banner, removed afterwards.
+(function () {
+  if (!document.documentElement.classList.contains('anim') || !document.body.classList.contains('pg-home')) return;
+  var push = document.querySelector('.hero__push');
+  if (!push) return;
+  var k = window.matchMedia('(min-width: 820px)').matches ? 'd' : 'm';
+  var started = performance.now();
+  function make(name, cls) {
+    var i = new Image();
+    i.alt = '';
+    i.className = 'lift ' + cls;
+    i.src = 'assets/img/' + name + '-' + k + '.webp';
+    return i;
+  }
+  var patch = make('gada-patch', 'lift--patch');
+  var gada = make('gada-lift', 'lift--gada');
+  Promise.all([patch.decode(), gada.decode()]).then(function () {
+    if (performance.now() - started > 1800) return;
+    var rays = push.querySelector('.rays');
+    push.insertBefore(patch, rays);
+    push.insertBefore(gada, rays);
+    gada.addEventListener('animationend', function () { patch.remove(); gada.remove(); });
+  }).catch(function () {});
+})();
+

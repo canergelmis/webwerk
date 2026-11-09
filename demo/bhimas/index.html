@@ -27,6 +27,10 @@
     try { var l = localStorage.getItem('bh_lang'); if (l === 'fr' || l === 'de') document.documentElement.lang = l; } catch (e) {}
   })();
 </script>
+<link rel="preload" as="image" type="image/webp" href="assets/img/gada-lift-m.webp" media="(max-width: 819px)">
+<link rel="preload" as="image" type="image/webp" href="assets/img/gada-patch-m.webp" media="(max-width: 819px)">
+<link rel="preload" as="image" type="image/webp" href="assets/img/gada-lift-d.webp" media="(min-width: 820px)">
+<link rel="preload" as="image" type="image/webp" href="assets/img/gada-patch-d.webp" media="(min-width: 820px)">
 </head>
 <body id="top" class="pg-home">
 
@@ -54,7 +58,7 @@
   <div class="hero__roller" aria-hidden="true"></div>
 
   <div class="hero__title">
-    <p class="welcome" lang="te"><span class="welcome__te">స్వాగతం-సుస్వాగతం</span></p>
+    <p class="welcome" lang="te"><span class="welcome__te">స్వాగతం-సుస్వాగతం</span> <span class="welcome__en" lang="en">Welcome</span></p>
     <h1 class="block" lang="en">
       <span class="block__ln"><span class="block__sm">Lift<br class="br-d"> the</span> <span class="block__lg">Gada.</span></span>
       <span class="block__ln"><span class="block__sm">Earn<br class="br-d"> the</span> <span class="block__lg">Biryani.</span></span>
@@ -62,39 +66,41 @@
   </div>
 
   <p class="credits credits--two">
-    <span class="credits__row"><span class="credits__tag" lang="en">Traditional flavours. Warm hospitality.</span><i>·</i><span>Andhra &amp; Telangana</span><i>·</i><span data-t="veg">Veg &amp; Non-Veg</span><i>·</i><span class="nw"><span data-t="lunch">Lunch Buffet</span> · <span data-t="days.tuefri">Tuesday to Friday</span> · <span data-t="time.lunch">12:00 PM - 02:00PM</span></span></span>
+    <span class="credits__row credits__row--gold"><span class="nw credits__who" lang="en">Traditional Indian Kitchen</span> <span class="credits__dot">·</span> <span class="nw credits__what"><span lang="en">Andhra &amp; Telangana</span> · <span data-t="veg">Veg &amp; Non-Veg</span></span> <span class="credits__dot">·</span> <span class="nw"><span data-t="lunch">Lunch Buffet</span> · <span data-t="days.tuefri">Tuesday to Friday</span></span> <span class="nw">· <span data-t="time.lunch">12:00 PM - 02:00PM</span></span></span>
     <span class="credits__row"><a href="https://maps.google.com/?cid=10481551621272200989">4b Dernier Sol, Bonnevoie</a><i>·</i><a href="tel:+35227532549">+352 27 53 25 49</a></span>
   </p>
 </header>
 
 <main>
-<!-- 2. the three pages and the game, as posters cut from their banners -->
-<nav class="posters" aria-label="Pages" data-t-aria="posters.aria">
-  <a class="poster poster--food" href="food.html">
-    <span class="poster__art" aria-hidden="true"><img src="assets/img/banner-handi-m.jpg" alt="" width="1120" height="2000" loading="lazy"></span>
-    <span class="poster__t" data-t="nav.food">Food</span>
-    <span class="poster__say" lang="en">A complete meal. A traditional experience. Veg &amp; Non-Veg.</span>
-    <span class="poster__still" aria-hidden="true"><img src="assets/img/photo-veg-thali.jpg" alt="" width="800" height="800" loading="lazy"></span>
+<!-- 2. the programme: one photo, one painting, one room -->
+<section class="prog" aria-label="Pages" data-t-aria="posters.aria">
+  <a class="bill bill--food" href="food.html">
+    <span class="bill__text">
+      <span class="bill__t" data-t="nav.food">Food</span>
+      <span class="bill__say" lang="en">A complete meal. A traditional experience.</span>
+    </span>
+    <span class="bill__photo" aria-hidden="true"><img src="assets/img/photo-veg-thali-wide.jpg" alt="" width="1200" height="1100" loading="lazy"></span>
   </a>
-  <a class="poster poster--gada" href="gada.html">
-    <span class="poster__art" aria-hidden="true"><img src="assets/img/poster-gada.jpg" alt="" width="800" height="1429" loading="lazy"></span>
-    <span class="poster__t" data-t="nav.gada">The Gada</span>
-    <span class="poster__say" lang="en">Challenge Accepted. Strength Proven.</span>
+
+  <div class="bill bill--gada">
+    <div class="bill__art" aria-hidden="true">
+      <picture>
+        <source media="(min-width: 820px)" srcset="assets/img/banner-gada-d.jpg" width="2000" height="1120">
+        <img src="assets/img/banner-gada-m.jpg" alt="" width="1120" height="2000" loading="lazy">
+      </picture>
+    </div>
+    <div class="bill__head">
+      <a class="bill__t" href="gada.html" data-t="nav.gada">The Gada</a>
+      <p class="bill__sky" lang="en"><span class="nw">Challenge Accepted.</span> <span class="nw">Strength Proven.</span></p>
+    </div>
+    <p class="go"><a class="cta" href="feast.html" data-t="poster.play">Play the game</a></p>
+  </div>
+
+  <a class="bill bill--visit" href="visit.html">
+    <span class="bill__photo" aria-hidden="true"><img src="assets/img/photo-neon-wall.jpg" alt="" width="2000" height="1333" loading="lazy"></span>
+    <span class="bill__band"><span class="bill__t" data-t="nav.visit">Visit</span><span class="bill__line"><span data-t="s.dine">Dine In</span> · <span data-t="s.take">Take Away</span> · <span data-t="s.party">Party Services</span></span></span>
   </a>
-  <a class="poster poster--game" href="feast.html">
-    <span class="poster__art" aria-hidden="true"><img src="assets/img/poster-game.jpg" alt="" width="800" height="1429" loading="lazy">
-      <img class="poster__sprite poster__sprite--1" src="assets/img/sprites/biryani.webp" alt="" width="238" height="256" loading="lazy">
-      <img class="poster__sprite poster__sprite--2" src="assets/img/sprites/dosa.webp" alt="" width="256" height="175" loading="lazy">
-      <img class="poster__sprite poster__sprite--3" src="assets/img/sprites/chilli.webp" alt="" width="256" height="246" loading="lazy">
-      <img class="poster__leaf" src="assets/img/sprites/leaf.webp" alt="" width="512" height="232" loading="lazy"></span>
-    <span class="poster__say" lang="en">Bhimas Gada Challenge</span>
-    <span class="poster__t" data-t="poster.play">Play the game</span>
-  </a>
-  <a class="poster poster--visit" href="visit.html">
-    <span class="poster__art" aria-hidden="true"><img src="assets/img/poster-visit.jpg" alt="" width="1200" height="800" loading="lazy"></span>
-    <span class="poster__band"><span class="poster__t" data-t="nav.visit">Visit</span><span class="poster__say" lang="en">4b Dernier Sol, Bonnevoie</span></span>
-  </a>
-</nav>
+</section>
 </main>
 
 <footer class="end">

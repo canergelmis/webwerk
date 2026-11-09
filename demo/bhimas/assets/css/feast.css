@@ -272,3 +272,12 @@ button { font: inherit; color: inherit; cursor: pointer; border-radius: 0; }
   font: 500 12px/1.45 var(--f-body); color: #b9ad94; text-align: center;
 }
 @media (min-width: 820px) { .card--start .disc-g { margin-left: 0; text-align: left; } }
+
+/* r24: the disclosure is a thin footer on the start card, not a box under START */
+.card--start .disc-g {
+  position: absolute; left: 0; right: 0; bottom: 0; margin: 0; max-width: none; width: auto;
+  background: var(--ink); color: rgba(248, 239, 217, .82); padding: 6px var(--pad, 16px) 7px;
+  font-size: 11.5px; line-height: 1.3; text-align: center;
+}
+@media (min-width: 820px) { .card--start .disc-g { margin-left: 0; text-align: center; } }
+
