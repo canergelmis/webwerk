@@ -49,7 +49,7 @@ header button{all:unset;cursor:pointer;letter-spacing:.22em}
 header button b{font-weight:500}
 
 /* hero: sticky canvas scrubbed by scroll */
-.hero{position:relative;height:420vh}
+.hero{position:relative;height:545vh}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(14,35,28,.0) 55%,rgba(14,35,28,.55) 100%)}
@@ -147,7 +147,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:10px 22px}
 .hint{color:var(--forest)}
 .intro{color:var(--forest)}
 .intro p{color:var(--forest)}
-.end{justify-content:flex-start;padding:13vh 24px 0;color:var(--forest)}
+.end{justify-content:flex-start;padding:8vh 24px 0;color:var(--forest)}
 .end h1{color:var(--forest)}
 .end .cta{position:static;transform:none;margin-top:22px;border-color:var(--forest);color:var(--forest)}
 .end .cta:hover{background:var(--forest);color:var(--lime)}
@@ -163,8 +163,8 @@ body{color:var(--ink)}
 
 header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .end .cta{margin-top:30px}
-.shop{padding:clamp(90px,11vw,160px) clamp(20px,6vw,90px) clamp(70px,8vw,120px)}
-@media (min-aspect-ratio:6/5){.shop{background:linear-gradient(#f3eee7,var(--paper) 40vh)}}  /* landscape: the film's last row is lighter; fade from it */
+.shop{padding:clamp(40px,5vw,72px) clamp(20px,6vw,90px) clamp(70px,8vw,120px)}
+.shop{background:linear-gradient(#f3eee7,var(--paper) 40vh)}  /* continues the film's last colour */
 .shop-head{text-align:center;margin-bottom:clamp(48px,6vw,80px)}
 .shop-head h2{font-size:clamp(38px,5vw,72px);font-weight:400;line-height:1.02;margin-top:14px}
 .product{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,5vw,80px);align-items:center;max-width:1240px;margin:0 auto}
@@ -275,6 +275,19 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
   .foot .cols{grid-template-columns:1fr 1fr}
   .foot .cols nav:last-child{grid-column:1/-1}
 }
+
+/* r32: the products under the logo */
+.icons{background:#f3eee7;padding:clamp(30px,5vw,70px) clamp(20px,6vw,90px) clamp(40px,6vw,80px);text-align:center}
+.ic-list{list-style:none;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:clamp(8px,1.6vw,26px);max-width:1240px;margin:clamp(30px,4vw,54px) auto 0}
+.ic-list a{display:flex;flex-direction:column;align-items:center;gap:14px;color:var(--ink);text-decoration:none;padding:10px 0}
+.ic-list svg{width:clamp(50px,5.4vw,76px);height:auto;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s}
+.ic-list svg .f{fill:var(--gold);stroke:none}
+.ic-list svg .g{stroke:#f3eee7}
+.ic-list svg .d,.ic-list svg .b{fill:var(--gold);stroke:none}
+.ic-list svg .s{stroke-width:1.9}
+.ic-list span{font-size:clamp(19px,1.6vw,24px);line-height:1.1}
+.ic-list a:hover svg,.ic-list a:focus-visible svg{transform:translateY(-4px)}
+@media (max-width:900px){.ic-list{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:22px}.ic-list svg{width:58px}}
 </style>
 </head>
 <body>
@@ -301,6 +314,7 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
     <canvas id="film" aria-hidden="true"></canvas>
     <div class="veil" id="veil"></div>
 
+    <img id="lg" src="ida-nefes-logo-label.svg" alt="" hidden>
     <div class="layer intro" id="L1">
       <img class="introword" src="ida-nefes-wordmark-forest.svg" alt="IDA NEFES">
     </div>
@@ -310,12 +324,25 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
     </div>
 
     <div class="layer end" id="L3">
-      <img class="word" src="ida-nefes-wordmark-forest.svg" alt="IDA NEFES">
-      <a class="cta" href="#koleksiyon" data-en="Discover the collection &rarr;">Koleksiyonu keşfet &rarr;</a>
     </div>
 
     <div class="hint" id="hint" data-en="Scroll">Kaydırın</div>
   </div>
+</section>
+
+<section class="icons" id="urunler">
+  <div class="eyebrow" data-en="Our products">Ürünlerimiz</div>
+  <ul class="ic-list">
+    <li><a href="bal.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M32 6C33 15 39 20 43 26C46 31 49 35 49 42A17 17 0 0 1 15 42C15 35 18 31 21 26C25 20 31 15 32 6Z"/><path class="g" d="M23 34C20 39 20 46 24 51"/></svg><span class="serif" data-en="Honey">Bal</span></a></li>
+    <li><a href="magaza.html#polen"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="20" r="7"/><circle cx="19" cy="28" r="7"/><circle cx="45" cy="28" r="7"/><circle cx="32" cy="34" r="7"/><circle cx="19" cy="43" r="7"/><circle cx="45" cy="43" r="7"/><circle cx="32" cy="49" r="7"/><circle class="d" cx="32" cy="20" r="1.1"/><circle class="d" cx="19" cy="28" r="1.1"/><circle class="d" cx="45" cy="28" r="1.1"/><circle class="d" cx="32" cy="34" r="1.1"/><circle class="d" cx="19" cy="43" r="1.1"/><circle class="d" cx="45" cy="43" r="1.1"/><circle class="d" cx="32" cy="49" r="1.1"/></svg><span class="serif" data-en="Pollen">Polen</span></a></li>
+    <li><a href="magaza.html#safran"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 60V43"/><path d="M32 43C21 37 21 20 32 11C43 20 43 37 32 43Z"/><path d="M31 43C20 44 9 35 9 20C15 20 20 22 23.500 26"/><path d="M33 43C44 44 55 35 55 20C49 20 44 22 40.500 26"/><path class="s" d="M32 41C31 33 27 26 25 19M32 41C32 32 32 24 32 16M32 41C33 33 37 26 39 19"/></svg><span class="serif" data-en="Saffron">Safran</span></a></li>
+    <li><a href="magaza.html#truf"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M53.8 33.0 L55.2 34.4 L55.7 35.9 L55.1 37.2 L53.6 38.3 L51.8 39.2 L50.3 40.0 L49.5 40.9 L49.4 42.2 L49.6 43.8 L49.5 45.3 L48.7 46.5 L47.2 47.0 L45.3 47.0 L43.5 46.8 L42.1 46.9 L41.2 47.7 L40.7 49.2 L40.1 51.0 L39.2 52.5 L37.9 53.3 L36.3 53.1 L34.8 52.3 L33.3 51.6 L32.0 51.3 L30.7 51.8 L29.2 52.8 L27.5 53.8 L25.9 54.1 L24.5 53.4 L23.5 51.9 L22.8 50.1 L22.3 48.5 L21.5 47.5 L20.2 47.1 L18.5 47.1 L16.8 47.0 L15.5 46.3 L14.9 45.0 L15.0 43.4 L15.4 41.8 L15.4 40.5 L14.7 39.6 L13.2 38.9 L11.3 38.1 L9.6 37.1 L8.9 35.8 L9.1 34.4 L10.2 33.0 L11.3 31.8 L12.1 30.6 L12.0 29.3 L11.3 27.9 L10.6 26.3 L10.5 24.8 L11.3 23.6 L12.9 22.9 L15.0 22.6 L16.9 22.3 L18.1 21.8 L18.7 20.8 L18.9 19.2 L19.1 17.6 L19.8 16.3 L21.1 15.7 L22.8 15.8 L24.4 16.2 L25.9 16.5 L27.1 16.0 L28.1 14.8 L29.2 13.2 L30.5 11.8 L32.0 11.2 L33.5 11.5 L34.9 12.7 L36.1 14.1 L37.2 15.2 L38.4 15.5 L40.0 15.3 L41.7 14.9 L43.3 14.9 L44.6 15.7 L45.2 17.2 L45.3 19.0 L45.3 20.8 L45.6 22.0 L46.7 22.6 L48.3 23.0 L50.2 23.3 L51.8 24.0 L52.5 25.2 L52.4 26.6 L51.8 28.1 L51.3 29.5 L51.4 30.6 L52.4 31.8Z"/><path d="M22 27C26 24 29 29 33 26C37 23 40 27 44 25M20 37C25 34 28 40 33 36C38 33 41 38 45 35"/><circle class="d" cx="27" cy="44" r="1.1"/><circle class="d" cx="37" cy="45" r="1.1"/><circle class="d" cx="31" cy="20" r="1.1"/></svg><span class="serif" data-en="Truffle">Trüf</span></a></li>
+    <li><a href="magaza.html#salep"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 30C31 22 32 14 33 6"/><path d="M32 22C26 20 22 15 21 9C27 10 31 14 32 22Z"/><path d="M33 18C38 16 42 12 43 6C37 7 34 11 33 18Z"/><path d="M31 31C22 29 15 35 16 45C17 53 23 59 28 57C33 55 33 40 31 31Z"/><path d="M33 31C42 29 49 35 48 45C47 53 41 59 36 57C31 55 31 40 33 31Z"/></svg><span class="serif" data-en="Salep">Salep</span></a></li>
+    <li><a href="magaza.html#adacayi"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M15 57C10 37 23 12 51 7C56 33 38 57 15 57Z"/><path d="M9 62L15 57C25 44 36 28 46 14"/><path d="M21 49C19 44 19 39 20 35M21 49C26 49 31 48 35 46M29 38C27 33 27 28 28 24M29 38C34 38 39 36 43 33M37 26C36 23 36 20 37 17M37 26C41 26 45 24 48 22"/></svg><span class="serif" data-en="Sage">Adaçayı</span></a></li>
+    <li><a href="magaza.html#kekik"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32.0 60 L33.2 56 L34.3 52 L35.3 48 L36.1 44 L36.7 40 L37.0 36 L37.0 32 L36.7 28 L36.1 24 L35.3 20 L34.3 16 L33.2 12 L32.0 8"/><ellipse cx="28.7" cy="47.3" rx="6.2" ry="3.2" transform="rotate(52 28.7 47.3)"/><ellipse cx="40.5" cy="47.3" rx="6.2" ry="3.2" transform="rotate(-52 40.5 47.3)"/><ellipse cx="30.6" cy="40.2" rx="5.8" ry="3.0" transform="rotate(52 30.6 40.2)"/><ellipse cx="41.7" cy="40.2" rx="5.8" ry="3.0" transform="rotate(-52 41.7 40.2)"/><ellipse cx="31.8" cy="33.1" rx="5.5" ry="2.8" transform="rotate(52 31.8 33.1)"/><ellipse cx="42.1" cy="33.1" rx="5.5" ry="2.8" transform="rotate(-52 42.1 33.1)"/><ellipse cx="32.0" cy="26.0" rx="5.1" ry="2.6" transform="rotate(52 32.0 26.0)"/><ellipse cx="41.6" cy="26.0" rx="5.1" ry="2.6" transform="rotate(-52 41.6 26.0)"/><ellipse cx="31.3" cy="18.9" rx="4.7" ry="2.4" transform="rotate(52 31.3 18.9)"/><ellipse cx="40.1" cy="18.9" rx="4.7" ry="2.4" transform="rotate(-52 40.1 18.9)"/><ellipse cx="29.8" cy="11.8" rx="4.3" ry="2.2" transform="rotate(52 29.8 11.8)"/><ellipse cx="38.0" cy="11.8" rx="4.3" ry="2.2" transform="rotate(-52 38.0 11.8)"/></svg><span class="serif" data-en="Thyme">Kekik</span></a></li>
+    <li><a href="magaza.html#biberiye"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32.0 60 L31.0 56 L30.1 52 L29.3 48 L28.7 44 L28.3 40 L28.0 36 L28.0 32 L28.3 28 L28.7 24 L29.3 20 L30.1 16 L31.0 12 L32.0 8"/><path d="M30.2 52.2 Q22.1 49.3 15.4 41.6"/><path d="M30.2 52.2 Q38.3 49.3 45.0 41.6"/><path d="M29.3 47.8 Q21.5 45.0 15.2 37.6"/><path d="M29.3 47.8 Q37.1 45.0 43.5 37.6"/><path d="M28.6 43.4 Q21.2 40.7 15.1 33.7"/><path d="M28.6 43.4 Q36.1 40.7 42.2 33.7"/><path d="M28.2 39.0 Q21.1 36.4 15.2 29.7"/><path d="M28.2 39.0 Q35.3 36.4 41.1 29.7"/><path d="M28.0 34.6 Q21.2 32.2 15.6 25.7"/><path d="M28.0 34.6 Q34.8 32.2 40.4 25.7"/><path d="M28.1 30.2 Q21.6 27.9 16.3 21.8"/><path d="M28.1 30.2 Q34.6 27.9 39.9 21.8"/><path d="M28.5 25.8 Q22.3 23.6 17.3 17.8"/><path d="M28.5 25.8 Q34.6 23.6 39.6 17.8"/><path d="M29.1 21.4 Q23.3 19.3 18.5 13.8"/><path d="M29.1 21.4 Q34.9 19.3 39.7 13.8"/><path d="M29.9 17.0 Q24.4 15.0 20.0 9.9"/><path d="M29.9 17.0 Q35.4 15.0 39.9 9.9"/><path d="M30.9 12.6 Q25.7 10.8 21.5 5.9"/><path d="M30.9 12.6 Q36.0 10.8 40.3 5.9"/></svg><span class="serif" data-en="Rosemary">Biberiye</span></a></li>
+    <li><a href="magaza.html#defne"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 60C20 50 26 42 32 34"/><path d="M32 34C22 34 13 27 10 13C24 12 34 21 32 34Z"/><path d="M32 34C37 22 45 13 58 11C60 25 49 37 32 34Z"/><path d="M32 34C26 28 20 22 15 18M32 34C39 28 47 20 53 15"/><path d="M22 46C31 46 38 50 43 58C34 61 25 56 22 46Z"/><circle class="b" cx="14" cy="44" r="3"/></svg><span class="serif" data-en="Bay laurel">Defne</span></a></li>
+  </ul>
 </section>
 
 <section class="shop" id="koleksiyon">
@@ -399,10 +426,10 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 <div class="scrim" id="scrim"></div>
 
 <script>
-const FMAP = [[0, 0], [0.3, 60], [0.55, 105], [0.7, 135], [1, 157]];
-const EDGE = [["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e8ded5"], ["#f0eae3", "#e8ded5"], ["#f0eae3", "#e8ded5"], ["#f0eae3", "#e8ded6"], ["#efeae3", "#e8ded5"], ["#f0eae3", "#e8ded5"], ["#efeae3", "#e8ded5"], ["#f0eae3", "#e8ded5"], ["#efeae3", "#e8dfd5"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#efe9e2", "#e8ded5"], ["#f0eae3", "#e8dfd5"], ["#efeae3", "#e8dfd5"], ["#f0eae3", "#e8dfd5"], ["#efeae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#efeae3", "#e8dfd5"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae4", "#e8dfd6"], ["#f0eae4", "#e8dfd6"], ["#f0eae4", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0ebe4", "#e8ded6"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#efeae3", "#e7ded4"], ["#efe9e2", "#e7ded4"], ["#efe9e2", "#e7ded4"], ["#efe9e2", "#e6ddd4"], ["#efe9e2", "#e6ddd4"], ["#efe9e3", "#e6ddd4"], ["#efe9e2", "#e6ddd4"], ["#efe9e2", "#e6ddd4"], ["#efe9e2", "#e6ddd4"], ["#f1ebe4", "#e6ddd3"], ["#f1ebe4", "#e6ddd3"], ["#f1ebe4", "#e5ddd3"], ["#f1ebe4", "#e5ddd3"], ["#f0ebe4", "#e5dcd3"], ["#f0eae4", "#e5dcd3"], ["#f0eae4", "#e5dcd3"], ["#f0eae4", "#e6ddd3"], ["#efe9e2", "#e6ddd3"], ["#f0eae3", "#e7ddd3"], ["#efeae3", "#e7ddd3"], ["#f0eae3", "#e6ddd3"], ["#f0eae3", "#e6ddd3"], ["#f0eae3", "#e6ddd2"], ["#f0eae3", "#e6dcd2"], ["#f0eae3", "#e5dcd2"], ["#f0eae3", "#e5dcd2"], ["#f0ebe4", "#e5dcd1"], ["#f0ebe4", "#e4dbd1"], ["#f0ebe4", "#e3dbd1"], ["#f0eae4", "#e2d9cf"], ["#f0ebe4", "#e0d8cd"], ["#f0ebe4", "#ded6cc"], ["#f0ebe4", "#dcd4cb"], ["#f0ebe4", "#dad3ca"], ["#f0eae3", "#d9d2c9"], ["#f0eae3", "#dad3ca"], ["#f0eae3", "#ddd6cc"], ["#f0eae3", "#dfd8cf"], ["#f0eae3", "#e2dcd2"], ["#f0eae3", "#e5ded5"], ["#f0eae3", "#e7e0d7"], ["#f0eae3", "#e9e3da"], ["#efeae3", "#eae4dc"], ["#efe9e2", "#ebe5db"], ["#efe9e2", "#ebe5dc"], ["#efe9e2", "#ebe5dc"], ["#efe9e2", "#ebe5dc"], ["#efe9e2", "#ebe5dc"], ["#efe9e2", "#ebe6dc"], ["#efe9e2", "#ece6dd"], ["#efeae2", "#ece6dd"], ["#efe9e2", "#ece6dd"], ["#f0ebe4", "#ece6de"], ["#f0ebe4", "#ede7de"], ["#f0ebe4", "#ede7df"], ["#f0ebe4", "#ede7df"], ["#f0ebe4", "#ede8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe3", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"]];
+const FMAP = [[0, 0], [0.185, 60], [0.339, 105], [0.431, 135], [0.616, 157], [0.638, 157], [1, 229]];
+const EDGE = [["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e8ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe4", "#e7ded5"], ["#f0ebe3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e8ded5"], ["#f0eae3", "#e8ded5"], ["#f0eae3", "#e8ded5"], ["#f0eae3", "#e8ded6"], ["#efeae3", "#e8ded5"], ["#f0eae3", "#e8ded5"], ["#efeae3", "#e8ded5"], ["#f0eae3", "#e8ded5"], ["#efeae3", "#e8dfd5"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#efe9e2", "#e8ded5"], ["#f0eae3", "#e8dfd5"], ["#efeae3", "#e8dfd5"], ["#f0eae3", "#e8dfd5"], ["#efeae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd5"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#efeae3", "#e8dfd5"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0eae4", "#e8dfd6"], ["#f0eae4", "#e8dfd6"], ["#f0eae4", "#e8dfd6"], ["#f0eae3", "#e8dfd6"], ["#f0ebe4", "#e8ded6"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#f0eae3", "#e7ded5"], ["#efeae3", "#e7ded4"], ["#efe9e2", "#e7ded4"], ["#efe9e2", "#e7ded4"], ["#efe9e2", "#e6ddd4"], ["#efe9e2", "#e6ddd4"], ["#efe9e3", "#e6ddd4"], ["#efe9e2", "#e6ddd4"], ["#efe9e2", "#e6ddd4"], ["#efe9e2", "#e6ddd4"], ["#f1ebe4", "#e6ddd3"], ["#f1ebe4", "#e6ddd3"], ["#f1ebe4", "#e5ddd3"], ["#f1ebe4", "#e5ddd3"], ["#f0ebe4", "#e5dcd3"], ["#f0eae4", "#e5dcd3"], ["#f0eae4", "#e5dcd3"], ["#f0eae4", "#e6ddd3"], ["#efe9e2", "#e6ddd3"], ["#f0eae3", "#e7ddd3"], ["#efeae3", "#e7ddd3"], ["#f0eae3", "#e6ddd3"], ["#f0eae3", "#e6ddd3"], ["#f0eae3", "#e6ddd2"], ["#f0eae3", "#e6dcd2"], ["#f0eae3", "#e5dcd2"], ["#f0eae3", "#e5dcd2"], ["#f0ebe4", "#e5dcd1"], ["#f0ebe4", "#e4dbd1"], ["#f0ebe4", "#e3dbd1"], ["#f0eae4", "#e2d9cf"], ["#f0ebe4", "#e0d8cd"], ["#f0ebe4", "#ded6cc"], ["#f0ebe4", "#dcd4cb"], ["#f0ebe4", "#dad3ca"], ["#f0eae3", "#d9d2c9"], ["#f0eae3", "#dad3ca"], ["#f0eae3", "#ddd6cc"], ["#f0eae3", "#dfd8cf"], ["#f0eae3", "#e2dcd2"], ["#f0eae3", "#e5ded5"], ["#f0eae3", "#e7e0d7"], ["#f0eae3", "#e9e3da"], ["#efeae3", "#eae4dc"], ["#efe9e2", "#ebe5db"], ["#efe9e2", "#ebe5dc"], ["#efe9e2", "#ebe5dc"], ["#efe9e2", "#ebe5dc"], ["#efe9e2", "#ebe5dc"], ["#efe9e2", "#ebe6dc"], ["#efe9e2", "#ece6dd"], ["#efeae2", "#ece6dd"], ["#efe9e2", "#ece6dd"], ["#f0ebe4", "#ece6de"], ["#f0ebe4", "#ede7de"], ["#f0ebe4", "#ede7df"], ["#f0ebe4", "#ede7df"], ["#f0ebe4", "#ede8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe3", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f0ebe4", "#eee8e0"], ["#f3efe7", "#f1ece3"], ["#f3efe7", "#f1ece3"], ["#f3efe7", "#f1ece3"], ["#f3efe7", "#f1ece3"], ["#f3efe7", "#f1ece4"], ["#f3efe7", "#f1ece4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f3efe7", "#f1ede4"], ["#f2eee6", "#f1ece4"], ["#f3eee7", "#f1ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee6", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3eee7", "#f2ede4"], ["#f3ede7", "#f2ede5"], ["#f3ede7", "#f2ede5"], ["#f3ede7", "#f2ede5"], ["#f3ede7", "#f2ede5"], ["#f3ede7", "#f2ede5"], ["#f3ede7", "#f2ede5"], ["#f3ede7", "#f2ede6"], ["#f3ede7", "#f2ede6"], ["#f3ede7", "#f2ede6"], ["#f3ede7", "#f2ede6"], ["#f3ede7", "#f2ede6"], ["#f3ede7", "#f2ede6"], ["#f3ede7", "#f2ede6"], ["#f3ede7", "#f2ede6"], ["#f3ede7", "#f2ede6"], ["#f3ede7", "#f2ede6"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"], ["#f3eee7", "#f3eee7"]];
 // Hero E (calm-v9 pair 3): the forested peak condenses into one honey drop. Frames scrubbed by scroll.
-const DIR = 'frames-white', N = 158;
+const DIR = 'frames-white', N = 230;
 let SKY = '#142e24', CLOUD = '#d1bfa6';            // sampled from the film's top and bottom rows
 const frames = new Array(N), cv = document.getElementById('film'), cx = cv.getContext('2d');
 const hero = document.getElementById('hero');
@@ -417,42 +444,48 @@ for (let i = 0; i < N; i++) {
   im.src = `${DIR}/f${String(i).padStart(3, '0')}.webp`;
   im.onload = () => { frames[i] = im; if (i === 0 || i === N - 1) draw(); };
 }
-function size() { const d = Math.min(devicePixelRatio || 1, 2); cv.width = innerWidth * d; cv.height = innerHeight * d; draw(); }
+function size() { const d = Math.min(devicePixelRatio || 1, 2); cv.width = cv.clientWidth * d; cv.height = innerHeight * d; draw(); }
 function nearest(i) { for (let k = 0; k < N; k++) { if (frames[i - k]) return frames[i - k]; if (frames[i + k]) return frames[i + k]; } }
 function progress() { if (reduce) return 1; const r = hero.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); }
 
 function draw() {
   const p = progress();
-  const pv = clamp(p / 0.8);                          // the film runs over the first 80%, then holds on the drop
+  const pv = clamp(p / 0.93);                          // the film runs over the first 80%, then holds on the drop
   // optional piecewise timing map [[progress, frame], ...] so a phase can get more scroll than the film gives it
   const fpos = typeof FMAP === 'undefined' ? pv * (N - 1) : (() => { for (let k = 1; k < FMAP.length; k++) { const [a, fa] = FMAP[k - 1], [b, fb] = FMAP[k]; if (pv <= b) return fa + (fb - fa) * clamp((pv - a) / (b - a)); } return N - 1; })();
-  const fi = Math.round(fpos), im = nearest(fi);
+  const lg = document.getElementById('lg'), lgReady = lg && lg.complete && lg.naturalWidth > 0;
+  const fi = Math.round(fpos), im = nearest(fi === N - 1 && lg && !lgReady ? N - 2 : fi);   // the last frame is empty paper: without the logo, stay on the one before
   if (typeof EDGE !== 'undefined') [SKY, CLOUD] = EDGE[fi];   // per-frame edge colours, so the phone band has no seam
   if (im) {
     const W = cv.width, H = cv.height, portrait = W / H < 1.2;
     // landscape: cover. portrait: a wide band through the middle, sky above and cloud below filled in
     const TRIM = 18, iw = im.width - 2 * TRIM;        // every 1920 px frame carries black strips on its left (14 px) and right (16 px) edges
-    const s = portrait ? Math.max((W * 2.4) / iw, H * 0.5 / im.height) : Math.max(W / iw, H / im.height);
+    const zoom = N > 158 ? 2.4 - 0.7 * clamp((fi - 158) / ((N - 158) * 0.45)) : 2.4;  // phones: the whole logo has to fit the width
+    const floor = N > 158 ? 0.5 - 0.2 * clamp((fi - 158) / ((N - 158) * 0.45)) : 0.5;   // on tall phones this height rule, not the zoom, set the size and cut off the name
+    const s = portrait ? Math.max((W * zoom) / iw, H * floor / im.height) : Math.max(W / iw, H / im.height);
     const dw = iw * s, dh = im.height * s;
-    const x = (W - dw) / 2, y = portrait ? H * 0.42 - dh / 2 : (H - dh) / 2;
+    const x = (W - dw) / 2, y = portrait ? H * 0.42 - dh / 2 : (H - dh) * (0.5 + 0.42 * ss(100, 150, fi));   // wide screens crop the frame: during the clouds the crop moves up, so the logo's name is not cut off at the bottom
     const g = cx.createLinearGradient(0, 0, 0, H);
     g.addColorStop(0, SKY); g.addColorStop(clamp((y + dh * 0.5) / H), SKY); g.addColorStop(clamp((y + dh * 0.75) / H), CLOUD); g.addColorStop(1, CLOUD);
     cx.fillStyle = g; cx.fillRect(0, 0, W, H);
     cx.drawImage(im, TRIM, 0, iw, im.height, x, y, dw, dh);
     if (portrait) {                                   // feather the band's top and bottom edges into the fills
-      const f = dh * 0.12;
+      const f = dh * (fi < N - 22 ? 0.12 : 0.03);     // the logo's name reaches the band's lower edge, so the feather gets out of its way
       const edge = (y0, y1, col) => { const e = cx.createLinearGradient(0, y0, 0, y1); e.addColorStop(0, col); e.addColorStop(1, col + '00'); cx.fillStyle = e; cx.fillRect(0, Math.min(y0, y1), W, Math.abs(y1 - y0)); };
       edge(y, y + f, SKY); edge(y + dh, y + dh - f, CLOUD);
     }
+    // Can 2026-11-09: the logo jumped "a tad bit to the right": it was a separate element placed from the window width, which includes the scrollbar. Drawn on the canvas it shares the film's coordinates.
+    if (lgReady && im === frames[N - 1]) cx.drawImage(lg, x + (520 - TRIM) * s, y + 553 * s, 880 * s, 880 * s * lg.naturalHeight / lg.naturalWidth);
   }
-  const o1 = 1 - ss(0.03, 0.14, p), o3 = ss(0.82, 0.93, p);
+  const o1 = 1 - ss(0.021, 0.1, p), o3 = ss(0.82, 0.93, p);
   L1.style.opacity = o1; L1.style.transform = `translateY(${-p * 120}px)`;
   L3.style.opacity = o3; L3.style.transform = `translateY(${(1 - o3) * 18}px)`; L3.classList.toggle('on', o3 > 0.5);
-  hint.style.opacity = 1 - ss(0.01, 0.06, p);
+  hint.style.opacity = 1 - ss(0.0074, 0.043, p);
 }
 let raf = 0;
 addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; draw(); }); }, { passive: true });
 addEventListener('resize', size);
+const lgEl = document.getElementById('lg'); if (lgEl) lgEl.addEventListener('load', draw);
 size();
 
 // scroll cue: glides to the next stop. The hero leg is slow so the whole implosion plays out.
