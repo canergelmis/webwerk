@@ -162,6 +162,9 @@ body{color:var(--ink)}
 .line{display:inline-block;margin-top:34px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:6px}
 
 header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
+header .brand{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);line-height:0}
+header .brand img{width:clamp(120px,11vw,150px);height:auto}
+@media (max-width:760px){header{flex-wrap:wrap;row-gap:12px}header .brand{position:static;transform:none;order:-1;flex:0 0 100%;text-align:center}header .brand img{width:104px}}   /* phones: no room beside the links, so the logo gets its own row */
 .end .cta{margin-top:30px}
 .shop{padding:clamp(40px,5vw,72px) clamp(20px,6vw,90px) clamp(70px,8vw,120px)}
 .shop{background:linear-gradient(#f3eee7,var(--paper) 40vh)}  /* continues the film's last colour */
@@ -191,7 +194,7 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .farm-lead{font-size:clamp(36px,4.6vw,68px);font-weight:400;line-height:1.08;max-width:18em;margin-top:18px}
 .farm-sub{max-width:52ch;margin-top:26px;font-size:17px;line-height:1.75;color:rgba(243,235,221,.78)}
 .farm .line{color:var(--lime)}
-.stages-head{margin-top:clamp(70px,9vw,120px)}
+.stages-head{margin-top:clamp(70px,9vw,120px);font-size:clamp(30px,3.2vw,46px);font-weight:400;line-height:1.1;color:var(--lime);margin-bottom:8px}   /* Can 2026-11-10: big enough to read as the line's title */
 .stages{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:30px;border-top:1px solid rgba(176,139,79,.5)}
 .stages li{position:relative;padding:26px clamp(14px,2vw,28px) 0 0}
 .stages li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--gold-soft)}
@@ -291,6 +294,7 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 
 /* honey product page */
 header{mix-blend-mode:normal;color:var(--ink)}
+header .brand{display:block}
 .pdp-top{padding:clamp(96px,10vw,130px) clamp(20px,6vw,90px) clamp(70px,9vw,120px)}
 .pdp-title{font-size:clamp(38px,4vw,58px);font-weight:500;line-height:1}
 .pd-info{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,7vw,110px);max-width:1240px;margin:clamp(70px,9vw,120px) auto 0}
@@ -316,6 +320,7 @@ header{mix-blend-mode:normal;color:var(--ink)}
 
 <header>
   <span class="hl"><a href="magaza.html" data-en="Shop">Mağaza</a><a href="story.html" data-en="Our story">Hikayemiz</a></span>
+  <a class="brand" href="./"><img src="ida-nefes-wordmark-forest.svg" alt="IDA NEFES"></a>
   <nav>
     <button id="lang" aria-label="Dil / Language"><b>TR</b> / EN</button>
     <a href="#" data-en="Bag (0)">Sepet (0)</a>
