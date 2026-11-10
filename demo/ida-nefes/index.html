@@ -162,6 +162,9 @@ body{color:var(--ink)}
 .line{display:inline-block;margin-top:34px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:6px}
 
 header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
+header .brand{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);line-height:0}
+header .brand img{width:clamp(120px,11vw,150px);height:auto}
+@media (max-width:760px){header{flex-wrap:wrap;row-gap:12px}header .brand{position:static;transform:none;order:-1;flex:0 0 100%;text-align:center}header .brand img{width:104px}}   /* phones: no room beside the links, so the logo gets its own row */
 .end .cta{margin-top:30px}
 .shop{padding:clamp(40px,5vw,72px) clamp(20px,6vw,90px) clamp(70px,8vw,120px)}
 .shop{background:linear-gradient(#f3eee7,var(--paper) 40vh)}  /* continues the film's last colour */
@@ -191,7 +194,7 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 .farm-lead{font-size:clamp(36px,4.6vw,68px);font-weight:400;line-height:1.08;max-width:18em;margin-top:18px}
 .farm-sub{max-width:52ch;margin-top:26px;font-size:17px;line-height:1.75;color:rgba(243,235,221,.78)}
 .farm .line{color:var(--lime)}
-.stages-head{margin-top:clamp(70px,9vw,120px)}
+.stages-head{margin-top:clamp(70px,9vw,120px);font-size:clamp(30px,3.2vw,46px);font-weight:400;line-height:1.1;color:var(--lime);margin-bottom:8px}   /* Can 2026-11-10: big enough to read as the line's title */
 .stages{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:30px;border-top:1px solid rgba(176,139,79,.5)}
 .stages li{position:relative;padding:26px clamp(14px,2vw,28px) 0 0}
 .stages li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--gold-soft)}
@@ -300,6 +303,7 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 
 <header>
   <span class="hl"><a href="magaza.html" data-en="Shop">Mağaza</a><a href="story.html" data-en="Our story">Hikayemiz</a></span>
+  <a class="brand" href="./"><img src="ida-nefes-wordmark-forest.svg" alt="IDA NEFES"></a>
   <nav>
     <button id="lang" aria-label="Dil / Language"><b>TR</b> / EN</button>
     <a href="#" data-en="Bag (0)">Sepet (0)</a>
@@ -333,7 +337,7 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 <section class="icons" id="urunler">
   <div class="eyebrow" data-en="Our products">Ürünlerimiz</div>
   <ul class="ic-list">
-    <li><a href="bal.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="f" d="M32 6C33 15 39 20 43 26C46 31 49 35 49 42A17 17 0 0 1 15 42C15 35 18 31 21 26C25 20 31 15 32 6Z"/><path class="g" d="M23 34C20 39 20 46 24 51"/></svg><span class="serif" data-en="Honey">Bal</span></a></li>
+    <li><a href="bal.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22.5 13.0 L32.0 18.5 L32.0 29.5 L22.5 35.0 L13.0 29.5 L13.0 18.5Z"/><path d="M41.5 13.0 L51.0 18.5 L51.0 29.5 L41.5 35.0 L32.0 29.5 L32.0 18.5Z"/><path class="f" d="M32.0 31.7 L39.6 36.1 L39.6 44.9 L32.0 49.3 L24.4 44.9 L24.4 36.1Z"/><path d="M32.0 29.5 L41.5 35.0 L41.5 46.0 L32.0 51.5 L22.5 46.0 L22.5 35.0Z"/></svg><span class="serif" data-en="Honey">Bal</span></a></li>
     <li><a href="magaza.html#polen"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="20" r="7"/><circle cx="19" cy="28" r="7"/><circle cx="45" cy="28" r="7"/><circle cx="32" cy="34" r="7"/><circle cx="19" cy="43" r="7"/><circle cx="45" cy="43" r="7"/><circle cx="32" cy="49" r="7"/><circle class="d" cx="32" cy="20" r="1.1"/><circle class="d" cx="19" cy="28" r="1.1"/><circle class="d" cx="45" cy="28" r="1.1"/><circle class="d" cx="32" cy="34" r="1.1"/><circle class="d" cx="19" cy="43" r="1.1"/><circle class="d" cx="45" cy="43" r="1.1"/><circle class="d" cx="32" cy="49" r="1.1"/></svg><span class="serif" data-en="Pollen">Polen</span></a></li>
     <li><a href="magaza.html#safran"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 60V43"/><path d="M32 43C21 37 21 20 32 11C43 20 43 37 32 43Z"/><path d="M31 43C20 44 9 35 9 20C15 20 20 22 23.500 26"/><path d="M33 43C44 44 55 35 55 20C49 20 44 22 40.500 26"/><path class="s" d="M32 41C31 33 27 26 25 19M32 41C32 32 32 24 32 16M32 41C33 33 37 26 39 19"/></svg><span class="serif" data-en="Saffron">Safran</span></a></li>
     <li><a href="magaza.html#truf"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M53.8 33.0 L55.2 34.4 L55.7 35.9 L55.1 37.2 L53.6 38.3 L51.8 39.2 L50.3 40.0 L49.5 40.9 L49.4 42.2 L49.6 43.8 L49.5 45.3 L48.7 46.5 L47.2 47.0 L45.3 47.0 L43.5 46.8 L42.1 46.9 L41.2 47.7 L40.7 49.2 L40.1 51.0 L39.2 52.5 L37.9 53.3 L36.3 53.1 L34.8 52.3 L33.3 51.6 L32.0 51.3 L30.7 51.8 L29.2 52.8 L27.5 53.8 L25.9 54.1 L24.5 53.4 L23.5 51.9 L22.8 50.1 L22.3 48.5 L21.5 47.5 L20.2 47.1 L18.5 47.1 L16.8 47.0 L15.5 46.3 L14.9 45.0 L15.0 43.4 L15.4 41.8 L15.4 40.5 L14.7 39.6 L13.2 38.9 L11.3 38.1 L9.6 37.1 L8.9 35.8 L9.1 34.4 L10.2 33.0 L11.3 31.8 L12.1 30.6 L12.0 29.3 L11.3 27.9 L10.6 26.3 L10.5 24.8 L11.3 23.6 L12.9 22.9 L15.0 22.6 L16.9 22.3 L18.1 21.8 L18.7 20.8 L18.9 19.2 L19.1 17.6 L19.8 16.3 L21.1 15.7 L22.8 15.8 L24.4 16.2 L25.9 16.5 L27.1 16.0 L28.1 14.8 L29.2 13.2 L30.5 11.8 L32.0 11.2 L33.5 11.5 L34.9 12.7 L36.1 14.1 L37.2 15.2 L38.4 15.5 L40.0 15.3 L41.7 14.9 L43.3 14.9 L44.6 15.7 L45.2 17.2 L45.3 19.0 L45.3 20.8 L45.6 22.0 L46.7 22.6 L48.3 23.0 L50.2 23.3 L51.8 24.0 L52.5 25.2 L52.4 26.6 L51.8 28.1 L51.3 29.5 L51.4 30.6 L52.4 31.8Z"/><path d="M22 27C26 24 29 29 33 26C37 23 40 27 44 25M20 37C25 34 28 40 33 36C38 33 41 38 45 35"/><circle class="d" cx="27" cy="44" r="1.1"/><circle class="d" cx="37" cy="45" r="1.1"/><circle class="d" cx="31" cy="20" r="1.1"/></svg><span class="serif" data-en="Truffle">Trüf</span></a></li>
@@ -376,14 +380,14 @@ header .hl{display:flex;gap:clamp(14px,2.4vw,32px)}
 <section class="farm" id="arazi">
   <div class="farm-in">
     <div class="eyebrow" data-en="The land">Arazi</div>
-    <h2 class="serif farm-lead" data-en="Truffle oaks, saffron, herbs and bees, on one piece of land on Mount Ida.">Trüf meşeleri, safran, aromatik bitkiler ve arılar; Kaz Dağları'nda aynı arazide.</h2>
+    <h2 class="serif farm-lead" data-en="Truffle-inoculated oaks, saffron, herbs and bees, on one piece of land on Mount Ida.">Trüf aşılı meşeler, safran, aromatik bitkiler ve arılar; Kaz Dağları'nda aynı arazide.</h2>
     <p class="farm-sub" data-en="On land never farmed before, we are building production that is measured, analysed and traceable. Ida Nefes is 100% women-founded.">Daha önce tarım yapılmamış bir arazide; ölçülen, analiz edilen ve izlenebilir bir üretim kuruyoruz. Ida Nefes %100 kadın girişimci yapısına sahip.</p>
     <a class="line" href="story.html" data-en="Our story &rarr;">Hikayemiz &rarr;</a>
-    <div class="stages-head eyebrow" data-en="Harvest calendar">Hasat takvimi</div>
+    <h3 class="stages-head serif" data-en="Harvest calendar">Hasat takvimi</h3>
     <ol class="stages">
       <li><span class="when" data-en="Harvested">Hasat edildi</span><span class="what serif" data-en="Honey">Bal</span><span class="what serif" data-en="Pollen">Polen</span></li>
       <li><span class="when" data-en="November 2026">Kasım 2026</span><span class="what serif" data-en="Saffron">Safran</span></li>
-      <li><span class="when" data-en="Growing">Gelişiyor</span><span class="what serif" data-en="Aromatic Herbs">Aromatik Bitkiler</span><span class="what serif" data-en="Salep">Salep</span></li>
+      <li><span class="when" data-en="Growing">Gelişiyor</span><span class="what serif" data-en="Medicinal and Aromatic Herbs">Tıbbi Aromatik Bitkiler</span><span class="what serif" data-en="Salep">Salep</span></li>
       <li><span class="when" data-en="2028">2028</span><span class="what serif" data-en="Truffle">Trüf</span></li>
     </ol>
   </div>
